@@ -5,8 +5,7 @@
 
 
 # 예상 UI
-#### Main Screen
-<img src="https://user-images.githubusercontent.com/37644027/175962798-5eb8ba34-ddcb-4558-bd05-dedbb3976a1a.png" width="70%">
+#### [Main Screen](https://user-images.githubusercontent.com/37644027/175962798-5eb8ba34-ddcb-4558-bd05-dedbb3976a1a.png)
 
 
 # 주요 기능
