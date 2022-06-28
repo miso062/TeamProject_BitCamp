@@ -1,4 +1,6 @@
 # TeamProject_BitCamp
+- 프로젝트명: ???
+- 팀원: 김미소, 김성현, 김수정, 김은지, 박상현, 이승찬, 홍준찬
 - 주제(모티브): 한정판 거래 플랫폼 [KREAM](https://kream.c)
 <img src="https://user-images.githubusercontent.com/37644027/175963079-16933fa2-6c1a-4453-a844-c56297a785cb.png" width="70%">
 <img src="https://user-images.githubusercontent.com/37644027/175963632-e4ec8bdb-3109-4fcc-94d1-d365ffdaf7c8.png" width="70%">
