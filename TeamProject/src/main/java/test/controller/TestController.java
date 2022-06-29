@@ -12,4 +12,8 @@ public class TestController {
 	public String miso() {
 		return "/test/miso";
 	}
+	@GetMapping(value="hong")
+	public String hong() {
+		return "/test/hong";
+	}
 }
