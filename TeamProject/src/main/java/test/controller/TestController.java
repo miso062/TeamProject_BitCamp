@@ -16,4 +16,8 @@ public class TestController {
 	public String hong() {
 		return "/test/hong";
 	}
+	@GetMapping(value="seungchan")
+	public String seungchan() {
+		return "/test/seungchan";
+	}
 }
