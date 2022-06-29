@@ -20,4 +20,8 @@ public class TestController {
 	public String seungchan() {
 		return "/test/seungchan";
 	}
+	@GetMapping(value="sujung")
+	public String sujung() {
+		return "/test/sujung";
+	}
 }
