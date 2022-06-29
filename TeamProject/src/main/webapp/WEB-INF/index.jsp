@@ -10,5 +10,6 @@
 	<input type="button" value="김미소" onclick="location.href='/TeamProject/test/miso'">
 	<input type="button" value="홍준찬" onclick="location.href='/TeamProject/test/hong'">
 	<input type="button" value="이승찬" onclick="location.href='/TeamProject/test/seungchan'">
+	<input type="button" value="김수정" onclick="location.href='/TeamProject/test/sujung'">
 </body>
 </html>
