@@ -8,5 +8,6 @@
 </head>
 <body>
 	<input type="button" value="김미소" onclick="location.href='/TeamProject/test/miso'">
+	<input type="button" value="홍준찬" onclick="location.href='/TeamProject/test/hong'">
 </body>
 </html>
