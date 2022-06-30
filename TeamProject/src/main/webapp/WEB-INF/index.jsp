@@ -3,15 +3,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 </head>
 <body>
-	<input type="button" value="김미소" onclick="location.href='/TeamProject/test/miso'">
-	<input type="button" value="홍준찬" onclick="location.href='/TeamProject/test/hong'">
-	<input type="button" value="이승찬" onclick="location.href='/TeamProject/test/seungchan'">
-	<input type="button" value="김은지" onclick="location.href='/TeamProject/test/eunji'">
-	<input type="button" value="박상연" onclick="location.href='/TeamProject/test/sangsang'">
-	<input type="button" value="김수정" onclick="location.href='/TeamProject/test/sujung'">
+	<input type="button" value="login" id="loginBtn">
+	<div id="header">
+		<div id="header_top"></div>
+		<div id="header_main"></div>
+	</div>
+	<div id="container">
+		<div id="container1"></div>
+		<div id="container2"></div>
+		<div id="container3"></div>
+	</div>
+	<div id="footer"></div>
 </body>
+
 </html>
