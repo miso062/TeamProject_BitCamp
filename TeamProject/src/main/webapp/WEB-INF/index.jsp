@@ -13,5 +13,6 @@
 	<input type="button" value="김은지" onclick="location.href='/TeamProject/test/eunji'">
 	<input type="button" value="박상연" onclick="location.href='/TeamProject/test/sangsang'">
 	<input type="button" value="김수정" onclick="location.href='/TeamProject/test/sujung'">
+	<input type="button" value="김성현" onclick="location.href='/TeamProject/test/sunghyun'">
 </body>
 </html>

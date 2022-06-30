@@ -23,11 +23,14 @@ public class TestController {
 	@GetMapping(value="eunji")
 	public String eunji() {
 		return "/test/eunji";
-	@GetMapping(value="sangsang")
+	}@GetMapping(value="sangsang")
 	public String sangsang() {
 		return "/test/sangsang";
-	@GetMapping(value="sujung")
+	}@GetMapping(value="sujung")
 	public String sujung() {
 		return "/test/sujung";
+	}@GetMapping(value="sunghyun")
+	public String sunghyun() {
+		return "/test/sunghyun";
 	}
 }
