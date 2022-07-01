@@ -8,6 +8,7 @@
 </head>
 <body>
 	<input type="button" value="login" id="loginBtn">
+  <input type="button" value="공지사항" id="noticeBtn">
 	<div id="header">
 		<jsp:include page="${head }"></jsp:include>
 	</div>
@@ -17,13 +18,16 @@
 		<div id="container3"><jsp:include page="${container3 }"></jsp:include></div>
 	</div>
 	<div id="footer">
-		<jsp:include page="${foot }"></jsp:include>
+		<jsp:include page="${footer }"></jsp:include>
 	</div>
   <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="text/javascript">
-  		$('#loginBtn').click(function(){
-          location.href="/TeamProject/user/login";
-      })
+  	$('#loginBtn').click(function(){
+  		location.href="/TeamProject/user/login";
+  	});
+    $('#noticeBtn').click(function(){
+      location.href="/TeamProject/notice"
+    });
   </script>
 </body>
 
