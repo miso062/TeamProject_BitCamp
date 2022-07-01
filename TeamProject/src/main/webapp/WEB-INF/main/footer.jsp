@@ -159,6 +159,8 @@ div > #service_type{
 		</div>
 	</a>
 	<!---->
+	
+	
 </div>
 <div id="service_info">
 	<ul>
