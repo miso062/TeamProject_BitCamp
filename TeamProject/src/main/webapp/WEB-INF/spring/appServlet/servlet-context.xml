@@ -16,8 +16,9 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
-	<resources mapping="/js/**" location="/js/" />
-	<resources mapping="/css/**" location="/css/" />
+	<resources mapping="/js/**" location="/WEB-INF/js/" />
+	<resources mapping="/css/**" location="/WEB-INF/css/" />
+	<resources mapping="/img/**" location="/WEB-INF/img/"/>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -26,7 +27,8 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.spring.TeamProject" />
-	<context:component-scan base-package="test.controller"></context:component-scan>
-	
+	<context:component-scan base-package="shop.controller"></context:component-scan>
+	<context:component-scan base-package="user.controller"></context:component-scan>
+	<context:component-scan base-package="style.controller"></context:component-scan>
 	
 </beans:beans>

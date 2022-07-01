@@ -9,15 +9,16 @@
 <body>
 	<input type="button" value="login" id="loginBtn">
 	<div id="header">
-		<div id="header_top"></div>
-		<div id="header_main"></div>
+		<%-- <jsp:include page="${header }"></jsp:include> --%>
 	</div>
 	<div id="container">
-		<div id="container1"></div>
-		<div id="container2"></div>
-		<div id="container3"></div>
+		<%-- <div id="container1"><jsp:include page="${container1 }"></jsp:include></div>
+		<div id="container2"><jsp:include page="${container2 }"></jsp:include></div>
+		<div id="container3"><jsp:include page="${container3 }"></jsp:include></div> --%>
 	</div>
-	<div id="footer"></div>
+	<div id="footer">
+		<%-- <jsp:include page="${header }"></jsp:include> --%>
+	</div>
 </body>
 
 </html>
