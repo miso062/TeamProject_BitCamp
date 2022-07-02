@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+/* 전체적CSS */
 body{
     margin-top: 50px;
     padding-top: 0;
@@ -22,6 +23,11 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
 div {
     display: block;
 }
+/* 소제목 */
+.cd2_product_title{
+	padding: 40px 0px 0px 40px;
+	margin: 0 270px;
+}
 .cd2_product_title > .cd2_title{
    font-size: 18px;
    letter-spacing: -.1px;
@@ -33,37 +39,25 @@ div {
    letter-spacing: -.21px;
    color: rgba(34,34,34,.5);
 }
-.product_list_wrap{
-/*     overflow-y: hidden;
-    overflow-x: scroll; */
+/* 상품나열 */
+.cd2_product_list_wrap{
     margin: 0 270px;
     white-space: nowrap;
+    padding: 0 28px;
 }
-.product_list_wrap > .list_first{
+.cd2_product_list_wrap > .cd2_list_first{
     overflow: hidden;
     position: relative;
-    padding: 0 28px;
     width: 100%;
     display:inline-block;
 }
-.product_list_wrap > .list_second{
-    overflow: hidden;
-   position: relative;
-   margin: 0 auto;
-    padding: 0 28px;
-    width: 100%;
+.cd2_product_list_wrap > .cd2_list_third, .cd2_list_for, .cd2_list_second{
+	overflow: hidden;
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
 }
-.product_list_wrap > .list_third{
-    overflow: hidden;
-   position: relative;
-   margin: 0 auto;
-    padding: 0 28px;
-    width: 100%;
-}
-/* .product_list_wrap .product_item:nth-child(4n+1) {
-    clear: left;
-} */
-.product_item {
+.cd2_product_item {
     float: none;
     vertical-align: top;
     margin: 15px 0 0;
@@ -71,13 +65,18 @@ div {
     padding: 0 8px;
     width: 216px;
 }
-.product {
+.cd2_product_item .cd2_item_inner {
+    display: block;
+    background-color: #fff;
+    border-radius: 12px;
+}
+.cd2_product {
     overflow: hidden;
     position: relative;
     padding-top: 100%;
     border-radius: 8px;
 }
-.product_img {
+.cd2_product_img {
    display: flex;
     position: absolute;
     top: 50%;
@@ -88,7 +87,7 @@ div {
     width: 81.5%;
     height: auto;
 }
-.product:after {
+.cd2_product:after {
     content: "";
     position: absolute;
     top: 0;
@@ -97,17 +96,8 @@ div {
     bottom: 0;
     background: rgba(0,0,0,0);
 }
-.product_item .item_inner {
-    display: block;
-    background-color: #fff;
-    border-radius: 12px;
-}
-.product_item .desc{
-   line-height: 13px;
-   font-size:11px;
-   color:rgba(34,34,34,.5);
-}
-.brand-text {
+/* 브랜드박스 */
+.cd2_brand_text {
     overflow: hidden;
     display: inline-block;
     vertical-align: top;
@@ -122,7 +112,7 @@ div {
     text-overflow: ellipsis;
     border-bottom: 1px solid #222;
 }
-.product_item .name {
+.cd2_product_item .cd2_name {
     line-height: 17px;
     margin-top: 8.5px;
     overflow: hidden;
@@ -134,7 +124,7 @@ div {
     font-size: 14px;
     color: #222;
 }
-.product_item .num, .product_item .won {
+.cd2_product_item .cd2_num, .cd2_product_item .cd2_won {
     display: inline-block;
     vertical-align: top;
     line-height: 17px;
@@ -143,14 +133,20 @@ div {
     font-weight: 700;
     letter-spacing: -.04px;
 }
-.product_item .btn_wish {
+.cd2_product_item .cd2_desc{
+   line-height: 13px;
+   font-size:11px;
+   color:rgba(34,34,34,.5);
+}
+/* 관심태그 */
+.cd2_product_item .cd2_btn_wish {
     position: absolute;
     top: 5px;
     right: 17px;
     padding: 5px;
     z-index: 1;
 }
-.btn_wish {
+.cd2_btn_wish {
     display: block;
     height: inherit;
 }
@@ -167,39 +163,39 @@ a, a:active, a:focus, a:hover {
     -webkit-tap-highlight-color: transparent;
 }
 /* 더보기 */
-.product_list_wrap .btn_product {
-   display:block;
-   width: 100%;
-   height: 3rem;
-   margin: 0;
-   margin-bottom: 2.3rem;
-   padding: 0;
-   text-align: center;
+.cd2_product_list_wrap .cd2_btn_product {
+	display:block;
+	width: 100%;
+	height: 3rem;
+	margin: 0;
+	margin-bottom: 2.3rem;
+	padding: 0;
+	text-align: center;
 }
-.btn_product .con2_more_btn{
-   text-decoration: none;
-   font-size: 1rem;
-   padding: 0.5rem 0.7rem;
-   border-radius: 12.5px;
-   border: 1px solid #d3d3d3;
-   color: rgba(34,34,34,.8);
-   display: inline-block;
-   cursor: pointer;
-   vertical-align: middle;
+.cd2_btn_product .con2_more_btn{
+	text-decoration: none;
+	font-size: 1rem;
+	padding: 0.5rem 0.7rem;
+	border-radius: 12.5px;
+	border: 1px solid #d3d3d3;
+	color: rgba(34,34,34,.8);
+	display: inline-block;
+	cursor: pointer;
+	vertical-align: middle;
 }
 /* 배너 */
-.img_box{
-   position:relative;
-    padding-top: 100%;
-   margin-top: 30px;
-   padding-top: 0;
-   padding-bottom: 0;
+.cd2_img_box{
+	position:relative;
+	padding-top: 100%;
+	margin-top: 30px;
+	padding-top: 0;
+	padding-bottom: 0;
 }
-.img_box .banner_img {
-   width:100%;
-    position: relative;
+.cd2-img_box .cd2_banner_img {
+	width:100%;
+	position: relative;
 }
-.img_box .banner_img:after {
+.cd2_img_box .cd2_banner_img:after {
     content: "";
     position: absolute;
     top: 0;
@@ -212,250 +208,419 @@ a, a:active, a:focus, a:hover {
 </head>
 <body>
  <!--섹션 1-->
-    <div class="cd2_product_title cd2_lg" >
-       <div class="cd2_title" >Just Dropped</div>
-       <div class="cd2_sub_title" >발매 상품</div>
-   </div>
-<div class ="product_list_wrap">
-   <div class="product_list list_first" id="section_sec1">
-      
-       <div class="product_item" >
-          <a href="#" class="item_inner">
-             <div class="thumb_box">
-               <div class="product" style="background-color: #f6eeed;">
-                  <img class="product_img" alt="조던 1 로우 택시" src="/TeamProject/img/나이키화이트.png" />
-              </div>
-               <a href="#" aria-label="관심상품" class="btn_wish"></a>
-         </div>
-
-         <div class="info_box">
-                  <div class="brand">
-                      <p class="brand-text" >Jordan</p>
-                  </div>
-                     <p class="name" >Jordan 1 Low Taxi</p>
-                  <div class="price" >
-                      <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
-                      <div class="desc" ><p >즉시 구매가</p></div>
-                  </div>
-         </div>
-         </a>
-      </div>
-      
-       <div class="product_item" >
-          <a href="#" class="item_inner">
-             <div class="thumb_box">
-               <div class="product" style="background-color: #f6eeed;">
-                  <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-              </div>
-               <a href="#" aria-label="관심상품" class="btn_wish"></a>
-         </div>
-
-         <div class="info_box">
-                  <div class="brand">
-                      <p class="brand-text" >Jordan</p>
-                  </div>
-                     <p class="name" >Jordan 1 Low Taxi</p>
-                  <div class="price" >
-                      <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
-                      <div class="desc" ><p >즉시 구매가</p></div>
-                  </div>
-         </div>
-         </a>
-      </div>
-      
-       <div class="product_item" >
-          <a href="#" class="item_inner">
-             <div class="thumb_box">
-               <div class="product" style="background-color: #f6eeed;">
-                  <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-              </div>
-               <a href="#" aria-label="관심상품" class="btn_wish"></a>
-         </div>
-
-         <div class="info_box">
-                  <div class="brand">
-                      <p class="brand-text" >Jordan</p>
-                  </div>
-                     <p class="name" >Jordan 1 Low Taxi</p>
-                  <div class="price" >
-                      <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
-                      <div class="desc" ><p >즉시 구매가</p></div>
-                  </div>
-         </div>
-         </a>
-      </div>
-      
-       <div class="product_item" >
-          <a href="#" class="item_inner">
-             <div class="thumb_box">
-               <div class="product" style="background-color: #f6eeed;">
-                  <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-              </div>
-               <a href="#" aria-label="관심상품" class="btn_wish"></a>
-         </div>
-
-         <div class="info_box">
-                  <div class="brand">
-                      <p class="brand-text" >Jordan</p>
-                  </div>
-                     <p class="name" >Jordan 1 Low Taxi</p>
-                  <div class="price" >
-                      <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
-                      <div class="desc" ><p >즉시 구매가</p></div>
-                  </div>
-         </div>
-         </a>
-      </div>
-      
-      <div class="btn_product">
-         <div class="con2_more_btn btn1"> 더보기 </div>
-      </div>
-   </div>
-        
-    <div class="product_list list_second">
-     
-       <div class="product_item" >
-          <a href="#" class="item_inner">
-             <div class="thumb_box">
-               <div class="product" style="background-color: #f6eeed;">
-                  <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-              </div>
-               <a href="#" aria-label="관심상품" class="btn_wish"></a>
-         </div>
-
-         <div class="info_box">
-                  <div class="brand">
-                      <p class="brand-text" >Jordan</p>
-                  </div>
-                     <p class="name" >Jordan 1 Low Taxi</p>
-                  <div class="price" >
-                      <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
-                      <div class="desc" ><p >즉시 구매가</p></div>
-                  </div>
-         </div>
-         </a>
-      </div>
-      
-       <div class="product_item" >
-          <a href="#" class="item_inner">
-             <div class="thumb_box">
-               <div class="product" style="background-color: #f6eeed;">
-                  <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-              </div>
-               <a href="#" aria-label="관심상품" class="btn_wish"></a>
-         </div>
-
-         <div class="info_box">
-                  <div class="brand">
-                      <p class="brand-text" >Jordan</p>
-                  </div>
-                     <p class="name" >Jordan 1 Low Taxi</p>
-                  <div class="price" >
-                      <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
-                      <div class="desc" ><p >즉시 구매가</p></div>
-                  </div>
-         </div>
-         </a>
-      </div>
-
-       <div class="product_item" >
-          <a href="#" class="item_inner">
-             <div class="thumb_box">
-               <div class="product" style="background-color: #f6eeed;">
-                  <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-              </div>
-               <a href="#" aria-label="관심상품" class="btn_wish"></a>
-         </div>
-
-         <div class="info_box">
-                  <div class="brand">
-                      <p class="brand-text" >Jordan</p>
-                  </div>
-                     <p class="name" >Jordan 1 Low Taxi</p>
-                  <div class="price" >
-                      <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
-                      <div class="desc" ><p >즉시 구매가</p></div>
-                  </div>
-         </div>
-         </a>
-      </div>
-      
-       <div class="product_item" >
-          <a href="#" class="item_inner">
-             <div class="thumb_box">
-               <div class="product" style="background-color: #f6eeed;">
-                  <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-              </div>
-               <a href="#" aria-label="관심상품" class="btn_wish"></a>
-         </div>
-
-         <div class="info_box">
-                  <div class="brand">
-                      <p class="brand-text" >Jordan</p>
-                  </div>
-                     <p class="name" >Jordan 1 Low Taxi</p>
-                  <div class="price" >
-                      <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
-                      <div class="desc" ><p >즉시 구매가</p></div>
-                  </div>
-         </div>
-         </a>
-      </div>
-
-      <div class="btn_product" >
-         <div class="con2_more_btn btn2"> 더보기 </div>
-      </div>
-    </div>
-        
-    <div class="product_list list_third">
-       <div class="product_item" >
-          <a href="#" class="item_inner">
-             <div class="thumb_box">
-               <div class="product" style="background-color: #f6eeed;">
-                  <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-              </div>
-               <a href="#" aria-label="관심상품" class="btn_wish"></a>
-         </div>
-
-         <div class="info_box">
-                  <div class="brand">
-                      <p class="brand-text" >Jordan</p>
-                  </div>
-                     <p class="name" >Jordan 1 Low Taxi</p>
-                  <div class="price" >
-                      <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
-                      <div class="desc" ><p >즉시 구매가</p></div>
-                  </div>
-         </div>
-         </a>
-      </div>
-      
-      <div class="btn_product" style="display: ;" >
-         <div class="con2_more_btn btn3"> 더보기 </div>
-      </div>
+<div class="cd2_product_title" >
+    <div class="cd2_title" >Just Dropped</div>
+    <div class="cd2_sub_title" >발매 상품</div>
 </div>
 
-<div class="img_box">
-   <img src="/TeamProject/img/banner.png" alt="banner" class="banner_img" />
+<div class ="cd2_product_list_wrap">
+   <div class="cd2_product_list list_first" >
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" 
+                            src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class=cd2_brand_text >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+    </div>
+      
+        <div class="cd2_btn_product cd2_btn1"><div class="con2_more_btn"> 더보기 </div></div>
+        
+    <div class="cd2_product_list cd2_list_second" >
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" 
+                            src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+    </div>
+        
+        <div class="cd2_btn_product cd2_btn2"><div class="con2_more_btn"> 더보기 </div></div>
+        
+        
+    <div class="cd2_product_list cd2_list_third" >
+
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" 
+                            src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+    </div>
+        <div class="cd2_btn_product cd2_btn3"><div class="con2_more_btn"> 더보기 </div></div>
+        
+    <div class="cd2_product_list cd2_list_for" >
+
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" 
+                            src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="cd2_product_item" >
+            <a href="#" class="cd2_item_inner">
+                <div class="cd2_thumb_box">
+                    <div class="cd2_product" style="background-color: #f6eeed;">
+                        <img class="cd2_product_img" alt="조던 1 로우 택시" src="/TeamProject/img/나이키화이트.png" />
+                    </div>
+                        <a href="#" aria-label="관심상품" class="cd2_btn_wish"></a>
+                </div>
+
+                <div class="cd2_info_box">
+                    <div class="cd2_brand">
+                        <p class="cd2_brand_text" >Jordan</p>
+                    </div>
+                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <div class="cd2_price" >
+                            <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
+                            <div class="cd2_desc" ><p >즉시 구매가</p></div>
+                        </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<div class="cd2_img_box">
+   <img src="/TeamProject/img/banner.png" alt="banner" class="cd2_banner_img" />
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
-   $('.list_second').hide();
-   $('.list_third').hide();
-   
-   $('.btn1').click(function(){
-      $('.list_second').show();
-      $('.btn1').hide();
-      
-      $('.btn2').click(function(){
-         $('.list_third').show();
-         $('.btn2').hide();
-         
-      });
-   });
-   
-});
+	   $('.cd2_list_second').hide();
+	   $('.cd2_list_third').hide();
+	   $('.cd2_list_for').hide();
+       $('.cd2_btn2').hide();
+       $('.cd2_btn3').hide();
+
+	   $('.cd2_btn1').click(function(){
+	      $('.cd2_list_second').show();
+	      $('.cd2_btn1').hide();
+	      $('.cd2_btn2').show();
+	      
+	      $('.cd2_btn2').click(function(){
+	         $('.cd2_list_third').show();
+	         $('.cd2_btn2').hide();
+	         $('.cd2_btn3').show();
+	         
+	         $('.cd2_btn3').click(function(){
+	        	 $('.cd2_list_for').show();
+	        	 $('.cd2_btn3').hide();
+	         });
+	         
+	      });
+	   });
+	   
+	});
+
+
 
 </script>
 </body>
