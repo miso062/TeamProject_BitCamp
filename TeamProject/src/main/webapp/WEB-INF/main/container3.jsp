@@ -42,7 +42,7 @@ body {
 
 #c3_shorcut_items_wrap {
 	margin: 0 auto;
-	padding: 0 32.5px;
+	/* padding: 0 32.5px; */
 	max-width: 1280px;
 	margin-top: 20px;
 }
@@ -59,8 +59,10 @@ body {
 	border-radius: 10px;
 	height: 100px;
 	position: relative;
-	padding: 1px;
-	margin: 0;
+	/* padding: 2px; */
+	vertical-align: middle;
+	text-align: center;
+	margin: 1px;
 	border: 1px solid rgba(34, 34, 34, .05);
 }
 
@@ -68,7 +70,7 @@ body {
 	background-color: rgb(238, 240, 243);
 	border-radius: 9px;
 	overflow: hidden;
-	width: 100%;
+	width: auto;
 	height: 100%;
 	display: flex;
 	box-sizing: border-box;
@@ -182,6 +184,7 @@ body {
 }
 .c3_img_card {
     position: absolute;
+    overflow: hidden;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -246,11 +249,6 @@ body {
 					slidesToShow : 6, // 한 화면에 보여질 컨텐츠 개수
 					slidesToScroll : 1, //스크롤 한번에 움직일 컨텐츠 개수
 					speed : 500, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
-					arrows : true, // 옆으로 이동하는 화살표 표시 여부
-					dots : false, // 스크롤바 아래 점으로 페이지네이션 여부
-					autoplay : false, // 자동 스크롤 사용 여부
-					pauseOnHover : false, // 슬라이드 이동    시 마우스 호버하면 슬라이더 멈추게 설정
-					vertical : false, // 세로 방향 슬라이드 옵션
 					prevArrow : "<div class='c3_slick-prev'><<div>",
 					nextArrow : "<div class='c3_slick-next'>></div>",
 					draggable : true, //드래그 가능 여부 
@@ -271,7 +269,8 @@ body {
 	})
 </script>
 
-
+<!-- <embed src="/TeamProject/img/naver.svg"/> -->
+<img class="filter-orange size-m" src="/TeamProject/img/naver.svg" style="border: 1px solid black;"/>
 <div id="c3_social_style_slide">
 	<div id="c3_style_title">
 		<span>Style Picks!</span>
@@ -444,94 +443,93 @@ body {
 		<div id="c3_brand_title">Brand Focus</div>
 		<div id="c3_brand_sub_title">모두가 좋아하는 브랜드</div>
 	</div>
-			<div id="c3_shorcut_items_wrap">
+	<div id="c3_shorcut_items_wrap">
 
-			<div id="c3_shortcut_items">
-				<div class="c3_shortcut_item">
-					<div class="c3_shortcut_item_img_wrap">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjAxMzBfMTM3/MDAxNjQzNDc0MTE0OTI2.ZFfPgXcv3RK6Vwq3uJ-68i_x_GkdwTMkmSviIUeT1Rsg.nK9E3iIb4pwjZJyuuPv6zvll7qinQXp3oCYlvTCQHvQg.JPEG/a_aa5e0d0985e54d5d9a994d259d60d094.jpg?type=m"
-							class="c3_shortcut_item_image" />
-					</div>
-					<p class="c3_shortcut_item_title">에르메스</p>
+		<div id="c3_shortcut_items">
+			<div class="c3_shortcut_item">
+				<div class="c3_shortcut_item_img_wrap">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjAxMzBfMTM3/MDAxNjQzNDc0MTE0OTI2.ZFfPgXcv3RK6Vwq3uJ-68i_x_GkdwTMkmSviIUeT1Rsg.nK9E3iIb4pwjZJyuuPv6zvll7qinQXp3oCYlvTCQHvQg.JPEG/a_aa5e0d0985e54d5d9a994d259d60d094.jpg?type=m"
+						class="c3_shortcut_item_image" />
 				</div>
-				<div class="c3_shortcut_item">
-					<div class="c3_shortcut_item_img_wrap">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjAxMTRfMTQg/MDAxNjQyMTU5MzEwMDYw.ss_73yHanBN6T4rzVF-hJh6Udnl1yuRUpZ-fj2b0cscg.f-z2b4E4ZsnpTfufeMHpQIr0I_VXuH_64cfQ_P-Qe_Ag.JPEG/a_d2137f7263774398a6bcb40ac80a23d9.jpg?type=m_webp"
-							class="c3_shortcut_item_image" />
-					</div>
-					<p class="c3_shortcut_item_title">샤넬</p>
-				</div>
-				<div class="c3_shortcut_item">
-					<div class="c3_shortcut_item_img_wrap">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjAxMTRfMjIg/MDAxNjQyMTU5MzUzOTg4.5SpDID1nc_hWWQsZkHhCcSqY73GqyY7WP1O_OqLJUJAg.-slYw9TPwR6CBZV0-V7JBtwidOH-LRaLvHd7aPhVT7cg.JPEG/a_513b4583ddab4d92bbe57b339be50176.jpg?type=m_webp"
-							class="c3_shortcut_item_image" />
-					</div>
-					<p class="c3_shortcut_item_title">루이비통</p>
-				</div>
-				<div class="c3_shortcut_item">
-					<div class="c3_shortcut_item_img_wrap">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjA0MTRfNTQg/MDAxNjQ5OTIzMjcyMTYx.RsyilX1oyq6H3NitCMjy7x2a7qQt9jsn9Lz5_wmXxz8g.mjpvQhbh320BJPbm6xr82a49phjuIxQPmZWQiuuTXdkg.JPEG/a_bdf6bfcbf4b341989ab1d3e47a8ca264.jpg?type=m_webp"
-							class="c3_shortcut_item_image" />
-					</div>
-					<p class="c3_shortcut_item_title">까르띠에</p>
-				</div>
-				<div class="c3_shortcut_item">
-					<div class="c3_shortcut_item_img_wrap">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjAzMjhfMTAx/MDAxNjQ4NDYyODQ4OTE5.GeEMp7eZbcXScJymhCOafuSNDIO-UcJ3I7fsC3Lc4jgg.rc2wWiFpIOG3swARtLgE5Un7XNLyjV7DQm20BX7TeP0g.JPEG/a_0a2d24224cd54d9b9d8adb17ea9e5cf8.jpg?type=m_webp"
-							class="c3_shortcut_item_image" />
-					</div>
-					<p class="c3_shortcut_item_title">롤렉스</p>
-				</div>
+				<p class="c3_shortcut_item_title">에르메스</p>
 			</div>
-			
-			<div id="c3_shortcut_items">
-				<div class="c3_shortcut_item">
-					<div class="c3_shortcut_item_img_wrap">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjA2MjJfMTAw/MDAxNjU1ODYwNjQyMjY1.VYHV7omf-OSEbzRf2q0rbM8chr3NPE48cJctrc3Ro-Qg.hH5pmBzYRTQ6MRgnRqMqQ3XJQQzbt8YLLBAP4JeG6Vkg.JPEG/a_c4ca15fc9ef543cab4cc7bf95aa504fe.jpg?type=m"
-							class="c3_shortcut_item_image" />
-					</div>
-					<p class="c3_shortcut_item_title">디올</p>
+			<div class="c3_shortcut_item">
+				<div class="c3_shortcut_item_img_wrap">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjAxMTRfMTQg/MDAxNjQyMTU5MzEwMDYw.ss_73yHanBN6T4rzVF-hJh6Udnl1yuRUpZ-fj2b0cscg.f-z2b4E4ZsnpTfufeMHpQIr0I_VXuH_64cfQ_P-Qe_Ag.JPEG/a_d2137f7263774398a6bcb40ac80a23d9.jpg?type=m_webp"
+						class="c3_shortcut_item_image" />
 				</div>
-				<div class="c3_shortcut_item">
-					<div class="c3_shortcut_item_img_wrap">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjA2MjJfMjUy/MDAxNjU1ODYwNjc0NTQx.Ko99LhrbDP8UGu4Myk2SgAT5naqpVCxAuFD2IPzeK7sg.btlFi_yPYqat7oDxk37Rrc0-BrxEs_-Tbb76oCXK8-8g.JPEG/a_3c7d846139794f86b403b620bb6c16b7.jpg?type=m"
-							class="c3_shortcut_item_image" />
-					</div>
-					<p class="c3_shortcut_item_title">우영미</p>
-				</div>
-				<div class="c3_shortcut_item">
-					<div class="c3_shortcut_item_img_wrap">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjAzMjhfMjMg/MDAxNjQ4NDYyOTU5Nzcx.RJnl3oEgQBZ2as_lvroRmi4ERSmXn4usW1ENJ4-7RCgg.GKhTIE_k-2iHAlZ2vHL__QPEZrrXuJ5HNaXA-C_0DDAg.JPEG/a_458b5f3676814738a902f8ddfad9b007.jpg?type=m"
-							class="c3_shortcut_item_image" />
-					</div>
-					<p class="c3_shortcut_item_title">프라다</p>
-				</div>
-				<div class="c3_shortcut_item">
-					<div class="c3_shortcut_item_img_wrap">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjAzMjhfMTA5/MDAxNjQ4NDYyODc5Mjk1.hKngFDq7Fz4m2t4f2Y8w_fUHgxUjXm4EKiKThGURjn4g.A0fHdsxWqRLbzImhPMP7eLueICCLUeCasKoHaIBKV8Eg.JPEG/a_e87a1eee28bd4bc28f4aec388772a889.jpg?type=m"
-							class="c3_shortcut_item_image" />
-					</div>
-					<p class="c3_shortcut_item_title">발렌시아가</p>
-				</div>
-				<div class="c3_shortcut_item">
-					<div class="c3_shortcut_item_img_wrap">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjA0MjhfMjE4/MDAxNjUxMTQxMTAyOTU2.kLL2PcqwmvFAEyl8eyNb_cNezB7_V2OiWDijxJXEtSgg.Bz4zybudLUiTvgQ64kAYq_J5q3gmZ_GgssB7jtoHhrYg.JPEG/a_7d6d0a0b2cad48689634f46ccf2766cb.jpg?type=m"
-							class="c3_shortcut_item_image" />
-					</div>
-					<p class="c3_shortcut_item_title">애플</p>
-				</div>
+				<p class="c3_shortcut_item_title">샤넬</p>
 			</div>
-
+			<div class="c3_shortcut_item">
+				<div class="c3_shortcut_item_img_wrap">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjAxMTRfMjIg/MDAxNjQyMTU5MzUzOTg4.5SpDID1nc_hWWQsZkHhCcSqY73GqyY7WP1O_OqLJUJAg.-slYw9TPwR6CBZV0-V7JBtwidOH-LRaLvHd7aPhVT7cg.JPEG/a_513b4583ddab4d92bbe57b339be50176.jpg?type=m_webp"
+						class="c3_shortcut_item_image" />
+				</div>
+				<p class="c3_shortcut_item_title">루이비통</p>
+			</div>
+			<div class="c3_shortcut_item">
+				<div class="c3_shortcut_item_img_wrap">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjA0MTRfNTQg/MDAxNjQ5OTIzMjcyMTYx.RsyilX1oyq6H3NitCMjy7x2a7qQt9jsn9Lz5_wmXxz8g.mjpvQhbh320BJPbm6xr82a49phjuIxQPmZWQiuuTXdkg.JPEG/a_bdf6bfcbf4b341989ab1d3e47a8ca264.jpg?type=m_webp"
+						class="c3_shortcut_item_image" />
+				</div>
+				<p class="c3_shortcut_item_title">까르띠에</p>
+			</div>
+			<div class="c3_shortcut_item">
+				<div class="c3_shortcut_item_img_wrap">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjAzMjhfMTAx/MDAxNjQ4NDYyODQ4OTE5.GeEMp7eZbcXScJymhCOafuSNDIO-UcJ3I7fsC3Lc4jgg.rc2wWiFpIOG3swARtLgE5Un7XNLyjV7DQm20BX7TeP0g.JPEG/a_0a2d24224cd54d9b9d8adb17ea9e5cf8.jpg?type=m_webp"
+						class="c3_shortcut_item_image" />
+				</div>
+				<p class="c3_shortcut_item_title">롤렉스</p>
+			</div>
 		</div>
-	
+		
+		<div id="c3_shortcut_items">
+			<div class="c3_shortcut_item">
+				<div class="c3_shortcut_item_img_wrap">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjA2MjJfMTAw/MDAxNjU1ODYwNjQyMjY1.VYHV7omf-OSEbzRf2q0rbM8chr3NPE48cJctrc3Ro-Qg.hH5pmBzYRTQ6MRgnRqMqQ3XJQQzbt8YLLBAP4JeG6Vkg.JPEG/a_c4ca15fc9ef543cab4cc7bf95aa504fe.jpg?type=m"
+						class="c3_shortcut_item_image" />
+				</div>
+				<p class="c3_shortcut_item_title">디올</p>
+			</div>
+			<div class="c3_shortcut_item">
+				<div class="c3_shortcut_item_img_wrap">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjA2MjJfMjUy/MDAxNjU1ODYwNjc0NTQx.Ko99LhrbDP8UGu4Myk2SgAT5naqpVCxAuFD2IPzeK7sg.btlFi_yPYqat7oDxk37Rrc0-BrxEs_-Tbb76oCXK8-8g.JPEG/a_3c7d846139794f86b403b620bb6c16b7.jpg?type=m"
+						class="c3_shortcut_item_image" />
+				</div>
+				<p class="c3_shortcut_item_title">우영미</p>
+			</div>
+			<div class="c3_shortcut_item">
+				<div class="c3_shortcut_item_img_wrap">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjAzMjhfMjMg/MDAxNjQ4NDYyOTU5Nzcx.RJnl3oEgQBZ2as_lvroRmi4ERSmXn4usW1ENJ4-7RCgg.GKhTIE_k-2iHAlZ2vHL__QPEZrrXuJ5HNaXA-C_0DDAg.JPEG/a_458b5f3676814738a902f8ddfad9b007.jpg?type=m"
+						class="c3_shortcut_item_image" />
+				</div>
+				<p class="c3_shortcut_item_title">프라다</p>
+			</div>
+			<div class="c3_shortcut_item">
+				<div class="c3_shortcut_item_img_wrap">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjAzMjhfMTA5/MDAxNjQ4NDYyODc5Mjk1.hKngFDq7Fz4m2t4f2Y8w_fUHgxUjXm4EKiKThGURjn4g.A0fHdsxWqRLbzImhPMP7eLueICCLUeCasKoHaIBKV8Eg.JPEG/a_e87a1eee28bd4bc28f4aec388772a889.jpg?type=m"
+						class="c3_shortcut_item_image" />
+				</div>
+				<p class="c3_shortcut_item_title">발렌시아가</p>
+			</div>
+			<div class="c3_shortcut_item">
+				<div class="c3_shortcut_item_img_wrap">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjA0MjhfMjE4/MDAxNjUxMTQxMTAyOTU2.kLL2PcqwmvFAEyl8eyNb_cNezB7_V2OiWDijxJXEtSgg.Bz4zybudLUiTvgQ64kAYq_J5q3gmZ_GgssB7jtoHhrYg.JPEG/a_7d6d0a0b2cad48689634f46ccf2766cb.jpg?type=m"
+						class="c3_shortcut_item_image" />
+				</div>
+				<p class="c3_shortcut_item_title">애플</p>
+			</div>
+		</div>
+
+	</div>
 </div>
