@@ -19,10 +19,10 @@ text-indent: -9999px;
 overflow: hidden;
 
 }
-.slick-prev{z-index:100;left:1%;
+.c1_slick-prev{z-index:100;left:1%;
 	background: url(/TeamProject/img/container1/c1_prev.png) no-repeat 0 0;
 }
-.slick-next{right:1%;
+.c1_slick-next{right:1%;
 	background: url(/TeamProject/img/container1/c1_next.png) no-repeat 0 0;
 }
 .slick-dots {
