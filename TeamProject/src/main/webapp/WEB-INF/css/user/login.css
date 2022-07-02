@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+input {
+	writing-mode: horizontal-tb !important;
+    text-rendering: auto;    
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;    
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    outline: none;
+}
+h3 {
+	margin: 0;
+}
+
+li{
+	text-align: -webkit-match-parent;
+}
+button {
+	writing-mode: horizontal-tb !important;
+	text-rendering: auto;
+	word-spacing: normal;
+	text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    align-items: flex-start;
+}
+a {
+	text-decoration: none;
+    text-decoration-line: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+    color: inherit;
+    -webkit-tap-highlight-color: rgba(0,0,0,.1);
+    cursor: pointer;
+}
+li {
+	text-align: -webkit-match-parent;
+}
+
+.content_login {
+	margin: 0 auto;
+    padding: 0 40px;
+    max-width: 1280px;
+}
+.content_area {
+	margin: 0 auto;
+    padding: 60px 0 160px;
+    width: 400px;
+}
+
+.logo_wrap {
+	text-align: center;
+}
+
+.kream_logo {
+	content: "";
+	display: inline-block;
+	width: 250px; 
+	height: 56px;
+	background: url("../../img/kream_logo.png") no-repeat;
+	background-size: 250px 56px;
+	padding-bottom: 50px;
+}
+.input_box {
+	position: relative;
+    padding: 10px 0 14px;
+}
+.input_title {
+	font-size: 13px;
+    letter-spacing: -.07px;
+    line-height: 18px;
+    
+}
+.input_item {
+	position: relative;
+}
+.input_text {
+	padding-right: 30px;
+    height: 38px;
+}
+.input_txt {
+	padding: 8px 0;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    line-height: 22px;
+    border: 0;
+    border-bottom: 1px solid #ebebeb;
+    padding-right: 30px;
+    height: 38px;
+}
+
+.input_txt:focus {
+	border-bottom: 2px solid #000000;
+}
+
+.login_btn_box {
+	margin: 0;
+    padding: 0;
+    padding-top: 20px;
+}
+.login_btn_disabled {
+	background-color: #ebebeb;
+    color: #fff;
+    cursor: default;
+    font-weight: 600;
+    width: 100%;
+    font-size: 16px;
+    letter-spacing: -.16px;
+    height: 52px;
+    line-height: 50px;
+    border-radius: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+.look_box {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.look_list {
+    -webkit-box-align: start;
+    align-items: flex-start;
+    -webkit-box-flex: 1;
+    flex: 1;
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 13px; 
+}
+
+.look_link {
+	margin: auto;
+    padding: 0 10px;
+    display: inline-flex;
+    font-size: 13px;
+    letter-spacing: -.07px;
+}
+.social_login {
+	margin-top: 40px;
+}
+.naver_btn, .apple_btn {
+	position: relative;
+    color: #222;
+    border-color: #ebebeb;
+    margin-bottom: 8px;
+    border: 1px solid #d3d3d3;
+    width: 100%;
+    font-size: 16px;
+    letter-spacing: -.16px;
+    font-weight: 700;
+    height: 52px;
+    line-height: 50px;
+    border-radius: 12px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #fff;
+    padding: 0;
+    outline: none;
+    background: none;
+    appearance: none;
+}
+.logo_naver, .logo_apple {
+	position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 13px;
+    left: 15px;
+}
+
+
+
+
+
+
