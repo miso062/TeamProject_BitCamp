@@ -36,27 +36,27 @@ div {
 .product_list_wrap{
 /*     overflow-y: hidden;
     overflow-x: scroll; */
+    margin: 0 270px;
     white-space: nowrap;
 }
 .product_list_wrap > .list_first{
     overflow: hidden;
     position: relative;
-    margin: 0 auto;
     padding: 0 28px;
     width: 100%;
     display:inline-block;
 }
 .product_list_wrap > .list_second{
     overflow: hidden;
-	position: relative;
-	margin: 0 auto;
+   position: relative;
+   margin: 0 auto;
     padding: 0 28px;
     width: 100%;
 }
 .product_list_wrap > .list_third{
     overflow: hidden;
-	position: relative;
-	margin: 0 auto;
+   position: relative;
+   margin: 0 auto;
     padding: 0 28px;
     width: 100%;
 }
@@ -168,13 +168,13 @@ a, a:active, a:focus, a:hover {
 }
 /* 더보기 */
 .product_list_wrap .btn_product {
-	display:block;
-	width: 100%;
-	height: 3rem;
-	margin: 0;
-	margin-bottom: 2.3rem;
-	padding: 0;
-	text-align: center;
+   display:block;
+   width: 100%;
+   height: 3rem;
+   margin: 0;
+   margin-bottom: 2.3rem;
+   padding: 0;
+   text-align: center;
 }
 .btn_product .con2_more_btn{
    text-decoration: none;
@@ -189,14 +189,14 @@ a, a:active, a:focus, a:hover {
 }
 /* 배너 */
 .img_box{
-	position:relative;
+   position:relative;
     padding-top: 100%;
-	margin-top: 30px;
-	padding-top: 0;
-	padding-bottom: 0;
+   margin-top: 30px;
+   padding-top: 0;
+   padding-bottom: 0;
 }
 .img_box .banner_img {
-	width:100%;
+   width:100%;
     position: relative;
 }
 .img_box .banner_img:after {
@@ -217,18 +217,18 @@ a, a:active, a:focus, a:hover {
        <div class="cd2_sub_title" >발매 상품</div>
    </div>
 <div class ="product_list_wrap">
-	<div class="product_list list_first" id="section_sec1">
+   <div class="product_list list_first" id="section_sec1">
       
-    	<div class="product_item" >
+       <div class="product_item" >
           <a href="#" class="item_inner">
-          	<div class="thumb_box">
+             <div class="thumb_box">
                <div class="product" style="background-color: #f6eeed;">
                   <img class="product_img" alt="조던 1 로우 택시" src="/TeamProject/img/나이키화이트.png" />
-	           </div>
+              </div>
                <a href="#" aria-label="관심상품" class="btn_wish"></a>
-			</div>
+         </div>
 
-			<div class="info_box">
+         <div class="info_box">
                   <div class="brand">
                       <p class="brand-text" >Jordan</p>
                   </div>
@@ -237,20 +237,20 @@ a, a:active, a:focus, a:hover {
                       <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
                       <div class="desc" ><p >즉시 구매가</p></div>
                   </div>
-			</div>
-			</a>
-		</div>
+         </div>
+         </a>
+      </div>
       
-    	<div class="product_item" >
+       <div class="product_item" >
           <a href="#" class="item_inner">
-          	<div class="thumb_box">
+             <div class="thumb_box">
                <div class="product" style="background-color: #f6eeed;">
                   <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-	           </div>
+              </div>
                <a href="#" aria-label="관심상품" class="btn_wish"></a>
-			</div>
+         </div>
 
-			<div class="info_box">
+         <div class="info_box">
                   <div class="brand">
                       <p class="brand-text" >Jordan</p>
                   </div>
@@ -259,20 +259,20 @@ a, a:active, a:focus, a:hover {
                       <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
                       <div class="desc" ><p >즉시 구매가</p></div>
                   </div>
-			</div>
-			</a>
-		</div>
+         </div>
+         </a>
+      </div>
       
-    	<div class="product_item" >
+       <div class="product_item" >
           <a href="#" class="item_inner">
-          	<div class="thumb_box">
+             <div class="thumb_box">
                <div class="product" style="background-color: #f6eeed;">
                   <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-	           </div>
+              </div>
                <a href="#" aria-label="관심상품" class="btn_wish"></a>
-			</div>
+         </div>
 
-			<div class="info_box">
+         <div class="info_box">
                   <div class="brand">
                       <p class="brand-text" >Jordan</p>
                   </div>
@@ -281,20 +281,20 @@ a, a:active, a:focus, a:hover {
                       <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
                       <div class="desc" ><p >즉시 구매가</p></div>
                   </div>
-			</div>
-			</a>
-		</div>
+         </div>
+         </a>
+      </div>
       
-    	<div class="product_item" >
+       <div class="product_item" >
           <a href="#" class="item_inner">
-          	<div class="thumb_box">
+             <div class="thumb_box">
                <div class="product" style="background-color: #f6eeed;">
                   <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-	           </div>
+              </div>
                <a href="#" aria-label="관심상품" class="btn_wish"></a>
-			</div>
+         </div>
 
-			<div class="info_box">
+         <div class="info_box">
                   <div class="brand">
                       <p class="brand-text" >Jordan</p>
                   </div>
@@ -303,27 +303,27 @@ a, a:active, a:focus, a:hover {
                       <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
                       <div class="desc" ><p >즉시 구매가</p></div>
                   </div>
-			</div>
-			</a>
-		</div>
+         </div>
+         </a>
+      </div>
       
-		<div class="btn_product">
-			<div class="con2_more_btn btn1"> 더보기 </div>
-		</div>
-	</div>
+      <div class="btn_product">
+         <div class="con2_more_btn btn1"> 더보기 </div>
+      </div>
+   </div>
         
     <div class="product_list list_second">
      
-    	<div class="product_item" >
+       <div class="product_item" >
           <a href="#" class="item_inner">
-          	<div class="thumb_box">
+             <div class="thumb_box">
                <div class="product" style="background-color: #f6eeed;">
                   <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-	           </div>
+              </div>
                <a href="#" aria-label="관심상품" class="btn_wish"></a>
-			</div>
+         </div>
 
-			<div class="info_box">
+         <div class="info_box">
                   <div class="brand">
                       <p class="brand-text" >Jordan</p>
                   </div>
@@ -332,20 +332,20 @@ a, a:active, a:focus, a:hover {
                       <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
                       <div class="desc" ><p >즉시 구매가</p></div>
                   </div>
-			</div>
-			</a>
-		</div>
-		
-    	<div class="product_item" >
+         </div>
+         </a>
+      </div>
+      
+       <div class="product_item" >
           <a href="#" class="item_inner">
-          	<div class="thumb_box">
+             <div class="thumb_box">
                <div class="product" style="background-color: #f6eeed;">
                   <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-	           </div>
+              </div>
                <a href="#" aria-label="관심상품" class="btn_wish"></a>
-			</div>
+         </div>
 
-			<div class="info_box">
+         <div class="info_box">
                   <div class="brand">
                       <p class="brand-text" >Jordan</p>
                   </div>
@@ -354,20 +354,20 @@ a, a:active, a:focus, a:hover {
                       <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
                       <div class="desc" ><p >즉시 구매가</p></div>
                   </div>
-			</div>
-			</a>
-		</div>
+         </div>
+         </a>
+      </div>
 
-    	<div class="product_item" >
+       <div class="product_item" >
           <a href="#" class="item_inner">
-          	<div class="thumb_box">
+             <div class="thumb_box">
                <div class="product" style="background-color: #f6eeed;">
                   <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-	           </div>
+              </div>
                <a href="#" aria-label="관심상품" class="btn_wish"></a>
-			</div>
+         </div>
 
-			<div class="info_box">
+         <div class="info_box">
                   <div class="brand">
                       <p class="brand-text" >Jordan</p>
                   </div>
@@ -376,20 +376,20 @@ a, a:active, a:focus, a:hover {
                       <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
                       <div class="desc" ><p >즉시 구매가</p></div>
                   </div>
-			</div>
-			</a>
-		</div>
-		
-    	<div class="product_item" >
+         </div>
+         </a>
+      </div>
+      
+       <div class="product_item" >
           <a href="#" class="item_inner">
-          	<div class="thumb_box">
+             <div class="thumb_box">
                <div class="product" style="background-color: #f6eeed;">
                   <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-	           </div>
+              </div>
                <a href="#" aria-label="관심상품" class="btn_wish"></a>
-			</div>
+         </div>
 
-			<div class="info_box">
+         <div class="info_box">
                   <div class="brand">
                       <p class="brand-text" >Jordan</p>
                   </div>
@@ -398,9 +398,9 @@ a, a:active, a:focus, a:hover {
                       <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
                       <div class="desc" ><p >즉시 구매가</p></div>
                   </div>
-			</div>
-			</a>
-		</div>
+         </div>
+         </a>
+      </div>
 
       <div class="btn_product" >
          <div class="con2_more_btn btn2"> 더보기 </div>
@@ -408,16 +408,16 @@ a, a:active, a:focus, a:hover {
     </div>
         
     <div class="product_list list_third">
-    	<div class="product_item" >
+       <div class="product_item" >
           <a href="#" class="item_inner">
-          	<div class="thumb_box">
+             <div class="thumb_box">
                <div class="product" style="background-color: #f6eeed;">
                   <img class="product_img" alt="조던 1 로우 택시"src="h0O2f22f1f14d66bc.png?type=m" />
-	           </div>
+              </div>
                <a href="#" aria-label="관심상품" class="btn_wish"></a>
-			</div>
+         </div>
 
-			<div class="info_box">
+         <div class="info_box">
                   <div class="brand">
                       <p class="brand-text" >Jordan</p>
                   </div>
@@ -426,32 +426,36 @@ a, a:active, a:focus, a:hover {
                       <div class="amount lg" ><div class="num" > 220,000 </div><span class="won lg" >원</span></div>
                       <div class="desc" ><p >즉시 구매가</p></div>
                   </div>
-			</div>
-			</a>
-		</div>
-		
-		<div class="btn_product" style="display: ;" >
-			<div class="con2_more_btn btn3"> 더보기 </div>
-		</div>
+         </div>
+         </a>
+      </div>
+      
+      <div class="btn_product" style="display: ;" >
+         <div class="con2_more_btn btn3"> 더보기 </div>
+      </div>
 </div>
 
 <div class="img_box">
-	<img src="/TeamProject/img/banner.png" alt="banner" class="banner_img" />
+   <img src="/TeamProject/img/banner.png" alt="banner" class="banner_img" />
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
-	$('.list_second').hide();
-	$('.list_third').hide();
-	
-	$('btn1').click(function(){
-		$('.list_second').show();
-	})
-	$('btn2').click(function(){
-		$('.list_third').show();
-	})
-	
-})
+   $('.list_second').hide();
+   $('.list_third').hide();
+   
+   $('.btn1').click(function(){
+      $('.list_second').show();
+      $('.btn1').hide();
+      
+      $('.btn2').click(function(){
+         $('.list_third').show();
+         $('.btn2').hide();
+         
+      });
+   });
+   
+});
 
 </script>
 </body>
