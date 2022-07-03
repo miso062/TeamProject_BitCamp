@@ -1,13 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-<style>
 
+<style>
 .c1_slider-wrap{
 }
 .slick-arrow{
@@ -100,9 +94,24 @@ overflow: hidden;
   text-align: center;
 }
 </style>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-</head>
+<script type="text/javascript">
+$(function(){
+	$.noConflict();
+	$('.c1_slider-wrap').slick({
+		  dots: true,
+		  infinite: true,
+		  speed: 500,
+		  fade: true,
+		  cssEase: 'linear',
+		  autoplay: true,
+		  autoplaySpeed: 2000
+	});
+});
+</script>
+
 <body topmargin="0"  leftmargin="0" marginwidth="0" marginheight="0">
 <div class="c1_slider-wrap">
     <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner1.jpg" alt=""></div>
@@ -164,18 +173,3 @@ overflow: hidden;
 </div>
 
 </body>
-<script type="text/javascript">
-$(function(){
-	$.noConflict();
-	$('.c1_slider-wrap').slick({
-		  dots: true,
-		  infinite: true,
-		  speed: 500,
-		  fade: true,
-		  cssEase: 'linear',
-		  autoplay: true,
-		  autoplaySpeed: 2000
-	});
-});
-</script>
-</html>

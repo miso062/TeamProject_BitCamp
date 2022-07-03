@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <style type="text/css">
 body {
 	font-family: -apple-system, BlinkMacSystemFont, Roboto,
@@ -85,6 +84,9 @@ body {
     border: none;
     cursor: pointer;
 }
+.c3_slick-prev {
+	background: url("/TeamProject/img/container3/left-arrow.png") no-repeat 0 0;
+}
 .c3_slider-wrap{
     margin: 0 auto;
     /* padding: 0 32.5px; */
@@ -105,7 +107,6 @@ body {
     vertical-align: middle;
 
 }
-
 .post-slider{
   width:70%;
   margin:0px auto;
@@ -132,7 +133,6 @@ body {
     cursor: pointer;
 }
 .post-slider .post-wrapper{
-
   width:84%;
   height:350px;
   margin:0px auto;
@@ -236,8 +236,6 @@ body {
 	
 }
 </style>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$.noConflict();
@@ -269,8 +267,9 @@ body {
 	})
 </script>
 
-<!-- <embed src="/TeamProject/img/naver.svg"/> -->
-<img class="filter-orange size-m" src="/TeamProject/img/naver.svg" style="border: 1px solid black;"/>
+<!-- <img src="/TeamProject/img/test.svg" alt="search_img"> -->
+<div id="test" style="background: url('/TeamProject/img/container3/left-arrow.png') no-repeat 0 0;"> hi </div>
+
 <div id="c3_social_style_slide">
 	<div id="c3_style_title">
 		<span>Style Picks!</span>
@@ -287,143 +286,116 @@ body {
 				<p class="c3_user_name">@soobongzzi</p>
 			</a>
 		</div>
-		<div class="c3_style_card">
-			<div class="c3_style_card" tabindex="-1"
-				style="width: 100%; display: inline-block;">
-				<a href="#" class="c3_card_link"> <img
-					src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfMTcw/MDAxNjU2NjUyMDc2ODgw.8mkcMy5gSm_DZ8ZlP0fOjNfJlvdkXTR02VjU7q8d3Z0g.KPjoKqjdnOZ8PN8128yFBoxhUZWhIwcdgchnmXQKXRcg.JPEG/p_7b778833e0334f4a8be262aca14b5de1.jpeg?type=m"
-					alt="스타일 카드" class="c3_img_card" />
-					<div class="c3_profile_img_box">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjA2MjNfMTAw/MDAxNjU1OTY0NjgxNDIy.3tO52D1RN9pRIG-YrD5C8xeEPolDx2jxxczIwFmYL44g.5VIM4uIo7VDNySepUqIaxkzwgVjZX_D5Vr3Kahhab1kg.JPEG/p_cd3fa81678cc44888f9e480a5d122021.jpeg?type=sl"
-							alt="사용자 프로필 이미지" class="c3_img_profile" />
-					</div>
-					<p class="c3_user_name">@dx___xk</p>
-				</a>
-			</div>
+		<div class="c3_style_card" tabindex="-1" style="width: 100%; display: inline-block;">
+			<a href="#" class="c3_card_link"> <img
+				src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfMTcw/MDAxNjU2NjUyMDc2ODgw.8mkcMy5gSm_DZ8ZlP0fOjNfJlvdkXTR02VjU7q8d3Z0g.KPjoKqjdnOZ8PN8128yFBoxhUZWhIwcdgchnmXQKXRcg.JPEG/p_7b778833e0334f4a8be262aca14b5de1.jpeg?type=m"
+				alt="스타일 카드" class="c3_img_card" />
+				<div class="c3_profile_img_box">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjA2MjNfMTAw/MDAxNjU1OTY0NjgxNDIy.3tO52D1RN9pRIG-YrD5C8xeEPolDx2jxxczIwFmYL44g.5VIM4uIo7VDNySepUqIaxkzwgVjZX_D5Vr3Kahhab1kg.JPEG/p_cd3fa81678cc44888f9e480a5d122021.jpeg?type=sl"
+						alt="사용자 프로필 이미지" class="c3_img_profile" />
+				</div>
+				<p class="c3_user_name">@dx___xk</p>
+			</a>
 		</div>
-		<div class="c3_style_card">
-			<div class="c3_style_card" tabindex="-1" data-v-e4caeaf8=""
-				style="width: 100%; display: inline-block;">
-				<a href="#" class="c3_card_link"> <img
-					src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfMTU0/MDAxNjU2NjU3ODczMTA3.9w1RBzh2O4GGA-Fms0gtJNNe5w7RqCGlkAA6Y1-brcAg.VOrTvz3GR6BTV0JSivDjldVDwIyfkza33u0sp-uAVqgg.JPEG/p_c584bc416e6342f1810e6344940527d3.jpeg?type=m"
-					alt="스타일 카드" class="c3_img_card" />
-					<div class="c3_profile_img_box">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMTEyMTdfODMg/MDAxNjM5NzI4OTE3Mzcz.MAlKYLmwYSBHHw3D6ZLuiI-y5qBbSvOxnm-2PBq6vfUg.Egq0nUgF7GEKLr7kOTle029oWYr12GRyndz6SIq0c8Ig.JPEG/p_16ce8ccc39804550bc086aa904b319bb.jpeg?type=sl"
-							alt="사용자 프로필 이미지" class="c3_img_profile" />
-					</div>
-					<p class="c3_user_name">@y.mj_</p>
-				</a>
-			</div>
+		<div class="c3_style_card" tabindex="-1" style="width: 100%; display: inline-block;">
+			<a href="#" class="c3_card_link"> <img
+				src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfMTU0/MDAxNjU2NjU3ODczMTA3.9w1RBzh2O4GGA-Fms0gtJNNe5w7RqCGlkAA6Y1-brcAg.VOrTvz3GR6BTV0JSivDjldVDwIyfkza33u0sp-uAVqgg.JPEG/p_c584bc416e6342f1810e6344940527d3.jpeg?type=m"
+				alt="스타일 카드" class="c3_img_card" />
+				<div class="c3_profile_img_box">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMTEyMTdfODMg/MDAxNjM5NzI4OTE3Mzcz.MAlKYLmwYSBHHw3D6ZLuiI-y5qBbSvOxnm-2PBq6vfUg.Egq0nUgF7GEKLr7kOTle029oWYr12GRyndz6SIq0c8Ig.JPEG/p_16ce8ccc39804550bc086aa904b319bb.jpeg?type=sl"
+						alt="사용자 프로필 이미지" class="c3_img_profile" />
+				</div>
+				<p class="c3_user_name">@y.mj_</p>
+			</a>
 		</div>
-		<div class="c3_style_card">
-			<div class="c3_style_card" tabindex="-1"
-				style="width: 100%; display: inline-block;">
-				<a href="#" class="c3_card_link"> <img
-					src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfNDMg/MDAxNjU2NjYzNDMzMzI0.X_DYxOanK5L5WXy1R0h_FO9diyDX17A8--476lMhYikg.MNOsYpJU-ew2TzibMV8dWHdlIJdHIgAvzLJ_dL7dbKIg.JPEG/p_04e751bb231243d5a6098d99fe6c02e2.jpeg?type=m"
-					alt="스타일 카드" class="c3_img_card" />
-					<div class="c3_profile_img_box">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjA2MjJfNTAg/MDAxNjU1ODczNjU2Mjc4.MIvmuYCgZG_PV5AuLy1HvmE3X3b73wNMa2qlnQmigowg.Ji3fnVl975TbXDTfAeTioWs7mTjuSxYL_m6vZVn-WWMg.JPEG/p_3e6ee6891b4146279731eec509306d64.jpeg?type=sl"
-							alt="사용자 프로필 이미지" class="c3_img_profile" />
-					</div>
-					<p class="c3_user_name">@soybeen</p>
-				</a>
-			</div>
+		<div class="c3_style_card" tabindex="-1" style="width: 100%; display: inline-block;">
+			<a href="#" class="c3_card_link"> <img
+				src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfNDMg/MDAxNjU2NjYzNDMzMzI0.X_DYxOanK5L5WXy1R0h_FO9diyDX17A8--476lMhYikg.MNOsYpJU-ew2TzibMV8dWHdlIJdHIgAvzLJ_dL7dbKIg.JPEG/p_04e751bb231243d5a6098d99fe6c02e2.jpeg?type=m"
+				alt="스타일 카드" class="c3_img_card" />
+				<div class="c3_profile_img_box">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjA2MjJfNTAg/MDAxNjU1ODczNjU2Mjc4.MIvmuYCgZG_PV5AuLy1HvmE3X3b73wNMa2qlnQmigowg.Ji3fnVl975TbXDTfAeTioWs7mTjuSxYL_m6vZVn-WWMg.JPEG/p_3e6ee6891b4146279731eec509306d64.jpeg?type=sl"
+						alt="사용자 프로필 이미지" class="c3_img_profile" />
+				</div>
+				<p class="c3_user_name">@soybeen</p>
+			</a>
 		</div>
-		<div class="c3_style_card">
-			<div class="c3_style_card" tabindex="-1" data-v-e4caeaf8=""
-				style="width: 100%; display: inline-block;">
-				<a href="#" class="c3_card_link"> <img
-					src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfMTk1/MDAxNjU2NjYzODgyNzk4.H3_NoxyHrXtRGTesNt0nXpEsaY-56ch124ceQF4JZ30g.W5kb4_suHLP_hiawVXecpNW2a07HlrmDWeNKYmSe4XIg.JPEG/p_1d4448801aef4055adcbb2f605702e1e.jpeg?type=m"
-					alt="스타일 카드" class="c3_img_card" />
-					<div class="c3_profile_img_box">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMTEwMTdfMTcy/MDAxNjM0NDQyNjE2OTAw.zcttZMktG1r7UzTGLx1O0xNa3NpIpY5sv1OT3TsISeUg.htPxm_M5js-UOSoE-EmPj1xBbPMtUAue7vsuDkjkzXcg.JPEG/p_fa4534f074834c7283a6f0284d188e93.jpeg?type=sl"
-							alt="사용자 프로필 이미지" class="c3_img_profile" />
-					</div>
-					<p class="c3_user_name">@mangocheezz</p>
-				</a>
-			</div>
+		<div class="c3_style_card" tabindex="-1" style="width: 100%; display: inline-block;">
+			<a href="#" class="c3_card_link"> <img
+				src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfMTk1/MDAxNjU2NjYzODgyNzk4.H3_NoxyHrXtRGTesNt0nXpEsaY-56ch124ceQF4JZ30g.W5kb4_suHLP_hiawVXecpNW2a07HlrmDWeNKYmSe4XIg.JPEG/p_1d4448801aef4055adcbb2f605702e1e.jpeg?type=m"
+				alt="스타일 카드" class="c3_img_card" />
+				<div class="c3_profile_img_box">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMTEwMTdfMTcy/MDAxNjM0NDQyNjE2OTAw.zcttZMktG1r7UzTGLx1O0xNa3NpIpY5sv1OT3TsISeUg.htPxm_M5js-UOSoE-EmPj1xBbPMtUAue7vsuDkjkzXcg.JPEG/p_fa4534f074834c7283a6f0284d188e93.jpeg?type=sl"
+						alt="사용자 프로필 이미지" class="c3_img_profile" />
+				</div>
+				<p class="c3_user_name">@mangocheezz</p>
+			</a>
 		</div>
-		<div class="c3_style_card">
-			<div class="c3_style_card" tabindex="-1"
-				style="width: 100%; display: inline-block;">
-				<a href="#" class="c3_card_link"> <img
-					src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfODIg/MDAxNjU2NjYyNzIyOTg4.6kDyGQTAup16bbWMLxvtcnCshzTdGc8_v7R1wos6Vc4g.ReTErK5Uft95cEWUo88q50a50bQumlY6TjSiKaIgfdsg.JPEG/p_b689567792dc445baf567ffdf0c8daae.jpg?type=m"
-					alt="스타일 카드" class="c3_img_card" />
-					<div class="c3_profile_img_box">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMTEwMDlfMTU0/MDAxNjMzNzYxNDU5OTk5.AtMfuh1nwXMG2WEHy_oc4rSY2Sbbw3GXRsqItHnheXcg.fUNcM6OZl44GYQaoohGx_AjoZn5rZJvOP5FQNCMyuSEg.JPEG/p_ff30ec3176f1402dabef197543a500cb.jpg?type=sl"
-							alt="사용자 프로필 이미지" class="c3_img_profile" />
-					</div>
-					<p class="c3_user_name">@yasaeng</p>
-				</a>
-			</div>
+		<div class="c3_style_card" tabindex="-1" style="width: 100%; display: inline-block;">
+			<a href="#" class="c3_card_link"> <img
+				src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfODIg/MDAxNjU2NjYyNzIyOTg4.6kDyGQTAup16bbWMLxvtcnCshzTdGc8_v7R1wos6Vc4g.ReTErK5Uft95cEWUo88q50a50bQumlY6TjSiKaIgfdsg.JPEG/p_b689567792dc445baf567ffdf0c8daae.jpg?type=m"
+				alt="스타일 카드" class="c3_img_card" />
+				<div class="c3_profile_img_box">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMTEwMDlfMTU0/MDAxNjMzNzYxNDU5OTk5.AtMfuh1nwXMG2WEHy_oc4rSY2Sbbw3GXRsqItHnheXcg.fUNcM6OZl44GYQaoohGx_AjoZn5rZJvOP5FQNCMyuSEg.JPEG/p_ff30ec3176f1402dabef197543a500cb.jpg?type=sl"
+						alt="사용자 프로필 이미지" class="c3_img_profile" />
+				</div>
+				<p class="c3_user_name">@yasaeng</p>
+			</a>
 		</div>
-		<div class="c3_style_card">
-			<div class="c3_style_card" tabindex="-1"
-				style="width: 100%; display: inline-block;">
-				<a href="#" class="c3_card_link"> <img
-					src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfMTcw/MDAxNjU2NjYzNjY1MTQx.DhiZsnwktgULdRNYrXxsSgWcGUwhNQpbXQDNgvgl_-Mg.cPNNZVjRNAG3SKSoPdIpsDgzplbIEetNl5uaRSWOg1Ug.JPEG/p_996e7f4a289b4991ae3ba55efe6d177c.jpeg?type=m"
-					alt="스타일 카드" class="c3_img_card" />
-					<div class="c3_profile_img_box">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjA0MjNfMjkg/MDAxNjUwNjQ2NjE5NjI4.4--iKKNvb6pLK-jp3nPCphJ0PAc2nc-QvjKJlZkW6zog.PoVuNDesIE0YG7rVVQmMJRokgybmUuTsjuKO-0DAnAAg.JPEG/p_d081704f3ee546bf8d0efe8f06949711.jpeg?type=sl"
-							alt="사용자 프로필 이미지" class="c3_img_profile" />
-					</div>
-					<p class="c3_user_name">@hsd_09_</p>
-				</a>
-			</div>
+		<div class="c3_style_card" tabindex="-1" style="width: 100%; display: inline-block;">
+			<a href="#" class="c3_card_link"> <img
+				src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfMTcw/MDAxNjU2NjYzNjY1MTQx.DhiZsnwktgULdRNYrXxsSgWcGUwhNQpbXQDNgvgl_-Mg.cPNNZVjRNAG3SKSoPdIpsDgzplbIEetNl5uaRSWOg1Ug.JPEG/p_996e7f4a289b4991ae3ba55efe6d177c.jpeg?type=m"
+				alt="스타일 카드" class="c3_img_card" />
+				<div class="c3_profile_img_box">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjA0MjNfMjkg/MDAxNjUwNjQ2NjE5NjI4.4--iKKNvb6pLK-jp3nPCphJ0PAc2nc-QvjKJlZkW6zog.PoVuNDesIE0YG7rVVQmMJRokgybmUuTsjuKO-0DAnAAg.JPEG/p_d081704f3ee546bf8d0efe8f06949711.jpeg?type=sl"
+						alt="사용자 프로필 이미지" class="c3_img_profile" />
+				</div>
+				<p class="c3_user_name">@hsd_09_</p>
+			</a>
 		</div>
-		<div class="c3_style_card">
-			<div class="style_card" tabindex="-1" data-v-e4caeaf8=""
-				style="width: 100%; display: inline-block;">
-				<a href="#" class="c3_card_link"> <img
-					src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfMjkx/MDAxNjU2NjYyNzk4ODI4.DAeg53XOKShArGETgnO037PPXYucyOo3R1NNP5iy3d4g.9jIjwwj-UcnCQP4_Hn84qv7ltJqZBD7gv8stJ-ggWUQg.JPEG/p_6e5278a641f3429a903903ba092fba51.jpeg?type=m"
-					alt="스타일 카드" class="c3_img_card" />
-					<div class="c3_profile_img_box">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjA0MThfMjQ2/MDAxNjUwMjQ1Nzk0MjU1.61-q3Da67AXVhyWG8XtDNgwc8abFaZKH3a1I9m1sr1Yg.1rfSSylzBj43NdxQKSBs8G5l1Y4jQUWiQRnOERBJuo4g.JPEG/p_e6d9ef2e95424b1ba62fd4eab948eed0.jpeg?type=sl"
-							alt="사용자 프로필 이미지" class="c3_img_profile" />
-					</div>
-					<p class="c3_user_name">@o5_17__</p>
-				</a>
-			</div>
+		<div class="style_card" tabindex="-1" style="width: 100%; display: inline-block;">
+			<a href="#" class="c3_card_link"> <img
+				src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfMjkx/MDAxNjU2NjYyNzk4ODI4.DAeg53XOKShArGETgnO037PPXYucyOo3R1NNP5iy3d4g.9jIjwwj-UcnCQP4_Hn84qv7ltJqZBD7gv8stJ-ggWUQg.JPEG/p_6e5278a641f3429a903903ba092fba51.jpeg?type=m"
+				alt="스타일 카드" class="c3_img_card" />
+				<div class="c3_profile_img_box">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjA0MThfMjQ2/MDAxNjUwMjQ1Nzk0MjU1.61-q3Da67AXVhyWG8XtDNgwc8abFaZKH3a1I9m1sr1Yg.1rfSSylzBj43NdxQKSBs8G5l1Y4jQUWiQRnOERBJuo4g.JPEG/p_e6d9ef2e95424b1ba62fd4eab948eed0.jpeg?type=sl"
+						alt="사용자 프로필 이미지" class="c3_img_profile" />
+				</div>
+				<p class="c3_user_name">@o5_17__</p>
+			</a>
 		</div>
-		<div class="c3_style_card">
-			<div class="c3_style_card" tabindex="-1" data-v-e4caeaf8=""
-				style="width: 100%; display: inline-block;">
-				<a href="#" class="c3_card_link"> <img
-					src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfMjEw/MDAxNjU2NjU4NTQwMzA2.qRofdlrT162wOrjT_jc2dQcmjFuNCCVk1jU41SZq-m8g.frkLAfQtQCxETK46m-jzRGCEw0e-V-eQlI1Tq6-S6Tsg.JPEG/p_d0a23736167a46b5807163957b1c949d.jpeg?type=m"
-					alt="스타일 카드" class="c3_img_card" />
-					<div class="c3_profile_img_box">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjAyMDdfMjkx/MDAxNjQ0MjQzNjExNTAz.jk-yYcQrqhXJ3Wa7dxw290IB0NtWk5TroLRrjAaMTLMg.NiejbqVs2zF3sKHz08iqySw-Cz4Mt5v115QkBPsp2qMg.JPEG/p_b9bab674824d4e79ac2100747cd1548b.jpeg?type=sl"
-							alt="사용자 프로필 이미지" class="c3_img_profile" />
-					</div>
-					<p class="c3_user_name">@5dong2</p>
-				</a>
-			</div>
+		<div class="c3_style_card" tabindex="-1" style="width: 100%; display: inline-block;">
+			<a href="#" class="c3_card_link"> <img
+				src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfMjEw/MDAxNjU2NjU4NTQwMzA2.qRofdlrT162wOrjT_jc2dQcmjFuNCCVk1jU41SZq-m8g.frkLAfQtQCxETK46m-jzRGCEw0e-V-eQlI1Tq6-S6Tsg.JPEG/p_d0a23736167a46b5807163957b1c949d.jpeg?type=m"
+				alt="스타일 카드" class="c3_img_card" />
+				<div class="c3_profile_img_box">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjAyMDdfMjkx/MDAxNjQ0MjQzNjExNTAz.jk-yYcQrqhXJ3Wa7dxw290IB0NtWk5TroLRrjAaMTLMg.NiejbqVs2zF3sKHz08iqySw-Cz4Mt5v115QkBPsp2qMg.JPEG/p_b9bab674824d4e79ac2100747cd1548b.jpeg?type=sl"
+						alt="사용자 프로필 이미지" class="c3_img_profile" />
+				</div>
+				<p class="c3_user_name">@5dong2</p>
+			</a>
 		</div>
-		<div class="c3_style_card">
-			<div class="c3_style_card" tabindex="-1"
-				style="width: 100%; display: inline-block;">
-				<a href="#" class="c3_card_link"> <img
-					src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfODEg/MDAxNjU2NjYzNTY5MTgx.9MA4nRhnHvUHU2Ju6QlFLa4qVOHbsRnLU76OjHhpLQcg.Aa70MigieqPRd5aoWE58Tk6X-jaYHXTi0plGq08dYg4g.JPEG/p_f4517ae603804076ae53f1390dcf534b.jpeg?type=m"
-					alt="스타일 카드" class="c3_img_card" />
-					<div class="c3_profile_img_box">
-						<img
-							src="https://kream-phinf.pstatic.net/MjAyMjAxMjBfMSAg/MDAxNjQyNjE0NTM4MzQ2.KDIgivbJC9z3tyx-sMj3ebXlWCPD-P2aSzkfL8h4DIwg.OI2_O6Ds4WTV7XjgEl5ItOeM5geZw9vagtjOtIalPfQg.JPEG/p_45f7d70929504489805c2340bf9fb5e2.jpeg?type=sl"
-							alt="사용자 프로필 이미지" class="c3_img_profile" />
-					</div>
-					<p class="c3_user_name">@kkwang_hyuni</p>
-				</a>
-			</div>
+		<div class="c3_style_card" tabindex="-1" style="width: 100%; display: inline-block;">
+			<a href="#" class="c3_card_link"> <img
+				src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfODEg/MDAxNjU2NjYzNTY5MTgx.9MA4nRhnHvUHU2Ju6QlFLa4qVOHbsRnLU76OjHhpLQcg.Aa70MigieqPRd5aoWE58Tk6X-jaYHXTi0plGq08dYg4g.JPEG/p_f4517ae603804076ae53f1390dcf534b.jpeg?type=m"
+				alt="스타일 카드" class="c3_img_card" />
+				<div class="c3_profile_img_box">
+					<img
+						src="https://kream-phinf.pstatic.net/MjAyMjAxMjBfMSAg/MDAxNjQyNjE0NTM4MzQ2.KDIgivbJC9z3tyx-sMj3ebXlWCPD-P2aSzkfL8h4DIwg.OI2_O6Ds4WTV7XjgEl5ItOeM5geZw9vagtjOtIalPfQg.JPEG/p_45f7d70929504489805c2340bf9fb5e2.jpeg?type=sl"
+						alt="사용자 프로필 이미지" class="c3_img_profile" />
+				</div>
+				<p class="c3_user_name">@kkwang_hyuni</p>
+			</a>
 		</div>
-		<div class="c3_style_card" tabindex="-1"
-			style="width: 100%; display: inline-block;">
+		
+		<div class="c3_style_card" tabindex="-1" style="width: 100%; display: inline-block;">
 			<a href="#" class="c3_card_link"> <img
 				src="https://kream-phinf.pstatic.net/MjAyMjA3MDFfMjM0/MDAxNjU2NjY0NTU4ODY0.6QY0b3TrhlQx_OtacWjtE_j2SmX4gzVRUbNn36GKs5gg.CmWfPydtwB4-uRxo5Mx2DqIe68Ro_hOhXWdaDuUN-7Yg.JPEG/p_1054cdec41ec4f829bbc893d557fd050.jpeg?type=m"
 				alt="스타일 카드" class="c3_img_card" />
