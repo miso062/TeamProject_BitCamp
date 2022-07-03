@@ -425,8 +425,8 @@ a, a:active, a:focus, a:hover {
             <a href="#" class="cd2_item_inner">
                 <div class="cd2_thumb_box">
                     <div class="cd2_product" style="background-color: #f6eeed;">
-                        <img class="cd2_product_img" alt="조던 1 로우 택시" 
-                            src="/TeamProject/img/나이키화이트.png" />
+                        <img class="cd2_product_img" alt="" 
+                            src="/TeamProject/img/container2/Adidas Yeezy Boost 350 V2 Onyx.png" />
 	                    <div class="cd2_btn_wish" >
 							<img alt="" src="/TeamProject/img/container2/bookmark.svg" id="cd2_bookmark">
 						</div>
@@ -435,9 +435,9 @@ a, a:active, a:focus, a:hover {
 
                 <div class="cd2_info_box">
                     <div class="cd2_brand">
-                        <p class="cd2_brand_text" >Jordan</p>
+                        <p class="cd2_brand_text" >Adidas</p>
                     </div>
-                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <p class="cd2_name" >Adidas Yeezy Boost 350 V2 Onyx</p>
                         <div class="cd2_price" >
                             <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
                             <div class="cd2_desc" ><p >즉시 구매가</p></div>
@@ -450,8 +450,8 @@ a, a:active, a:focus, a:hover {
             <a href="#" class="cd2_item_inner">
                 <div class="cd2_thumb_box">
                     <div class="cd2_product" style="background-color: #f6eeed;">
-                        <img class="cd2_product_img" alt="조던 1 로우 택시" 
-                            src="/TeamProject/img/나이키화이트.png" />
+                        <img class="cd2_product_img" alt="Nike x Union Cortez SP Seaseme" 
+                            src="/TeamProject/img/container2/Nike x Union Cortez SP Seaseme.png" />
 	                    <div class="cd2_btn_wish" >
 							<img alt="" src="/TeamProject/img/container2/bookmark.svg" id="cd2_bookmark">
 						</div>
@@ -460,9 +460,9 @@ a, a:active, a:focus, a:hover {
 
                 <div class="cd2_info_box">
                     <div class="cd2_brand">
-                        <p class="cd2_brand_text" >Jordan</p>
+                        <p class="cd2_brand_text" >Nike</p>
                     </div>
-                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <p class="cd2_name" >Nike x Union Cortez SP Seaseme</p>
                         <div class="cd2_price" >
                             <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
                             <div class="cd2_desc" ><p >즉시 구매가</p></div>
@@ -475,8 +475,8 @@ a, a:active, a:focus, a:hover {
             <a href="#" class="cd2_item_inner">
                 <div class="cd2_thumb_box">
                     <div class="cd2_product" style="background-color: #f6eeed;">
-                        <img class="cd2_product_img" alt="조던 1 로우 택시" 
-                            src="/TeamProject/img/나이키화이트.png" />
+                        <img class="cd2_product_img" alt="뉴발란스 530 화이트" 
+                            src="/TeamProject/img/container2/New Balance 530 White.png" />
 	                    <div class="cd2_btn_wish" >
 							<img alt="" src="/TeamProject/img/container2/bookmark.svg" id="cd2_bookmark">
 						</div>
@@ -485,9 +485,9 @@ a, a:active, a:focus, a:hover {
 
                 <div class="cd2_info_box">
                     <div class="cd2_brand">
-                        <p class="cd2_brand_text" >Jordan</p>
+                        <p class="cd2_brand_text" >New Balance</p>
                     </div>
-                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <p class="cd2_name" >New Balance 530 White</p>
                         <div class="cd2_price" >
                             <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
                             <div class="cd2_desc" ><p >즉시 구매가</p></div>
@@ -500,8 +500,8 @@ a, a:active, a:focus, a:hover {
             <a href="#" class="cd2_item_inner">
                 <div class="cd2_thumb_box">
                     <div class="cd2_product" style="background-color: #f6eeed;">
-                        <img class="cd2_product_img" alt="조던 1 로우 택시" 
-                            src="/TeamProject/img/나이키화이트.png" />
+                        <img class="cd2_product_img" alt="Adidas Yeezy Slide Pure" 
+                            src="/TeamProject/img/container2/Adidas Yeezy Slide Pure.png" />
 	                    <div class="cd2_btn_wish" >
 							<img alt="" src="/TeamProject/img/container2/bookmark.svg" id="cd2_bookmark">
 						</div>
@@ -510,9 +510,9 @@ a, a:active, a:focus, a:hover {
 
                 <div class="cd2_info_box">
                     <div class="cd2_brand">
-                        <p class="cd2_brand_text" >Jordan</p>
+                        <p class="cd2_brand_text" >Adidas</p>
                     </div>
-                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <p class="cd2_name" >Adidas Yeezy Slide Pure</p>
                         <div class="cd2_price" >
                             <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
                             <div class="cd2_desc" ><p >즉시 구매가</p></div>
@@ -525,14 +525,14 @@ a, a:active, a:focus, a:hover {
         
     <div class="cd2_product_list cd2_list_for" >
 
-        <div class="cd2_product_item" >
+         <div class="cd2_product_item" >
             <a href="#" class="cd2_item_inner">
                 <div class="cd2_thumb_box">
                     <div class="cd2_product" style="background-color: #f6eeed;">
-                        <img class="cd2_product_img" alt="조던 1 로우 택시" 
-                            src="/TeamProject/img/나이키화이트.png" />
+                        <img class="cd2_product_img" alt="조던 1 로우 짐" 
+                            src="/TeamProject/img/container2/Jordan 1 Mid Black and Gym Red.png" />
 	                    <div class="cd2_btn_wish" >
-							<img alt="" src="/TeamProject/img/container2/bookmark.svg" id="cd2_bookmark">
+	                    	<img alt="" src="/TeamProject/img/container2/bookmark.svg" id="cd2_bookmark">
 						</div>
 					</div>
                 </div>
@@ -541,7 +541,7 @@ a, a:active, a:focus, a:hover {
                     <div class="cd2_brand">
                         <p class="cd2_brand_text" >Jordan</p>
                     </div>
-                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <p class="cd2_name" >Jordan 1 Mid Black and Gym Red</p>
                         <div class="cd2_price" >
                             <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
                             <div class="cd2_desc" ><p >즉시 구매가</p></div>
@@ -554,8 +554,8 @@ a, a:active, a:focus, a:hover {
             <a href="#" class="cd2_item_inner">
                 <div class="cd2_thumb_box">
                     <div class="cd2_product" style="background-color: #f6eeed;">
-                        <img class="cd2_product_img" alt="조던 1 로우 택시" 
-                            src="/TeamProject/img/나이키화이트.png" />
+                        <img class="cd2_product_img" alt="뉴발란스 990 메이드 인 USA 그레이 화이트"  
+                            src="/TeamProject/img/container2/New Balance 990 Made in USA Grey White.png" />
 	                    <div class="cd2_btn_wish" >
 							<img alt="" src="/TeamProject/img/container2/bookmark.svg" id="cd2_bookmark">
 						</div>
@@ -564,9 +564,9 @@ a, a:active, a:focus, a:hover {
 
                 <div class="cd2_info_box">
                     <div class="cd2_brand">
-                        <p class="cd2_brand_text" >Jordan</p>
+                        <p class="cd2_brand_text" >New Balance</p>
                     </div>
-                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <p class="cd2_name" >New Balance 990 Made in USA Grey White</p>
                         <div class="cd2_price" >
                             <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
                             <div class="cd2_desc" ><p >즉시 구매가</p></div>
@@ -579,8 +579,8 @@ a, a:active, a:focus, a:hover {
             <a href="#" class="cd2_item_inner">
                 <div class="cd2_thumb_box">
                     <div class="cd2_product" style="background-color: #f6eeed;">
-                        <img class="cd2_product_img" alt="조던 1 로우 택시" 
-                            src="/TeamProject/img/나이키화이트.png" />
+                        <img class="cd2_product_img" alt="아디다스 이지폼" 
+                            src="/TeamProject/img/container2/Adidas Yeezy Foam RNNR Onyx.png" />
 	                    <div class="cd2_btn_wish" >
 							<img alt="" src="/TeamProject/img/container2/bookmark.svg" id="cd2_bookmark">
 						</div>
@@ -589,9 +589,9 @@ a, a:active, a:focus, a:hover {
 
                 <div class="cd2_info_box">
                     <div class="cd2_brand">
-                        <p class="cd2_brand_text" >Jordan</p>
+                        <p class="cd2_brand_text" >Adidas</p>
                     </div>
-                        <p class="cd2_name" >Jordan 1 Low Taxi</p>
+                        <p class="cd2_name" >Adidas Yeezy Foam RNNR Onyx</p>
                         <div class="cd2_price" >
                             <div class="cd2_amount" ><div class="cd2_num" > 220,000 </div><span class="cd2_won" >원</span></div>
                             <div class="cd2_desc" ><p >즉시 구매가</p></div>
@@ -604,8 +604,8 @@ a, a:active, a:focus, a:hover {
             <a href="#" class="cd2_item_inner">
                 <div class="cd2_thumb_box">
                     <div class="cd2_product" style="background-color: #f6eeed;">
-                        <img class="cd2_product_img" alt="조던 1 로우 택시" 
-                            src="/TeamProject/img/나이키화이트.png" />
+                        <img class="cd2_product_img" alt="조던 시리즈 x 메종 샤또 루즈 미드 SP 세일" 
+                            src="/TeamProject/img/container2/Jordan Series x Maison Chateau Rouge Mid SP Sail.png" />
 	                    <div class="cd2_btn_wish" >
 							<img alt="" src="/TeamProject/img/container2/bookmark.svg" id="cd2_bookmark">
 						</div>
