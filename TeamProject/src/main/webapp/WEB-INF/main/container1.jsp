@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="/TeamProject/css/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <style>
 
 .slider-wrap{
@@ -29,7 +29,7 @@ overflow: hidden;
 	background: url(/TeamProject/img/container1/c1_next.png) no-repeat 0 0;
 }
 .slick-dots {
-  bottom: 1px;
+  bottom: 2%;
   left: 50%; 
   transform:translateX(-50%);
   list-style: none;
@@ -104,9 +104,7 @@ overflow: hidden;
 }
 </style>
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
-<!-- <script type="text/javascript" src="/TeamProject/js/container1/slick.js"></script> -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$.noConflict();
@@ -123,9 +121,6 @@ $(function(){
 	});
 });
 </script>
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/TeamProject/js/container1/slick.js"></script>
 </head>
 <body topmargin="0"  leftmargin="0" marginwidth="0" marginheight="0">
 <div class="c1_slider-wrap">
@@ -188,20 +183,4 @@ $(function(){
 </div>
 
 </body>
-<script type="text/javascript">
-$(function() {
-	$.noConflict();
-	$('.c1_slider-wrap').slick({
-	  dots: true,
-	  infinite: true,
-	  speed: 500,
-	  fade: true,
-	  prevArrow : "<div class='c1_slick-prev c1_slick-arrow'><img src='/TeamProject/img/container1/c1_prev.png'><div>",
-	  nextArrow : "<div class='c1_slick-next c1_slick-arrow'><img src='/TeamProject/img/container1/c1_next.png'></div>",
-	  cssEase: 'linear',
-	  autoplay: true,
-	  autoplaySpeed: 2000
-	})
-})
-</script>
 </html>

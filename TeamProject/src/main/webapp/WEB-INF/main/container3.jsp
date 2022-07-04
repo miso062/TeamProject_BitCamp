@@ -218,31 +218,31 @@ top:45%;
 .slick-prev{z-index:100; right:97%; width: 48px; height:48px; background:url(/TeamProject/img/container3/prev3.png) no-repeat 0 0;}
 .slick-next{width: 48px; right:-1%; height:48px; background:url(/TeamProject/img/container3/next3.png) no-repeat 0 0;}
 </style>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/TeamProject/js/container3/slick.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">
-	$(function() {
-		$('.c3_slider-wrap').slick({
-			slide : 'div', //슬라이드 되어야 할 태그
-			infinite : false, //무한 반복 옵션     
-			slidesToShow : 6, // 한 화면에 보여질 컨텐츠 개수
-			slidesToScroll : 1, //스크롤 한번에 움직일 컨텐츠 개수
-			speed : 500, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
-			draggable : true, //드래그 가능 여부 
-			responsive : [ // 반응형 웹 구현 옵션
-			{
-				breakpoint : 960, //화면 사이즈 960px
-				settings : {
-					slidesToShow : 4
-				}
-			}, {
-				breakpoint : 768, //화면 사이즈 768px
-				settings : {
-					slidesToShow : 5
-				}
-			} ]
-			});
-		
+$(function() {
+	
+	$('.c3_slider-wrap').slick({
+		slide : 'div', //슬라이드 되어야 할 태그
+		infinite : false, //무한 반복 옵션     
+		slidesToShow : 6, // 한 화면에 보여질 컨텐츠 개수
+		slidesToScroll : 1, //스크롤 한번에 움직일 컨텐츠 개수
+		speed : 500, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
+		draggable : true, //드래그 가능 여부 
+		responsive : [ // 반응형 웹 구현 옵션
+		{
+			breakpoint : 960, //화면 사이즈 960px
+			settings : {
+				slidesToShow : 4
+			}
+		}, {
+			breakpoint : 768, //화면 사이즈 768px
+			settings : {
+				slidesToShow : 5
+			}
+		} ]
+		});
+})
 </script>
 
 <div id="c3_social_style_slide">
