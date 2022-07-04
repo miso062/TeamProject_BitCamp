@@ -1,15 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/TeamProject/css/slick/slick.css"/>
 <style>
-.c1_slider-wrap{
+
+.slider-wrap{
 }
 .c1_slick-arrow{
-position: absolute; 
-top:50%; 
-transform:translateY(-50%);
-width: 64px; 
-height:64px;
+position: absolute; top:50%; transform:translateY(-50%);
+width: 64px; height:64px;
 color:#fff;
 border: none;
 text-indent: -9999px;
@@ -26,7 +29,7 @@ overflow: hidden;
 	background: url(/TeamProject/img/container1/c1_next.png) no-repeat 0 0;
 }
 .slick-dots {
-  bottom: 10px;
+  bottom: 1px;
   left: 50%; 
   transform:translateX(-50%);
   list-style: none;
@@ -83,17 +86,17 @@ overflow: hidden;
 </style>
 <style type="text/css">
 .c1_bannerimg1{
-	border-radius: 16px;
+	border-radius: 8px;
 	width:100%;
 }
 .c1_banner1-1{
-	margin-right: 10%;
-	margin-left: 10%;
+	margin-right: 7%;
+	margin-left: 7%;
 	display: flex;
 }
 .c1_banner1{
 	flex:1;
-	margin:1%;
+	margin:0.7%;
 	width: 20%;
 }
 .c1_text{
@@ -121,6 +124,9 @@ $(function(){
 });
 </script>
 
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/TeamProject/js/container1/slick.js"></script>
+</head>
 <body topmargin="0"  leftmargin="0" marginwidth="0" marginheight="0">
 <div class="c1_slider-wrap">
     <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner1.jpg" alt=""></div>
@@ -182,3 +188,20 @@ $(function(){
 </div>
 
 </body>
+<script type="text/javascript">
+$(function() {
+	$.noConflict();
+	$('.c1_slider-wrap').slick({
+	  dots: true,
+	  infinite: true,
+	  speed: 500,
+	  fade: true,
+	  prevArrow : "<div class='c1_slick-prev c1_slick-arrow'><img src='/TeamProject/img/container1/c1_prev.png'><div>",
+	  nextArrow : "<div class='c1_slick-next c1_slick-arrow'><img src='/TeamProject/img/container1/c1_next.png'></div>",
+	  cssEase: 'linear',
+	  autoplay: true,
+	  autoplaySpeed: 2000
+	})
+})
+</script>
+</html>
