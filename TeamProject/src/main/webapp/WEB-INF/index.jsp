@@ -11,7 +11,7 @@
 </head>
 <body>
 	<input type="button" value="login" id="loginBtn">
-  <input type="button" value="공지사항" id="noticeBtn">
+  	<input type="button" value="공지사항" id="noticeBtn">
 	<div id="header">
 		<jsp:include page="${head }"></jsp:include>
 	</div>
