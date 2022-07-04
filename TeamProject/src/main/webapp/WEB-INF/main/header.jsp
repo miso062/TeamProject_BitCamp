@@ -2,80 +2,26 @@
     pageEncoding="UTF-8"%>
   <style type="text/css">
 .h_header {
-position :fixed;
-top : 0;
-left : 0;
-right : 0;
-background-color : #ffffff;
+	z-index: 1000;
+	position :fixed;
+	top : 0;
+	left : 0;
+	right : 0;
+	background-color : #ffffff;
 }
 .h_header .h_top_inner {
-padding : 8px 40px;
-display : flex;
+	padding : 8px 40px;
+	display : flex;
 }
 .h_header .h_top_list {
-align-items : center;
-margin-left : auto;
-}
-body, button, dd, div, dl, dt,
-fieldset, figcaption, figure, form,
- h1, h2, h3, h4, h5, h6, 
-input, legend, li, ol, p, select,
- table, td, textarea, th, ul {
- margin : 0;
- padding : 0;
- }
-body,
-html {
-    height: 100%;
-    -ms-text-size-adjust: none;
-    -moz-text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-}
-a, a:active, a:focus, a:hover {
-    text-decoration: none;
+	align-items : center;
+	margin-left : auto;
 }
 .h_header .h_top_link{
     display: flex;
     align-items: center;
     font-size: 12px;
     color: rgba(34,34,34,.8);
-}
-li, ol, ul {
- list-style-position: initial;
-    list-style-image: initial;
-    list-style-type: none;
-}
-ul {
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-}
-body,
-button,
-input,
-select,
-table,
-textarea {
-    font-family: -apple-system, BlinkMacSystemFont, Roboto, AppleSDGothicNeo-Regular, NanumBarunGothic, NanumGothic, 나눔고딕, Segoe UI, Helveica, Arial, Malgun Gothic, Dotum, sans-serif;
-    color: #222;
-}
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-body, html {
-    height: 100%;
-    touch-action: manipulation;
-}
-*, :after, :before {
-    
-    box-sizing: border-box;
-   
 }
 .h_top_item {
 float : left;
@@ -90,15 +36,8 @@ margin-left : 10px;
     letter-spacing: -.06px;
     color: rgba(34,34,34,.8);
 }
-a {
-    -webkit-tap-highlight-color: rgba(0,0,0,.1);
-}
-a:-webkit-any-link {
-    cursor: pointer;
-}
-li {
-    text-align: -webkit-match-parent;
-}
+
+
 h1 {
     display: block;
     font-size: 2em;
@@ -418,6 +357,7 @@ height:80px;
     padding: 25px 40px 19px;
 }
 .h_layer_search {
+	z-index: 1000;
     position: absolute;
     top: 0;
     right: 0;

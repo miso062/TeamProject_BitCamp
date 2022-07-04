@@ -257,7 +257,6 @@ body {
 							slidesToShow : 5
 						}
 					} ]
-	
 				});
 	})
 </script>

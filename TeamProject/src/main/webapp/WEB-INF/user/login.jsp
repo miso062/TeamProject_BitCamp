@@ -15,18 +15,19 @@
 			</div>
 			
 			<div class="input_box">
-				<h3 class="input_title">이메일 주소</h3>
+				<h3 class="input_title" id="email_label" >이메일 주소</h3>
 				<div class="input_item">
 					<div class="input_text">
-						<input class="input_txt" type="text" placeholder="예) kream@kream.co.kr">
+						<input class="input_txt" type="text" id= "email_input" oninput="oninputEmail(this.value)" placeholder="예) kream@kream.co.kr">
 					</div>
 				</div>
+				<p class="input_error" id="email_error" >이메일 주소를 정확히 입력해주세요.</p>
 			</div>
 			<div class="input_box">
-				<h3 class="input_title">비밀번호</h3>
+				<h3 class="input_title" id="pwd_label">비밀번호</h3>
 				<div class="input_item">
-					<div class="input_text">
-						<input class="input_txt" type="password" placeholder autocomplete="off" >
+					<div class="input_text" >
+						<input class="input_txt" type="password"  id= "password_input" autocomplete="off" >
 					</div>
 				</div>
 			</div>
@@ -46,23 +47,18 @@
 			</ul>
 			<div class="social_login">
 				<button type="button" class="naver_btn">
-					<svg xmlns="http://www.w3.org/2000/svg" class="logo_naver">
-						<use href="../img/naver.svg" xlink:href="../img/naver.svg">
-						</use>
-					</svg>
+					<img src="../img/naver_login_logo.png" class="logo_naver" width="16" height="16">
 					네이버로 로그인
 				</button>
-				<button type="button" class="apple_btn">
-					<svg xmlns="http://www.w3.org/2000/svg" class="logo_apple">
-						<use href="https://kream.co.kr/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-logo-naver" xlink:href="https://kream.co.kr/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-logo-naver">
-						</use>
-					</svg>
-					Apple로 로그인
+				<button type="button" class="kakao_btn">
+					<img src="../img/kakao_login_logo.png" class="logo_kakao" width="40" height="40">
+					Kakao로 로그인
 				</button>
 			</div>
 	    </div>
     </div>
     
-    
+<script type="text/javascript" src="../js/user/login.js"></script>
+
 </body>
 </html>
