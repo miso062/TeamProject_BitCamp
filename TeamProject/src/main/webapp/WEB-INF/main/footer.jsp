@@ -9,8 +9,7 @@
 	display: flex;
 	
 }
-asdasdasdasdasdasdasds
-.banner_box1 {
+  .banner_box1 {
 	position: relative;
 	padding: 36px 32px 0;
 	width: 100%;
@@ -18,8 +17,8 @@ asdasdasdasdasdasdasds
 	background-position: 100% 0;
 	background-repeat: no-repeat;
 	background-size: 350px 200px
-}
-.banner_box2 {
+} 
+ .banner_box2 {
 	position: relative;
 	padding: 36px 32px 0;
 	width: 100%;
@@ -27,16 +26,17 @@ asdasdasdasdasdasdasds
 	background-position: 100% 0;
 	background-repeat: no-repeat;
 	background-size: 350px 200px
-}
-
+} 
+ 
 .banner_box1 {
 	background-color: #565656;
-	background-color: "../img/kream1.png"
+	background-image: url("/TeamProject/img/footer/kream2.png")
 }
 
 .banner_box2 {
 	background-color: #3b3a3c;
-	background-color: "../img/kream1.png"
+	background-image: url("/TeamProject/img/footer/kream1.png");
+	background-position: 400px center;
 }
 
 .banner_bottom .banner_info[data-v-d772dcbe] {
@@ -91,11 +91,11 @@ asdasdasdasdasdasdasds
 	height: 100%
 }
 
-		font-size: 13px;
+		 font-size: 13px;
 		font-weight: 300;
 		color: rgba(34, 34, 34, .6);
 		margin-top: 4px
-	}
+	} 
 div > ul > li > a{
  text-decoration: none;
  color: black;
@@ -106,7 +106,7 @@ div > ul > li > a{
 }
 #hr_line{
 	align:center;
-	position: flex;
+	position: relative;
 	width: 1500px
 }
 #company_import{
@@ -119,16 +119,14 @@ div > ul > li > a{
 .banner_box{
  background: url("/TeamProejct/img/kream1.png") no-reapt;
 }
-#image{
-	background-image: url("/TeamProject/img/kream1.png");
-}
+
 #service_info{
 	list-style:none;
 }
 
-div > #service_type{
+#service_type{
 	font-size: 14px;
-	color: #808080985
+	color: #808080;
 }
 .info_subtitle{
 	color: white;
@@ -148,6 +146,55 @@ div > #service_type{
 .info_title {
 	color: #ffffff
 }
+/* a.banner_box1{
+	padding: 36px 32px 0px;
+}
+a.banner_box2{
+	padding: 36px 32px 0px;
+} */
+#cs_center{
+	float: right;
+	position: relative;
+	right: 100px;
+}
+#cs_time1{
+	font-size: 13px;
+	color: #808080
+}
+#cs_time2{
+	font-size: 13px;
+}
+a.btn{
+font-size:13px;
+ display: block;
+ background: black;
+ color: white;
+ width:105px;
+ height:30px;
+ text-align: center;
+ line-height: 30px;
+}
+#exe{
+font-size:12px;
+}
+ #instagram{
+	float: left;
+	position: relative;
+	left: 1310px;
+	bottom:155px;
+}
+#kakao{
+	float: left;
+	position: relative;
+	left: 1335px;
+	bottom:155px;
+}
+#facebook{
+	float: left;
+	position: relative;
+	left: 1360px;
+	bottom:155px;
+} 
 
 </style>
 <div class="footer">
@@ -176,112 +223,59 @@ div > #service_type{
 		</div>
 	</a>
 	<!---->
-	
+	<
 </div>
-	<br>
+		
 <div id="service_info">
 	<ul>
 		<li>
-			<b>이용안내</b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+			<b>이용안내</b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 			<b>고객지원</b>
+			<div id="cs_center">
+			<strong>고객센터 1588-7813</strong><br><br>
+			<div id="cs_time1">운영시간 평일 11:00 - 18:00(토,일,공휴일 휴무)<br>
+			점심시간 평일 13:00 - 14:00</div><br>
+			<div id="cs_time2">1:1 문의하기는 앱에서만 가능합니다</div><br>
+			<a href="#" class="btn"><strong>자주 묻는 질문</strong></a>
+		</div>
 		</li>
+		
 		<br>
-		<li id="service_type">
+		<div id="service_type">
+		<li >
 		<a href="">
-				검수기준&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				검수기준&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
 				공지사항
 			</a>
 		</li>
 		<br>
-		<li id="service_type">
+		
+		<li>
 		<a href="">
-				이용정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				이용정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
 				서비스 소개
 			</a>
 		</li>
 		<br>
-		<li id="service_type">
+		<li>
 		<a href="">
-				패널티 정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				패널티 정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
 				쇼룸 안내
 			</a>
 		</li>
 		<br>
-		<li id="service_type">
+		<li>
 		<a href="">
-				커뮤니티 가이드라인&emsp;&emsp;&emsp;&emsp;&emsp;
+				커뮤니티 가이드라인&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
 				판매자 방문접수
 			</a>
 		</li>
 	</ul>
-</div>
-<!-- <button class="btn_top md" style="" data-v-695163b8=""
-	data-v-2278857d="">
-	<svg xmlns="http://www.w3.org/2000/svg"
-		class="ico-top icon sprite-icons" data-v-695163b8="">
-                            <use
-			href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-top"
-			xlink:href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-top"
-			></use>
-                        </svg>
-</button> --><!-- 한번에 위로가기 버튼을 만든거? -->
-</div>
-<!-- <div class="footer md" data-v-2ea81d14="" data-v-6c9a1c4a="">
-	<div class="inner" data-v-2ea81d14="">
-		<div class="service_area" data-v-2ea81d14="">
-			<div class="customer_service" data-v-2ea81d14="">
-				<strong class="service_title" data-v-2ea81d14="">고객센터<a
-					href="tel:1588-7813" class="sevice_tel" data-v-2ea81d14="">1588-7813</a></strong>
-				<div class="service_time" data-v-2ea81d14="">
-					<dl class="time_box" data-v-2ea81d14="">
-						<dt class="time_term" data-v-2ea81d14="">운영시간</dt>
-						<dd class="time_description" data-v-2ea81d14="">평일 11:00 -
-							18:00 (토 ∙ 일, 공휴일 휴무)</dd>
-					</dl>
-					<dl class="time_box" data-v-2ea81d14="">
-						<dt class="time_term" data-v-2ea81d14="">점심시간</dt>
-						<dd class="time_description" data-v-2ea81d14="">평일 13:00 -
-							14:00</dd>
-					</dl>
-				</div>
-				<p class="service_noti" data-v-2ea81d14="">1:1 문의하기는 앱에서만 가능합니다.</p>
-				<div class="service_btn_box" data-v-2ea81d14="">
-					<a href="#" class="btn solid small" data-v-3d1bcc82=""
-						data-v-2ea81d14=""> 자주 묻는 질문 </a>
-				</div>
-			</div>
-			<div class="footer_menu" data-v-2ea81d14="">
-				<div class="menu_box" data-v-2ea81d14="">
-					<strong class="menu_title" data-v-2ea81d14="">이용안내</strong>
-					<ul class="menu_list" data-v-2ea81d14="">
-						<li class="menu_item" data-v-2ea81d14=""><a href="#"
-							class="menu_link" data-v-2ea81d14=""> 검수기준 </a></li>
-						<li class="menu_item" data-v-2ea81d14=""><a href="#"
-							class="menu_link" data-v-2ea81d14=""> 이용정책 </a></li>
-						<li class="menu_item" data-v-2ea81d14=""><a href="#"
-							class="menu_link" data-v-2ea81d14=""> 페널티 정책 </a></li>
-						<li class="menu_item" data-v-2ea81d14=""><a href="#"
-							class="menu_link" data-v-2ea81d14=""> 커뮤니티 가이드라인 </a></li>
-					</ul>
-				</div>
-				<div class="menu_box" data-v-2ea81d14="">
-					<strong class="menu_title" data-v-2ea81d14="">고객지원</strong>
-					<ul class="menu_list" data-v-2ea81d14="">
-						<li class="menu_item" data-v-2ea81d14=""><a href="/notice"
-							class="menu_link" data-v-2ea81d14="">공지사항</a></li>
-						<li class="menu_item" data-v-2ea81d14=""><a href="/about"
-							target="_blank" class="menu_link" data-v-2ea81d14="">서비스 소개</a></li>
-						<li class="menu_item" data-v-2ea81d14=""><a href="/showroom"
-							target="_blank" class="menu_link" data-v-2ea81d14=""> 쇼룸 안내 </a></li>
-						<li class="menu_item" data-v-2ea81d14=""><a
-							href="/about/seller_reception" target="_blank" class="menu_link"
-							data-v-2ea81d14="">판매자 방문접수</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
 	</div>
-	</div> -->
+	
+</div>
+
+
 		
 		<hr id="hr_line">
 		
@@ -316,20 +310,29 @@ div > #service_type{
 					<a href="">
 						<b>개인정보처리방침</b>
 					</a>
+					
 				</li>
 				<br>
 				<br>
 				<div id="company_import">
-				크림 주식회사 · 대표김창욱&nbsp&nbsp사업자등록번호:570-88-01618<a id="footer_btnBusiness" href="">사업자정보확인</a>&nbsp&nbsp통신판매업:제 2021-성남분당C-0093호<br>
-				사업장소재지:경기도 성남시 분당구 분당내곡로 117, 8층&nbsp&nbsp개인정보관리책임자:김미진&nbsp&nbsp호스팅 서비스:네이버 클라우드 (주)
+				크림 주식회사 · 대표김창욱&emsp;사업자등록번호:570-88-01618<a id="footer_btnBusiness" href="">사업자정보확인</a>&emsp;통신판매업:제 2021-성남분당C-0093호<br><br>
+				사업장소재지:경기도 성남시 분당구 분당내곡로 117, 8층&emsp;개인정보관리책임자:김미진&emsp;호스팅 서비스:네이버 클라우드 (주)<br><br><br>
+				<div id="exe">크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별 판매자가 등록한 상품저보에 대해서 책임을 지지 않<br>
+				습니다. 단, 거래과정에서 검수하고 보증하는 내용에 대한 책임은 당사에 있습니다</div>
 				</div>
+				<div id="sns_box">
+						<a href="#" id="instagram">
+							<img src="/TeamProject/img/footer/instagram.png">
+						</a>
+						<a href="#" id="kakao">
+							<img src="/TeamProject/img/footer/kakao.png">
+						</a>
+						<a href="#" id="facebook">
+							<img src="/TeamProject/img/footer/facebook.png">
+						</a>
+					</div>
 			</ul>
-			<!--  <div class="footer_snsBox">
-				<a href="#">
-					<img src="../img/instagram.png">
-					
-				</a>		
-			</div> --><!-- 인스타. 페이스북, 카카오톡 이모티콘을 생성? -->
+			
 			<div class="footer_sns" data-v-2ea81d14="">
 				<div class="sns_box" data-v-2ea81d14="">
 					<a href="#" aria-label="인스타그램" class="sns" data-v-2ea81d14="">
@@ -362,18 +365,7 @@ div > #service_type{
 			</div>
 			
 		</div>
-		<div class="pc_escrow_area" data-v-2ea81d14="">
-			<img src="/_nuxt/img/footer_escrow.da8308f.png" alt="escrow"
-				class="pc_escrow_img" data-v-2ea81d14="" />
-			<p class="pc_escrow_text" data-v-2ea81d14="">고객님의 안전거래를 위해 현금 등으로
-				결제 시 KREAM에서 가입한 NHN KCP의 구매안전서비스를 이용하실 수 있습니다.</p>
-		</div>
-		<div class="notice_area" data-v-2ea81d14="">
-			<p class="notice" data-v-2ea81d14="">크림(주)는 통신판매 중개자로서 통신판매의 당사자가
-				아니므로 개별 판매자가 등록한 상품정보에 대해서 책임을 지지 않습니다. 단, 거래과정에서 검수하고 보증하는 내용에 대한
-				책임은 당사에 있습니다.</p>
-			<p class="copyright" data-v-2ea81d14="">© KREAM Corp.</p>
-		</div>
+		
 	</div>
 	<!---->
 	<!---->
