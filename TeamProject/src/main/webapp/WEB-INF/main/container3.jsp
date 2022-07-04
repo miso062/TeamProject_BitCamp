@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+	
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <style type="text/css">
 body {
 	font-family: -apple-system, BlinkMacSystemFont, Roboto,
@@ -74,19 +75,6 @@ body {
 	display: flex;
 	box-sizing: border-box;
 }
-
-.slick-arrow {
-    z-index: 10;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: gray;
-    border: none;
-    cursor: pointer;
-}
-.c3_slick-prev {
-	background: url("/TeamProject/img/container3/left-arrow.png") no-repeat 0 0;
-}
 .c3_slider-wrap{
     margin: 0 auto;
     /* padding: 0 32.5px; */
@@ -95,18 +83,6 @@ body {
     border: 1px sold black;
 }
 
-.c3_slick-prev {
-    left: 30px;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.c3_slick-next {
-    right: 30px;
-    text-align: center;
-    vertical-align: middle;
-
-}
 .post-slider{
   width:70%;
   margin:0px auto;
@@ -231,14 +207,33 @@ body {
     color: #fff;
     z-index: 10;
 }
-
-.slider-wrap {
-	
+.c3_slick-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgb(3, 3, 3);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.c3_slick-prev {
+	left: 5%;
+	z-index: 100;
+	background: url("/TeamProject/img/container3/left-arrow.png") no-repeat 0 0;
+}
+.c3_slick-next {
+	right: 5%;
+	background: url("/TeamProject/img/container3/right-arrow.png") no-repeat 0 0;
 }
 </style>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$.noConflict();
+		/* $.noConflict(); */
 		$('.c3_slider-wrap')
 			.slick(
 				{
@@ -247,8 +242,8 @@ body {
 					slidesToShow : 6, // 한 화면에 보여질 컨텐츠 개수
 					slidesToScroll : 1, //스크롤 한번에 움직일 컨텐츠 개수
 					speed : 500, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
-					prevArrow : "<div class='c3_slick-prev'><<div>",
-					nextArrow : "<div class='c3_slick-next'>></div>",
+					prevArrow : "<button class='c3_slick-prev c3_slick-arrow'></button>",
+					nextArrow : "<button class='c3_slick-next c3_slick-arrow'></button>",
 					draggable : true, //드래그 가능 여부 
 					responsive : [ // 반응형 웹 구현 옵션
 					{
@@ -262,13 +257,9 @@ body {
 							slidesToShow : 5
 						}
 					} ]
-	
 				});
 	})
 </script>
-
-<!-- <img src="/TeamProject/img/test.svg" alt="search_img"> -->
-<div id="test" style="background: url('/TeamProject/img/container3/left-arrow.png') no-repeat 0 0;"> hi </div>
 
 <div id="c3_social_style_slide">
 	<div id="c3_style_title">
