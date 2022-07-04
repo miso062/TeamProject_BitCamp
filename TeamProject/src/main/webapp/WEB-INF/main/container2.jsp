@@ -17,21 +17,23 @@
 	margin: 0 270px;
 }
 .cd2_product_title > .cd2_title{
-   font-size: 18px;
-   letter-spacing: -.1px;
-   font-weight: 700;
-   color: #000;
+	padding: 0 40px;
+	font-size: 20px;
+	letter-spacing: -.1px;
+	font-weight: 700;
+	color: #000;
 }
 .cd2_product_title > .cd2_sub_title{
-   font-size: 14px;
-   letter-spacing: -.21px;
-   color: rgba(34,34,34,.5);
+	padding: 0 40px;
+	font-size: 14px;
+	letter-spacing: -.21px;
+	color: rgba(34, 34, 34, .5);
 }
 /* 상품나열 */
 .cd2_product_list_wrap{
-    margin: 0 270px;
+    margin: 0 auto;
     white-space: nowrap;
-    padding: 0 28px;
+    max-width: 1280px;
 }
 .cd2_product_list_wrap > .cd2_list_first{
     overflow: hidden;
