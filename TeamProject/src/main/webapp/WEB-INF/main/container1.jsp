@@ -4,7 +4,7 @@
 <style>
 .c1_slider-wrap{
 }
-.slick-arrow{
+.c1_slick-arrow{
 position: absolute; top:50%; transform:translateY(-50%);
 width: 64px; height:64px;
 color:#fff;
@@ -13,7 +13,9 @@ text-indent: -9999px;
 overflow: hidden;
 
 }
-.c1_slick-prev{z-index:100;left:1%;
+.c1_slick-prev{
+	z-index:100;
+	left:1%;
 	background: url(/TeamProject/img/container1/c1_prev.png) no-repeat 0 0;
 }
 .c1_slick-next{right:1%;
@@ -96,6 +98,7 @@ overflow: hidden;
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="/TeamProject/js/container1/slick.js"></script> -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -107,6 +110,8 @@ $(function(){
 		  fade: true,
 		  cssEase: 'linear',
 		  autoplay: true,
+		  prevArrow : "<button class='c1_slick-prev c1_slick-arrow'></button>",
+		  nextArrow : "<button class='c1_slick-next c1_slick-arrow'></button>",
 		  autoplaySpeed: 2000
 	});
 });
