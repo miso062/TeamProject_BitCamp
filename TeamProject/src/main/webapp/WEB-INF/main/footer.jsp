@@ -9,7 +9,7 @@
 	display: flex;
 	
 }
-
+asdasdasdasdasdasdasds
 .banner_box1 {
 	position: relative;
 	padding: 36px 32px 0;
