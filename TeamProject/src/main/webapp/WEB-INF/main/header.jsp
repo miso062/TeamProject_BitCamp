@@ -13,6 +13,10 @@
 	padding : 8px 40px;
 	display : flex;
 }
+.h_main_inner {
+    border-top : 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
 .h_header .h_top_list {
 	align-items : center;
 	margin-left : auto;
@@ -75,6 +79,7 @@ clear: both;
 }
 
 
+
 .h_logo {
 margin-left : 20px;
 }
@@ -89,8 +94,9 @@ margin-left : 20px;
     -ms-flex-align: center;
     align-items: center;
 }
-.h_h1{
+.h_h1 , .h_logo{
 display : inline;
+height: 50px;
 }
 
 .h_gnb_area {
@@ -173,8 +179,8 @@ input.h_show_placeholder_on_focus:focus::placeholder {
     font-size: 15px;
 }
 .h_layer_search .h_search_container,
-.h_layer_search .h_search_content_wrap,
-    background-color: #fff;
+.h_layer_search .h_search_content_wrap {
+    background-color : #ffffff;
 }
 .h_search_wrap {
     display: -webkit-box;
@@ -197,15 +203,6 @@ input.h_show_placeholder_on_focus:focus::placeholder {
 button {
     appearance: auto;
     writing-mode: horizontal-tb !important;
-    font-style: ;
-    font-variant-ligatures: ;
-    font-variant-caps: ;
-    font-variant-numeric: ;
-    font-variant-east-asian: ;
-    font-weight: ;
-    font-stretch: ;
-    font-size: ;
-    font-family: ;
     text-rendering: auto;
     color: buttontext;
     letter-spacing: normal;
@@ -246,13 +243,6 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
 }
 input {
     writing-mode: horizontal-tb !important;
-    font-style: ;
-    font-variant-ligatures: ;
-    font-variant-caps: ;
-    font-variant-numeric: ;
-    font-variant-east-asian: ;
-    font-weight: ;
-    font-stretch: ;
     text-rendering: auto;
     word-spacing: normal;
     line-height: normal;
@@ -391,7 +381,6 @@ height:80px;
 			</ul>
 		</div>
 	</div>
-	<hr>
 	<div class="h_header_main">
 		<div class="h_main_inner">
 			<h1 class="h_h1">
@@ -497,11 +486,13 @@ $('.h_searchBtn').click(function(){
 });
 //모달창 끄기
 $('.h_btn_close').click(function(){
-	$('.h_layer_search').fadeOut();
+    $('.h_input_search').val('');
 })
 $(document).on("click",function(e){
 	if($('.h_layer_search').is(e.target)) {
 		$('.h_layer_search').fadeOut();
+        $('.h_input_search').val('');
+        
 	}
 })
 //이미지 클릭시 검색차에 텍스트 담기  
