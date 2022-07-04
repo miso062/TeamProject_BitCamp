@@ -377,16 +377,16 @@ height:80px;
 		<div class="h_top_inner" >
 			<ul class="h_top_list">
 				<li class="h_top_item">
-					<a href="#" class="h_top_link">고객센터</a>
+					<a href="/TeamProject/notice" class="h_top_link">고객센터</a>
 				</li>
 				<li class="h_top_item">
 					<a href="#" class="h_top_link">관심상품</a>
 				</li>
 				<li class="h_top_item">
-					<a href="#" class="h_top_link">마이페이지</a>
+					<a href="/TeamProject/user/myPage" class="h_top_link">마이페이지</a>
 				</li>
 				<li class="h_top_item">
-					<a href="#" class="h_top_link">로그인</a>
+					<a href="/TeamProject/user/login" class="h_top_link">로그인</a>
 				</li>
 			</ul>
 		</div>
@@ -406,7 +406,7 @@ height:80px;
 						<a href="#"  class="gnb_link">STYLE</a>
 					</li>
 					<li class="h_gnb_item">
-						<a href="#"  class="gnb_link">SHOP</a>
+						<a href="/TeamProject/shop/"  class="gnb_link">SHOP</a>
 					</li>
 				</ul>
 				
