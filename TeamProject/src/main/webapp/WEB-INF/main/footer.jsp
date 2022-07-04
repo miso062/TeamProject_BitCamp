@@ -41,7 +41,7 @@
 
 .banner_bottom .banner_info[data-v-d772dcbe] {
 	max-width: 300px;
-	color: #fff
+	color: #ffffff
 }
 
 .banner_bottom .info_subtitle[data-v-d772dcbe] {
@@ -117,10 +117,10 @@ div > ul > li > a{
 	color: #808080;
 }
 .banner_box{
- background: url("../img/kream1.png") no-reapt;
+ background: url("/TeamProejct/img/kream1.png") no-reapt;
 }
 #image{
-	background-image: url("../img/kream1.png");
+	background-image: url("/TeamProject/img/kream1.png");
 }
 #service_info{
 	list-style:none;
@@ -130,7 +130,12 @@ div > #service_type{
 	font-size: 14px;
 	color: #8080805
 }
-
+.info_subtitle {
+	color: #ffffff
+}
+.info_title {
+	color: #ffffff
+}
 
 </style>
 <div class="footer">
