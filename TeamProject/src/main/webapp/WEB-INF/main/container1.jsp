@@ -5,8 +5,11 @@
 .c1_slider-wrap{
 }
 .c1_slick-arrow{
-position: absolute; top:50%; transform:translateY(-50%);
-width: 64px; height:64px;
+position: absolute; 
+top:50%; 
+transform:translateY(-50%);
+width: 64px; 
+height:64px;
 color:#fff;
 border: none;
 text-indent: -9999px;
@@ -18,7 +21,8 @@ overflow: hidden;
 	left:1%;
 	background: url(/TeamProject/img/container1/c1_prev.png) no-repeat 0 0;
 }
-.c1_slick-next{right:1%;
+.c1_slick-next{
+	right:1%;
 	background: url(/TeamProject/img/container1/c1_next.png) no-repeat 0 0;
 }
 .slick-dots {
@@ -97,9 +101,9 @@ overflow: hidden;
 }
 </style>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
 <!-- <script type="text/javascript" src="/TeamProject/js/container1/slick.js"></script> -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$.noConflict();

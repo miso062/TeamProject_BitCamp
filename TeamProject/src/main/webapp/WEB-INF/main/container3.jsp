@@ -207,35 +207,43 @@ body {
     color: #fff;
     z-index: 10;
 }
-.c3_slick-arrow {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: rgb(3, 3, 3);
-    color: #fff;
-    border: none;
-    cursor: pointer;
+.slick-arrow{
+position: absolute; 
+top:45%;
+	color: #fff;
+	text-indent: -9999px;
+	overflow: hidden;
+	border: none;
 }
-.c3_slick-prev {
-	left: 5%;
-	z-index: 100;
-	background: url("/TeamProject/img/container3/left-arrow.png") no-repeat 0 0;
-}
-.c3_slick-next {
-	right: 5%;
-	background: url("/TeamProject/img/container3/right-arrow.png") no-repeat 0 0;
-}
+.slick-prev{z-index:100; right:97%; width: 48px; height:48px; background:url(/TeamProject/img/container3/prev3.png) no-repeat 0 0;}
+.slick-next{width: 48px; right:-1%; height:48px; background:url(/TeamProject/img/container3/next3.png) no-repeat 0 0;}
 </style>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		/* $.noConflict(); */
-		$('.c3_slider-wrap')
-			.slick(
+		$('.c3_slider-wrap').slick({
+			slide : 'div', //슬라이드 되어야 할 태그
+			infinite : false, //무한 반복 옵션     
+			slidesToShow : 6, // 한 화면에 보여질 컨텐츠 개수
+			slidesToScroll : 1, //스크롤 한번에 움직일 컨텐츠 개수
+			speed : 500, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
+			draggable : true, //드래그 가능 여부 
+			responsive : [ // 반응형 웹 구현 옵션
+			{
+				breakpoint : 960, //화면 사이즈 960px
+				settings : {
+					slidesToShow : 4
+				}
+			}, {
+				breakpoint : 768, //화면 사이즈 768px
+				settings : {
+					slidesToShow : 5
+				}
+			} ]
+			});
+		/* $.noConflict();
+		$('.c3_slider-wrap').slick(
 				{
 					slide : 'div', //슬라이드 되어야 할 태그
 					infinite : false, //무한 반복 옵션     
@@ -257,7 +265,7 @@ body {
 							slidesToShow : 5
 						}
 					} ]
-				});
+				});*/
 	})
 </script>
 
