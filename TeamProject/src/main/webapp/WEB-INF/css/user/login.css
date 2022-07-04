@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+* {
+	box-sizing: border-box;
+}
+
 input {
 	writing-mode: horizontal-tb !important;
     text-rendering: auto;    
@@ -63,7 +67,7 @@ li {
 	display: inline-block;
 	width: 250px; 
 	height: 56px;
-	background: url("../../img/kream_logo.png") no-repeat;
+	background: url("../../img/kream_login_logo.png") no-repeat;
 	background-size: 250px 56px;
 	padding-bottom: 50px;
 }
@@ -93,9 +97,7 @@ li {
     border: 0;
     border-bottom: 1px solid #ebebeb;
     padding-right: 30px;
-    height: 38px;
 }
-
 .input_txt:focus {
 	border-bottom: 2px solid #000000;
 }
@@ -146,7 +148,7 @@ li {
 .social_login {
 	margin-top: 40px;
 }
-.naver_btn, .apple_btn {
+.naver_btn, .kakao_btn {
 	position: relative;
     color: #222;
     border-color: #ebebeb;
@@ -169,16 +171,27 @@ li {
     background: none;
     appearance: none;
 }
-.logo_naver, .logo_apple {
+.logo_naver {
+	position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 17px;
+    left: 19px;
+}
+
+.logo_kakao {
 	position: absolute;
     width: 24px;
     height: 24px;
     top: 13px;
     left: 15px;
 }
-
-
-
-
-
-
+.input_error {
+	display: none;
+    position: absolute;
+    line-height: 16px;
+    font-size: 11px;
+    color: #f15746;
+    margin: 0;
+    padding: 2px 0;
+}
