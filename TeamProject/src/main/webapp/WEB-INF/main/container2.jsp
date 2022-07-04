@@ -14,24 +14,25 @@
 /* 소제목 */
 .cd2_product_title{
 	padding: 40px 0px 0px 40px;
-	margin: 0 270px;
+	margin: 0 auto;
+	max-width: 1280px;
 }
 .cd2_product_title > .cd2_title{
-   font-size: 18px;
-   letter-spacing: -.1px;
-   font-weight: 700;
-   color: #000;
+	font-size: 20px;
+	letter-spacing: -.1px;
+	font-weight: 700;
+	color: #000;
 }
 .cd2_product_title > .cd2_sub_title{
-   font-size: 14px;
-   letter-spacing: -.21px;
-   color: rgba(34,34,34,.5);
+	font-size: 14px;
+	letter-spacing: -.21px;
+	color: rgba(34, 34, 34, .5);
 }
 /* 상품나열 */
 .cd2_product_list_wrap{
-    margin: 0 270px;
+    margin: 0 auto;
     white-space: nowrap;
-    padding: 0 28px;
+    max-width: 1280px;
 }
 .cd2_product_list_wrap > .cd2_list_first{
     overflow: hidden;

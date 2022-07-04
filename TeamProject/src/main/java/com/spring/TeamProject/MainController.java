@@ -20,7 +20,10 @@ public class MainController {
 	}
 	
 	@GetMapping(value="notice")
-	public String notice() {
-		return "/notice/notice";
+	public String notice(Model model) {
+		model.addAttribute("head", "/WEB-INF/main/header.jsp");
+		model.addAttribute("container", "/WEB-INF/admin/noticeContainer.jsp");
+		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
+		return "/admin/notice";
 	}
 }
