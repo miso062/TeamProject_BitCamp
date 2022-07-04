@@ -128,10 +128,20 @@ div > ul > li > a{
 
 div > #service_type{
 	font-size: 14px;
-	color: #8080805
+	color: #808080985
 }
-
-
+.info_subtitle{
+	color: white;
+}
+.info_title{
+	color: white;
+}
+#service_info{
+	margin: 60px;
+}
+.footer_corporation{
+	margin: 40px;
+}
 </style>
 <div class="footer">
 <div class="banner_bottom md" data-v-d772dcbe="" data-v-2278857d="">
@@ -160,39 +170,39 @@ div > #service_type{
 	</a>
 	<!---->
 	
-	
 </div>
+	<br>
 <div id="service_info">
 	<ul>
 		<li>
-				<b>이용안내</b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				<b>고객지원</b>
+			<b>이용안내</b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+			<b>고객지원</b>
 		</li>
 		<br>
 		<li id="service_type">
 		<a href="">
-				검수기준&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				검수기준&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				공지사항
 			</a>
 		</li>
 		<br>
 		<li id="service_type">
 		<a href="">
-				이용정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				이용정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				서비스 소개
 			</a>
 		</li>
 		<br>
 		<li id="service_type">
 		<a href="">
-				패널티 정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				패널티 정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				쇼룸 안내
 			</a>
 		</li>
 		<br>
 		<li id="service_type">
 		<a href="">
-				커뮤니티 가이드라인&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				커뮤니티 가이드라인&emsp;&emsp;&emsp;&emsp;&emsp;
 				판매자 방문접수
 			</a>
 		</li>
@@ -209,7 +219,7 @@ div > #service_type{
                         </svg>
 </button> --><!-- 한번에 위로가기 버튼을 만든거? -->
 </div>
-<div class="footer md" data-v-2ea81d14="" data-v-6c9a1c4a="">
+<!-- <div class="footer md" data-v-2ea81d14="" data-v-6c9a1c4a="">
 	<div class="inner" data-v-2ea81d14="">
 		<div class="service_area" data-v-2ea81d14="">
 			<div class="customer_service" data-v-2ea81d14="">
@@ -263,6 +273,8 @@ div > #service_type{
 				</div>
 			</div>
 		</div>
+	</div>
+	</div> -->
 		
 		<hr id="hr_line">
 		
@@ -270,26 +282,26 @@ div > #service_type{
 			<ul >
 				<li >
 					<a href="">
-						회사소개&nbsp&nbsp&nbsp
+						회사소개&nbsp;&nbsp;&nbsp;&nbsp;
 					</a>
 				</li>
 				
 				<li>
 					<a href="">
-						인재채용&nbsp&nbsp&nbsp
+						인재채용&nbsp;&nbsp;&nbsp;&nbsp;
 					</a>
 						
 				</li>
 				
 				<li>
 					<a href="">
-						제휴제안&nbsp&nbsp&nbsp
+						제휴제안&nbsp;&nbsp;&nbsp;&nbsp;
 					</a>
 				</li>
 				
 				<li>
 					<a href="">
-						이용약관&nbsp&nbsp&nbsp
+						이용약관&nbsp;&nbsp;&nbsp;&nbsp;
 					</a>
 				</li>
 				
