@@ -234,13 +234,12 @@ body {
 }
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="/TeamProject/js/container3/slick.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$.noConflict();
-		$('.c3_slider-wrap')
-			.slick(
-				{
+		$('.c3_slider-wrap').slick({
+			
 					slide : 'div', //슬라이드 되어야 할 태그
 					infinite : false, //무한 반복 옵션     
 					slidesToShow : 6, // 한 화면에 보여질 컨텐츠 개수
@@ -266,7 +265,6 @@ body {
 							slidesToShow : 5
 						}
 					} ]
-	
 				});
 	})
 </script>

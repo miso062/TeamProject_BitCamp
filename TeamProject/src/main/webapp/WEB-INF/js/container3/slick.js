@@ -44,8 +44,8 @@
                 appendDots: $(element),
                 arrows: true,
                 asNavFor: null,
-                prevArrow: '<button class="c1_slick-prev" aria-label="Previous" type="button">Previous</button>',
-                nextArrow: '<button class="c1_slick-next" aria-label="Next" type="button">Next</button>',
+                prevArrow: '<button class="slick-prev" aria-label="Previous" type="button">Previous</button>',
+                nextArrow: '<button class="slick-next" aria-label="Next" type="button">Next</button>',
                 autoplay: false,
                 autoplaySpeed: 3000,
                 centerMode: false,
@@ -441,8 +441,8 @@
 
         if (_.options.arrows === true ) {
 
-            _.$prevArrow = $(_.options.prevArrow).addClass('c1_slick-arrow');
-            _.$nextArrow = $(_.options.nextArrow).addClass('c1_slick-arrow');
+            _.$prevArrow = $(_.options.prevArrow).addClass('slick-arrow');
+            _.$nextArrow = $(_.options.nextArrow).addClass('slick-arrow');
 
             if( _.slideCount > _.options.slidesToShow ) {
 
@@ -860,7 +860,7 @@
         if ( _.$prevArrow && _.$prevArrow.length ) {
 
             _.$prevArrow
-                .removeClass('slick-disabled c1_slick-arrow slick-hidden')
+                .removeClass('slick-disabled slick-arrow slick-hidden')
                 .removeAttr('aria-hidden aria-disabled tabindex')
                 .css('display','');
 
@@ -872,7 +872,7 @@
         if ( _.$nextArrow && _.$nextArrow.length ) {
 
             _.$nextArrow
-                .removeClass('slick-disabled c1_slick-arrow slick-hidden')
+                .removeClass('slick-disabled slick-arrow slick-hidden')
                 .removeAttr('aria-hidden aria-disabled tabindex')
                 .css('display','');
 
