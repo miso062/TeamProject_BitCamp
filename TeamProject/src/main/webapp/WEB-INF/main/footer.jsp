@@ -142,7 +142,7 @@ div > #service_type{
 .footer_corporation{
 	margin: 40px;
 }
-asdadasdsdsda
+
 </style>
 <div class="footer">
 <div class="banner_bottom md" data-v-d772dcbe="" data-v-2278857d="">
