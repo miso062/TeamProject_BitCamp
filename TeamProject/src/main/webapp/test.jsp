@@ -11,6 +11,9 @@
 <body>
     <h1 class="text-3xl font-bold underline bg-red-500">
         Hello world!
-      </h1>
+    </h1>
+    <button class="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring">
+        Save changes
+    </button>
 </body>
 </html>

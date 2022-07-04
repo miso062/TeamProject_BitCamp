@@ -6,23 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-/* 전체적CSS */
-body{
-    margin-top: 50px;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-body, button, input, select, table, textarea {
-    font-family: -apple-system,BlinkMacSystemFont,Roboto,AppleSDGothicNeo-Regular,NanumBarunGothic,NanumGothic,나눔고딕,Segoe UI,Helveica,Arial,Malgun Gothic,Dotum,sans-serif;
-    color: #222;
-}
-body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
-    margin: 0;
-    padding: 0;
-}
-div {
-    display: block;
-}
 #cd2_homeproducts{
 	margin-top: 50px;
     padding-top: 0;
@@ -150,18 +133,6 @@ div {
     right: 20px;
     padding: 5px;
     z-index: 1;
-}
-a {
-    color: inherit;
-    -webkit-tap-highlight-color: rgba(0,0,0,.1);
-}
-a, a:active, a:focus, a:hover {
-    text-decoration: none;
-}
-*, :after, :before {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
 }
 /* 더보기 */
 .cd2_product_list_wrap .cd2_btn_product {
