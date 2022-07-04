@@ -30,6 +30,7 @@
 						<input class="input_txt" type="password"  id= "password_input" autocomplete="off" >
 					</div>
 				</div>
+				<p class="input_error" id="pwd_error" >영문, 숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
 			</div>
 			<div class="login_btn_box">
 				<a disabled="disabled" href="#" class="login_btn_disabled">로그인</a>

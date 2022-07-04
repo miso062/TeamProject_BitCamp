@@ -1,6 +1,7 @@
 function oninputEmail(value){
 	console.log(value);
 	checkEmail(value);  // 1개의 글자이벤트를 받을때마다 checkEmail호출 
+	checkPwd(value);
 	
 }
 
