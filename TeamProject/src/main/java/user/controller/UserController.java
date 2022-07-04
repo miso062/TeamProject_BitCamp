@@ -18,6 +18,7 @@ public class UserController {
 	public String myPage(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
 		model.addAttribute("container", "/WEB-INF/user/myPageContainer.jsp");
+//		model.addAllAttributes("nav", "/WEB-INF/usre/myPageNav.jsp");
 		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
 		return "/user/myPage";
 	}
@@ -26,6 +27,7 @@ public class UserController {
 	public String myPageEdit(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
 		model.addAttribute("container", "/WEB-INF/user/myPageEditContainer.jsp");
+//		model.addAllAttributes("nav", "/WEB-INF/usre/myPageNav.jsp");
 		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
 		return "/user/myPage";
 	}
