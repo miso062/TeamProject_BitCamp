@@ -14,17 +14,16 @@
 /* 소제목 */
 .cd2_product_title{
 	padding: 40px 0px 0px 40px;
-	margin: 0 270px;
+	margin: 0 auto;
+	max-width: 1280px;
 }
 .cd2_product_title > .cd2_title{
-	padding: 0 40px;
 	font-size: 20px;
 	letter-spacing: -.1px;
 	font-weight: 700;
 	color: #000;
 }
 .cd2_product_title > .cd2_sub_title{
-	padding: 0 40px;
 	font-size: 14px;
 	letter-spacing: -.21px;
 	color: rgba(34, 34, 34, .5);
