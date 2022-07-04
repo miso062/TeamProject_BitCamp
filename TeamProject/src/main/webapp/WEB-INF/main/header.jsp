@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <style type="text/css">
+<link rel="stylesheet" href="./css/user/login.css">
+<style type="text/css">
 .h_header {
 	z-index: 1000;
 	position :fixed;
@@ -83,9 +84,7 @@ clear: both;
 .h_logo {
 margin-left : 20px;
 }
-.h_top , .h_top_inner {
-	weight:20px;
-}
+
 .h_header .h_main_inner {
     padding: 0 40px;
     height: 50px;
@@ -96,7 +95,11 @@ margin-left : 20px;
 }
 .h_h1 , .h_logo{
 display : inline;
-height: 50px;
+
+}
+.h_h1 {
+height: 30px;
+margin-top: 15px;
 }
 
 .h_gnb_area {
@@ -312,6 +315,10 @@ p {
 a, a:active, a:focus, a:hover {
     text-decoration: none;
 }
+a {
+    color: inherit;
+    -webkit-tap-highlight-color: rgba(0,0,0,.1);
+}
 .h_brand_img {
     width: 80px;
     height: 80px;
@@ -348,18 +355,41 @@ height:80px;
 }
 .h_layer_search {
 	z-index: 1000;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     height: 100%;
     background-color: rgba(34,34,34,.5);
-    overflow-y: auto;
+    overflow: hidden;
     display : none;
 }
 .h_layout_content {
 	background-color:#ffffff;
+}
+.h_gnb_area {
+    margin : 10px 0;
+}
+.content_login {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(7, 7, 7, 0.882);
+    overflow: hidden;
+    display : none;
+}
+.content_area0 {
+    background-color: #ffffff;
+    top: 50%;
+    left: 50%;
+    transform: translate(0, 20%);
+    max-width: 100%;
+    width: 500px;
+    margin: 0 auto;
 }
 </style>    
 <div class="h_header h_mo">
@@ -376,7 +406,7 @@ height:80px;
 					<a href="/TeamProject/user/myPage" class="h_top_link">마이페이지</a>
 				</li>
 				<li class="h_top_item">
-					<a href="/TeamProject/user/login" class="h_top_link">로그인</a>
+					<a id="h_login" class="h_top_link">로그인</a>
 				</li>
 			</ul>
 		</div>
@@ -384,8 +414,8 @@ height:80px;
 	<div class="h_header_main">
 		<div class="h_main_inner">
 			<h1 class="h_h1">
-				<a href="#" class="h_logo">
-					<img src="/TeamProject/img/kream.jpg" alt="kream로고" style="width:100px; height:30px;">
+				<a href="/TeamProject/" class="h_logo">
+					<img src="/TeamProject/img/kream.jpg" alt="kream로고" style="width:100px;">
 					</a>
 			</h1>
 		<div class="h_gnb_area">
@@ -401,9 +431,7 @@ height:80px;
 				
 			</nav>
 			<div class="h_search_btn_box">
-				<a href="#" class="h_btn_search">
-					<img src="/TeamProject/img/h1_search.JPG" class="h_searchBtn" alt="돋보기" style="width:21.6px; height:21.6px; margin-left:20px;">
-				</a>
+					<img src="/TeamProject/img/h1_search.JPG" class="h_searchBtn" alt="돋보기" style="width:21.6px; height:21.6px; margin-left:20px; cursor:pointer;">
 			</div>
 		</div>
 	
@@ -477,24 +505,93 @@ height:80px;
 	</div>
 </div>
 </div>
+<!-- 로그인 모달창-->
+<div class="content_login">
+    <div class="content_area0">
+        <div class="content_area">
+            <div class="logo_wrap">
+                <div class="kream_logo" ></div>
+            </div>
+            
+            <div class="input_box">
+                <h3 class="input_title" id="email_label" >이메일 주소</h3>
+                <div class="input_item">
+                    <div class="input_text">
+                        <input class="input_txt" type="text" id= "email_input" oninput="oninputEmail(this.value)" placeholder="예) kream@kream.co.kr">
+                    </div>
+                </div>
+                <p class="input_error" id="email_error" >이메일 주소를 정확히 입력해주세요.</p>
+            </div>
+            <div class="input_box">
+                <h3 class="input_title" id="pwd_label">비밀번호</h3>
+                <div class="input_item">
+                    <div class="input_text" >
+                        <input class="input_txt" type="password"  id= "password_input" autocomplete="off" >
+                    </div>
+                </div>
+            </div>
+            <div class="login_btn_box">
+                <a disabled="disabled" href="#" class="login_btn_disabled">로그인</a>
+            </div>
+            <ul class="look_box">
+                <li class="look_list">
+                    <a href="#" class="look_link">이메일 가입</a>
+                </li>
+                <li class="look_list">
+                    <a href="#" class="look_link">이메일 찾기</a>
+                </li>
+                <li class="look_list">
+                    <a href="#" class="look_link">비밀번호 찾기</a>
+                </li>
+            </ul>
+            <div class="social_login">
+                <button type="button" class="naver_btn">
+                    <img src="./img/naver_login_logo.png" class="logo_naver" width="16" height="16">
+                    네이버로 로그인
+                </button>
+                <button type="button" class="kakao_btn">
+                    <img src="./img/kakao_login_logo.png" class="logo_kakao" width="40" height="40">
+                    Kakao로 로그인
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="./js/user/login.js"></script>
 <script type="text/javascript">
-//돋보기 클릭시 모달창
+//돋보기 클릭시 검색 모달창
 $('.h_searchBtn').click(function(){
 	$('.h_layer_search').fadeIn();
+    $('body').css("overflow", "hidden");
 });
-//모달창 끄기
+//모달창 검색어 삭제 
 $('.h_btn_close').click(function(){
     $('.h_input_search').val('');
-})
+    
+})//모달창 검색창 끄기 
 $(document).on("click",function(e){
 	if($('.h_layer_search').is(e.target)) {
 		$('.h_layer_search').fadeOut();
         $('.h_input_search').val('');
+        $('body').css("overflow", "scroll");
         
 	}
 })
+
+$('#h_login').click(function(){
+	$('.content_login').fadeIn();
+    $('body').css("overflow", "hidden");
+});
+$(document).on("click",function(e){
+	if($('.content_login').is(e.target)) {
+		$('.content_login').fadeOut();
+        $('body').css("overflow", "scroll");
+        
+	}
+})
+
 //이미지 클릭시 검색차에 텍스트 담기  
 //submit은 미구현
 $('.h_brand_box').click(function(){
