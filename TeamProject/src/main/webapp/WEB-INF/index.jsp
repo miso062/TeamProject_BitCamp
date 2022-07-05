@@ -74,10 +74,11 @@
 		#container{
 		}
 		.index_top_div {
-		background-color : #ffffff;
-		border: 1px solid #CCCCCC;
-		text-align : center;
-		border-radius : 50%;
+			background-color : #ffffff;
+			/* border: 1px solid #CCCCCC; */
+			text-align : center;
+			border-radius : 50%;
+			box-shadow: 0px 1px 3px 3px #ccc;
 		}		
 	</style>
 </head>
@@ -94,7 +95,7 @@
 		<jsp:include page="${footer }"></jsp:include>
 	</div>
 	<div style="position:fixed; bottom:30px; right:30px; width:50px; height:50px;" class="index_top_div">
-		<img src="/TeamProject/img/up-arrow.png"  alt =" 화살표" id="index_top" style="width:24px; height:24px; margin-top:10px;">
+		<img src="/TeamProject/img/up-arrow.png" alt =" 화살표" id="index_top" style="width:24px; height:24px; margin-top:10px;">
 	</div>
   <script type="text/javascript">
   	$('#loginBtn').click(function(){
@@ -105,8 +106,8 @@
     });
     //맨 위로 버튼
     $(function(){
-    	window.scrollTo(0,0);
-    	$('#index_top').click(function(){
+    	window.scrollTo(0,0);	// 새로고침시 맨 위로
+    	$('.index_top_div').click(function(){
     		$('html, body').animate({scrollTop:0}, '300');
     	});
     }) 
