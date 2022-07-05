@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
 <style type="text/css">
 #cd2_homeproducts{
 	margin-top: 50px;
@@ -13,7 +9,7 @@
 }
 /* 소제목 */
 .cd2_product_title{
-	padding: 40px 0px 0px 40px;
+	/* padding: 40px 0px 0px 40px; */
 	margin: 0 auto;
 	max-width: 1280px;
 }
@@ -163,9 +159,14 @@
 	margin-top: 30px;
 	padding-top: 0;
 	padding-bottom: 0;
+	height: 300px;
+	background-color: rgb(43, 209, 140);
+	overflow: hidden;
+	text-align: center;
 }
 .cd2_img_box .cd2_banner_img {
-	width:100%;
+	height: 100%;
+	width: auto;
 	position: relative;
 }
 .cd2_img_box .cd2_banner_img:after {
@@ -178,7 +179,7 @@
     background: rgba(0,0,0,0);
 }
 </style>
-</head>
+
 <body>
  <!--섹션 1-->
 <div id="cd2_homeproducts">
@@ -653,4 +654,3 @@ $(function(){
 	});
 </script>
 </body>
-</html>

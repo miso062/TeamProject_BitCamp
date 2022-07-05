@@ -14,19 +14,23 @@ body {
 	margin-top: 50px;
 	padding-top: 0;
 	padding-bottom: 0;
+	/* height: 450px; */
 }
 
 #c3_style_title {
-	padding: 0 40px 20px;
+	/* padding: 0 40px 20px; */
 	font-size: 24px;
 	letter-spacing: -.12px;
 	font-weight: 700;
 	color: #000;
-	margin: 0 270px;
+    margin: 0 auto;
+    max-width: 1280px;
+	/* margin: 0 270px; */
 }
 
 #c3_brand_title {
-	padding: 0 40px;
+	max-width: 1280px;
+    text-align: left;
 	font-size: 20px;
 	letter-spacing: -.1px;
 	font-weight: 700;
@@ -34,10 +38,14 @@ body {
 }
 
 #c3_brand_sub_title {
-	padding: 0 40px;
+    text-align: left;
 	font-size: 14px;
 	letter-spacing: -.21px;
 	color: rgba(34, 34, 34, .5);
+}
+
+#c3_brand_title_area {
+	max-width: 1280px;
 }
 
 #c3_shorcut_items_wrap {
@@ -246,7 +254,7 @@ $(function() {
 </script>
 
 <div id="c3_social_style_slide">
-	<div id="c3_style_title">
+	<div id="c3_style_title" style="max-width: 1280px; text-align: left;">
 		<span>Style Picks!</span>
 	</div>
 	<div class="c3_slider-wrap">
@@ -386,7 +394,7 @@ $(function() {
 </div>
 
 <div id="c3_shortcut_collection">
-	<div id="c3_brand_title_area" style="margin: 0 270px;">
+	<div id="c3_brand_title_area" style="margin: 0 auto">
 		<div id="c3_brand_title">Brand Focus</div>
 		<div id="c3_brand_sub_title">모두가 좋아하는 브랜드</div>
 	</div>

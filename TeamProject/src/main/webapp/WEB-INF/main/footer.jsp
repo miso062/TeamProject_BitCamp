@@ -223,8 +223,6 @@ font-size:12px;
 			</dl>
 		</div>
 	</a>
-	<!---->
-	
 </div>
 		
 <div id="service_info">
@@ -233,146 +231,74 @@ font-size:12px;
 			<b>이용안내</b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 			<b>고객지원</b>
 			<div id="cs_center">
-			<strong>고객센터 1588-7813</strong><br><br>
-			<div id="cs_time1">운영시간 평일 11:00 - 18:00(토,일,공휴일 휴무)<br>
-			점심시간 평일 13:00 - 14:00</div><br>
-			<div id="cs_time2">1:1 문의하기는 앱에서만 가능합니다</div><br>
-			<a href="#" class="btn"><strong>자주 묻는 질문</strong></a>
-		</div>
-		</li>
-		
-		<br>
-		<div id="service_type">
-		<li >
-		<a href="">
-				검수기준&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
-				공지사항
-			</a>
-		</li>
-		<br>
-		
-		<li>
-		<a href="">
-				이용정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
-				서비스 소개
-			</a>
-		</li>
-		<br>
-		<li>
-		<a href="">
-				패널티 정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
-				쇼룸 안내
-			</a>
-		</li>
-		<br>
-		<li>
-		<a href="">
-				커뮤니티 가이드라인&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;
-				판매자 방문접수
-			</a>
-		</li>
-	</ul>
-	</div>
-	
-</div>
-
-
-		
-		<hr id="hr_line">
-		
-		<div class="footer_corporation">
-			<ul >
-				<li >
-					<a href="">
-						회사소개&nbsp;&nbsp;&nbsp;&nbsp;
-					</a>
-				</li>
-				
-				<li>
-					<a href="">
-						인재채용&nbsp;&nbsp;&nbsp;&nbsp;
-					</a>
-						
-				</li>
-				
-				<li>
-					<a href="">
-						제휴제안&nbsp;&nbsp;&nbsp;&nbsp;
-					</a>
-				</li>
-				
-				<li>
-					<a href="">
-						이용약관&nbsp;&nbsp;&nbsp;&nbsp;
-					</a>
-				</li>
-				
-				<li>
-					<a href="">
-						<b>개인정보처리방침</b>
-					</a>
-					
-				</li>
-				<br>
-				<br>
-				<div id="company_import">
-				크림 주식회사 · 대표김창욱&emsp;사업자등록번호:570-88-01618<a id="footer_btnBusiness" href="">사업자정보확인</a>&emsp;통신판매업:제 2021-성남분당C-0093호<br><br>
-				사업장소재지:경기도 성남시 분당구 분당내곡로 117, 8층&emsp;개인정보관리책임자:김미진&emsp;호스팅 서비스:네이버 클라우드 (주)<br><br><br>
-				<div id="exe">크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별 판매자가 등록한 상품저보에 대해서 책임을 지지 않<br>
-				습니다. 단, 거래과정에서 검수하고 보증하는 내용에 대한 책임은 당사에 있습니다</div>
-				</div>
-				<div id="sns_box">
-						<a href="#" id="instagram">
-							<img src="/TeamProject/img/footer/instagram.png">
-						</a>
-						<a href="#" id="kakao">
-							<img src="/TeamProject/img/footer/kakao.png">
-						</a>
-						<a href="#" id="facebook">
-							<img src="/TeamProject/img/footer/facebook.png">
-						</a>
-					</div>
-			</ul>
-			
-			<div class="footer_sns" data-v-2ea81d14="">
-				<div class="sns_box" data-v-2ea81d14="">
-					<a href="#" aria-label="인스타그램" class="sns" data-v-2ea81d14="">
-						<svg xmlns="http://www.w3.org/2000/svg"
-							class="ico-instagram icon sprite-icons" data-v-2ea81d14="">
-                                            <use
-								href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-instagram"
-								xlink:href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-instagram"
-								data-v-2ea81d14=""></use>
-                                        </svg>
-					</a> <a href="#" aria-label="페이스북" class="sns" data-v-2ea81d14="">
-						<svg xmlns="http://www.w3.org/2000/svg"
-							class="ico-facebook icon sprite-icons" data-v-2ea81d14="">
-                                            <use
-								href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-facebook"
-								xlink:href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-facebook"
-								data-v-2ea81d14=""></use>
-                                        </svg>
-					</a> <a href="#" aria-label="카카오톡" class="sns" data-v-2ea81d14="">
-						<svg xmlns="http://www.w3.org/2000/svg"
-							class="ico-talk icon sprite-icons" data-v-2ea81d14="">
-                                            <use
-								href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-talk"
-								xlink:href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-talk"
-								data-v-2ea81d14=""></use>
-                                        </svg>
-					</a>
-				</div>
-				
+				<strong>고객센터 1588-7813</strong><br><br>
+				<div id="cs_time1">
+					운영시간 평일 11:00 - 18:00(토,일,공휴일 휴무)<br>
+					점심시간 평일 13:00 - 14:00</div><br>
+				<div id="cs_time2">1:1 문의하기는 앱에서만 가능합니다</div><br>
+				<a href="#" class="btn"><strong>자주 묻는 질문</strong></a>
 			</div>
-			
+		</li><br>
+		
+		<div id="service_type">
+			<li ><a href="">검수기준&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;공지사항</a></li><br>
+			<li><a href="">이용정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;서비스 소개</a></li><br>
+			<li><a href="">패널티 정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;쇼룸 안내</a></li><br>
+			<li><a href="">커뮤니티 가이드라인&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;판매자 방문접수</a></li>
+	</ul>
+</div>
+
+<hr id="hr_line">
+<div class="footer_corporation">
+	<ul >
+		<li ><a href="">회사소개&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+		<li><a href="">인재채용&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+		<li><a href="">제휴제안&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+		<li><a href="">이용약관&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+		<li><a href=""><b>개인정보처리방침</b></a></li><br><br>
+		<div id="company_import">
+			크림 주식회사 · 대표김창욱&emsp;사업자등록번호:570-88-01618<a id="footer_btnBusiness" href="">사업자정보확인</a>&emsp;통신판매업:제 2021-성남분당C-0093호<br>
+			사업장소재지:경기도 성남시 분당구 분당내곡로 117, 8층&emsp;개인정보관리책임자:김미진&emsp;호스팅 서비스:네이버 클라우드 (주)<br><br>
+			<div id="exe">크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별 판매자가 등록한 상품저보에 대해서 책임을 지지 않<br>
+				습니다. 단, 거래과정에서 검수하고 보증하는 내용에 대한 책임은 당사에 있습니다</div>
+			</div>
+			<div id="sns_box">
+				<a href="#" id="instagram"><img src="/TeamProject/img/footer/instagram.png"></a>
+				<a href="#" id="kakao"><img src="/TeamProject/img/footer/kakao.png"></a>
+				<a href="#" id="facebook"><img src="/TeamProject/img/footer/facebook.png"></a>
+			</div>
+	</ul>
+	<div style="height: 50px;"></div>	
+	<!-- <div class="footer_sns" data-v-2ea81d14="">
+		<div class="sns_box" data-v-2ea81d14="">
+			<a href="#" aria-label="인스타그램" class="sns" data-v-2ea81d14="">
+				<svg xmlns="http://www.w3.org/2000/svg"
+					class="ico-instagram icon sprite-icons" data-v-2ea81d14="">
+                                          <use
+						href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-instagram"
+						xlink:href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-instagram"
+						data-v-2ea81d14=""></use>
+                                      </svg>
+			</a> <a href="#" aria-label="페이스북" class="sns" data-v-2ea81d14="">
+				<svg xmlns="http://www.w3.org/2000/svg"
+					class="ico-facebook icon sprite-icons" data-v-2ea81d14="">
+                                          <use
+						href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-facebook"
+						xlink:href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-facebook"
+						data-v-2ea81d14=""></use>
+                                      </svg>
+			</a> <a href="#" aria-label="카카오톡" class="sns" data-v-2ea81d14="">
+				<svg xmlns="http://www.w3.org/2000/svg"
+					class="ico-talk icon sprite-icons" data-v-2ea81d14="">
+                                          <use
+						href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-talk"
+						xlink:href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-talk"
+						data-v-2ea81d14=""></use>
+                                      </svg>
+			</a>
 		</div>
 		
 	</div>
-	<!---->
-	<!---->
-	<!---->
-	<!---->
-</div>
-</div>
+	 -->
 </div>
 </div>

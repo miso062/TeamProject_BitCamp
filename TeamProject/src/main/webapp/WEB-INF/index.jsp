@@ -66,6 +66,13 @@
 		    display: list-item;
 		    text-align: -webkit-match-parent;
 		}
+		#header{
+			width: 100%;
+			height: 6%;
+			margin: 0 auto;			
+		}
+		#container{
+		}
 	</style>
 </head>
 <body>
@@ -79,7 +86,7 @@
 		<div id="container2"><jsp:include page="${container2 }"></jsp:include></div>
 		<div id="container3"><jsp:include page="${container3 }"></jsp:include></div>
 	</div>
-	<div id="footer">
+	<div id="footer" style="margin-top: 5%">
 		<jsp:include page="${footer }"></jsp:include>
 	</div>
   <script type="text/javascript">

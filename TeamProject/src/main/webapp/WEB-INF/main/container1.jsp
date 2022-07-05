@@ -92,9 +92,11 @@ overflow: hidden;
 	width:100%;
 }
 .c1_banner1-1{
-	margin-right: 7%;
-	margin-left: 7%;
+	/* margin-right: 7%;
+	margin-left: 7%; */
 	display: flex;
+	max-width: 1280px;
+	margin: 0 auto;
 }
 .c1_banner1{
 	flex:1;
@@ -126,7 +128,7 @@ $(function(){
 </script>
 </head>
 <body topmargin="0"  leftmargin="0" marginwidth="0" marginheight="0">
-<div class="c1_slider-wrap">
+<div class="c1_slider-wrap" style="margin-bottom: 2%;">
     <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner1.jpg" alt=""></div>
     <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner2.jpg" alt=""></div>
     <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner3.jpg" alt=""></div>

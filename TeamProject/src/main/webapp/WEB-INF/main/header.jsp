@@ -353,9 +353,9 @@ height:80px;
     display: flex;
     padding: 25px 40px 19px;
 }
-.h_layer_search {
-	z-index: 1000;
-    position: fixed;
+.h_layer_search {  /* 모달창 */
+	  z-index: 1000;
+    position: absolute;
     top: 0;
     right: 0;
     left: 0;
