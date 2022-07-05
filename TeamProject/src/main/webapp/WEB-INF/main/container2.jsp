@@ -62,7 +62,7 @@
     border-radius: 8px;
 }
 .cd2_product_img {
-   display: flex;
+   	display: flex;
     position: absolute;
     top: 50%;
     left: 50%;
