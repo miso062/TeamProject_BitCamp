@@ -47,7 +47,7 @@
 				</li>
 			</ul>
 			<div class="social_login">
-				<a id="naverIdLogin_loginButton" href="javascript:void(0)" > <!-- GU6NNwfSmxJ3JXmCBaTf  -->
+				<a id="naverIdLogin_loginButton" href="javascript:void(0)"> <!-- GU6NNwfSmxJ3JXmCBaTf  -->
 					<img src="../img/miso.png" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
 				</a>	 
 			 	<a href="javascript:kakaoLogin();"> <!-- 144932b30082932e5eba55d918d38249 -->
@@ -61,8 +61,9 @@
     
 <script type="text/javascript" src="../js/user/login.js"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<script src=https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js charset="utf-8"></script>
+<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script>
+
 var naverLogin = new naver.LoginWithNaverId(
 		{
 			clientId: "GU6NNwfSmxJ3JXmCBaTf",  //내 애플리케이션 정보에 cliendId를 입력해줍니다.
@@ -93,6 +94,7 @@ window.addEventListener('load', function () {
 		
 	});
 });
+
 </script>
 </body>
 </body>
