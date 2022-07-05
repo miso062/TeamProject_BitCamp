@@ -1,4 +1,5 @@
-window.onload = function() {
+
+window.onload = function() { //카카오 로그인 api
 	window.Kakao.init('144932b30082932e5eba55d918d38249');
 }
 
@@ -20,7 +21,10 @@ function kakaoLogin() {
             console.log(error);
         }
     });
-}
+}//카카오 api
+
+
+
 
 var resultEmail = false; //defalt값이 틀렸을떄를 가정
 var resultPwd = false;
@@ -89,15 +93,28 @@ function checkPwd(value) { //비밀번호 유효성 검사
 
 const regEmail = document.querySelector('#input_email_txt');
 const regPwd = document.querySelector('#input_pwd_txt');
-//const loginBtn = document.querySelector('#login_btn_disabled');
+const loginBtn = document.querySelector('#login_btn_disabled');
 
 regEmail.addEventListener('keyup', listener);
 regPwd.addEventListener('keyup', listener);
-
+			
 function listener() { //로그인 활성화버튼 
     switch (!(regEmail.value && regPwd.value)) {
         case true: loginBtn.disabled = true; break;
         case false: loginBtn.disabled = false; break;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
