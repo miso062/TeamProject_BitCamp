@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 }
 
+
 input {
 	writing-mode: horizontal-tb !important;
     text-rendering: auto;    
@@ -71,35 +72,38 @@ li {
 	background-size: 250px 56px;
 	padding-bottom: 50px;
 }
-.input_box {
+.input_email_box, .input_pwd_box {
 	position: relative;
     padding: 10px 0 14px;
 }
-.input_title {
+.input_email_title, .input_pwd_title {
 	font-size: 13px;
     letter-spacing: -.07px;
     line-height: 18px;
     
 }
-.input_item {
+.input_email_item, input_pwd_item {
 	position: relative;
 }
-.input_text {
+.input_email_text, .input_pwd_text {
 	padding-right: 30px;
     height: 38px;
 }
-.input_txt {
+.input_email_txt, .input_pwd_txt {
 	padding: 8px 0;
-    width: 100%;
+    width: 400px;
     font-size: 15px;
     letter-spacing: -.15px;
     line-height: 22px;
     border: 0;
     border-bottom: 1px solid #ebebeb;
     padding-right: 30px;
+    height: 38px;
 }
-.input_txt:focus {
+.input_email_txt:focus, .input_pwd_txt:focus {
 	border-bottom: 2px solid #000000;
+	padding-right: 30px;
+    height: 38px;
 }
 
 .login_btn_box {
@@ -108,8 +112,25 @@ li {
     padding-top: 20px;
 }
 .login_btn_disabled {
+	border: none;
 	background-color: #ebebeb;
     color: #fff;
+    cursor: default;
+    font-weight: 600;
+    width: 100%;
+    font-size: 16px;
+    letter-spacing: -.16px;
+    height: 52px;
+    line-height: 50px;
+    border-radius: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+.login_btn {
+	border: none;
+	color: #fff;
+    background-color: #222;
     cursor: default;
     font-weight: 600;
     width: 100%;
@@ -186,7 +207,16 @@ li {
     top: 13px;
     left: 15px;
 }
-.input_error {
+.input_email_error {
+	display: none;
+    position: absolute;
+    line-height: 16px;
+    font-size: 11px;
+    color: #f15746;
+    margin: 0;
+    padding: 2px 0;
+}
+.input_pwd_error {
 	display: none;
     position: absolute;
     line-height: 16px;

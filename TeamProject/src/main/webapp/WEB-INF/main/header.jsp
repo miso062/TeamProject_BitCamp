@@ -417,7 +417,7 @@ height:80px;
     display: flex;
     padding: 25px 40px 19px;
 }
-.h_layer_search {
+.h_layer_search {  /* 모달창 */
     position: absolute;
     top: 0;
     right: 0;
