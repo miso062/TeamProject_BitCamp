@@ -31,13 +31,13 @@
 .banner_box1 {
 	background-color: #565656;
 	background-image: url("/TeamProject/img/footer/kream2.png");
-	background-position: 400px center;
+	background-position: right center;
 }
 
 .banner_box2 {
 	background-color: #3b3a3c;
 	background-image: url("/TeamProject/img/footer/kream1.png");
-	background-position: 440px center;
+	background-position: right center;
 }
 
 .banner_bottom .banner_info[data-v-d772dcbe] {
@@ -227,7 +227,6 @@ font-size:12px;
 		</div>
 	</a>
 	<!---->
-	<
 </div>
 		
 <div id="service_info">
