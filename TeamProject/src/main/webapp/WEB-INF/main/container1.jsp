@@ -1,10 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <style>
-.c1_slider-wrap{
+
+.slider-wrap{
 }
-.slick-arrow{
+.c1_slick-arrow{
 position: absolute; top:50%; transform:translateY(-50%);
 width: 64px; height:64px;
 color:#fff;
@@ -13,14 +19,17 @@ text-indent: -9999px;
 overflow: hidden;
 
 }
-.c1_slick-prev{z-index:100;left:1%;
+.c1_slick-prev{
+	z-index:100;
+	left:1%;
 	background: url(/TeamProject/img/container1/c1_prev.png) no-repeat 0 0;
 }
-.c1_slick-next{right:1%;
+.c1_slick-next{
+	right:1%;
 	background: url(/TeamProject/img/container1/c1_next.png) no-repeat 0 0;
 }
 .slick-dots {
-  bottom: 10px;
+  bottom: 2%;
   left: 50%; 
   transform:translateX(-50%);
   list-style: none;
@@ -77,17 +86,19 @@ overflow: hidden;
 </style>
 <style type="text/css">
 .c1_bannerimg1{
-	border-radius: 16px;
+	border-radius: 8px;
 	width:100%;
 }
 .c1_banner1-1{
-	margin-right: 10%;
-	margin-left: 10%;
+	/* margin-right: 7%;
+	margin-left: 7%; */
 	display: flex;
+	max-width: 1280px;
+	margin: 0 auto;
 }
 .c1_banner1{
 	flex:1;
-	margin:1%;
+	margin:0.7%;
 	width: 20%;
 }
 .c1_text{
@@ -95,8 +106,7 @@ overflow: hidden;
 }
 </style>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$.noConflict();
@@ -107,13 +117,15 @@ $(function(){
 		  fade: true,
 		  cssEase: 'linear',
 		  autoplay: true,
+		  prevArrow : "<button class='c1_slick-prev c1_slick-arrow'></button>",
+		  nextArrow : "<button class='c1_slick-next c1_slick-arrow'></button>",
 		  autoplaySpeed: 2000
 	});
 });
 </script>
-
+</head>
 <body topmargin="0"  leftmargin="0" marginwidth="0" marginheight="0">
-<div class="c1_slider-wrap">
+<div class="c1_slider-wrap" style="margin-bottom: 2%;">
     <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner1.jpg" alt=""></div>
     <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner2.jpg" alt=""></div>
     <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner3.jpg" alt=""></div>
@@ -173,3 +185,4 @@ $(function(){
 </div>
 
 </body>
+</html>
