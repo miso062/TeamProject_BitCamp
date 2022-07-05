@@ -1,28 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
 <style type="text/css">
-/* 전체적CSS */
-body{
-    margin-top: 50px;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-body, button, input, select, table, textarea {
-    font-family: -apple-system,BlinkMacSystemFont,Roboto,AppleSDGothicNeo-Regular,NanumBarunGothic,NanumGothic,나눔고딕,Segoe UI,Helveica,Arial,Malgun Gothic,Dotum,sans-serif;
-    color: #222;
-}
-body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
-    margin: 0;
-    padding: 0;
-}
-div {
-    display: block;
-}
 #cd2_homeproducts{
 	margin-top: 50px;
     padding-top: 0;
@@ -30,25 +9,26 @@ div {
 }
 /* 소제목 */
 .cd2_product_title{
-	padding: 40px 0px 0px 40px;
-	margin: 0 270px;
+	/* padding: 40px 0px 0px 40px; */
+	margin: 0 auto;
+	max-width: 1280px;
 }
 .cd2_product_title > .cd2_title{
-   font-size: 18px;
-   letter-spacing: -.1px;
-   font-weight: 700;
-   color: #000;
+	font-size: 20px;
+	letter-spacing: -.1px;
+	font-weight: 700;
+	color: #000;
 }
 .cd2_product_title > .cd2_sub_title{
-   font-size: 14px;
-   letter-spacing: -.21px;
-   color: rgba(34,34,34,.5);
+	font-size: 14px;
+	letter-spacing: -.21px;
+	color: rgba(34, 34, 34, .5);
 }
 /* 상품나열 */
 .cd2_product_list_wrap{
-    margin: 0 270px;
+    margin: 0 auto;
     white-space: nowrap;
-    padding: 0 28px;
+    max-width: 1280px;
 }
 .cd2_product_list_wrap > .cd2_list_first{
     overflow: hidden;
@@ -151,18 +131,6 @@ div {
     padding: 5px;
     z-index: 1;
 }
-a {
-    color: inherit;
-    -webkit-tap-highlight-color: rgba(0,0,0,.1);
-}
-a, a:active, a:focus, a:hover {
-    text-decoration: none;
-}
-*, :after, :before {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-}
 /* 더보기 */
 .cd2_product_list_wrap .cd2_btn_product {
 	display:block;
@@ -191,9 +159,14 @@ a, a:active, a:focus, a:hover {
 	margin-top: 30px;
 	padding-top: 0;
 	padding-bottom: 0;
+	height: 300px;
+	background-color: rgb(43, 209, 140);
+	overflow: hidden;
+	text-align: center;
 }
 .cd2_img_box .cd2_banner_img {
-	width:100%;
+	height: 100%;
+	width: auto;
 	position: relative;
 }
 .cd2_img_box .cd2_banner_img:after {
@@ -206,7 +179,7 @@ a, a:active, a:focus, a:hover {
     background: rgba(0,0,0,0);
 }
 </style>
-</head>
+
 <body>
  <!--섹션 1-->
 <div id="cd2_homeproducts">
@@ -681,4 +654,3 @@ $(function(){
 	});
 </script>
 </body>
-</html>

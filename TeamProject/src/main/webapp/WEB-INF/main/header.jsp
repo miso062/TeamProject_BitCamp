@@ -1,81 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <style type="text/css">
+<link rel="stylesheet" href="./css/user/login.css">
+<style type="text/css">
 .h_header {
-position :fixed;
-top : 0;
-left : 0;
-right : 0;
-background-color : #ffffff;
+	z-index: 1000;
+	position :fixed;
+	top : 0;
+	left : 0;
+	right : 0;
+	background-color : #ffffff;
 }
 .h_header .h_top_inner {
-padding : 8px 40px;
-display : flex;
+	padding : 8px 40px;
+	display : flex;
+}
+.h_main_inner {
+    border-top : 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
 }
 .h_header .h_top_list {
-align-items : center;
-margin-left : auto;
-}
-body, button, dd, div, dl, dt,
-fieldset, figcaption, figure, form,
- h1, h2, h3, h4, h5, h6, 
-input, legend, li, ol, p, select,
- table, td, textarea, th, ul {
- margin : 0;
- padding : 0;
- }
-body,
-html {
-    height: 100%;
-    -ms-text-size-adjust: none;
-    -moz-text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-}
-a, a:active, a:focus, a:hover {
-    text-decoration: none;
+	align-items : center;
+	margin-left : auto;
 }
 .h_header .h_top_link{
     display: flex;
     align-items: center;
     font-size: 12px;
     color: rgba(34,34,34,.8);
-}
-li, ol, ul {
- list-style-position: initial;
-    list-style-image: initial;
-    list-style-type: none;
-}
-ul {
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-}
-body,
-button,
-input,
-select,
-table,
-textarea {
-    font-family: -apple-system, BlinkMacSystemFont, Roboto, AppleSDGothicNeo-Regular, NanumBarunGothic, NanumGothic, 나눔고딕, Segoe UI, Helveica, Arial, Malgun Gothic, Dotum, sans-serif;
-    color: #222;
-}
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-body, html {
-    height: 100%;
-    touch-action: manipulation;
-}
-*, :after, :before {
-    
-    box-sizing: border-box;
-   
 }
 .h_top_item {
 float : left;
@@ -90,15 +41,7 @@ margin-left : 10px;
     letter-spacing: -.06px;
     color: rgba(34,34,34,.8);
 }
-a {
-    -webkit-tap-highlight-color: rgba(0,0,0,.1);
-}
-a:-webkit-any-link {
-    cursor: pointer;
-}
-li {
-    text-align: -webkit-match-parent;
-}
+
 h1 {
     display: block;
     font-size: 2em;
@@ -136,12 +79,11 @@ clear: both;
 }
 
 
+
 .h_logo {
 margin-left : 20px;
 }
-.h_top , .h_top_inner {
-	weight:20px;
-}
+
 .h_header .h_main_inner {
     padding: 0 40px;
     height: 50px;
@@ -150,8 +92,13 @@ margin-left : 20px;
     -ms-flex-align: center;
     align-items: center;
 }
-.h_h1{
+.h_h1 , .h_logo{
 display : inline;
+
+}
+.h_h1 {
+height: 30px;
+margin-top: 15px;
 }
 
 .h_gnb_area {
@@ -234,8 +181,8 @@ input.h_show_placeholder_on_focus:focus::placeholder {
     font-size: 15px;
 }
 .h_layer_search .h_search_container,
-.h_layer_search .h_search_content_wrap,
-    background-color: #fff;
+.h_layer_search .h_search_content_wrap {
+    background-color : #ffffff;
 }
 .h_search_wrap {
     display: -webkit-box;
@@ -258,15 +205,6 @@ input.h_show_placeholder_on_focus:focus::placeholder {
 button {
     appearance: auto;
     writing-mode: horizontal-tb !important;
-    font-style: ;
-    font-variant-ligatures: ;
-    font-variant-caps: ;
-    font-variant-numeric: ;
-    font-variant-east-asian: ;
-    font-weight: ;
-    font-stretch: ;
-    font-size: ;
-    font-family: ;
     text-rendering: auto;
     color: buttontext;
     letter-spacing: normal;
@@ -307,13 +245,6 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
 }
 input {
     writing-mode: horizontal-tb !important;
-    font-style: ;
-    font-variant-ligatures: ;
-    font-variant-caps: ;
-    font-variant-numeric: ;
-    font-variant-east-asian: ;
-    font-weight: ;
-    font-stretch: ;
     text-rendering: auto;
     word-spacing: normal;
     line-height: normal;
@@ -383,6 +314,10 @@ p {
 a, a:active, a:focus, a:hover {
     text-decoration: none;
 }
+a {
+    color: inherit;
+    -webkit-tap-highlight-color: rgba(0,0,0,.1);
+}
 .h_brand_img {
     width: 80px;
     height: 80px;
@@ -417,7 +352,8 @@ height:80px;
     display: flex;
     padding: 25px 40px 19px;
 }
-.h_layer_search {
+.h_layer_search {  /* 모달창 */
+	  z-index: 1000;
     position: absolute;
     top: 0;
     right: 0;
@@ -425,11 +361,34 @@ height:80px;
     bottom: 0;
     height: 100%;
     background-color: rgba(34,34,34,.5);
-    overflow-y: auto;
+    overflow: hidden;
     display : none;
 }
 .h_layout_content {
 	background-color:#ffffff;
+}
+.h_gnb_area {
+    margin : 10px 0;
+}
+.content_login {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(7, 7, 7, 0.882);
+    overflow: hidden;
+    display : none;
+}
+.content_area0 {
+    background-color: #ffffff;
+    top: 50%;
+    left: 50%;
+    transform: translate(0, 20%);
+    max-width: 100%;
+    width: 500px;
+    margin: 0 auto;
 }
 </style>    
 <div class="h_header h_mo">
@@ -437,26 +396,25 @@ height:80px;
 		<div class="h_top_inner" >
 			<ul class="h_top_list">
 				<li class="h_top_item">
-					<a href="#" class="h_top_link">고객센터</a>
+					<a href="/TeamProject/notice" class="h_top_link">고객센터</a>
 				</li>
 				<li class="h_top_item">
 					<a href="#" class="h_top_link">관심상품</a>
 				</li>
 				<li class="h_top_item">
-					<a href="#" class="h_top_link">마이페이지</a>
+					<a href="/TeamProject/user/myPage" class="h_top_link">마이페이지</a>
 				</li>
 				<li class="h_top_item">
-					<a href="#" class="h_top_link">로그인</a>
+					<a id="h_login" class="h_top_link">로그인</a>
 				</li>
 			</ul>
 		</div>
 	</div>
-	<hr>
 	<div class="h_header_main">
 		<div class="h_main_inner">
 			<h1 class="h_h1">
-				<a href="#" class="h_logo">
-					<img src="/TeamProject/img/kream.jpg" alt="kream로고" style="width:100px; height:30px;">
+				<a href="/TeamProject/" class="h_logo">
+					<img src="/TeamProject/img/kream.jpg" alt="kream로고" style="width:100px;">
 					</a>
 			</h1>
 		<div class="h_gnb_area">
@@ -466,15 +424,13 @@ height:80px;
 						<a href="#"  class="gnb_link">STYLE</a>
 					</li>
 					<li class="h_gnb_item">
-						<a href="#"  class="gnb_link">SHOP</a>
+						<a href="/TeamProject/shop/"  class="gnb_link">SHOP</a>
 					</li>
 				</ul>
 				
 			</nav>
 			<div class="h_search_btn_box">
-				<a href="#" class="h_btn_search">
-					<img src="/TeamProject/img/h1_search.JPG" class="h_searchBtn" alt="돋보기" style="width:21.6px; height:21.6px; margin-left:20px;">
-				</a>
+					<img src="/TeamProject/img/h1_search.JPG" class="h_searchBtn" alt="돋보기" style="width:21.6px; height:21.6px; margin-left:20px; cursor:pointer;">
 			</div>
 		</div>
 	
@@ -548,22 +504,93 @@ height:80px;
 	</div>
 </div>
 </div>
+<!-- 로그인 모달창-->
+<div class="content_login">
+    <div class="content_area0">
+        <div class="content_area">
+            <div class="logo_wrap">
+                <div class="kream_logo" ></div>
+            </div>
+            
+            <div class="input_box">
+                <h3 class="input_title" id="email_label" >이메일 주소</h3>
+                <div class="input_item">
+                    <div class="input_text">
+                        <input class="input_txt" type="text" id= "email_input" oninput="oninputEmail(this.value)" placeholder="예) kream@kream.co.kr">
+                    </div>
+                </div>
+                <p class="input_error" id="email_error" >이메일 주소를 정확히 입력해주세요.</p>
+            </div>
+            <div class="input_box">
+                <h3 class="input_title" id="pwd_label">비밀번호</h3>
+                <div class="input_item">
+                    <div class="input_text" >
+                        <input class="input_txt" type="password"  id= "password_input" autocomplete="off" >
+                    </div>
+                </div>
+            </div>
+            <div class="login_btn_box">
+                <a disabled="disabled" href="#" class="login_btn_disabled">로그인</a>
+            </div>
+            <ul class="look_box">
+                <li class="look_list">
+                    <a href="#" class="look_link">이메일 가입</a>
+                </li>
+                <li class="look_list">
+                    <a href="#" class="look_link">이메일 찾기</a>
+                </li>
+                <li class="look_list">
+                    <a href="#" class="look_link">비밀번호 찾기</a>
+                </li>
+            </ul>
+            <div class="social_login">
+                <button type="button" class="naver_btn">
+                    <img src="./img/naver_login_logo.png" class="logo_naver" width="16" height="16">
+                    네이버로 로그인
+                </button>
+                <button type="button" class="kakao_btn">
+                    <img src="./img/kakao_login_logo.png" class="logo_kakao" width="40" height="40">
+                    Kakao로 로그인
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="./js/user/login.js"></script>
 <script type="text/javascript">
-//돋보기 클릭시 모달창
+//돋보기 클릭시 검색 모달창
 $('.h_searchBtn').click(function(){
 	$('.h_layer_search').fadeIn();
+    $('body').css("overflow", "hidden");
 });
-//모달창 끄기
+//모달창 검색어 삭제 
 $('.h_btn_close').click(function(){
-	$('.h_layer_search').fadeOut();
-})
+    $('.h_input_search').val('');
+    
+})//모달창 검색창 끄기 
 $(document).on("click",function(e){
 	if($('.h_layer_search').is(e.target)) {
 		$('.h_layer_search').fadeOut();
+        $('.h_input_search').val('');
+        $('body').css("overflow", "scroll");
+        
 	}
 })
+
+$('#h_login').click(function(){
+	$('.content_login').fadeIn();
+    $('body').css("overflow", "hidden");
+});
+$(document).on("click",function(e){
+	if($('.content_login').is(e.target)) {
+		$('.content_login').fadeOut();
+        $('body').css("overflow", "scroll");
+        
+	}
+})
+
 //이미지 클릭시 검색차에 텍스트 담기  
 //submit은 미구현
 $('.h_brand_box').click(function(){
@@ -575,5 +602,16 @@ $(document).on('keyup','.h_input_search' ,function(key){
 		alert("가자")
 	}
 })
-//푸시  
+// 스크롤 최상단일 때 .h_main_inner css 지우기
+$(function(){
+	let scrollLocation = $(window).scrollTop;
+	if(scrollLocation ==0) {
+		$('.h_main_inner').css("border-bottom","none");
+	}
+	
+	if(scrollLocation !=0) {
+		
+		$('.h_main_inner').css("border","1px 0 solid #e0e0e0");
+	}
+})
 </script>
