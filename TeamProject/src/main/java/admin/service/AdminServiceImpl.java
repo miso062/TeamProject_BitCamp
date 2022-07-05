@@ -7,10 +7,5 @@ import admin.dao.AdminDAO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-	@Autowired
-	AdminDAO adminDAO;
 
-	public void test() {
-		adminDAO.test();
-	}
 }

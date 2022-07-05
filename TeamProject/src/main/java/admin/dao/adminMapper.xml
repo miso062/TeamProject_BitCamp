@@ -4,8 +4,5 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="adminSQL">
-	<insert id="test">
-		INSERT INTO notice
-			values(1, 'test', 'test', 'test', sysdate)
-	</insert>
+	
 </mapper>

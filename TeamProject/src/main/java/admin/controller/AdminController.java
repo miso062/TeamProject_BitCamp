@@ -14,11 +14,5 @@ public class AdminController {
 	
 	@Autowired
 	AdminService adminService;
-	
-	@GetMapping(value="test")
-	public String test() {
-		adminService.test();
-		return "/admin/test";
-	}
 
 }
