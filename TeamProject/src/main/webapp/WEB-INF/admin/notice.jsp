@@ -3,8 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		#header{
+			width: 100%;
+			height: 6%;
+			margin: 0 auto;			
+		}
+	</style>
 </head>
 <body>
 	<div id="header">
