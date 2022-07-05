@@ -603,5 +603,16 @@ $(document).on('keyup','.h_input_search' ,function(key){
 		alert("가자")
 	}
 })
-//푸시  
+// 스크롤 최상단일 때 .h_main_inner css 지우기
+$(function(){
+	let scrollLocation = $(window).scrollTop;
+	if(scrollLocation ==0) {
+		$('.h_main_inner').css("border-bottom","none");
+	}
+	
+	if(scrollLocation !=0) {
+		
+		$('.h_main_inner').css("border","1px 0 solid #e0e0e0");
+	}
+})
 </script>
