@@ -120,7 +120,7 @@ li {
     width: 100%;
     font-size: 16px;
     letter-spacing: -.16px;
-    height: 52px;
+    height: 60px;
     line-height: 50px;
     border-radius: 12px;
     display: inline-block;
@@ -194,8 +194,8 @@ li {
 }
 .logo_naver {
 	position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 400px;
+    height: 60px;
     top: 17px;
     left: 19px;
 }
