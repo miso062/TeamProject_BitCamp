@@ -30,13 +30,14 @@
  
 .banner_box1 {
 	background-color: #565656;
-	background-image: url("/TeamProject/img/footer/kream2.png")
+	background-image: url("/TeamProject/img/footer/kream2.png");
+	background-position: 400px center;
 }
 
 .banner_box2 {
 	background-color: #3b3a3c;
 	background-image: url("/TeamProject/img/footer/kream1.png");
-	background-position: 400px center;
+	background-position: 440px center;
 }
 
 .banner_bottom .banner_info[data-v-d772dcbe] {
@@ -106,8 +107,8 @@ div > ul > li > a{
 }
 #hr_line{
 	align:center;
-	position: relative;
-	width: 1500px
+	position: flex;
+	width: 1519px
 }
 #company_import{
 	font-size: 14px;
@@ -195,6 +196,9 @@ font-size:12px;
 	left: 1360px;
 	bottom:155px;
 } 
+.banner_box1 .banner_box2{
+	
+}
 
 </style>
 <div class="footer">
