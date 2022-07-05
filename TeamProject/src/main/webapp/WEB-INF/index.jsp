@@ -73,6 +73,12 @@
 		}
 		#container{
 		}
+		.index_top_div {
+		background-color : #ffffff;
+		border: 1px solid #CCCCCC;
+		text-align : center;
+		border-radius : 50%;
+		}		
 	</style>
 </head>
 <body>
@@ -87,6 +93,9 @@
 	<div id="footer" style="margin-top: 5%">
 		<jsp:include page="${footer }"></jsp:include>
 	</div>
+	<div style="position:fixed; bottom:30px; right:30px; width:50px; height:50px;" class="index_top_div">
+		<img src="/TeamProject/img/up-arrow.png"  alt =" 화살표" id="index_top" style="width:24px; height:24px; margin-top:10px;">
+	</div>
   <script type="text/javascript">
   	$('#loginBtn').click(function(){
   		location.href="/TeamProject/user/login";
@@ -94,6 +103,23 @@
     $('#noticeBtn').click(function(){
       location.href="/TeamProject/notice"
     });
+    //맨 위로 버튼
+    $(function(){
+    	window.scrollTo(0,0);
+    	$('#index_top').click(function(){
+    		$('html, body').animate({scrollTop:0}, '300');
+    	});
+    }) 
+    $('.index_top_div').hide();
+    $(window).scroll(function() {
+	    // top button controll
+	    if ($(this).scrollTop() > 200) {
+	        $('.index_top_div').fadeIn();
+	    } else {
+	        $('.index_top_div').fadeOut();
+	    }
+	});
+    
   </script>
 </body>
 
