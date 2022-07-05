@@ -14,19 +14,23 @@ body {
 	margin-top: 50px;
 	padding-top: 0;
 	padding-bottom: 0;
+	/* height: 450px; */
 }
 
 #c3_style_title {
-	padding: 0 40px 20px;
+	/* padding: 0 40px 20px; */
 	font-size: 24px;
 	letter-spacing: -.12px;
 	font-weight: 700;
 	color: #000;
-	margin: 0 270px;
+    margin: 0 auto;
+    max-width: 1280px;
+	/* margin: 0 270px; */
 }
 
 #c3_brand_title {
-	padding: 0 40px;
+	max-width: 1280px;
+    text-align: left;
 	font-size: 20px;
 	letter-spacing: -.1px;
 	font-weight: 700;
@@ -34,10 +38,14 @@ body {
 }
 
 #c3_brand_sub_title {
-	padding: 0 40px;
+    text-align: left;
 	font-size: 14px;
 	letter-spacing: -.21px;
 	color: rgba(34, 34, 34, .5);
+}
+
+#c3_brand_title_area {
+	max-width: 1280px;
 }
 
 #c3_shorcut_items_wrap {
@@ -207,63 +215,46 @@ body {
     color: #fff;
     z-index: 10;
 }
-.c3_slick-arrow {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: rgb(3, 3, 3);
-    color: #fff;
-    border: none;
-    cursor: pointer;
+.slick-arrow{
+position: absolute; 
+top:45%;
+	color: #fff;
+	text-indent: -9999px;
+	overflow: hidden;
+	border: none;
 }
-.c3_slick-prev {
-	left: 5%;
-	z-index: 100;
-	background: url("/TeamProject/img/container3/left-arrow.png") no-repeat 0 0;
-}
-.c3_slick-next {
-	right: 5%;
-	background: url("/TeamProject/img/container3/right-arrow.png") no-repeat 0 0;
-}
+.slick-prev{z-index:100; right:97%; width: 48px; height:48px; background:url(/TeamProject/img/container3/prev3.png) no-repeat 0 0;}
+.slick-next{width: 48px; right:-1%; height:48px; background:url(/TeamProject/img/container3/next3.png) no-repeat 0 0;}
 </style>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">
-	$(function() {
-		/* $.noConflict(); */
-		$('.c3_slider-wrap')
-			.slick(
-				{
-					slide : 'div', //슬라이드 되어야 할 태그
-					infinite : false, //무한 반복 옵션     
-					slidesToShow : 6, // 한 화면에 보여질 컨텐츠 개수
-					slidesToScroll : 1, //스크롤 한번에 움직일 컨텐츠 개수
-					speed : 500, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
-					prevArrow : "<button class='c3_slick-prev c3_slick-arrow'></button>",
-					nextArrow : "<button class='c3_slick-next c3_slick-arrow'></button>",
-					draggable : true, //드래그 가능 여부 
-					responsive : [ // 반응형 웹 구현 옵션
-					{
-						breakpoint : 960, //화면 사이즈 960px
-						settings : {
-							slidesToShow : 4
-						}
-					}, {
-						breakpoint : 768, //화면 사이즈 768px
-						settings : {
-							slidesToShow : 5
-						}
-					} ]
+$(function() {
 	
-				});
-	})
+	$('.c3_slider-wrap').slick({
+		slide : 'div', //슬라이드 되어야 할 태그
+		infinite : false, //무한 반복 옵션     
+		slidesToShow : 6, // 한 화면에 보여질 컨텐츠 개수
+		slidesToScroll : 1, //스크롤 한번에 움직일 컨텐츠 개수
+		speed : 500, // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
+		draggable : true, //드래그 가능 여부 
+		responsive : [ // 반응형 웹 구현 옵션
+		{
+			breakpoint : 960, //화면 사이즈 960px
+			settings : {
+				slidesToShow : 4
+			}
+		}, {
+			breakpoint : 768, //화면 사이즈 768px
+			settings : {
+				slidesToShow : 5
+			}
+		} ]
+		});
+})
 </script>
 
 <div id="c3_social_style_slide">
-	<div id="c3_style_title">
+	<div id="c3_style_title" style="max-width: 1280px; text-align: left;">
 		<span>Style Picks!</span>
 	</div>
 	<div class="c3_slider-wrap">
@@ -403,7 +394,7 @@ body {
 </div>
 
 <div id="c3_shortcut_collection">
-	<div id="c3_brand_title_area" style="margin: 0 270px;">
+	<div id="c3_brand_title_area" style="margin: 0 auto">
 		<div id="c3_brand_title">Brand Focus</div>
 		<div id="c3_brand_sub_title">모두가 좋아하는 브랜드</div>
 	</div>
