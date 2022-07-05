@@ -30,13 +30,14 @@
  
 .banner_box1 {
 	background-color: #565656;
-	background-image: url("/TeamProject/img/footer/kream2.png")
+	background-image: url("/TeamProject/img/footer/kream2.png");
+	background-position: right center;
 }
 
 .banner_box2 {
 	background-color: #3b3a3c;
 	background-image: url("/TeamProject/img/footer/kream1.png");
-	background-position: 400px center;
+	background-position: right center;
 }
 
 .banner_bottom .banner_info[data-v-d772dcbe] {
@@ -107,7 +108,7 @@ div > ul > li > a{
 #hr_line{
 	align:center;
 	position: relative;
-	width: 1500px
+	width: 100%;
 }
 #company_import{
 	font-size: 14px;
@@ -178,21 +179,21 @@ font-size:13px;
 font-size:12px;
 }
  #instagram{
-	float: left;
+	float: right;
 	position: relative;
-	left: 1310px;
+	right: 40px;
 	bottom:155px;
 }
 #kakao{
-	float: left;
+	float: right;
 	position: relative;
-	left: 1335px;
+	right: 55px;
 	bottom:155px;
 }
 #facebook{
-	float: left;
+	float: right;
 	position: relative;
-	left: 1360px;
+	right: 70px;
 	bottom:155px;
 } 
 
@@ -223,7 +224,7 @@ font-size:12px;
 		</div>
 	</a>
 	<!---->
-	<
+	
 </div>
 		
 <div id="service_info">
