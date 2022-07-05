@@ -42,7 +42,6 @@ margin-left : 10px;
     color: rgba(34,34,34,.8);
 }
 
-
 h1 {
     display: block;
     font-size: 2em;

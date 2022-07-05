@@ -81,7 +81,6 @@ overflow: hidden;
   color: #ffffff;
 }
 #c1_bannerimg{
-	margin-top: 3%;
 	width: 100%;
 	height: auto;
 }
@@ -92,8 +91,6 @@ overflow: hidden;
 	width:100%;
 }
 .c1_banner1-1{
-	/* margin-right: 7%;
-	margin-left: 7%; */
 	display: flex;
 	max-width: 1280px;
 	margin: 0 auto;
