@@ -30,13 +30,14 @@
  
 .banner_box1 {
 	background-color: #565656;
-	background-image: url("/TeamProject/img/footer/kream2.png")
+	background-image: url("/TeamProject/img/footer/kream2.png");
+	background-position: right center;
 }
 
 .banner_box2 {
 	background-color: #3b3a3c;
 	background-image: url("/TeamProject/img/footer/kream1.png");
-	background-position: 400px center;
+	background-position: right center;
 }
 
 .banner_bottom .banner_info[data-v-d772dcbe] {
@@ -108,7 +109,6 @@ div > ul > li > a{
 	align:center;
 	position: relative;
 	width: 95%;
-	color: lightgray;
 }
 #company_import{
 	font-size: 14px;
@@ -179,21 +179,21 @@ font-size:13px;
 font-size:12px;
 }
  #instagram{
-	float: left;
+	float: right;
 	position: relative;
-	left: 1310px;
+	right: 40px;
 	bottom:155px;
 }
 #kakao{
-	float: left;
+	float: right;
 	position: relative;
-	left: 1335px;
+	right: 55px;
 	bottom:155px;
 }
 #facebook{
-	float: left;
+	float: right;
 	position: relative;
-	left: 1360px;
+	right: 70px;
 	bottom:155px;
 } 
 
@@ -269,36 +269,5 @@ font-size:12px;
 			</div>
 	</ul>
 	<div style="height: 50px;"></div>	
-	<!-- <div class="footer_sns" data-v-2ea81d14="">
-		<div class="sns_box" data-v-2ea81d14="">
-			<a href="#" aria-label="인스타그램" class="sns" data-v-2ea81d14="">
-				<svg xmlns="http://www.w3.org/2000/svg"
-					class="ico-instagram icon sprite-icons" data-v-2ea81d14="">
-                                          <use
-						href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-instagram"
-						xlink:href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-instagram"
-						data-v-2ea81d14=""></use>
-                                      </svg>
-			</a> <a href="#" aria-label="페이스북" class="sns" data-v-2ea81d14="">
-				<svg xmlns="http://www.w3.org/2000/svg"
-					class="ico-facebook icon sprite-icons" data-v-2ea81d14="">
-                                          <use
-						href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-facebook"
-						xlink:href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-facebook"
-						data-v-2ea81d14=""></use>
-                                      </svg>
-			</a> <a href="#" aria-label="카카오톡" class="sns" data-v-2ea81d14="">
-				<svg xmlns="http://www.w3.org/2000/svg"
-					class="ico-talk icon sprite-icons" data-v-2ea81d14="">
-                                          <use
-						href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-talk"
-						xlink:href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-talk"
-						data-v-2ea81d14=""></use>
-                                      </svg>
-			</a>
-		</div>
-		
-	</div>
-	 -->
 </div>
 </div>

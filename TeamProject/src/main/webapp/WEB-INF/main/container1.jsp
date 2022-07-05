@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <style>
 
-.slider-wrap{
+.c1_slider-wrap{
 }
 .c1_slick-arrow{
 position: absolute; top:50%; transform:translateY(-50%);
@@ -82,6 +82,7 @@ overflow: hidden;
 }
 #c1_bannerimg{
 	width: 100%;
+	height: auto;
 }
 </style>
 <style type="text/css">
@@ -90,8 +91,6 @@ overflow: hidden;
 	width:100%;
 }
 .c1_banner1-1{
-	/* margin-right: 7%;
-	margin-left: 7%; */
 	display: flex;
 	max-width: 1280px;
 	margin: 0 auto;
@@ -119,7 +118,8 @@ $(function(){
 		  autoplay: true,
 		  prevArrow : "<button class='c1_slick-prev c1_slick-arrow'></button>",
 		  nextArrow : "<button class='c1_slick-next c1_slick-arrow'></button>",
-		  autoplaySpeed: 2000
+		  autoplaySpeed: 2000,
+		  
 	});
 });
 </script>
