@@ -99,9 +99,12 @@ li, ol, ul {
 }
 .sorting_item .main_desc {
     color: #222;
-    font-weight: 700;
     font-size: 14px;
     letter-spacing: -.21px;
+}
+.sorting_item.item_on .main_desc {
+    color: #222;
+    font-weight: 700;
 }
 .sub_desc{
     padding-top: 4px;
@@ -110,6 +113,14 @@ li, ol, ul {
     color: rgba(34,34,34,.5);
 }
 .check{
+	display:none;
+	/* display: block; */
+	position: absolute;
+    top: 50%;
+    right: 12px;
+    margin-top: -12px;
+}
+.item_on .check{
 	display: block;
 	position: absolute;
     top: 50%;
@@ -523,7 +534,7 @@ li, ol, ul {
 </div>    
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">  
-/* 필터클릭시 */
+/* 필터클릭시 목록보이기 */
 $("#sorting_title").click(function(){
 	if($('.sorting_list').css('display')=='none'){
 		$('.sorting_list').css({'display': 'block'});
@@ -531,14 +542,13 @@ $("#sorting_title").click(function(){
 		$('.sorting_list').css({'display': 'none'});
 	}
 });
-
-$('.sorting_title').on('click',function(){
-	$(this).children('.sorting_item').css({'display': 'block'});
-    $('.sorting_desc').not($(this)).children('.sorting_item').css({'display': 'none'});
-}); 
-
-
-
+/* 필터목록클릭시 체크 */
+$(function() {
+	$(".sorting_list .sorting_item").on('click', function(){
+ 		$(this).addClass("item_on");
+		$(".sorting_list .sorting_item").not(this).removeClass("item_on"); 
+	});
+});
 </script>
 </body>
 </html>
