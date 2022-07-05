@@ -15,5 +15,6 @@
     <button class="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring">
         Save changes
     </button>
+    <input type="button" onclick="location.href='/TeamProject/admin/test'">
 </body>
 </html>

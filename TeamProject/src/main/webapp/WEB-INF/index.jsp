@@ -76,8 +76,6 @@
 	</style>
 </head>
 <body>
-	<input type="button" value="login" id="loginBtn" style="z-index: 1001;">
-  	<input type="button" value="공지사항" id="noticeBtn" style="z-index: 1001;">
 	<div id="header">
 		<jsp:include page="${head }"></jsp:include>
 	</div>
