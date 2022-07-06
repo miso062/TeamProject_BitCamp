@@ -239,10 +239,159 @@ li, ol, ul {
     width: 16px;
     height: 16px;
 }
+.banner_main {
+  font-family:Arial;
+  display:block;
+  max-width: 1200px;
+  margin:0 auto;
+  position: relative;
+}
+
+.banner_img {
+	line-height: 100px;/
+    position: relative;
+    text-align: center;
+    height: 100%;
+    width:100%;
+}
+.detail_banner{
+	height: 100px;
+	margin: 0 auto;
+}
+.slick-track{
+	height: 100px;
+}
+.action{
+  display:block;
+  width:100%;
+  text-align:center;
+}
+.action a {
+  display:inline-block;
+  padding:5px 10px; 
+  background:#f30;
+  color:#fff;
+  text-decoration:none;
+}
+.action a:hover{
+  background:#000;
+}
+
+.banner_count_box {
+    position: absolute;
+    right: 8px;
+    top: 90px;
+    padding: 4px 15px 5px;
+    height: 15px;
+    text-align: center;
+    background-color: rgba(34,34,34,.8);
+    border-radius: 20px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.banner_count {
+    width: 31px;
+    font-size: 11px;
+    color: hsla(0,0%,100%,.8);
+    font-weight: 600;
+    display: inline-block;
+}
 
 </style>
 </head>
 <body>
+<div class="banner_main">
+	<div class="slider slider-for">
+		<div class="detail_banner">
+			<div class="banner_img" 
+				style="background: rgb(219, 224, 191); 
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA3MDVfMTA0/MDAxNjU2OTk2NDgxNzQ3.gtTHaXpp66kF0wdCasV-5sOLw4dS-S7s2Wzb9Ur2CRMg.nLvv3ljNs-hFjcB77Ozg-Y39wQi36aAbjqWHz1NXoJIg.JPEG/a_9cc89f7ccaa14201a10027ada2cd7642.jpg'); 
+					   background-size: auto 100px; 
+					   background-position: center; 
+					   background-repeat: no-repeat;">
+		   </div>
+		</div>
+		<div class="detail_banner">
+			<div class="banner_img" 
+				style="background: rgb(255, 217, 82);
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA3MDFfMTY3/MDAxNjU2NjU1MDYwOTc2.ueQfTc0XpCu42XqmiFa-FNHg3IEiN0VcUS___47yYvMg.EXHBu8gfgk1VTZAnI6bzDAEvUMDu6kLsc7vyW0X2300g.JPEG/a_133b8c8a407b46368fa034aacb2cc5ec.jpg'); 
+					   background-size: auto 100px; 
+					   background-position: center; 
+					   background-repeat: no-repeat;">
+		   </div>
+		</div>
+		<div class="detail_banner">
+			<div class="banner_img" 
+				style="background: rgb(255, 245, 210);
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA2MzBfMjMx/MDAxNjU2NTYyODQwNjg3.8E3ck06GreqSLbQcln9rvVz9LbfG2WUema5P2w2SDcMg._oMIiXndXi5xG8dUv9XJP6UWn_Ah9KbCg4P0HtSToMgg.JPEG/a_dfb459ddc40d41c6b8897945afb88cea.jpg'); 
+					   background-size: auto 100px; 
+					   background-position: center; 
+					   background-repeat: no-repeat;">
+		   </div>
+		</div>
+		<div class="detail_banner">
+			<div class="banner_img" 
+				style="background: rgb(136, 146, 174);
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA3MDRfMTk4/MDAxNjU2OTI0MTM3MDA5.1AcR76sfCImjibgrcraQRWkKYRqG672tbvQWgAZ8tbMg.sk7m5nHVzuswfb0zDTTkJKDVUZ31Q0rSQ-9o0BNBKKcg.PNG/a_4bf5ecd915e14e1f83cc7847401873fd.png'); 
+					   background-size: auto 100px; 
+					   background-position: center; 
+					   background-repeat: no-repeat;">
+		   </div>
+		</div>
+		<div class="detail_banner">
+			<div class="banner_img" 
+				style="background: rgb(110, 74, 254);
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA2MjhfMTgw/MDAxNjU2MzkyNjQ1OTI5.LhUjE231Cj36tDWqdnfcdMmyyipjUjcfcUFxuW5H_ZQg.usNpTMcZpF6EC_SmjCFxBg4XgxnRCia1mBt3oJx_Rn4g.PNG/a_1f3e13becba041f1a6afda28c36b0f04.png'); 
+					   background-size: auto 100px; 
+					   background-position: center; 
+					   background-repeat: no-repeat;">
+		   </div>
+		</div>
+		<div class="detail_banner">
+			<div class="banner_img" 
+				style="background: rgb(245, 241, 196);
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA2MjlfOTkg/MDAxNjU2NDkzNTYyNzE2.H9LYf27neY3ycoUuuPz9fs703xx-Q1MkF99IqLNq6Ncg.qeOpC1q7Dtm0nWmpFZlj7MLewrVwVtspoH6YJ4Un04Ug.JPEG/a_c009a479c4fb48d9bc7ed976bcc1c7ef.jpg'); 
+					   background-size: auto 100px; 
+					   background-position: center; 
+					   background-repeat: no-repeat;">
+		   </div>
+		</div>
+		<div class="detail_banner">
+			<div class="banner_img" 
+				style="background: rgb(12, 180, 89);
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMTExMDhfMTQg/MDAxNjM2MzUyODQ4MTAy.Cw85PX23DLnCC0JXxlf5uRR4V6OUxDsz12MQLHRVeXsg.xdWI38nU5YX5e8cq6zifnXghc7o6Jl26o0U_vV7QVbkg.PNG/a_4e25f1b123af4f79ab8eb2c243321230.png'); 
+					   background-size: auto 100px; 
+					   background-position: center; 
+					   background-repeat: no-repeat;">
+		   </div>
+		</div>
+		<div class="detail_banner">
+			<div class="banner_img" 
+				style="background: rgb(212, 235, 232);
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMTA4MTBfODIg/MDAxNjI4NTM2Nzg2OTgw.w-hLutujBYPkNUNO9MH6D5xwwbEzmPUBgGNna7Fe2TQg.PhY3IcBEGM-4uoXqe9Yf0mAsRxJzGGDJ6HAei8RhSAMg.JPEG/a_c3e55535dd75452b802e180c312e1525.jpg'); 
+					   background-size: auto 100px; 
+					   background-position: center; 
+					   background-repeat: no-repeat;">
+		   </div>
+		</div>
+		<div class="detail_banner">
+			<div class="banner_img" 
+				style="background: rgb(3, 4, 35);
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA0MDVfMjg3/MDAxNjQ5MTQxNDQ2MzE5.KmWw8NmaqtTEZQUwNB-qnk94UoRvQjTBz6HE-wcsUPwg.uKnTAOmBZVasnEheK77-WjBLVGkrxaev02tgaOLhqz0g.JPEG/a_e84bc8e4c55041b29479627fc78a2469.jpg'); 
+					   background-size: auto 100px; 
+					   background-position: center; 
+					   background-repeat: no-repeat;">
+		   </div>
+		</div>
+	</div>
+	<div class="banner_count_box">
+	    <p class="banner_count"><span class="current">1</span>/<span class="total">9</span></p>
+	</div>
+</div>
 <div class="shop_content">
 	<div class="shop_search_filter"></div>
 	
