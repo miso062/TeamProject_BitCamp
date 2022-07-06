@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="./css/user/login.css">
+<link rel="stylesheet" href="/TeamProject/css/user/login.css">
 <style type="text/css">
 .h_header {
 	z-index: 1000;
@@ -354,7 +354,7 @@ height:80px;
 }
 .h_layer_search {  /* 모달창 */
 	  z-index: 1000;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
@@ -414,7 +414,7 @@ height:80px;
 		<div class="h_main_inner">
 			<h1 class="h_h1">
 				<a href="/TeamProject/" class="h_logo">
-					<img src="/TeamProject/img/kream.jpg" alt="kream로고" style="width:100px;">
+					<img src="/TeamProject/img/main/header/kream.jpg" alt="kream로고" style="width:100px;">
 					</a>
 			</h1>
 		<div class="h_gnb_area">
@@ -430,7 +430,7 @@ height:80px;
 				
 			</nav>
 			<div class="h_search_btn_box">
-					<img src="/TeamProject/img/h1_search.JPG" class="h_searchBtn" alt="돋보기" style="width:21.6px; height:21.6px; margin-left:20px; cursor:pointer;">
+					<img src="/TeamProject/img/main/header/h1_search.JPG" class="h_searchBtn" alt="돋보기" style="width:21.6px; height:21.6px; margin-left:20px; cursor:pointer;">
 			</div>
 		</div>
 	
@@ -445,7 +445,7 @@ height:80px;
 		<div class="h_search_wrap">
 			<div class="h_search_area">
 				<div class="h_search">
-					<img src="/TeamProject/img/h_search.svg" class="h_ico-search-gray h_icon sprite-icons">
+					<img src="/TeamProject/img/main/header/h_search.svg" class="h_ico-search-gray h_icon sprite-icons">
 					<input type="text" placeholder="브랜드명,모델명,모델번호 등" title="검색창" class="h_input_search h_show_placeholder_on_focus">
 					<button class="h_btn_search_delete" style="display: none;"></button>
 				</div>
@@ -508,57 +508,58 @@ height:80px;
 <div class="content_login">
     <div class="content_area0">
         <div class="content_area">
-            <div class="logo_wrap">
-                <div class="kream_logo" ></div>
-            </div>
-            
-            <div class="input_box">
-                <h3 class="input_title" id="email_label" >이메일 주소</h3>
-                <div class="input_item">
-                    <div class="input_text">
-                        <input class="input_txt" type="text" id= "email_input" oninput="oninputEmail(this.value)" placeholder="예) kream@kream.co.kr">
-                    </div>
-                </div>
-                <p class="input_error" id="email_error" >이메일 주소를 정확히 입력해주세요.</p>
-            </div>
-            <div class="input_box">
-                <h3 class="input_title" id="pwd_label">비밀번호</h3>
-                <div class="input_item">
-                    <div class="input_text" >
-                        <input class="input_txt" type="password"  id= "password_input" autocomplete="off" >
-                    </div>
-                </div>
-            </div>
-            <div class="login_btn_box">
-                <a disabled="disabled" href="#" class="login_btn_disabled">로그인</a>
-            </div>
-            <ul class="look_box">
-                <li class="look_list">
-                    <a href="#" class="look_link">이메일 가입</a>
-                </li>
-                <li class="look_list">
-                    <a href="#" class="look_link">이메일 찾기</a>
-                </li>
-                <li class="look_list">
-                    <a href="#" class="look_link">비밀번호 찾기</a>
-                </li>
-            </ul>
-            <div class="social_login">
-                <button type="button" class="naver_btn">
-                    <img src="./img/naver_login_logo.png" class="logo_naver" width="16" height="16">
-                    네이버로 로그인
-                </button>
-                <button type="button" class="kakao_btn">
-                    <img src="./img/kakao_login_logo.png" class="logo_kakao" width="40" height="40">
-                    Kakao로 로그인
-                </button>
-            </div>
-        </div>
+			<div class="logo_wrap">
+				<div class="kream_logo" ></div>
+			</div>
+			
+			<div class="input_email_box">
+				<h3 class="input_email_title" id="email_label" >이메일 주소</h3>
+				<div class="input_email_item">
+					<div class="input_email_text">
+						<input class="input_email_txt" type="text" id= "email_input" oninput="oninputEmail(this.value)" placeholder="예) kream@kream.co.kr">
+					</div>
+				</div>
+				<p class="input_email_error" id="email_error" >이메일 주소를 정확히 입력해주세요.</p>
+			</div>
+			<div class="input_pwd_box">
+				<h3 class="input_pwd_title" id="pwd_label">비밀번호</h3>
+				<div class="input_pwd_item">
+					<div class="input_pwd_text" >
+						<input class="input_pwd_txt" type="password"  id= "pwd_input" oninput="oninputPwd(this.value)" autocomplete="off" >
+					</div>
+				</div>
+				<p class="input_pwd_error" id="pwd_error" >영문, 숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
+			</div>
+			<div class="login_btn_box">
+				<button class="login_btn_disabled" id="login_btn">로그인</button>
+			</div>
+			<ul class="look_box">
+				<li class="look_list">
+					<a href="#" class="look_link">이메일 가입</a>
+				</li>
+				<li class="look_list">
+					<a href="#" class="look_link">이메일 찾기</a>
+				</li>
+				<li class="look_list">
+					<a href="#" class="look_link">비밀번호 찾기</a>
+				</li>
+			</ul>
+			<div class="social_login">
+				<a id="naverIdLogin_loginButton" href="javascript:void(0)"> <!-- GU6NNwfSmxJ3JXmCBaTf  -->
+					<img src="/TeamProject/img/main/header/miso.png" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
+				</a>	 
+			 	<a href="javascript:kakaoLogin();"> <!-- 144932b30082932e5eba55d918d38249 -->
+			 		<img src="/TeamProject/img/main/header/kakao_login_large_wide.png" alt="카카오계정 로그인" style="width: 400px; height: auto;  border-radius: 12px;"/>
+			 	</a>
+			</div>
+	    </div>
     </div>
 </div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="./js/user/login.js"></script>
+<script type="text/javascript" src="/TeamProject/js/user/login.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script type="text/javascript">
 //돋보기 클릭시 검색 모달창
 $('.h_searchBtn').click(function(){
@@ -599,7 +600,7 @@ $('.h_brand_box').click(function(){
 //엔터로 검색하기 submit 미구현
 $(document).on('keyup','.h_input_search' ,function(key){
 	if(key.keyCode ==13) {
-		alert("가자")
+		alert($('.h_input_search').val())
 	}
 })
 // 스크롤 최상단일 때 .h_main_inner css 지우기
@@ -614,4 +615,37 @@ $(function(){
 		$('.h_main_inner').css("border","1px 0 solid #e0e0e0");
 	}
 })
+
+//로그인 
+var naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "GU6NNwfSmxJ3JXmCBaTf",  //내 애플리케이션 정보에 cliendId를 입력해줍니다.
+			callbackUrl: "http://localhost:8080/TeamProject/user/login", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
+			isPopup: false,
+			callbackHandle: true
+		}
+	);	
+
+naverLogin.init();
+
+window.addEventListener('load', function () {
+	naverLogin.getLoginStatus(function (status) {
+		console.log(status);
+		if (status) {
+			var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
+    		
+			console.log(naverLogin.user); 
+    		
+            if( email == undefined || email == null) {
+				alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
+				naverLogin.reprompt();
+				return;
+			}
+		} else {
+			console.log("callback 처리에 실패하였습니다.");
+		}
+		
+	});
+});
+
 </script>

@@ -223,8 +223,8 @@ top:45%;
 	overflow: hidden;
 	border: none;
 }
-.slick-prev{z-index:100; right:97%; width: 48px; height:48px; background:url(/TeamProject/img/container3/prev3.png) no-repeat 0 0;}
-.slick-next{width: 48px; right:-1%; height:48px; background:url(/TeamProject/img/container3/next3.png) no-repeat 0 0;}
+.slick-prev{z-index:100; right:97%; width: 48px; height:48px; background:url(/TeamProject/img/main/container3/prev3.png) no-repeat 0 0;}
+.slick-next{width: 48px; right:-1%; height:48px; background:url(/TeamProject/img/main/container3/next3.png) no-repeat 0 0;}
 </style>
 <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">
