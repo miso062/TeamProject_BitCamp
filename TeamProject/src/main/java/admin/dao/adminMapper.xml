@@ -15,5 +15,4 @@
   		(select * from notice order by notice_id desc)tt) 
   		where <![CDATA[rn>=#{startNum} and rn<=#{endNum}]]>
   	</select>
-	
 </mapper>

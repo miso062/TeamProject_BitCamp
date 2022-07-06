@@ -17,11 +17,6 @@ public class AdminMyBaticImpl implements AdminDAO {
 	@Autowired
 	private SqlSession sqlSession;
 
-	@Override
-	public void test() {
-		
-		sqlSession.insert("adminSQL.test");
-	}
 
 	@Override
 	public List<AdminDTO> getBoardList(Map<String, Integer> map) {

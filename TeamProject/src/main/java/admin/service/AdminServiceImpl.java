@@ -12,8 +12,6 @@ import admin.dao.AdminDAO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-	@Autowired
-	AdminDAO adminDAO;
 
 	public void test() {
 		adminDAO.test();
@@ -32,4 +30,5 @@ public class AdminServiceImpl implements AdminService {
 		System.out.println(list.get(0));
 		return list;
 	}
+
 }
