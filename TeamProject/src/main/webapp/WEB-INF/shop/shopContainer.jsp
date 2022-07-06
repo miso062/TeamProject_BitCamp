@@ -64,7 +64,7 @@ li, ol, ul {
     height: 60px;
 }
 .shop_sorting_title {
-    font-size: 13px;
+    font-size: 14px;
     letter-spacing: -.07px;
     
     display: -webkit-box;
@@ -82,8 +82,8 @@ li, ol, ul {
 .shop_sorting_list {
     overflow: hidden;
     position: absolute;
-    top: 28px;
-    right: 0;
+    top: 51px;
+    right: 36px;
     width: 310px;
     background-color: #fff;
     border: 1px solid #ebebeb;
@@ -135,6 +135,7 @@ li, ol, ul {
 	display: block;
 }
 .shop_search_result_list {
+	padding-left: 10px;
     margin: -20px -10px 0;
 }
 .shop_search_result_list:after {
@@ -144,7 +145,7 @@ li, ol, ul {
 }
 .shop_search_result_list .shop_search_result_item {
 	max-width : 770px;
-	width: 22%;
+	width: 25%;
     padding: 0 6.5px;
 	position: relative;
     float: left;
