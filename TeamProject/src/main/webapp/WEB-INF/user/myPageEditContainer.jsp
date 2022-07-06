@@ -948,7 +948,6 @@
 	{
 	display: none
 }
-<<<<<<< HEAD
 
 .mo .my_addressbook .content_title .btn_box[data-v-88eb18f6], .mo .my_payment .content_title .btn_box[data-v-88eb18f6],
 	.sm .my_addressbook .content_title .btn_box[data-v-88eb18f6], .sm .my_payment .content_title .btn_box[data-v-88eb18f6]
@@ -1197,68 +1196,11 @@
 						<!---->
 					</div>
 
-					<!--  -->
-
 					<div data-v-580e3700="" class="unit">
 						<h5 data-v-580e3700="" class="title">신발 사이즈</h5>
 						<p data-v-580e3700="" class="desc">265</p>
 						
 					</div>
-
-
-				
-				<div data-v-580e3700="" class="unit">
-					<h5 data-v-580e3700="" class="title">비밀번호</h5>
-					<p data-v-580e3700="" class="desc password">●●●●●●●●●</p>
-					
-				</div>
-				
-			</div>
-			<div data-v-580e3700="" class="profile_group">
-				<h4 data-v-580e3700="" class="group_title">개인 정보</h4>
-				<div data-v-580e3700="" class="unit">
-					<h5 data-v-580e3700="" class="title">이름</h5>
-					<p data-v-580e3700="" class="desc">tmdcks9801</p>
-					
-				</div>
-				
-				<div data-v-580e3700="" class="unit">
-					<h5 data-v-580e3700="" class="title">휴대폰 번호</h5>
-					<p data-v-580e3700="" class="desc">010-8***-*208</p>
-					
-				</div>
-				<div data-v-580e3700="" class="unit">
-					<h5 data-v-580e3700="" class="title">신발 사이즈</h5>
-					<p data-v-580e3700="" class="desc">265</p>
-					
-				</div>
-				
-			</div>
-			<div data-v-580e3700="" class="profile_group">
-				<h4 data-v-580e3700="" class="group_title">광고성 정보 수신</h4>
-				<div data-v-580e3700="" class="unit to_receive">
-					<p data-v-580e3700="" class="desc">문자 메시지</p>
-						
-					
-
-				</div>
-
-				<div data-v-580e3700="" class="profile_group" id="profile_groups">
-					<h4 data-v-580e3700="" class="group_title">광고성 정보 수신</h4>
-					<div data-v-580e3700="" class="unit to_receive">
-						<p data-v-580e3700="" class="desc">문자 메시지</p>
-
-
-					</div>
-					<div data-v-580e3700="" class="unit to_receive">
-						<p data-v-580e3700="" class="desc">이메일</p>
-
-					</div>
-
-				<div data-v-580e3700="" class="unit to_receive">
-					<p data-v-580e3700="" class="desc">이메일</p>
-					
-				</div>
 
 			</div>
 		</div>
