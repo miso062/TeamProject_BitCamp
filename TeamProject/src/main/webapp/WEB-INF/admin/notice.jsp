@@ -5,18 +5,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-#fotter{
-width:100%;
-height:10%;
+<style type="text/css">
+body,
+html {
+    height: 100%;
+    width:100%;
 }
 #header{
-width:100%;
-height:10%;
+height: 10%;
+}
+#nav_container{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 40px 160px;
+    width: 100%;
+}
+#nav{
+	float:left;
+	width: 17%;
 }
 #container{
-width:100%;
-heighet:80%;
+	float:left;
+	width: 83%;
+}
+#container:after{
+clear:both;
+display:block;
 }
 </style>
 </head>
@@ -24,8 +38,13 @@ heighet:80%;
 	<div id="header">
 		<jsp:include page="${head }"></jsp:include>
 	</div>
-	<div id="container">
-		<jsp:include page="${container }"></jsp:include>
+	<div id=nav_container>
+		<div id="nav">
+			<jsp:include page="${nav }"></jsp:include>
+		</div>
+		<div id="container">
+			<jsp:include page="${container }"></jsp:include>
+		</div>
 	</div>
 	<div id="footer">
 		<%-- <jsp:include page="${footer }"></jsp:include> --%>

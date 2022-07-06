@@ -22,7 +22,8 @@ public class MainController {
 	@GetMapping(value="notice")
 	public String notice(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
-		model.addAttribute("container", "/WEB-INF/admin/noticeContainer.jsp");
+		model.addAttribute("nav", "/WEB-INF/admin/noticenav.jsp");
+		model.addAttribute("container", "/WEB-INF/admin/noticeContainer1.jsp");
 		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
 		return "/admin/notice";
 	}
