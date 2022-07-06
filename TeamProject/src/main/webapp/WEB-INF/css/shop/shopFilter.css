@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
 .filter_status {
-    padding: 23px 0 15px;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    height: 60px;
 }
 .filter_status,
 .status_box {
