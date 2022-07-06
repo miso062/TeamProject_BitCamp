@@ -195,7 +195,7 @@ li, ol, ul {
 .spinner {
   margin: 0 auto;
   display: block;
-  width: 80px;
+  width: 30px;
 }
 .shop_product_img {
 	display: felx;
@@ -1382,6 +1382,7 @@ $(function() {
 		$(".shop_sorting_list .shop_sorting_item").not(this).removeClass("item_on"); 
 	});
 	
+	$.noConflict();
 	/* 슬라이더 생성 */
 	$('.slider-for').slick({
 		slidesToShow: 1,

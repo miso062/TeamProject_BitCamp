@@ -21,6 +21,13 @@
 		#header{
 			height: 30%;
 		}
+		.index_top_div {
+			background-color : #ffffff;
+			/* border: 1px solid #CCCCCC; */
+			text-align : center;
+			border-radius : 50%;
+			box-shadow: 0px 1px 3px 3px #ccc;
+		}	
 	</style>
 </head>
 <body>
@@ -33,5 +40,31 @@
 	<div id="footer">
 		<jsp:include page="${footer }"></jsp:include>
 	</div>
+	<div style="position:fixed; bottom:30px; right:30px; width:50px; height:50px;" class="index_top_div">
+		<img src="/TeamProject/img/up-arrow.png" alt =" 화살표" id="index_top" style="width:24px; height:24px; margin-top:10px;">
+	</div>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			setTimeout(function(){
+				scrollTo(0,0);
+			}, 100);
+		}
+		//맨 위로 버튼
+	    $(function(){
+	    	$('.index_top_div').click(function(){
+	    		$('html, body').animate({scrollTop:0}, '300');
+	    	});
+	    });
+	    $('.index_top_div').hide();
+	    $(window).scroll(function() {
+		    // top button controll
+		    if ($(this).scrollTop() > 200) {
+		        $('.index_top_div').fadeIn();
+		    } else {
+		        $('.index_top_div').fadeOut();
+		    }
+		});
+	</script>
 </body>
 </html>
