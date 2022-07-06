@@ -7,12 +7,121 @@
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }
+.my_user_membership[data-v-5acef129] {
+    padding: 23px 0 23px 23px;
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.my_user_detail[data-v-5acef129],
+.my_user_membership[data-v-5acef129] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.my_user_thumb[data-v-5acef129] {
+    position: relative;
+    margin-right: 12px;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+.my_user_thumb[data-v-5acef129]:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: 1px solid rgba(34, 34, 34, 0.05);
+    border-radius: 50%;
+}
+.my_user_thumb .my_thumb_img[data-v-5acef129] {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+.my_user_info[data-v-5acef129] {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.my_user_info .my_name[data-v-5acef129],
+.my_user_info[data-v-5acef129] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.my_user_info .my_name[data-v-5acef129] {
+    line-height: 21px;
+    font-size: 18px;
+    letter-spacing: -0.27px;
+    font-weight: 600;
+    color: #000;
+}
+.my_user_info .my_email[data-v-5acef129] {
+    line-height: 18px;
+    font-size: 14px;
+    letter-spacing: -0.21px;
+    letter-spacing: -0.05px;
+    color: rgba(34, 34, 34, 0.5);
+}
+.my_btn[data-v-5acef129] {
+    margin-top: 12px;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+    height: 36px;
+    line-height: 34px;
+}
+.info_box[data-v-5acef129] {
+    max-width: 100%;
+}
+.my_btn .my_btn_my_style[data-v-5acef129] {
+    margin-left: 7px;
+}
+.my_membership_detail[data-v-5acef129] {
+    position: relative;
+    margin-left: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.my_membership_detail[data-v-5acef129]:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    bottom: 0;
+    background-color: #ebebeb;
+    width: 1px;
+}
+.my_membership_item[data-v-5acef129] {
+    display: inline-block;
+    width: 159px;
+    text-align: center;
+}
+.btn[data-v-3d1bcc82] {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    color: rgba(34, 34, 34, 0.8);
+    background-color: #fff;
+}
 </style>
 <div data-v-5f779880="" data-v-3259a5f6="" class="my_content_area">
     <div data-v-5f779880="" class="my_my_home">
         <div data-v-5acef129="" data-v-5f779880="" class="my_user_membership">
             <div data-v-5acef129="" class="my_user_detail">
-                <div data-v-5acef129="" class="my_user_thumb"><img data-v-5acef129="" src="/_nuxt/img/blank_profile.4347742.png" alt="사용자 이미지" class="my_thumb_img" /></div>
+                <div data-v-5acef129="" class="my_user_thumb"><img data-v-5acef129="" src="https://kream.co.kr/_nuxt/img/blank_profile.4347742.png" alt="사용자 이미지" class="my_thumb_img" /></div>
                 <div data-v-5acef129="" class="my_user_info">
                     <div data-v-5acef129="" class="my_info_box">
                         <strong data-v-5acef129="" class="my_name">wnscks19</strong>
@@ -28,7 +137,7 @@
                     <p data-v-5acef129="" class="my_title">회원 등급</p>
                 </a>
                 <a data-v-5acef129="" href="#" class="my_membership_item">
-                    <strong data-v-5acef129="" class="my_info"> 0P </strong>
+                    <strong data-v-5acef129="" class="my_info"> 400000P </strong>
                     <p data-v-5acef129="" class="my_title">포인트</p>
                 </a>
             </div>
