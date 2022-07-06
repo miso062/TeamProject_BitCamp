@@ -22,11 +22,11 @@ overflow: hidden;
 .c1_slick-prev{
 	z-index:100;
 	left:1%;
-	background: url(/TeamProject/img/container1/c1_prev.png) no-repeat 0 0;
+	background: url(/TeamProject/img/main/container1/c1_prev.png) no-repeat 0 0;
 }
 .c1_slick-next{
 	right:1%;
-	background: url(/TeamProject/img/container1/c1_next.png) no-repeat 0 0;
+	background: url(/TeamProject/img/main/container1/c1_next.png) no-repeat 0 0;
 }
 .slick-dots {
   bottom: 2%;
@@ -126,36 +126,36 @@ $(function(){
 </head>
 <body topmargin="0"  leftmargin="0" marginwidth="0" marginheight="0">
 <div class="c1_slider-wrap" style="margin-bottom: 2%;">
-    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner1.jpg" alt=""></div>
-    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner2.jpg" alt=""></div>
-    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner3.jpg" alt=""></div>
-    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner4.jpg" alt=""></div>
-    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner5.jpg" alt=""></div>
-    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner6.jpg" alt=""></div>
-    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner7.jpg" alt=""></div>
-    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner8.jpg" alt=""></div>
-    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/container1/c1_banner9.jpg" alt=""></div>
+    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/main/container1/c1_banner1.jpg" alt=""></div>
+    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/main/container1/c1_banner2.jpg" alt=""></div>
+    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/main/container1/c1_banner3.jpg" alt=""></div>
+    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/main/container1/c1_banner4.jpg" alt=""></div>
+    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/main/container1/c1_banner5.jpg" alt=""></div>
+    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/main/container1/c1_banner6.jpg" alt=""></div>
+    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/main/container1/c1_banner7.jpg" alt=""></div>
+    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/main/container1/c1_banner8.jpg" alt=""></div>
+    <div class="c1_banner"><img id="c1_bannerimg" src="/TeamProject/img/main/container1/c1_banner9.jpg" alt=""></div>
 </div>
 <br>
 <div class="c1_banner1-1">
 	<div class="c1_banner1">
-		<img class="c1_bannerimg1" src="/TeamProject/img/container1/c1_banner1-1.jpg" alt="">
+		<img class="c1_bannerimg1" src="/TeamProject/img/main/container1/c1_banner1-1.jpg" alt="">
 		<div class="c1_text">NEW!</div>
 	</div>
 	<div class="c1_banner1">
-		<img class="c1_bannerimg1" src="/TeamProject/img/container1/c1_banner1-2.jpg" alt="">
+		<img class="c1_bannerimg1" src="/TeamProject/img/main/container1/c1_banner1-2.jpg" alt="">
 		<div class="c1_text">남성 추천</div>
 	</div>
 	<div class="c1_banner1">
-		<img class="c1_bannerimg1" src="/TeamProject/img/container1/c1_banner1-3.jpg" alt="">
+		<img class="c1_bannerimg1" src="/TeamProject/img/main/container1/c1_banner1-3.jpg" alt="">
 		<div class="c1_text">여성 추천</div>
 	</div>
 	<div class="c1_banner1">
-		<img class="c1_bannerimg1" src="/TeamProject/img/container1/c1_banner1-4.jpg" alt="">
+		<img class="c1_bannerimg1" src="/TeamProject/img/main/container1/c1_banner1-4.jpg" alt="">
 		<div class="c1_text">골프</div>
 	</div>
 	<div class="c1_banner1">
-		<img class="c1_bannerimg1"src="/TeamProject/img/container1/c1_banner1-5.jpg" alt="">
+		<img class="c1_bannerimg1"src="/TeamProject/img/main/container1/c1_banner1-5.jpg" alt="">
 		<div class="c1_text">누구나 창고보관</div>
 	</div>
 </div>
@@ -163,23 +163,23 @@ $(function(){
 
 <div class="c1_banner1-1">
 	<div class="c1_banner1">
-		<img class="c1_bannerimg1" src="/TeamProject/img/container1/c1_banner2-1.jpg" alt="">
+		<img class="c1_bannerimg1" src="/TeamProject/img/main/container1/c1_banner2-1.jpg" alt="">
 		<div class="c1_text">빠른배송</div>
 	</div>
 	<div class="c1_banner1">
-		<img class="c1_bannerimg1" src="/TeamProject/img/container1/c1_banner2-2.jpg" alt="">
+		<img class="c1_bannerimg1" src="/TeamProject/img/main/container1/c1_banner2-2.jpg" alt="">
 		<div class="c1_text">샤넬 즉시구매</div>
 	</div>
 	<div class="c1_banner1">
-		<img class="c1_bannerimg1" src="/TeamProject/img/container1/c1_banner2-3.jpg" alt="">
+		<img class="c1_bannerimg1" src="/TeamProject/img/main/container1/c1_banner2-3.jpg" alt="">
 		<div class="c1_text">#하프앤하프 챌린지</div>
 	</div>
 	<div class="c1_banner1">
-		<img class="c1_bannerimg1" src="/TeamProject/img/container1/c1_banner2-4.jpg" alt="">
+		<img class="c1_bannerimg1" src="/TeamProject/img/main/container1/c1_banner2-4.jpg" alt="">
 		<div class="c1_text">서머 슈즈</div>
 	</div>
 	<div class="c1_banner1">
-		<img class="c1_bannerimg1" src="/TeamProject/img/container1/c1_banner2-5.jpg" alt="">
+		<img class="c1_bannerimg1" src="/TeamProject/img/main/container1/c1_banner2-5.jpg" alt="">
 		<div class="c1_text">이용 가이드</div>
 	</div>
 </div>
