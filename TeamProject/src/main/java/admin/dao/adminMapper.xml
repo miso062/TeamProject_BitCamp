@@ -6,6 +6,14 @@
 <mapper namespace="adminSQL">
 	<insert id="test">
 		INSERT INTO notice
-			values(1, 'test', 'test', 'test', sysdate)
+			values(2, 'test', 'test', 'test', sysdate)
 	</insert>
+	
+	<select id="getnoticeList" parameterType="java.util.Map" resultType="admin">
+  		select * from 
+  		(select rownum rn,tt.* from 
+  		(select * from notice order by notice_id desc)tt) 
+  		where <![CDATA[rn>=#{startNum} and rn<=#{endNum}]]>
+  	</select>
+	
 </mapper>
