@@ -181,20 +181,20 @@ font-size:12px;
  #instagram{
 	float: left;
 	position: relative;
-	left: 1310px;
-	bottom:155px;
+	left: 1320px;
+	bottom:130px;
 }
 #kakao{
 	float: left;
 	position: relative;
-	left: 1335px;
-	bottom:155px;
+	left: 1345px;
+	bottom:130px;
 }
 #facebook{
 	float: left;
 	position: relative;
-	left: 1360px;
-	bottom:155px;
+	left: 1370px;
+	bottom:130px;
 } 
 
 </style>
@@ -241,10 +241,10 @@ font-size:12px;
 		</li><br>
 		
 		<div id="service_type">
-			<li ><a href="">검수기준&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;공지사항</a></li><br>
-			<li><a href="">이용정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;서비스 소개</a></li><br>
+			<li ><a href="">검수기준&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;공지사항</a></li><br>
+			<li><a href="">이용정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;서비스 소개</a></li><br>
 			<li><a href="">패널티 정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;쇼룸 안내</a></li><br>
-			<li><a href="">커뮤니티 가이드라인&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;판매자 방문접수</a></li>
+			<li><a href="">커뮤니티 가이드라인&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;판매자 방문접수</a></li>
 	</ul>
 </div>
 
