@@ -291,6 +291,27 @@ li, ol, ul {
 .slick-track{
 	height: 100px;
 }
+.slick-arrow{
+	width: 15px;
+	height: 15px;
+	border: none;
+	text-indent: -9999px;
+	overflow: hidden;
+	position: absolute;
+	top: 75px;
+}
+.slick-prev{
+	background: url(/TeamProject/img/shop/prev.png) no-repeat 0 0;
+	background-size: contain;
+	z-index: 100;
+	right: 50px;
+}
+.slick-next{
+	background: url(/TeamProject/img/shop/next.png) no-repeat 0 0;
+	background-size: contain;
+	z-index: 100;
+	right: 10px;
+}
 .action{
   display:block;
   width:100%;
@@ -310,7 +331,7 @@ li, ol, ul {
 .banner_count_box {
     position: absolute;
     right: 8px;
-    top: 90px;
+    top: 71px;
     padding: 4px 15px 5px;
     height: 22px;
     text-align: center;
