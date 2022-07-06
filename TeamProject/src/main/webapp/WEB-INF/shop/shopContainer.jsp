@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <style type="text/css">
 body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h4, h5, h6, input, legend, p, select, table, td, textarea, th {
     margin: 0;
@@ -282,7 +285,7 @@ li, ol, ul {
     right: 8px;
     top: 90px;
     padding: 4px 15px 5px;
-    height: 15px;
+    height: 22px;
     text-align: center;
     background-color: rgba(34,34,34,.8);
     border-radius: 20px;
@@ -392,8 +395,11 @@ li, ol, ul {
 	    <p class="banner_count"><span class="current">1</span>/<span class="total">9</span></p>
 	</div>
 </div>
+
 <div class="shop_content">
-	<div class="shop_search_filter"></div>
+	<div class="shop_search_filter">
+		<jsp:include page="/WEB-INF/shop/shopFilter.jsp"></jsp:include>
+	</div>
 	
 <div class="shop_search_content">
     <div class="shop_search_option" >
@@ -681,7 +687,6 @@ li, ol, ul {
         <img src="/_nuxt/img/loading.410eb77.gif" alt="리스트 로딩중입니다." class="loading_img" />
     </div>
 </div>    
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">  
 /* 필터클릭시 목록보이기 */
 $("#shop_sorting_title").click(function(){
@@ -691,14 +696,29 @@ $("#shop_sorting_title").click(function(){
 		$('.shop_sorting_list').css({'display': 'none'});
 	}
 });
-/* 필터목록클릭시 체크 */
+
 $(function() {
+	/* 필터목록클릭시 체크 */
 	$(".shop_sorting_list .shop_sorting_item").on('click', function(){
  		$(this).addClass("item_on");
 		$(".shop_sorting_list .shop_sorting_item").not(this).removeClass("item_on"); 
 	});
+	
+	/* 슬라이더 생성 */
+	$('.slider-for').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		fade: true
+	});
+	
+	/* 슬라이드 페이지 */
+	$('.slider-for').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		  console.log(nextSlide);
+		  $('.current').text(nextSlide+1);
+	});
 });
 </script>
+
 </body>
 </html>
  
