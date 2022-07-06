@@ -1630,7 +1630,7 @@
                     <a href="#" class="column_menu"> 305 </a><a href="#" class="column_menu"> 310 </a><a href="#" class="column_menu"> 315 </a>
                     <a href="#" class="column_menu"> 320 </a><a href="#" class="column_menu"> 325 </a><a href="#" class="column_menu"> 330 </a>
                 </div>
-                <a data-v-1f270712="" class="button_more">+ 더보기</a>
+                <a class="button_more">+ 더보기</a>
             </div>
         </div>
     </div>
