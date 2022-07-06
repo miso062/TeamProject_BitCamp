@@ -918,7 +918,9 @@
 	margin-right: 4px
 }
  */
-
+#profile_information{
+	margin-left: 500px
+}
 </style>
 </head>
 <body>
@@ -953,303 +955,57 @@
 			hidden="hidden" />
 		<canvas data-v-580e3700="" width="1000" height="1000"
 			style="display: none;"></canvas>
-		<div data-v-580e3700="" class="profile_info">
+		<div data-v-580e3700="" class="profile_info" id="profile_information">
 			<div data-v-580e3700="" class="profile_group">
 				<h4 data-v-580e3700="" class="group_title">로그인 정보</h4>
 				<div data-v-580e3700="" class="unit">
 					<h5 data-v-580e3700="" class="title">이메일 주소</h5>
 					<p data-v-580e3700="" class="desc email">t********1@naver.com</p>
-					<button data-v-3d1bcc82="" data-v-580e3700="" type="button"
-						class="btn btn_modify outlinegrey small">변경</button>
+					<!-- <button data-v-3d1bcc82="" data-v-580e3700="" type="button"
+						class="btn btn_modify outlinegrey small">변경</button> -->
 				</div>
-				<!-- <div data-v-580e3700="" class="modify" style="display: none;">
-					<div data-v-0e527ea4="" data-v-580e3700="" class="input_box">
-						<h6 data-v-580e3700="" data-v-0e527ea4="" class="input_title">이메일
-							주소 변경</h6>
-						<div data-v-0e527ea4="" class="input_item">
-							<input data-v-0e527ea4="" type="email" autocomplete="off"
-								class="input_txt" placeholder="t********1@naver.com" />
-						</div>
-						<p data-v-580e3700="" data-v-0e527ea4="" class="input_error"></p>
-					</div>
-					<div data-v-580e3700="" class="modify_btn_box">
-						<button data-v-3d1bcc82="" data-v-580e3700="" type="button"
-							class="btn outlinegrey medium" slot="button">취소</button>
-						<button data-v-3d1bcc82="" data-v-580e3700="" disabled="disabled"
-							type="button" class="btn solid medium disabled" slot="button">인증
-							메일 발송</button>
-					</div>
-				</div> -->
+				
 				<div data-v-580e3700="" class="unit">
 					<h5 data-v-580e3700="" class="title">비밀번호</h5>
 					<p data-v-580e3700="" class="desc password">●●●●●●●●●</p>
-					<button data-v-3d1bcc82="" data-v-580e3700="" type="button"
-						class="btn btn_modify outlinegrey small">변경</button>
+					<!-- <button data-v-3d1bcc82="" data-v-580e3700="" type="button"
+						class="btn btn_modify outlinegrey small">변경</button> -->
 				</div>
-				<!-- <div data-v-580e3700="" class="modify" style="display: none;">
-					<h5 data-v-580e3700="" class="title">비밀번호 변경</h5>
-					<div data-v-0e527ea4="" data-v-580e3700="" class="input_box">
-						<h6 data-v-580e3700="" data-v-0e527ea4="" class="input_title">이전
-							비밀번호</h6>
-						<div data-v-0e527ea4="" class="input_item">
-							<input data-v-0e527ea4="" type="password"
-								placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off"
-								class="input_txt" />
-						</div>
-						<p data-v-580e3700="" data-v-0e527ea4="" class="input_error">영문,
-							숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
-					</div>
-					<div data-v-0e527ea4="" data-v-580e3700="" class="input_box">
-						<h6 data-v-580e3700="" data-v-0e527ea4="" class="input_title">새
-							비밀번호</h6>
-						<div data-v-0e527ea4="" class="input_item">
-							<input data-v-0e527ea4="" type="password"
-								placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off"
-								class="input_txt" />
-						</div>
-						<p data-v-580e3700="" data-v-0e527ea4="" class="input_error">영문,
-							숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
-					</div>
-					<div data-v-580e3700="" class="modify_btn_box">
-						<button data-v-3d1bcc82="" data-v-580e3700="" type="button"
-							class="btn outlinegrey medium" slot="button">취소</button>
-						<button data-v-3d1bcc82="" data-v-580e3700="" disabled="disabled"
-							type="button" class="btn solid medium disabled" slot="button">저장</button>
-					</div>
-				</div> -->
+				
 			</div>
 			<div data-v-580e3700="" class="profile_group">
 				<h4 data-v-580e3700="" class="group_title">개인 정보</h4>
 				<div data-v-580e3700="" class="unit">
 					<h5 data-v-580e3700="" class="title">이름</h5>
 					<p data-v-580e3700="" class="desc">tmdcks9801</p>
-					<button data-v-3d1bcc82="" data-v-580e3700="" type="button"
-						class="btn btn_modify outlinegrey small">변경</button>
+					<!-- <button data-v-3d1bcc82="" data-v-580e3700="" type="button"
+						class="btn btn_modify outlinegrey small">변경</button> -->
 				</div>
-				<!-- <div data-v-580e3700="" class="modify name" style="display: none;">
-					<h5 data-v-580e3700="" class="title">이름</h5>
-					<div data-v-0e527ea4="" data-v-580e3700="" class="input_box">
-						<h6 data-v-580e3700="" data-v-0e527ea4="" class="input_title">새로운
-							이름</h6>
-						<div data-v-0e527ea4="" class="input_item">
-							<input data-v-0e527ea4="" type="text" placeholder="고객님의 이름"
-								autocomplete="off" class="input_txt" />
-						</div>
-						<p data-v-580e3700="" data-v-0e527ea4="" class="input_error">올바른
-							이름을 입력해주세요. (2-50자)</p>
-					</div>
-					<div data-v-580e3700="" class="modify_btn_box">
-						<button data-v-3d1bcc82="" data-v-580e3700="" type="button"
-							class="btn outlinegrey medium" slot="button">취소</button>
-						<button data-v-3d1bcc82="" data-v-580e3700="" disabled="disabled"
-							type="button" class="btn solid medium disabled" slot="button">저장</button>
-					</div>
-				</div> -->
+				
 				<div data-v-580e3700="" class="unit">
 					<h5 data-v-580e3700="" class="title">휴대폰 번호</h5>
 					<p data-v-580e3700="" class="desc">010-8***-*208</p>
-					<button data-v-3d1bcc82="" data-v-580e3700="" type="button"
-						class="btn btn_modify outlinegrey small">변경</button>
+					<!-- <button data-v-3d1bcc82="" data-v-580e3700="" type="button"
+						class="btn btn_modify outlinegrey small">변경</button> -->
 				</div>
 				<div data-v-580e3700="" class="unit">
 					<h5 data-v-580e3700="" class="title">신발 사이즈</h5>
 					<p data-v-580e3700="" class="desc">265</p>
-					<button data-v-3d1bcc82="" data-v-580e3700="" type="button"
-						class="btn btn_modify outlinegrey small">변경</button>
+					<!-- <button data-v-3d1bcc82="" data-v-580e3700="" type="button"
+						class="btn btn_modify outlinegrey small">변경</button> -->
 				</div>
-				<!-- <div data-v-350bc372="" data-v-feb03f9c="" data-v-580e3700=""
-					class="layer md" style="display: none;">
-					<div data-v-350bc372="" class="layer_container">
-						<div data-v-350bc372="" class="layer_header">
-							<h2 data-v-feb03f9c="" data-v-350bc372="" class="title">사이즈
-								선택</h2>
-						</div>
-						<div data-v-350bc372="" class="layer_content">
-							<div data-v-feb03f9c="" data-v-350bc372="" class="size_list_area">
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">220</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">225</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">230</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">235</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">240</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">245</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">250</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">255</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">260</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium on"><span data-v-1b874462=""
-										class="info_txt">265</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">270</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">275</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">280</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">285</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">290</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">295</span></a>
-								</div>
-								<div data-v-1b874462="" data-v-feb03f9c="" class="size_item"
-									data-v-350bc372="">
-									<a data-v-3d1bcc82="" data-v-1b874462="" href="#"
-										class="btn outlinegrey medium"><span data-v-1b874462=""
-										class="info_txt">300</span></a>
-								</div>
-							</div>
-							<div data-v-feb03f9c="" data-v-350bc372="" class="layer_btn">
-								<a data-v-3d1bcc82="" data-v-feb03f9c="" href="#"
-									class="btn solid medium" data-v-350bc372=""> 확인 </a>
-							</div>
-						</div>
-						<a data-v-feb03f9c="" data-v-350bc372="" class="btn_layer_close">
-							<svg data-v-feb03f9c="" data-v-350bc372=""
-								xmlns="http://www.w3.org/2000/svg"
-								class="ico-close icon sprite-icons">
-                            <use data-v-feb03f9c="" data-v-350bc372=""
-									href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"
-									xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
-                        </svg>
-						</a>
-					</div>
-				</div> -->
+				
 			</div>
 			<div data-v-580e3700="" class="profile_group">
 				<h4 data-v-580e3700="" class="group_title">광고성 정보 수신</h4>
 				<div data-v-580e3700="" class="unit to_receive">
 					<p data-v-580e3700="" class="desc">문자 메시지</p>
 						
-					<!-- <div data-v-580e3700="" class="radio_txt_box">
-						 <div data-v-42808438="" data-v-580e3700="" class="radio_item">
-							<input data-v-42808438="" id="agree1" type="radio"
-								name="message_radio" class="radio_input" /> <label
-								data-v-42808438="" for="agree1" class="radio_label"> <svg
-									data-v-42808438="" xmlns="http://www.w3.org/2000/svg"
-									class="ico-radio-inactive icon sprite-icons">
-                                <use data-v-42808438=""
-										href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-radio-inactive"
-										xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-radio-inactive"></use>
-                            </svg> <span data-v-42808438="" class="label_txt">수신
-									동의</span>
-							</label>
-						</div> 
-						 <div data-v-42808438="" data-v-580e3700="" class="radio_item">
-							<input data-v-42808438="" id="disagree1" type="radio"
-								name="message_radio" class="radio_input" /> <label
-								data-v-42808438="" for="disagree1" class="radio_label">
-								<svg data-v-42808438="" xmlns="http://www.w3.org/2000/svg"
-									class="ico-radio-inactive icon sprite-icons">
-                                <use data-v-42808438=""
-										href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-radio-inactive"
-										xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-radio-inactive"></use>
-                            </svg> <span data-v-42808438="" class="label_txt">수신거부</span>
-								
-							</label>
-						</div> 
-					</div> -->
+					
 				</div>
 				<div data-v-580e3700="" class="unit to_receive">
 					<p data-v-580e3700="" class="desc">이메일</p>
-					<!-- <div data-v-580e3700="" class="radio_txt_box">
-						<div data-v-42808438="" data-v-580e3700="" class="radio_item">
-							<input data-v-42808438="" id="agree2" type="radio"
-								name="email_radio" class="radio_input" /> <label
-								data-v-42808438="" for="agree2" class="radio_label"> <svg
-									data-v-42808438="" xmlns="http://www.w3.org/2000/svg"
-									class="ico-radio-inactive icon sprite-icons">
-                                <use data-v-42808438=""
-										href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-radio-inactive"
-										xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-radio-inactive"></use>
-                            </svg> <span data-v-42808438="" class="label_txt">수신
-									동의</span>
-							</label>
-						</div>
-						<div data-v-42808438="" data-v-580e3700="" class="radio_item">
-							<input data-v-42808438="" id="disagree2" type="radio"
-								name="email_radio" class="radio_input" /> <label
-								data-v-42808438="" for="disagree2" class="radio_label">
-								<svg data-v-42808438="" xmlns="http://www.w3.org/2000/svg"
-									class="ico-radio-inactive icon sprite-icons">
-                                <use data-v-42808438=""
-										href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-radio-inactive"
-										xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-radio-inactive"></use>
-                            </svg> <span data-v-42808438="" class="label_txt">수신거부</span>
-								
-							</label>
-						</div>
-					</div> -->
+					
 				</div>
 			</div>
 			<a data-v-580e3700="" href="/my/withdrawal" class="btn_withdrawal">회원
