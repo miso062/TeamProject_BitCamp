@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="./css/user/login.css">
+<link rel="stylesheet" href="/TeamProject/css/user/login.css">
 <style type="text/css">
 .h_header {
 	z-index: 1000;
@@ -354,7 +354,7 @@ height:80px;
 }
 .h_layer_search {  /* 모달창 */
 	  z-index: 1000;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     left: 0;
@@ -414,7 +414,7 @@ height:80px;
 		<div class="h_main_inner">
 			<h1 class="h_h1">
 				<a href="/TeamProject/" class="h_logo">
-					<img src="/TeamProject/img/kream.jpg" alt="kream로고" style="width:100px;">
+					<img src="/TeamProject/img/main/header/kream.jpg" alt="kream로고" style="width:100px;">
 					</a>
 			</h1>
 		<div class="h_gnb_area">
@@ -430,14 +430,13 @@ height:80px;
 				
 			</nav>
 			<div class="h_search_btn_box">
-					<img src="/TeamProject/img/h1_search.JPG" class="h_searchBtn" alt="돋보기" style="width:21.6px; height:21.6px; margin-left:20px; cursor:pointer;">
+					<img src="/TeamProject/img/main/header/h1_search.JPG" class="h_searchBtn" alt="돋보기" style="width:21.6px; height:21.6px; margin-left:20px; cursor:pointer;">
 			</div>
 		</div>
 	
 		</div>
 	</div>
 </div>
-
 <!-- 모달창 -->
 <div class="h_layer_search lg layer">
 <div class="h_normal"></div>
@@ -446,7 +445,7 @@ height:80px;
 		<div class="h_search_wrap">
 			<div class="h_search_area">
 				<div class="h_search">
-					<img src="/TeamProject/img/h_search.svg" class="h_ico-search-gray h_icon sprite-icons">
+					<img src="/TeamProject/img/main/header/h_search.svg" class="h_ico-search-gray h_icon sprite-icons">
 					<input type="text" placeholder="브랜드명,모델명,모델번호 등" title="검색창" class="h_input_search h_show_placeholder_on_focus">
 					<button class="h_btn_search_delete" style="display: none;"></button>
 				</div>
@@ -547,10 +546,10 @@ height:80px;
 			</ul>
 			<div class="social_login">
 				<a id="naverIdLogin_loginButton" href="javascript:void(0)"> <!-- GU6NNwfSmxJ3JXmCBaTf  -->
-					<img src="./img/miso.png" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
+					<img src="/TeamProject/img/main/header/miso.png" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
 				</a>	 
 			 	<a href="javascript:kakaoLogin();"> <!-- 144932b30082932e5eba55d918d38249 -->
-			 		<img src="./img/kakao_login_large_wide.png" alt="카카오계정 로그인" style="width: 400px; height: auto;  border-radius: 12px;"/>
+			 		<img src="/TeamProject/img/main/header/kakao_login_large_wide.png" alt="카카오계정 로그인" style="width: 400px; height: auto;  border-radius: 12px;"/>
 			 	</a>
 			</div>
 	    </div>
@@ -558,7 +557,7 @@ height:80px;
 </div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="./js/user/login.js"></script>
+<script type="text/javascript" src="/TeamProject/js/user/login.js"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script type="text/javascript">
