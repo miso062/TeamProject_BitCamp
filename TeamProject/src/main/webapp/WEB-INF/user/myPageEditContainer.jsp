@@ -948,6 +948,7 @@
 	{
 	display: none
 }
+<<<<<<< HEAD
 
 .mo .my_addressbook .content_title .btn_box[data-v-88eb18f6], .mo .my_payment .content_title .btn_box[data-v-88eb18f6],
 	.sm .my_addressbook .content_title .btn_box[data-v-88eb18f6], .sm .my_payment .content_title .btn_box[data-v-88eb18f6]
@@ -1052,6 +1053,12 @@
 	font-size: 17px
 }
 
+=======
+ */
+#profile_information{
+	margin-left: 500px
+}
+>>>>>>> branch 'seungchan' of https://github.com/seungchan98/TeamProject_BitCamp.git
 </style>
 </head>
 <body>
@@ -1082,6 +1089,7 @@
 					</div>
 				</div>
 			</div>
+<<<<<<< HEAD
 			<input data-v-580e3700="" type="file" accept="image/jpeg,image/png"
 				hidden="hidden" />
 			<!-- <canvas data-v-580e3700="" width="1000" height="1000"
@@ -1105,7 +1113,23 @@
 						<p data-v-580e3700="" class="desc repw"></p>
 					</div>
 
+=======
+		</div>
+		<input data-v-580e3700="" type="file" accept="image/jpeg,image/png"
+			hidden="hidden" />
+		<canvas data-v-580e3700="" width="1000" height="1000"
+			style="display: none;"></canvas>
+		<div data-v-580e3700="" class="profile_info" id="profile_information">
+			<div data-v-580e3700="" class="profile_group">
+				<h4 data-v-580e3700="" class="group_title">로그인 정보</h4>
+				<div data-v-580e3700="" class="unit">
+					<h5 data-v-580e3700="" class="title">이메일 주소</h5>
+					<p data-v-580e3700="" class="desc email">t********1@naver.com</p>
+					<!-- <button data-v-3d1bcc82="" data-v-580e3700="" type="button"
+						class="btn btn_modify outlinegrey small">변경</button> -->
+>>>>>>> branch 'seungchan' of https://github.com/seungchan98/TeamProject_BitCamp.git
 				</div>
+<<<<<<< HEAD
 				<div data-v-580e3700="" class="profile_group" id="profile_groups">
 					<h4 data-v-580e3700="" class="group_title">개인 정보</h4>
 					<div data-v-580e3700="" class="unit">
@@ -1186,7 +1210,48 @@
 						class="btn btn_modify outlinegrey small">변경</button> -->
 					</div>
 
+=======
+				
+				<div data-v-580e3700="" class="unit">
+					<h5 data-v-580e3700="" class="title">비밀번호</h5>
+					<p data-v-580e3700="" class="desc password">●●●●●●●●●</p>
+					<!-- <button data-v-3d1bcc82="" data-v-580e3700="" type="button"
+						class="btn btn_modify outlinegrey small">변경</button> -->
 				</div>
+				
+			</div>
+			<div data-v-580e3700="" class="profile_group">
+				<h4 data-v-580e3700="" class="group_title">개인 정보</h4>
+				<div data-v-580e3700="" class="unit">
+					<h5 data-v-580e3700="" class="title">이름</h5>
+					<p data-v-580e3700="" class="desc">tmdcks9801</p>
+					<!-- <button data-v-3d1bcc82="" data-v-580e3700="" type="button"
+						class="btn btn_modify outlinegrey small">변경</button> -->
+				</div>
+				
+				<div data-v-580e3700="" class="unit">
+					<h5 data-v-580e3700="" class="title">휴대폰 번호</h5>
+					<p data-v-580e3700="" class="desc">010-8***-*208</p>
+					<!-- <button data-v-3d1bcc82="" data-v-580e3700="" type="button"
+						class="btn btn_modify outlinegrey small">변경</button> -->
+				</div>
+				<div data-v-580e3700="" class="unit">
+					<h5 data-v-580e3700="" class="title">신발 사이즈</h5>
+					<p data-v-580e3700="" class="desc">265</p>
+					<!-- <button data-v-3d1bcc82="" data-v-580e3700="" type="button"
+						class="btn btn_modify outlinegrey small">변경</button> -->
+				</div>
+				
+			</div>
+			<div data-v-580e3700="" class="profile_group">
+				<h4 data-v-580e3700="" class="group_title">광고성 정보 수신</h4>
+				<div data-v-580e3700="" class="unit to_receive">
+					<p data-v-580e3700="" class="desc">문자 메시지</p>
+						
+					
+>>>>>>> branch 'seungchan' of https://github.com/seungchan98/TeamProject_BitCamp.git
+				</div>
+<<<<<<< HEAD
 				<div data-v-580e3700="" class="profile_group" id="profile_groups">
 					<h4 data-v-580e3700="" class="group_title">광고성 정보 수신</h4>
 					<div data-v-580e3700="" class="unit to_receive">
@@ -1198,6 +1263,11 @@
 						<p data-v-580e3700="" class="desc">이메일</p>
 
 					</div>
+=======
+				<div data-v-580e3700="" class="unit to_receive">
+					<p data-v-580e3700="" class="desc">이메일</p>
+					
+>>>>>>> branch 'seungchan' of https://github.com/seungchan98/TeamProject_BitCamp.git
 				</div>
 
 			</div>
