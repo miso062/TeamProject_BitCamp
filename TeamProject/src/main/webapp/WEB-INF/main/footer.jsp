@@ -7,7 +7,7 @@
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-
+	
 }
   .banner_box1 {
 	position: relative;
@@ -17,7 +17,7 @@
 	background-position: 100% 0;
 	background-repeat: no-repeat;
 	background-size: 350px 200px
-}
+} 
  .banner_box2 {
 	position: relative;
 	padding: 36px 32px 0;
@@ -26,18 +26,17 @@
 	background-position: 100% 0;
 	background-repeat: no-repeat;
 	background-size: 350px 200px
-}
-
+} 
+ 
 .banner_box1 {
 	background-color: #565656;
-	background-image: url("/TeamProject/img/footer/kream2.png");
-	background-position: right center;
+	background-image: url("/TeamProject/img/footer/kream2.png")
 }
 
 .banner_box2 {
 	background-color: #3b3a3c;
 	background-image: url("/TeamProject/img/footer/kream1.png");
-	background-position: right center;
+	background-position: 400px center;
 }
 
 .banner_bottom .banner_info[data-v-d772dcbe] {
@@ -96,7 +95,7 @@
 		font-weight: 300;
 		color: rgba(34, 34, 34, .6);
 		margin-top: 4px
-	}
+	} 
 div > ul > li > a{
  text-decoration: none;
  color: black;
@@ -109,6 +108,7 @@ div > ul > li > a{
 	align:center;
 	position: relative;
 	width: 95%;
+	color: lightgray;
 }
 #company_import{
 	font-size: 14px;
@@ -179,26 +179,23 @@ font-size:13px;
 font-size:12px;
 }
  #instagram{
-	float: right;
+	float: left;
 	position: relative;
-	right: 40px;
-	bottom:155px;
+	left: 1320px;
+	bottom:130px;
 }
 #kakao{
-	float: right;
+	float: left;
 	position: relative;
-	right: 55px;
-	bottom:155px;
+	left: 1345px;
+	bottom:130px;
 }
 #facebook{
-	float: right;
+	float: left;
 	position: relative;
-	right: 70px;
-	bottom:155px;
-}
-.banner_box1 .banner_box2{
-
-}
+	left: 1370px;
+	bottom:130px;
+} 
 
 </style>
 <div class="footer">
@@ -222,12 +219,12 @@ font-size:12px;
 			</p>
 			<span class="info_txt" data-v-d772dcbe="">앱 설치하기</span>
 			<dl id="image">
-
+				
 			</dl>
 		</div>
 	</a>
 </div>
-
+		
 <div id="service_info">
 	<ul>
 		<li>
@@ -242,12 +239,12 @@ font-size:12px;
 				<a href="#" class="btn"><strong>자주 묻는 질문</strong></a>
 			</div>
 		</li><br>
-
+		
 		<div id="service_type">
-			<li ><a href="">검수기준&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;공지사항</a></li><br>
-			<li><a href="">이용정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;서비스 소개</a></li><br>
+			<li ><a href="">검수기준&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;공지사항</a></li><br>
+			<li><a href="">이용정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;서비스 소개</a></li><br>
 			<li><a href="">패널티 정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;쇼룸 안내</a></li><br>
-			<li><a href="">커뮤니티 가이드라인&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;판매자 방문접수</a></li>
+			<li><a href="">커뮤니티 가이드라인&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;판매자 방문접수</a></li>
 	</ul>
 </div>
 
@@ -271,6 +268,37 @@ font-size:12px;
 				<a href="#" id="facebook"><img src="/TeamProject/img/footer/facebook.png"></a>
 			</div>
 	</ul>
-	<div style="height: 50px;"></div>
+	<div style="height: 50px;"></div>	
+	<!-- <div class="footer_sns" data-v-2ea81d14="">
+		<div class="sns_box" data-v-2ea81d14="">
+			<a href="#" aria-label="인스타그램" class="sns" data-v-2ea81d14="">
+				<svg xmlns="http://www.w3.org/2000/svg"
+					class="ico-instagram icon sprite-icons" data-v-2ea81d14="">
+                                          <use
+						href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-instagram"
+						xlink:href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-instagram"
+						data-v-2ea81d14=""></use>
+                                      </svg>
+			</a> <a href="#" aria-label="페이스북" class="sns" data-v-2ea81d14="">
+				<svg xmlns="http://www.w3.org/2000/svg"
+					class="ico-facebook icon sprite-icons" data-v-2ea81d14="">
+                                          <use
+						href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-facebook"
+						xlink:href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-facebook"
+						data-v-2ea81d14=""></use>
+                                      </svg>
+			</a> <a href="#" aria-label="카카오톡" class="sns" data-v-2ea81d14="">
+				<svg xmlns="http://www.w3.org/2000/svg"
+					class="ico-talk icon sprite-icons" data-v-2ea81d14="">
+                                          <use
+						href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-talk"
+						xlink:href="/_nuxt/3eb827d04a461ab3eecd387024737978.svg#i-ico-talk"
+						data-v-2ea81d14=""></use>
+                                      </svg>
+			</a>
+		</div>
+		
+	</div>
+	 -->
 </div>
 </div>
