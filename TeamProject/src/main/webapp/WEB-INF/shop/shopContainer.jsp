@@ -514,7 +514,7 @@ li, ol, ul {
 	                </a>
 	                <div class="shop_interest_figure">
 	                    <span class="shop_wish_figure">
-	                            <img alt="" src="/TeamProject/img/container2/bookmark.svg" >
+	                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
 	                        <span class="shop_text">10.2만</span>
 	                    </span>
 	                    <span class="shop_review_figure">
@@ -552,7 +552,7 @@ li, ol, ul {
 	                </a>
 	                <div class="shop_interest_figure">
 	                    <span class="shop_wish_figure">
-	                            <img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+	                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
 	                        <span class="shop_text">10.2만</span>
 	                    </span>
 	                    <span class="shop_review_figure">
@@ -590,7 +590,7 @@ li, ol, ul {
 	                </a>
 	                <div class="shop_interest_figure">
 	                    <span class="shop_wish_figure">
-	                            <img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+	                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
 	                        <span class="shop_text">10.2만</span>
 	                    </span>
 	                    <span class="shop_review_figure">
@@ -628,7 +628,7 @@ li, ol, ul {
 	                </a>
 	                <div class="shop_interest_figure">
 	                    <span class="shop_wish_figure">
-	                            <img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+	                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
 	                        <span class="shop_text">10.2만</span>
 	                    </span>
 	                    <span class="shop_review_figure">
@@ -666,7 +666,7 @@ li, ol, ul {
 	                </a>
 	                <div class="shop_interest_figure">
 	                    <span class="shop_wish_figure">
-	                            <img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+	                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
 	                        <span class="shop_text">10.2만</span>
 	                    </span>
 	                    <span class="shop_review_figure">
@@ -704,7 +704,7 @@ li, ol, ul {
 	                </a>
 	                <div class="shop_interest_figure">
 	                    <span class="shop_wish_figure">
-	                            <img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+	                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
 	                        <span class="shop_text">10.2만</span>
 	                    </span>
 	                    <span class="shop_review_figure">
@@ -728,6 +728,18 @@ li, ol, ul {
 	    </div>
 </div><!-- shop_content -->
 <script type="text/javascript">  
+$(function(){
+	// 관심버튼 이미지 클릭시 로테이션으로 변경하기
+	$('.shop_bookmark').on({
+	    'click': function() {
+	         var src = ($(this).attr('src') === '/TeamProject/img/shop/bookmark.svg')
+	            ? '/TeamProject/img/shop/bookmark-fill.svg'
+	            : '/TeamProject/img/shop/bookmark.svg';
+	         $(this).attr('src', src);
+	    }
+	});
+});
+
 /* 필터클릭시 목록보이기 */
 $("#shop_sorting_title").click(function(){
 	if($('.shop_sorting_list').css('display')=='none'){

@@ -622,7 +622,6 @@ $(function(){
 	         $(this).attr('src', src);
 	    }
 	});
-
 });
 </script>
 <script type="text/javascript">
