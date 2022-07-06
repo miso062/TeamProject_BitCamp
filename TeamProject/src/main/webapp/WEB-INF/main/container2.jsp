@@ -195,7 +195,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="(W) 나이키 덩크 로우 오션"" 
-	                            src="/TeamProject/img/container2/Nike Dunk Low Ocean.png" />
+	                            src="/TeamProject/img/main/container2/Nike Dunk Low Ocean.png" />
 						</div>
 	                </div>
 	
@@ -211,7 +211,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 	        
@@ -220,7 +220,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="조던 1 로우 짐" 
-	                            src="/TeamProject/img/container2/Jordan 1 Mid Black and Gym Red.png" />
+	                            src="/TeamProject/img/main/container2/Jordan 1 Mid Black and Gym Red.png" />
 						</div>
 	                </div>
 	
@@ -236,7 +236,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 	        
@@ -245,7 +245,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="나이키 에어포스 화이트" 
-	                            src="/TeamProject/img/container2/Nike Air Force 1 '07 Low White.png" />
+	                            src="/TeamProject/img/main/container2/Nike Air Force 1 '07 Low White.png" />
 						</div>
 	                </div>
 	
@@ -261,7 +261,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 	        
@@ -270,7 +270,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="Nike SB Dunk Low Pro Be True" 
-	                            src="/TeamProject/img/container2/Nike SB Dunk Low Pro Be True.png" />
+	                            src="/TeamProject/img/main/container2/Nike SB Dunk Low Pro Be True.png" />
 						</div>
 	                </div>
 	
@@ -286,7 +286,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 	    </div>
@@ -299,7 +299,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="조던 1 로우 택시" 
-	                            src="/TeamProject/img/container2/Jordan 1 Taxi.png" />
+	                            src="/TeamProject/img/main/container2/Jordan 1 Taxi.png" />
 						</div>
 	                </div>
 	
@@ -315,7 +315,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 	        
@@ -324,7 +324,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="Jordan 1 Mid White Black Tie-Dye" 
-	                            src="/TeamProject/img/container2/Jordan 1 Mid White Black Tie-Dye.png" />
+	                            src="/TeamProject/img/main/container2/Jordan 1 Mid White Black Tie-Dye.png" />
 						</div>
 	                </div>
 	
@@ -340,7 +340,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 	        
@@ -349,7 +349,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="조던 1 로우 택시" 
-	                            src="/TeamProject/img/container2/Jordan 1 Retro High OG Black Mocha.png" />
+	                            src="/TeamProject/img/main/container2/Jordan 1 Retro High OG Black Mocha.png" />
 						</div>
 	                </div>
 	
@@ -365,7 +365,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 	        
@@ -374,7 +374,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="Nike x Union Cortez SP Seaseme" 
-	                            src="/TeamProject/img/container2/Nike x Union Cortez SP Seaseme.png" />
+	                            src="/TeamProject/img/main/container2/Nike x Union Cortez SP Seaseme.png" />
 						</div>
 	                </div>
 	
@@ -390,7 +390,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 	    </div>
@@ -405,7 +405,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="" 
-	                            src="/TeamProject/img/container2/Adidas Yeezy Boost 350 V2 Onyx.png" />
+	                            src="/TeamProject/img/main/container2/Adidas Yeezy Boost 350 V2 Onyx.png" />
 						</div>
 	                </div>
 	
@@ -421,7 +421,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 	        
@@ -430,7 +430,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="Nike x Union Cortez SP Seaseme" 
-	                            src="/TeamProject/img/container2/Nike x Union Cortez SP Seaseme.png" />
+	                            src="/TeamProject/img/main/container2/Nike x Union Cortez SP Seaseme.png" />
 						</div>
 	                </div>
 	
@@ -446,7 +446,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 	        
@@ -455,7 +455,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="뉴발란스 530 화이트" 
-	                            src="/TeamProject/img/container2/New Balance 530 White.png" />
+	                            src="/TeamProject/img/main/container2/New Balance 530 White.png" />
 						</div>
 	                </div>
 	
@@ -471,7 +471,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 	        
@@ -480,7 +480,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="Adidas Yeezy Slide Pure" 
-	                            src="/TeamProject/img/container2/Adidas Yeezy Slide Pure.png" />
+	                            src="/TeamProject/img/main/container2/Adidas Yeezy Slide Pure.png" />
 						</div>
 	                </div>
 	
@@ -496,7 +496,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 		</div>
@@ -509,7 +509,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="조던 1 로우 짐" 
-	                            src="/TeamProject/img/container2/Jordan 1 Mid Black and Gym Red.png" />
+	                            src="/TeamProject/img/main/container2/Jordan 1 Mid Black and Gym Red.png" />
 						</div>
 	                </div>
 	
@@ -525,7 +525,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 	        
@@ -534,9 +534,9 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="뉴발란스 990 메이드 인 USA 그레이 화이트"  
-	                            src="/TeamProject/img/container2/New Balance 990 Made in USA Grey White.png" />
+	                            src="/TeamProject/img/main/container2/New Balance 990 Made in USA Grey White.png" />
 		                    <div class="cd2_btn_wish" >
-								<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+								<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 							</div>
 						</div>
 	                </div>
@@ -559,7 +559,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="아디다스 이지폼" 
-	                            src="/TeamProject/img/container2/Adidas Yeezy Foam RNNR Onyx.png" />
+	                            src="/TeamProject/img/main/container2/Adidas Yeezy Foam RNNR Onyx.png" />
 						</div>
 	                </div>
 	
@@ -575,7 +575,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 	        
@@ -584,7 +584,7 @@
 	                <div class="cd2_thumb_box">
 	                    <div class="cd2_product" style="background-color: #f6eeed;">
 	                        <img class="cd2_product_img" alt="조던 시리즈 x 메종 샤또 루즈 미드 SP 세일" 
-	                            src="/TeamProject/img/container2/Jordan Series x Maison Chateau Rouge Mid SP Sail.png" />
+	                            src="/TeamProject/img/main/container2/Jordan Series x Maison Chateau Rouge Mid SP Sail.png" />
 						</div>
 	                </div>
 	
@@ -600,7 +600,7 @@
 	                </div>
 	            </a>
 					<div class="cd2_btn_wish" >
-						<img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
+						<img alt="" src="/TeamProject/img/main/container2/bookmark.svg" class="cd2_bookmark">
 					</div>
 	        </div>
 	    </div>
@@ -608,7 +608,7 @@
 	</div>
 </div>
 <div class="cd2_img_box">
-   <img src="/TeamProject/img/container2/banner.png" alt="banner" class="cd2_banner_img" />
+   <img src="/TeamProject/img/main/container2/banner.png" alt="banner" class="cd2_banner_img" />
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -616,9 +616,9 @@ $(function(){
 	// 이미지 클릭시 로테이션으로 변경하기
 	$('.cd2_btn_wish > .cd2_bookmark').on({
 	    'click': function() {
-	         var src = ($(this).attr('src') === '/TeamProject/img/container2/bookmark.svg')
-	            ? '/TeamProject/img/container2/bookmark-fill.svg'
-	            : '/TeamProject/img/container2/bookmark.svg';
+	         var src = ($(this).attr('src') === '/TeamProject/img/main/container2/bookmark.svg')
+	            ? '/TeamProject/img/main/container2/bookmark-fill.svg'
+	            : '/TeamProject/img/main/container2/bookmark.svg';
 	         $(this).attr('src', src);
 	    }
 	});
