@@ -12,11 +12,10 @@ import admin.dao.AdminDAO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-
-	public void test() {
-		adminDAO.test();
-	}
-
+	
+	@Autowired
+	AdminDAO adminDAO;
+	
 	@Override
 	public List<AdminDTO> getnoticeList(String pg) {
 		int endNum = Integer.parseInt(pg) * 5;

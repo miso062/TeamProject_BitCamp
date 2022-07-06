@@ -22,12 +22,6 @@ public class AdminController {
 	@Autowired
 	AdminService adminService;
 	
-	@GetMapping(value="test")
-	public String test() {
-		adminService.test();
-		return "/admin/test";
-	}
-	
 	@PostMapping(value="getnoticeList")
 	@ResponseBody
 	public Map<String, Object> getnoticeList(@RequestParam(required = false, defaultValue = "1") String pg){

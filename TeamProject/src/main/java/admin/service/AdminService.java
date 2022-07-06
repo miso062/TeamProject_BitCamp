@@ -6,7 +6,5 @@ import admin.bean.AdminDTO;
 
 public interface AdminService {
 
-	public void test();
-
 	public List<AdminDTO> getnoticeList(String pg);
 }
