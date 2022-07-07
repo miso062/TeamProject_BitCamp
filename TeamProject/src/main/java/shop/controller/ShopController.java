@@ -17,12 +17,12 @@ public class ShopController {
 		return "shop/shop";
 	}
 	
-	@GetMapping(value="/")
+	@GetMapping(value="/shopDetail")
 	public String shopDetail(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
-		model.addAttribute("container1", "/WEB-INF/shop/shopDetailContainer1.jsp");
-		model.addAttribute("container2", "/WEB-INF/shop/shopDetailContainer2.jsp");
+		model.addAttribute("container1", "/WEB-INF/shop/shopDetail/shopDetailContainer1.jsp");
+		model.addAttribute("container2", "/WEB-INF/shop/shopDetail/shopDetailContainer2.jsp");
 		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
-		return "shop/shopDetail";
+		return "shop/shopDetail/shopDetail";
 	}
 }
