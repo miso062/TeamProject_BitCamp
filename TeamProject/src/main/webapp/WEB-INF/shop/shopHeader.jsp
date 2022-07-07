@@ -16,7 +16,7 @@
 }
 .h_main_inner {
     border-top : 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
+    /* border-bottom: 1px solid #e0e0e0;  밑줄 */ 
 }
 .h_header .h_top_list {
 	align-items : center;
@@ -390,6 +390,65 @@ height:80px;
     width: 500px;
     margin: 0 auto;
 }
+.title_txt {
+	overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 28px;
+    font-weight: 600;
+    color: #000;
+    letter-spacing: -.14px;
+    cursor: pointer;
+}
+.search_trend_container{
+	max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+.brand_list{
+	display: flex;
+    overflow-x: auto;
+    padding: 0 0 16px;
+    width: 100%;
+    background : rgb(246 246 246);
+    border-radius: 12px;
+}
+.brand_item{
+	display: inline-block;
+    vertical-align: top;
+    border-radius: 8px;
+    margin-left: 40px;
+}
+.brand_item:first-child  {
+    margin-left: 0px;
+}
+.brand_box{
+	display: block;
+	text-align: center;
+    cursor: pointer;
+    width: 84px;
+    height: 82px;
+}
+.brand_img{
+    width: 70px;
+    height: 70px;
+    border: 0;
+    vertical-align: top;
+    user-select: none!important;
+}
+.brand_name{
+	display: block;
+	width: 80px;
+	height: 15px;
+	font-size: 13px;
+	margin: 0px;
+	font-weight: bold;
+}
+.h_mo {
+	padding-bottom: 16px;
+}
+
 </style>    
 <div class="h_header h_mo">
 	<div id="h_top">
@@ -427,14 +486,87 @@ height:80px;
 						<a href="/TeamProject/shop/"  class="gnb_link">SHOP</a>
 					</li>
 				</ul>
-				
 			</nav>
-			<div class="h_search_btn_box">
-					<img src="/TeamProject/img/h1_search.JPG" class="h_searchBtn" alt="돋보기" style="width:21.6px; height:21.6px; margin-left:20px; cursor:pointer;">
+		</div>
+		</div>
+			<nav class="h_gnb_middle">
+				<div>
+					<div class="search_title">
+						<a href="/TeamProject/shop/"><h2 class="title_txt" style="text-align: center; "> SHOP </h2></a>
+						<div class="h_search_btn_box" style="float: right; display: flex; -webkit-box-align: center; margin-right: 50px; align-items: center; padding: 0 0 28px;">
+							<img src="/TeamProject/img/h1_search.JPG" class="h_searchBtn" alt="돋보기"  style="width:21.6px; margin-left:850px; margin-right:7px; height:21.6px;  cursor:pointer;">
+							<img src="/TeamProject/img/shop/kream_plus.png" class="h_plusBtn" alt="플러스" style="width:21.6px; height:21.6px; margin-right:9px; cursor:pointer;">
+							<img src="/TeamProject/img/shop/instar.jpeg" class="profile_img" alt="마이프로필사진"
+							style="width:21.6px; height:21.6px;  cursor:pointer;
+								 object-fit: cover; border: 0; vertical-align: top;  border-radius: 70%">
+						</div>
+					</div>
+				</div>
+			</nav>
+			<div class="search_trend_container">
+				<ul class="brand_list">
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes1.png" >
+							<p class="brand_name">샌들</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes2.png" >
+							<p class="brand_name">야스히로</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes3.png" >
+							<p class="brand_name">아식스</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes4.png" >
+							<p class="brand_name">Dunk</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes5.png" >
+							<p class="brand_name">스캇</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes6.png" >
+							<p class="brand_name">Off-White</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes7.png" >
+							<p class="brand_name">에어포스</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes8.png" >
+							<p class="brand_name">뉴발란스</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes9.png" >
+							<p class="brand_name">YEEZY</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes10.png" >
+							<p class="brand_name">발렌시아가</p>
+						</a>
+					</li>
+				</ul>
 			</div>
-		</div>
-	
-		</div>
 	</div>
 </div>
 
@@ -571,7 +703,11 @@ $('.h_searchBtn').click(function(){
 $('.h_btn_close').click(function(){
     $('.h_input_search').val('');
     
-})//모달창 검색창 끄기 
+})
+
+
+
+//모달창 검색창 끄기 
 $(document).on("click",function(e){
 	if($('.h_layer_search').is(e.target)) {
 		$('.h_layer_search').fadeOut();
@@ -580,6 +716,9 @@ $(document).on("click",function(e){
         
 	}
 })
+
+
+
 
 $('#h_login').click(function(){
 	$('.content_login').fadeIn();
