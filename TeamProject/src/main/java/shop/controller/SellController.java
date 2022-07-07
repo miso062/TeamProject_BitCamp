@@ -16,13 +16,13 @@ public class SellController {
 		return "/shop/sell/sell";
 	}
 	
-	@GetMapping(value="/selectSize")
+	@GetMapping(value="/selectSellSize")
 	public String selectSize(Model model) {
 		model.addAttribute("container", "/WEB-INF/shop/buy/selectSize.jsp");
 		return "forward:/shop/sell";
 	}
 	
-	@GetMapping(value="/buyCheck")
+	@GetMapping(value="/sellCheck")
 	public String buyCheck(Model model) {
 		model.addAttribute("container", "/WEB-INF/shop/buy/buyCheck.jsp");
 		return "forward:/shop/sell";

@@ -16,7 +16,7 @@ public class BuyController {
 		return "/shop/buy/buy";
 	}
 	
-	@GetMapping(value="/selectSize")
+	@GetMapping(value="/selectBuySize")
 	public String selectSize(Model model) {
 		model.addAttribute("container", "/WEB-INF/shop/buy/selectSize.jsp");
 		return "forward:/shop/buy";
