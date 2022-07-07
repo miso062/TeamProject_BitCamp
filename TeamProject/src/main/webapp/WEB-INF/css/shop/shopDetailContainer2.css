@@ -1,0 +1,27 @@
+@charset "UTF-8";
+.c2_feed_area{
+	margin: 0 auto;
+    padding-bottom: 60px;
+    max-width: 1280px;	
+    height: 100%;
+    
+}
+.c2_feed_title{
+	display: flex;
+    padding-top: 40px;
+    margin: 0 40px;
+    -webkit-box-align: center;
+    align-items: center;
+    border-top: 1px solid #ebebeb;
+}
+.c2_title{
+	font-family: -apple-system,BlinkMacSystemFont,Roboto,AppleSDGothicNeo-Regular,NanumBarunGothic,NanumGothic,나눔고딕,Segoe UI,Helveica,Arial,Malgun Gothic,Dotum,sans-serif;
+    color: #222;
+}
+.c2_social_feeds{
+	
+}
+.c2_masonry_posts{
+	position: relative;
+	height: 834.204px;
+}
