@@ -16,7 +16,7 @@
 }
 .h_main_inner {
     border-top : 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
+    /* border-bottom: 1px solid #e0e0e0;  밑줄 */
 }
 .h_header .h_top_list {
 	align-items : center;
@@ -255,7 +255,7 @@ input {
     text-align: start;
     -webkit-rtl-ordering: logical;
     cursor: text;
-    
+
 }
 .h_search {
 padding : 0 , 40px, 0 , 44px;
@@ -280,7 +280,7 @@ button {
     margin-right: 20px;
     width:657px;
     float: left;
-    
+
 }
 .h_search_area:after {
 clear : both;
@@ -390,7 +390,73 @@ height:80px;
     width: 500px;
     margin: 0 auto;
 }
-</style>    
+.title_txt {
+	overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 28px;
+    font-weight: 600;
+    color: #000;
+    letter-spacing: -.14px;
+    cursor: pointer;
+}
+.search_trend_container{
+	max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.brand_list{
+	display: flex;
+    overflow-x: hidden;
+    padding: 0 0 16px;
+    width: 100%;
+    background : rgb(246 246 246);
+    border-radius: 12px;
+    margin-top: 7%
+}
+.brand_item{
+	display: inline-block;
+    vertical-align: top;
+    border-radius: 8px;
+    margin-left: 40px;
+}
+.brand_item:first-child  {
+    margin-left: 0px;
+}
+.brand_box{
+	display: block;
+	text-align: center;
+    cursor: pointer;
+    width: 84px;
+    height: 82px;
+}
+.brand_img{
+    width: 70px;
+    height: 70px;
+    border: 0;
+    vertical-align: top;
+    user-select: none!important;
+}
+.brand_name{
+	display: block;
+	width: 80px;
+	height: 15px;
+	font-size: 13px;
+	margin: 0px;
+	font-weight: bold;
+}
+.h_mo {
+	/* padding-bottom: 16px; */
+}
+.gnb_link:visited {
+	text-decoration: underline;
+	font-weight: bold;	
+}
+
+
+</style>
 <div class="h_header h_mo">
 	<div id="h_top">
 		<div class="h_top_inner" >
@@ -419,7 +485,7 @@ height:80px;
 			</h1>
 		<div class="h_gnb_area">
 			<nav class="h_gnb">
-				<ul class="h_gnb_list" style="text-align:center;">
+				<ul class="h_gnb_list" style="text-align:center; font-size: 15px;">
 					<li class="h_gnb_item">
 						<a href="#"  class="gnb_link">STYLE</a>
 					</li>
@@ -427,14 +493,87 @@ height:80px;
 						<a href="/TeamProject/shop/"  class="gnb_link">SHOP</a>
 					</li>
 				</ul>
-				
 			</nav>
-			<div class="h_search_btn_box">
-					<img src="/TeamProject/img/main/header/h1_search.JPG" class="h_searchBtn" alt="돋보기" style="width:21.6px; height:21.6px; margin-left:20px; cursor:pointer;">
+		</div>
+		</div>
+			<nav class="h_gnb_middle">
+				<div>
+					<div class="search_title">
+						<a href="/TeamProject/shop/"><h2 class="title_txt" style="text-align: center; "> SHOP </h2></a>
+						<div class="h_search_btn_box" style="float: right; display: flex; -webkit-box-align: center; margin-right: 50px; align-items: center; padding: 0 0 28px;">
+							<img src="/TeamProject/img/shop/search_real.png" class="h_searchBtn" alt="돋보기"  style="width:24px; margin-left:850px; margin-right:7px; height:24px;  cursor:pointer;">
+							<img src="/TeamProject/img/shop/kream_plus.png" class="h_plusBtn" alt="플러스" style="width:26px; height:26px; margin-right:9px; cursor:pointer;">
+							<img src="/TeamProject/img/shop/instar.jpeg" class="profile_img" alt="마이프로필사진"
+							style="width:26px; height:26px;  cursor:pointer;
+								 object-fit: cover; border: 0; vertical-align: top;  border-radius: 70%">
+						</div>
+					</div>
+				</div>
+			</nav>
+			<div class="search_trend_container">
+				<ul class="brand_list">
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes1.png" >
+							<p class="brand_name">샌들</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes2.png" >
+							<p class="brand_name">야스히로</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes3.png" >
+							<p class="brand_name">아식스</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes4.png" >
+							<p class="brand_name">Dunk</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes5.png" >
+							<p class="brand_name">스캇</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes6.png" >
+							<p class="brand_name">Off-White</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes7.png" >
+							<p class="brand_name">에어포스</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes8.png" >
+							<p class="brand_name">뉴발란스</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes9.png" >
+							<p class="brand_name">YEEZY</p>
+						</a>
+					</li>
+					<li class="brand_item">
+						<a class="brand_box" href="#">
+							<img class="brand_img" src="/TeamProject/img/shop/shoes10.png" >
+							<p class="brand_name">발렌시아가</p>
+						</a>
+					</li>
+				</ul>
 			</div>
-		</div>
-	
-		</div>
 	</div>
 </div>
 <!-- 모달창 -->
@@ -511,7 +650,7 @@ height:80px;
 			<div class="logo_wrap">
 				<div class="kream_logo" ></div>
 			</div>
-			
+
 			<div class="input_email_box">
 				<h3 class="input_email_title" id="email_label" >이메일 주소</h3>
 				<div class="input_email_item">
@@ -547,7 +686,7 @@ height:80px;
 			<div class="social_login">
 				<a id="naverIdLogin_loginButton" href="javascript:void(0)"> <!-- GU6NNwfSmxJ3JXmCBaTf  -->
 					<img src="/TeamProject/img/main/header/miso.png" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
-				</a>	 
+				</a>
 			 	<a href="javascript:kakaoLogin();"> <!-- 144932b30082932e5eba55d918d38249 -->
 			 		<img src="/TeamProject/img/main/header/kakao_login_large_wide.png" alt="카카오계정 로그인" style="width: 400px; height: auto;  border-radius: 12px;"/>
 			 	</a>
@@ -561,24 +700,42 @@ height:80px;
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script type="text/javascript">
+
+//방문시 링크
+$(document).ready(function(){
+	/* $('.gnb_link').click(function(){ */
+		$('.gnb_link:eq(1)').css("text-decoration", "underline");
+		$('.gnb_link:eq(1)').css("font-weight", "bold");
+	/* }); */
+});
+
+
+
 //돋보기 클릭시 검색 모달창
 $('.h_searchBtn').click(function(){
 	$('.h_layer_search').fadeIn();
     $('body').css("overflow", "hidden");
 });
-//모달창 검색어 삭제 
+//모달창 검색어 삭제
 $('.h_btn_close').click(function(){
     $('.h_input_search').val('');
-    
-})//모달창 검색창 끄기 
+
+})
+
+
+
+//모달창 검색창 끄기
 $(document).on("click",function(e){
 	if($('.h_layer_search').is(e.target)) {
 		$('.h_layer_search').fadeOut();
         $('.h_input_search').val('');
         $('body').css("overflow", "scroll");
-        
+
 	}
 })
+
+
+
 
 $('#h_login').click(function(){
 	$('.content_login').fadeIn();
@@ -588,11 +745,11 @@ $(document).on("click",function(e){
 	if($('.content_login').is(e.target)) {
 		$('.content_login').fadeOut();
         $('body').css("overflow", "scroll");
-        
+
 	}
 })
 
-//이미지 클릭시 검색차에 텍스트 담기  
+//이미지 클릭시 검색차에 텍스트 담기
 //submit은 미구현
 $('.h_brand_box').click(function(){
 	$('.h_input_search').val($(this).children().eq(1).text())
@@ -609,14 +766,14 @@ $(function(){
 	if(scrollLocation ==0) {
 		$('.h_main_inner').css("border-bottom","none");
 	}
-	
+
 	if(scrollLocation !=0) {
-		
+
 		$('.h_main_inner').css("border","1px 0 solid #e0e0e0");
 	}
 })
 
-//로그인 
+//로그인
 var naverLogin = new naver.LoginWithNaverId(
 		{
 			clientId: "GU6NNwfSmxJ3JXmCBaTf",  //내 애플리케이션 정보에 cliendId를 입력해줍니다.
@@ -624,7 +781,7 @@ var naverLogin = new naver.LoginWithNaverId(
 			isPopup: false,
 			callbackHandle: true
 		}
-	);	
+	);
 
 naverLogin.init();
 
@@ -633,9 +790,9 @@ window.addEventListener('load', function () {
 		console.log(status);
 		if (status) {
 			var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
-    		
-			console.log(naverLogin.user); 
-    		
+
+			console.log(naverLogin.user);
+
             if( email == undefined || email == null) {
 				alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
 				naverLogin.reprompt();
@@ -644,7 +801,7 @@ window.addEventListener('load', function () {
 		} else {
 			console.log("callback 처리에 실패하였습니다.");
 		}
-		
+
 	});
 });
 

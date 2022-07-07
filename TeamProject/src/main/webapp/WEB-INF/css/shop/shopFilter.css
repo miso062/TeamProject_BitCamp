@@ -16,7 +16,7 @@
     align-items: center;
 }
 .filter_status {
-    padding: 23px 0 15px;
+    padding: 18px 0 15px;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
@@ -67,6 +67,11 @@
 .column_menu:nth-child(2),
 .column_menu:nth-child(3) {
     margin-top: 0;
+}
+.menu_on { /* 신발사이즈선택시 */
+    border-color: #222;
+    color: #222;
+    font-weight: 700;
 }
 .button_more {
     font-size: 12px;

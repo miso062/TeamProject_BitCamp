@@ -9,8 +9,8 @@
 	float: left;
 }
    
-li a	{
-	text-decoration: none;
+.menu1{
+text-decoration: none;
 	color: gray;
 	cursor: pointer;
 	font-size: 15px;
@@ -28,17 +28,22 @@ li a	{
 	font-weight: bold;
 	color: black;
 }
+
+#gogeck a h1{
+color: black;
+}
+
+
 </style>
 <div >
 
  <div id="content_wrap">
  	<div id="sub_area">
-    	<a href=""><h1>고객센터</h1></a>
+    	<div id="gogeck"><a id="gogeck" href="/TeamProject/admin/notice"><h1>고객센터</h1></a></div>
         	<ul id="sub_menu" style=" list-style: none;">
-				<li class="bold"><a class="menu1" href="#">공지사항</a></li>
+				<li class="bold"><a class="menu1" href="/TeamProject/admin/notice">공지사항</a></li>
 				<li><a class="menu1" href="#">자주 묻는 질문</a></li> 
 				<li><a class="menu1" href="#">검수 기준</a></li>        
-				<li><a class="menu1" href="#">공지사항 작성</a></li>        
            	</ul>
    </div>
 </div>
