@@ -68,7 +68,7 @@ margin-left : 20px;
 
 }
 .h_gnb_item:after {
-clear: both;
+	clear: both;
 }
 .h_header .h_gnb_link{
     position: relative;
@@ -414,7 +414,6 @@ height:80px;
     width: 100%;
     background : rgb(246 246 246);
     border-radius: 12px;
-    margin-top: 7%
 }
 .brand_item{
 	display: inline-block;
