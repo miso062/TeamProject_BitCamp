@@ -15,20 +15,46 @@
     -ms-flex-align: center;
     align-items: center;
 }
+.filter_status {
+    padding: 23px 0 15px;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
 .status_txt {
     font-size: 14px;
     letter-spacing: -0.21px;
     font-weight: 700;
 }
-.column_menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+.status_num {
+    margin-left: 4px;
+    display: inline-flex;
     -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
     -webkit-box-align: center;
-    -ms-flex-align: center;
+    align-items: center;
+    width: 20px;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 30px;
+    background-color: #222;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+}
+.btn_delete {
+    font-size: 13px;
+    letter-spacing: -.07px;
+    color: rgba(34,34,34,.5);
+}
+.btn_delete, .btn_delete:hover {
+    text-decoration: underline;
+}
+.column_menu {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
     align-items: center;
     margin: 2px;
     width: calc(33.33333% - 4px);
@@ -41,12 +67,6 @@
 .column_menu:nth-child(2),
 .column_menu:nth-child(3) {
     margin-top: 0;
-}
-.column_menu {
-    width: calc(50% - 4px);
-}
-.column_menu:nth-child(3) {
-    margin-top: 2px;
 }
 .button_more {
     font-size: 12px;
@@ -89,8 +109,13 @@
 .link_txt {
     max-width: 160px;
 }
+.menu_column .has_more{
+	display: flex;
+    flex-wrap: wrap;
+	margin: 0 -2px;
+}
 .btn_more {
-    margin-top: 18px;
+    margin-top: 20px;
     font-size: 12px;
     letter-spacing: -0.06px;
     color: rgba(34, 34, 34, 0.8);
