@@ -59,10 +59,10 @@
 
 				$('.shop_tag').each(function(){
 					tagText = $(this).text();
-					alert(checkText + "| |" + tagText + "|");
+					/* alert(checkText + "| |" + tagText + "|"); */
 					
 					if( tagText == checkText) {
-						alert('같은거있음');
+						/* alert('같은거있음'); */
 						$(this).closest("div").remove();
 					}
 				})
