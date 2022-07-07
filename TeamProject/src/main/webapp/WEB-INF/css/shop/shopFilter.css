@@ -68,6 +68,11 @@
 .column_menu:nth-child(3) {
     margin-top: 0;
 }
+.menu_on { /* 신발사이즈선택시 */
+    border-color: #222;
+    color: #222;
+    font-weight: 700;
+}
 .button_more {
     font-size: 12px;
     line-height: 14px;
