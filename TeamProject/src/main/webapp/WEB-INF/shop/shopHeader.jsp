@@ -406,7 +406,6 @@ height:80px;
 	max-width: 1280px;
     margin: 0 auto;
     padding: 20px 40px;
-    
 }
 .brand_list{
 	display: flex;
@@ -476,7 +475,7 @@ height:80px;
 			</ul>
 		</div>
 	</div>
-	<div class="h_header_main">
+	<div class="h_header_main" style="border-bottom: 1px solid #e0e0e0;">
 		<div class="h_main_inner">
 			<h1 class="h_h1">
 				<a href="/TeamProject/" class="h_logo">
@@ -762,14 +761,12 @@ $(document).on('keyup','.h_input_search' ,function(key){
 })
 // 스크롤 최상단일 때 .h_main_inner css 지우기
 $(function(){
-	let scrollLocation = $(window).scrollTop;
-	if(scrollLocation ==0) {
-		$('.h_main_inner').css("border-bottom","none");
+	let scrollLocation = $(window).scrollTop();
+	if(scrollLocation == 0) {
+		$('.h_header_main').css("border-bottom","none");
 	}
-
 	if(scrollLocation !=0) {
-
-		$('.h_main_inner').css("border","1px 0 solid #e0e0e0");
+		$('.h_header_main').css("border","1px 0 solid #e0e0e0");
 	}
 })
 
@@ -804,5 +801,6 @@ window.addEventListener('load', function () {
 
 	});
 });
+
 
 </script>

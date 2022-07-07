@@ -605,7 +605,7 @@ $(document).on('keyup','.h_input_search' ,function(key){
 })
 // 스크롤 최상단일 때 .h_main_inner css 지우기
 $(function(){
-	let scrollLocation = $(window).scrollTop;
+	let scrollLocation = $(window).scrollTop();
 	if(scrollLocation ==0) {
 		$('.h_main_inner').css("border-bottom","none");
 	}
