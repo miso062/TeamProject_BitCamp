@@ -6,6 +6,7 @@
 	$(function(){
 		/* + 버튼 누를때 */
 		$('.status_num').hide();
+		$('.btn_delete').hide();
 		
 		$('.plus-icon').click(function(){
 			if($(this).hasClass('plus-gray')){
@@ -71,6 +72,7 @@
 			}
 			//alert($('.checkbox-active').length);
 				if($('.checkbox-active').length >= 1){
+					$('.btn_delete').show();
 					$('.status_num').show();
 					$('.status_num').text($('.checkbox-active').length);
 				}
