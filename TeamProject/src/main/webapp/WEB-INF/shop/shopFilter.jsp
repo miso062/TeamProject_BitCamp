@@ -35,8 +35,10 @@
 				$(this).closest("div").prev().find('span:eq(1)').hide();
 
 				/* 상품태그 추가 생성 */
-				$('.shop_filter_tag').append("<div class='shop_tag_item' > <span class='shop_tag'>" + tagitem_inner
-						+ "</span> <img class='shop_tag_svg' src='/TeamProject/img/shop/x-lg.svg'> </div>");
+				if($('.shop_tag_item').length <= 5){
+					$('.shop_filter_tag').append("<div class='shop_tag_item' > <span class='shop_tag'>" + tagitem_inner
+							+ "</span> <img class='shop_tag_svg' src='/TeamProject/img/shop/x-lg.svg'> </div>");					
+				}
 				
 				/* 체크박스 체크해제시 상품태그 지우기 */ 
 				$('.shop_tag_svg').on('click', function(){
@@ -72,9 +74,11 @@
 			}
 			//alert($('.checkbox-active').length);
 				if($('.checkbox-active').length >= 1){
+					
 					$('.btn_delete').show();
 					$('.status_num').show();
 					$('.status_num').text($('.checkbox-active').length);
+					
 				}
 			$('.status_num').text($('.checkbox-active').length)
 			
