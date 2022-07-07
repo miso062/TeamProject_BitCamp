@@ -9,6 +9,7 @@
 	left : 0;
 	right : 0;
 	background-color : #ffffff;
+	border-bottom: 1px solid #e0e0e0;
 }
 .h_header .h_top_inner {
 	padding : 8px 40px;
@@ -405,7 +406,7 @@ height:80px;
 	max-width: 1280px;
     margin: 0 auto;
     padding: 20px 40px;
-    border-bottom: 1px solid #e0e0e0;
+    
 }
 .brand_list{
 	display: flex;
