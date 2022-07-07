@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/TeamProject/css/user/login.css">
 <style type="text/css">
+#header{
+	height:320px;
+}
 .h_header {
 	z-index: 1000;
 	position :fixed;
@@ -414,7 +417,6 @@ height:80px;
     width: 100%;
     background : rgb(246 246 246);
     border-radius: 12px;
-    margin-top: 7%
 }
 .brand_item{
 	display: inline-block;
