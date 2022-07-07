@@ -18,7 +18,7 @@ public class UserController {
 	public String myPage(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
 		model.addAttribute("nav", "/WEB-INF/user/myPage/myPageNav.jsp");
-	//	model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
+		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
 		return "/user/myPage/myPage";
 	}
 	

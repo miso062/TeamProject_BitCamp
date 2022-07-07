@@ -26,10 +26,7 @@
             font-weight: 700;
             letter-spacing: -0.15px;
         }
-        .container.my .content_area1[data-v-3259a5f6] {
-            overflow: hidden;
-            min-height: 380px;
-        }
+
         [data-v-3259a5f6] .text-danger {
             color: #f15746;
         }
@@ -66,23 +63,26 @@
             <div data-v-7bcac446="" class="snb_list">
                 <strong data-v-7bcac446="" class="snb_title">쇼핑 정보</strong>
                 <ul data-v-4d11470e="" data-v-7bcac446="" class="snb_menu">
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/my/buying" class="menu_link"> 구매 내역 </a></li>
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/my/selling" class="menu_link"> 판매 내역 </a></li>
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/my/inventory" class="menu_link"> 보관 판매 </a></li>
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/my/wish" class="menu_link"> 관심 상품 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link"> 구매 내역 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link"> 판매 내역 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link"> 관심 상품 </a></li>
                 </ul>
             </div>
             <div data-v-7bcac446="" class="snb_list">
                 <strong data-v-7bcac446="" class="snb_title">내 정보</strong>
                 <ul data-v-4d11470e="" data-v-7bcac446="" class="snb_menu">
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/my/profile" class="menu_link"> 프로필 정보 </a></li>
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/my/address" class="menu_link"> 주소록 </a></li>
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/my/payment" class="menu_link"> 결제 정보 </a></li>
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/my/account" class="menu_link"> 판매 정산 계좌 </a></li>
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/my/receipt" class="menu_link"> 현금영수증 정보 </a></li>
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/my/point" class="menu_link"> 포인트 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link"> 프로필 정보 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link"> 판매 정산 계좌 </a></li>
                 </ul>
             </div>
         </nav>
     </div>
-    
+<script type="text/javascript">
+$('.snb > .snb_list .menu_item > .menu_link').click(function(){
+	$(this).css("font-weight", "bold");
+	$(this).css("color","black");
+	
+	$('.snb > .snb_list .menu_item > .menu_link').not(this).css("font-weight","normal")
+	$('.snb > .snb_list .menu_item > .menu_link').not(this).css("color","gray")
+});
+</script>

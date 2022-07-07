@@ -529,7 +529,7 @@
     </div>
     <div data-v-6752ceb2="" data-v-5f779880="" class="my_home_title">
         <h3 data-v-6752ceb2="" class="title">구매 내역</h3>
-        <a data-v-6752ceb2="" href="/my/buying" class="btn_more">
+        <a data-v-6752ceb2="" href="#" class="btn_more">
             <span data-v-6752ceb2="" class="btn_txt">더보기</span>
             <div data-v-6752ceb2=""  class="icon sprite-icons arr-right-gray">
                 <img data-v-6752ceb2="" src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
@@ -629,7 +629,7 @@
     </div>
     <div data-v-6752ceb2="" data-v-5f779880="" class="my_home_title">
         <h3 data-v-6752ceb2="" class="title">판매 내역</h3>
-        <a data-v-6752ceb2="" href="/my/selling" class="btn_more">
+        <a data-v-6752ceb2="" href="#" class="btn_more">
             <span data-v-6752ceb2="" class="btn_txt">더보기</span>
             <div data-v-6752ceb2=""  class="icon sprite-icons arr-right-gray">
                 <img data-v-6752ceb2="" src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
@@ -686,7 +686,7 @@
     </div>
     <div data-v-6752ceb2="" data-v-5f779880="" class="my_home_title">
         <h3 data-v-6752ceb2="" class="title">관심 상품</h3>
-        <a data-v-6752ceb2="" href="/my/wish" class="btn_more">
+        <a data-v-6752ceb2="" href="#" class="btn_more">
             <span data-v-6752ceb2="" class="btn_txt">더보기</span>
             <div data-v-6752ceb2=""  class="icon sprite-icons arr-right-gray">
                 <img data-v-6752ceb2="" src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
