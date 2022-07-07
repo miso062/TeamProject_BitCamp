@@ -4,5 +4,11 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="adminSQL">
-	
+
+	<select id="getnoticeList" parameterType="java.util.Map" resultType="admin">
+  		select * from 
+  		(select rownum rn,tt.* from 
+  		(select * from notice order by notice_id desc)tt) 
+  		where <![CDATA[rn>=#{startNum} and rn<=#{endNum}]]>
+  	</select>
 </mapper>

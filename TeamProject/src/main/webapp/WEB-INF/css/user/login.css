@@ -64,7 +64,7 @@ li {
 	display: inline-block;
 	width: 250px; 
 	height: 56px;
-	background: url("../../img/kream_login_logo.png") no-repeat;
+	background: url("/TeamProject/img/main/header/kream_login_logo.png") no-repeat;
 	background-size: 250px 56px;
 	padding-bottom: 50px;
 }
