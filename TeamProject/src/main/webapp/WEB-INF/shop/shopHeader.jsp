@@ -405,7 +405,7 @@ height:80px;
 	max-width: 1280px;
     margin: 0 auto;
     padding: 20px 40px;
-    border-bottom: 1px solid #e0e0e0;
+    /* border-bottom: 1px solid #e0e0e0; */
 }
 .brand_list{
 	display: flex;
@@ -475,7 +475,7 @@ height:80px;
 			</ul>
 		</div>
 	</div>
-	<div class="h_header_main">
+	<div class="h_header_main" style="border-bottom: 1px solid #e0e0e0;">
 		<div class="h_main_inner">
 			<h1 class="h_h1">
 				<a href="/TeamProject/" class="h_logo">
