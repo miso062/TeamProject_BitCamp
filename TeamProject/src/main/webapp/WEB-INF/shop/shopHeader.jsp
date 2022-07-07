@@ -450,6 +450,11 @@ height:80px;
 .h_mo {
 	/* padding-bottom: 16px; */
 }
+.gnb_link:visited {
+	text-decoration: underline;
+	font-weight: bold;	
+}
+
 
 </style>
 <div class="h_header h_mo">
@@ -480,7 +485,7 @@ height:80px;
 			</h1>
 		<div class="h_gnb_area">
 			<nav class="h_gnb">
-				<ul class="h_gnb_list" style="text-align:center;">
+				<ul class="h_gnb_list" style="text-align:center; font-size: 15px;">
 					<li class="h_gnb_item">
 						<a href="#"  class="gnb_link">STYLE</a>
 					</li>
@@ -496,10 +501,10 @@ height:80px;
 					<div class="search_title">
 						<a href="/TeamProject/shop/"><h2 class="title_txt" style="text-align: center; "> SHOP </h2></a>
 						<div class="h_search_btn_box" style="float: right; display: flex; -webkit-box-align: center; margin-right: 50px; align-items: center; padding: 0 0 28px;">
-							<img src="/TeamProject/img/main/header/h1_search.JPG" class="h_searchBtn" alt="돋보기"  style="width:21.6px; margin-left:850px; margin-right:7px; height:21.6px;  cursor:pointer;">
-							<img src="/TeamProject/img/shop/kream_plus.png" class="h_plusBtn" alt="플러스" style="width:21.6px; height:21.6px; margin-right:9px; cursor:pointer;">
+							<img src="/TeamProject/img/main/header/h1_search.JPG" class="h_searchBtn" alt="돋보기"  style="width:26px; margin-left:850px; margin-right:7px; height:26px;  cursor:pointer;">
+							<img src="/TeamProject/img/shop/kream_plus.png" class="h_plusBtn" alt="플러스" style="width:26px; height:26px; margin-right:9px; cursor:pointer;">
 							<img src="/TeamProject/img/shop/instar.jpeg" class="profile_img" alt="마이프로필사진"
-							style="width:21.6px; height:21.6px;  cursor:pointer;
+							style="width:26px; height:26px;  cursor:pointer;
 								 object-fit: cover; border: 0; vertical-align: top;  border-radius: 70%">
 						</div>
 					</div>
@@ -695,6 +700,17 @@ height:80px;
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script type="text/javascript">
+
+//방문시 링크
+$(document).ready(function(){
+	/* $('.gnb_link').click(function(){ */
+		$('.gnb_link:eq(1)').css("text-decoration", "underline");
+		$('.gnb_link:eq(1)').css("font-weight", "bold");
+	/* }); */
+});
+
+
+
 //돋보기 클릭시 검색 모달창
 $('.h_searchBtn').click(function(){
 	$('.h_layer_search').fadeIn();
