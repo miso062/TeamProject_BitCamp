@@ -4,7 +4,6 @@
     padding-bottom: 60px;
     max-width: 1280px;	
     height: 100%;
-    
 }
 .c2_feed_title{
 	display: flex;
@@ -14,14 +13,72 @@
     align-items: center;
     border-top: 1px solid #ebebeb;
 }
-.c2_title{
+body{
 	font-family: -apple-system,BlinkMacSystemFont,Roboto,AppleSDGothicNeo-Regular,NanumBarunGothic,NanumGothic,나눔고딕,Segoe UI,Helveica,Arial,Malgun Gothic,Dotum,sans-serif;
     color: #222;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+}
+a{
+	cursor: pointer;
+	color: inherit;
+    -webkit-tap-highlight-color: rgba(0,0,0,.1);
+    text-decoration: none;
 }
 .c2_social_feeds{
 	
 }
 .c2_masonry_posts{
 	position: relative;
-	height: 834.204px;
+	height: 1004.02px;
+}
+.c2_card_detail{
+	width: 279px;
+	height: 70px;
+}
+.c2_social_img_box{
+	width: 279px;
+	height: 279px;
+}
+.c2_photo{
+	width: 279px;
+	height: 279px;
+	object-fit: cover;
+    border-radius: 10px;
+}
+.c2_img_profile{
+	width: 28px;
+	height: 28px;
+	
+}
+.c2_btn_like{
+	width: 20px;
+	height: 20px;
+}
+.c2_btn_comment{
+	width: 20px;
+	height: 20px;
+}
+.c2_social_img_box{
+	
+}
+img{
+	border: 0;
+    vertical-align: top;
+    user-select: none!important;
+}
+.c2_img_profile{
+	width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    border: 1px solid rgba(34,34,34,.1);
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
