@@ -408,11 +408,12 @@ height:80px;
 }
 .brand_list{
 	display: flex;
-    overflow-x: auto;
+    overflow-x: hidden;
     padding: 0 0 16px;
     width: 100%;
     background : rgb(246 246 246);
     border-radius: 12px;
+    margin-top: 7%
 }
 .brand_item{
 	display: inline-block;
@@ -494,7 +495,7 @@ height:80px;
 					<div class="search_title">
 						<a href="/TeamProject/shop/"><h2 class="title_txt" style="text-align: center; "> SHOP </h2></a>
 						<div class="h_search_btn_box" style="float: right; display: flex; -webkit-box-align: center; margin-right: 50px; align-items: center; padding: 0 0 28px;">
-							<img src="/TeamProject/img/h1_search.JPG" class="h_searchBtn" alt="돋보기"  style="width:21.6px; margin-left:850px; margin-right:7px; height:21.6px;  cursor:pointer;">
+							<img src="/TeamProject/img/main/header/h1_search.JPG" class="h_searchBtn" alt="돋보기"  style="width:21.6px; margin-left:850px; margin-right:7px; height:21.6px;  cursor:pointer;">
 							<img src="/TeamProject/img/shop/kream_plus.png" class="h_plusBtn" alt="플러스" style="width:21.6px; height:21.6px; margin-right:9px; cursor:pointer;">
 							<img src="/TeamProject/img/shop/instar.jpeg" class="profile_img" alt="마이프로필사진"
 							style="width:21.6px; height:21.6px;  cursor:pointer;

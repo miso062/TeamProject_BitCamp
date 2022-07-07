@@ -77,7 +77,7 @@ naverLogin.init();
 
 window.addEventListener('load', function () {
 	naverLogin.getLoginStatus(function (status) {
-		console.log(status);
+		/* console.log(status); */
 		if (status) {
 			var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
     		
