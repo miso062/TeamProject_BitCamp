@@ -7,4 +7,10 @@ import admin.bean.AdminDTO;
 
 public interface AdminDAO {
 	public List<AdminDTO> getBoardList(Map<String, Integer> map);
+
+	public AdminDTO getnoticeView(String seq, String pg);
+
+	public void getnoticeWrite(AdminDTO adminDTO);
+
+	public int getTotalA();
 }

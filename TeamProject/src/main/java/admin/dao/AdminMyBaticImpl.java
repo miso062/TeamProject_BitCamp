@@ -23,4 +23,24 @@ public class AdminMyBaticImpl implements AdminDAO {
 		return sqlSession.selectList("adminSQL.getnoticeList",map);
 	}
 
+
+	@Override
+	public AdminDTO getnoticeView(String seq, String pg) {
+		AdminDTO adminDTO = sqlSession.selectOne("adminSQL.getnoticeView",seq);
+		return adminDTO;
+	}
+
+
+	@Override
+	public void getnoticeWrite(AdminDTO adminDTO) {
+		sqlSession.insert("adminSQL.getnoticeWrite",adminDTO);
+	}
+
+
+	@Override
+	public int getTotalA() {
+		
+		return sqlSession.selectOne("adminSQL.getTotalA");
+	}
+
 }

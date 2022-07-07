@@ -30,13 +30,13 @@
 
 .banner_box1 {
    background-color: #565656;
-   background-image: url("/TeamProject/img/footer/kream2.png");
+   background-image: url("/TeamProject/img/main/footer/kream2.png");
    background-position: right center;
 }
 
 .banner_box2 {
    background-color: #3b3a3c;
-   background-image: url("/TeamProject/img/footer/kream1.png");
+   background-image: url("/TeamProject/img/main/footer/kream1.png");
    background-position: right center;
 }
 
@@ -118,7 +118,7 @@ div > ul > li > a{
    color: #808080;
 }
 .banner_box{
- background: url("/TeamProejct/img/kream1.png") no-reapt;
+ background: url("/TeamProejct/img/main/kream1.png") no-reapt;
 }
 
 #service_info{
@@ -266,9 +266,9 @@ font-size:12px;
             습니다. 단, 거래과정에서 검수하고 보증하는 내용에 대한 책임은 당사에 있습니다</div>
          </div>
          <div id="sns_box">
-            <a href="#" id="instagram"><img src="/TeamProject/img/footer/instagram.png"></a>
-            <a href="#" id="kakao"><img src="/TeamProject/img/footer/kakao.png"></a>
-            <a href="#" id="facebook"><img src="/TeamProject/img/footer/facebook.png"></a>
+            <a href="#" id="instagram"><img src="/TeamProject/img/main/footer/instagram.png"></a>
+            <a href="#" id="kakao"><img src="/TeamProject/img/main/footer/kakao.png"></a>
+            <a href="#" id="facebook"><img src="/TeamProject/img/main/footer/facebook.png"></a>
          </div>
    </ul>
    <div style="height: 50px;"></div>
