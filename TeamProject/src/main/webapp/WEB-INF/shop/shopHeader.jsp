@@ -404,7 +404,8 @@ height:80px;
 .search_trend_container{
 	max-width: 1280px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 20px 40px;
+    border-bottom: 1px solid #e0e0e0;
 }
 .brand_list{
 	display: flex;
@@ -447,7 +448,7 @@ height:80px;
 	font-weight: bold;
 }
 .h_mo {
-	padding-bottom: 16px;
+	/* padding-bottom: 16px; */
 }
 
 </style>
