@@ -19,7 +19,7 @@
 		    touch-action: manipulation;
 		}
 		#header{
-			height: 30%;
+			height: 40%;
 		}
 		.index_top_div {
 			background-color : #ffffff;
