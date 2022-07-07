@@ -4,6 +4,9 @@
 <link rel="stylesheet" type="text/css" href="/TeamProject/css/shop/shopFilter.css"/>
 <script type="text/javascript">
 	$(function(){
+		/* 모두삭제누를때 */
+		
+		/* + 버튼 누를때 */
 		$('.plus-icon').click(function(){
 			if($(this).hasClass('plus-gray')){
 				$(this).attr('src', '/TeamProject/img/shop/minus.png');
@@ -18,11 +21,18 @@
 				$(this).parents('.filter_list').children('.filter_menu').hide();
 			}
 		});
+		
+		/* 카테고리 체크박스 */
 		$('.checkbox-icon').click(function(){
 			if($(this).hasClass('checkbox-inactive')){
 				$(this).attr('src', '/TeamProject/img/shop/checkbox-active.png');
 				$(this).addClass('checkbox-active');
 				$(this).removeClass('checkbox-inactive');
+				
+				$(this).closest("div").prev().find('span:eq(1)').hide();
+
+				var tagitem_inner = $(this).next().text();
+				
 			}
 			else{
 				$(this).attr('src', '/TeamProject/img/shop/checkbox-inactive.png');
@@ -30,6 +40,21 @@
 				$(this).removeClass('checkbox-active');
 			}
 		});
+		
+		/* 신발 체크박스 */
+		$('.column_menu').click(function(){
+			if(!$(this).hasClass('menu_on')){
+				$(this).addClass('menu_on');
+				
+				$('.title_box:eq(4)').find('span:eq(1)').hide();
+
+				var tagitem_inner = $(this).text();
+			}
+			else{
+				$(this).removeClass('menu_on');
+			}
+		});
+		
 	});
 </script>
 
@@ -1630,7 +1655,6 @@
                     <a href="#" class="column_menu"> 305 </a><a href="#" class="column_menu"> 310 </a><a href="#" class="column_menu"> 315 </a>
                     <a href="#" class="column_menu"> 320 </a><a href="#" class="column_menu"> 325 </a><a href="#" class="column_menu"> 330 </a>
                 </div>
-                <a class="button_more">+ 더보기</a>
             </div>
         </div>
     </div>
