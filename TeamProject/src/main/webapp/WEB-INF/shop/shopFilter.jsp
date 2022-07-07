@@ -59,10 +59,11 @@
 
 				$('.shop_tag').each(function(){
 					tagText = $(this).text();
-
 					alert(checkText + "| |" + tagText + "|");
-					if(checkText == tagText) {
+					
+					if( tagText == checkText) {
 						alert('같은거있음');
+						$(this).closest("div").remove();
 					}
 				})
 
