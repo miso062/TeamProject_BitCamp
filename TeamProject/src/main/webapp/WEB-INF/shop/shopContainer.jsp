@@ -61,6 +61,31 @@ li, ol, ul {
     align-items: center;
     height: 60px;
 }
+.shop_filter_tag {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -8px;
+    margin-bottom: 20px;
+}
+.shop_tag_item {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 8px 8px 0 0;
+    padding: 4px 2px 4px 10px;
+    background-color: #f4f4f4;
+    border-radius: 6px;
+}
+.shop_tag {
+    font-size: 12px;
+    letter-spacing: -.05px;
+}
+.shop_tag_svg {
+    cursor: pointer;
+    width: 13px;
+    height: 13px;
+    margin: 2px;
+}
 .shop_sorting_title {
     font-size: 14px;
     letter-spacing: -.07px;
@@ -451,48 +476,46 @@ li, ol, ul {
 	
 <div class="shop_search_content">
     <div class="shop_search_option" >
-        <div style="display: ;" >
-            <div class="shop_filter_sorting" >
-                <button type="button" class="shop_sorting_title" id="shop_sorting_title" >인기순
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-						<path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/>
-					</svg>
-                </button>
-                <ul class="shop_sorting_list" style="display:none" >
-                    <li class="shop_sorting_item item_on">
-                        <a href="#" class="shop_sorting_link" >
-                            <div class="shop_sorting_desc" >
-                                <p class="shop_main_desc" >인기순</p>
-                                <p class="shop_sub_desc" >많이 판매된 순서대로 정렬합니다.</p>
-                            </div>
-                            <img class="shop_check" alt="" src="/TeamProject/img/shop/check-lg.svg">
-                        </a>
-                    </li>
-                    <li class="shop_sorting_item" >
-                        <a href="#" class="shop_sorting_link" >
-                            <div class="shop_sorting_desc" >
-                                <p class="shop_main_desc" >즉시 구매가순</p>
-                                <p class="shop_sub_desc" >즉시 구매가가 낮은 순서대로 정렬합니다.</p>
-                            </div>
-                            <img class="shop_check" alt="" src="/TeamProject/img/shop/check-lg.svg">
-                        </a>
-                    </li>
-                    <li class="shop_sorting_item" >
-                        <a href="#" class="shop_sorting_link" >
-                            <div class="shop_sorting_desc" >
-                                <p class="shop_main_desc" >즉시 판매가순</p>
-                                <p class="shop_sub_desc" >즉시 판매가가 높은 순서대로 정렬합니다.</p>
-                            </div>
-                            <img class="shop_check" alt="" src="/TeamProject/img/shop/check-lg.svg">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-<div style="display: none;">
-    <div><div class="shop_filter_tag" style="display: none;" ></div></div>
-</div>
+		<div class="shop_filter_sorting" >
+			<button type="button" class="shop_sorting_title" id="shop_sorting_title" >인기순
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/>
+				</svg>
+			</button>
+				<ul class="shop_sorting_list" style="display:none" >
+					<li class="shop_sorting_item item_on">
+						<a href="#" class="shop_sorting_link" >
+							<div class="shop_sorting_desc" >
+								<p class="shop_main_desc" >인기순</p>
+								<p class="shop_sub_desc" >많이 판매된 순서대로 정렬합니다.</p>
+							</div>
+							<img class="shop_check" alt="" src="/TeamProject/img/shop/check-lg.svg">
+						</a>
+					</li>
+					<li class="shop_sorting_item" >
+						<a href="#" class="shop_sorting_link" >
+							<div class="shop_sorting_desc" >
+								<p class="shop_main_desc" >즉시 구매가순</p>
+								<p class="shop_sub_desc" >즉시 구매가가 낮은 순서대로 정렬합니다.</p>
+							</div>
+							<img class="shop_check" alt="" src="/TeamProject/img/shop/check-lg.svg">
+						</a>
+					</li>
+					<li class="shop_sorting_item" >
+						<a href="#" class="shop_sorting_link" >
+							<div class="shop_sorting_desc" >
+								<p class="shop_main_desc" >즉시 판매가순</p>
+								<p class="shop_sub_desc" >즉시 판매가가 높은 순서대로 정렬합니다.</p>
+							</div>
+							<img class="shop_check" alt="" src="/TeamProject/img/shop/check-lg.svg">
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="shop_filter_tag" style=""></div><!-- shop_filter_tag -->
+      
     <!-- content 시작-->
     <ul class="shop-list-ul">
 		<li class="card-list-li">
