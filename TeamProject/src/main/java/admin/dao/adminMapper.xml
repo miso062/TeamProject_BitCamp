@@ -11,4 +11,17 @@
   		(select * from notice order by notice_id desc)tt) 
   		where <![CDATA[rn>=#{startNum} and rn<=#{endNum}]]>
   	</select>
+  	
+  	<select id="getnoticeView" parameterType="String" resultType="admin">
+  		select * from notice where notice_id=#{seq}
+  	</select>
+  	
+  	<insert id="getnoticeWrite" parameterType="admin">
+  		  insert into notice(notice_id,title,content,registrant,regdate)
+  		  values(notice_seq.nextval,#{title},#{content},#{registrant},sysdate)
+  	</insert>
+  	
+  	<select id="getTotalA" resultType="Integer">
+  	select count(*) from notice
+  	</select>
 </mapper>

@@ -10,6 +10,7 @@ body,
 html {
     height: 100%;
     width:100%;
+    margin: 0 auto;
 }
 #header{
 height: 10%;
@@ -19,6 +20,7 @@ height: 10%;
     margin: 0 auto;
     padding: 40px 40px 160px;
     width: 100%;
+    height: 100%;
 }
 #nav{
 	float:left;
@@ -31,6 +33,9 @@ height: 10%;
 #container:after{
 clear:both;
 display:block;
+}
+#footer{
+	display:block;
 }
 </style>
 </head>
@@ -47,7 +52,7 @@ display:block;
 		</div>
 	</div>
 	<div id="footer">
-		<%-- <jsp:include page="${footer }"></jsp:include> --%>
+		<jsp:include page="${footer }"></jsp:include>
 	</div>
 </body>
 </html>
