@@ -86,4 +86,27 @@ public class AdminController {
 		map.put("adminDTO", adminDTO);
 		return map;
 	}
+	@PostMapping(value="noticeDelete")
+	@ResponseBody
+	public void noticeDelete(@RequestParam String seq, String pg) {
+		adminService.noticeDelete(seq,pg);
+	}
+	
+	@GetMapping(value="noticeUpdate")
+	public String noticeUpdate(@RequestParam String seq, String pg, Model model) {
+		model.addAttribute("pg",pg);
+		model.addAttribute("seq",seq);
+		model.addAttribute("head", "/WEB-INF/main/header.jsp");
+		model.addAttribute("nav", "/WEB-INF/admin/noticenav.jsp");
+		model.addAttribute("container", "/WEB-INF/admin/noticeUpdate.jsp");
+		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
+		return "/admin/notice";
+	}
+	@PostMapping(value="getnoticeUpdate")
+	@ResponseBody
+	public AdminDTO getnoticeUpdate(@RequestParam String seq, String pg) {
+		AdminDTO adminDTO = adminService.getnoticeUpdate(seq,pg); 
+		return adminDTO;
+	}
+	
 }

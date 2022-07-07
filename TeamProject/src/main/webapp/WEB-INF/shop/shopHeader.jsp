@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/TeamProject/css/user/login.css">
 <style type="text/css">
+#header{
+	height:320px;
+}
 .h_header {
 	z-index: 1000;
 	position :fixed;
@@ -460,7 +463,7 @@ height:80px;
 		<div class="h_top_inner" >
 			<ul class="h_top_list">
 				<li class="h_top_item">
-					<a href="/TeamProject/notice" class="h_top_link">고객센터</a>
+					<a href="/TeamProject/admin/notice" class="h_top_link">고객센터</a>
 				</li>
 				<li class="h_top_item">
 					<a href="#" class="h_top_link">관심상품</a>
