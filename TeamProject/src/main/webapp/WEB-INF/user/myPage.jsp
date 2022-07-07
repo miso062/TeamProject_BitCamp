@@ -22,10 +22,7 @@
 		width: 100%;
 		height:100px;
 	}
-	#container {
-		width:100%;
-
-	}
+	
 	.my_snb {
 		float:left;
 		width : 170px;
@@ -36,6 +33,22 @@
 		width : 560px;
 	}
 	
+	body, html {
+   		height: 100%;
+		-ms-text-size-adjust: none;
+		-moz-text-size-adjust: none;
+		-webkit-text-size-adjust: none;
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		-webkit-overflow-scrolling: touch;
+		-ms-touch-action: manipulation;
+		touch-action: manipulation;
+	}
+	.container.my[data-v-3259a5f6] {
+    	margin: 0 auto;
+    	padding: 40px 40px 160px;
+    	max-width: 1280px;
+	}
 </style>
 
 </head>
@@ -43,11 +56,11 @@
 	<div id="header">
 		<jsp:include page="${head }"></jsp:include>
 	</div>
-	<div id="container">
-		<div class="my_snb">
-			<%-- <jsp:inclued page="${nav }"></jsp:inclued> --%>
+	<div data-v-3259a5f6="" class="container my lg">
+		<div data-v-3259a5f6="">
+			 <jsp:include page="${nav }"></jsp:include> 
 		</div>
-		<div class="my_content">
+		<div data-v-5f779880="" data-v-3259a5f6="" class="content_area1">
 			<jsp:include page="${container }"></jsp:include>
 		</div>
 	</div>
