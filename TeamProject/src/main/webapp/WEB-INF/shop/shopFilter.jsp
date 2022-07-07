@@ -24,6 +24,8 @@
 		
 		/* 카테고리 체크박스 */
 		$('.checkbox-icon').click(function(){
+			var tagitem_inner = $(this).next().text();
+			//alert(tagitem_inner);
 			if($(this).hasClass('checkbox-inactive')){
 				$(this).attr('src', '/TeamProject/img/shop/checkbox-active.png');
 				$(this).addClass('checkbox-active');
@@ -31,15 +33,47 @@
 				
 				$(this).closest("div").prev().find('span:eq(1)').hide();
 
-				var tagitem_inner = $(this).next().text();
 				
+				/* 상품태그 추가 생성 */
+				$('.shop_filter_tag').append("<div class='shop_tag_item' > <span class='shop_tag'>" + tagitem_inner
+						+ "</span> <img class='shop_tag_svg' src='/TeamProject/img/shop/x-lg.svg'> </div>");
+				$('.shop_tag_svg').on('click', function(){
+					$(this).closest("div").remove();
+				});
+				
+				tagitem_inner == null;
 			}
 			else{
+				/* alert($('.checkbox-active').next().text());
+				alert($('.shop_tag').text()); */
+				
+				/* $('.shop_tag').each(function(){
+					alert($(this).text() + " tag");
+					$('.checkbox-active').each(function(){
+						alert($(this).next().text() + " img");
+					})
+					if($(this.text())) alert("같은거 있음")
+				}) */
+				
+				checkText = $(this).next().text();
+				alert(checkText);
+				
+				$('.shop_tag').each(function(){
+					tagText = $(this).text();
+					
+					alert(checkText + "| |" + tagText + "|");
+					if(checkText == tagText) {
+						alert('같은거있음');
+					}
+				})
+				
 				$(this).attr('src', '/TeamProject/img/shop/checkbox-inactive.png');
 				$(this).addClass('checkbox-inactive');
 				$(this).removeClass('checkbox-active');
 			}
 		});
+		
+		/* 상품 필터 태그 6개이상 선택시 */
 		
 		/* 신발 체크박스 */
 		$('.column_menu').click(function(){
