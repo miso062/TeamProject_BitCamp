@@ -14,4 +14,8 @@ public interface AdminService {
 	public void getnoticeWrite(AdminDTO adminDTO);
 
 	public AdminPaging getBoardPaging(String pg);
+
+	public void noticeDelete(String seq, String pg);
+
+	public AdminDTO getnoticeUpdate(String seq, String pg);
 }

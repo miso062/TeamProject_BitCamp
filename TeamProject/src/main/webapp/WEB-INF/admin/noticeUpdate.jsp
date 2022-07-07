@@ -75,10 +75,12 @@ h3 {
 }
 </style>
 </head>
+<input type="hidden" name="seq" id="seq" value="${seq }">
+<input type="hidden" name="pg" id="pg" value="${pg }">
 <body id="body1">
 	<article>	
 		<div class="container" role="main">
-			<div class="gongji" width="300" style="clear: both; margin-bottom: 15px;"><h3>공지사항 작성</h3></div>
+			<div class="gongji" width="300" style="clear: both; margin-bottom: 15px;"><h3>공지사항 수정</h3></div>
 			<hr id="hr">
 				<form name="form" id="form" role="form" method="post" action="">
 					<div class="mb-3">
@@ -95,7 +97,8 @@ h3 {
 					</div>					
 				</form>			
 				<div id="savelist">				
-				<button type="button" class="btn btn-sm btn-primary" id="btnSave">저장</button>
+				<button type="button" class="btn btn-sm btn-primary" id="btnUpdate">수정</button>
+				<button type="reset" class="btn btn-sm btn-primary" onclick="location.reload()">다시쓰기</button>
 				<button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>
 				</div>		
 		</div>	
@@ -112,25 +115,30 @@ ClassicEditor
     .catch( error => { 
         console.error( error ); 
     } );
-$('#btnSave').click(function(){
-		$.ajax({
-			url:'/TeamProject/admin/getnoticeWrite',
-			type: 'post',
-			data: {
-				'title': $('#title').val(),
-				'content': $('.ck-editor__editable_inline').html(),
-				'registrant': $('#reg_id').val()
-			},
-			success: function(){
-				alert('작성하신 글을 저장하였습니다.');
-				location.href='/TeamProject/admin/notice';
-			},
-			error: function(err){
-			console.log(err);
-			}
-		});
-	});
+    
 $('#btnList').click(function(){
 	location.href="/TeamProject/admin/notice";
-})
+});
+
+$(document).ready(function(){
+	$.ajax({
+		type: 'post',
+		url: '/TeamProject/admin/getnoticeUpdate',
+		data: 
+			'seq='+$('input[name="seq"]').val()
+	  		 +'&pg='+$('input[name="pg"]').val(),
+		dataType: 'json',
+		success: function(data){
+			alert(data.content);
+			alert('3');
+		 	$('input[name="title"]').val(data.title);
+		 	$('input[name="registrant"]').val(data.registrant);
+			$('.ck-placeholder').text(data.content);
+		},
+		error: function(err){
+			alert('실패');
+			console.log(err);
+		}
+	});
+});
 </script>

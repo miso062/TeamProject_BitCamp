@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+#nav_container{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 40px 160px;
+    width: 100%;
+    height: 1200px;
+}
 #hr{	
 	background-color: black;
 	border:0;
@@ -55,9 +62,27 @@
     color: rgba(34,34,34,.8);
     background-color: #fff;
 }
+.updel{
+    
+	float:right;
+	margin:10px;
+    color: #fff;
+    background-color: black;
+    border-color: black;
+    padding-left:20px;
+    padding-right:20px;
+	text-align:center;
+	padding: 0.25rem 0.5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+    cursor:pointer;
+}
 </style>
+<form class="seqpg">
 <input type="hidden" id="seq" name="seq" value="${seq }">
 <input type="hidden" id="pg" name="pg" value="${pg }">
+</form>
 <div id="menu_head">
 <div class="gongji" width="300" style="clear: both; margin-bottom: 15px;"><h3>공지사항</h3></div>
 <hr id="hr">
@@ -71,6 +96,11 @@
 <div id="back_list">
 	<a href="/TeamProject/admin/notice?pg=${pg}" class="back_list">목록보기</a>
 </div>
+<div >
+	<input class="updel" type="button" value ="글삭제" style="margin:5px;" id="noticeDeletebtn">
+	<input class="updel"  type="button" value = "글수정" style="margin:5px;" id="noticeUpdatebtn">
+</div>
+
 <script>
 $(document).ready(function(){
 	$.ajax({
@@ -88,5 +118,28 @@ $(document).ready(function(){
 			console.log(err);
 		}
 	});
+});
+$('#noticeDeletebtn').click(function(){
+	confirm("정말로 삭제하시겠습니까?");
+	$.ajax({
+		url:'/TeamProject/admin/noticeDelete',
+		type:'post',
+		data: 'seq='+$('input[name="seq"]').val()
+	  		 +'&pg='+$('input[name="pg"]').val(),
+	  		 
+	  	success: function(){
+		 alert('글을 삭제하였습니다.');
+		 location.href='/TeamProject/admin/notice';
+		},	  			
+			error: function(err){
+			alert('실패실패실패실');
+			console.log(err);
+	  	}
+	});
+});
+$('#noticeUpdatebtn').click(function(){
+	confirm("정말로 수정하시겠습니까?");
+	$('.seqpg').attr('action','/TeamProject/admin/noticeUpdate');
+	$('.seqpg').submit();
 });
 </script>

@@ -13,4 +13,8 @@ public interface AdminDAO {
 	public void getnoticeWrite(AdminDTO adminDTO);
 
 	public int getTotalA();
+
+	public void noticeDelete(String seq, String pg);
+
+	public AdminDTO getnoticeUpdate(String seq, String pg);
 }

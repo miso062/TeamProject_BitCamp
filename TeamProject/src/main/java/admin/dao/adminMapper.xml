@@ -24,4 +24,12 @@
   	<select id="getTotalA" resultType="Integer">
   	select count(*) from notice
   	</select>
+  	
+  	<delete id="noticeDelete" parameterType="String">
+  		delete notice where notice_id = #{seq}
+  	</delete>
+  	
+  	<select id="getnoticeUpdate" parameterType="String" resultType="admin">
+  		select * from notice where notice_id=#{seq}
+  	</select>
 </mapper>

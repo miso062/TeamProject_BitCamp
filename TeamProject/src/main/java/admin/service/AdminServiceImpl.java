@@ -36,7 +36,6 @@ public class AdminServiceImpl implements AdminService {
 	public AdminDTO getnoticeView(String seq, String pg) {
 		AdminDTO adminDTO = adminDAO.getnoticeView(seq,pg);
 		String content = adminDTO.getContent();
-		content = content.replace("\n", "<br>");
 		adminDTO.setContent(content);
 		return adminDTO;
 	}
@@ -57,6 +56,20 @@ public class AdminServiceImpl implements AdminService {
 		adminPaging.makePagingHTML();
 		
 		return adminPaging;
+	}
+
+	@Override
+	public void noticeDelete(String seq, String pg) {
+		adminDAO.noticeDelete(seq,pg);
+	}
+
+	@Override
+	public AdminDTO getnoticeUpdate(String seq, String pg) {
+		AdminDTO adminDTO = adminDAO.getnoticeUpdate(seq,pg);
+		String content = adminDTO.getContent();
+		content = content.replace("<p>", "\n");
+		adminDTO.setContent(content);
+		return adminDTO;
 	}
 
 }
