@@ -244,21 +244,21 @@ font-size:12px;
       </li><br>
 
       <div id="service_type">
-         <li ><a href="">검수기준&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;공지사항</a></li><br>
-         <li><a href="">이용정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;서비스 소개</a></li><br>
-         <li><a href="">패널티 정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;쇼룸 안내</a></li><br>
-         <li><a href="">커뮤니티 가이드라인&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;판매자 방문접수</a></li>
+         <li ><a class="footer_a" href="">검수기준&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;공지사항</a></li><br>
+         <li><a class="footer_a" href="">이용정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;서비스 소개</a></li><br>
+         <li><a class="footer_a" href="">패널티 정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;쇼룸 안내</a></li><br>
+         <li><a class="footer_a" href="">커뮤니티 가이드라인&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;판매자 방문접수</a></li>
    </ul>
 </div>
 
 <hr id="hr_line">
 <div class="footer_corporation">
    <ul >
-      <li ><a href="">회사소개&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-      <li><a href="">인재채용&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-      <li><a href="">제휴제안&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-      <li><a href="">이용약관&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-      <li><a href=""><b>개인정보처리방침</b></a></li><br><br>
+      <li ><a class="footer_a" href="">회사소개&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+      <li><a class="footer_a" href="">인재채용&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+      <li><a class="footer_a" href="">제휴제안&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+      <li><a class="footer_a" href="">이용약관&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+      <li><a class="footer_a" href=""><b>개인정보처리방침</b></a></li><br><br>
       <div id="company_import">
          크림 주식회사 · 대표김창욱&emsp;사업자등록번호:570-88-01618<a id="footer_btnBusiness" href="">사업자정보확인</a>&emsp;통신판매업:제 2021-성남분당C-0093호<br>
          사업장소재지:경기도 성남시 분당구 분당내곡로 117, 8층&emsp;개인정보관리책임자:김미진&emsp;호스팅 서비스:네이버 클라우드 (주)<br><br>
@@ -267,8 +267,8 @@ font-size:12px;
          </div>
          <div id="sns_box">
             <a href="#" id="instagram"><img src="/TeamProject/img/main/footer/instagram.png"></a>
-            <a href="#" id="kakao"><img src="/TeamProject/img/main/footer/kakao.png"></a>
-            <a href="#" id="facebook"><img src="/TeamProject/img/main/footer/facebook.png"></a>
+            <a  href="#" id="kakao"><img src="/TeamProject/img/main/footer/kakao.png"></a>
+            <a  href="#" id="facebook"><img src="/TeamProject/img/main/footer/facebook.png"></a>
          </div>
    </ul>
    <div style="height: 50px;"></div>
