@@ -81,6 +81,13 @@
     .info_box[data-v-5acef129] {
         max-width: 100%;
     }
+    .info_box .title[data-v-4e153e07] {
+        float: left;
+        min-width: 80px;
+        font-size: 13px;
+        letter-spacing: -0.07px;
+        color: rgba(34, 34, 34, 0.5);
+    }
     .mbtn .btn_my_style[data-v-5acef129] {
         margin-left: 7px;
     }
@@ -331,6 +338,169 @@
     .unit[data-v-62dace61] {
         margin-top: -1px;
     }
+    .product[data-v-75e33658] {
+        overflow: hidden;
+        position: relative;
+        padding-top: 100%;
+        border-radius: 8px;
+    }
+    .product[data-v-75e33658]:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0);
+        height: 80px;
+    }
+    .purchase_item[data-v-62dace61] {
+        padding: 12px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    .purchase_list .purchase_item[data-v-62dace61] {
+    border-bottom: 1px solid #ebebeb;
+    }
+    .purchase_item.bg_warning[data-v-62dace61] {
+        background-color: #fef9f5;
+    }
+    .purchase_item.buy_95[data-v-62dace61] .stocked_status_mark {
+        top: 3px;
+        left: 3px;
+    }
+    .image[data-v-548c90f9] {
+        -o-object-fit: cover;
+        object-fit: cover; 
+        width: 100%; 
+        height: 100%;
+        image-rendering: -webkit-optimize-contrast; 
+    }
+    .product_img[data-v-75e33658] {
+        width: 91.03%;
+    }
+    .product_img[data-v-75e33658] {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 81.5%;
+        height: auto;
+    }
+    .purchase_list_tab.sell .tab_item.total .count[data-v-bbed98be] {
+        color: #31b46e;
+    }
+    .my .empty_area[data-v-e2f6767a] {
+        padding: 80px 0;
+    }
+    .empty_area[data-v-e2f6767a] {
+      text-align: center;
+    }
+    .empty_area .desc[data-v-e2f6767a] {
+        font-size: 13px;
+        letter-spacing: -.07px;
+        color: rgba(34,34,34,.5);
+        }
+        .interest_product .empty_area[data-v-e2f6767a] {
+        margin: 0 10px;
+        border-radius: 12px;
+    }
+    .interest_product .empty_area .desc[data-v-e2f6767a] {
+        font-size: 14px;
+        letter-spacing: -0.21px;
+    }
+    .interest_product .empty_area .btn[data-v-e2f6767a] {
+        background-color: #fafafa;
+    }
+    .interest_product[data-v-5f779880] {
+        margin: 0 -10px;
+    }
+    .interest_product[data-v-5f779880]:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .product_item[data-v-eb375314] {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        margin: 20px 0;
+        padding: 0 12px;
+        width: 25%;
+        -webkit-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+    }
+    .product_item .item_inner[data-v-eb375314] {
+        display: block;
+        background-color: #fff;
+        border-radius: 12px;
+    }
+    .product_item .info_box[data-v-eb375314] {
+        padding-top: 9px;
+    }
+    .product_item .name[data-v-eb375314] {
+        line-height: 17px;
+        margin-top: 8.5px;
+        max-height: 34px;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+        font-size: 14px;
+        color: #222;
+    }
+    .product_item .price[data-v-eb375314] {
+        padding-top: 7px;
+    }
+    .product_item .amount[data-v-eb375314] {
+        font-size: 0;
+        line-height: 0;
+    }
+    .product_item .num[data-v-eb375314],
+    .product_item .won[data-v-eb375314] {
+        display: inline-block;
+        vertical-align: top;
+        line-height: 17px;
+        font-size: 15px;
+        letter-spacing: -0.15px;
+        font-weight: 700;
+        letter-spacing: -0.04px;
+    }
+    .product_item .desc[data-v-eb375314] {
+        line-height: 13px;
+        font-size: 11px;
+        color: rgba(34, 34, 34, 0.5);
+    }
+    .brand-text {
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: top;
+        height: 17px;
+        line-height: 17px;
+        padding-bottom: 2px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #333;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        border-bottom: 1px solid #222;
+        margin : 0;
+    }
+    .brand-text.long-name {
+        font-size: 12px;
+    }
 </style>
 
 <div data-v-5f779880="" class="my_home">
@@ -362,7 +532,7 @@
         <a data-v-6752ceb2="" href="/my/buying" class="btn_more">
             <span data-v-6752ceb2="" class="btn_txt">더보기</span>
             <div data-v-6752ceb2=""  class="icon sprite-icons arr-right-gray">
-                <img data-v-6752ceb2="" src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기">
+                <img data-v-6752ceb2="" src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
             </div>
         </a>
     </div>
@@ -409,7 +579,7 @@
                     <div data-v-62dace61="" class="history_product">
                         <div data-v-62dace61="" class="product_box">
                             <div data-v-75e33658="" data-v-62dace61="" class="product" style="background-color: rgb(235, 240, 245);">
-                                <picture data-v-548c90f9="" data-v-75e33658="" class="picture product_img">
+                                <picture data-v-548c90f9="" data-v-75e33658="" class="picture product_img" style="height:80px;">
                                     <source
                                         data-v-548c90f9=""
                                         type="image/webp"
@@ -461,9 +631,9 @@
         <h3 data-v-6752ceb2="" class="title">판매 내역</h3>
         <a data-v-6752ceb2="" href="/my/selling" class="btn_more">
             <span data-v-6752ceb2="" class="btn_txt">더보기</span>
-            <svg data-v-6752ceb2="" xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons arr-right-gray">
-                <use data-v-6752ceb2="" href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-right-gray" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-right-gray"></use>
-            </svg>
+            <div data-v-6752ceb2=""  class="icon sprite-icons arr-right-gray">
+                <img data-v-6752ceb2="" src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
+            </div>
         </a>
     </div>
     <div data-v-5f779880="" class="recent_purchase">
@@ -518,9 +688,9 @@
         <h3 data-v-6752ceb2="" class="title">관심 상품</h3>
         <a data-v-6752ceb2="" href="/my/wish" class="btn_more">
             <span data-v-6752ceb2="" class="btn_txt">더보기</span>
-            <svg data-v-6752ceb2="" xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons arr-right-gray">
-                <use data-v-6752ceb2="" href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-right-gray" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-right-gray"></use>
-            </svg>
+            <div data-v-6752ceb2=""  class="icon sprite-icons arr-right-gray">
+                <img data-v-6752ceb2="" src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
+            </div>
         </a>
     </div>
     <div data-v-5f779880="" class="interest_product">
