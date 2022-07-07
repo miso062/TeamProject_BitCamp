@@ -31,4 +31,31 @@ public class UserController {
 		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
 		return "/user/myPage";
 	}
+	
+	@GetMapping(value="buyHistory")
+	public String buyHistory(Model model) {
+		model.addAttribute("head", "/WEB-INF/main/header.jsp");
+		model.addAttribute("container", "/WEB-INF//user/buyHistory.jsp");
+		model.addAttribute("nav", "/WEB-INF/user/myPageNav.jsp");
+	//	model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
+		return "/user/myPage";
+	}
+	
+	@GetMapping(value="sellHistory")
+	public String sellHistory(Model model) {
+		model.addAttribute("head", "/WEB-INF/main/header.jsp");
+		model.addAttribute("container", "/WEB-INF/user/sellHistory.jsp");
+		model.addAttribute("nav", "/WEB-INF/user/myPageNav.jsp");
+	//	model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
+		return "/user/myPage";
+	}
+	
+	@GetMapping(value="likePro")
+	public String likePro(Model model) {
+		model.addAttribute("head", "/WEB-INF/main/header.jsp");
+		model.addAttribute("container", "/WEB-INF/user/likePro.jsp");
+		model.addAttribute("nav", "/WEB-INF/user/myPageNav.jsp");
+	//	model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
+		return "/user/myPage";
+	}
 }
