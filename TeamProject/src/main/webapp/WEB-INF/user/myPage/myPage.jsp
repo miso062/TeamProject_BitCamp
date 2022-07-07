@@ -49,6 +49,15 @@
     	padding: 40px 40px 160px;
     	max-width: 1280px;
 	}
+    .container.my .content_area1[data-v-3259a5f6] {
+        overflow: hidden;
+        min-height: 380px;
+    }
+	*, :after, :before {
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		-webkit-tap-highlight-color: transparent;
+	}	
 </style>
 
 </head>
@@ -65,7 +74,9 @@
 		</div>
 	</div>
 	<div id="footer">
-		<%--<jsp:include page="${footer }"></jsp:include> --%>
+		<jsp:include page="${footer }"></jsp:include> 
 	</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </body>
 </html>
