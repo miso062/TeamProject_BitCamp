@@ -37,10 +37,11 @@
 				 			<div class="c2_btn_box">
 				 				<a href="#" aria-label="좋아요"  >
 				 					<img class="c2_btn_like" src="../img/shopDetail/c2_good.png">
-				 					<span class="c2_like_count">6</span>
+				 					<span class="c2_like_count">76</span>
 				 				</a>
 				 				<a href="#" aria-label="댓글" >
 				 					<img class="c2_btn_comment" src="../img/shopDetail/c2_comment.png">
+				 					<span class="c2_comment_count">1</span>
 				 				</a>
 				 			</div>
 				 		</div>
@@ -60,10 +61,11 @@
 				 			<div class="c2_btn_box">
 				 				<a href="#" aria-label="좋아요"  >
 				 					<img class="c2_btn_like" src="../img/shopDetail/c2_good.png">
-				 					<span class="c2_like_count">6</span>
+				 					<span class="c2_like_count">109</span>
 				 				</a>
 				 				<a href="#" aria-label="댓글" >
 				 					<img class="c2_btn_comment" src="../img/shopDetail/c2_comment.png">
+				 					<span class="c2_comment_count">16</span>
 				 				</a>
 				 			</div>
 				 		</div>
@@ -83,10 +85,11 @@
 				 			<div class="c2_btn_box">
 				 				<a href="#" aria-label="좋아요"  >
 				 					<img class="c2_btn_like" src="../img/shopDetail/c2_good.png">
-				 					<span class="c2_like_count">6</span>
+				 					<span class="c2_like_count">11</span>
 				 				</a>
 				 				<a href="#" aria-label="댓글" >
 				 					<img class="c2_btn_comment" src="../img/shopDetail/c2_comment.png">
+				 					<span class="c2_comment_count">2</span>
 				 				</a>
 				 			</div>
 				 		</div>
@@ -106,16 +109,19 @@
 				 			<div class="c2_btn_box">
 				 				<a href="#" aria-label="좋아요" >
 				 					<img class="c2_btn_like" src="../img/shopDetail/c2_good.png">
-				 					<span class="c2_like_count">6</span>
+				 					<span class="c2_like_count">44</span>
 				 				</a>
 				 				<a href="#" aria-label="댓글" >
 				 					<img class="c2_btn_comment" src="../img/shopDetail/c2_comment.png">
+				 					<span class="c2_comment_count">2</span>
 				 				</a>
 				 			</div>
 				 		</div>
 				 	</a>
 				 </div>
-				 
+			</div>
+			<div class="c2_more_btn_box">
+				<button class="c2_btn_plus">더보기</button>
 			</div>
 		</div>
 	</div>

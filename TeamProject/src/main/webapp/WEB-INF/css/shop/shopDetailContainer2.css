@@ -26,11 +26,12 @@ a{
     text-decoration: none;
 }
 .c2_social_feeds{
-	
+	max-width: 1280px;
+	display: inline-block;	
 }
 .c2_masonry_posts{
 	position: relative;
-	height: 1004.02px;
+	height: 450px;
 }
 .c2_card_detail{
 	width: 279px;
@@ -59,9 +60,6 @@ a{
 	width: 20px;
 	height: 20px;
 }
-.c2_social_img_box{
-	
-}
 img{
 	border: 0;
     vertical-align: top;
@@ -81,4 +79,41 @@ p {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+}
+.c2_more_btn_box{
+	padding-top: 40px;
+    text-align: center;
+}
+.c2_btn_plus{
+	border: 1px solid #d3d3d3;
+    color: rgba(34,34,34,.8);
+    height: 42px;
+    line-height: 40px;
+    border-radius: 12px;
+    font-size: 14px;
+    letter-spacing: -.14px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    color: rgba(34,34,34,.8);
+    background-color: #fff;
+}
+.c2_text_box{
+	margin-top: 4px;
+	margin-bottom: 4px;
+	padding-left: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 20px;
+    font-size: 14px;
+    letter-spacing: -.21px;
+    max-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.c2_user_box{
+	padding-top: 10px;
+	display: inline-flex;
 }
