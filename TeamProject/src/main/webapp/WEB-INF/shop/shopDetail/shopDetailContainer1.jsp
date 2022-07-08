@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
 <style type="text/css">
 body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
     margin: 0;
@@ -25,6 +28,20 @@ button {
     appearance: none;
     border-radius: 0;
 }
+li, ol, ul {
+    list-style: none;
+}
+.container .is_absolute .spread, .container .is_fixed .spread {
+    position: static;
+    display: block;
+    height: 100px;
+    background-color: rgba(0,0,0,0);
+}
+.wrap {
+    position: relative;
+    padding-top: 100px;
+    overflow-anchor: none;
+}
 .content {
     overflow: hidden;
     margin: 0 auto;
@@ -42,15 +59,16 @@ button {
 .column_bind {
     position: relative;
 }
-.container .is_absolute .spread, .container .is_fixed .spread {
-    position: static;
-    display: block;
-    height: 560px;
-    background-color: rgba(0,0,0,0);
-}
 .is_fixed .column_box {
+ 	width: 29.5%;
     position: fixed;
     top: 130px;
+}
+.is_absolute .column_box {
+    position: absolute;
+    width: 47%;
+   /*  bottom: 0; */
+    top: 1250px;
 }
 .column {
     width: 50%;
@@ -73,64 +91,9 @@ button {
     float: right;
     padding-left: 3.334%;
 }
-.detail_main_title {
-    position: relative;
-}
-.detail_main_title .brand {
-    display: inline-block;
-    vertical-align: top;
-    line-height: 19px;
-    padding-top: 1px;
-    margin-bottom: 9px;
-    font-size: 18px;
-    letter-spacing: -.27px;
-    font-weight: 800;
-    border-bottom: 2px solid #222;
-}
 .banner_slide {
     overflow: hidden;
     position: relative;
-}
-.detail_slide .slick-arrow {
-    position: absolute;
-    bottom: 50%;
-    transform: translateY(50%);
-    width: 44px;
-    height: 44px;
-    font-size: 0;
-    color: rgba(0,0,0,0);
-    cursor: pointer;
-}
-.detail_slide .slick-prev {
-    left: 0;
-    z-index: 1;
-    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCA0NCA0NCI+PHBhdGggc3Ryb2tlPSIjRDNEM0QzIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTI3LjUgMzNsLTExLTExIDExLTExIi8+PC9zdmc+) no-repeat;
-}
-.detail_slide .slick-next {
-    right: 0;
-    z-index: 1;
-    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCA0NCA0NCI+PHBhdGggc3Ryb2tlPSIjRDNEM0QzIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTE2LjUgMTFsMTEgMTEtMTEgMTEiLz48L3N2Zz4=) no-repeat;
-}
-.detail_slide .slick-slide {
-    float: left;
-}
-.slide_content {
-    vertical-align: top;
-    width: 100%;
-    display: inline-block;
-}
-.slide_item {
-    position: relative;
-}
-.banner_slide .slick-dots {
-    position: absolute;
-    bottom: 12px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    display: table!important;
-    width: 100%;
-    padding: 0 16px;
 }
 .product {
     overflow: hidden;
@@ -147,6 +110,9 @@ button {
     bottom: 0;
     background: rgba(0,0,0,0);
 }
+.picture {
+    display: flex;
+}
 .product_img {
 	display: flex;
     position: absolute;
@@ -155,6 +121,10 @@ button {
     transform: translate(-50%,-50%);
     width: 81.5%;
     height: auto;
+}
+.image{
+	position: absolute;
+    top: 0%;
 }
 /* 위에뜨는거 */
 .floating_price .inner_box, .floating_price .product_area {
@@ -169,6 +139,15 @@ button {
 .floating_price .product_area {
     padding-right: 40px;
 }
+.floating_price .product_thumb {
+    overflow: hidden;
+    -webkit-box-flex: 0;
+    flex: none;
+    margin-right: 12px;
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+}
 .is_open {
     display: block;
 }
@@ -176,188 +155,649 @@ button {
     display: none;
     top: 99px;
 }
+.floating_price .product_info .name, .floating_price .product_info .translated_name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.floating_price .product_info{
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+.floating_price .btn_area {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 560px;
+    height: 50px;
+}
+.floating_price .btn_area .btn_wish {
+    width: 160px;
+    min-width: 960px
+}
+.floating_price .btn_area .btn_wish {
+    -webkit-box-flex: 0;
+    flex: none;
+    height: inherit;
+    line-height: 48px;
+    margin-right: 8px;
+    border-radius: 10px;
+}
+.btn_wish {
+    width: 20px;
+    height: 20px;
+}
+.floating_price .btn_area .division_btn_box {
+    -webkit-box-flex: 1;
+    flex: 1;
+    width: 100%;
+    height: inherit;
+    margin-top: 0;
+}
+.floating_price .btn_area .division_btn_box .title {
+    width: 44px;
+    font-size: 15px;
+    letter-spacing: -.15px;
+}
 .image {
     object-fit: cover;
     width: 100%;
     height: 100%;
     image-rendering: -webkit-optimize-contrast;
 }
+/* detail */
+.detail_main_title {
+    position: relative;
+}
+.detail_main_title .sub_title {
+    line-height: 17px;
+    font-size: 14px;
+    letter-spacing: -.21px;
+    letter-spacing: -.15px;
+    color: rgba(34,34,34,.5);
+}
+.detail_main_title .brand {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 19px;
+    padding-top: 1px;
+    margin-bottom: 9px;
+    font-size: 18px;
+    letter-spacing: -.27px;
+    font-weight: 800;
+    border-bottom: 2px solid #222;
+}
+.detail_main_title .title {
+    margin-bottom: 4px;
+    font-size: 18px;
+    letter-spacing: -.09px;
+    font-weight: 400;
+}
+.detail_size {
+    padding-top: 19px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ebebeb;
+}
+.detail_size .title {
+    float: left;
+}
+.detail_size .size {
+    float: right;
+}
+.btn_size {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -.21px;
+    font-weight: 700;
+}
+.btn_text {
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.detail_size:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.detail_price {
+    margin-top: 11px;
+    min-height: 44px;
+}
+.title_txt {
+    padding-top: 5px;
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: -.07px;
+    color: rgba(34,34,34,.8);
+}
+.price {
+    float: right;
+    padding-top: 2px;
+    text-align: right;
+}
+.amount {
+    font-weight: 700;
+}
+.num {
+    font-size: 20px;
+    letter-spacing: -.1px;
+}
+.num, .won {
+    display: inline-block;
+    line-height: 26px;
+    vertical-align: top;
+}
+.won {
+    font-size: 18px;
+    letter-spacing: -.27px;
+}
+.drop_svg{
+	width:12px;
+	height: 12px;
+}
+.fluctuation {
+    position: relative;
+    padding-top: 1px;
+    padding-left: 17px;
+    font-size: 13px;
+}
+.same {
+    color: rgba(34,34,34,.8);
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.detail_price:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.division_btn_box .btn_division:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 55px;
+    width: 1px;
+    background-color: rgba(34,34,34,.1);
+}
+.division_btn_box {
+    margin-top: 17px;
+    display: flex;
+    height: 60px;
+}
+.division_btn_box .btn_division {
+    position: relative;
+    display: inline-flex;
+    -webkit-box-flex: 1;
+    flex: 1;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 10px;
+    color: #fff;
+}
+.division_btn_box .buy {
+    background-color: #ef6253;
+}
+.division_btn_box .title {
+    width: 55px;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: -.27px;
+}
+.division_btn_box .price {
+    margin-left: 10px;
+    line-height: 15px;
+}
+.division_btn_box .amount {
+    display: block;
+    font-size: 0;
+}
+.division_btn_box .num, .division_btn_box .won {
+    display: inline-block;
+    vertical-align: top;
+    font-weight: 700;
+}
+.division_btn_box .num {
+    font-size: 15px;
+}
+.division_btn_box .desc {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: hsla(0,0%,100%,.8);
+}
+.division_btn_box .sell {
+    background-color: #41b979;
+}
+.division_btn_box .btn_division {
+    margin-left: 10px;
+}
+.full{
+    height: 60px;
+    line-height: 58px;
+}
+.btn_wish {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
+    color: #333;
+    margin-top: 12px;
+}
+.outlinegrey{
+    border: 1px solid #d3d3d3;
+    color: rgba(34,34,34,.8);
+}
+
+.large {
+    padding: 0 25px;
+    font-size: 16px;
+    letter-spacing: -.16px;
+}
+.full {
+    width: 100%;
+    font-weight: 700;
+}
+.btn.btn_wish [class*=ico-]~.wish_count_num {
+    margin-left: 4px;
+}
+.btn.btn_wish .btn_text {
+    font-size: 15px;
+    letter-spacing: -.15px;
+    font-weight: 400;
+    letter-spacing: normal;
+}
+.btn.btn_wish .wish_count_num {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: normal;
+}
+.product_info_wrap .info_title{
+    color: rgb(7 7 7 / 88%);
+}
+.info_title {
+    padding-bottom: 13px;
+}
+.detail_title {
+    line-height: 22px;
+    padding: 39px 0 20px;
+    font-size: 18px;
+    letter-spacing: -.15px;
+}
+.detail_product_wrap {
+    border: 1px solid #ebebeb;
+    border-width: 1px 0;
+}
+.detail_product_wrap .detail_product {
+    display: flex;
+    min-height: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.detail_product_wrap .detail_box:first-child {
+    padding-left: 0;
+}
+.detail_product_wrap .detail_box {
+    -webkit-box-flex: 1;
+    flex: 1;
+    padding: 0 12px;
+}
+.detail_product_wrap .product_title {
+    line-height: 14px;
+    font-size: 12px;
+    letter-spacing: -.33px;
+    color: rgba(34,34,34,.5);
+}
+.detail_product_wrap .model_num .product_info {
+    font-weight: 600;
+}
+.detail_product_wrap .product_info {
+    margin-top: 4px;
+    word-break: break-word;
+    line-height: 17px;
+    font-size: 14px;
+}
+.detail_product_wrap .detail_box {
+    border-left: 1px solid #ebebeb;
+}
+/* 배송정보 */
+.delivery_way_wrap .detail_title {
+    line-height: 17px;
+    padding-bottom: 0;
+    font-size: 14px;
+    letter-spacing: -.21px;
+    font-weight: 400;
+    color: rgba(34,34,34,.8);
+}
+.delivery_way_wrap .delivery_way {
+    padding-top: 19px;
+    padding-bottom: 10px;
+    position: relative;
+}
+.way_info {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+}
+.way_status_thumb {
+    width: 40px;
+    height: 40px;
+}
+.way_img {
+    width: 40px;
+    height: 40px;
+    
+    border: 0;
+    vertical-align: top;
+}
+.way_desc {
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+/* 광고 배너 */
+.banner_box {
+    position: relative;
+    padding-top: 20px;
+}
+.detail_slide {
+	position: realtive;
+}
+.detail_slide .slick-list {
+    height: 80px;
+    display: block;
+}
+.detail_slide .slick-slide {
+    float: left;
+}
+.slick-active{
+	outline: none;
+    width: 430px;
+    position: relative;
+    left: 0px;
+    opacity: 1;
+    transition: opacity 600ms ease 0s, visibility 600ms ease 0s;
+}
+.detail_banner {
+    position: relative;
+    vertical-align: top;
+}
+.banner_link {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 80px;
+    background-color: rgb(239, 68, 25);
+}
+.banner_link img {
+    height: 100%;
+    vertical-align: top;
+}
+/* 시세 */
+.product_sales_graph {
+    position: relative;
+}
+.product_sales_graph .title {
+    display: flex;
+}
+.detail_title {
+    line-height: 22px;
+    padding: 39px 0 20px;
+    font-size: 18px;
+    letter-spacing: -.15px;
+}
+.product_sales_graph .title .sales_filter {
+    position: relative;
+    margin-left: auto;
+    padding: 40px 0 20px;
+    font-size: 0;
+}
+.product_sales_graph .title .sales_filter .filter_unit {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+.product_sales_graph .title .btn_select {
+    font-size: 13px;
+    letter-spacing: -.07px;
+    color: rgba(34,34,34,.8);
+}
+.product_sales_graph .title .btn_select .select_text {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 24px;
+}
+.product_sales_graph .title .btn_select .select_text:after {
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    width: 24px;
+    height: 24px;
+    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggc3Ryb2tlPSIjQkJCIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTE4IDlsLTYgNi02LTYiLz48L3N2Zz4=) 0 0 no-repeat;
+    background-size: 24px 24px;
+}
+.wrap_sales, .tab_area{
+    position: relative;
+}
+.tab_area .tab_list {
+    display: flex;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+}
+.tab_area .item {
+    -webkit-box-flex: 1;
+    flex: 1;
+    margin: 2px;
+}
+.tab_area .item_link {
+    display: block;
+    line-height: 16px;
+    padding: 7px 0 9px;
+    font-size: 13px;
+    letter-spacing: -.05px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+    color: rgba(34,34,34,.8);
+}
+.wrap_bids, .wrap_sales {
+    position: relative;
+}
+.show {
+    display: block;
+    height: auto;
+}
+.tab_content {
+    overflow: hidden;
+}
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-spacing: 0;
+    border: 0;
+    border-collapse: collapse;
+}
+.table_wrap {
+    padding: 21px 0 20px;
+}
+caption {
+    display: table-caption;
+    text-align: -webkit-center;
+}
+col {
+    display: table-column;
+}
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+.table_th {
+    line-height: 14px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #ebebeb;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    color: rgba(34,34,34,.5);
+    font-weight: 400;
+    text-align: left;
+}
+.table_td {
+    line-height: 17px;
+    padding-top: 9px;
+    font-size: 14px;
+}
+.table_td:nth-child(2) {
+    position: relative;
+}
+.align_right {
+    text-align: right;
+}
+.full.medium {
+    font-weight: 400;
+}
+
+.tab_content {
+    overflow: hidden;
+    display: none;
+}
+.graph{
+    height: 200px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+/* 구매확인박스 */
+.confirm_wrap {
+    padding-top: 39px;
+}
+.confirm_wrap .confirm_title {
+    line-height: 22px;
+    padding-bottom: 12px;
+    font-size: 18px;
+    letter-spacing: -.27px;
+}
+.confirm_wrap .confirm_content {
+    border-top: 1px solid #ebebeb;
+}
+.dropdown_head {
+    padding: 18px 0 17px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    border-bottom: 1px solid #ebebeb;
+    cursor: pointer;
+}
+.open .dropdown_head {
+    border-bottom: 1px solid #222;
+}
+.dropdown_head .title {
+    max-width: 320px;
+    font-size: 15px;
+    letter-spacing: -.15px;
+}
+.open .dropdown_content{
+	diaplsy: block;
+}
+.dropdown_content {
+    display: none;
+    padding: 20px 0;
+    border-bottom: 1px solid #ebebeb;
+}
+.dropdown_content .content {
+    font-size: 13px;
+    letter-spacing: -.07px;
+    color: rgba(34,34,34,.8);
+}
+[class*=ico-arr-] {
+    margin-left: auto;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+}
+.point_guide {
+    padding-top: 40px;
+}
+.guide_list .guide_item .thumb_area {
+    float: left;
+    width: 40px;
+    margin-right: 14px;
+}
+.guide_list .guide_item .thumb_area img {
+    width: 100%;
+    vertical-align: top;
+}
+.guide_list .guide_item .text_area {
+    overflow: hidden;
+}
+.guide_list .guide_item .text_area .title {
+    display: block;
+    line-height: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: normal;
+}
+.guide_list .guide_item .text_area .desc {
+    margin-top: 1px;
+    line-height: 16px;
+    font-size: 13px;
+    letter-spacing: normal;
+    color: rgba(34,34,34,.5);
+}
+.meditaion_notice_product, .point_guide {
+    padding-top: 40px;
+}
+.meditaion_notice_product {
+    margin-top: 20px;
+    line-height: 16px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 12px;
+    letter-spacing: -.05px;
+    color: rgba(34,34,34,.5);
+}
+.feed_area {
+    margin: 0 auto;
+    padding-bottom: 60px;
+    max-width: 1280px;
+}
 </style>
 </head>
 <body>
-<div class="container detail lg">
+<div class="container detail">
     <div class="content">
         <h2 class="blind">상품 상세</h2>
         <div class="column_bind">
-            <div class="column is_absolute">
-                <div class="spread"></div>
-                <div class="column_box" style="width: 560px;">
-                    <div class="detail_banner_area lg">
-                        <div dir="ltr" class="banner_slide detail_slide slick-slider slick-initialized">
-                            <button type="button" data-role="none" class="slick-arrow slick-prev slick-disabled" style="display: block;">Previous</button>
-                            <div class="slick-list">
-                                <div class="slick-track" style="width: 2240px; opacity: 1;">
-                                    <div
-                                        tabindex="-1"
-                                        data-index="0"
-                                        aria-hidden="false"
-                                        class="slick-slide slick-active slick-current"
-                                        style="outline: none; width: 560px; position: relative; left: 0px; opacity: 1; transition: opacity 500ms ease 0s, visibility 500ms ease 0s;"
-                                    >
-                                        <div>
-                                            <div tabindex="-1" class="slide_content" style="width: 100%; display: inline-block;">
-                                                <div href="/" class="slide_item" style="background-color: rgb(235, 240, 245);">
-                                                    <div class="item_inner">
-                                                        <div class="product" style="background-color: rgb(235, 240, 245);">
-                                                            <picture  class="picture product_img">
-                                                                <source
-                                                                    type="image/webp"
-                                                                    srcset="
-                                                                        https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=l_webp
-                                                                    "
-                                                                />
-                                                                <source
-                                                                    srcset="
-                                                                        https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=l
-                                                                    "
-                                                                />
-                                                                <img
-                                                                    alt="상품 이미지"
-                                                                    src="https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=l"
-                                                                    class="image"
-                                                                />
-                                                            </picture>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div
-                                        tabindex="-1"
-                                        data-index="1"
-                                        aria-hidden="true"
-                                        class="slick-slide"
-                                        style="outline: none; width: 560px; position: relative; left: -560px; opacity: 0; transition: opacity 500ms ease 0s, visibility 500ms ease 0s;"
-                                    >
-                                        <div>
-                                            <div tabindex="-1" class="slide_content" style="width: 100%; display: inline-block;">
-                                                <div href="/" class="slide_item" style="background-color: rgb(235, 240, 245);">
-                                                    <div class="item_inner">
-                                                        <div class="product" style="background-color: rgb(235, 240, 245);">
-                                                            <picture  class="picture product_img">
-                                                                <source
-                                                                    type="image/webp"
-                                                                    srcset="
-                                                                        https://kream-phinf.pstatic.net/MjAyMjA2MTVfMTAz/MDAxNjU1MjgzNjk2Mzk0.WpldpxWVYc8jltLDZcSjTKP9D6qvNUboMCJ1KCwyJnEg.NSbWSQAKH0s4sSQM9okLSjAObQjV9xHSNy_-Tc6cahwg.PNG/a_25272afc5f6f4ff4bc6f474ebae0406c.png?type=l_webp
-                                                                    "
-                                                                />
-                                                                <source
-                                                                    
-                                                                    srcset="
-                                                                        https://kream-phinf.pstatic.net/MjAyMjA2MTVfMTAz/MDAxNjU1MjgzNjk2Mzk0.WpldpxWVYc8jltLDZcSjTKP9D6qvNUboMCJ1KCwyJnEg.NSbWSQAKH0s4sSQM9okLSjAObQjV9xHSNy_-Tc6cahwg.PNG/a_25272afc5f6f4ff4bc6f474ebae0406c.png?type=l
-                                                                    "
-                                                                />
-                                                                <img
-                                                                    
-                                                                    alt="상품 이미지"
-                                                                    src="https://kream-phinf.pstatic.net/MjAyMjA2MTVfMTAz/MDAxNjU1MjgzNjk2Mzk0.WpldpxWVYc8jltLDZcSjTKP9D6qvNUboMCJ1KCwyJnEg.NSbWSQAKH0s4sSQM9okLSjAObQjV9xHSNy_-Tc6cahwg.PNG/a_25272afc5f6f4ff4bc6f474ebae0406c.png?type=l"
-                                                                    class="image"
-                                                                />
-                                                            </picture>
-                                                            <!----><!----><!---->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div
-                                        tabindex="-1"
-                                        data-index="2"
-                                        aria-hidden="true"
-                                        class="slick-slide"
-                                        style="outline: none; width: 560px; position: relative; left: -1120px; opacity: 0; transition: opacity 500ms ease 0s, visibility 500ms ease 0s;"
-                                    >
-                                        <div>
-                                            <div tabindex="-1" class="slide_content" style="width: 100%; display: inline-block;">
-                                                <div href="/" class="slide_item" style="background-color: rgb(235, 240, 245);">
-                                                    <div class="item_inner">
-                                                        <div class="product" style="background-color: rgb(235, 240, 245);">
-                                                            <picture class="picture product_img">
-                                                                <source
-                                                                    type="image/webp"
-                                                                    srcset="
-                                                                        https://kream-phinf.pstatic.net/MjAyMjA2MTVfODcg/MDAxNjU1MjgzNjk2NDY0.gBmV8zQTrogKxLlWybcJeOniUxB42mLgOu4s6i2duoQg.685Pc1Kp8CXY2yAeM8OUmvYKbjwJnEIOiyVPCDaYeWUg.PNG/a_5860ca7dd5a64b78ab3d2a2f395f2403.png?type=l_webp
-                                                                    "
-                                                                />
-                                                                <source
-                                                                    srcset="
-                                                                        https://kream-phinf.pstatic.net/MjAyMjA2MTVfODcg/MDAxNjU1MjgzNjk2NDY0.gBmV8zQTrogKxLlWybcJeOniUxB42mLgOu4s6i2duoQg.685Pc1Kp8CXY2yAeM8OUmvYKbjwJnEIOiyVPCDaYeWUg.PNG/a_5860ca7dd5a64b78ab3d2a2f395f2403.png?type=l
-                                                                    "
-                                                                />
-                                                                <img
-                                                                    alt="상품 이미지"
-                                                                    src="https://kream-phinf.pstatic.net/MjAyMjA2MTVfODcg/MDAxNjU1MjgzNjk2NDY0.gBmV8zQTrogKxLlWybcJeOniUxB42mLgOu4s6i2duoQg.685Pc1Kp8CXY2yAeM8OUmvYKbjwJnEIOiyVPCDaYeWUg.PNG/a_5860ca7dd5a64b78ab3d2a2f395f2403.png?type=l"
-                                                                    class="image"
-                                                                />
-                                                            </picture>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div
-                                        tabindex="-1"
-                                        data-index="3"
-                                        aria-hidden="true"
-                                        class="slick-slide"
-                                        style="outline: none; width: 560px; position: relative; left: -1680px; opacity: 0; transition: opacity 500ms ease 0s, visibility 500ms ease 0s;"
-                                    >
-                                        <div>
-                                            <div tabindex="-1" class="slide_content" style="width: 100%; display: inline-block;">
-                                                <div href="/" class="slide_item" style="background-color: rgb(235, 240, 245);">
-                                                    <div class="item_inner">
-                                                        <div class="product" style="background-color: rgb(235, 240, 245);">
-                                                            <picture  class="picture product_img">
-                                                                <source
-                                                                    type="image/webp"
-                                                                    srcset="
-                                                                        https://kream-phinf.pstatic.net/MjAyMjA2MTVfNTQg/MDAxNjU1MjgzNjk2NDIx.jqRhZsZwv2ExcogHji8tAK23HF4z7PD23j0w7yojYsEg.iSaFxyIpGcETNuV_-IfABX7vnEymbR8KNh4DPH9pMI0g.PNG/a_718ba68027f749b79313691f17a2e394.png?type=l_webp
-                                                                    "
-                                                                />
-                                                                <source
-                                                                    srcset="
-                                                                        https://kream-phinf.pstatic.net/MjAyMjA2MTVfNTQg/MDAxNjU1MjgzNjk2NDIx.jqRhZsZwv2ExcogHji8tAK23HF4z7PD23j0w7yojYsEg.iSaFxyIpGcETNuV_-IfABX7vnEymbR8KNh4DPH9pMI0g.PNG/a_718ba68027f749b79313691f17a2e394.png?type=l
-                                                                    "
-                                                                />
-                                                                <img
-                                                                    alt="상품 이미지"
-                                                                    src="https://kream-phinf.pstatic.net/MjAyMjA2MTVfNTQg/MDAxNjU1MjgzNjk2NDIx.jqRhZsZwv2ExcogHji8tAK23HF4z7PD23j0w7yojYsEg.iSaFxyIpGcETNuV_-IfABX7vnEymbR8KNh4DPH9pMI0g.PNG/a_718ba68027f749b79313691f17a2e394.png?type=l"
-                                                                    class="image"
-                                                                />
-                                                            </picture>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <button type="button" data-role="none" class="slick-arrow slick-next" style="display: block;">Next</button>
-                            <ul class="slick-dots" style="display: block;">
-                                <li class="slick-active"><button>1</button></li>
-                                <li class=""><button>2</button></li>
-                                <li class=""><button>3</button></li>
-                                <li class=""><button>4</button></li>
-                            </ul>
-                        </div>
+            <div class="column">
+                <div class="column_box">
+                    <div class="detail_banner_area">
+                                       
+                          <div class="item_inner">
+                              <div class="product" style="background-color: rgb(235, 240, 245);">
+                                      <img alt="상품 이미지"
+                                          src="https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=l"
+                                          class="image"/>
+                              </div>
+                          </div>
+                                     
+
                     </div>
                 </div>
             </div>
@@ -394,7 +834,7 @@ button {
                             </div>
                         </div>
                         <div class="btn_wrap">
-                            <div class="division_btn_box lg">
+                            <div class="division_btn_box">
                                 <a href="#" class="btn_division buy">
                                     <strong class="title">구매</strong>
                                     <div class="price">
@@ -408,8 +848,10 @@ button {
                                     </div>
                                 </a>
                             </div>
-                            <a href="#" class="btn full outlinegrey large btn_wish" aria-label="관심상품">
-                                <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
+                            <a href="#" class="btn full outlinegrey btn_wish large" aria-label="관심상품">
+                                <svg data-v-2d0ab5c1="" xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons ico-wish-off">
+                           			<use data-v-2d0ab5c1="" href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-wish-off" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-wish-off"></use>
+                           		</svg>
                                 <span class="btn_text">관심상품</span><span class="wish_count_num">9.5만</span>
                             </a>
                         </div>
@@ -688,6 +1130,7 @@ button {
                                 </div>
                             </div>
                             
+                            <%-- <c:if test="${session.Email != null}">
                             <!-- 로그인안했을시 -->
                             <div class="layer_alert_login">
                                 <div class="layer_content">
@@ -698,6 +1141,7 @@ button {
                                     <a href="/login" class="btn btn_login solid medium" type="button"> 로그인 </a>
                                 </div>
                             </div>
+                            </c:if> --%>
                             
                         </div>
                         <div>
@@ -838,7 +1282,7 @@ button {
                             <div class="point_guide lg">
                                 <ul class="guide_list">
                                     <li class="guide_item">
-                                        <div class="thumb_area"><img src="/_nuxt/img/img-guide-item-01.fa306b8.svg" alt="" class="img" /></div>
+                                        <div class="thumb_area"><img src="/TeamProject/img/shop/img-guide-item01.svg"  alt="" class="img" /></div>
                                         <div class="text_area">
                                             <strong class="title">100% 정품 보증</strong>
                                             <p class="desc">KREAM에서 검수한 상품이 정품이 아닐 경우, 구매가의 3배를 보상합니다.</p>
@@ -859,7 +1303,7 @@ button {
                                         </div>
                                     </li>
                                     <li class="guide_item">
-                                        <div class="thumb_area"><img src="/_nuxt/img/img-guide-item-03.963fee7.svg" alt="" class="img" /></div>
+                                        <div class="thumb_area"><img src="/TeamProject/img/shop/img-guide-item02.svg" alt="" class="img" /></div>
                                         <div class="text_area">
                                             <strong class="title">정품 인증 패키지</strong>
                                             <p class="desc">검수에 합격한 경우에 한하여 KREAM의 정품 인증 패키지가 포함된 상품이 배송됩니다.</p>
@@ -930,7 +1374,32 @@ button {
             </div>
         </div>
     </div>
+    <div class="feed_area">
 </div>
 
 </body>
+<script type="text/javascript">
+ $("document").ready(function() {
+	     $(window).scroll(function() { 
+		             var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다. 
+		console.log(position);
+		     });   
+		    });
+
+$(function(){     
+
+	var lastScroll = 0;
+		$(window).scroll(function(event) {
+			var scroll = $(this).scrollTop();
+			if (scroll < 1310) { //이벤트를 적용시킬 스크롤 높이               
+				$(".column:eq(0)").addClass("is_fixed");
+				$(".column:eq(0)").removeClass("is_absolute");
+			} else{
+				$(".column:eq(0)").removeClass("is_fixed");
+				$(".column:eq(0)").addClass("is_absolute");
+			}
+			lastScroll = scroll;
+		});
+	});
+</script>
 </html>
