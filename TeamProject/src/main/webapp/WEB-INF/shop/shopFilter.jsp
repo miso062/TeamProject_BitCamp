@@ -50,6 +50,8 @@
 							$(this).attr('src', '/TeamProject/img/shop/checkbox-inactive.png');
 							$(this).addClass('checkbox-inactive');
 							$(this).removeClass('checkbox-active');
+							//alert($('.checkbox-active').length);
+							$('.status_num').text($('.checkbox-active').length);
 						}
 					 });
 					$(this).closest("div").remove();
@@ -57,7 +59,6 @@
 			tagitem_inner == null;
 		}
 			else{
-
 				checkText = $(this).next().text();
 
 				$('.shop_tag').each(function(){
@@ -66,21 +67,19 @@
 					if( tagText == checkText) {
 						$(this).closest("div").remove();
 					}
-				})
+				});
 
 				$(this).attr('src', '/TeamProject/img/shop/checkbox-inactive.png');
 				$(this).addClass('checkbox-inactive');
 				$(this).removeClass('checkbox-active');
 			}
-			//alert($('.checkbox-active').length);
 				if($('.checkbox-active').length >= 1){
 					
 					$('.btn_delete').show();
 					$('.status_num').show();
 					$('.status_num').text($('.checkbox-active').length);
-					
 				}
-			$('.status_num').text($('.checkbox-active').length)
+			$('.status_num').text($('.checkbox-active').length);
 			
 			/* 상품 필터 태그 6개이상 선택시 */
 			if($('.checkbox-active').length == 6){
