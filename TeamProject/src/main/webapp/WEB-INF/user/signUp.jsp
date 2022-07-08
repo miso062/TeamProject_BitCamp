@@ -101,66 +101,66 @@
 		    <div class="btn_join disabled" disabled="disabled"> 가입하기 </div>
 		</div>
 	</div>
-	<div data-v-350bc372="" data-v-28cabbb5="" data-v-5f779880="" class="layer_point layer md" style="display: none;">
-        <div data-v-350bc372="" class="layer_container">
-            <div data-v-350bc372="" class="layer_header"><h2 data-v-28cabbb5="" data-v-350bc372="" class="title">이용안내</h2></div>
-            <div class="size_list_area" data-v-350bc372="" data-v-feb03f9c="">
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">220</span></a>
+	<div class="layer_point layer md" style="display: none;">
+        <div class="layer_container">
+            <div class="layer_header"><h2 class="title">이용안내</h2></div>
+            <div class="size_list_area" >
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >220</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">225</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >225</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">230</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >230</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">235</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >235</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">240</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >240</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">245</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >245</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">250</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >250</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">255</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >255</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">260</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >260</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">265</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >265</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">270</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >270</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium on" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">275</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium on"><span class="info_txt" >275</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">280</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >280</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">285</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >285</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">290</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >290</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">295</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >295</span></a>
 			    </div>
-			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
-			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">300</span></a>
+			    <div class="size_item" >
+			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >300</span></a>
 			    </div>
 			</div>
-			<div data-v-28cabbb5="" data-v-350bc372="" class="layer_btn"><a data-v-3d1bcc82="" data-v-28cabbb5="" href="#" class="btn outline medium" data-v-350bc372=""> 확인 </a></div>
-            <a data-v-28cabbb5="" data-v-350bc372="" href="#" class="btn_layer_close">
-                <svg data-v-28cabbb5="" data-v-350bc372="" xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-                    <use data-v-28cabbb5="" data-v-350bc372="" href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
+			<div class="layer_btn"><ahref="#" class="btn outline medium" > 확인 </a></div>
+            <a href="#" class="btn_layer_close">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
+                    <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
                 </svg>
             </a>
         </div>
