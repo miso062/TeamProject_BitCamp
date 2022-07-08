@@ -104,32 +104,46 @@ h3 {
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
 <script>
-ClassicEditor 
-    .create( document.querySelector('#content')) 
-    .then( editor => { 
-        console.log( editor ); 
-    } ) 
-    .catch( error => { 
-        console.error( error ); 
-    } );
+    
+let editor;
+
+ClassicEditor
+.create( document.querySelector( '#content' ))
+.then( newEditor => {
+        editor = newEditor;
+    } )
+
+.then( editor => {
+	window.editor = editor;
+
+} )
+.catch( error => {
+	console.error( 'Oops, something went wrong!' );
+	console.error( 'Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:' );
+	console.warn( 'Build id: g64ljk55ssvc-goqlohse75uw' );
+	console.error( error );
+} );
+
 $('#btnSave').click(function(){
-		$.ajax({
-			url:'/TeamProject/admin/getnoticeWrite',
-			type: 'post',
-			data: {
-				'title': $('#title').val(),
-				'content': $('.ck-editor__editable_inline').html(),
-				'registrant': $('#reg_id').val()
-			},
-			success: function(){
-				alert('작성하신 글을 저장하였습니다.');
-				location.href='/TeamProject/admin/notice';
-			},
-			error: function(err){
-			console.log(err);
-			}
-		});
+	const editorData = editor.getData();
+
+	$.ajax({
+		url:'/TeamProject/admin/getnoticeWrite',
+		type: 'post',
+		data: {
+			'title': $('#title').val(),
+			'content': editorData,
+			'registrant': $('#reg_id').val()
+		},
+		success: function(){
+			alert('작성하신 글을 저장하였습니다.');
+			location.href='/TeamProject/admin/notice';
+		},
+		error: function(err){
+		console.log(err);
+		}
 	});
+});
 $('#btnList').click(function(){
 	location.href="/TeamProject/admin/notice";
 })
