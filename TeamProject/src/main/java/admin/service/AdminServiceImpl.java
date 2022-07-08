@@ -67,7 +67,6 @@ public class AdminServiceImpl implements AdminService {
 	public AdminDTO getnoticeUpdate(String seq, String pg) {
 		AdminDTO adminDTO = adminDAO.getnoticeUpdate(seq,pg);
 		String content = adminDTO.getContent();
-		content = content.replace("<p>", "\n");
 		adminDTO.setContent(content);
 		return adminDTO;
 	}

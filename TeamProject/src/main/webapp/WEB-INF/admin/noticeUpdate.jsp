@@ -93,7 +93,8 @@ h3 {
 					</div>								
 					<div class="mb-3">					
 						<label for="content">내용</label>					
-							<textarea class="form-control" rows="5" name="content" id="content" placeholder="내용을 입력해 주세요" ></textarea>
+							<!-- <textarea class="form-control" rows="5" name="content" id="content" placeholder="내용을 입력해 주세요" ></textarea> -->
+							<div id="content"></div>
 					</div>					
 				</form>			
 				<div id="savelist">				
@@ -107,19 +108,6 @@ h3 {
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
 <script>
-ClassicEditor 
-    .create( document.querySelector('#content')) 
-    .then( editor => { 
-        console.log( editor ); 
-    } ) 
-    .catch( error => { 
-        console.error( error ); 
-    } );
-    
-$('#btnList').click(function(){
-	location.href="/TeamProject/admin/notice";
-});
-
 $(document).ready(function(){
 	$.ajax({
 		type: 'post',
@@ -129,11 +117,22 @@ $(document).ready(function(){
 	  		 +'&pg='+$('input[name="pg"]').val(),
 		dataType: 'json',
 		success: function(data){
-			alert(data.content);
-			alert('3');
 		 	$('input[name="title"]').val(data.title);
 		 	$('input[name="registrant"]').val(data.registrant);
-			$('.ck-placeholder').text(data.content);
+			$('#content').html(data.content);
+			
+			ClassicEditor 
+			    .create( document.querySelector('#content')) 
+			    .then( editor => { 
+			        console.log( editor ); 
+			    } ) 
+			    .catch( error => { 
+			        console.error( error ); 
+			    });
+			    
+			$('#btnList').click(function(){
+				location.href="/TeamProject/admin/notice";
+			});
 		},
 		error: function(err){
 			alert('실패');
