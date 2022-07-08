@@ -9,12 +9,7 @@
 </head>
 <body>
 	<div class="c2_feed_area">
-		<h2 class="c2_feed_title" style="font-size: 1.5em;
-										    margin-block-start: 0.83em;
-										    margin-block-end: 0.83em;
-										    margin-inline-start: 0px;
-										    margin-inline-end: 0px;
-										    font-weight: bold;">
+		<h2 class="c2_feed_title" >
 			<span class="c2_title">스타일</span>
 			<span class="c2_num">4157</span>
 		</h2>
@@ -81,7 +76,7 @@
 				 				<img alt="사용자 프로필 이미지" class="c2_img_profile"src="https://kream-phinf.pstatic.net/MjAyMjA1MjBfNDYg/MDAxNjUzMDUyMTU0Nzgy._EnVKa1RNcYTZrcXdnS-CICEdcc-IaoyGuajLbaLw2sg.gfVoEMynMFW5frmSsbiGHLBWmgDFjI4qEESm48z6wxgg.JPEG/p_6f2cdc25078343c9a918f2b2e73fe38f.jpeg?type=sl">
 				 				<p class="c2_text_box">sj_04</p>
 				 			</div>
-				 			<p class="c2_text_box">아련샷 찰칵~!</p>
+				 			<p class="c2_text_box">멋진 내모습? &emsp; Hi</p>
 				 			<div class="c2_btn_box">
 				 				<a href="#" aria-label="좋아요"  >
 				 					<img class="c2_btn_like" src="../img/shopDetail/c2_good.png">
@@ -122,6 +117,142 @@
 			</div>
 			<div class="c2_more_btn_box">
 				<button class="c2_btn_plus">더보기</button>
+			</div>
+		</div>
+		<div>
+			<div class="c2_other_product_area">
+				<h3 class="c2_more_title">
+					<span class="c2_owner">Nike</span>
+					<span class="c2_title_txt">의 다른 상품</span>
+					<a class="c2_btn_more" href="#">
+						<span class="c2_btn_txt">더보기 ></span>
+					</a>
+				</h3>
+				<div class="c2_other_products">
+					<div class="c2_product_list">
+						<div class="c2_product_item">
+							<a href="#" class="c2_item_inner">
+								<div class="c2_thumb_box">
+									<div class="c2_product" style="background-color: rgb(235, 240, 245)">
+										<img class="c2_img"alt="나이키 에어포스 1" src="../img/shopDetail/c2_Nike1.png">
+									</div>								
+								</div>
+								<div class="c2_info_box">
+									<div class="c2_brand">
+										<p class="c2_brand-text">Nike</p>
+									</div>
+									<p class="c2_name">Nike Air Force 1 '07 Low Triple Black</p>
+									<div class="c2_price">
+										<div class="c2_amount">
+											<em class="c2_num">135,000</em>
+											<span class="c2_won">원</span>
+										</div>
+										<div class="c2_desc">
+											<p style="margin:0;">즉시 구매가</p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="c2_product_item">
+							<a href="#" class="c2_item_inner">
+								<div class="c2_thumb_box">
+									<div class="c2_product" style="background-color: rgb(235, 240, 245)">
+										<img class="c2_img"alt="나이키 에어포스 2" src="../img/shopDetail/c2_Nike2.png">
+									</div>								
+								</div>
+								<div class="c2_info_box">
+									<div class="c2_brand">
+										<p class="c2_brand-text">Nike</p>
+									</div>
+									<p class="c2_name">Nike Air Force 1 '07 University Red</p>
+									<div class="c2_price">
+										<div class="c2_amount">
+											<em class="c2_num">198,000</em>
+											<span class="c2_won">원</span>
+										</div>
+										<div class="c2_desc">
+											<p style="margin:0;">즉시 구매가</p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="c2_product_item">
+							<a href="#" class="c2_item_inner">
+								<div class="c2_thumb_box">
+									<div class="c2_product" style="background-color: rgb(235, 240, 245)">
+										<img class="c2_img"alt="나이키 에어포스 3" src="../img/shopDetail/c2_Nike3.png">
+									</div>								
+								</div>
+								<div class="c2_info_box">
+									<div class="c2_brand">
+										<p class="c2_brand-text">Nike</p>
+									</div>
+									<p class="c2_name">Nike Air Force 1 '07 Anthracite Black White</p>
+									<div class="c2_price">
+										<div class="c2_amount">
+											<em class="c2_num">170,000</em>
+											<span class="c2_won">원</span>
+										</div>
+										<div class="c2_desc">
+											<p style="margin:0;">즉시 구매가</p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="c2_product_item">
+							<a href="#" class="c2_item_inner">
+								<div class="c2_thumb_box">
+									<div class="c2_product" style="background-color: rgb(235, 240, 245)">
+										<img class="c2_img"alt="나이키 에어포스 4" src="../img/shopDetail/c2_Nike4.png">
+									</div>								
+								</div>
+								<div class="c2_info_box">
+									<div class="c2_brand">
+										<p class="c2_brand-text">Nike</p>
+									</div>
+									<p class="c2_name">Nike Air Force 1 '07 White Royal</p>
+									<div class="c2_price">
+										<div class="c2_amount">
+											<em class="c2_num">161,000</em>
+											<span class="c2_won">원</span>
+										</div>
+										<div class="c2_desc">
+											<p style="margin:0;">즉시 구매가</p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="c2_product_item">
+							<a href="#" class="c2_item_inner">
+								<div class="c2_thumb_box">
+									<div class="c2_product" style="background-color: rgb(235, 240, 245)">
+										<img class="c2_img"alt="나이키 에어포스 5" src="../img/shopDetail/c2_Nike5.png">
+									</div>								
+								</div>
+								<div class="c2_info_box">
+									<div class="c2_brand">
+										<p class="c2_brand-text">Nike</p>
+									</div>
+									<p class="c2_name">Nike Air Force 1 '07 Low Triple Black</p>
+									<div class="c2_price">
+										<div class="c2_amount">
+											<em class="c2_num">161,000</em>
+											<span class="c2_won">원</span>
+										</div>
+										<div class="c2_desc">
+											<p style="margin:0;">즉시 구매가</p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
