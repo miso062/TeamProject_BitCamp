@@ -501,6 +501,147 @@
     .brand-text.long-name {
         font-size: 12px;
     }
+    .layer[data-v-350bc372] {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(34,34,34,.5);
+        z-index: 1010;
+    }
+    .layer_point .layer_container[data-v-350bc372] {
+        width: 444px;
+    }
+    .layer_container[data-v-350bc372] {
+        overflow: hidden;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        background-color: #fff;
+        width: 448px;
+        border-radius: 16px;
+        -webkit-box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+        box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+    }
+    .layer_header .title[data-v-350bc372] {
+        line-height: 22px;
+        padding: 18px 50px 20px;
+        min-height: 60px;
+        font-size: 18px;
+        letter-spacing: -.27px;
+        font-weight: 700;
+        letter-spacing: -.15px;
+        color: #000;
+        text-align: center;
+        background-color: #fff;
+    }
+    .usable_wrap[data-v-28cabbb5] {
+        padding: 19px 32px 30px;
+    }
+    .usable_point[data-v-28cabbb5] {
+        padding-bottom: 30px;
+    }
+    .usable_point .title[data-v-28cabbb5] {
+        font-size: 14px;
+        letter-spacing: -.21px;
+    }
+    .point_box[data-v-28cabbb5] {
+        padding: 18px 0 2px;
+        border-bottom: 2px solid #222;
+        line-height: 36px;
+        font-size: 24px;
+        letter-spacing: -.12px;
+    }
+    .point_box .point[data-v-28cabbb5] {
+        font-weight: 700;
+    }
+    .point_box[data-v-28cabbb5] {
+        padding: 18px 0 2px;
+        border-bottom: 2px solid #222;
+        line-height: 36px;
+        font-size: 24px;
+        letter-spacing: -.12px;
+    }
+    .point_info[data-v-28cabbb5] {
+        padding-top: 13px;
+        font-size: 13px;
+        letter-spacing: -.07px;
+        color: rgba(34,34,34,.8);
+    }
+        .point_info .info_item+.info_item[data-v-28cabbb5] {
+        margin-top: 8px;
+        color: rgba(34,34,34,.5);
+    }
+    .usable_list[data-v-28cabbb5] {
+        border-top: 1px solid #ebebeb;
+        padding-top: 20px;
+    }
+    .usable_item[data-v-28cabbb5] {
+        position: relative;
+        padding-left: 11px;
+        font-size: 12px;
+        letter-spacing: -.06px;
+        color: rgba(34,34,34,.8);
+    }
+    .usable_item[data-v-28cabbb5]:before {
+        content: "";
+        position: absolute;
+        top: 9px;
+        left: 0;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 3px;
+        height: 3px;
+        background-color: #333;
+        border-radius: 50%;
+    }
+    .layer_btn[data-v-350bc372] {
+        padding: 24px 32px 32px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    .layer_btn .btn[data-v-350bc372] {
+        width: 120px;
+    }
+    .outline[data-v-3d1bcc82] {
+        border: 1px solid #d3d3d3;
+    }
+    .medium[data-v-3d1bcc82] {
+        padding: 0 18px;
+        height: 42px;
+        line-height: 40px;
+        border-radius: 12px;
+        font-size: 14px;
+        letter-spacing: -.14px;
+    }
+    .btn[data-v-3d1bcc82] {
+        display: inline-block;
+        cursor: pointer;
+        vertical-align: middle;
+        text-align: center;
+        color: rgba(34,34,34,.8);
+        background-color: #fff;
+    }
+    .btn_layer_close[data-v-350bc372] {
+        position: absolute;
+        top: 18px;
+        right: 20px;
+        cursor: pointer;
+    }    
+    [class*=ico-] {
+        width: 24px;
+        height : 24px;
+    }
+    
 </style>
 
 <div data-v-5f779880="" class="my_home">
@@ -521,7 +662,7 @@
                 <strong data-v-5acef129="" class="info"> 일반 회원 </strong>
                 <p data-v-5acef129="" class="title">회원 등급</p>
             </a>
-            <a data-v-5acef129="" href="#" class="membership_item">
+            <a data-v-5acef129=""  class="membership_item">
                 <strong data-v-5acef129="" class="info"> 400000P </strong>
                 <p data-v-5acef129="" class="title">포인트</p>
             </a>
@@ -686,7 +827,7 @@
     </div>
     <div data-v-6752ceb2="" data-v-5f779880="" class="my_home_title">
         <h3 data-v-6752ceb2="" class="title">관심 상품</h3>
-        <a data-v-6752ceb2="" href="#" class="btn_more">
+        <a data-v-6752ceb2="" href="/TeamProject/user/likePro" class="btn_more">
             <span data-v-6752ceb2="" class="btn_txt">더보기</span>
             <div data-v-6752ceb2=""  class="icon sprite-icons arr-right-gray">
                 <img data-v-6752ceb2="" src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
@@ -816,3 +957,20 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+$('.membership_item').click(function(){
+	$('.layer_point').fadeIn();
+    $('body').css("overflow", "hidden");
+});
+$(document).on("click",function(e){
+	if($('.layer_point').is(e.target)) {
+		$('.layer_point').fadeOut();
+        $('body').css("overflow", "scroll");
+        
+	}
+})
+$('.layer_btn').click(function(){
+    $('.layer_point').fadeOut();
+    $('body').css("overflow", "scroll");
+})
+</script>

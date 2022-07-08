@@ -133,7 +133,7 @@ $(document).ready(function(){
 			alert('3');
 		 	$('input[name="title"]').val(data.title);
 		 	$('input[name="registrant"]').val(data.registrant);
-			$('.ck-placeholder').text(data.content);
+			$('.ck-blurred').append(data.content);
 		},
 		error: function(err){
 			alert('실패');
