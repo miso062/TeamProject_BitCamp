@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+
 [data-v-454fa0b2] button {
 	border: none;
 	background: none;
@@ -20,7 +21,9 @@
 	margin: -4px;
 	font-size: 0;
 }
-
+.change{
+	border:1px solid #000000;
+}
 .select_item[data-v-02c63ee6] {
 	overflow: hidden;
 	margin: 4px;
@@ -35,8 +38,8 @@
 	box-sizing: border-box
 }
 
-.select_item.active[data-v-02c63ee6] {
-	border-color: #222
+.select_item.active{
+	border-color: #000000
 }
 
 .select_item.active .price[data-v-02c63ee6], .select_item.active .size[data-v-02c63ee6]
@@ -680,6 +683,7 @@ body{
 .size{
 	align: center;
 }
+
 </style>
 </head>
 <body>
@@ -920,7 +924,7 @@ body{
 								<hr>
 								<a href="">
 									<div id="black_box">
-										<div id="font1">구매입찰</div>
+										<div id="font1"></div>
 										<div id="font2">일반배송(5-7일소요)</div>
 									</div>
 								</a>
@@ -939,14 +943,29 @@ body{
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-if(window.reload(function(){
-	$('#black_button').hide());
-else if($('button').click(function(){
-	$('#black_button').attr();
+$(function(){
+	$('#black_button').hide();
+	$('.select_item').click(function(){
+		$('#black_button').show();	
+	})
+});
 
-	})); 
-
+$(function(){
+	$('.select_item').each(function(){
+		$(this).click(function(){
+			$(this).css('border','1px solid black');
+			$('.select_item').not(this).css('border', '1px solid #d3d3d3');
+		});
 	});
+	
+});
+
+
+
+
+	
+	
+
 
 
 
