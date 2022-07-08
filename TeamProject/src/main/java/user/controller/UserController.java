@@ -14,6 +14,11 @@ public class UserController {
 		return "/user/login";
 	}
 	
+	@GetMapping(value="signUp")
+	public String signUp() {
+		return "user/signUp";
+	}
+	
 	@GetMapping(value="/my")
 	public String myPage(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
