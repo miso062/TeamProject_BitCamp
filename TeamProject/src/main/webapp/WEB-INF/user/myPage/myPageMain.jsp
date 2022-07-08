@@ -572,7 +572,7 @@
         letter-spacing: -.07px;
         color: rgba(34,34,34,.8);
     }
-        .point_info .info_item+.info_item[data-v-28cabbb5] {
+    .point_info .info_item+.info_item[data-v-28cabbb5] {
         margin-top: 8px;
         color: rgba(34,34,34,.5);
     }

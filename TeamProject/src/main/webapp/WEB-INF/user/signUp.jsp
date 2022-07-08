@@ -5,174 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<style type="text/css">
-	body,
-	html {
-	    height: 100%;
-	    -ms-text-size-adjust: none;
-	    -moz-text-size-adjust: none;
-	    -webkit-text-size-adjust: none;
-	    -moz-osx-font-smoothing: grayscale;
-	    -webkit-font-smoothing: antialiased;
-	    -webkit-overflow-scrolling: touch;
-	    -ms-touch-action: manipulation;
-	    touch-action: manipulation;
-	}
-	#header{
-		width: 100%;
-		height: 6%;
-		margin: 0 auto;			
-	}
-	.input_title{
-	    position: relative;
-	    display: inline-block;
-	    padding-right: 6px;
-	    font-size: 13px;
-	    letter-spacing: -.07px;
-	    line-height: 18px;
-    }
-	.join_area {
-	    margin: 0 auto;
-	    padding: 58px 0 160px;
-	    width: 400px;
-	}
-	.join_title {
-	    padding-bottom: 42px;
-	    text-align: center;
-	    font-size: 32px;
-	    letter-spacing: -0.48px;
-	    color: #000;
-	}
-	.btn_size_select {
-	    position: absolute;
-	    top: 50%;
-	    right: 0;
-	    -webkit-transform: translateY(-50%);
-	    -ms-transform: translateY(-50%);
-	    transform: translateY(-50%);
-	}
-	.join_terms {
-	    padding: 24px 0 40px;
-	}
-	.join_terms .plus-btn {
-	    margin-left: auto;
-	}
-	.join_terms .btn_view {
-	    position: absolute;
-	    top: 2px;
-	    right: 0;
-	    font-size: 12px;
-	    line-height: 20px;
-	    letter-spacing: -0.18px;
-	    color: rgba(34, 34, 34, 0.5);
-	}
-	.join_terms .btn_view,
-	.join_terms .btn_view:hover {
-	    text-decoration: underline;
-	}
-	.terms_box + .terms_box {
-	    margin-top: 16px;
-	}
-	.check_main{
-	    display: -webkit-box;
-	    display: -ms-flexbox;
-	    display: flex;
-	    height: 24px;
-	}
-	.check_sub {
-	    display: none;
-	    padding: 16px 0 0 36px;
-	}
-	.terms_box.open .check_sub {
-	    display: block;
-	}
-	.check_sub .checkbox_item + .checkbox_item {
-	    margin-top: 12px;
-	}
-	#container{
-		margin: 50px;
-	}
-	.input_box {
-	    position: relative;
-	    padding: 10px 0 14px;
-	}
-	.input_title {
-	    font-size: 13px;
-	    letter-spacing: -0.07px;
-	    line-height: 18px;
-	}
-	.input_title.ess {
-	    position: relative;
-	    display: inline-block;
-	    padding-right: 6px;
-	}
-	.input_title.ess:after {
-	    content: "*";
-	    position: absolute;
-	    top: -2px;
-	    right: 0;
-	}
-	.input_error {
-	    display: none;
-	}
-	.input_item {
-	    position: relative;
-	}
-	.input_txt {
-	    padding: 8px 0;
-	    width: 100%;
-	    font-size: 15px;
-	    letter-spacing: -0.15px;
-	    line-height: 22px;
-	    border-bottom: 1px solid #ebebeb;
-	}
-	.input_txt:focus {
-	    padding-bottom: 7px;
-	    border-bottom: 2px solid #333;
-	}
-	.input_txt.hover {
-    	cursor: pointer;
-    }
-    .btn_size_select{
-        display: inline-block;
-	    cursor: pointer;
-	    vertical-align: middle;
-	    text-align: center;
-	    color: rgba(34,34,34,.8);
-	    background-color: #fff;
-    }
-    #size_choose_img{
-    	width: 15px;
-    }
-    .ico-check-active{
-    	width: 25px;
-    	height: 25px;
-    	filter: opacity(0.5) drop-shadow(0 0 0 #DCDCDC);
-    }
-    .label_txt{
-    	vertical-align: top;
-    }
-    .ico-plus{
-    	width: 20px;
-    	height: 20px;
-    	filter: opacity(0.5) drop-shadow(0 0 0 #DCDCDC);
-    }
-    .btn_join{
-	    background-color: #ebebeb;
-		color: #fff;
-		cursor: default;
-		height: 52px;
-		width: 100%;
-		font-size: 16px;
-		letter-spacing: -.16px;
-		font-weight: 700;
-		border-radius: 12px;
-		display: block;
-		text-align: center;
-		line-height: 30px;
-		padding-top: 10px;
-    }
-	</style>
+	<link rel="stylesheet" href="/TeamProject/css/user/signUp.css">
 </head>
 <body>
 	<div id="header"><jsp:include page="/WEB-INF/main/header.jsp"></jsp:include></div>
@@ -191,7 +24,7 @@
 		    </div>
 		    <div  class="input_box">
 		        <h3  class="input_title">신발 사이즈</h3>
-		        <div class="input_item">
+		        <div class="input_item input_choose_size">
 		            <input type="text" placeholder="선택하세요" disabled="disabled" autocomplete="off" class="input_txt hover text_fill" />
 		            <button type="button" class="btn btn_size_select" >
 		                <img id="size_choose_img" src="/TeamProject/img/user/signUp/next.png" alt="선택">
@@ -267,12 +100,88 @@
 		    </div>
 		    <div class="btn_join disabled" disabled="disabled"> 가입하기 </div>
 		</div>
-				
 	</div>
+	<div data-v-350bc372="" data-v-28cabbb5="" data-v-5f779880="" class="layer_point layer md" style="display: none;">
+        <div data-v-350bc372="" class="layer_container">
+            <div data-v-350bc372="" class="layer_header"><h2 data-v-28cabbb5="" data-v-350bc372="" class="title">이용안내</h2></div>
+            <div class="size_list_area" data-v-350bc372="" data-v-feb03f9c="">
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">220</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">225</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">230</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">235</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">240</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">245</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">250</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">255</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">260</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">265</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">270</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium on" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">275</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">280</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">285</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">290</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">295</span></a>
+			    </div>
+			    <div class="size_item" data-v-1b874462="" data-v-feb03f9c="" data-v-350bc372="">
+			        <a href="#" class="btn outlinegrey medium" data-v-3d1bcc82="" data-v-1b874462=""><span class="info_txt" data-v-1b874462="">300</span></a>
+			    </div>
+			</div>
+			<div data-v-28cabbb5="" data-v-350bc372="" class="layer_btn"><a data-v-3d1bcc82="" data-v-28cabbb5="" href="#" class="btn outline medium" data-v-350bc372=""> 확인 </a></div>
+            <a data-v-28cabbb5="" data-v-350bc372="" href="#" class="btn_layer_close">
+                <svg data-v-28cabbb5="" data-v-350bc372="" xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
+                    <use data-v-28cabbb5="" data-v-350bc372="" href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
+                </svg>
+            </a>
+        </div>
+    </div>
 	<div id="footer"><jsp:include page="/WEB-INF/main/footer.jsp"></jsp:include></div>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
-		
+		$('.input_choose_size').click(function(){
+			$('.layer_point').fadeIn();
+		    $('body').css("overflow", "hidden");
+		});
+		$(document).on("click",function(e){
+			if($('.layer_point').is(e.target)) {
+				$('.layer_point').fadeOut();
+		        $('body').css("overflow-y", "scroll");
+			}
+		})
+		$('.layer_btn').click(function(){
+		    $('.layer_point').fadeOut();
+		    $('body').css("overflow-y", "scroll");
+		})
 	</script>
 </body>
 </html>
