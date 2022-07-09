@@ -3,38 +3,7 @@
 * {
 	box-sizing: border-box;
 }
-
-
-input {
-	writing-mode: horizontal-tb !important;
-    text-rendering: auto;    
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;    
-    -webkit-rtl-ordering: logical;
-    cursor: text;
-    outline: none;
-}
-h3 {
-	margin: 0;
-}
-
-li{
-	text-align: -webkit-match-parent;
-}
-button {
-	writing-mode: horizontal-tb !important;
-	text-rendering: auto;
-	word-spacing: normal;
-	text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    align-items: flex-start;
-}
-a {
+#naverIdLogin_loginButton{
 	text-decoration: none;
     text-decoration-line: none;
     text-decoration-thickness: initial;
@@ -44,11 +13,51 @@ a {
     -webkit-tap-highlight-color: rgba(0,0,0,.1);
     cursor: pointer;
 }
-li {
+
+#log_email_input {
+	writing-mode: horizontal-tb !important;
+    text-rendering: auto;    
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;	
+    text-align: start;    
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    outline: none;
+}
+#log_pwd_input {
+	writing-mode: horizontal-tb !important;
+    text-rendering: auto;    
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;	
+    text-align: start;    
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    outline: none;
+}
+#log_email_label {
+	margin: 0;
+}
+#log_pwd_label {
+	margin: 0;
+}
+li{
 	text-align: -webkit-match-parent;
 }
-
-
+#login_btn {
+	writing-mode: horizontal-tb !important;
+	text-rendering: auto;
+	word-spacing: normal;
+	text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    align-items: flex-start;
+}
 .content_area {
 	margin: 0 auto;
     padding: 60px 0 160px;
@@ -161,6 +170,14 @@ li {
     display: inline-flex;
     font-size: 13px;
     letter-spacing: -.07px;
+    text-decoration: none;
+    text-decoration-line: none;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+    color: inherit;
+    -webkit-tap-highlight-color: rgba(0,0,0,.1);
+    cursor: pointer;
 }
 .social_login {
 	margin-top: 40px;

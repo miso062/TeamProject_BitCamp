@@ -19,6 +19,10 @@
 	<context:component-scan base-package="admin.service"></context:component-scan>
 	<context:component-scan base-package="admin.dao"></context:component-scan>
 	
+	<context:component-scan base-package="user.bean" />
+	<context:component-scan base-package="user.service" />
+	<context:component-scan base-package="user.dao" />
+	
 	<context:component-scan base-package="spring.conf"></context:component-scan>
 		
 </beans>

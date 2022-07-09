@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 	
 	@GetMapping(value="login")
-	public String login() {
+	public String login(Model model) {
+		System.out.println(model.toString());
 		return "/user/login";
 	}
 	
