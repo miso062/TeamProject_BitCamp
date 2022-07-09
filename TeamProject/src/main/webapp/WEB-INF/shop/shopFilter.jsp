@@ -73,8 +73,8 @@
 				$(this).addClass('checkbox-inactive');
 				$(this).removeClass('checkbox-active');
 
-				alert($(this).parents('.menu_list').find('.checkbox-active').length);
-				
+				/* 해당 필터에 선택 요소 없을 때 회색 글씨 재등장 하도록! */
+				/* alert($(this).parents('.menu_list').find('.checkbox-active').length); */
 				if($(this).parents('.menu_list').find('.checkbox-active').length == 0){
 					$(this).closest("div").prev().find('span:eq(1)').show();
 				}
