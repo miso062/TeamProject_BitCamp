@@ -22,9 +22,6 @@
 		    margin: 0;
 		    padding: 0;
 		}
-		div {
-		    display: block;
-		}
 		body,
 		html {
 		    height: 100%;
