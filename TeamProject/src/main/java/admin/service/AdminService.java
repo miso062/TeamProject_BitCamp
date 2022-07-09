@@ -4,6 +4,7 @@ import java.util.List;
 
 import admin.bean.AdminDTO;
 import admin.bean.AdminPaging;
+import admin.bean.AdminQnADTO;
 
 public interface AdminService {
 
@@ -18,4 +19,16 @@ public interface AdminService {
 	public void noticeDelete(String seq, String pg);
 
 	public AdminDTO getnoticeUpdate(String seq, String pg);
+
+	public void addnoticeUpdate(AdminDTO adminDTO);
+
+	public void getnoticeQnAWrite(AdminQnADTO adminQnADTO);
+
+	public List<AdminQnADTO> getnoticeQnAList(String pg);
+
+	public AdminPaging getBoardPaging1(String pg);
+
+	public List<AdminQnADTO> getnoticeQnAListsearch(String pg, String category);
+
+	public AdminPaging getBoardPaging2(String pg, String category);
 }

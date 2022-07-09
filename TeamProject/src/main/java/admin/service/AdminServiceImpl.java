@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import admin.bean.AdminDTO;
 import admin.bean.AdminPaging;
+import admin.bean.AdminQnADTO;
 import admin.dao.AdminDAO;
 
 @Service
@@ -70,5 +71,71 @@ public class AdminServiceImpl implements AdminService {
 		adminDTO.setContent(content);
 		return adminDTO;
 	}
+
+	@Override
+	public void addnoticeUpdate(AdminDTO adminDTO) {
+		adminDAO.addnoticeUpdate(adminDTO);
+		
+	}
+
+	@Override
+	public void getnoticeQnAWrite(AdminQnADTO adminQnADTO) {
+		adminDAO.getnoticeQnAWrite(adminQnADTO);
+	}
+
+	@Override
+	public List<AdminQnADTO> getnoticeQnAList(String pg) {
+		int endNum = Integer.parseInt(pg) * 10;
+		int startNum = endNum -9;
+		
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("startNum", startNum);
+		map.put("endNum", endNum);
+		
+		List<AdminQnADTO> list = adminDAO.getnoticeQnAList(map);
+		return list;
+	}
+
+	@Override
+	public AdminPaging getBoardPaging1(String pg) {
+		int totalA = adminDAO.getTotalA1();
+		
+		adminPaging.setCurrentPage(Integer.parseInt(pg));
+		adminPaging.setPageBlock(5);
+		adminPaging.setPageSize(10);
+		adminPaging.setTotalA(totalA);
+		adminPaging.makePagingHTML();
+		
+		return adminPaging;
+	}
+
+	@Override
+	public List<AdminQnADTO> getnoticeQnAListsearch(String pg, String category) {
+		
+		int endNum = Integer.parseInt(pg) * 10;
+		int startNum = endNum -9;
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("startNum", startNum + "");
+		map.put("endNum", endNum + "");
+		map.put("category", category);
+		
+		List<AdminQnADTO> list = adminDAO.getnoticeQnAListsearch(map);
+		return list;
+	}
+
+	@Override
+	public AdminPaging getBoardPaging2(String pg, String category) {
+		int totalA = adminDAO.getTotalA2(category);
+		
+		adminPaging.setCurrentPage(Integer.parseInt(pg));
+		adminPaging.setPageBlock(5);
+		adminPaging.setPageSize(10);
+		adminPaging.setTotalA(totalA);
+		adminPaging.makePagingHTML();
+		
+		return adminPaging;
+	}
+	
 
 }

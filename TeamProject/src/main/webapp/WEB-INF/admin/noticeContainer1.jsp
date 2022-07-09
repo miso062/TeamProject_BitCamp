@@ -101,6 +101,10 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	$('#sub_area > ul > li:eq(0)').addClass('bold');
+	$('#sub_area > ul > li:eq(1)').removeClass('bold');
+	$('#sub_area > ul > li:eq(2)').removeClass('bold');
+	
 	$.ajax({
 		type: 'post',
 		url: '/TeamProject/admin/getnoticeList',

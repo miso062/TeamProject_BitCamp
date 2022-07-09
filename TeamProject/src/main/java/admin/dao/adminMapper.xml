@@ -32,4 +32,50 @@
   	<select id="getnoticeUpdate" parameterType="String" resultType="admin">
   		select * from notice where notice_id=#{seq}
   	</select>
+  	
+  	<update id="addnoticeUpdate" parameterType="admin">
+  		update notice set title=#{title}, content=#{content} where notice_id=#{notice_id}
+  	</update>
+  	<insert id="getnoticeQnAWrite" parameterType="adminqna">
+  		  insert into qna(qna_id,category,title,content,registrant,regdate)
+  		  values(qna_seq.nextval,#{category},#{title},#{content},#{registrant},sysdate)
+  	</insert>
+  	
+  	<select id="getnoticeQnAList" parameterType="java.util.Map" resultType="adminqna">
+  		select * from 
+  		(select rownum rn,tt.* from 
+  		(select * from qna order by qna_id desc)tt) 
+  		where <![CDATA[rn>=#{startNum} and rn<=#{endNum}]]>
+  	</select>
+  	
+  	<select id="getTotalA1" resultType="Integer">
+  	select count(*) from qna
+  	</select>
+  	
+  	<select id="getnoticeQnAListsearch" parameterType="java.util.Map" resultType="adminqna">
+  		<![CDATA[
+  		select * from 
+  		(select rownum rn,tt.* from 
+  		(select * from qna where category like '%'||#{category}||'%' order by qna_id desc)tt) 
+  		where rn>=#{startNum} and rn<=#{endNum}]]>
+  	</select>
+  	
+  	<select id="getTotalA2" parameterType="String" resultType="Integer">
+  	select count(*) from qna where category like '%'||#{category}||'%'
+  	</select>
+	<select id="getnoticeQnAListsearch1" parameterType="java.util.Map" resultType="adminqna">
+		select * from 
+  		(select rownum rn,tt.* from 
+  		(select * from qna order by qna_id desc)tt) 
+  		where <![CDATA[rn>=#{startNum} and rn<=#{endNum}]]>
+</select>
 </mapper>
+
+
+
+
+
+
+
+
+
