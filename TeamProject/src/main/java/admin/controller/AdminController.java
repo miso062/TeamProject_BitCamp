@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import admin.bean.AdminDTO;
 import admin.bean.AdminPaging;
+import admin.bean.AdminQnADTO;
 import admin.service.AdminService;
 
 @Controller
@@ -81,7 +82,6 @@ public class AdminController {
 	public Map<String, Object> getBoardView(@RequestParam String seq, String pg, HttpSession httpSession) {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		
 		AdminDTO adminDTO = adminService.getnoticeView(seq,pg);
 		map.put("adminDTO", adminDTO);
 		return map;
@@ -109,4 +109,91 @@ public class AdminController {
 		return adminDTO;
 	}
 	
+	@PostMapping(value="addnoticeUpdate")
+	@ResponseBody
+	public void addnoticeUpdate(@ModelAttribute AdminDTO adminDTO,@RequestParam String seq, HttpSession httpSession) {
+		adminDTO.setNotice_id(seq);
+		adminService.addnoticeUpdate(adminDTO);
+	}
+	
+	@GetMapping(value="noticeStandard")
+	public String noticeStandard(Model model) {
+		model.addAttribute("head", "/WEB-INF/main/header.jsp");
+		model.addAttribute("nav", "/WEB-INF/admin/noticenav.jsp");
+		model.addAttribute("container", "/WEB-INF/admin/noticeStandard.jsp");
+		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
+		return "/admin/notice";
+	}
+	
+	@GetMapping(value="noticeQnA")
+	public String noticeQnA(@RequestParam (required = false, defaultValue = "1") String pg,Model model) {
+		model.addAttribute("pg",pg);
+		model.addAttribute("head", "/WEB-INF/main/header.jsp");
+		model.addAttribute("nav", "/WEB-INF/admin/noticenav.jsp");
+		model.addAttribute("container", "/WEB-INF/admin/noticeQnA.jsp");
+		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
+		return "/admin/notice";
+	}
+	
+	@GetMapping(value="noticeQnAwrite")
+	public String noticeQnAwrite(Model model) {
+		model.addAttribute("head", "/WEB-INF/main/header.jsp");
+		model.addAttribute("nav", "/WEB-INF/admin/noticenav.jsp");
+		model.addAttribute("container", "/WEB-INF/admin/noticeQnAwrite.jsp");
+		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
+		return "/admin/notice";
+	}
+	
+	@PostMapping(value="getnoticeQnAWrite")
+	@ResponseBody
+	public void getnoticeQnAWrite(@ModelAttribute AdminQnADTO adminQnADTO, HttpSession httpSession) {
+		
+		adminService.getnoticeQnAWrite(adminQnADTO);
+	}
+	
+	@PostMapping(value="getnoticeQnAList")
+	@ResponseBody
+	public Map<String, Object> getnoticeQnAList(@RequestParam(required = false, defaultValue = "1") String pg){
+		List<AdminQnADTO> list = adminService.getnoticeQnAList(pg);
+		
+		AdminPaging adminPaging = adminService.getBoardPaging1(pg);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("adminPaging",adminPaging);
+		map.put("list",list);
+		
+		return map;
+	}
+	
+	@PostMapping(value="getnoticeQnAListsearch")
+	@ResponseBody
+	public Map<String, Object> getnoticeQnAListsearch(@RequestParam(required = false, defaultValue = "1") String pg, String category ){
+		List<AdminQnADTO> list = adminService.getnoticeQnAListsearch(pg, category);
+		AdminPaging adminPaging = adminService.getBoardPaging2(pg, category);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("adminPaging",adminPaging);
+		map.put("list",list);
+		
+		return map;
+	}
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

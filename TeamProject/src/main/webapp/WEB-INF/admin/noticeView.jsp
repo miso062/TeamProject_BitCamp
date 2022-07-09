@@ -4,13 +4,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-#nav_container{
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 40px 40px 160px;
-    width: 100%;
-    height: 1200px;
-}
 #hr{	
 	background-color: black;
 	border:0;
@@ -120,7 +113,8 @@ $(document).ready(function(){
 	});
 });
 $('#noticeDeletebtn').click(function(){
-	confirm("정말로 삭제하시겠습니까?");
+	if(confirm("정말로 삭제하시겠습니까?")){
+		
 	$.ajax({
 		url:'/TeamProject/admin/noticeDelete',
 		type:'post',
@@ -136,10 +130,12 @@ $('#noticeDeletebtn').click(function(){
 			console.log(err);
 	  	}
 	});
+   }
 });
 $('#noticeUpdatebtn').click(function(){
-	confirm("정말로 수정하시겠습니까?");
-	$('.seqpg').attr('action','/TeamProject/admin/noticeUpdate');
-	$('.seqpg').submit();
+	if(confirm("정말로 수정하시겠습니까?")){
+		$('.seqpg').attr('action','/TeamProject/admin/noticeUpdate');
+		$('.seqpg').submit();
+	}
 });
 </script>
