@@ -296,13 +296,7 @@ width: 744px;
     margin: -8px auto 0;
     font-size: 12px;
 }
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
+
 .h_brand_box {
     display: block;
     width: 100px;
@@ -377,7 +371,6 @@ height:80px;
     left: 0;
     height: 100%;
     background-color: rgba(7, 7, 7, 0.882);
-    overflow: hidden;
     display : none;
 }
 .content_area0 {
@@ -388,6 +381,9 @@ height:80px;
     max-width: 100%;
     width: 500px;
     margin: 0 auto;
+    margin-top: -70px;
+    border-radius: 15px;
+    
 }
 </style>    
 <div class="h_header h_mo">
@@ -542,7 +538,7 @@ height:80px;
 			
 			<ul class="look_box">
 				<li class="look_list">
-					<a href="#" class="look_link" >이메일 가입</a>
+					<a href="/TeamProject/uesr/signUp" class="look_link">이메일 가입</a>
 				</li>
 				<li class="look_list">
 					<a href="#" class="look_link" >이메일 찾기</a>
@@ -588,16 +584,17 @@ $(document).on("click",function(e){
         
 	}
 })
-
+//로그인시 모달창
 $('#h_login').click(function(){
 	$('.content_login').fadeIn();
     $('body').css("overflow", "hidden");
+    $('.content_login').css('overflow-y', 'scroll')
 });
+//로그인 모달창 닫기
 $(document).on("click",function(e){
 	if($('.content_login').is(e.target)) {
 		$('.content_login').fadeOut();
-        $('body').css("overflow", "scroll");
-        
+        $('body').css("overflow-y", "scroll"); //스크롤 다시 보여주기
 	}
 })
 
