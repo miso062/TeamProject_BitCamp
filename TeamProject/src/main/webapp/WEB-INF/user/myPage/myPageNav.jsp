@@ -65,7 +65,7 @@
                 <ul data-v-4d11470e="" data-v-7bcac446="" class="snb_menu">
                     <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link"> 구매 내역 </a></li>
                     <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link"> 판매 내역 </a></li>
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link"> 관심 상품 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/TeamProject/user/likePro" class="menu_link"> 관심 상품 </a></li>
                 </ul>
             </div>
             <div data-v-7bcac446="" class="snb_list">
