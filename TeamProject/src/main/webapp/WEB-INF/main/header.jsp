@@ -499,6 +499,9 @@ height:80px;
 	</div>
 </div>
 </div>
+
+
+<!-- 은지 -->
 <!-- 로그인 모달창-->
 <div class="content_login">
     <div class="content_area0">
@@ -507,36 +510,41 @@ height:80px;
 				<div class="kream_logo" ></div>
 			</div>
 			
-			<div class="input_email_box">
-				<h3 class="input_email_title" id="email_label" >이메일 주소</h3>
-				<div class="input_email_item">
-					<div class="input_email_text">
-						<input class="input_email_txt" type="text" id= "email_input" oninput="oninputEmail(this.value)" placeholder="예) kream@kream.co.kr">
+			
+			<form action="/TeamProject/user/login" method="post">
+				<div class="input_email_box">
+					<h3 class="input_email_title" id="log_email_label" >이메일 주소</h3>
+					<div class="input_email_item">
+						<div class="input_email_text">
+							<input name="email" class="input_email_txt" type="text" id= "log_email_input" oninput="oninputEmail(this.value)" placeholder="예) kream@kream.co.kr">
+						</div>
 					</div>
+					<p class="input_email_error" id="log_email_error" >이메일 주소를 정확히 입력해주세요.</p>
 				</div>
-				<p class="input_email_error" id="email_error" >이메일 주소를 정확히 입력해주세요.</p>
-			</div>
-			<div class="input_pwd_box">
-				<h3 class="input_pwd_title" id="pwd_label">비밀번호</h3>
-				<div class="input_pwd_item">
-					<div class="input_pwd_text" >
-						<input class="input_pwd_txt" type="password"  id= "pwd_input" oninput="oninputPwd(this.value)" autocomplete="off" >
+				<div class="input_pwd_box">
+					<h3 class="input_pwd_title" id="log_pwd_label">비밀번호</h3>
+					<div class="input_pwd_item">
+						<div class="input_pwd_text" >
+							<input name="pwd" class="input_pwd_txt" type="password"  id= "log_pwd_input" oninput="oninputPwd(this.value)" autocomplete="off" >
+						</div>
 					</div>
+					<p class="input_pwd_error" id="log_pwd_error" >영문, 숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
 				</div>
-				<p class="input_pwd_error" id="pwd_error" >영문, 숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
-			</div>
-			<div class="login_btn_box">
-				<button class="login_btn_disabled" id="login_btn">로그인</button>
-			</div>
+				<div class="login_btn_box">
+					<button class="login_btn_disabled" id="login_btn">로그인</button>
+				</div>
+			</form>
+			
+			
 			<ul class="look_box">
 				<li class="look_list">
 					<a href="/TeamProject/uesr/signUp" class="look_link">이메일 가입</a>
 				</li>
 				<li class="look_list">
-					<a href="#" class="look_link">이메일 찾기</a>
+					<a href="#" class="look_link" >이메일 찾기</a>
 				</li>
 				<li class="look_list">
-					<a href="#" class="look_link">비밀번호 찾기</a>
+					<a href="#" class="look_link" >비밀번호 찾기</a>
 				</li>
 			</ul>
 			<div class="social_login">
@@ -550,6 +558,8 @@ height:80px;
 	    </div>
     </div>
 </div>
+
+
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/TeamProject/js/user/login.js"></script>

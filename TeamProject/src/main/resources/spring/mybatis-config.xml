@@ -7,5 +7,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="admin.bean.AdminDTO" alias="admin"/>
+		<typeAlias type="user.bean.UserDTO" alias="user"/>
 	</typeAliases>
 </configuration>
