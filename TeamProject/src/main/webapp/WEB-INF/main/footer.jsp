@@ -3,7 +3,7 @@
 <style type="text/css">
 
 .footer{
-	margin-top: 200px;
+	margin-top: 100px;
 }
 .banner_bottom {
    display: -webkit-box;
