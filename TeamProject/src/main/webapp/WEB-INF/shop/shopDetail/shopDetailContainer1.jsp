@@ -713,7 +713,7 @@ tr {
     border-bottom: 1px solid #222;
 }
 .open .dropdown_content{
-	diaplay: block;
+	display: block;
 }
 .dropdown_content {
     display: none;
