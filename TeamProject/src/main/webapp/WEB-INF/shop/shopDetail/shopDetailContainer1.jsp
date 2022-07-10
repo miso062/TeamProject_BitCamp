@@ -47,16 +47,20 @@ li, ol, ul {
 .column_bind {
     position: relative;
 }
-.is_fixed .column_box {
- 	width: 29.5%;
+.column_bind .column_box1 {
+	margin-left: 70px;
+    width: 84%;
+}
+.is_fixed .column_box1 {
+    width: 24.7%;
     position: fixed;
     top: 130px;
 }
-.is_absolute .column_box {
+.is_absolute .column_box1 {
     position: absolute;
-    width: 47%;
-   /*  bottom: 0; */
-    top: 1250px;
+    width: 39.2%;
+    bottom: 0;
+    top: 1261px;
 }
 .column {
     width: 50%;
@@ -89,25 +93,13 @@ li, ol, ul {
     padding-top: 100%;
     border-radius: 8px;
 }
-.product:after, .slide_item:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0);
-}
-.picture {
-    display: flex;
-}
 .product_img {
 	display: flex;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 42%;
+    left: 3.9%;
     transform: translate(-50%,-50%);
-    width: 81.5%;
+    width: 3.5%;
     height: auto;
 }
 .image{
@@ -115,6 +107,16 @@ li, ol, ul {
     top: 0%;
 }
 /* 위에뜨는거 */
+.floating_price {
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 10px 40px 15px;
+    background-color: #fff;
+    -webkit-box-shadow: 4px 0 10px 0 rgb(0 0 0 / 10%);
+    box-shadow: 4px 0 10px 0 rgb(0 0 0 / 10%);
+    z-index: 1;
+}
 .floating_price .inner_box, .floating_price .product_area {
     display: flex;
     -webkit-box-align: center;
@@ -141,7 +143,7 @@ li, ol, ul {
 }
 .floating_price{
     display: none;
-    top: 99px;
+    top: 80px;
 }
 .floating_price .product_info .name, .floating_price .product_info .translated_name {
     overflow: hidden;
@@ -493,8 +495,26 @@ li, ol, ul {
     vertical-align: top;
 }
 .way_desc {
+	margin-left: 18px;
     -webkit-box-flex: 1;
     flex: 1;
+}
+.company {
+    line-height: 17px;
+    margin: 0 auto;
+}
+.company .badge_title {
+    font-weight: 600;
+}
+.company .badge_title, .company {
+    font-size: 14px;
+    letter-spacing: -.21px;
+}
+.sub_text {
+    line-height: 16px;
+    margin-top: 3px;
+    font-size: 14px;
+    color: rgba(34,34,34,.5);
 }
 /* 광고 배너 */
 .banner_box {
@@ -779,7 +799,7 @@ tr {
         <h2 class="blind">상품 상세</h2>
         <div class="column_bind">
             <div class="column">
-                <div class="column_box">
+                <div class="column_box1">
                     <div class="detail_banner_area">
                                        
                           <div class="item_inner">
@@ -918,6 +938,7 @@ tr {
                     </div>
                     <div class="detail_wrap">
                         <div class="product_sales_graph">
+                        
                             <div class="title">
                                 <h3 class="detail_title lg">시세</h3>
                                 <div class="sales_filter lg">
@@ -926,6 +947,7 @@ tr {
                                     </div>
                                 </div>
                             </div>
+                           
                             <div class="wrap_sales">
                                 <div class="tab_area">
                                     <ul role="tablist" class="tab_list">
@@ -962,6 +984,7 @@ tr {
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="wrap_bids">
                                 <div class="tab_area">
                                     <ul role="tablist" class="tab_list">
@@ -969,8 +992,9 @@ tr {
                                         <li role="tab" aria-selected="false" aria-controls="panel2" class="item"><a href="#" class="item_link">판매 입찰</a></li>
                                         <li role="tab" aria-selected="false" aria-controls="panel3" class="item"><a href="#" class="item_link">구매 입찰</a></li>
                                     </ul>
-                                    <div id="panel1" role="tabpanel" class="tab_content show" span="sales" data-v-b6b2883e="">
-                                        <div class="table_wrap lg" data-v-3c9dd7e9="">
+                                    
+                                    <div id="panel1" role="tabpanel" class="tab_content show" span="sales">
+                                        <div class="table_wrap lg" >
                                             <table>
                                                 <caption>
                                                     <span class="blind">데이터 테이블</span>
@@ -1016,10 +1040,10 @@ tr {
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <a href="#" class="btn outlinegrey full medium" data-v-3c9dd7e9=""> 체결 내역 더보기 </a>
+                                        <a href="#" class="btn outlinegrey full medium" > 체결 내역 더보기 </a>
                                     </div>
-                                    <div id="panel2" role="tabpanel" class="tab_content" span="asks" data-v-b6b2883e="">
-                                        <div class="table_wrap lg" data-v-3c9dd7e9="">
+                                    <div id="panel2" role="tabpanel" class="tab_content" span="asks">
+                                        <div class="table_wrap lg">
                                             <table>
                                                 <caption>
                                                     <span class="blind">데이터 테이블</span>
@@ -1065,10 +1089,10 @@ tr {
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <a href="#" class="btn outlinegrey full medium" data-v-3c9dd7e9=""> 입찰 내역 더보기 </a>
+                                        <a href="#" class="btn outlinegrey full medium" > 입찰 내역 더보기 </a>
                                     </div>
                                     <div id="panel3" role="tabpanel" class="tab_content" span="bids" data-v-b6b2883e="">
-                                        <div class="table_wrap lg" data-v-3c9dd7e9="">
+                                        <div class="table_wrap lg" >
                                             <table>
                                                 <caption>
                                                     <span class="blind">데이터 테이블</span>
@@ -1114,7 +1138,7 @@ tr {
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <a href="#" class="btn outlinegrey full medium" data-v-3c9dd7e9=""> 입찰 내역 더보기 </a>
+                                        <a href="#" class="btn outlinegrey full medium"> 입찰 내역 더보기 </a>
                                     </div>
                                 </div>
                             </div>
@@ -1323,24 +1347,11 @@ tr {
                         <div class="inner_box">
                             <div class="product_area">
                                 <div class="product_thumb" style="background-color: rgb(235, 240, 245);">
-                                    <picture  class="picture product_img">
-                                        <source
-                                            type="image/webp"
-                                            srcset="
-                                                https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=m_webp
-                                            "
-                                        />
-                                        <source
-                                            srcset="
-                                                https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=m
-                                            "
-                                        />
                                         <img
                                             alt="상품 이미지"
                                             src="https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=m"
-                                            class="image"
+                                            class="product_img"
                                         />
-                                    </picture>
                                 </div>
                                 <div class="product_info">
                                     <p class="name">Nike Air Force 1 '07 Low White</p>
@@ -1349,9 +1360,7 @@ tr {
                             </div>
                             <div class="btn_area">
                                 <a href="#" class="btn outlinegrey large btn_wish btn_wish_simple" aria-label="관심상품">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons ico-wish-off">
-                                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-wish-off" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-wish-off"></use>
-                                    </svg>
+                            	<img alt="" src="/TeamProject/img/shopDetail/bookmark.svg" class="c2_bookmark icon sprite-icons ico-wish-off">
                                     <span class="wish_count_num">9.5만</span>
                                 </a>
                                 <div class="division_btn_box lg">
@@ -1370,6 +1379,7 @@ tr {
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -1378,6 +1388,7 @@ tr {
 </div>
 
 </body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $("document").ready(function() {
 		$(window).scroll(function() { 
@@ -1396,6 +1407,21 @@ $(function(){     
 			} else{
 				$(".column:eq(0)").removeClass("is_fixed");
 				$(".column:eq(0)").addClass("is_absolute");
+			}
+			lastScroll = scroll;
+		});
+	});
+
+$(function(){     
+	var lastScroll = 0;
+		$(window).scroll(function(event) {
+			var scroll = $(this).scrollTop();
+			if (scroll > 400) { //이벤트를 적용시킬 스크롤 높이               
+				$(".floating_price").addClass("is_open");
+				$(".floating_price").show();
+			} else{
+				$(".floating_price").removeClass("is_open");
+				$(".floating_price").hide();
 			}
 			lastScroll = scroll;
 		});
