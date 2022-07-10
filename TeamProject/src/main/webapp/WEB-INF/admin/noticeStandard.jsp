@@ -4,13 +4,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
  <style>
- #nav_container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 40px 40px 160px;
-    width: 100%;
-    height: 3000px;
-}
  div {
     display: block;
 }

@@ -20,7 +20,8 @@ height: 10%;
     margin: 0 auto;
     padding: 40px 40px 160px;
     width: 100%;
-    height: 1000px;
+    height: auto;
+    overflow: hidden;
 }
 #nav{
 	float:left;

@@ -100,4 +100,25 @@ public class AdminMyBaticImpl implements AdminDAO {
 		return sqlSession.selectOne("adminSQL.getTotalA2", category);
 	}
 
+
+	@Override
+	public AdminQnADTO getnoticeQnAUpdate(String seq, String pg) {
+		AdminQnADTO adminQnADTO = sqlSession.selectOne("adminSQL.getnoticeQnAUpdate",seq);
+		return adminQnADTO;
+	}
+
+
+	@Override
+	public void addnoticeQnAUpdate(AdminQnADTO adminQnADTO) {
+		sqlSession.update("adminSQL.addnoticeQnAUpdate",adminQnADTO);
+		
+	}
+
+
+	@Override
+	public void noticeqnaDelete(String seq, String pg) {
+		sqlSession.delete("adminSQL.noticeqnaDelete",seq);
+		
+	}
+
 }

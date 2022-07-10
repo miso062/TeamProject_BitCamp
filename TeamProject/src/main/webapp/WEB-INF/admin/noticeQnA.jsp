@@ -152,19 +152,21 @@ margin-left: auto;
 margin-left: auto;
 }
 .updel{
-    
 	float:right;
 	margin:10px;
     color: #fff;
     background-color: black;
     border-color: black;
-    padding-left:20px;
-    padding-right:20px;
 	text-align:center;
-	padding: 2px 4px;
     border-radius: 0.2rem;
     cursor:pointer;
+    width: 45px;
+   
 }
+.delupdate{
+text-align:center;
+}
+
 </style>
 <title>Insert title here</title>
 <input type="hidden" id="pg" value="${pg }">
@@ -248,7 +250,19 @@ $(document).ready(function(){
 						style:"margin:5px;",
 						id:"noticeUpdatebtn"
 					}))))
-				  ).appendTo($('#ListTable'));
+				  ).append($('<form/>',{
+					  class:'seqpg'
+				  }).append($('<input/>',{
+					  type:'hidden',
+					  id:'seq',
+					  name:'seq',
+					  value:items.qna_id
+				  })).append($('<input/>',{
+					  type:'hidden',
+					  id:'pg',
+					  name:'pg',
+					  value: $('#pg').val()
+				  }))).appendTo($('#ListTable'));
 				
 			});
 			$('#PagingDiv').html(data.adminPaging.pagingHTML);
@@ -293,7 +307,6 @@ $('.category_list').click(function(){
 		dataType:'json',
 		success: function(data){
 			$.each(data.list,function(index, items){ 
-				
 				$('<li/>').append($('<div/>',{
 					class:'dropdown'
 				}).append($('<div/>',{
@@ -319,7 +332,7 @@ $('.category_list').click(function(){
 					class:'content',
 					
 				})).append($('<div/>',{
-					
+					class:'delupdate'
 				}).append($('<input/>',{
 					class:"updel",
 					type:"button",
@@ -333,8 +346,21 @@ $('.category_list').click(function(){
 					style:"margin:5px;",
 					id:"noticeUpdatebtn"
 				}))))
-			  ).appendTo($('#ListTable'));
-			
+			  ).append($('<form/>',{
+				  class:'seqpg'
+			  }).append($('<input/>',{
+				  type:'hidden',
+				  id:'seq',
+				  name:'seq',
+				  value:items.qna_id
+			  })).append($('<input/>',{
+				  type:'hidden',
+				  id:'pg',
+				  name:'pg',
+				  value: $('#pg').val()
+			  }))).appendTo($('#ListTable'));
+				
+				
 			});
 		$('#PagingDiv').html(data.adminPaging.pagingHTML);
 		},
@@ -343,5 +369,31 @@ $('.category_list').click(function(){
 		}
 	});
 	
+});
+$(document).on('click','#noticeDeletebtn',function(){
+	if(confirm("정말로 삭제하시겠습니까?")){
+		
+	$.ajax({
+		url:'/TeamProject/admin/noticeqnaDelete',
+		type:'post',
+		data: 'seq='+$(this).parent().parent().parent().next().children('input[name="seq"]').val()
+	  		 +'&pg='+$(this).parent().parent().parent().next().children('input[name="pg"]').val(),
+	  		 
+	  	success: function(){
+		 alert('글을 삭제하였습니다.');
+		 location.href='/TeamProject/admin/noticeQnA';
+		},	  			
+			error: function(err){
+			alert('실패실패실패실');
+			console.log(err);
+	  	}
+	});
+   }
+});
+$(document).on('click','#noticeUpdatebtn',function(){
+	if(confirm("정말로 수정하시겠습니까?")){
+		$(this).parent().parent().parent().next('.seqpg').attr('action','/TeamProject/admin/noticeqnaUpdate');
+		$(this).parent().parent().parent().next('.seqpg').submit();
+	}
 });
 </script>

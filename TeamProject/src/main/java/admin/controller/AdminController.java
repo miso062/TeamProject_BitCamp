@@ -177,8 +177,35 @@ public class AdminController {
 		
 		return map;
 	}
+	@GetMapping(value="noticeqnaUpdate")
+	public String noticeqnaUpdate(@RequestParam String seq, String pg, Model model) {
+		model.addAttribute("pg",pg);
+		model.addAttribute("seq",seq);
+		model.addAttribute("head", "/WEB-INF/main/header.jsp");
+		model.addAttribute("nav", "/WEB-INF/admin/noticenav.jsp");
+		model.addAttribute("container", "/WEB-INF/admin/noticeQnAUpdate.jsp");
+		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
+		return "/admin/notice";
+	}
 	
+	@PostMapping(value="getnoticeQnAUpdate")
+	@ResponseBody
+	public AdminQnADTO getnoticeQnAUpdate(@RequestParam String seq, String pg) {
+		AdminQnADTO adminQnADTO = adminService.getnoticeQnAUpdate(seq,pg); 
+		return adminQnADTO;
+	}
 	
+	@PostMapping(value="addnoticeQnAUpdate")
+	@ResponseBody
+	public void addnoticeQnAUpdate(@ModelAttribute AdminQnADTO adminQnADTO,@RequestParam String seq, HttpSession httpSession) {
+		adminQnADTO.setQna_id(seq);
+		adminService.addnoticeQnAUpdate(adminQnADTO);
+	}
+	@PostMapping(value="noticeqnaDelete")
+	@ResponseBody
+	public void noticeqnaDelete(@RequestParam String seq, String pg) {
+		adminService.noticeqnaDelete(seq,pg);
+	}
 }
 
 
