@@ -55,7 +55,7 @@ li, ol, ul {
     position: absolute;
     width: 39.2%;
     bottom: 0;
-    top: 1261px;
+    top: 1550px;
 }
 .c1_column {
     width: 50%;
