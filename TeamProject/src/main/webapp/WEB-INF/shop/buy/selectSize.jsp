@@ -797,7 +797,7 @@ body{
 											class="select_link buy">
 											<div data-v-02c63ee6="" class="link_inner">
 												<span data-v-02c63ee6="" class="size"> 250
-												</span> <span data-v-02c63ee6="" class="price">707,000</span>
+												</span> <span data-v-02c63ee6="" class="price"id="price">707,000</span>
 											</div>
 										</button>
 									</li>
@@ -902,7 +902,7 @@ body{
 									</li>
 									<li data-v-02c63ee6="" class="select_item">
 										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy">
+											class="select_link buy" id="button">
 											<div data-v-02c63ee6="" class="link_inner">
 												<span data-v-02c63ee6="" class="size"> 310 </span> <span
 													data-v-02c63ee6="" class="price">1,200,000</span>
@@ -913,8 +913,8 @@ body{
 										<button data-v-02c63ee6="" role="button" aria-selected="false"
 											class="select_link buy bid">
 											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size"> 320 </span> <span
-													data-v-02c63ee6="" class="price">구매입찰</span>
+												<span data-v-02c63ee6="" class="size" name="size"> 320 </span>
+												 <span data-v-02c63ee6="" class="price">구매입찰</span>
 											</div>
 										</button>
 									</li>
@@ -946,7 +946,8 @@ body{
 $(function(){
 	$('#black_button').hide();
 	$('.select_item').click(function(){
-		$('#black_button').show();	
+		$('#black_button').show();
+		$('#font1').html($(this).find('.price').html());
 	})
 });
 
@@ -957,14 +958,12 @@ $(function(){
 			$('.select_item').not(this).css('border', '1px solid #d3d3d3');
 		});
 	});
+});
+
+$(function(){
 	
 });
 
-
-
-
-	
-	
 
 
 
