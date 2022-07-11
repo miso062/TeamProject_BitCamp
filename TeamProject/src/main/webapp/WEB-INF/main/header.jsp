@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="/TeamProject/css/user/login.css">
 <style type="text/css">
 .h_header {
@@ -80,7 +81,7 @@ clear: both;
 
 
 .h_logo {
-margin-left : 20px;
+margin-left : -35px;
 }
 
 .h_header .h_main_inner {
@@ -286,6 +287,7 @@ clear : both;
 }
 .h_btn_close {
 height: 40px;
+cursor: pointer;
 }
 .h_search_wrap{
 margin: 0px  auto;
@@ -385,6 +387,14 @@ height:80px;
     border-radius: 15px;
     
 }
+a {
+cursor: pointer;
+}
+#h_main_logo {
+	vertical-align : baseline;
+	width : atuo;
+	height: 45px;
+}
 </style>    
 <div class="h_header h_mo">
 	<div id="h_top">
@@ -402,6 +412,11 @@ height:80px;
 				<li class="h_top_item">
 					<a id="h_login" class="h_top_link">로그인</a>
 				</li>
+				<c:if test="${ authority gt 7 }">
+				<li class="h_top_item">
+					<a id="#" class="h_top_link"  style="color : red;">관리자페이지</a>
+				</li>
+				</c:if>
 			</ul>
 		</div>
 	</div>
@@ -409,7 +424,7 @@ height:80px;
 		<div class="h_main_inner">
 			<h1 class="h_h1">
 				<a href="/TeamProject/" class="h_logo">
-					<img src="/TeamProject/img/main/header/kream.jpg" alt="kream로고" style="width:100px;">
+					<img src="/TeamProject/img/main/header/gese_logo.png" alt="kream로고"  id="h_main_logo">
 					</a>
 			</h1>
 		<div class="h_gnb_area">
@@ -549,10 +564,10 @@ height:80px;
 			</ul>
 			<div class="social_login">
 				<a id="naverIdLogin_loginButton" href="javascript:void(0)"> <!-- GU6NNwfSmxJ3JXmCBaTf  -->
-					<img src="/TeamProject/img/main/header/miso.png" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
+					<img src="/TeamProject/img/main/header/miso.png" class="login_login_logo" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
 				</a>	 
 			 	<a href="javascript:kakaoLogin();"> <!-- 144932b30082932e5eba55d918d38249 -->
-			 		<img src="/TeamProject/img/main/header/kakao_login_large_wide.png" alt="카카오계정 로그인" style="width: 400px; height: auto;  border-radius: 12px;"/>
+			 		<img src="/TeamProject/img/main/header/kakao_login_large_wide.png"  class="login_login_logo"  alt="카카오계정 로그인" style="width: 400px; height: auto;  border-radius: 12px;"/>
 			 	</a>
 			</div>
 	    </div>

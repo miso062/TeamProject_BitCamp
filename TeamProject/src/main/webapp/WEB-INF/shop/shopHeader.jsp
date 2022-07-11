@@ -84,7 +84,7 @@ margin-left : 20px;
 
 
 .h_logo {
-margin-left : 20px;
+margin-left : -35px;
 }
 
 .h_header .h_main_inner {
@@ -455,6 +455,10 @@ height:80px;
 	text-decoration: underline;
 	font-weight: bold;	
 }
+#h_main_logo {
+	width : atuo;
+	height: 45px;
+}
 
 
 </style>
@@ -481,7 +485,7 @@ height:80px;
 		<div class="h_main_inner">
 			<h1 class="h_h1">
 				<a href="/TeamProject/" class="h_logo">
-					<img src="/TeamProject/img/main/header/kream.jpg" alt="kream로고" style="width:100px;">
+					<img src="/TeamProject/img/main/header/gese_logo.png" alt="kream로고"  id="h_main_logo">
 					</a>
 			</h1>
 		<div class="h_gnb_area">
