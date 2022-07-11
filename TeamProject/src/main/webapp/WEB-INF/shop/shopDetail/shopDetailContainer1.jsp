@@ -91,20 +91,15 @@ li, ol, ul {
     overflow: hidden;
     position: relative;
     padding-top: 100%;
-    border-radius: 8px;
-}
-.product_img {
-	display: flex;
-    position: absolute;
-    top: 42%;
-    left: 3.9%;
-    transform: translate(-50%,-50%);
-    width: 3.5%;
-    height: auto;
+    border-radius: 12px;
 }
 .image{
 	position: absolute;
     top: 0%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    image-rendering: -webkit-optimize-contrast;
 }
 /* 위에뜨는거 */
 .floating_price {
@@ -137,6 +132,7 @@ li, ol, ul {
     width: 64px;
     height: 64px;
     border-radius: 12px;
+    position: relative;
 }
 .is_open {
     display: block;
@@ -163,7 +159,7 @@ li, ol, ul {
 }
 .floating_price .btn_area .btn_wish {
     width: 160px;
-    min-width: 960px
+    min-width: 180px;
 }
 .floating_price .btn_area .btn_wish {
     -webkit-box-flex: 0;
@@ -172,6 +168,7 @@ li, ol, ul {
     line-height: 48px;
     margin-right: 8px;
     border-radius: 10px;
+   	margin-top: 0;
 }
 .btn_wish {
     width: 20px;
@@ -189,11 +186,19 @@ li, ol, ul {
     font-size: 15px;
     letter-spacing: -.15px;
 }
-.image {
+.product_img {
+	position: absolute;
+    top: 0%;
     object-fit: cover;
     width: 100%;
     height: 100%;
+    top: 40%;
+    left: 50%;
     image-rendering: -webkit-optimize-contrast;
+
+	display: flex;
+    transform: translate(-50%,-50%);
+    height: auto;
 }
 /* detail */
 .detail_main_title {
@@ -400,16 +405,33 @@ li, ol, ul {
     width: 100%;
     font-weight: 700;
 }
-.btn.btn_wish [class*=ico-]~.wish_count_num {
+.medium {
+    font-weight: 400;
+   	padding: 0 18px;
+    height: 42px;
+    line-height: 40px;
+    border-radius: 12px;
+    font-size: 14px;
+    letter-spacing: -.14px;
+}
+.tab_area .btn{
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    color: rgba(34,34,34,.8);
+    background-color: #fff;
+}
+.btn_wish [class*=ico-]~.wish_count_num {
     margin-left: 4px;
 }
-.btn.btn_wish .btn_text {
+.btn_wish .btn_text {
     font-size: 15px;
     letter-spacing: -.15px;
     font-weight: 400;
     letter-spacing: normal;
 }
-.btn.btn_wish .wish_count_num {
+.btn_wish .wish_count_num {
     font-size: 15px;
     font-weight: 600;
     letter-spacing: normal;
@@ -606,7 +628,7 @@ li, ol, ul {
     border-radius: 10px;
     background-color: #f4f4f4;
 }
-.tab_area .item {
+.tab_area .item_tab, .tab_area .item{
     -webkit-box-flex: 1;
     flex: 1;
     margin: 2px;
@@ -622,7 +644,7 @@ li, ol, ul {
     background-color: #f4f4f4;
     color: rgba(34,34,34,.8);
 }
-.tab_area .item.on .item_link {
+.tab_area .on .item_link {
     background-color: #fff;
     color: #222;
     font-weight: 700;
@@ -686,9 +708,6 @@ tr {
 }
 .align_right {
     text-align: right;
-}
-.full.medium {
-    font-weight: 400;
 }
 
 .tab_content {
@@ -951,34 +970,11 @@ tr {
                             <div class="wrap_sales">
                                 <div class="tab_area">
                                     <ul role="tablist" class="tab_list">
-                                        <li role="tab" aria-selected="false" aria-controls="sales_panel1" class="item"><a href="#" class="item_link">1개월</a></li>
-                                        <li role="tab" aria-selected="false" aria-controls="sales_panel2" class="item"><a href="#" class="item_link">3개월</a></li>
-                                        <li role="tab" aria-selected="false" aria-controls="sales_panel3" class="item"><a href="#" class="item_link">6개월</a></li>
-                                        <li role="tab" aria-selected="false" aria-controls="sales_panel4" class="item"><a href="#" class="item_link">1년</a></li>
                                         <li role="tab" aria-selected="true" aria-controls="sales_panel5" class="item on"><a href="#" class="item_link">전체</a></li>
                                     </ul>
-                                    <div id="sales_panel1" role="tabpanel" class="tab_content" span="1m" data-v-b6b2883e="">
-                                        <div class="graph" data-v-3c9dd7e9="">
-                                            <canvas id="01689e63-5dd0-4d25-928a-d14faf5c9310" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
-                                        </div>
-                                    </div>
-                                    <div id="sales_panel2" role="tabpanel" class="tab_content" span="3m" data-v-b6b2883e="">
-                                        <div class="graph" data-v-3c9dd7e9="">
-                                            <canvas id="a0eef8fb-2c17-4ddc-9366-12a7c1590779" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
-                                        </div>
-                                    </div>
-                                    <div id="sales_panel3" role="tabpanel" class="tab_content" span="6m" data-v-b6b2883e="">
-                                        <div class="graph" data-v-3c9dd7e9="">
-                                            <canvas id="7bc7f4c2-9f0a-471a-b6fa-878667af4b40" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
-                                        </div>
-                                    </div>
-                                    <div id="sales_panel4" role="tabpanel" class="tab_content" span="1y" data-v-b6b2883e="">
-                                        <div class="graph" data-v-3c9dd7e9="">
-                                            <canvas id="9fa4c443-6553-4ee8-9d45-1993fa9e4117" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
-                                        </div>
-                                    </div>
-                                    <div id="sales_panel5" role="tabpanel" class="tab_content show" span="all" data-v-b6b2883e="">
-                                        <div class="graph" data-v-3c9dd7e9="">
+
+                                    <div id="sales_panel5" role="tabpanel" class="show" span="all" >
+                                        <div class="graph">
                                             <canvas id="8b3afff2-c526-433b-9dc8-b0d3db665395" width="560" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 560px;"></canvas>
                                         </div>
                                     </div>
@@ -988,9 +984,9 @@ tr {
                             <div class="wrap_bids">
                                 <div class="tab_area">
                                     <ul role="tablist" class="tab_list">
-                                        <li role="tab" aria-selected="true" aria-controls="panel1" class="item on"><a href="#" class="item_link">체결 거래</a></li>
-                                        <li role="tab" aria-selected="false" aria-controls="panel2" class="item"><a href="#" class="item_link">판매 입찰</a></li>
-                                        <li role="tab" aria-selected="false" aria-controls="panel3" class="item"><a href="#" class="item_link">구매 입찰</a></li>
+                                        <li role="tab" aria-selected="true" aria-controls="panel1" class="item_tab on"><a href="#" class="item_link">체결 거래</a></li>
+                                        <li role="tab" aria-selected="false" aria-controls="panel2" class="item_tab"><a href="#" class="item_link">판매 입찰</a></li>
+                                        <li role="tab" aria-selected="false" aria-controls="panel3" class="item_tab"><a href="#" class="item_link">구매 입찰</a></li>
                                     </ul>
                                     
                                     <div id="panel1" role="tabpanel" class="tab_content show" span="sales">
@@ -1091,7 +1087,7 @@ tr {
                                         </div>
                                         <a href="#" class="btn outlinegrey full medium" > 입찰 내역 더보기 </a>
                                     </div>
-                                    <div id="panel3" role="tabpanel" class="tab_content" span="bids" data-v-b6b2883e="">
+                                    <div id="panel3" role="tabpanel" class="tab_content" span="bids" >
                                         <div class="table_wrap lg" >
                                             <table>
                                                 <caption>
@@ -1443,5 +1439,30 @@ $('.down_btn').on('click',function(){
 		$('.open .dropdown_content').css('display','block');
 	}
 });
+
+
+//팝업 체결거래, 판매 입찰, 구매입찰 버튼
+$(document).on('click', '.item_tab', function () {
+    let index = $(".item_tab").index(this);
+    console.log(index)
+
+    $(this).addClass('on');
+    $('.item_tab').not($(this)).removeClass('on')
+
+    if (index == 0) {
+
+        $('.tab_content').css({"display": "none"})
+        $('.tab_content').eq(index).css({"display": "block"})
+
+    } else if (index == 1) {
+        $('.tab_content').css({"display": "none"})
+        $('.tab_content').eq(index).css({"display": "block"})
+    } else {
+        $('.tab_content').css({"display": "none"})
+        $('.tab_content').eq(index).css({"display": "block"})
+    }
+
+});
+
 </script>
 </html>
