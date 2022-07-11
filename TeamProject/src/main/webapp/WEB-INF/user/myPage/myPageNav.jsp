@@ -9,6 +9,9 @@
         a, a:active, a:focus, a:hover {
             text-decoration: none;
         }
+        a:visited {
+        font-weight : bold;
+        }
         a {
             color: inherit;
             -webkit-tap-highlight-color: rgba(0,0,0,.1);
@@ -49,10 +52,17 @@
             line-height: 18px;
             font-size: 15px;
             letter-spacing: -0.15px;
-            color: rgba(34, 34, 34, 0.5);
         }
         .menu_item + .menu_item[data-v-4d11470e] {
             margin-top: 12px;
+        }
+        .bold {
+	        font-weight: bold;
+	        color: black;
+        }
+        .unbold {
+            color: rgba(34, 34, 34, 0.5);
+			font-weight: normal;
         }
     </style>
     
@@ -63,26 +73,25 @@
             <div data-v-7bcac446="" class="snb_list">
                 <strong data-v-7bcac446="" class="snb_title">쇼핑 정보</strong>
                 <ul data-v-4d11470e="" data-v-7bcac446="" class="snb_menu">
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link"> 구매 내역 </a></li>
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link"> 판매 내역 </a></li>
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/TeamProject/user/likePro" class="menu_link"> 관심 상품 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link unbold"> 구매 내역 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link unbold"> 판매 내역 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/TeamProject/user/likePro" class="menu_link unbold"> 관심 상품 </a></li>
                 </ul>
             </div>
             <div data-v-7bcac446="" class="snb_list">
                 <strong data-v-7bcac446="" class="snb_title">내 정보</strong>
                 <ul data-v-4d11470e="" data-v-7bcac446="" class="snb_menu">
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link"> 프로필 정보 </a></li>
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link"> 판매 정산 계좌 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link unbold"> 프로필 정보 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link unbold"> 판매 정산 계좌 </a></li>
                 </ul>
             </div>
         </nav>
     </div>
 <script type="text/javascript">
-$('.snb > .snb_list .menu_item > .menu_link').click(function(){
-	$(this).css("font-weight", "bold");
-	$(this).css("color","black");
-	
-	$('.snb > .snb_list .menu_item > .menu_link').not(this).css("font-weight","normal")
-	$('.snb > .snb_list .menu_item > .menu_link').not(this).css("color","gray")
+$('.menu_link').click(function(){
+	$(this).addClass('bold');
+	$(this).removeClass('unbold');
+	$('.menu_link').not(this).addClass("unbold");
+	$('.menu_link').not(this).removeClass('bold');
 });
 </script>

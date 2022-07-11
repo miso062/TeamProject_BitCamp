@@ -220,6 +220,9 @@ li{
     top: 13px;
     left: 15px;
 }
+.login_login_logo {
+	vertical-align : baseline;
+}
 .input_email_error {
 	display: none;
     position: absolute;
