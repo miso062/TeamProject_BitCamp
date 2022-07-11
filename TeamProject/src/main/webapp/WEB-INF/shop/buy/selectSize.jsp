@@ -560,7 +560,6 @@ button {
 	line-height: 17px;
 	margin-top: -3px;
 	font-size: 14px;
-	font-weight:600
 }
 
 .size .ico-express{
@@ -756,24 +755,8 @@ body{
 											</div>
 										</button>
 									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy bid">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size"> 235 </span> <span
-													data-v-02c63ee6="" class="price">구매입찰</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy bid">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size"> 240 </span> <span
-													data-v-02c63ee6="" class="price">구매입찰</span>
-											</div>
-										</button>
-									</li>
+									
+									
 									<li data-v-02c63ee6="" class="select_item">
 										<button data-v-02c63ee6="" role="button" aria-selected="false"
 											class="select_link buy">
@@ -922,7 +905,7 @@ body{
 								<br>
 								<div id="black_button">
 								<hr>
-								<a href="">
+								<a href="/TeamProject/shop/buyCheck">
 									<div id="black_box">
 										<div id="font1"></div>
 										<div id="font2">일반배송(5-7일소요)</div>
@@ -956,14 +939,11 @@ $(function(){
 		$(this).click(function(){
 			$(this).css('border','1px solid black');
 			$('.select_item').not(this).css('border', '1px solid #d3d3d3');
+			$(this).find('.link_inner').css('font-weight', '700');
+			$('.select_item').not(this).find('.link_inner').css('font-weight', 'normal');
 		});
 	});
 });
-
-$(function(){
-	
-});
-
 
 
 
