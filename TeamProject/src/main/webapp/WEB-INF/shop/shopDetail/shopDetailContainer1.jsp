@@ -136,11 +136,6 @@ li, ol, ul {
     display: none;
     top: 80px;
 }
-.c1_floating_price .c1_product_info .c1_name, .c1_floating_price .c1_product_info .c1_translated_name {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
 .c1_floating_price .c1_product_info{
     -webkit-box-flex: 1;
     flex: 1;
@@ -153,15 +148,15 @@ li, ol, ul {
     height: 50px;
 }
 .c1_floating_price .c1_btn_area .c1_btn_wish {
-    width: 160px;
-    min-width: 180px;
+    width: 180px;
+    min-width: 160px;
 }
 .c1_floating_price .c1_btn_area .c1_btn_wish {
     -webkit-box-flex: 0;
     flex: none;
     height: inherit;
     line-height: 48px;
-    margin-right: 8px;
+    margin-right: 10px;
     border-radius: 10px;
    	margin-top: 0;
 }
@@ -180,6 +175,22 @@ li, ol, ul {
     width: 44px;
     font-size: 15px;
     letter-spacing: -.15px;
+}
+.c1_floating_price .c1_product_info .c1_name, .c1_floating_price .c1_product_info .c1_translated_name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.c1_floating_price .c1_product_info .c1_translated_name {
+    line-height: 14px;
+    margin-top: 4px;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    color: rgba(34,34,34,.5);
+}
+.c1_floating_price .c1_product_info .c1_name {
+    line-height: 18px;
+    font-size: 15px;
 }
 .c1_product_img {
 	position: absolute;
@@ -332,6 +343,11 @@ li, ol, ul {
     text-align: center;
     font-size: 18px;
     letter-spacing: -.27px;
+    margin-left: 4px
+}
+.c1_division_btn_box .c1_price {
+    margin-left: 10px;
+    line-height: 15px;
 }
 .c1_division_btn_box .c1_price {
     margin-left: 10px;
@@ -357,9 +373,10 @@ li, ol, ul {
 }
 .c1_division_btn_box .c1_sell {
     background-color: #41b979;
-}
-.c1_division_btn_box .c1_btn_division {
     margin-left: 10px;
+}
+.c1_division_btn_box .c1_buy {
+    margin-right: 10px;
 }
 .c1_bookmark{
 	margin-right: 3px;
@@ -869,7 +886,7 @@ tr {
                                 </a>
                             </div>
                             <a href="#" class="c1_btn c1_full c1_outlinegrey c1_btn_wish c1_large" aria-label="관심상품">
-                            <img alt="" src="/TeamProject/img/shopDetail/bookmark.svg" class="c1_bookmark   ico-wish-off">
+                            <img alt="" src="/TeamProject/img/shopDetail/bookmark.svg" class="c1_bookmark ico-wish-off">
                                 <span class="c1_btn_text">관심상품</span><span class="c1_wish_count_num">9.5만</span>
                             </a>
                         </div>
@@ -950,11 +967,6 @@ tr {
                         
                             <div class="c1_title">
                                 <h3 class="c1_detail_title lg">시세</h3>
-                                <div class="c1_sales_filter lg">
-                                    <div class="c1_filter_unit">
-                                        <button type="button" class="c1_btn c1_btn_select" slot="button"><span class="c1_select_text layer_open">모든 사이즈</span></button>
-                                    </div>
-                                </div>
                             </div>
                            
                             <div class="c1_wrap_sales">
@@ -1463,7 +1475,7 @@ $('.c1_down_btn').on('click',function(){
 	}
 });
 
-//팝업 체결거래, 판매 입찰, 구매입찰 버튼
+/* 팝업 체결거래, 판매 입찰, 구매입찰 버튼 */
 $(document).on('click', '.c1_item_tab', function () {
     let index = $(".c1_item_tab").index(this);
     console.log(index)
@@ -1485,7 +1497,7 @@ $(document).on('click', '.c1_item_tab', function () {
     }
 
 });
-
+/* 구매 사이즈 판매사이즈로 이동 */
 $('.c1_buy').on('click',function(){
 	$(location).attr("href", "/TeamProject/shop/selectBuySize");
 })
