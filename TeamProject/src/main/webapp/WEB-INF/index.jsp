@@ -65,7 +65,7 @@
 		}
 		#header{
 			width: 100%;
-			height: 6%;
+			height: 80px;
 			margin: 0 auto;			
 		}
 		#container{

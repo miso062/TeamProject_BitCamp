@@ -1,6 +1,5 @@
 package user.controller;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import admin.bean.AdminDTO;
 import user.bean.UserDTO;
 import user.service.UserService;
 
@@ -90,5 +88,35 @@ public class UserController {
 		return "forward:/user/my";
 	}
 	
+	@GetMapping(value="findEmailMain")
+	public String findEmailMain(Model model) {
+		model.addAttribute("head", "/WEB-INF/main/header.jsp");
+		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
+		return "/user/findEmailMain";
+	}
 	
+	@GetMapping(value="findEmail")
+	public String findEmail(Model model) {
+		model.addAttribute("container", "/WEB-INF/user/findEmail.jsp");
+		return "forward:/user/findEmailMain";
+	}
+	
+	@GetMapping(value="findEmailResult")
+	public String findEmailResult(Model model) {
+		model.addAttribute("container", "/WEB-INF/user/findEmailResult.jsp");
+		return "forward:/user/findEmailMain";
+	}
+	
+	@GetMapping(value="findPWDMain")
+	public String findPWDMain(Model model) {
+		model.addAttribute("head", "/WEB-INF/main/header.jsp");
+		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
+		return "/user/findPWDMain";
+	}
+	
+	@GetMapping(value="findPWD")
+	public String findPWD(Model model) {
+		model.addAttribute("container", "/WEB-INF/user/findPWD.jsp");
+		return "forward:/user/findPWDMain";
+	}
 }
