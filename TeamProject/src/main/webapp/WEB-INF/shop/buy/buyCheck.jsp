@@ -1012,7 +1012,7 @@ $(function(){
 		
 		if($('.active').length == 4){
 			$('#btn_continue').css('background-color', '#222');
-			$('#btn_continue').attr('href', '/TeamProject/shop/buyPay');
+			$('#btn_continue').attr('href', '/TeamProject/shop/enterBuyPrice');
 			
 		}
 		else{
