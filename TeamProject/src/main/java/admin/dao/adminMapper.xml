@@ -68,7 +68,16 @@
   		(select rownum rn,tt.* from 
   		(select * from qna order by qna_id desc)tt) 
   		where <![CDATA[rn>=#{startNum} and rn<=#{endNum}]]>
-</select>
+	</select>
+	<select id="getnoticeQnAUpdate" parameterType="String" resultType="adminqna">
+  		select * from qna where qna_id=#{seq}
+  	</select>
+  	<update id="addnoticeQnAUpdate" parameterType="adminqna">
+  		update qna set category=#{category}, title=#{title}, content=#{content} where qna_id=#{qna_id}
+  	</update>
+  	<delete id="noticeqnaDelete" parameterType="String">
+  		delete qna where qna_id = #{seq}
+  	</delete>
 </mapper>
 
 

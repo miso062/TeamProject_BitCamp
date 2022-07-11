@@ -31,4 +31,11 @@ public interface AdminService {
 	public List<AdminQnADTO> getnoticeQnAListsearch(String pg, String category);
 
 	public AdminPaging getBoardPaging2(String pg, String category);
+
+	public AdminQnADTO getnoticeQnAUpdate(String seq, String pg);
+
+	public void addnoticeQnAUpdate(AdminQnADTO adminQnADTO);
+
+	public void noticeqnaDelete(String seq, String pg);
+
 }

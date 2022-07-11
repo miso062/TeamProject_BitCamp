@@ -30,4 +30,10 @@ public interface AdminDAO {
 	public List<AdminQnADTO> getnoticeQnAListsearch(Map<String, String> map);
 
 	public int getTotalA2(String category);
+
+	public AdminQnADTO getnoticeQnAUpdate(String seq, String pg);
+
+	public void addnoticeQnAUpdate(AdminQnADTO adminQnADTO);
+
+	public void noticeqnaDelete(String seq, String pg);
 }

@@ -136,6 +136,26 @@ public class AdminServiceImpl implements AdminService {
 		
 		return adminPaging;
 	}
+
+	@Override
+	public AdminQnADTO getnoticeQnAUpdate(String seq, String pg) {
+		AdminQnADTO adminQnADTO = adminDAO.getnoticeQnAUpdate(seq,pg);
+		String content = adminQnADTO.getContent();
+		adminQnADTO.setContent(content);
+		return adminQnADTO;
+	}
+
+	@Override
+	public void addnoticeQnAUpdate(AdminQnADTO adminQnADTO) {
+		adminDAO.addnoticeQnAUpdate(adminQnADTO);
+		
+	}
+
+	@Override
+	public void noticeqnaDelete(String seq, String pg) {
+		adminDAO.noticeqnaDelete(seq,pg);
+		
+	}
 	
 
 }

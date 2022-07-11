@@ -2,9 +2,6 @@
    pageEncoding="UTF-8"%>
 <style type="text/css">
 
-.footer{
-	margin-top: 100px;
-}
 .banner_bottom {
    display: -webkit-box;
    display: -ms-flexbox;
