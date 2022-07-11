@@ -89,6 +89,33 @@ function checkPwd(value) { //비밀번호 유효성 검사
 	}
 }
 
+//로그인 ajax
+$('#login_btn').click(function(){
+	$.ajax({
+		url:'/TeamProject/user/checkLogin',
+		type:'post',
+		data: 'log_email_input='+$('#log_email_input').val()
+			  +'&log_pwd_input=' +$('#log_pwd_input').val(),
+			  
+		success: function(data){
+			
+			if(data.success == "false"){
+				console.log(data);
+				alert('아이디나 비밀번호가 일치하지 않습니다.');
+				
+			}else{
+				console.log(data);
+				alert('로그인 되었습니다.');
+				                                                                                                                location.href='/TeamProject/';
+			}
+			
+		},
+			error:function(err){
+				alert('로그인 실패');
+				console.log(err);
+			}
+	});
+});
 
 
 

@@ -1,11 +1,13 @@
 package user.service;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import user.bean.UserDTO;
 
 public interface UserService {
 	
-	public String loginCheck(UserDTO userDTO, HttpSession session);
-	public void logout(HttpSession session);
+	Map<String, Object> checkLogin(String log_email_input, String log_pwd_input);
+	
 }
