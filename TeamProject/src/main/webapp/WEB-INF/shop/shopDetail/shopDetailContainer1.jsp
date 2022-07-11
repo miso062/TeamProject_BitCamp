@@ -324,7 +324,7 @@ li, ol, ul {
     border-radius: 10px;
     color: #fff;
 }
-.c1_division_btn_box .buy {
+.c1_division_btn_box .c1_buy {
     background-color: #ef6253;
 }
 .c1_division_btn_box .c1_title {
@@ -355,7 +355,7 @@ li, ol, ul {
     font-weight: 600;
     color: hsla(0,0%,100%,.8);
 }
-.c1_division_btn_box .sell {
+.c1_division_btn_box .c1_sell {
     background-color: #41b979;
 }
 .c1_division_btn_box .c1_btn_division {
@@ -855,13 +855,13 @@ tr {
                         </div>
                         <div class="c1_btn_wrap">
                             <div class="c1_division_btn_box">
-                                <a href="#" class="c1_btn_division buy">
+                                <a href="#" class="c1_btn_division c1_buy">
                                     <strong class="c1_title">구매</strong>
                                     <div class="c1_price">
                                         <span class="c1_amount"><em class="c1_num">129,000</em><span class="c1_won">원</span></span><span class="c1_desc">즉시 구매가</span>
                                     </div>
                                 </a>
-                                <a href="#" class="c1_btn_division sell">
+                                <a href="#" class="c1_btn_division c1_sell">
                                     <strong class="c1_title">판매</strong>
                                     <div class="c1_price">
                                         <span class="c1_amount"><em class="c1_num">170,000</em><span class="c1_won">원</span></span><span class="c1_desc">즉시 판매가</span>
@@ -1148,7 +1148,7 @@ tr {
                                 <h3 class="c1_confirm_title">구매 전 꼭 확인해주세요!</h3>
                                 <div class="c1_confirm_content">
                                     <ul class="c1_dropdown_list">
-                                        <li class="">
+                                        <li class="c1_dropdownli">
                                             <div class="c1_dropdown">
                                                 <div class="c1_dropdown_head">
                                                     <p class="c1_title">배송 기간 안내</p>
@@ -1206,7 +1206,7 @@ tr {
                                             </div>
                                         </li>
                                         
-                                        <li class="">
+                                        <li class="c1_dropdownli">
                                             <div class="c1_dropdown">
                                                 <div class="c1_dropdown_head">
                                                     <p class="c1_title">검수 안내</p>
@@ -1250,7 +1250,7 @@ tr {
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="">
+                                        <li class="c1_dropdownli">
                                             <div class="c1_dropdown">
                                                 <div class="c1_dropdown_head">
                                                     <p class="c1_title">구매 환불/취소/교환 안내</p>
@@ -1350,13 +1350,13 @@ tr {
                                     <span class="c1_wish_count_c1_num">9.5만</span>
                                 </a>
                                 <div class="c1_division_btn_box lg">
-                                    <a href="#" class="c1_btn_division buy">
+                                    <a href="#" class="c1_btn_division c1_buy">
                                         <strong class="c1_title">구매</strong>
                                         <div class="c1_price">
                                             <span class="c1_amount"><em class="c1_num">129,000</em><span class="c1_won">원</span></span><span class="c1_desc">즉시 구매가</span>
                                         </div>
                                     </a>
-                                    <a href="#" class="c1_btn_division sell">
+                                    <a href="#" class="c1_btn_division c1_sell">
                                         <strong class="c1_title">판매</strong>
                                         <div class="c1_price">
                                             <span class="c1_amount"><em class="c1_num">170,000</em><span class="c1_won">원</span></span><span class="c1_desc">즉시 판매가</span>
@@ -1413,23 +1413,55 @@ $(function(){     
 		});
 	});
 
-/* 구매전 주의사항 리스트 */
-$('.c1_down_btn').on('click',function(){
-	// 현재 선택된 li을 가져옴
-	var $li = $(this).closest('li');
-
-	if($li.hasClass('open')){
-		$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
-		$('.open .c1_dropdown_content').css('display','none');
-		$li.removeClass('open');
-	}
-	else{
-		$(this).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
-		$li.addClass('open');
-		$('.open .c1_dropdown_content').css('display','block');
+/* 관심버튼 이미지 클릭시 로테이션으로 변경하기 */
+$('.c1_bookmark').on(	{'click' : function() {
+		var src = ($(this).attr('src') === '/TeamProject/img/shopDetail/bookmark.svg') ? '/TeamProject/img/shopDetail/bookmark-fill.svg'
+				: '/TeamProject/img/shopDetail/bookmark.svg';
+		$(this).attr('src', src);
 	}
 });
 
+$('.c1_down_btn').on('click',function(){
+	 let index = $(".c1_down_btn").index(this);	
+	 
+	if(index == 0){
+		if($('.c1_dropdownli').eq(index).hasClass('open')){
+			$('.open .c1_dropdown_content').css('display','none');
+			$('.c1_dropdownli').eq(index).removeClass('open');
+			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+		}else{
+			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdownli').eq(index).addClass('open');
+			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$('.c1_dropdown_content').css({"display": "none"});
+			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
+		}
+	}else if(index == 1){
+		if($('.c1_dropdownli').eq(index).hasClass('open')){
+			$('.open .c1_dropdown_content').css('display','none');
+			$('.c1_dropdownli').eq(index).removeClass('open');
+			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+		}else{
+			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdownli').eq(index).addClass('open');
+			$(this).eq(index).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$('.c1_dropdown_content').css({"display": "none"});
+			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
+		}
+	}else{
+		if($('.c1_dropdownli').eq(index).hasClass('open')){
+			$('.open .c1_dropdown_content').css('display','none');
+			$('.c1_dropdownli').eq(index).removeClass('open');
+			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+		}else{
+			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdownli').eq(index).addClass('open');
+			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$('.c1_dropdown_content').css({"display": "none"});
+			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
+		}
+	}
+});
 
 //팝업 체결거래, 판매 입찰, 구매입찰 버튼
 $(document).on('click', '.c1_item_tab', function () {
@@ -1454,5 +1486,12 @@ $(document).on('click', '.c1_item_tab', function () {
 
 });
 
+$('.c1_buy').on('click',function(){
+	$(location).attr("href", "/TeamProject/shop/selectBuySize");
+})
+
+$('.c1_sell').on('click',function(){
+	$(location).attr("href", "/TeamProject/shop/selectSellSize");
+})
 </script>
 </html>
