@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-
 #menu_head{
 	float: left;
 	width: 100%;
@@ -81,6 +80,7 @@
 	cursor: pointer;
 }
 </style>
+<div id="fadein">
 	<input type="hidden" id="pg" value="${pg }">
 <div id="menu_head">
 <div class="gongji" width="300" style="clear: both; margin-bottom: 15px;"><h3>공지사항</h3>
@@ -97,6 +97,7 @@
 </div>
 
 
+</div>
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
