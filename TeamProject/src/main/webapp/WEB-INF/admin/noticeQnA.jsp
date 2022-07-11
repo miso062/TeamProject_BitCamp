@@ -4,6 +4,8 @@
 <html>
 <meta charset="UTF-8">
 <style>
+
+
 #nav_container {
     max-width: 1280px;
     margin: 0 auto;
@@ -169,6 +171,7 @@ text-align:center;
 
 </style>
 <title>Insert title here</title>
+<div id="fadein">
 <input type="hidden" id="pg" value="${pg }">
 <div class="gongji" width="300" style="clear: both; margin-bottom: 15px;"><h3>자주 묻는 질문</h3>
 </div>
@@ -187,6 +190,7 @@ text-align:center;
 	
 </ul>
 <div id="PagingDiv"></div>
+</div>
 
 
 

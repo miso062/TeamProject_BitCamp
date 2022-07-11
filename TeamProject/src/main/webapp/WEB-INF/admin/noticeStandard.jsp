@@ -186,6 +186,7 @@ ul {
     padding: 40px 40px 160px;
 }
  </style>
+ <div id="fadein">
 <div class="gongji" width="300" style="clear: both; margin-bottom: 15px;"><h3>검수기준</h3></div>
 <hr id="hr">
     <div class="wrap_auth">
@@ -628,6 +629,7 @@ ul {
         </div>
       </div>
     </div>
+</div>
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#sub_area > ul > li:eq(2)').addClass('bold');
