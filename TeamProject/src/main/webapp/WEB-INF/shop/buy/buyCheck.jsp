@@ -833,6 +833,10 @@ to {
 .checkbox_item_img{
 	width:24px;
 	height:24px;
+	cursor: pointer;
+}
+.check_area{
+	cursor: pointer;
 }
 </style>
 </head>
@@ -943,7 +947,7 @@ to {
 									
 									<div data-v-c9dd64ec="">
 											<a data-v-c9dd64ec=""
-												href="#"
+												href="/TeamProject/shop/buyCheck_1"
 												target="_blank" class="check_view"> 검수기준 보기 </a>
 										 
 									</div>
