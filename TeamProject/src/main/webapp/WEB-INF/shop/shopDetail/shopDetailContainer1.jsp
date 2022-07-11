@@ -159,7 +159,7 @@ li, ol, ul {
 }
 .floating_price .btn_area .btn_wish {
     width: 160px;
-    min-width: 960px
+    min-width: 180px;
 }
 .floating_price .btn_area .btn_wish {
     -webkit-box-flex: 0;
@@ -168,6 +168,7 @@ li, ol, ul {
     line-height: 48px;
     margin-right: 8px;
     border-radius: 10px;
+   	margin-top: 0;
 }
 .btn_wish {
     width: 20px;
@@ -404,16 +405,33 @@ li, ol, ul {
     width: 100%;
     font-weight: 700;
 }
-.btn.btn_wish [class*=ico-]~.wish_count_num {
+.medium {
+    font-weight: 400;
+   	padding: 0 18px;
+    height: 42px;
+    line-height: 40px;
+    border-radius: 12px;
+    font-size: 14px;
+    letter-spacing: -.14px;
+}
+.tab_area .btn{
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    color: rgba(34,34,34,.8);
+    background-color: #fff;
+}
+.btn_wish [class*=ico-]~.wish_count_num {
     margin-left: 4px;
 }
-.btn.btn_wish .btn_text {
+.btn_wish .btn_text {
     font-size: 15px;
     letter-spacing: -.15px;
     font-weight: 400;
     letter-spacing: normal;
 }
-.btn.btn_wish .wish_count_num {
+.btn_wish .wish_count_num {
     font-size: 15px;
     font-weight: 600;
     letter-spacing: normal;
@@ -690,9 +708,6 @@ tr {
 }
 .align_right {
     text-align: right;
-}
-.full.medium {
-    font-weight: 400;
 }
 
 .tab_content {
