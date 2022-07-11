@@ -1,8 +1,10 @@
 package user.dao;
 
-import javax.inject.Inject;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import user.bean.UserDTO;
@@ -11,13 +13,20 @@ import user.bean.UserDTO;
 @Repository 
 public class UserDAOImpl implements UserDAO {
 
-	@Inject  // 의존관계 주입
-	SqlSession sqlSession;
+	@Autowired
+	private SqlSession sqlSession;
 	
 	@Override
-	public String loginCheck(UserDTO userDTO) {
+	public UserDTO checkLogin(String log_email_input, String log_pwd_input) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("email", log_email_input);
+		map.put("pwd", log_pwd_input);
+		//System.out.println(map.get("email"));
+		//System.out.println(map.get("pwd"));
+		UserDTO userDTO = sqlSession.selectOne("userMapper.checkLogin", map);
 		
-		return sqlSession.selectOne("user.loginCheck", userDTO);
+		return userDTO;
 	}
+	
 
 }

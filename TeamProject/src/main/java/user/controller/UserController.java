@@ -1,18 +1,50 @@
 package user.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import admin.bean.AdminDTO;
+import user.bean.UserDTO;
+import user.service.UserService;
 
 @Controller
 @RequestMapping(value="/user")
 public class UserController {
 	
+	@Autowired
+	UserService userService;
+	
 	@GetMapping(value="login")
 	public String login(Model model) {
-		System.out.println(model.toString());
 		return "/user/login";
+	}
+	
+	@PostMapping(value="checkLogin")
+	@ResponseBody
+	public Map<String, Object> checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
+		UserDTO userDTO = new UserDTO();
+		
+		Map<String, Object> map = userService.checkLogin(log_email_input, log_pwd_input);
+		
+		
+		return map;
+	}
+	
+	@PostMapping(value="checkLogout")
+	@ResponseBody
+	public void checkLogout(HttpSession session) {
+		session.invalidate();
 	}
 	
 	@GetMapping(value="signUp")
@@ -57,4 +89,6 @@ public class UserController {
 		model.addAttribute("container", "/WEB-INF/user/myPage/likePro.jsp");
 		return "forward:/user/my";
 	}
+	
+	
 }

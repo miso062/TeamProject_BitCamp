@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="/TeamProject/css/user/login.css">
 <style type="text/css">
 .h_header {
@@ -399,9 +400,15 @@ height:80px;
 				<li class="h_top_item">
 					<a href="/TeamProject/user/myPage" class="h_top_link">마이페이지</a>
 				</li>
-				<li class="h_top_item">
-					<a id="h_login" class="h_top_link">로그인</a>
-				</li>
+					<li class="h_top_item">
+					<%-- ${sessionScope.memId } --%>
+					<c:if test="${sessionScope.memId == null}">
+						<a id="h_login" class="h_top_link">로그인</a>
+					</c:if>
+					<c:if test="${sessionScope.memId != null}">
+						<a id="h_logout" class="h_top_link">로그아웃</a>
+					</c:if>
+					</li>
 			</ul>
 		</div>
 	</div>
@@ -511,7 +518,7 @@ height:80px;
 			</div>
 			
 			
-			<form action="/TeamProject/user/login" method="post">
+			
 				<div class="input_email_box">
 					<h3 class="input_email_title" id="log_email_label" >이메일 주소</h3>
 					<div class="input_email_item">
@@ -533,7 +540,6 @@ height:80px;
 				<div class="login_btn_box">
 					<button class="login_btn_disabled" id="login_btn">로그인</button>
 				</div>
-			</form>
 			
 			
 			<ul class="look_box">
@@ -566,6 +572,22 @@ height:80px;
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script type="text/javascript">
+//로그아웃
+$('#h_logout').click(function(){
+	$.ajax({
+		url:'/TeamProject/user/checkLogout',
+		type:'post',
+		
+		success: function(){
+			alert("로그아웃 되었습니다.");
+			location.href='/TeamProject/';
+		},
+		error:function(err){
+			console.log(err);
+		}
+	});
+});
+
 //돋보기 클릭시 검색 모달창
 $('.h_searchBtn').click(function(){
 	$('.h_layer_search').fadeIn();
