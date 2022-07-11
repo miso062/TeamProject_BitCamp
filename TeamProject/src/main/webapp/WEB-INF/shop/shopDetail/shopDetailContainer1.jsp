@@ -8,11 +8,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-<style type="text/css">
-body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, select, table, td, textarea, th, ul {
-    margin: 0;
-    padding: 0;
-}
 *, :after, :before {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -20,13 +15,6 @@ body, button, dd, div, dl, dt, fieldset, figcaption, figure, form, h1, h2, h3, h
 }
 div {
     display: block;
-}
-button {
-    padding: 0;
-    border: 0;
-    outline: none;
-    appearance: none;
-    border-radius: 0;
 }
 li, ol, ul {
     list-style: none;
@@ -59,16 +47,20 @@ li, ol, ul {
 .column_bind {
     position: relative;
 }
-.is_fixed .column_box {
- 	width: 29.5%;
+.column_bind .column_box1 {
+	margin-left: 70px;
+    width: 84%;
+}
+.is_fixed .column_box1 {
+    width: 24.7%;
     position: fixed;
     top: 130px;
 }
-.is_absolute .column_box {
+.is_absolute .column_box1 {
     position: absolute;
-    width: 47%;
-   /*  bottom: 0; */
-    top: 1250px;
+    width: 39.2%;
+    bottom: 0;
+    top: 1261px;
 }
 .column {
     width: 50%;
@@ -101,25 +93,13 @@ li, ol, ul {
     padding-top: 100%;
     border-radius: 8px;
 }
-.product:after, .slide_item:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0);
-}
-.picture {
-    display: flex;
-}
 .product_img {
 	display: flex;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 42%;
+    left: 3.9%;
     transform: translate(-50%,-50%);
-    width: 81.5%;
+    width: 3.5%;
     height: auto;
 }
 .image{
@@ -127,6 +107,16 @@ li, ol, ul {
     top: 0%;
 }
 /* 위에뜨는거 */
+.floating_price {
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 10px 40px 15px;
+    background-color: #fff;
+    -webkit-box-shadow: 4px 0 10px 0 rgb(0 0 0 / 10%);
+    box-shadow: 4px 0 10px 0 rgb(0 0 0 / 10%);
+    z-index: 1;
+}
 .floating_price .inner_box, .floating_price .product_area {
     display: flex;
     -webkit-box-align: center;
@@ -153,7 +143,7 @@ li, ol, ul {
 }
 .floating_price{
     display: none;
-    top: 99px;
+    top: 80px;
 }
 .floating_price .product_info .name, .floating_price .product_info .translated_name {
     overflow: hidden;
@@ -255,7 +245,13 @@ li, ol, ul {
     display: inline-block;
     margin-right: 5px;
 }
-
+.down_arrow{
+	margin-top: 3px;
+	width: 15px;
+	height: 15px;
+	vertical-align: top;
+	overflow: hidden;
+}
 .detail_size:after {
     content: "";
     display: block;
@@ -305,13 +301,6 @@ li, ol, ul {
 }
 .same {
     color: rgba(34,34,34,.8);
-}
-p {
-    display: block;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
 }
 .detail_price:after {
     content: "";
@@ -378,6 +367,9 @@ p {
 }
 .division_btn_box .btn_division {
     margin-left: 10px;
+}
+.c2_bookmark{
+	margin-right: 3px;
 }
 .full{
     height: 60px;
@@ -446,6 +438,7 @@ p {
 }
 .detail_product_wrap .detail_box:first-child {
     padding-left: 0;
+    border-left: none;
 }
 .detail_product_wrap .detail_box {
     -webkit-box-flex: 1;
@@ -502,8 +495,26 @@ p {
     vertical-align: top;
 }
 .way_desc {
+	margin-left: 18px;
     -webkit-box-flex: 1;
     flex: 1;
+}
+.company {
+    line-height: 17px;
+    margin: 0 auto;
+}
+.company .badge_title {
+    font-weight: 600;
+}
+.company .badge_title, .company {
+    font-size: 14px;
+    letter-spacing: -.21px;
+}
+.sub_text {
+    line-height: 16px;
+    margin-top: 3px;
+    font-size: 14px;
+    color: rgba(34,34,34,.5);
 }
 /* 광고 배너 */
 .banner_box {
@@ -611,6 +622,13 @@ p {
     background-color: #f4f4f4;
     color: rgba(34,34,34,.8);
 }
+.tab_area .item.on .item_link {
+    background-color: #fff;
+    color: #222;
+    font-weight: 700;
+    -webkit-box-shadow: 0 0 0 0.5px #ebebeb inset;
+    box-shadow: inset 0 0 0 0.5px #ebebeb;
+}
 .wrap_bids, .wrap_sales {
     position: relative;
 }
@@ -706,23 +724,23 @@ tr {
     border-bottom: 1px solid #ebebeb;
     cursor: pointer;
 }
-.open .dropdown_head {
-    border-bottom: 1px solid #222;
-}
 .dropdown_head .title {
     max-width: 320px;
     font-size: 15px;
     letter-spacing: -.15px;
 }
+.open .dropdown_head {
+    border-bottom: 1px solid #222;
+}
 .open .dropdown_content{
-	diaplsy: block;
+	display: block;
 }
 .dropdown_content {
     display: none;
     padding: 20px 0;
     border-bottom: 1px solid #ebebeb;
 }
-.dropdown_content .content {
+.dropdown_content .c1_content {
     font-size: 13px;
     letter-spacing: -.07px;
     color: rgba(34,34,34,.8);
@@ -773,11 +791,6 @@ tr {
     letter-spacing: -.05px;
     color: rgba(34,34,34,.5);
 }
-.feed_area {
-    margin: 0 auto;
-    padding-bottom: 60px;
-    max-width: 1280px;
-}
 </style>
 </head>
 <body>
@@ -786,7 +799,7 @@ tr {
         <h2 class="blind">상품 상세</h2>
         <div class="column_bind">
             <div class="column">
-                <div class="column_box">
+                <div class="column_box1">
                     <div class="detail_banner_area">
                                        
                           <div class="item_inner">
@@ -819,9 +832,7 @@ tr {
                                 <div class="size">
                                     <a href="#" class="btn_size">
                                         <span class="btn_text">모든 사이즈</span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="ico-arr-dir-down-circle icon sprite-icons">
-                                            <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-arr-dir-down-circle" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-arr-dir-down-circle"></use>
-                                        </svg>
+                                    	<img class="down_arrow" alt="" src="/TeamProject/img/shopDetail/down_arrow.png">
                                     </a>
                                 </div>
                             </div>
@@ -849,9 +860,7 @@ tr {
                                 </a>
                             </div>
                             <a href="#" class="btn full outlinegrey btn_wish large" aria-label="관심상품">
-                                <svg data-v-2d0ab5c1="" xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons ico-wish-off">
-                           			<use data-v-2d0ab5c1="" href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-wish-off" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-wish-off"></use>
-                           		</svg>
+                            <img alt="" src="/TeamProject/img/shopDetail/bookmark.svg" class="c2_bookmark icon sprite-icons ico-wish-off">
                                 <span class="btn_text">관심상품</span><span class="wish_count_num">9.5만</span>
                             </a>
                         </div>
@@ -929,6 +938,7 @@ tr {
                     </div>
                     <div class="detail_wrap">
                         <div class="product_sales_graph">
+                        
                             <div class="title">
                                 <h3 class="detail_title lg">시세</h3>
                                 <div class="sales_filter lg">
@@ -937,6 +947,7 @@ tr {
                                     </div>
                                 </div>
                             </div>
+                           
                             <div class="wrap_sales">
                                 <div class="tab_area">
                                     <ul role="tablist" class="tab_list">
@@ -973,6 +984,7 @@ tr {
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="wrap_bids">
                                 <div class="tab_area">
                                     <ul role="tablist" class="tab_list">
@@ -980,8 +992,9 @@ tr {
                                         <li role="tab" aria-selected="false" aria-controls="panel2" class="item"><a href="#" class="item_link">판매 입찰</a></li>
                                         <li role="tab" aria-selected="false" aria-controls="panel3" class="item"><a href="#" class="item_link">구매 입찰</a></li>
                                     </ul>
-                                    <div id="panel1" role="tabpanel" class="tab_content show" span="sales" data-v-b6b2883e="">
-                                        <div class="table_wrap lg" data-v-3c9dd7e9="">
+                                    
+                                    <div id="panel1" role="tabpanel" class="tab_content show" span="sales">
+                                        <div class="table_wrap lg" >
                                             <table>
                                                 <caption>
                                                     <span class="blind">데이터 테이블</span>
@@ -1027,10 +1040,10 @@ tr {
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <a href="#" class="btn outlinegrey full medium" data-v-3c9dd7e9=""> 체결 내역 더보기 </a>
+                                        <a href="#" class="btn outlinegrey full medium" > 체결 내역 더보기 </a>
                                     </div>
-                                    <div id="panel2" role="tabpanel" class="tab_content" span="asks" data-v-b6b2883e="">
-                                        <div class="table_wrap lg" data-v-3c9dd7e9="">
+                                    <div id="panel2" role="tabpanel" class="tab_content" span="asks">
+                                        <div class="table_wrap lg">
                                             <table>
                                                 <caption>
                                                     <span class="blind">데이터 테이블</span>
@@ -1076,10 +1089,10 @@ tr {
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <a href="#" class="btn outlinegrey full medium" data-v-3c9dd7e9=""> 입찰 내역 더보기 </a>
+                                        <a href="#" class="btn outlinegrey full medium" > 입찰 내역 더보기 </a>
                                     </div>
                                     <div id="panel3" role="tabpanel" class="tab_content" span="bids" data-v-b6b2883e="">
-                                        <div class="table_wrap lg" data-v-3c9dd7e9="">
+                                        <div class="table_wrap lg" >
                                             <table>
                                                 <caption>
                                                     <span class="blind">데이터 테이블</span>
@@ -1125,7 +1138,7 @@ tr {
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <a href="#" class="btn outlinegrey full medium" data-v-3c9dd7e9=""> 입찰 내역 더보기 </a>
+                                        <a href="#" class="btn outlinegrey full medium"> 입찰 내역 더보기 </a>
                                     </div>
                                 </div>
                             </div>
@@ -1153,12 +1166,13 @@ tr {
                                             <div class="dropdown">
                                                 <div class="dropdown_head">
                                                     <p class="title">배송 기간 안내</p>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons ico-arr-down-gray">
-                                                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-arr-down-gray" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-arr-down-gray"></use>
-                                                    </svg>
+                                                    <img alt="" src="/TeamProject/img/shopDetail/chevron-down.svg"
+                                                     class="down_btn icon sprite-icons ico-arr-down-gray"
+                                                     >
                                                 </div>
+                                                
                                                 <div class="dropdown_content">
-                                                    <div class="content">
+                                                    <div class="c1_content">
                                                         <div class="content_box">
                                                             <div class="emphasis_box">
                                                                 <strong class="emphasis">KREAM은 최대한 빠르게 모든 상품을 배송하기 위해 노력하고 있습니다. 배송 시간은 판매자가 검수를 위하여 상품을 검수센터로 보내는 속도에 따라 차이가 있습니다.</strong>
@@ -1205,16 +1219,17 @@ tr {
                                                 </div>
                                             </div>
                                         </li>
+                                        
                                         <li class="">
                                             <div class="dropdown">
                                                 <div class="dropdown_head">
                                                     <p class="title">검수 안내</p>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons ico-arr-down-gray">
-                                                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-arr-down-gray" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-arr-down-gray"></use>
-                                                    </svg>
+                                                    <img alt="" src="/TeamProject/img/shopDetail/chevron-down.svg"
+                                                     class="down_btn icon sprite-icons ico-arr-down-gray"
+                                                     >
                                                 </div>
                                                 <div class="dropdown_content">
-                                                    <div class="content">
+                                                    <div class="c1_content">
                                                         <div class="content_box">
                                                             <div class="emphasis_box">
                                                                 <strong class="emphasis">판매자의 상품이 검수센터에 도착하면 전담 검수팀이 철저한 분석과 검사로 정가품 확인을 진행합니다.</strong>
@@ -1253,12 +1268,13 @@ tr {
                                             <div class="dropdown">
                                                 <div class="dropdown_head">
                                                     <p class="title">구매 환불/취소/교환 안내</p>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons ico-arr-down-gray">
-                                                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-arr-down-gray" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-arr-down-gray"></use>
-                                                    </svg>
+                                                    <img alt="" 
+                                                    src="/TeamProject/img/shopDetail/chevron-down.svg" 
+                                                    class="down_btn icon sprite-icons ico-arr-down-gray"
+                                                    >
                                                 </div>
                                                 <div class="dropdown_content">
-                                                    <div class="content">
+                                                    <div class="c1_content">
                                                         <div class="content_box">
                                                             <div class="emphasis_box">
                                                                 <strong class="emphasis">KREAM은 익명 거래를 기반으로 판매자가 판매하는 상품을 구매자가 실시간으로 구매하여 거래를 체결합니다.</strong>
@@ -1282,7 +1298,13 @@ tr {
                             <div class="point_guide lg">
                                 <ul class="guide_list">
                                     <li class="guide_item">
-                                        <div class="thumb_area"><img src="/TeamProject/img/shop/img-guide-item01.svg"  alt="" class="img" /></div>
+                                        <div class="thumb_area">
+                                        <img 
+                                        	src="/TeamProject/img/shop/img-guide-item01.svg"  
+                                        	alt="" 
+                                        	class="img" 
+                                        />
+                                        </div>
                                         <div class="text_area">
                                             <strong class="title">100% 정품 보증</strong>
                                             <p class="desc">KREAM에서 검수한 상품이 정품이 아닐 경우, 구매가의 3배를 보상합니다.</p>
@@ -1291,7 +1313,6 @@ tr {
                                     <li class="guide_item">
                                         <div class="thumb_area">
                                             <img
-                                               
                                                 src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCA0MCAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3LjUgMjYuM0MxMS41MzUzIDI2LjMgNi43IDIxLjQ2NDcgNi43IDE1LjVDNi43IDkuNTM1MzMgMTEuNTM1MyA0LjcgMTcuNSA0LjdDMjMuNDY0NyA0LjcgMjguMyA5LjUzNTMzIDI4LjMgMTUuNUMyOC4zIDIxLjQ2NDcgMjMuNDY0NyAyNi4zIDE3LjUgMjYuM1oiIGZpbGw9IndoaXRlIiBzdHJva2U9IiMyMjIyMjIiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0yNSAyM0wzMSAyOSIgc3Ryb2tlPSIjMjIyMjIyIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8cGF0aCBkPSJNMTYgMTMuMzMzM0wyMC43NzI3IDE4TDMxIDgiIHN0cm9rZT0iIzIyMjIyMiIgc3Ryb2tlLXdpZHRoPSIyLjIiLz4KPC9zdmc+Cg=="
                                                 alt=""
                                                 class="img"
@@ -1303,7 +1324,11 @@ tr {
                                         </div>
                                     </li>
                                     <li class="guide_item">
-                                        <div class="thumb_area"><img src="/TeamProject/img/shop/img-guide-item02.svg" alt="" class="img" /></div>
+                                        <div class="thumb_area">
+                                        	<img src="/TeamProject/img/shop/img-guide-item02.svg" alt="" 
+                                        		class="img"
+                                        	/>
+                                        </div>
                                         <div class="text_area">
                                             <strong class="title">정품 인증 패키지</strong>
                                             <p class="desc">검수에 합격한 경우에 한하여 KREAM의 정품 인증 패키지가 포함된 상품이 배송됩니다.</p>
@@ -1322,24 +1347,11 @@ tr {
                         <div class="inner_box">
                             <div class="product_area">
                                 <div class="product_thumb" style="background-color: rgb(235, 240, 245);">
-                                    <picture  class="picture product_img">
-                                        <source
-                                            type="image/webp"
-                                            srcset="
-                                                https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=m_webp
-                                            "
-                                        />
-                                        <source
-                                            srcset="
-                                                https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=m
-                                            "
-                                        />
                                         <img
                                             alt="상품 이미지"
                                             src="https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=m"
-                                            class="image"
+                                            class="product_img"
                                         />
-                                    </picture>
                                 </div>
                                 <div class="product_info">
                                     <p class="name">Nike Air Force 1 '07 Low White</p>
@@ -1348,9 +1360,7 @@ tr {
                             </div>
                             <div class="btn_area">
                                 <a href="#" class="btn outlinegrey large btn_wish btn_wish_simple" aria-label="관심상품">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons ico-wish-off">
-                                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-wish-off" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-wish-off"></use>
-                                    </svg>
+                            	<img alt="" src="/TeamProject/img/shopDetail/bookmark.svg" class="c2_bookmark icon sprite-icons ico-wish-off">
                                     <span class="wish_count_num">9.5만</span>
                                 </a>
                                 <div class="division_btn_box lg">
@@ -1369,25 +1379,25 @@ tr {
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="feed_area">
 </div>
 
 </body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
- $("document").ready(function() {
-	     $(window).scroll(function() { 
-		             var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다. 
+$("document").ready(function() {
+		$(window).scroll(function() { 
+			var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다. 
 		console.log(position);
-		     });   
-		    });
+		     });    
+		});
 
 $(function(){     
-
 	var lastScroll = 0;
 		$(window).scroll(function(event) {
 			var scroll = $(this).scrollTop();
@@ -1401,5 +1411,37 @@ $(function(){     
 			lastScroll = scroll;
 		});
 	});
+
+$(function(){     
+	var lastScroll = 0;
+		$(window).scroll(function(event) {
+			var scroll = $(this).scrollTop();
+			if (scroll > 400) { //이벤트를 적용시킬 스크롤 높이               
+				$(".floating_price").addClass("is_open");
+				$(".floating_price").show();
+			} else{
+				$(".floating_price").removeClass("is_open");
+				$(".floating_price").hide();
+			}
+			lastScroll = scroll;
+		});
+	});
+
+/* 구매전 주의사항 리스트 */
+$('.down_btn').on('click',function(){
+	// 현재 선택된 li을 가져옴
+	var $li = $(this).closest('li');
+
+	if($li.hasClass('open')){
+		$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+		$('.open .dropdown_content').css('display','none');
+		$li.removeClass('open');
+	}
+	else{
+		$(this).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+		$li.addClass('open');
+		$('.open .dropdown_content').css('display','block');
+	}
+});
 </script>
 </html>
