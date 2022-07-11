@@ -19,24 +19,19 @@ div {
 li, ol, ul {
     list-style: none;
 }
-.container .is_absolute .spread, .container .is_fixed .spread {
-    position: static;
-    display: block;
-    height: 100px;
-    background-color: rgba(0,0,0,0);
-}
-.wrap {
+
+.c1_wrap {
     position: relative;
     padding-top: 100px;
     overflow-anchor: none;
 }
-.content {
+.c1_content {
     overflow: hidden;
     margin: 0 auto;
     padding: 30px 40px 120px;
     max-width: 1280px;
 }
-.blind, .u_skip {
+.c1_blind, .c1_u_skip {
     overflow: hidden!important;
     position: absolute!important;
     clip: rect(0,0,0,0)!important;
@@ -44,32 +39,32 @@ li, ol, ul {
     height: 1px!important;
     margin: -1px!important;
 }
-.column_bind {
+.c1_column_bind {
     position: relative;
 }
-.column_bind .column_box1 {
+.c1_column_bind .c1_column_box1 {
 	margin-left: 70px;
     width: 84%;
 }
-.is_fixed .column_box1 {
+.c1_is_fixed .c1_column_box1 {
     width: 24.7%;
     position: fixed;
     top: 130px;
 }
-.is_absolute .column_box1 {
+.c1_is_absolute .c1_column_box1 {
     position: absolute;
     width: 39.2%;
     bottom: 0;
     top: 1261px;
 }
-.column {
+.c1_column {
     width: 50%;
 }
-.column:first-child {
+.c1_column:first-child {
     float: left;
     padding-right: 3.334%;
 }
-.column:nth-child(2):before {
+.c1_column:nth-child(2):before {
     content: "";
     display: block;
     position: absolute;
@@ -78,36 +73,31 @@ li, ol, ul {
     bottom: 0;
     border-left: 1px solid #ebebeb;
 }
-.column:nth-child(2) {
+.c1_column:nth-child(2) {
     position: relative;
     float: right;
     padding-left: 3.334%;
 }
-.banner_slide {
+.c1_banner_slide {
     overflow: hidden;
     position: relative;
 }
-.product {
+.c1_product {
     overflow: hidden;
     position: relative;
     padding-top: 100%;
-    border-radius: 8px;
+    border-radius: 12px;
 }
-.product_img {
-	display: flex;
-    position: absolute;
-    top: 42%;
-    left: 3.9%;
-    transform: translate(-50%,-50%);
-    width: 3.5%;
-    height: auto;
-}
-.image{
+.c1_image{
 	position: absolute;
     top: 0%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    image-rendering: -webkit-optimize-contrast;
 }
 /* 위에뜨는거 */
-.floating_price {
+.c1_floating_price {
     position: fixed;
     left: 0;
     right: 0;
@@ -117,19 +107,19 @@ li, ol, ul {
     box-shadow: 4px 0 10px 0 rgb(0 0 0 / 10%);
     z-index: 1;
 }
-.floating_price .inner_box, .floating_price .product_area {
+.c1_floating_price .c1_inner_box, .c1_floating_price .c1_product_area {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
 }
-.floating_price .inner_box {
+.c1_floating_price .c1_inner_box {
     -webkit-box-pack: justify;
     justify-content: space-between;
 }
-.floating_price .product_area {
+.c1_floating_price .c1_product_area {
     padding-right: 40px;
 }
-.floating_price .product_thumb {
+.c1_floating_price .c1_product_thumb {
     overflow: hidden;
     -webkit-box-flex: 0;
     flex: none;
@@ -137,76 +127,86 @@ li, ol, ul {
     width: 64px;
     height: 64px;
     border-radius: 12px;
+    position: relative;
 }
 .is_open {
     display: block;
 }
-.floating_price{
+.c1_floating_price{
     display: none;
     top: 80px;
 }
-.floating_price .product_info .name, .floating_price .product_info .translated_name {
+.c1_floating_price .c1_product_info .c1_name, .c1_floating_price .c1_product_info .c1_translated_name {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.floating_price .product_info{
+.c1_floating_price .c1_product_info{
     -webkit-box-flex: 1;
     flex: 1;
 }
-.floating_price .btn_area {
+.c1_floating_price .c1_btn_area {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     width: 560px;
     height: 50px;
 }
-.floating_price .btn_area .btn_wish {
+.c1_floating_price .c1_btn_area .c1_btn_wish {
     width: 160px;
-    min-width: 960px
+    min-width: 180px;
 }
-.floating_price .btn_area .btn_wish {
+.c1_floating_price .c1_btn_area .c1_btn_wish {
     -webkit-box-flex: 0;
     flex: none;
     height: inherit;
     line-height: 48px;
     margin-right: 8px;
     border-radius: 10px;
+   	margin-top: 0;
 }
-.btn_wish {
+.c1_btn_wish {
     width: 20px;
     height: 20px;
 }
-.floating_price .btn_area .division_btn_box {
+.c1_floating_price .c1_btn_area .c1_division_btn_box {
     -webkit-box-flex: 1;
     flex: 1;
     width: 100%;
     height: inherit;
     margin-top: 0;
 }
-.floating_price .btn_area .division_btn_box .title {
+.c1_floating_price .c1_btn_area .c1_division_btn_box .c1_title {
     width: 44px;
     font-size: 15px;
     letter-spacing: -.15px;
 }
-.image {
+.c1_product_img {
+	position: absolute;
+    top: 0%;
     object-fit: cover;
     width: 100%;
     height: 100%;
+    top: 40%;
+    left: 50%;
     image-rendering: -webkit-optimize-contrast;
+
+	display: flex;
+    transform: translate(-50%,-50%);
+    height: auto;
 }
 /* detail */
-.detail_main_title {
+.c1_detail_main_title {
     position: relative;
 }
-.detail_main_title .sub_title {
+.c1_detail_main_title .c1_sub_title {
     line-height: 17px;
     font-size: 14px;
     letter-spacing: -.21px;
     letter-spacing: -.15px;
     color: rgba(34,34,34,.5);
 }
-.detail_main_title .brand {
+.c1_detail_main_title .c1_brand {
     display: inline-block;
     vertical-align: top;
     line-height: 19px;
@@ -217,97 +217,90 @@ li, ol, ul {
     font-weight: 800;
     border-bottom: 2px solid #222;
 }
-.detail_main_title .title {
+.c1_detail_main_title .c1_title {
     margin-bottom: 4px;
     font-size: 18px;
     letter-spacing: -.09px;
     font-weight: 400;
 }
-.detail_size {
+.c1_detail_size {
     padding-top: 19px;
     padding-bottom: 12px;
     border-bottom: 1px solid #ebebeb;
 }
-.detail_size .title {
+.c1_detail_size .c1_title {
     float: left;
 }
-.detail_size .size {
+.c1_detail_size .c1_size {
     float: right;
 }
-.btn_size {
+.c1_btn_size {
     font-size: 16px;
     line-height: 24px;
     letter-spacing: -.21px;
     font-weight: 700;
 }
-.btn_text {
+.c1_btn_text {
     vertical-align: top;
     display: inline-block;
     margin-right: 5px;
 }
-.down_arrow{
+.c1_down_arrow{
 	margin-top: 3px;
 	width: 15px;
 	height: 15px;
 	vertical-align: top;
 	overflow: hidden;
 }
-.detail_size:after {
+.c1_detail_size:after {
     content: "";
     display: block;
     clear: both;
 }
-.detail_price {
+.c1_detail_price {
     margin-top: 11px;
     min-height: 44px;
 }
-.title_txt {
+.c1_title_txt {
     padding-top: 5px;
     display: inline-block;
     font-size: 13px;
     letter-spacing: -.07px;
     color: rgba(34,34,34,.8);
 }
-.price {
+.c1_price {
     float: right;
     padding-top: 2px;
     text-align: right;
 }
-.amount {
+.c1_amount {
     font-weight: 700;
 }
-.num {
+.c1_num {
     font-size: 20px;
     letter-spacing: -.1px;
 }
-.num, .won {
+.c1_num, .c1_won {
     display: inline-block;
     line-height: 26px;
     vertical-align: top;
 }
-.won {
+.c1_won {
     font-size: 18px;
     letter-spacing: -.27px;
 }
-.drop_svg{
-	width:12px;
-	height: 12px;
-}
-.fluctuation {
+.c1_fluctuation {
     position: relative;
     padding-top: 1px;
     padding-left: 17px;
     font-size: 13px;
 }
-.same {
-    color: rgba(34,34,34,.8);
-}
-.detail_price:after {
+.c1_detail_price:after {
     content: "";
     display: block;
     clear: both;
 }
-.division_btn_box .btn_division:before {
+.c1_division_btn_box .c1_btn_division:before {
     content: "";
     position: absolute;
     top: 0;
@@ -316,12 +309,12 @@ li, ol, ul {
     width: 1px;
     background-color: rgba(34,34,34,.1);
 }
-.division_btn_box {
+.c1_division_btn_box {
     margin-top: 17px;
     display: flex;
     height: 60px;
 }
-.division_btn_box .btn_division {
+.c1_division_btn_box .c1_btn_division {
     position: relative;
     display: inline-flex;
     -webkit-box-flex: 1;
@@ -331,51 +324,51 @@ li, ol, ul {
     border-radius: 10px;
     color: #fff;
 }
-.division_btn_box .buy {
+.c1_division_btn_box .c1_buy {
     background-color: #ef6253;
 }
-.division_btn_box .title {
+.c1_division_btn_box .c1_title {
     width: 55px;
     text-align: center;
     font-size: 18px;
     letter-spacing: -.27px;
 }
-.division_btn_box .price {
+.c1_division_btn_box .c1_price {
     margin-left: 10px;
     line-height: 15px;
 }
-.division_btn_box .amount {
+.c1_division_btn_box .c1_amount {
     display: block;
     font-size: 0;
 }
-.division_btn_box .num, .division_btn_box .won {
+.c1_division_btn_box .c1_num, .c1_division_btn_box .c1_won {
     display: inline-block;
     vertical-align: top;
     font-weight: 700;
 }
-.division_btn_box .num {
+.c1_division_btn_box .c1_num {
     font-size: 15px;
 }
-.division_btn_box .desc {
+.c1_division_btn_box .c1_desc {
     display: block;
     font-size: 11px;
     font-weight: 600;
     color: hsla(0,0%,100%,.8);
 }
-.division_btn_box .sell {
+.c1_division_btn_box .c1_sell {
     background-color: #41b979;
 }
-.division_btn_box .btn_division {
+.c1_division_btn_box .c1_btn_division {
     margin-left: 10px;
 }
-.c2_bookmark{
+.c1_bookmark{
 	margin-right: 3px;
 }
-.full{
+.c1_full{
     height: 60px;
     line-height: 58px;
 }
-.btn_wish {
+.c1_btn_wish {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -386,41 +379,57 @@ li, ol, ul {
     color: #333;
     margin-top: 12px;
 }
-.outlinegrey{
+.c1_outlinegrey{
     border: 1px solid #d3d3d3;
     color: rgba(34,34,34,.8);
 }
-
-.large {
+.c1_large {
     padding: 0 25px;
     font-size: 16px;
     letter-spacing: -.16px;
 }
-.full {
+.c1_full {
     width: 100%;
     font-weight: 700;
 }
-.btn.btn_wish [class*=ico-]~.wish_count_num {
+.c1_medium {
+    font-weight: 400;
+   	padding: 0 18px;
+    height: 42px;
+    line-height: 40px;
+    border-radius: 12px;
+    font-size: 14px;
+    letter-spacing: -.14px;
+}
+.c1_tab_area .c1_btn{
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    color: rgba(34,34,34,.8);
+    background-color: #fff;
+}
+.c1_btn_wish [class*=ico-]~.c1_wish_count_num {
     margin-left: 4px;
 }
-.btn.btn_wish .btn_text {
+.c1_btn_wish .c1_btn_text {
     font-size: 15px;
     letter-spacing: -.15px;
     font-weight: 400;
     letter-spacing: normal;
 }
-.btn.btn_wish .wish_count_num {
+.c1_btn_wish .c1_wish_count_num {
     font-size: 15px;
     font-weight: 600;
     letter-spacing: normal;
 }
-.product_info_wrap .info_title{
+.c1_product_info_wrap .c1_info_title{
     color: rgb(7 7 7 / 88%);
 }
-.info_title {
+.c1_info_title {
     padding-bottom: 13px;
 }
-.detail_title {
+.c1_detail_title {
     line-height: 22px;
     padding: 39px 0 20px;
     font-size: 18px;
@@ -445,16 +454,16 @@ li, ol, ul {
     flex: 1;
     padding: 0 12px;
 }
-.detail_product_wrap .product_title {
+.detail_product_wrap .c1_product_title {
     line-height: 14px;
     font-size: 12px;
     letter-spacing: -.33px;
     color: rgba(34,34,34,.5);
 }
-.detail_product_wrap .model_num .product_info {
+.detail_product_wrap .model_num .c1_product_info {
     font-weight: 600;
 }
-.detail_product_wrap .product_info {
+.detail_product_wrap .c1_product_info {
     margin-top: 4px;
     word-break: break-word;
     line-height: 17px;
@@ -464,7 +473,7 @@ li, ol, ul {
     border-left: 1px solid #ebebeb;
 }
 /* 배송정보 */
-.delivery_way_wrap .detail_title {
+.c1_delivery_way_wrap .c1_detail_title {
     line-height: 17px;
     padding-bottom: 0;
     font-size: 14px;
@@ -472,66 +481,66 @@ li, ol, ul {
     font-weight: 400;
     color: rgba(34,34,34,.8);
 }
-.delivery_way_wrap .delivery_way {
+.c1_delivery_way_wrap .c1_delivery_way {
     padding-top: 19px;
     padding-bottom: 10px;
     position: relative;
 }
-.way_info {
+.c1_way_info {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     width: 100%;
 }
-.way_status_thumb {
+.c1_way_status_thumb {
     width: 40px;
     height: 40px;
 }
-.way_img {
+.c1_way_img {
     width: 40px;
     height: 40px;
     
     border: 0;
     vertical-align: top;
 }
-.way_desc {
+.c1_way_desc {
 	margin-left: 18px;
     -webkit-box-flex: 1;
     flex: 1;
 }
-.company {
+.c1_company {
     line-height: 17px;
     margin: 0 auto;
 }
-.company .badge_title {
+.c1_company .c1_badge_title {
     font-weight: 600;
 }
-.company .badge_title, .company {
+.c1_company .c1_badge_title, .c1_company {
     font-size: 14px;
     letter-spacing: -.21px;
 }
-.sub_text {
+.c1_sub_text {
     line-height: 16px;
     margin-top: 3px;
     font-size: 14px;
     color: rgba(34,34,34,.5);
 }
 /* 광고 배너 */
-.banner_box {
+.c1_banner_box {
     position: relative;
     padding-top: 20px;
 }
-.detail_slide {
+.c1_detail_slide {
 	position: realtive;
 }
-.detail_slide .slick-list {
+.c1_detail_slide .c1_slick-list {
     height: 80px;
     display: block;
 }
-.detail_slide .slick-slide {
+.c1_detail_slide .c1_slick-slide {
     float: left;
 }
-.slick-active{
+.c1_slick-active{
 	outline: none;
     width: 430px;
     position: relative;
@@ -539,57 +548,57 @@ li, ol, ul {
     opacity: 1;
     transition: opacity 600ms ease 0s, visibility 600ms ease 0s;
 }
-.detail_banner {
+.c1_detail_banner {
     position: relative;
     vertical-align: top;
 }
-.banner_link {
+.c1_banner_link {
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
     height: 80px;
     background-color: rgb(239, 68, 25);
 }
-.banner_link img {
+.c1_banner_link img {
     height: 100%;
     vertical-align: top;
 }
 /* 시세 */
-.product_sales_graph {
+.c1_product_sales_graph {
     position: relative;
 }
-.product_sales_graph .title {
+.c1_product_sales_graph .c1_title {
     display: flex;
 }
-.detail_title {
+.c1_detail_title {
     line-height: 22px;
     padding: 39px 0 20px;
     font-size: 18px;
     letter-spacing: -.15px;
 }
-.product_sales_graph .title .sales_filter {
+.c1_product_sales_graph .c1_title .c1_sales_filter {
     position: relative;
     margin-left: auto;
     padding: 40px 0 20px;
     font-size: 0;
 }
-.product_sales_graph .title .sales_filter .filter_unit {
+.c1_product_sales_graph .c1_title .c1_sales_filter .c1_filter_unit {
     position: relative;
     display: inline-block;
     vertical-align: top;
 }
-.product_sales_graph .title .btn_select {
+.c1_product_sales_graph .c1_title .c1_btn_select {
     font-size: 13px;
     letter-spacing: -.07px;
     color: rgba(34,34,34,.8);
 }
-.product_sales_graph .title .btn_select .select_text {
+.c1_product_sales_graph .c1_title .c1_btn_select .c1_select_text {
     position: relative;
     display: inline-block;
     vertical-align: top;
     line-height: 24px;
 }
-.product_sales_graph .title .btn_select .select_text:after {
+.c1_product_sales_graph .c1_title .c1_btn_select .c1_select_text:after {
     content: "";
     display: inline-block;
     vertical-align: top;
@@ -598,20 +607,20 @@ li, ol, ul {
     background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggc3Ryb2tlPSIjQkJCIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTE4IDlsLTYgNi02LTYiLz48L3N2Zz4=) 0 0 no-repeat;
     background-size: 24px 24px;
 }
-.wrap_sales, .tab_area{
+.c1_wrap_sales, .c1_tab_area{
     position: relative;
 }
-.tab_area .tab_list {
+.c1_tab_area .c1_tab_list {
     display: flex;
     border-radius: 10px;
     background-color: #f4f4f4;
 }
-.tab_area .item {
+.c1_tab_area .c1_item_tab, .c1_tab_area .item{
     -webkit-box-flex: 1;
     flex: 1;
     margin: 2px;
 }
-.tab_area .item_link {
+.c1_tab_area .c1_item_link {
     display: block;
     line-height: 16px;
     padding: 7px 0 9px;
@@ -622,21 +631,21 @@ li, ol, ul {
     background-color: #f4f4f4;
     color: rgba(34,34,34,.8);
 }
-.tab_area .item.on .item_link {
+.c1_tab_area .on .c1_item_link {
     background-color: #fff;
     color: #222;
     font-weight: 700;
     -webkit-box-shadow: 0 0 0 0.5px #ebebeb inset;
     box-shadow: inset 0 0 0 0.5px #ebebeb;
 }
-.wrap_bids, .wrap_sales {
+.c1_wrap_bids, .c1_wrap_sales {
     position: relative;
 }
-.show {
+.c1_show {
     display: block;
     height: auto;
 }
-.tab_content {
+.c1_tab_content {
     overflow: hidden;
 }
 table {
@@ -646,7 +655,7 @@ table {
     border: 0;
     border-collapse: collapse;
 }
-.table_wrap {
+.c1_table_wrap {
     padding: 21px 0 20px;
 }
 caption {
@@ -687,15 +696,12 @@ tr {
 .align_right {
     text-align: right;
 }
-.full.medium {
-    font-weight: 400;
-}
 
-.tab_content {
+.c1_tab_content {
     overflow: hidden;
     display: none;
 }
-.graph{
+.c1_graph{
     height: 200px;
     display: flex;
     -webkit-box-align: center;
@@ -704,19 +710,19 @@ tr {
     justify-content: center;
 }
 /* 구매확인박스 */
-.confirm_wrap {
+.c1_confirm_wrap {
     padding-top: 39px;
 }
-.confirm_wrap .confirm_title {
+.c1_confirm_wrap .c1_confirm_title {
     line-height: 22px;
     padding-bottom: 12px;
     font-size: 18px;
     letter-spacing: -.27px;
 }
-.confirm_wrap .confirm_content {
+.c1_confirm_wrap .c1_confirm_content {
     border-top: 1px solid #ebebeb;
 }
-.dropdown_head {
+.c1_dropdown_head {
     padding: 18px 0 17px;
     display: flex;
     -webkit-box-align: center;
@@ -724,23 +730,26 @@ tr {
     border-bottom: 1px solid #ebebeb;
     cursor: pointer;
 }
-.dropdown_head .title {
+.c1_dropdown_head .c1_title {
     max-width: 320px;
     font-size: 15px;
     letter-spacing: -.15px;
 }
-.open .dropdown_head {
+.open .c1_dropdown_head {
     border-bottom: 1px solid #222;
 }
-.open .dropdown_content{
+.open .c1_dropdown_content{
 	display: block;
 }
-.dropdown_content {
+.open .c1_title{
+	font-weight: 700;
+}
+.c1_dropdown_content {
     display: none;
     padding: 20px 0;
     border-bottom: 1px solid #ebebeb;
 }
-.dropdown_content .c1_content {
+.c1_dropdown_content .c1_content_in {
     font-size: 13px;
     letter-spacing: -.07px;
     color: rgba(34,34,34,.8);
@@ -751,39 +760,39 @@ tr {
     width: 24px;
     height: 24px;
 }
-.point_guide {
+.c1_point_guide {
     padding-top: 40px;
 }
-.guide_list .guide_item .thumb_area {
+.c1_guide_list .c1_guide_item .c1_thumb_area {
     float: left;
     width: 40px;
     margin-right: 14px;
 }
-.guide_list .guide_item .thumb_area img {
+.c1_guide_list .c1_guide_item .c1_thumb_area .c1_img {
     width: 100%;
     vertical-align: top;
 }
-.guide_list .guide_item .text_area {
+.c1_guide_list .c1_guide_item .c1_text_area {
     overflow: hidden;
 }
-.guide_list .guide_item .text_area .title {
+.c1_guide_list .c1_guide_item .c1_text_area .c1_title {
     display: block;
     line-height: 16px;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: normal;
 }
-.guide_list .guide_item .text_area .desc {
+.c1_guide_list .c1_guide_item .c1_text_area .c1_desc {
     margin-top: 1px;
     line-height: 16px;
     font-size: 13px;
     letter-spacing: normal;
     color: rgba(34,34,34,.5);
 }
-.meditaion_notice_product, .point_guide {
+.c1_meditaion_notice_product, .c1_point_guide {
     padding-top: 40px;
 }
-.meditaion_notice_product {
+.c1_meditaion_notice_product {
     margin-top: 20px;
     line-height: 16px;
     border-top: 1px solid #f0f0f0;
@@ -794,19 +803,19 @@ tr {
 </style>
 </head>
 <body>
-<div class="container detail">
-    <div class="content">
-        <h2 class="blind">상품 상세</h2>
-        <div class="column_bind">
-            <div class="column">
-                <div class="column_box1">
-                    <div class="detail_banner_area">
+<div class="c1_container detail">
+    <div class="c1_content">
+        <h2 class="c1_blind">상품 상세</h2>
+        <div class="c1_column_bind">
+            <div class="c1_column">
+                <div class="c1_column_box1">
+                    <div class="c1_detail_banner_area">
                                        
-                          <div class="item_inner">
-                              <div class="product" style="background-color: rgb(235, 240, 245);">
+                          <div class="c1_item_inner">
+                              <div class="c1_product" style="background-color: rgb(235, 240, 245);">
                                       <img alt="상품 이미지"
                                           src="https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=l"
-                                          class="image"/>
+                                          class="c1_image"/>
                               </div>
                           </div>
                                      
@@ -815,115 +824,115 @@ tr {
                 </div>
             </div>
             
-            <div class="column">
-                <div class="column_box">
-                    <div class="column_top">
-                        <div class="detail_main_title lg">
-                            <div class="main_title_box">
-                                <a href="#" class="brand"> Nike </a>
-                                <p class="title">Nike Air Force 1 '07 Low White</p>
-                                <p class="sub_title">나이키 에어포스 1 '07 로우 화이트</p>
+            <div class="c1_column">
+                <div class="c1_column_box">
+                    <div class="c1_column_top">
+                        <div class="c1_detail_main_title lg">
+                            <div class="c1_main_title_box">
+                                <a href="#" class="c1_brand"> Nike </a>
+                                <p class="c1_title">Nike Air Force 1 '07 Low White</p>
+                                <p class="c1_sub_title">나이키 에어포스 1 '07 로우 화이트</p>
                             </div>
                         </div>
                         
-                        <div class="product_figure_wrap lg">
-                            <div class="detail_size">
-                                <div class="title"><span class="title_txt">사이즈</span></div>
-                                <div class="size">
-                                    <a href="#" class="btn_size">
-                                        <span class="btn_text">모든 사이즈</span>
-                                    	<img class="down_arrow" alt="" src="/TeamProject/img/shopDetail/down_arrow.png">
+                        <div class="c1_product_figure_wrap lg">
+                            <div class="c1_detail_size">
+                                <div class="c1_title"><span class="c1_title_txt">사이즈</span></div>
+                                <div class="c1_size">
+                                    <a href="#" class="c1_btn_size">
+                                        <span class="c1_btn_text">모든 사이즈</span>
+                                    	<img class="c1_down_arrow" alt="" src="/TeamProject/img/shopDetail/down_arrow.png">
                                     </a>
                                 </div>
                             </div>
-                            <div class="detail_price">
-                                <div class="title"><span class="title_txt">최근 거래가</span></div>
-                                <div class="price">
-                                    <div class="amount"><span class="num">133,000</span><span class="won">원</span></div>
-                                    <div class="fluctuation decrease"><p data-v-5943a237="">5,000원 (-3.6%)</p></div>
+                            <div class="c1_detail_price">
+                                <div class="c1_title"><span class="c1_title_txt">최근 거래가</span></div>
+                                <div class="c1_price">
+                                    <div class="c1_amount"><span class="c1_num">133,000</span><span class="c1_won">원</span></div>
+                                    <div class="c1_fluctuation decrease"><p data-v-5943a237="">5,000원 (-3.6%)</p></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="btn_wrap">
-                            <div class="division_btn_box">
-                                <a href="#" class="btn_division buy">
-                                    <strong class="title">구매</strong>
-                                    <div class="price">
-                                        <span class="amount"><em class="num">129,000</em><span class="won">원</span></span><span class="desc">즉시 구매가</span>
+                        <div class="c1_btn_wrap">
+                            <div class="c1_division_btn_box">
+                                <a href="#" class="c1_btn_division c1_buy">
+                                    <strong class="c1_title">구매</strong>
+                                    <div class="c1_price">
+                                        <span class="c1_amount"><em class="c1_num">129,000</em><span class="c1_won">원</span></span><span class="c1_desc">즉시 구매가</span>
                                     </div>
                                 </a>
-                                <a href="#" class="btn_division sell">
-                                    <strong class="title">판매</strong>
-                                    <div class="price">
-                                        <span class="amount"><em class="num">170,000</em><span class="won">원</span></span><span class="desc">즉시 판매가</span>
+                                <a href="#" class="c1_btn_division c1_sell">
+                                    <strong class="c1_title">판매</strong>
+                                    <div class="c1_price">
+                                        <span class="c1_amount"><em class="c1_num">170,000</em><span class="c1_won">원</span></span><span class="c1_desc">즉시 판매가</span>
                                     </div>
                                 </a>
                             </div>
-                            <a href="#" class="btn full outlinegrey btn_wish large" aria-label="관심상품">
-                            <img alt="" src="/TeamProject/img/shopDetail/bookmark.svg" class="c2_bookmark icon sprite-icons ico-wish-off">
-                                <span class="btn_text">관심상품</span><span class="wish_count_num">9.5만</span>
+                            <a href="#" class="c1_btn c1_full c1_outlinegrey c1_btn_wish c1_large" aria-label="관심상품">
+                            <img alt="" src="/TeamProject/img/shopDetail/bookmark.svg" class="c1_bookmark   ico-wish-off">
+                                <span class="c1_btn_text">관심상품</span><span class="c1_wish_count_num">9.5만</span>
                             </a>
                         </div>
                     </div>
-                    <div class="product_info_wrap">
-                        <h3 class="detail_title info_title lg">상품 정보</h3>
+                    <div class="c1_product_info_wrap">
+                        <h3 class="c1_detail_title c1_info_title lg">상품 정보</h3>
                         <div class="detail_product_wrap">
                             <dl class="detail_product">
                                 <div class="detail_box model_num">
-                                    <dt class="product_title">모델번호</dt>
-                                    <dd class="product_info">315122-111/CW2288-111</dd>
+                                    <dt class="c1_product_title">모델번호</dt>
+                                    <dd class="c1_product_info">315122-111/CW2288-111</dd>
                                 </div>
                                 <div class="detail_box">
-                                    <dt class="product_title">출시일</dt>
-                                    <dd class="product_info">-</dd>
+                                    <dt class="c1_product_title">출시일</dt>
+                                    <dd class="c1_product_info">-</dd>
                                 </div>
                                 <div class="detail_box">
-                                    <dt class="product_title">컬러</dt>
-                                    <dd class="product_info">WHITE/WHITE</dd>
+                                    <dt class="c1_product_title">컬러</dt>
+                                    <dd class="c1_product_info">WHITE/WHITE</dd>
                                 </div>
                                 <div class="detail_box">
-                                    <dt class="product_title">발매가</dt>
-                                    <dd class="product_info">129,000원</dd>
+                                    <dt class="c1_product_title">발매가</dt>
+                                    <dd class="c1_product_info">129,000원</dd>
                                 </div>
                             </dl>
                         </div>
                     </div>
-                    <div class="delivery_way_wrap">
-                        <h3 class="detail_title lg">배송 정보</h3>
-                        <div class="delivery_way">
-                            <div class="way_info">
-                                <div class="way_status_thumb">
+                    <div class="c1_delivery_way_wrap">
+                        <h3 class="c1_detail_title lg">배송 정보</h3>
+                        <div class="c1_delivery_way">
+                            <div class="c1_way_info">
+                                <div class="c1_way_status_thumb">
                                     <img
                                         data-v-12ba7144=""
                                         src="https://kream-phinf.pstatic.net/MjAyMTExMjlfMTQ4/MDAxNjM4MTc4MjI5NTk3.2phJLPtRvFqViNfhZu06HzNRiUBlT4cmZR4_Ukqsyesg.ikrfWOrL7WXCVO0Rqy5kMvOn3B2YpjLUj6RuJqosPX0g.PNG/a_8b54cbca40e945f4abf1ee24bdd031f7.png"
                                         alt="3,000원"
-                                        class="way_img"
+                                        class="c1_way_img"
                                     />
                                 </div>
-                                <div class="way_desc">
-                                    <p class="company">
-                                        <span class="badge_title">일반배송 </span><span class="title">3,000원</span>
+                                <div class="c1_way_desc">
+                                    <p class="c1_company">
+                                        <span class="c1_badge_title">일반배송 </span><span class="title">3,000원</span>
                                         <!---->
                                     </p>
-                                    <p class="sub_text">검수 후 배송 ・ 5-7일 내 도착 예정</p>
+                                    <p class="c1_sub_text">검수 후 배송 ・ 5-7일 내 도착 예정</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="banner_box">
-                        <div class="banner_slide detail_slide slick-slider slick-initialized">
-                            <div class="slick-list">
-                                <div class="slick-track" style="width: 560px; opacity: 1;">
+                    <div class="c1_banner_box">
+                        <div class="c1_banner_slide c1_detail_slide">
+                            <div class="c1_slick-list">
+                                <div class="c1_slick-track" style="width: 560px; opacity: 1;">
                                     <div
                                         tabindex="-1"
                                         data-index="0"
                                         aria-hidden="false"
-                                        class="slick-slide slick-active slick-current"
+                                        class="c1_slick-slide c1_slick-active"
                                         style="outline: none; width: 560px; position: relative; left: 0px; opacity: 1; transition: opacity 600ms ease 0s, visibility 600ms ease 0s;"
                                     >
                                         <div>
-                                            <div tabindex="-1" class="detail_banner" style="width: 100%; display: inline-block;">
-                                                <a href="https://kream.co.kr/promotions/272" class="banner_link" style="background-color: rgb(239, 68, 25);">
+                                            <div tabindex="-1" class="c1_detail_banner" style="width: 100%; display: inline-block;">
+                                                <a href="https://kream.co.kr/promotions/272" class="c1_banner_link" style="background-color: rgb(239, 68, 25);">
                                                     <img
                                                         alt="배너"
                                                         src="https://kream-phinf.pstatic.net/MjAyMjA2MjlfMTIw/MDAxNjU2NDkzNDY2NDM1.VWp3oO6-D0c3CkRqXXlQF2q2uj51z6Ww-_cM5dwzLUsg.FMawZ4eiJYo6DEEa9cSogFlKmUB_Nlnd3BCIcY9IipEg.JPEG/a_0d8cb287f49d44429760a25cd8653a2e.jpg"
@@ -936,68 +945,45 @@ tr {
                             </div>
                         </div>
                     </div>
-                    <div class="detail_wrap">
-                        <div class="product_sales_graph">
+                    <div class="c1_detail_wrap">
+                        <div class="c1_product_sales_graph">
                         
-                            <div class="title">
-                                <h3 class="detail_title lg">시세</h3>
-                                <div class="sales_filter lg">
-                                    <div class="filter_unit">
-                                        <button type="button" class="btn btn_select" slot="button"><span class="select_text layer_open">모든 사이즈</span></button>
+                            <div class="c1_title">
+                                <h3 class="c1_detail_title lg">시세</h3>
+                                <div class="c1_sales_filter lg">
+                                    <div class="c1_filter_unit">
+                                        <button type="button" class="c1_btn c1_btn_select" slot="button"><span class="c1_select_text layer_open">모든 사이즈</span></button>
                                     </div>
                                 </div>
                             </div>
                            
-                            <div class="wrap_sales">
-                                <div class="tab_area">
-                                    <ul role="tablist" class="tab_list">
-                                        <li role="tab" aria-selected="false" aria-controls="sales_panel1" class="item"><a href="#" class="item_link">1개월</a></li>
-                                        <li role="tab" aria-selected="false" aria-controls="sales_panel2" class="item"><a href="#" class="item_link">3개월</a></li>
-                                        <li role="tab" aria-selected="false" aria-controls="sales_panel3" class="item"><a href="#" class="item_link">6개월</a></li>
-                                        <li role="tab" aria-selected="false" aria-controls="sales_panel4" class="item"><a href="#" class="item_link">1년</a></li>
-                                        <li role="tab" aria-selected="true" aria-controls="sales_panel5" class="item on"><a href="#" class="item_link">전체</a></li>
+                            <div class="c1_wrap_sales">
+                                <div class="c1_tab_area">
+                                    <ul role="tablist" class="c1_tab_list">
+                                        <li role="tab" aria-selected="true" aria-controls="c1_sales_panel" class="item on"><a href="#" class="c1_item_link">전체</a></li>
                                     </ul>
-                                    <div id="sales_panel1" role="tabpanel" class="tab_content" span="1m" data-v-b6b2883e="">
-                                        <div class="graph" data-v-3c9dd7e9="">
-                                            <canvas id="01689e63-5dd0-4d25-928a-d14faf5c9310" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
-                                        </div>
-                                    </div>
-                                    <div id="sales_panel2" role="tabpanel" class="tab_content" span="3m" data-v-b6b2883e="">
-                                        <div class="graph" data-v-3c9dd7e9="">
-                                            <canvas id="a0eef8fb-2c17-4ddc-9366-12a7c1590779" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
-                                        </div>
-                                    </div>
-                                    <div id="sales_panel3" role="tabpanel" class="tab_content" span="6m" data-v-b6b2883e="">
-                                        <div class="graph" data-v-3c9dd7e9="">
-                                            <canvas id="7bc7f4c2-9f0a-471a-b6fa-878667af4b40" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
-                                        </div>
-                                    </div>
-                                    <div id="sales_panel4" role="tabpanel" class="tab_content" span="1y" data-v-b6b2883e="">
-                                        <div class="graph" data-v-3c9dd7e9="">
-                                            <canvas id="9fa4c443-6553-4ee8-9d45-1993fa9e4117" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
-                                        </div>
-                                    </div>
-                                    <div id="sales_panel5" role="tabpanel" class="tab_content show" span="all" data-v-b6b2883e="">
-                                        <div class="graph" data-v-3c9dd7e9="">
+
+                                    <div id="c1_sales_panel" role="tabpanel" class="c1_show" span="all" >
+                                        <div class="c1_graph">
                                             <canvas id="8b3afff2-c526-433b-9dc8-b0d3db665395" width="560" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 560px;"></canvas>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="wrap_bids">
-                                <div class="tab_area">
-                                    <ul role="tablist" class="tab_list">
-                                        <li role="tab" aria-selected="true" aria-controls="panel1" class="item on"><a href="#" class="item_link">체결 거래</a></li>
-                                        <li role="tab" aria-selected="false" aria-controls="panel2" class="item"><a href="#" class="item_link">판매 입찰</a></li>
-                                        <li role="tab" aria-selected="false" aria-controls="panel3" class="item"><a href="#" class="item_link">구매 입찰</a></li>
+                            <div class="c1_wrap_bids">
+                                <div class="c1_tab_area">
+                                    <ul role="tablist" class="c1_tab_list">
+                                        <li role="tab" aria-selected="true" aria-controls="panel1" class="c1_item_tab on"><a href="#" class="c1_item_link">체결 거래</a></li>
+                                        <li role="tab" aria-selected="false" aria-controls="panel2" class="c1_item_tab"><a href="#" class="c1_item_link">판매 입찰</a></li>
+                                        <li role="tab" aria-selected="false" aria-controls="panel3" class="c1_item_tab"><a href="#" class="c1_item_link">구매 입찰</a></li>
                                     </ul>
                                     
-                                    <div id="panel1" role="tabpanel" class="tab_content show" span="sales">
-                                        <div class="table_wrap lg" >
+                                    <div id="panel1" role="tabpanel" class="c1_tab_content c1_show" span="sales" style="display:block;">
+                                        <div class="c1_table_wrap lg" >
                                             <table>
                                                 <caption>
-                                                    <span class="blind">데이터 테이블</span>
+                                                    <span class="c1_blind">데이터 테이블</span>
                                                 </caption>
                                                 <colgroup>
                                                     <col style="width: 29.76%;" />
@@ -1040,13 +1026,13 @@ tr {
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <a href="#" class="btn outlinegrey full medium" > 체결 내역 더보기 </a>
+                                        <a href="#" class="c1_btn c1_outlinegrey c1_full c1_medium" > 체결 내역 더보기 </a>
                                     </div>
-                                    <div id="panel2" role="tabpanel" class="tab_content" span="asks">
-                                        <div class="table_wrap lg">
+                                    <div id="panel2" role="tabpanel" class="c1_tab_content" span="asks">
+                                        <div class="c1_table_wrap lg">
                                             <table>
                                                 <caption>
-                                                    <span class="blind">데이터 테이블</span>
+                                                    <span class="c1_blind">데이터 테이블</span>
                                                 </caption>
                                                 <colgroup>
                                                     <col style="width: 29.76%;" />
@@ -1089,13 +1075,13 @@ tr {
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <a href="#" class="btn outlinegrey full medium" > 입찰 내역 더보기 </a>
+                                        <a href="#" class="c1_btn c1_outlinegrey c1_full c1_medium" > 입찰 내역 더보기 </a>
                                     </div>
-                                    <div id="panel3" role="tabpanel" class="tab_content" span="bids" data-v-b6b2883e="">
-                                        <div class="table_wrap lg" >
+                                    <div id="panel3" role="tabpanel" class="c1_tab_content" span="bids" >
+                                        <div class="c1_table_wrap lg" >
                                             <table>
                                                 <caption>
-                                                    <span class="blind">데이터 테이블</span>
+                                                    <span class="c1_blind">데이터 테이블</span>
                                                 </caption>
                                                 <colgroup>
                                                     <col style="width: 29.76%;" />
@@ -1138,7 +1124,7 @@ tr {
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <a href="#" class="btn outlinegrey full medium"> 입찰 내역 더보기 </a>
+                                        <a href="#" class="c1_btn c1_outlinegrey c1_full c1_medium"> 입찰 내역 더보기 </a>
                                     </div>
                                 </div>
                             </div>
@@ -1151,65 +1137,65 @@ tr {
                                         모든 체결 거래는<br />
                                         로그인 후 확인 가능합니다.
                                     </p>
-                                    <a href="/login" class="btn btn_login solid medium" type="button"> 로그인 </a>
+                                    <a href="/login" class="btn btn_login solid c1_medium" type="button"> 로그인 </a>
                                 </div>
                             </div>
                             </c:if> --%>
                             
                         </div>
                         <div>
-                            <div class="confirm_wrap">
-                                <h3 class="confirm_title">구매 전 꼭 확인해주세요!</h3>
-                                <div class="confirm_content">
-                                    <ul class="dropdown_list">
-                                        <li class="">
-                                            <div class="dropdown">
-                                                <div class="dropdown_head">
-                                                    <p class="title">배송 기간 안내</p>
+                            <div class="c1_confirm_wrap">
+                                <h3 class="c1_confirm_title">구매 전 꼭 확인해주세요!</h3>
+                                <div class="c1_confirm_content">
+                                    <ul class="c1_dropdown_list">
+                                        <li class="c1_dropdownli">
+                                            <div class="c1_dropdown">
+                                                <div class="c1_dropdown_head">
+                                                    <p class="c1_title">배송 기간 안내</p>
                                                     <img alt="" src="/TeamProject/img/shopDetail/chevron-down.svg"
-                                                     class="down_btn icon sprite-icons ico-arr-down-gray"
+                                                     class="c1_down_btn   ico-arr-down-gray"
                                                      >
                                                 </div>
                                                 
-                                                <div class="dropdown_content">
-                                                    <div class="c1_content">
-                                                        <div class="content_box">
-                                                            <div class="emphasis_box">
+                                                <div class="c1_dropdown_content">
+                                                    <div class="c1_content_in">
+                                                        <div class="c1_content_box">
+                                                            <div class="c1_emphasis_box">
                                                                 <strong class="emphasis">KREAM은 최대한 빠르게 모든 상품을 배송하기 위해 노력하고 있습니다. 배송 시간은 판매자가 검수를 위하여 상품을 검수센터로 보내는 속도에 따라 차이가 있습니다.</strong>
                                                             </div>
-                                                            <ul class="content_list">
-                                                                <li class="content_item">
-                                                                    <p class="title_txt">[빠른배송 구매]</p>
+                                                            <ul class="c1_content_list">
+                                                                <li class="c1_content_item">
+                                                                    <p class="c1_title_txt">[빠른배송 구매]</p>
                                                                 </li>
-                                                                <li class="content_item">
-                                                                    <p class="main_txt">
+                                                                <li class="c1_content_item">
+                                                                    <p class="c1_main_txt">
                                                                         - 판매자가 보관 신청한 상품 중 검수에 합격한 상품을 KREAM의 전용 창고에 보관합니다. 보관 상품에 한하여 바로 구매와 95점 구매가 가능합니다.
                                                                     </p>
                                                                 </li>
-                                                                <li class="content_item">
-                                                                    <p class="main_txt">
+                                                                <li class="c1_content_item">
+                                                                    <p class="c1_main_txt">
                                                                         - 오늘(오후 11:59까지) 결제하면 내일 바로 출고되어 빠른 배송이 가능합니다. (연휴 및 공휴일, 천재지변, 택배사 사유 등 예외적으로 출고일이 변경될 수 있습니다.
-                                                                        <a target="_blank" href="/about/inventory?type=stocked" class="txt_link"> 빠른배송 안내 </a>
+                                                                        <a target="_blank" href="/about/inventory?type=stocked" class="c1_txt_link"> 빠른배송 안내 </a>
                                                                     </p>
                                                                 </li>
-                                                                <li class="content_item">
-                                                                    <p class="title_txt">[일반 구매]</p>
+                                                                <li class="c1_content_item">
+                                                                    <p class="c1_title_txt">[일반 구매]</p>
                                                                 </li>
-                                                                <li class="content_item">
-                                                                    <p class="main_txt">
+                                                                <li class="c1_content_item">
+                                                                    <p class="c1_main_txt">
                                                                         - 거래가 체결된 시점부터 48시간(일요일•공휴일 제외) 내에 판매자가 상품을 발송해야 하며, 통상적으로 발송 후 1-2일 내에 KREAM 검수센터에 도착합니다.
                                                                     </p>
                                                                 </li>
-                                                                <li class="content_item">
-                                                                    <p class="main_txt">
+                                                                <li class="c1_content_item">
+                                                                    <p class="c1_main_txt">
                                                                         - 검수센터에 도착한 상품은 입고 완료 후 3영업일 이내에 검수를 진행합니다. 검수 합격시 배송을 준비합니다.
                                                                     </p>
-                                                                    <p class="sub_txt">
+                                                                    <p class="c1_sub_txt">
                                                                         * 상품 종류 및 상태에 따라 검수 소요 시간은 상이할 수 있으며, 구매의사 확인에 해당할 경우 구매자와 상담 진행으로 인해 지연이 발생할 수 있습니다.
                                                                     </p>
                                                                 </li>
-                                                                <li class="content_item">
-                                                                    <p class="main_txt">
+                                                                <li class="c1_content_item">
+                                                                    <p class="c1_main_txt">
                                                                         - 검수센터 출고는 매 영업일에 진행하고 있으며, 출고 마감시간은 오후 5시입니다. 출고 마감시간 이후 검수 완료건은 운송장번호는 입력되지만 다음 영업일에 출고됩니다.
                                                                     </p>
                                                                 </li>
@@ -1220,43 +1206,43 @@ tr {
                                             </div>
                                         </li>
                                         
-                                        <li class="">
-                                            <div class="dropdown">
-                                                <div class="dropdown_head">
-                                                    <p class="title">검수 안내</p>
+                                        <li class="c1_dropdownli">
+                                            <div class="c1_dropdown">
+                                                <div class="c1_dropdown_head">
+                                                    <p class="c1_title">검수 안내</p>
                                                     <img alt="" src="/TeamProject/img/shopDetail/chevron-down.svg"
-                                                     class="down_btn icon sprite-icons ico-arr-down-gray"
+                                                     class="c1_down_btn   ico-arr-down-gray"
                                                      >
                                                 </div>
-                                                <div class="dropdown_content">
-                                                    <div class="c1_content">
-                                                        <div class="content_box">
-                                                            <div class="emphasis_box">
+                                                <div class="c1_dropdown_content">
+                                                    <div class="c1_content_in">
+                                                        <div class="c1_content_box">
+                                                            <div class="c1_emphasis_box">
                                                                 <strong class="emphasis">판매자의 상품이 검수센터에 도착하면 전담 검수팀이 철저한 분석과 검사로 정가품 확인을 진행합니다.</strong>
                                                             </div>
-                                                            <ul class="content_list">
-                                                                <li class="content_item">
-                                                                    <p class="main_txt"> - 검수센터에서는 정가품 여부를 확인하기 위하여, 지속적으로 데이터를 쌓고 분석하여 기록하고 있습니다. </p>
+                                                            <ul class="c1_content_list">
+                                                                <li class="c1_content_item">
+                                                                    <p class="c1_main_txt"> - 검수센터에서는 정가품 여부를 확인하기 위하여, 지속적으로 데이터를 쌓고 분석하여 기록하고 있습니다. </p>
                                                                 </li>
-                                                                <li class="content_item">
-                                                                    <p class="main_txt"> - 업계 전문가로 구성된 검수팀은 박스와 상품의 라벨에서 바느질, 접착, 소재 등 모든 것을 검수합니다. </p>
+                                                                <li class="c1_content_item">
+                                                                    <p class="c1_main_txt"> - 업계 전문가로 구성된 검수팀은 박스와 상품의 라벨에서 바느질, 접착, 소재 등 모든 것을 검수합니다. </p>
                                                                 </li>
                                                             </ul>
                                                         </div>
-                                                        <div class="content_box">
-                                                            <div class="emphasis_box">
+                                                        <div class="c1_content_box">
+                                                            <div class="c1_emphasis_box">
                                                                 <strong class="emphasis">검수 결과는 불합격•검수 보류•합격의 세가지 상태로 결과가 변경됩니다.</strong>
-                                                                <a href="#" class="txt_link"> 검수기준 보기 </a>
+                                                                <a href="#" class="c1_txt_link"> 검수기준 보기 </a>
                                                             </div>
-                                                            <ul class="content_list">
-                                                                <li class="content_item">
-                                                                    <p class="sub_txt">* 검수 합격: KREAM 검수택(Tag)이 부착되어 배송을 준비함</p>
+                                                            <ul class="c1_content_list">
+                                                                <li class="c1_content_item">
+                                                                    <p class="c1_sub_txt">* 검수 합격: KREAM 검수택(Tag)이 부착되어 배송을 준비함</p>
                                                                 </li>
-                                                                <li class="content_item">
-                                                                    <p class="sub_txt">* 검수 보류: 앱에서 사진으로 상품의 상태 확인 및 구매 여부를 선택. (24시간 이후 자동 검수 합격)</p>
+                                                                <li class="c1_content_item">
+                                                                    <p class="c1_sub_txt">* 검수 보류: 앱에서 사진으로 상품의 상태 확인 및 구매 여부를 선택. (24시간 이후 자동 검수 합격)</p>
                                                                 </li>
-                                                                <li class="content_item">
-                                                                    <p class="sub_txt">* 검수 불합격: 즉시 거래가 취소되고 구매하신 금액을 환불 처리함.(환불 수단은 결제 수단과 동일)</p>
+                                                                <li class="c1_content_item">
+                                                                    <p class="c1_sub_txt">* 검수 불합격: 즉시 거래가 취소되고 구매하신 금액을 환불 처리함.(환불 수단은 결제 수단과 동일)</p>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -1264,27 +1250,27 @@ tr {
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="">
-                                            <div class="dropdown">
-                                                <div class="dropdown_head">
-                                                    <p class="title">구매 환불/취소/교환 안내</p>
+                                        <li class="c1_dropdownli">
+                                            <div class="c1_dropdown">
+                                                <div class="c1_dropdown_head">
+                                                    <p class="c1_title">구매 환불/취소/교환 안내</p>
                                                     <img alt="" 
                                                     src="/TeamProject/img/shopDetail/chevron-down.svg" 
-                                                    class="down_btn icon sprite-icons ico-arr-down-gray"
+                                                    class="c1_down_btn   ico-arr-down-gray"
                                                     >
                                                 </div>
-                                                <div class="dropdown_content">
-                                                    <div class="c1_content">
-                                                        <div class="content_box">
-                                                            <div class="emphasis_box">
+                                                <div class="c1_dropdown_content">
+                                                    <div class="c1_content_in">
+                                                        <div class="c1_content_box">
+                                                            <div class="c1_emphasis_box">
                                                                 <strong class="emphasis">KREAM은 익명 거래를 기반으로 판매자가 판매하는 상품을 구매자가 실시간으로 구매하여 거래를 체결합니다.</strong>
                                                             </div>
-                                                            <ul class="content_list">
-                                                                <li class="content_item">
-                                                                    <p class="main_txt">- 단순 변심이나 실수에 의한 취소/교환/반품이 불가능합니다. 상품을 원하지 않으시는 경우 언제든지 KREAM에서 재판매를 하실 수 있습니다.</p>
+                                                            <ul class="c1_content_list">
+                                                                <li class="c1_content_item">
+                                                                    <p class="c1_main_txt">- 단순 변심이나 실수에 의한 취소/교환/반품이 불가능합니다. 상품을 원하지 않으시는 경우 언제든지 KREAM에서 재판매를 하실 수 있습니다.</p>
                                                                 </li>
-                                                                <li class="content_item">
-                                                                    <p class="main_txt"> - 상품 수령 후, 이상이 있는 경우 KREAM 고객센터로 문의해주시기 바랍니다.</p>
+                                                                <li class="c1_content_item">
+                                                                    <p class="c1_main_txt"> - 상품 수령 후, 이상이 있는 경우 KREAM 고객센터로 문의해주시기 바랍니다.</p>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -1295,85 +1281,85 @@ tr {
                                     </ul>
                                 </div>
                             </div>
-                            <div class="point_guide lg">
-                                <ul class="guide_list">
-                                    <li class="guide_item">
-                                        <div class="thumb_area">
+                            <div class="c1_point_guide lg">
+                                <ul class="c1_guide_list">
+                                    <li class="c1_guide_item">
+                                        <div class="c1_thumb_area">
                                         <img 
                                         	src="/TeamProject/img/shop/img-guide-item01.svg"  
                                         	alt="" 
-                                        	class="img" 
+                                        	class="c1_img" 
                                         />
                                         </div>
-                                        <div class="text_area">
-                                            <strong class="title">100% 정품 보증</strong>
-                                            <p class="desc">KREAM에서 검수한 상품이 정품이 아닐 경우, 구매가의 3배를 보상합니다.</p>
+                                        <div class="c1_text_area">
+                                            <strong class="c1_title">100% 정품 보증</strong>
+                                            <p class="c1_desc">KREAM에서 검수한 상품이 정품이 아닐 경우, 구매가의 3배를 보상합니다.</p>
                                         </div>
                                     </li>
-                                    <li class="guide_item">
-                                        <div class="thumb_area">
+                                    <li class="c1_guide_item">
+                                        <div class="c1_thumb_area">
                                             <img
                                                 src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCA0MCAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3LjUgMjYuM0MxMS41MzUzIDI2LjMgNi43IDIxLjQ2NDcgNi43IDE1LjVDNi43IDkuNTM1MzMgMTEuNTM1MyA0LjcgMTcuNSA0LjdDMjMuNDY0NyA0LjcgMjguMyA5LjUzNTMzIDI4LjMgMTUuNUMyOC4zIDIxLjQ2NDcgMjMuNDY0NyAyNi4zIDE3LjUgMjYuM1oiIGZpbGw9IndoaXRlIiBzdHJva2U9IiMyMjIyMjIiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik0yNSAyM0wzMSAyOSIgc3Ryb2tlPSIjMjIyMjIyIiBzdHJva2Utd2lkdGg9IjEuNSIvPgo8cGF0aCBkPSJNMTYgMTMuMzMzM0wyMC43NzI3IDE4TDMxIDgiIHN0cm9rZT0iIzIyMjIyMiIgc3Ryb2tlLXdpZHRoPSIyLjIiLz4KPC9zdmc+Cg=="
                                                 alt=""
-                                                class="img"
+                                                class="c1_img"
                                             />
                                         </div>
-                                        <div class="text_area">
-                                            <strong class="title">엄격한 다중 검수</strong>
-                                            <p class="desc">모든 상품은 검수센터에 도착한 후, 상품별 전문가 그룹의 체계적인 시스템을 거쳐 검수를 진행합니다.</p>
+                                        <div class="c1_text_area">
+                                            <strong class="c1_title">엄격한 다중 검수</strong>
+                                            <p class="c1_desc">모든 상품은 검수센터에 도착한 후, 상품별 전문가 그룹의 체계적인 시스템을 거쳐 검수를 진행합니다.</p>
                                         </div>
                                     </li>
-                                    <li class="guide_item">
-                                        <div class="thumb_area">
+                                    <li class="c1_guide_item">
+                                        <div class="c1_thumb_area">
                                         	<img src="/TeamProject/img/shop/img-guide-item02.svg" alt="" 
-                                        		class="img"
+                                        		class="c1_img"
                                         	/>
                                         </div>
-                                        <div class="text_area">
-                                            <strong class="title">정품 인증 패키지</strong>
-                                            <p class="desc">검수에 합격한 경우에 한하여 KREAM의 정품 인증 패키지가 포함된 상품이 배송됩니다.</p>
+                                        <div class="c1_text_area">
+                                            <strong class="c1_title">정품 인증 패키지</strong>
+                                            <p class="c1_desc">검수에 합격한 경우에 한하여 KREAM의 정품 인증 패키지가 포함된 상품이 배송됩니다.</p>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
-                            <p class="meditaion_notice_product">
+                            <p class="c1_meditaion_notice_product">
 			                                크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아닙니다. 본 상품은 개별판매자가 등록한 상품으로 상품, 상품정보, 거래에 관한 의무와 책임은 각 판매자에게 있습니다. 단, 거래과정에서 검수하고 보증하는 내용에
 			                                대한 책임은 크림(주)에 있습니다.
                             </p>
                         </div>
                     </div>
                     
-                    <div class="floating_price lg is_open">
-                        <div class="inner_box">
-                            <div class="product_area">
-                                <div class="product_thumb" style="background-color: rgb(235, 240, 245);">
+                    <div class="c1_floating_price lg is_open">
+                        <div class="c1_inner_box">
+                            <div class="c1_product_area">
+                                <div class="c1_product_thumb" style="background-color: rgb(235, 240, 245);">
                                         <img
                                             alt="상품 이미지"
                                             src="https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=m"
-                                            class="product_img"
+                                            class="c1_product_img"
                                         />
                                 </div>
-                                <div class="product_info">
-                                    <p class="name">Nike Air Force 1 '07 Low White</p>
-                                    <p class="translated_name">나이키 에어포스 1 '07 로우 화이트</p>
+                                <div class="c1_product_info">
+                                    <p class="c1_name">Nike Air Force 1 '07 Low White</p>
+                                    <p class="c1_translated_name">나이키 에어포스 1 '07 로우 화이트</p>
                                 </div>
                             </div>
-                            <div class="btn_area">
-                                <a href="#" class="btn outlinegrey large btn_wish btn_wish_simple" aria-label="관심상품">
-                            	<img alt="" src="/TeamProject/img/shopDetail/bookmark.svg" class="c2_bookmark icon sprite-icons ico-wish-off">
-                                    <span class="wish_count_num">9.5만</span>
+                            <div class="c1_btn_area">
+                                <a href="#" class="c1_btn c1_outlinegrey c1_large c1_btn_wish" aria-label="관심상품">
+                            	<img alt="" src="/TeamProject/img/shopDetail/bookmark.svg" class="c1_bookmark ico-wish-off">
+                                    <span class="c1_wish_count_c1_num">9.5만</span>
                                 </a>
-                                <div class="division_btn_box lg">
-                                    <a href="#" class="btn_division buy">
-                                        <strong class="title">구매</strong>
-                                        <div class="price">
-                                            <span class="amount"><em class="num">129,000</em><span class="won">원</span></span><span class="desc">즉시 구매가</span>
+                                <div class="c1_division_btn_box lg">
+                                    <a href="#" class="c1_btn_division c1_buy">
+                                        <strong class="c1_title">구매</strong>
+                                        <div class="c1_price">
+                                            <span class="c1_amount"><em class="c1_num">129,000</em><span class="c1_won">원</span></span><span class="c1_desc">즉시 구매가</span>
                                         </div>
                                     </a>
-                                    <a href="#" class="btn_division sell">
-                                        <strong class="title">판매</strong>
-                                        <div class="price">
-                                            <span class="amount"><em class="num">170,000</em><span class="won">원</span></span><span class="desc">즉시 판매가</span>
+                                    <a href="#" class="c1_btn_division c1_sell">
+                                        <strong class="c1_title">판매</strong>
+                                        <div class="c1_price">
+                                            <span class="c1_amount"><em class="c1_num">170,000</em><span class="c1_won">원</span></span><span class="c1_desc">즉시 판매가</span>
                                         </div>
                                     </a>
                                 </div>
@@ -1401,12 +1387,12 @@ $(function(){     
 	var lastScroll = 0;
 		$(window).scroll(function(event) {
 			var scroll = $(this).scrollTop();
-			if (scroll < 1310) { //이벤트를 적용시킬 스크롤 높이               
-				$(".column:eq(0)").addClass("is_fixed");
-				$(".column:eq(0)").removeClass("is_absolute");
+			if (scroll < 1600) { //이벤트를 적용시킬 스크롤 높이               
+				$(".c1_column:eq(0)").addClass("c1_is_fixed");
+				$(".c1_column:eq(0)").removeClass("c1_is_absolute");
 			} else{
-				$(".column:eq(0)").removeClass("is_fixed");
-				$(".column:eq(0)").addClass("is_absolute");
+				$(".c1_column:eq(0)").removeClass("c1_is_fixed");
+				$(".c1_column:eq(0)").addClass("c1_is_absolute");
 			}
 			lastScroll = scroll;
 		});
@@ -1417,31 +1403,95 @@ $(function(){     
 		$(window).scroll(function(event) {
 			var scroll = $(this).scrollTop();
 			if (scroll > 400) { //이벤트를 적용시킬 스크롤 높이               
-				$(".floating_price").addClass("is_open");
-				$(".floating_price").show();
+				$(".c1_floating_price").addClass("is_open");
+				$(".c1_floating_price").show();
 			} else{
-				$(".floating_price").removeClass("is_open");
-				$(".floating_price").hide();
+				$(".c1_floating_price").removeClass("is_open");
+				$(".c1_floating_price").hide();
 			}
 			lastScroll = scroll;
 		});
 	});
 
-/* 구매전 주의사항 리스트 */
-$('.down_btn').on('click',function(){
-	// 현재 선택된 li을 가져옴
-	var $li = $(this).closest('li');
-
-	if($li.hasClass('open')){
-		$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
-		$('.open .dropdown_content').css('display','none');
-		$li.removeClass('open');
-	}
-	else{
-		$(this).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
-		$li.addClass('open');
-		$('.open .dropdown_content').css('display','block');
+/* 관심버튼 이미지 클릭시 로테이션으로 변경하기 */
+$('.c1_bookmark').on(	{'click' : function() {
+		var src = ($(this).attr('src') === '/TeamProject/img/shopDetail/bookmark.svg') ? '/TeamProject/img/shopDetail/bookmark-fill.svg'
+				: '/TeamProject/img/shopDetail/bookmark.svg';
+		$(this).attr('src', src);
 	}
 });
+
+$('.c1_down_btn').on('click',function(){
+	 let index = $(".c1_down_btn").index(this);	
+	 
+	if(index == 0){
+		if($('.c1_dropdownli').eq(index).hasClass('open')){
+			$('.open .c1_dropdown_content').css('display','none');
+			$('.c1_dropdownli').eq(index).removeClass('open');
+			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+		}else{
+			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdownli').eq(index).addClass('open');
+			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$('.c1_dropdown_content').css({"display": "none"});
+			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
+		}
+	}else if(index == 1){
+		if($('.c1_dropdownli').eq(index).hasClass('open')){
+			$('.open .c1_dropdown_content').css('display','none');
+			$('.c1_dropdownli').eq(index).removeClass('open');
+			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+		}else{
+			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdownli').eq(index).addClass('open');
+			$(this).eq(index).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$('.c1_dropdown_content').css({"display": "none"});
+			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
+		}
+	}else{
+		if($('.c1_dropdownli').eq(index).hasClass('open')){
+			$('.open .c1_dropdown_content').css('display','none');
+			$('.c1_dropdownli').eq(index).removeClass('open');
+			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+		}else{
+			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdownli').eq(index).addClass('open');
+			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$('.c1_dropdown_content').css({"display": "none"});
+			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
+		}
+	}
+});
+
+//팝업 체결거래, 판매 입찰, 구매입찰 버튼
+$(document).on('click', '.c1_item_tab', function () {
+    let index = $(".c1_item_tab").index(this);
+    console.log(index)
+
+    $(this).addClass('on');
+    $('.c1_item_tab').not($(this)).removeClass('on')
+
+    if (index == 0) {
+
+        $('.c1_tab_content').css({"display": "none"})
+        $('.c1_tab_content').eq(index).css({"display": "block"})
+
+    } else if (index == 1) {
+        $('.c1_tab_content').css({"display": "none"})
+        $('.c1_tab_content').eq(index).css({"display": "block"})
+    } else {
+        $('.c1_tab_content').css({"display": "none"})
+        $('.c1_tab_content').eq(index).css({"display": "block"})
+    }
+
+});
+
+$('.c1_buy').on('click',function(){
+	$(location).attr("href", "/TeamProject/shop/selectBuySize");
+})
+
+$('.c1_sell').on('click',function(){
+	$(location).attr("href", "/TeamProject/shop/selectSellSize");
+})
 </script>
 </html>
