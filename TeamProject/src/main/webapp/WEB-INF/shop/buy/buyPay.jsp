@@ -146,13 +146,14 @@
                     <div class="simple_payment">
                         <h4 class="method_title">
                             <div class="main_title">간편 결제 <span class="sub_title">일시불</span></div>
-                            <a href="#none" class="btn_card_add">+ 새 카드 추가</a>
+                            <!-- <a href="#none" class="btn_card_add">+ 새 카드 추가</a> -->
                         </h4>
                         <div class="card_list">
                             <div class="main_card selected">
                                 <div class="clickable_card">
-                                    <div class="card_info">
-                                        <span class="card_name"> BC</span>
+                                    <div class="card_info" style="text-align: center;">
+                                    	간편 결제 하기
+                                        <!-- <span class="card_name"> BC</span>
                                         <div class="card_num">
                                             <span class="num_bind">
                                                 <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
@@ -160,15 +161,15 @@
                                                 <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
                                                 <span class="last_num">9324</span>
                                             </span>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="method_desc">
+                    <!-- <div class="method_desc">
                         <p class="desc_txt">구매 입찰은 일시불만 지원하며, 카드사 홈페이지나 앱에서 분할 납부로 변경 가능합니다. 단, 카드사별 정책에 따라 분할 납부 변경 시 수수료가 발생할 수 있습니다.</p>
-                    </div>
+                    </div> -->
                 </div>
             </section>
             <section class="buy_check">
