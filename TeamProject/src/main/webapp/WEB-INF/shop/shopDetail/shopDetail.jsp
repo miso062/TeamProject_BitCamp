@@ -34,7 +34,7 @@
 		<jsp:include page="${container2}"></jsp:include>
 	</div>
 	<div id="footer">
-		<jsp:include page="${footer }"></jsp:include>
+		 <jsp:include page="${footer }"></jsp:include>
 	</div>
 </body>
 </html>

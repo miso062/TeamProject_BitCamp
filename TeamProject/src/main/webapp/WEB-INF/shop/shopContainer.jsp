@@ -478,7 +478,7 @@ li, ol, ul {
     <div class="shop_search_option" >
 		<div class="shop_filter_sorting" >
 			<button type="button" class="shop_sorting_title" id="shop_sorting_title" >인기순
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+				<svg xmlns="http://www.w3.org/2000/svg" width="15px" height="13px" fill="currentColor" viewBox="0 0 16 16">
 					<path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/>
 				</svg>
 			</button>
@@ -1412,13 +1412,19 @@ li, ol, ul {
 
 	$(function() {
 		/* 필터목록클릭시 체크 */
-		$(".shop_sorting_list .shop_sorting_item").on(
-				'click',
-				function() {
-					$(this).addClass("item_on");
-					$(".shop_sorting_list .shop_sorting_item").not(this)
-							.removeClass("item_on");
-				});
+		$(".shop_sorting_list .shop_sorting_item").on('click', function() {
+			$(this).addClass("item_on");
+			$(".shop_sorting_list .shop_sorting_item").not(this).removeClass("item_on");
+			
+			var text = $(this).find('.shop_main_desc').html(); 
+			var icon = '<svg xmlns="http://www.w3.org/2000/svg" width="15px" height="13px" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/></svg>'
+
+			$('.shop_sorting_list').css({
+				'display' : 'none'
+			});
+			
+			$('.shop_sorting_title').html(text + " " + icon);
+		});
 
 		$.noConflict();
 		/* 슬라이더 생성 */
