@@ -407,7 +407,7 @@ cursor: pointer;
 					<a href="#" class="h_top_link">관심상품</a>
 				</li>
 				<li class="h_top_item">
-					<a href="/TeamProject/user/myPage" class="h_top_link">마이페이지</a>
+					<a id="h_myPage" class="h_top_link">마이페이지</a>
 				</li>
         <li class="h_top_item">
         <%-- ${sessionScope.memId } --%>
@@ -553,7 +553,7 @@ cursor: pointer;
 			
 			<ul class="look_box">
 				<li class="look_list">
-					<a href="/TeamProject/uesr/signUp" class="look_link">이메일 가입</a>
+					<a href="/TeamProject/user/signUp" class="look_link">이메일 가입</a>
 				</li>
 				<li class="look_list">
 					<a href="#" class="look_link" >이메일 찾기</a>
@@ -617,6 +617,7 @@ $(document).on("click",function(e){
 })
 //로그인시 모달창
 $('#h_login').click(function(){
+	alert('오니2222')
 	$('.content_login').fadeIn();
     $('body').css("overflow", "hidden");
     $('.content_login').css('overflow-y', 'scroll')
@@ -625,6 +626,15 @@ $('#h_login').click(function(){
 $(document).on("click",function(e){
 	if($('.content_login').is(e.target)) {
 		$('.content_login').fadeOut();
+		$('.input_email_txt').val(''); //아이디 텍스트 창 비우기
+		$('.input_pwd_txt').val(''); //pwd 텍스트 창 비우기
+		document.getElementById('log_email_label').style.color = "black";
+		document.getElementById('log_email_error').style.display = "none";
+		document.getElementById('log_email_input').style.borderColor = "black";
+		document.getElementById('log_pwd_label').style.color ="black";
+		document.getElementById('log_pwd_error').style.display = "none";
+		document.getElementById('log_pwd_input').style.borderColor = "black";
+		document.getElementById('login_btn').className = 'login_btn_disabled'
         $('body').css("overflow-y", "scroll"); //스크롤 다시 보여주기
 	}
 })
@@ -684,6 +694,18 @@ window.addEventListener('load', function () {
 		}
 		
 	});
+});
+
+//로그인 여부에 따른 마이페이지 이동
+$('#h_myPage').click(function(){
+    if(!'${sessionScope.memId}') {
+        $('#h_login').trigger('click');
+        
+    }
+    else {
+    	location.href="/TeamProject/user/myPage"
+    	
+    }
 });
 
 </script>
