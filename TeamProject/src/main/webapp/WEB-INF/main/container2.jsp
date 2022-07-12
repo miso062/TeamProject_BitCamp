@@ -182,6 +182,8 @@
 
 <body>
  <!--섹션 1-->
+<input type="button" id="con_more_num" value="1">
+
 <div id="cd2_homeproducts">
 	<div class="cd2_product_title" >
 	    <div class="cd2_title" >Just Dropped</div>
@@ -395,7 +397,7 @@
 	        </div>
 	    </div>
 	        
-	        <div class="cd2_btn_product cd2_btn2"><div class="con2_more_btn"> 더보기 </div></div>
+	        <div class="cd2_btn_product cd2_btn2"><div class="con2_more_btn" > 더보기 </div></div>
 	        
 	        
 	    <div class="cd2_product_list cd2_list_third" >
@@ -500,7 +502,7 @@
 					</div>
 	        </div>
 		</div>
-	        <div class="cd2_btn_product cd2_btn3"><div class="con2_more_btn"> 더보기 </div></div>
+	        <div class="cd2_btn_product cd2_btn3"><div class="con2_more_btn" > 더보기 </div></div>
 	        
 	    <div class="cd2_product_list cd2_list_for" >
 	
@@ -625,7 +627,36 @@ $(function(){
 
 });
 </script>
+
 <script type="text/javascript">
+$(document).ready(function(){
+	alter('hi');
+	$.ajax({
+		type: 'post',
+		url: '/TeamProject/admin/getProductList',
+		data: 'num=' + $('#con_more_num').val(),
+		dataType:'json',
+		success: function(data){
+			
+			$.each(data.list,function(index, items){  //items = var boardDTO
+				console.log(index, items.brand, items.eng_name, items.releasePrice, items.filePath );
+
+				$('<li/>').append($('<div/>').append($('<a/>').append($('<div/>').append($('<img/>'))).append($('<div/>')
+						.append($('<div/>').append($('<p/>')).append($('<p/>'))
+								.append($('<p/>'))).append($('<div/>').append($('<div/>')).append($('<div/>').append($('<p/>')))))).append($('<div/>'))).appendTo($('.shop-list-ul'));
+			
+			});//each
+			
+			
+			//페이징처리
+			$('#productNum').html(data.productNum.pagingHTML);
+		},
+		error:function(e){
+			console.log(e);
+		}
+	});
+});
+	
 $(function(){
 	   $('.cd2_list_second').hide();
 	   $('.cd2_list_third').hide();
