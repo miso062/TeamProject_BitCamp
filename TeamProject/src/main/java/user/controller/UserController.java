@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,9 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	
 	@GetMapping(value="login")
 	public String login(Model model) {
@@ -55,6 +59,7 @@ public class UserController {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
 		model.addAttribute("nav", "/WEB-INF/user/myPage/myPageNav.jsp");
 		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
+		this.test();
 		return "/user/myPage/myPage";
 	}
 	
@@ -118,5 +123,13 @@ public class UserController {
 	public String findPWD(Model model) {
 		model.addAttribute("container", "/WEB-INF/user/findPWD.jsp");
 		return "forward:/user/findPWDMain";
+	}
+	
+	public void test() {
+		String test = "hihih";
+		String securityTest = passwordEncoder.encode(test);
+		boolean encodeTest = passwordEncoder.matches(test, "hihi");
+		
+		System.out.println(securityTest + " | " + encodeTest);
 	}
 }
