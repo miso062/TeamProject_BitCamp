@@ -646,7 +646,6 @@ li, ol, ul {
     color: rgba(34,34,34,.8);
 }
 .c1_tab_area .on .c1_item_link {
-    background-color: #fff;
     color: #222;
     font-weight: 700;
     -webkit-box-shadow: 0 0 0 0.5px #ebebeb inset;
