@@ -9,5 +9,7 @@
 		<typeAlias type="admin.bean.AdminDTO" alias="admin"/>
 		<typeAlias type="admin.bean.AdminQnADTO" alias="adminqna"/>
 		<typeAlias type="user.bean.UserDTO" alias="user"/>
+		<typeAlias type="product.bean.ProductImgDTO" alias="productImg"/>
+		<typeAlias type="product.bean.ProductDTO" alias="product"/>
 	</typeAliases>
 </configuration>
