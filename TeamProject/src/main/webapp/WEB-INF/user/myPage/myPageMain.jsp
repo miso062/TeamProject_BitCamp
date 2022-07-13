@@ -652,7 +652,7 @@
                 <div data-v-5acef129="" class="info_box">
                     <strong data-v-5acef129="" class="name">wnscks19</strong>
                     <p data-v-5acef129="" class="email">w******9@naver.com</p>
-                    <a data-v-3d1bcc82="" data-v-5acef129="" href="/my/profile" class="btn btn outlinegrey small" type="button"> 프로필 수정 </a>
+                    <a data-v-3d1bcc82="" data-v-5acef129="" href="/TeamProject/user/myPageEdit" class="btn btn outlinegrey small" type="button"> 프로필 수정 </a>
                     <a data-v-3d1bcc82="" data-v-5acef129="" href="/social/users/@ein7di" class="btn btn btn_my_style outlinegrey small" type="button"> 내 스타일 </a>
                 </div>
             </div>
