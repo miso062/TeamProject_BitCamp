@@ -27,18 +27,16 @@ public class UserController {
 	public String login(Model model) {
 		return "/user/login";
 	}
-	
+
 	@PostMapping(value="checkLogin")
 	@ResponseBody
 	public Map<String, Object> checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
-		UserDTO userDTO = new UserDTO();
-		
 		Map<String, Object> map = userService.checkLogin(log_email_input, log_pwd_input);
-		
 		
 		return map;
 	}
-	
+
+    
 	@PostMapping(value="checkLogout")
 	@ResponseBody
 	public void checkLogout(HttpSession session) {
@@ -101,9 +99,23 @@ public class UserController {
 		return "forward:/user/findEmailMain";
 	}
 	
+	@PostMapping(value="findEmaiAddress")
+	@ResponseBody
+	public Map<String, String> findEmailAddress(@RequestParam String phone) {
+		Map<String, String> map = userService.findEmailAddress(phone);
+		return map;                            
+	}
+	
+	
 	@GetMapping(value="findEmailResult")
-	public String findEmailResult(Model model) {
+	public String findEmailResult(Model model, @RequestParam String email) {
+		int atPoint = email.indexOf("@");
+		email = email.substring(0, 1) +
+				email.substring(1, atPoint-1).replaceAll(".", "*") + 
+				email.substring(atPoint-1);
+		
 		model.addAttribute("container", "/WEB-INF/user/findEmailResult.jsp");
+		model.addAttribute("email", email);
 		return "forward:/user/findEmailMain";
 	}
 	
@@ -119,4 +131,6 @@ public class UserController {
 		model.addAttribute("container", "/WEB-INF/user/findPWD.jsp");
 		return "forward:/user/findPWDMain";
 	}
+	
+	
 }

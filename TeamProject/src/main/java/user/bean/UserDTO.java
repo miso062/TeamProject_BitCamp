@@ -1,8 +1,8 @@
 package user.bean;
 
-import org.springframework.stereotype.Component;
+import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
@@ -20,7 +20,5 @@ public class UserDTO {
 	private String profile_img;
 	private int authority;
 	private String sign_up_type;
-	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
-	private String sign_up_date;
+	private Date sign_up_date;
 }

@@ -135,10 +135,12 @@
 		            <div class="input_box">
 		                <h3 class="input_title">휴대폰 번호</h3>
 		                <div class="input_item">
-		                	<input type="text" placeholder="가입하신 휴대폰 번호" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" autocomplete="off" class="input_txt" />
+		                	<input type="text" id="phone" name="phone" placeholder="가입하신 휴대폰 번호" autocomplete="off" class="input_txt" />
 	                	</div>
 		            </div>
-		            <div class="help_btn_box"><a disabled="disabled" href="#" class="btn full solid disabled"> 이메일 아이디 찾기 </a></div>
+		            <div class="help_btn_box">
+		            	<input type="button" disabled="disabled" id="find_email" class="btn full solid disabled" onclick="findEmailAddress()" value="이메일 아이디 찾기">
+		            </div>
 		        </div>
 		    </div>
 		</div>
@@ -146,18 +148,48 @@
 	<div id="footer" style="margin-top: 5%">
 		<jsp:include page="${footer }"></jsp:include>
 	</div>
+	
 	<script type="text/javascript">
-		$('.input_txt').on('input', function() {
-		    if($(this).val().length > 8){
+		
+	function findEmailAddress(){
+		$.ajax({
+			url:'/TeamProject/user/findEmaiAddress',
+			type:'post',
+			data:('phone=')+$('#phone').val(),
+			success: function(data){
+				if(data.success =="false"){
+					console.log(data);
+					alert('회원정보가 없습니다.');
+				}else{
+					console.log(data);
+					location.href='/TeamProject/user/findEmailResult?email='+data.user_id;
+				}
+			},
+			error: function(err){
+				alert('errrrr');
+				
+			}			
+		});
+		
+	};
+	
+	
+	$('.input_txt').on('input', function() {
+			var value = $(this).val();
+			var regPhone = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+		    if(regPhone.test(value) === true){
 		    	$('.full').removeClass('disabled');
 		    	$('.full').addClass('abled');
-		    	$('.full').attr('href','/TeamProject/user/findEmailResult');
+		    	$(".full").removeAttr("disabled");
 		    }
 		    else{
 		    	$('.full').addClass('disabled');
 		    	$('.full').removeClass('abled');
-		    	$('.full').attr('href','#');
+		    	$('.full').attr('disabled','disabled');
 		    }
-		});
+	});
+	
+		
+		
 	</script>
 </body>

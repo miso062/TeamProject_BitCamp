@@ -1,6 +1,7 @@
 package user.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -27,6 +28,11 @@ public class UserDAOImpl implements UserDAO {
 		
 		return userDTO;
 	}
-	
 
+	@Override
+	public String findEmailAddress(String phone) {
+		String user_id = sqlSession.selectOne("userMapper.findEmailAddress", phone);
+		System.out.println(user_id);
+		return user_id;
+	}
 }

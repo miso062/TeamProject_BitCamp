@@ -90,7 +90,8 @@ function checkPwd(value) { //비밀번호 유효성 검사
 }
 
 //로그인 ajax
-$('#login_btn').click(function(){
+//$('.login_btn').click(function(){
+  $(document).on('click','.login_btn', function(){
 	$.ajax({
 		url:'/TeamProject/user/checkLogin',
 		type:'post',
@@ -110,9 +111,9 @@ $('#login_btn').click(function(){
 			}
 			
 		},
-			error:function(err){
-				alert('로그인 실패');
-				console.log(err);
+		error:function(err){
+			alert('로그인 실패');
+			console.log(err);
 			}
 	});
 });
