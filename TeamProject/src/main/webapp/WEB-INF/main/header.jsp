@@ -617,7 +617,6 @@ $(document).on("click",function(e){
 })
 //로그인시 모달창
 $('#h_login').click(function(){
-	alert('오니2222')
 	$('.content_login').fadeIn();
     $('body').css("overflow", "hidden");
     $('.content_login').css('overflow-y', 'scroll')

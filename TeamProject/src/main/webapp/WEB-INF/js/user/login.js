@@ -106,7 +106,7 @@ $('#login_btn').click(function(){
 			}else{
 				console.log(data);
 				alert('로그인 되었습니다.');
-				                                                                                                                location.href='/TeamProject/';
+				location.href='/TeamProject/';
 			}
 			
 		},
