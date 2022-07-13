@@ -182,6 +182,8 @@
 
 <body>
  <!--섹션 1-->
+<input type="button" id="con_more_num" value="1">
+
 <div id="cd2_homeproducts">
 	<div class="cd2_product_title" >
 	    <div class="cd2_title" >Just Dropped</div>
@@ -395,7 +397,7 @@
 	        </div>
 	    </div>
 	        
-	        <div class="cd2_btn_product cd2_btn2"><div class="con2_more_btn"> 더보기 </div></div>
+	        <div class="cd2_btn_product cd2_btn2"><div class="con2_more_btn" > 더보기 </div></div>
 	        
 	        
 	    <div class="cd2_product_list cd2_list_third" >
@@ -500,7 +502,7 @@
 					</div>
 	        </div>
 		</div>
-	        <div class="cd2_btn_product cd2_btn3"><div class="con2_more_btn"> 더보기 </div></div>
+	        <div class="cd2_btn_product cd2_btn3"><div class="con2_more_btn" > 더보기 </div></div>
 	        
 	    <div class="cd2_product_list cd2_list_for" >
 	
@@ -625,7 +627,45 @@ $(function(){
 
 });
 </script>
+
 <script type="text/javascript">
+$(document).ready(function(){
+	alert('hi');
+	$.ajax({
+		type: 'post',
+		url: '/TeamProject/getProductList',
+		data: 'num=' + $('#con_more_num').val(),
+		dataType:'json',
+		success: function(data){
+			alter('hello');
+
+	/* 		$.each(data.list,function(index, items){  //items = var boardDTO
+				console.log(index, items.ProductDTO.brand, items.ProductDTO.eng_name, items.ProductDTO.releasePrice, items.ProductImgDTO.filePath );
+
+				$('<div class="cd2_product_item" />').append($('<a class="cd2_item_inner" />'
+						).append($('<div class="cd2_thum_box"/>'
+								).append($('<div class="cd2_product" />'
+										).append($('<img class="cd2_product_img" />')
+												))).append($('<div class="cd2_info_box" />'
+														).append($('<div class="cd2_brand" />'
+																).append($('<p class="cd2_brand_text" />')
+										)).append($('<p class="cd2_name" />')
+												).append($('<div class="cd2_price" />'
+														).append($('<div class="amount" />'
+																).append($('<div class="cd2_num" />')
+										).append($('<div class="cd2_won" />')
+					)).append($('<div class="cd2_desc" />').append($('<p/>'))))
+					)).append($('<div/>')).appendTo($('.cd2_product_list'));
+				});//each */
+
+			$('#con_more_num').val(data.num);
+		},
+		error:function(e){
+			console.log(e);
+		}
+	});
+});
+	
 $(function(){
 	   $('.cd2_list_second').hide();
 	   $('.cd2_list_third').hide();
