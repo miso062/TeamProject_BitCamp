@@ -544,6 +544,7 @@ section .section_unit + .section_unit {
 	color: #222;
 	display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .notice_group{
 	margin-right: 20px;
@@ -569,7 +570,7 @@ section .section_unit + .section_unit {
 	border-top: 0;
 	color: #222;
 }
-.btn_confirm .buy_btn {
+.buy_btn {
     height: 60px;
     line-height: 60px;
     border-radius: 12px;
@@ -580,7 +581,7 @@ section .section_unit + .section_unit {
     cursor: pointer;
     vertical-align: middle;
     text-align: center;
-    background-color: #ef6253;
+    background-color: #ebebeb;
     color: #fff;
 }
 .check_area_checkbox{

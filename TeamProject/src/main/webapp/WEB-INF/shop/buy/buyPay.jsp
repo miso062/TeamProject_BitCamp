@@ -1,13 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="/TeamProject/css/shop/buy/buyPay.css"/>
-</head>
-<body>
+
+<link rel="stylesheet" type="text/css" href="/TeamProject/css/shop/buy/buyPay.css"/>
 <div class="container buy lg">
     <div class="content">
         <div class="buy_immediate">
@@ -152,13 +146,14 @@
                     <div class="simple_payment">
                         <h4 class="method_title">
                             <div class="main_title">간편 결제 <span class="sub_title">일시불</span></div>
-                            <a href="#none" class="btn_card_add">+ 새 카드 추가</a>
+                            <!-- <a href="#none" class="btn_card_add">+ 새 카드 추가</a> -->
                         </h4>
                         <div class="card_list">
                             <div class="main_card selected">
                                 <div class="clickable_card">
-                                    <div class="card_info">
-                                        <span class="card_name"> BC</span>
+                                    <div class="card_info" style="text-align: center;">
+                                    	간편 결제 하기
+                                        <!-- <span class="card_name"> BC</span>
                                         <div class="card_num">
                                             <span class="num_bind">
                                                 <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
@@ -166,71 +161,67 @@
                                                 <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
                                                 <span class="last_num">9324</span>
                                             </span>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="method_desc">
+                    <!-- <div class="method_desc">
                         <p class="desc_txt">구매 입찰은 일시불만 지원하며, 카드사 홈페이지나 앱에서 분할 납부로 변경 가능합니다. 단, 카드사별 정책에 따라 분할 납부 변경 시 수수료가 발생할 수 있습니다.</p>
-                    </div>
+                    </div> -->
                 </div>
             </section>
             <section class="buy_check">
                 <div>
                     <ul class="check_list lg">
                         <li class="check_item">
-                            <a href="#" class="check_area">
+                            <a class="check_area">
                                 <div class="notice_group">
                                     <p class="notice_maintext">판매자의 판매거부, 배송지연, 미입고 등의 사유가 발생할 경우, 거래가 취소될 수 있습니다.</p>
                                     <p class="notice_subtext">앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래 진행 상태 알림을 받을 수 없습니다.</p>
                                 </div>
                                 <div class="checkbox_item">
-                                	<input id="undefined" type="checkbox" name="checklist" class="blind">
                                		<label for="undefined" class="check_label">
-                               			<img class="check_area_checkbox" alt="check" src="/TeamProject/img/shop/checkbox-inactive.png">
+                               			<img class="check_area_checkbox" alt="check1" src="/TeamProject/img/shop/checkbox-inactive.png">
 									</label>
 								</div>
                             </a>
                         </li>
                         <li class="check_item">
-                            <a href="#" class="check_area">
+                            <a class="check_area">
                                 <div class="notice_group">
                                     <p class="notice_maintext">창고 보관을 선택한 경우, 구매자에게 배송되지 않고 KREAM 창고에 보관됩니다.</p>
                                     <p class="notice_subtext">검수 합격 후 보관이 완료되면 창고 이용료(현재 첫 30일 무료)가 결제됩니다.</p>
                                 </div>
                                 <div class="checkbox_item">
-                                	<input id="undefined" type="checkbox" name="checklist" class="blind">
                                		<label for="undefined" class="check_label">
-                               			<img class="check_area_checkbox" alt="check" src="/TeamProject/img/shop/checkbox-inactive.png">
+                               			<img class="check_area_checkbox" alt="check2" src="/TeamProject/img/shop/checkbox-inactive.png">
 									</label>
 								</div>
                             </a>
                         </li>
                         <li class="check_item">
-                            <a href="#" class="check_area">
+                            <a class="check_area">
                                 <div class="notice_group">
                                     <p class="notice_maintext">구매 입찰의 거래가 체결되면, 단순 변심이나 실수에 의한 취소가 불가능합니다.</p>
                                     <p class="notice_subtext">본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약철회(환불, 교환) 규정이 적용되지 않습니다.</p>
                                 </div>
                                 <div class="checkbox_item">
-                                	<input id="undefined" type="checkbox" name="checklist" class="blind">
                                		<label for="undefined" class="check_label">
-                               			<img class="check_area_checkbox" alt="check" src="/TeamProject/img/shop/checkbox-inactive.png">
+                               			<img class="check_area_checkbox" alt="check3" src="/TeamProject/img/shop/checkbox-inactive.png">
 									</label>
 								</div>
                             </a>
                         </li>
                         <li class="check_item">
-                            <a href="#" class="check_area">
+                            <a class="check_area">
                                 <div class="notice_group">
                                     <p class="notice_maintext">구매 조건을 모두 확인하였으며, 입찰 진행에 동의합니다.</p>
                                 </div>
                                 <div class="checkbox_item">
-                                	<input id="undefined" type="checkbox" name="checklist" class="blind">
                                		<label for="undefined" class="check_label">
-                               			<img class="check_area_checkbox" alt="check" src="/TeamProject/img/shop/checkbox-inactive.png">
+                               			<img class="check_area_checkbox" alt="check4" src="/TeamProject/img/shop/checkbox-inactive.png">
 									</label>
 								</div>
                             </a>
@@ -245,11 +236,32 @@
                         </dl>
                     </div>
                     <div class="btn_confirm"><a href="#" class="buy_btn"> 구매 입찰하기 </a></div>
+                    <%-- <a href="#" class="buy_btn"> 구매 입찰하기 </a> --%>
                 </div>
             </section>
         </div>
     </div>
 </div>
 
-</body>
-</html>
+<script type="text/javascript">
+	$(function(){
+		$('.check_area').click(function(){
+			img = $(this).find('.check_area_checkbox');
+			if(img.hasClass('active')){
+				img.attr('src', '/TeamProject/img/shop/checkbox-inactive.png');
+				img.removeClass('active');
+			}
+			else{
+				img.addClass('active');
+				img.attr('src', '/TeamProject/img/shop/checkbox-active.png');
+			}
+			
+			if($('.active').length == 4){
+				$('.buy_btn').css('background-color', '#ef6253');
+			}
+			else{
+				$('.buy_btn').css('background-color', '#ebebeb');
+			}
+		});
+	});
+</script>

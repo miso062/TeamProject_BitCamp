@@ -409,7 +409,8 @@ section .check_item[data-v-c9dd64ec]:first-child {
 	display: flex;
 	-webkit-box-align: center;
 	-ms-flex-align: center;
-	align-items: center
+	align-items: center;
+	
 }
 
 .checkbox_item[data-v-c9dd64ec] {
@@ -717,8 +718,8 @@ to {
 }
 
 }
-@
-keyframes op-erase-in { 0%{
+
+keyframes op-erase-in { 
 	-webkit-transform: scale(1);
 	transform: scale(1);
 	opacity: .4
@@ -778,6 +779,65 @@ to {
 	-webkit-animation: erase-out .3s;
 	animation: erase-out .3s
 }
+.btn_confirm md{
+	padding:0px 32px 32px
+}
+
+.check_items{
+	padding: 25px 0 20px;
+	border-top: 1px solid #ebebeb;
+	height:110px;
+    
+}
+
+/* .solid.disabled[data-v-3d1bcc82], .solid[data-v-3d1bcc82]:disabled {
+    background-color: #ebebeb;
+    color: #fff;
+    cursor: default;
+} */
+#btn_continue {
+	border-radius: 12px;
+    font-weight: 700;
+	width: 636px;
+	height:52px;
+	font-size: 16px;
+	text-align:center;
+	display: inline-block;
+    vertical-align: middle;
+    background-color: #ebebeb;
+    color: white;
+}
+#font_continue{
+	margin-top:15px;
+	font: #ffffff;
+}
+
+.check{
+	background-color:#000000;
+	
+}
+.checkbox_item .check_label[data-v-4c714e9f] {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+.check_label{
+	width:24px;
+	height:24px
+}
+.checkbox_item{
+	margin-left: auto;
+	position: relative;
+    font-size: 0
+}
+.checkbox_item_img{
+	width:24px;
+	height:24px;
+	cursor: pointer;
+}
+.check_area{
+	cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -819,7 +879,7 @@ to {
 										<p data-v-56991a6e="" class="model_ko">조던 1 레트로 하이 OG 블랙
 											모카</p>
 										<div data-v-56991a6e="" class="model_desc">
-											<p data-v-56991a6e="" class="size_txt">240(US 5.5)</p>
+											<p data-v-56991a6e="" class="size_txt">240</p>
 											<!---->
 										</div>
 									</div>
@@ -829,8 +889,8 @@ to {
 					</div>
 					<div data-v-4146ec1a="" data-v-66e3a22e="" buy-type="bid">
 						<ul data-v-c9dd64ec="" data-v-4146ec1a="" class="check_list md">
-							<li data-v-c9dd64ec="" class="check_item"><a
-								data-v-c9dd64ec="" href="#" class="check_area">
+							<li data-v-c9dd64ec="" class="check_item">
+							<a data-v-c9dd64ec=""  class="check_area">
 									<div data-v-c9dd64ec="" class="notice_group">
 										<p data-v-c9dd64ec="" class="notice_maintext">구매하려는 상품이
 											맞습니다.</p>
@@ -838,101 +898,98 @@ to {
 											출시일, 상품명, 사이즈를 한 번 더 확인했습니다.</p>
 										<!---->
 									</div>
-									<!-- <div data-v-4c714e9f="" data-v-c9dd64ec=""
-										class="checkbox_item">
-										<input data-v-4c714e9f="" id="undefined" type="checkbox"
-											name="checklist" class="blind"><label
-											data-v-4c714e9f="" for="undefined" class="check_label"><svg
-												data-v-4c714e9f="" xmlns="http://www.w3.org/2000/svg"
-												class="icon sprite-icons ico-check-inactive">
-												<use data-v-4c714e9f=""
-													href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-check-inactive"
-													xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-check-inactive"></use></svg>
-											</label>
-									</div> -->
-							</a></li>
+									
+									<div class="checkbox_item">
+										
+											<label for="check1" class="check_label">
+												<img src="/TeamProject/img/shop/checkbox-inactive.png" class="checkbox_item_img">
+											 </label>
+									</div>
+									
+							</a>
+							
+							</li>
+										
 							<li data-v-c9dd64ec="" class="check_item"><a
-								data-v-c9dd64ec="" href="#" class="check_area"><div
+								data-v-c9dd64ec="" class="check_area"><div
 										data-v-c9dd64ec="" class="notice_group">
 										<p data-v-c9dd64ec="" class="notice_maintext">국내/해외에서 발매한
 											정품 · 새상품입니다.</p>
 										<p data-v-c9dd64ec="" class="notice_subtext">모든 구성품이
-											그대로이며, 한 번도 착용하지 않은 정품・새상품입니다. 국내 발매 상품 여부는 확인드리지 않습니다.</p>
+											그대로이며, 한 번도 착용하지 않은 정품・새상품입니다. 국내 발매 상품 여부는 확인드리지<br> 않습니다.</p>
 										<!---->
 									</div>
-									<!-- <div data-v-4c714e9f="" data-v-c9dd64ec=""
-										class="checkbox_item">
-										<input data-v-4c714e9f="" id="undefined" type="checkbox"
-											name="checklist" class="blind"><label
-											data-v-4c714e9f="" for="undefined" class="check_label"><svg
-												data-v-4c714e9f="" xmlns="http://www.w3.org/2000/svg"
-												class="icon sprite-icons ico-check-inactive">
-												<use data-v-4c714e9f=""
-													href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-check-inactive"
-													xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-check-inactive"></use></svg>
-											</label>
-									</div> -->
 									
-									</a></li>
-							<li data-v-c9dd64ec="" class="check_item"><a
-								data-v-c9dd64ec="" href="#" class="check_area"><div
-										data-v-c9dd64ec="" class="notice_group">
+									<div class="checkbox_item">
+										
+											<label for="check2" class="check_label">
+												<img src="/TeamProject/img/shop/checkbox-inactive.png" class="checkbox_item_img">
+											 </label>
+									</div>
+									</a>
+									</li>
+									
+									
+							<li data-v-c9dd64ec="" class="check_items">
+							<a data-v-c9dd64ec="" class="check_area">
+							<div data-v-c9dd64ec="" class="notice_group">
 										<p data-v-c9dd64ec="" class="notice_maintext">제조사에서 불량으로
 											인정하지 않는 기준은 하자로 판단하지 않습니다.</p>
-										<p data-v-c9dd64ec="" class="notice_subtext">박스/패키지와 상품
+											<div> 
+										 <p data-v-c9dd64ec="" class="notice_subtext">박스/패키지와 상품
 											컨디션에 민감하시다면 검수 기준을 반드시 확인하시기 바랍니다.</p>
-										<div data-v-c9dd64ec="">
-											<a data-v-c9dd64ec=""
-												href="https://kream.co.kr/auth_policy?category=sneakers"
-												target="_blank" class="check_view"> 검수기준 보기 </a>
-										</div>
-									</div>
-									<!-- <div data-v-4c714e9f="" data-v-c9dd64ec=""
-										class="checkbox_item">
-										<input data-v-4c714e9f="" id="undefined" type="checkbox"
-											name="checklist" class="blind"><label
-											data-v-4c714e9f="" for="undefined" class="check_label"><svg
-												data-v-4c714e9f="" xmlns="http://www.w3.org/2000/svg"
-												class="icon sprite-icons ico-check-inactive">
-												<use data-v-4c714e9f=""
-													href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-check-inactive"
-													xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-check-inactive"></use></svg>
+										
+									<div class="checkbox_item">
+											<label for="check3" class="check_label"> 
+												<img src="/TeamProject/img/shop/checkbox-inactive.png" class="checkbox_item_img">
 											</label>
-									</div> -->
+									</div>
+									
+									<div data-v-c9dd64ec="">
+											<a data-v-c9dd64ec=""
+												href="/TeamProject/shop/buyCheck_1"
+												target="_blank" class="check_view"> 검수기준 보기 </a>
+										 
+									</div>
+									
+							
 									
 									
-									</a></li>
-							<li data-v-c9dd64ec="" class="check_item"><a
-								data-v-c9dd64ec="" href="#" class="check_area">
+									</a>
+									</li>
+							<li data-v-c9dd64ec="" class="check_items"><a
+								data-v-c9dd64ec=""class="check_area">
 									<div data-v-c9dd64ec="" class="notice_group">
 										<p data-v-c9dd64ec="" class="notice_maintext">KREAM의 최신
 											이용정책을 모두 확인하였으며, 구매를 계속합니다.</p>
+											<div>
 										<p data-v-c9dd64ec="" class="notice_subtext">건전하고 안전한 거래를
 											위해 반드시 숙지해야 할 미입고, 페널티, 부정거래 등의 이용정책을 확인했습니다.</p>
+											
+										<div class="checkbox_item">
+										
+											<label for="check4" class="check_label">
+												<img src="/TeamProject/img/shop/checkbox-inactive.png" class="checkbox_item_img" >
+											 </label>
+									    </div>
+									    
 										<div data-v-c9dd64ec="">
 											<a data-v-c9dd64ec=""
-												href="https://kream.co.kr/faq?category=policy"
+												href="#"
 												target="_blank" class="check_view"> 이용정책 보기 </a>
 										</div>
 									</div>
-									<!-- <div data-v-4c714e9f="" data-v-c9dd64ec=""
-										class="checkbox_item">
-										<input data-v-4c714e9f="" id="undefined" type="checkbox"
-											name="checklist" class="blind"><label
-											data-v-4c714e9f="" for="undefined" class="check_label"><svg
-												data-v-4c714e9f="" xmlns="http://www.w3.org/2000/svg"
-												class="icon sprite-icons ico-check-inactive">
-												<use data-v-4c714e9f=""
-													href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-check-inactive"
-													xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-check-inactive"></use></svg>
-											</label>
-									</div> -->
+									
 							</a></li>
 						</ul>
-						<div data-v-4146ec1a="" class="btn_confirm md">
-							<a data-v-3d1bcc82="" data-v-4146ec1a="" disabled="disabled"
-								href="#" class="btn full solid disabled"> 구매 계속 </a>
+						<div data-v-4146ec1a="" class="btn_confirm md" id="btn_import">
+							<a data-v-3d1bcc82="" data-v-4146ec1a="" disabled="disabled" href="#" class="btn full solid disabled" id="btn_continue">
+							<div id="font_continue">
+							 구매 계속
+							</div>
+							</a>
 						</div>
+						
 						<!---->
 					</div>
 				</div>
@@ -941,4 +998,45 @@ to {
 		</div>
 	</div>
 </body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	$('.check_area').click(function(){
+		//$(this).find('.checkbox_item_img').attr('src')
+		img = $(this).find('.checkbox_item_img');
+		if(img.hasClass('active')){
+			img.attr('src', '/TeamProject/img/shop/checkbox-inactive.png');
+			img.removeClass('active');
+		}
+		else{
+			img.addClass('active');
+			img.attr('src', '/TeamProject/img/shop/checkbox-active.png');
+		}
+		
+		if($('.active').length == 4){
+			$('#btn_continue').css('background-color', '#222');
+			$('#btn_continue').attr('href', '/TeamProject/shop/enterBuyPrice');
+			
+		}
+		else{
+			$('#btn_continue').css('background-color', '#ebebeb');
+			$('#btn_continue').attr('href', '#');
+		}
+		
+	})
+});
+
+$(function(){
+	$('#upload_file_check').change(function(){
+		
+		var is_check = $(this).is(':checked');
+		$('#file_finder').prop('disabled', !is_check);
+	});
+});
+
+
+
+ 
+</script>
 </html>

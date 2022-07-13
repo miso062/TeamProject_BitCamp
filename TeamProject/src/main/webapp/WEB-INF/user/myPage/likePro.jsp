@@ -166,7 +166,6 @@ img, video {
 }
 .my_interest .division_btn_box[data-v-23bbaa82] {
     margin-top: 0;
-    width: 164px;
     text-align: left;
 }
 .division_btn_box[data-v-23bbaa82] {
@@ -174,7 +173,8 @@ img, video {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    height: 60px;
+    height: 50px;
+    width: 120px;
 }
 .division_btn_box .btn_division.buy[data-v-23bbaa82] {
     background-color: #ef6253;
@@ -222,11 +222,7 @@ img, video {
 .my_interest .division_btn_box .desc[data-v-23bbaa82] {
     font-weight: 400;
 }
-.division_btn_box[data-v-23bbaa82] {
-    margin-top: 0;
-    width: 164px;
-    text-align: left;
-}
+
 .wish_buy .status_link[data-v-6af0c2e4] {
     margin-top: 6px;
     padding: 0 3px;
@@ -428,4 +424,13 @@ img, video {
     </div>
     <!---->
 </div>
+<script type="text/javascript">
+window.onload = function() {
+	
+	$('.snb_menu').eq(0).find('.menu_link').eq(2).removeClass('unbold');
+	$('.snb_menu').eq(0).find('.menu_link').eq(2).addClass('bold');
+	
+}
+
+</script>
 

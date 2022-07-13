@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="/TeamProject/css/user/login.css">
 <style type="text/css">
 .h_header {
@@ -80,7 +81,7 @@ clear: both;
 
 
 .h_logo {
-margin-left : 20px;
+margin-left : -35px;
 }
 
 .h_header .h_main_inner {
@@ -286,6 +287,7 @@ clear : both;
 }
 .h_btn_close {
 height: 40px;
+cursor: pointer;
 }
 .h_search_wrap{
 margin: 0px  auto;
@@ -385,6 +387,14 @@ height:80px;
     border-radius: 15px;
     
 }
+a {
+cursor: pointer;
+}
+#h_main_logo {
+	vertical-align : baseline;
+	width : atuo;
+	height: 45px;
+}
 </style>    
 <div class="h_header h_mo">
 	<div id="h_top">
@@ -397,11 +407,17 @@ height:80px;
 					<a href="#" class="h_top_link">관심상품</a>
 				</li>
 				<li class="h_top_item">
-					<a href="/TeamProject/user/myPage" class="h_top_link">마이페이지</a>
+					<a id="h_myPage" class="h_top_link">마이페이지</a>
 				</li>
-				<li class="h_top_item">
-					<a id="h_login" class="h_top_link">로그인</a>
-				</li>
+        <li class="h_top_item">
+        <%-- ${sessionScope.memId } --%>
+        <c:if test="${sessionScope.memId == null}">
+          <a id="h_login" class="h_top_link">로그인</a>
+        </c:if>
+        <c:if test="${sessionScope.memId != null}">
+          <a id="h_logout" class="h_top_link">로그아웃</a>
+        </c:if>
+        </li>
 			</ul>
 		</div>
 	</div>
@@ -409,7 +425,7 @@ height:80px;
 		<div class="h_main_inner">
 			<h1 class="h_h1">
 				<a href="/TeamProject/" class="h_logo">
-					<img src="/TeamProject/img/main/header/kream.jpg" alt="kream로고" style="width:100px;">
+					<img src="/TeamProject/img/main/header/gese_logo.png" alt="kream로고"  id="h_main_logo">
 					</a>
 			</h1>
 		<div class="h_gnb_area">
@@ -511,7 +527,7 @@ height:80px;
 			</div>
 			
 			
-			<form action="/TeamProject/user/login" method="post">
+			
 				<div class="input_email_box">
 					<h3 class="input_email_title" id="log_email_label" >이메일 주소</h3>
 					<div class="input_email_item">
@@ -533,26 +549,25 @@ height:80px;
 				<div class="login_btn_box">
 					<button class="login_btn_disabled" id="login_btn">로그인</button>
 				</div>
-			</form>
 			
 			
 			<ul class="look_box">
 				<li class="look_list">
-					<a href="/TeamProject/uesr/signUp" class="look_link">이메일 가입</a>
+					<a href="/TeamProject/user/signUp" class="look_link">이메일 가입</a>
 				</li>
 				<li class="look_list">
-					<a href="#" class="look_link" >이메일 찾기</a>
+					<a href="/TeamProject/user/findEmail" class="look_link" >이메일 찾기</a>
 				</li>
 				<li class="look_list">
-					<a href="#" class="look_link" >비밀번호 찾기</a>
+					<a href="/TeamProject/user/findPWD" class="look_link" >비밀번호 찾기</a>
 				</li>
 			</ul>
 			<div class="social_login">
 				<a id="naverIdLogin_loginButton" href="javascript:void(0)"> <!-- GU6NNwfSmxJ3JXmCBaTf  -->
-					<img src="/TeamProject/img/main/header/miso.png" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
+					<img src="/TeamProject/img/main/header/miso.png" class="login_login_logo" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
 				</a>	 
 			 	<a href="javascript:kakaoLogin();"> <!-- 144932b30082932e5eba55d918d38249 -->
-			 		<img src="/TeamProject/img/main/header/kakao_login_large_wide.png" alt="카카오계정 로그인" style="width: 400px; height: auto;  border-radius: 12px;"/>
+			 		<img src="/TeamProject/img/main/header/kakao_login_large_wide.png"  class="login_login_logo"  alt="카카오계정 로그인" style="width: 400px; height: auto;  border-radius: 12px;"/>
 			 	</a>
 			</div>
 	    </div>
@@ -565,6 +580,22 @@ height:80px;
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script type="text/javascript">
+//로그아웃
+$('#h_logout').click(function(){
+	$.ajax({
+		url:'/TeamProject/user/checkLogout',
+		type:'post',
+		
+		success: function(){
+			alert("로그아웃 되었습니다.");
+			location.href='/TeamProject/';
+		},
+		error:function(err){
+			console.log(err);
+		}
+	});
+});
+
 //돋보기 클릭시 검색 모달창
 $('.h_searchBtn').click(function(){
 	$('.h_layer_search').fadeIn();
@@ -585,14 +616,25 @@ $(document).on("click",function(e){
 })
 //로그인시 모달창
 $('#h_login').click(function(){
+	alert('오니2222')
 	$('.content_login').fadeIn();
     $('body').css("overflow", "hidden");
     $('.content_login').css('overflow-y', 'scroll')
 });
+
 //로그인 모달창 닫기
 $(document).on("click",function(e){
 	if($('.content_login').is(e.target)) {
 		$('.content_login').fadeOut();
+		$('.input_email_txt').val(''); //아이디 텍스트 창 비우기
+		$('.input_pwd_txt').val(''); //pwd 텍스트 창 비우기
+		document.getElementById('log_email_label').style.color = "black";
+		document.getElementById('log_email_error').style.display = "none";
+		document.getElementById('log_email_input').style.borderColor = "black";
+		document.getElementById('log_pwd_label').style.color ="black";
+		document.getElementById('log_pwd_error').style.display = "none";
+		document.getElementById('log_pwd_input').style.borderColor = "black";
+		document.getElementById('login_btn').className = 'login_btn_disabled'
         $('body').css("overflow-y", "scroll"); //스크롤 다시 보여주기
 	}
 })
@@ -652,6 +694,18 @@ window.addEventListener('load', function () {
 		}
 		
 	});
+});
+
+//로그인 여부에 따른 마이페이지 이동
+$('#h_myPage').click(function(){
+    if(!'${sessionScope.memId}') {
+        $('#h_login').trigger('click');
+        
+    }
+    else {
+    	location.href="/TeamProject/user/myPage"
+    	
+    }
 });
 
 </script>
