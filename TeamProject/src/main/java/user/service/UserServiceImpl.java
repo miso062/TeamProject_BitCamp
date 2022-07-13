@@ -63,13 +63,6 @@ public class UserServiceImpl implements UserService {
 		return map;
 	}
 	
-	
-
-
-
-	
-
-
 	@Override
 	public void addaddressbook(AddressDTO addressDTO) {
 		if(addressDTO.getFlag() == 1) {

@@ -10,8 +10,6 @@ import user.bean.UserDTO;
 
 public interface UserService {
 	
-	public String loginCheck(UserDTO userDTO, HttpSession session);
-	public void logout(HttpSession session);
 	public void addaddressbook(AddressDTO addressDTO);
 	public Map<String, Object> checkLogin(String log_email_input, String log_pwd_input);
 	public Map<String, String> findEmailAddress(String phone);
