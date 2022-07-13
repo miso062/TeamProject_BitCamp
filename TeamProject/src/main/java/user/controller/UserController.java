@@ -9,11 +9,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import oracle.jdbc.proxy.annotation.Post;
+import user.bean.AddressDTO;
 import user.bean.UserDTO;
 import user.service.UserService;
 
@@ -26,7 +30,7 @@ public class UserController {
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-	
+
 	@GetMapping(value="login")
 	public String login(Model model) {
 		return "/user/login";
@@ -91,6 +95,21 @@ public class UserController {
 		return "forward:/user/my";
 	}
 	
+
+	@GetMapping(value="addressbook")
+	public String addressbook(Model model)  {
+		model.addAttribute("container","/WEB-INF/user/myPage/addressbook.jsp");
+		return "forward:/user/my";
+	}
+  
+	@PostMapping(value="addaddressbook")
+	@ResponseBody
+	public void addaddressbook(@ModelAttribute AddressDTO addressDTO) {
+		System.out.println(addressDTO.getAddr());
+		addressDTO.setUser_id("yy1004@gmail.com");
+		userService.addaddressbook(addressDTO);
+  }
+
 	@GetMapping(value="findEmailMain")
 	public String findEmailMain(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
@@ -110,7 +129,6 @@ public class UserController {
 		Map<String, String> map = userService.findEmailAddress(phone);
 		return map;                            
 	}
-	
 	
 	@GetMapping(value="findEmailResult")
 	public String findEmailResult(Model model, @RequestParam String email) {
