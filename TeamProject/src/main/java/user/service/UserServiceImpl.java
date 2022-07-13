@@ -45,6 +45,26 @@ public class UserServiceImpl implements UserService {
 		
 		return map;
 	}
+	
+	//아이디 찾기
+	@Override
+	public Map<String, String> findEmailAddress(String phone) {
+		Map<String, String> map = new HashMap<String, String>();
+		String user_id = userDAO.findEmailAddress(phone);
+		if(user_id == null) {
+			map.put("success", "false");
+			map.put("message", "회원정보가 없습니다.");
+		} else {
+			map.put("success", "true");
+			map.put("message", "이메일 찾기 성공.");
+			map.put("user_id", user_id);
+		}
+		return map;
+	}
+	
+	
+
+
 
 	
 

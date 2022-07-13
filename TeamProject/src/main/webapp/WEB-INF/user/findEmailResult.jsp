@@ -88,12 +88,24 @@
             <div class="success_notice">
                 <dl>
                     <dt class="notice_title">이메일 주소</dt>
-                    <dd class="notice_txt">s******4@hanmail.net</dd>
+                    <dd class="notice_txt" id="email_value">
+                    	${email }
+                    </dd>
                 </dl>
             </div>
             <div class="success_btn_box">
-                <a href="/TeamProject/user/findPWD" class="find_pwd_btn" type="button"> 비밀번호 찾기 </a><a data-v-3d1bcc82="" href="/login" class="go_login_btn" type="button"> 로그인 </a>
+                <a href="/TeamProject/user/findPWD" class="find_pwd_btn" type="button"> 비밀번호 찾기 </a>
+                <a class="go_login_btn" type="button"> 로그인 </a>
             </div>
         </div>
     </div>
 </div>
+
+<!-- a모달.. -->
+<script type="text/javascript">
+$('.go_login_btn').click(function(){
+	$('.content_login').fadeIn();
+    $('body').css("overflow", "hidden");
+    $('.content_login').css('overflow-y', 'scroll')
+});
+</script>
