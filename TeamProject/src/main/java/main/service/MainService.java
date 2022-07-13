@@ -4,7 +4,7 @@ import java.util.Map;
 
 public interface MainService {
 
-	Map<String, Object> getProductList(String num);
+	public Map<String, Object> getProductList(String num);
 
 	
 }
