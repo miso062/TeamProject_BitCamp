@@ -3,7 +3,9 @@ package shop.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value="/shop")
@@ -31,7 +33,14 @@ public class BuyController {
 	@GetMapping(value="/buyPay")
 	public String buyPay(Model model) {
 		model.addAttribute("container", "/WEB-INF/shop/buy/buyPay.jsp");
+		model.addAttribute("payment_method", "구매입찰");
 		return "forward:/shop/buy";
+	}
+	
+	@PostMapping(value="/insertBuyPay")
+	public void insertBuyPay() {
+		// TODO insert Buy Information to DB
+		// TODO make scheduler for reservation payment
 	}
 	
 	@GetMapping(value="/enterBuyPrice")
