@@ -630,26 +630,35 @@ $(function(){
 
 <script type="text/javascript">
 $(document).ready(function(){
-	alter('hi');
+	alert('hi');
 	$.ajax({
 		type: 'post',
-		url: '/TeamProject/admin/getProductList',
+		url: '/TeamProject/getProductList',
 		data: 'num=' + $('#con_more_num').val(),
 		dataType:'json',
 		success: function(data){
-			
-			$.each(data.list,function(index, items){  //items = var boardDTO
-				console.log(index, items.brand, items.eng_name, items.releasePrice, items.filePath );
+			alter('hello');
 
-				$('<li/>').append($('<div/>').append($('<a/>').append($('<div/>').append($('<img/>'))).append($('<div/>')
-						.append($('<div/>').append($('<p/>')).append($('<p/>'))
-								.append($('<p/>'))).append($('<div/>').append($('<div/>')).append($('<div/>').append($('<p/>')))))).append($('<div/>'))).appendTo($('.shop-list-ul'));
-			
-			});//each
-			
-			
-			//페이징처리
-			$('#productNum').html(data.productNum.pagingHTML);
+	/* 		$.each(data.list,function(index, items){  //items = var boardDTO
+				console.log(index, items.ProductDTO.brand, items.ProductDTO.eng_name, items.ProductDTO.releasePrice, items.ProductImgDTO.filePath );
+
+				$('<div class="cd2_product_item" />').append($('<a class="cd2_item_inner" />'
+						).append($('<div class="cd2_thum_box"/>'
+								).append($('<div class="cd2_product" />'
+										).append($('<img class="cd2_product_img" />')
+												))).append($('<div class="cd2_info_box" />'
+														).append($('<div class="cd2_brand" />'
+																).append($('<p class="cd2_brand_text" />')
+										)).append($('<p class="cd2_name" />')
+												).append($('<div class="cd2_price" />'
+														).append($('<div class="amount" />'
+																).append($('<div class="cd2_num" />')
+										).append($('<div class="cd2_won" />')
+					)).append($('<div class="cd2_desc" />').append($('<p/>'))))
+					)).append($('<div/>')).appendTo($('.cd2_product_list'));
+				});//each */
+
+			$('#con_more_num').val(data.num);
 		},
 		error:function(e){
 			console.log(e);
