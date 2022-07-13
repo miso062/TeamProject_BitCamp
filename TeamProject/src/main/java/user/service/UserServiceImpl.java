@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
+import user.bean.AddressDTO;
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
@@ -23,6 +24,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void logout(HttpSession session) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addaddressbook(AddressDTO addressDTO) {
+		if(addressDTO.getFlag() == 1) {
+			userDAO.updateflag(addressDTO);
+		}
+		userDAO.addaddressbook(addressDTO);
 		
 	}
 

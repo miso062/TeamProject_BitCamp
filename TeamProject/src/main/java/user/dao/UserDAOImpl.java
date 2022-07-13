@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import user.bean.AddressDTO;
 import user.bean.UserDTO;
 
 
@@ -17,7 +18,18 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public String loginCheck(UserDTO userDTO) {
 		
-		return sqlSession.selectOne("user.loginCheck", userDTO);
+		return sqlSession.selectOne("userSQL.loginCheck", userDTO);
+	}
+
+	@Override
+	public void addaddressbook(AddressDTO addressDTO) {
+		sqlSession.insert("userSQL.addaddress",addressDTO);
+		
+	}
+
+	@Override
+	public void updateflag(AddressDTO addressDTO) {
+		sqlSession.update("userSQL.updateflag",addressDTO);
 	}
 
 }
