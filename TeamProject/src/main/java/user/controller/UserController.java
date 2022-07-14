@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import oracle.jdbc.proxy.annotation.Post;
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
-import user.service.RandomPassword;
 import user.service.UserService;
 
 @Controller
