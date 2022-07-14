@@ -2,12 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 <style type="text/css">
+.c1_title{
+margin:0;
+}
 *, :after, :before {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -55,7 +53,7 @@ li, ol, ul {
     position: absolute;
     width: 39.2%;
     bottom: 0;
-    top: 1261px;
+    top: 1550px;
 }
 .c1_column {
     width: 50%;
@@ -136,11 +134,6 @@ li, ol, ul {
     display: none;
     top: 80px;
 }
-.c1_floating_price .c1_product_info .c1_name, .c1_floating_price .c1_product_info .c1_translated_name {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
 .c1_floating_price .c1_product_info{
     -webkit-box-flex: 1;
     flex: 1;
@@ -153,15 +146,15 @@ li, ol, ul {
     height: 50px;
 }
 .c1_floating_price .c1_btn_area .c1_btn_wish {
-    width: 160px;
-    min-width: 180px;
+    width: 180px;
+    min-width: 160px;
 }
 .c1_floating_price .c1_btn_area .c1_btn_wish {
     -webkit-box-flex: 0;
     flex: none;
     height: inherit;
     line-height: 48px;
-    margin-right: 8px;
+    margin-right: 10px;
     border-radius: 10px;
    	margin-top: 0;
 }
@@ -180,6 +173,22 @@ li, ol, ul {
     width: 44px;
     font-size: 15px;
     letter-spacing: -.15px;
+}
+.c1_floating_price .c1_product_info .c1_name, .c1_floating_price .c1_product_info .c1_translated_name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.c1_floating_price .c1_product_info .c1_translated_name {
+    line-height: 14px;
+    margin-top: 4px;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    color: rgba(34,34,34,.5);
+}
+.c1_floating_price .c1_product_info .c1_name {
+    line-height: 18px;
+    font-size: 15px;
 }
 .c1_product_img {
 	position: absolute;
@@ -223,15 +232,15 @@ li, ol, ul {
     letter-spacing: -.09px;
     font-weight: 400;
 }
-.c1_detail_size {
+.c1_detail_price {
     padding-top: 19px;
     padding-bottom: 12px;
     border-bottom: 1px solid #ebebeb;
 }
-.c1_detail_size .c1_title {
+.c1_detail_price .c1_title {
     float: left;
 }
-.c1_detail_size .c1_size {
+.c1_detail_price .c1_size {
     float: right;
 }
 .c1_btn_size {
@@ -252,14 +261,10 @@ li, ol, ul {
 	vertical-align: top;
 	overflow: hidden;
 }
-.c1_detail_size:after {
+..c1_detail_price:after {
     content: "";
     display: block;
     clear: both;
-}
-.c1_detail_price {
-    margin-top: 11px;
-    min-height: 44px;
 }
 .c1_title_txt {
     padding-top: 5px;
@@ -332,6 +337,11 @@ li, ol, ul {
     text-align: center;
     font-size: 18px;
     letter-spacing: -.27px;
+    margin-left: 4px
+}
+.c1_division_btn_box .c1_price {
+    margin-left: 10px;
+    line-height: 15px;
 }
 .c1_division_btn_box .c1_price {
     margin-left: 10px;
@@ -357,9 +367,10 @@ li, ol, ul {
 }
 .c1_division_btn_box .c1_sell {
     background-color: #41b979;
-}
-.c1_division_btn_box .c1_btn_division {
     margin-left: 10px;
+}
+.c1_division_btn_box .c1_buy {
+    margin-right: 10px;
 }
 .c1_bookmark{
 	margin-right: 3px;
@@ -604,7 +615,6 @@ li, ol, ul {
     vertical-align: top;
     width: 24px;
     height: 24px;
-    background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggc3Ryb2tlPSIjQkJCIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTE4IDlsLTYgNi02LTYiLz48L3N2Zz4=) 0 0 no-repeat;
     background-size: 24px 24px;
 }
 .c1_wrap_sales, .c1_tab_area{
@@ -632,7 +642,6 @@ li, ol, ul {
     color: rgba(34,34,34,.8);
 }
 .c1_tab_area .on .c1_item_link {
-    background-color: #fff;
     color: #222;
     font-weight: 700;
     -webkit-box-shadow: 0 0 0 0.5px #ebebeb inset;
@@ -801,8 +810,7 @@ tr {
     color: rgba(34,34,34,.5);
 }
 </style>
-</head>
-<body>
+
 <div class="c1_container detail">
     <div class="c1_content">
         <h2 class="c1_blind">상품 상세</h2>
@@ -836,15 +844,6 @@ tr {
                         </div>
                         
                         <div class="c1_product_figure_wrap lg">
-                            <div class="c1_detail_size">
-                                <div class="c1_title"><span class="c1_title_txt">사이즈</span></div>
-                                <div class="c1_size">
-                                    <a href="#" class="c1_btn_size">
-                                        <span class="c1_btn_text">모든 사이즈</span>
-                                    	<img class="c1_down_arrow" alt="" src="/TeamProject/img/shopDetail/down_arrow.png">
-                                    </a>
-                                </div>
-                            </div>
                             <div class="c1_detail_price">
                                 <div class="c1_title"><span class="c1_title_txt">최근 거래가</span></div>
                                 <div class="c1_price">
@@ -869,7 +868,7 @@ tr {
                                 </a>
                             </div>
                             <a href="#" class="c1_btn c1_full c1_outlinegrey c1_btn_wish c1_large" aria-label="관심상품">
-                            <img alt="" src="/TeamProject/img/shopDetail/bookmark.svg" class="c1_bookmark   ico-wish-off">
+                            <img alt="" src="/TeamProject/img/shopDetail/bookmark.svg" class="c1_bookmark ico-wish-off">
                                 <span class="c1_btn_text">관심상품</span><span class="c1_wish_count_num">9.5만</span>
                             </a>
                         </div>
@@ -950,7 +949,7 @@ tr {
                         
                             <div class="c1_title">
                                 <h3 class="c1_detail_title lg">시세</h3>
-                                <div class="c1_sales_filter lg">
+                                    <div class="c1_sales_filter lg">
                                     <div class="c1_filter_unit">
                                         <button type="button" class="c1_btn c1_btn_select" slot="button"><span class="c1_select_text layer_open">모든 사이즈</span></button>
                                     </div>
@@ -965,7 +964,7 @@ tr {
 
                                     <div id="c1_sales_panel" role="tabpanel" class="c1_show" span="all" >
                                         <div class="c1_graph">
-                                            <canvas id="8b3afff2-c526-433b-9dc8-b0d3db665395" width="560" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 560px;"></canvas>
+                                            <canvas id="shoeChart" width="560" height="200" style="display: block; box-sizing: border-box; height: 200px; width: 560px;"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -975,8 +974,6 @@ tr {
                                 <div class="c1_tab_area">
                                     <ul role="tablist" class="c1_tab_list">
                                         <li role="tab" aria-selected="true" aria-controls="panel1" class="c1_item_tab on"><a href="#" class="c1_item_link">체결 거래</a></li>
-                                        <li role="tab" aria-selected="false" aria-controls="panel2" class="c1_item_tab"><a href="#" class="c1_item_link">판매 입찰</a></li>
-                                        <li role="tab" aria-selected="false" aria-controls="panel3" class="c1_item_tab"><a href="#" class="c1_item_link">구매 입찰</a></li>
                                     </ul>
                                     
                                     <div id="panel1" role="tabpanel" class="c1_tab_content c1_show" span="sales" style="display:block;">
@@ -1028,104 +1025,7 @@ tr {
                                         </div>
                                         <a href="#" class="c1_btn c1_outlinegrey c1_full c1_medium" > 체결 내역 더보기 </a>
                                     </div>
-                                    <div id="panel2" role="tabpanel" class="c1_tab_content" span="asks">
-                                        <div class="c1_table_wrap lg">
-                                            <table>
-                                                <caption>
-                                                    <span class="c1_blind">데이터 테이블</span>
-                                                </caption>
-                                                <colgroup>
-                                                    <col style="width: 29.76%;" />
-                                                    <col style="width: 36.52%;" />
-                                                    <col style="width: 33.72%;" />
-                                                </colgroup>
-                                                <thead>
-                                                    <tr>
-                                                        <th class="table_th">사이즈</th>
-                                                        <th class="table_th align_right">판매 희망가</th>
-                                                        <th class="table_th align_right">수량</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="table_td">310</td>
-                                                        <td class="table_td align_right">129,000원</td>
-                                                        <td class="table_td align_right">1</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">310</td>
-                                                        <td class="table_td align_right">130,000원</td>
-                                                        <td class="table_td align_right">1</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">300</td>
-                                                        <td class="table_td align_right">131,000원</td>
-                                                        <td class="table_td align_right">1</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td"> 300</td>
-                                                        <td class="table_td align_right">132,000원</td>
-                                                        <td class="table_td align_right">3</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">300</td>
-                                                        <td class="table_td align_right">133,000원</td>
-                                                        <td class="table_td align_right">3</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <a href="#" class="c1_btn c1_outlinegrey c1_full c1_medium" > 입찰 내역 더보기 </a>
-                                    </div>
-                                    <div id="panel3" role="tabpanel" class="c1_tab_content" span="bids" >
-                                        <div class="c1_table_wrap lg" >
-                                            <table>
-                                                <caption>
-                                                    <span class="c1_blind">데이터 테이블</span>
-                                                </caption>
-                                                <colgroup>
-                                                    <col style="width: 29.76%;" />
-                                                    <col style="width: 36.52%;" />
-                                                    <col style="width: 33.72%;" />
-                                                </colgroup>
-                                                <thead>
-                                                    <tr>
-                                                        <th class="table_th">사이즈</th>
-                                                        <th class="table_th align_right">구매 희망가</th>
-                                                        <th class="table_th align_right">수량</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="table_td">235</td>
-                                                        <td class="table_td align_right">170,000원</td>
-                                                        <td class="table_td align_right">1</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">235</td>
-                                                        <td class="table_td align_right">157,000원</td>
-                                                        <td class="table_td align_right">1</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">255</td>
-                                                        <td class="table_td align_right">151,000원</td>
-                                                        <td class="table_td align_right">1</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">255</td>
-                                                        <td class="table_td align_right">150,000원</td>
-                                                        <td class="table_td align_right">1</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">235</td>
-                                                        <td class="table_td align_right">150,000원</td>
-                                                        <td class="table_td align_right">1</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <a href="#" class="c1_btn c1_outlinegrey c1_full c1_medium"> 입찰 내역 더보기 </a>
-                                    </div>
+ 
                                 </div>
                             </div>
                             
@@ -1374,7 +1274,7 @@ tr {
 </div>
 
 </body>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script type="text/javascript">
 $("document").ready(function() {
 		$(window).scroll(function() { 
@@ -1421,18 +1321,19 @@ $('.c1_bookmark').on(	{'click' : function() {
 	}
 });
 
-$('.c1_down_btn').on('click',function(){
-	 let index = $(".c1_down_btn").index(this);	
+$('.c1_dropdown_head').on('click',function(){
+	 let index = $(".c1_dropdown_head").index(this);	
 	 
 	if(index == 0){
 		if($('.c1_dropdownli').eq(index).hasClass('open')){
 			$('.open .c1_dropdown_content').css('display','none');
 			$('.c1_dropdownli').eq(index).removeClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 		}else{
 			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdown_head').not(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 			$('.c1_dropdownli').eq(index).addClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
 			$('.c1_dropdown_content').css({"display": "none"});
 			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
 		}
@@ -1440,11 +1341,12 @@ $('.c1_down_btn').on('click',function(){
 		if($('.c1_dropdownli').eq(index).hasClass('open')){
 			$('.open .c1_dropdown_content').css('display','none');
 			$('.c1_dropdownli').eq(index).removeClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 		}else{
 			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdown_head').not(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 			$('.c1_dropdownli').eq(index).addClass('open');
-			$(this).eq(index).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
 			$('.c1_dropdown_content').css({"display": "none"});
 			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
 		}
@@ -1452,18 +1354,19 @@ $('.c1_down_btn').on('click',function(){
 		if($('.c1_dropdownli').eq(index).hasClass('open')){
 			$('.open .c1_dropdown_content').css('display','none');
 			$('.c1_dropdownli').eq(index).removeClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 		}else{
 			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdown_head').not(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 			$('.c1_dropdownli').eq(index).addClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
 			$('.c1_dropdown_content').css({"display": "none"});
 			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
 		}
 	}
 });
 
-//팝업 체결거래, 판매 입찰, 구매입찰 버튼
+/* 팝업 체결거래, 판매 입찰, 구매입찰 버튼 */
 $(document).on('click', '.c1_item_tab', function () {
     let index = $(".c1_item_tab").index(this);
     console.log(index)
@@ -1485,7 +1388,7 @@ $(document).on('click', '.c1_item_tab', function () {
     }
 
 });
-
+/* 구매 사이즈 판매사이즈로 이동 */
 $('.c1_buy').on('click',function(){
 	$(location).attr("href", "/TeamProject/shop/selectBuySize");
 })
@@ -1494,4 +1397,3 @@ $('.c1_sell').on('click',function(){
 	$(location).attr("href", "/TeamProject/shop/selectSellSize");
 })
 </script>
-</html>

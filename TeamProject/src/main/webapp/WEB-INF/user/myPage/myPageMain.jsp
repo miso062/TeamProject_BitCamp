@@ -652,7 +652,7 @@
                 <div data-v-5acef129="" class="info_box">
                     <strong data-v-5acef129="" class="name">wnscks19</strong>
                     <p data-v-5acef129="" class="email">w******9@naver.com</p>
-                    <a data-v-3d1bcc82="" data-v-5acef129="" href="/my/profile" class="btn btn outlinegrey small" type="button"> 프로필 수정 </a>
+                    <a data-v-3d1bcc82="" data-v-5acef129="" href="/TeamProject/user/myPageEdit" class="btn btn outlinegrey small" type="button"> 프로필 수정 </a>
                     <a data-v-3d1bcc82="" data-v-5acef129="" href="/social/users/@ein7di" class="btn btn btn_my_style outlinegrey small" type="button"> 내 스타일 </a>
                 </div>
             </div>
@@ -934,7 +934,7 @@
                 <div data-v-28cabbb5="" data-v-350bc372="" class="usable_wrap">
                     <div data-v-28cabbb5="" data-v-350bc372="" class="usable_point">
                         <h3 data-v-28cabbb5="" data-v-350bc372="" class="title">사용 가능한 포인트</h3>
-                        <p data-v-28cabbb5="" data-v-350bc372="" class="point_box"><span data-v-28cabbb5="" data-v-350bc372="" class="point">0</span><span data-v-28cabbb5="" data-v-350bc372="" class="unit">P</span></p>
+                        <p data-v-28cabbb5="" data-v-350bc372="" class="point_box"><span data-v-28cabbb5="" data-v-350bc372="" class="point" id="point"></span><span data-v-28cabbb5="" data-v-350bc372="" class="unit">P</span></p>
                         <div data-v-28cabbb5="" data-v-350bc372="" class="point_info">
                             <p data-v-28cabbb5="" data-v-350bc372="" class="info_item">이번달 소멸 예정 포인트 0P</p>
                             <p data-v-28cabbb5="" data-v-350bc372="" class="info_item">포인트 유효기간은 적립일로부터 최대 1년까지이며, 유형에 따라 달라질 수 있습니다.</p>
@@ -958,6 +958,10 @@
     </div>
 </div>
 <script type="text/javascript">
+window.onload = function() {
+	alert(document.getElementsByClassName('membership_item > info').value());
+	document.getElementById('point').value() = document.getElementsByClassName('membership_item > info').value()
+}
 $('.membership_item').click(function(){
 	$('.layer_point').fadeIn();
     $('body').css("overflow", "hidden");
@@ -965,7 +969,7 @@ $('.membership_item').click(function(){
 $(document).on("click",function(e){
 	if($('.layer_point').is(e.target)) {
 		$('.layer_point').fadeOut();
-        $('body').css("overflow", "scroll");
+        $('body').css("overflow-y", "scroll");
         
 	}
 })

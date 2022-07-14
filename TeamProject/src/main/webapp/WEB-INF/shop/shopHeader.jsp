@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <link rel="stylesheet" href="/TeamProject/css/user/login.css">
 <style type="text/css">
 #header{
@@ -44,6 +45,9 @@ margin-left : 10px;
     letter-spacing: -.06px;
     color: rgba(34,34,34,.8);
 }
+a {
+    cursor: pointer;
+}
 
 h1 {
     display: block;
@@ -84,7 +88,7 @@ margin-left : 20px;
 
 
 .h_logo {
-margin-left : 20px;
+margin-left : -35px;
 }
 
 .h_header .h_main_inner {
@@ -455,6 +459,10 @@ height:80px;
 	text-decoration: underline;
 	font-weight: bold;	
 }
+#h_main_logo {
+	width : atuo;
+	height: 45px;
+}
 
 
 </style>
@@ -469,10 +477,15 @@ height:80px;
 					<a href="#" class="h_top_link">관심상품</a>
 				</li>
 				<li class="h_top_item">
-					<a href="/TeamProject/user/myPage" class="h_top_link">마이페이지</a>
+					<a id="h_myPage" class="h_top_link">마이페이지</a>
 				</li>
 				<li class="h_top_item">
-					<a id="h_login" class="h_top_link">로그인</a>
+					<c:if test="${sessionScope.memId == null}">
+			          <a id="h_login2" class="h_top_link">로그인</a>
+			        </c:if>
+			        <c:if test="${sessionScope.memId != null}">
+			          <a id="h_logout" class="h_top_link">로그아웃</a>
+			        </c:if>
 				</li>
 			</ul>
 		</div>
@@ -481,7 +494,7 @@ height:80px;
 		<div class="h_main_inner">
 			<h1 class="h_h1">
 				<a href="/TeamProject/" class="h_logo">
-					<img src="/TeamProject/img/main/header/kream.jpg" alt="kream로고" style="width:100px;">
+					<img src="/TeamProject/img/main/header/gese_logo.png" alt="kream로고"  id="h_main_logo">
 					</a>
 			</h1>
 		<div class="h_gnb_area">
@@ -651,45 +664,49 @@ height:80px;
 			<div class="logo_wrap">
 				<div class="kream_logo" ></div>
 			</div>
-
-			<div class="input_email_box">
-				<h3 class="input_email_title" id="email_label" >이메일 주소</h3>
-				<div class="input_email_item">
-					<div class="input_email_text">
-						<input class="input_email_txt" type="text" id= "email_input" oninput="oninputEmail(this.value)" placeholder="예) kream@kream.co.kr">
+			
+			
+			
+				<div class="input_email_box">
+					<h3 class="input_email_title" id="log_email_label" >이메일 주소</h3>
+					<div class="input_email_item">
+						<div class="input_email_text">
+							<input name="email" class="input_email_txt" type="text" id= "log_email_input" oninput="oninputEmail(this.value)" placeholder="예) kream@kream.co.kr">
+						</div>
 					</div>
+					<p class="input_email_error" id="log_email_error" >이메일 주소를 정확히 입력해주세요.</p>
 				</div>
-				<p class="input_email_error" id="email_error" >이메일 주소를 정확히 입력해주세요.</p>
-			</div>
-			<div class="input_pwd_box">
-				<h3 class="input_pwd_title" id="pwd_label">비밀번호</h3>
-				<div class="input_pwd_item">
-					<div class="input_pwd_text" >
-						<input class="input_pwd_txt" type="password"  id= "pwd_input" oninput="oninputPwd(this.value)" autocomplete="off" >
+				<div class="input_pwd_box">
+					<h3 class="input_pwd_title" id="log_pwd_label">비밀번호</h3>
+					<div class="input_pwd_item">
+						<div class="input_pwd_text" >
+							<input name="pwd" class="input_pwd_txt" type="password"  id= "log_pwd_input" oninput="oninputPwd(this.value)" autocomplete="off" >
+						</div>
 					</div>
+					<p class="input_pwd_error" id="log_pwd_error" >영문, 숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
 				</div>
-				<p class="input_pwd_error" id="pwd_error" >영문, 숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
-			</div>
-			<div class="login_btn_box">
-				<button class="login_btn_disabled" id="login_btn">로그인</button>
-			</div>
+				<div class="login_btn_box">
+					<button class="login_btn_disabled" id="login_btn">로그인</button>
+				</div>
+			
+			
 			<ul class="look_box">
 				<li class="look_list">
-					<a href="#" class="look_link">이메일 가입</a>
+					<a href="/TeamProject/user/signUp" class="look_link">이메일 가입</a>
 				</li>
 				<li class="look_list">
-					<a href="#" class="look_link">이메일 찾기</a>
+					<a href="#" class="look_link" >이메일 찾기</a>
 				</li>
 				<li class="look_list">
-					<a href="#" class="look_link">비밀번호 찾기</a>
+					<a href="#" class="look_link" >비밀번호 찾기</a>
 				</li>
 			</ul>
 			<div class="social_login">
 				<a id="naverIdLogin_loginButton" href="javascript:void(0)"> <!-- GU6NNwfSmxJ3JXmCBaTf  -->
-					<img src="/TeamProject/img/main/header/miso.png" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
-				</a>
+					<img src="/TeamProject/img/main/header/miso.png" class="login_login_logo" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
+				</a>	 
 			 	<a href="javascript:kakaoLogin();"> <!-- 144932b30082932e5eba55d918d38249 -->
-			 		<img src="/TeamProject/img/main/header/kakao_login_large_wide.png" alt="카카오계정 로그인" style="width: 400px; height: auto;  border-radius: 12px;"/>
+			 		<img src="/TeamProject/img/main/header/kakao_login_large_wide.png"  class="login_login_logo"  alt="카카오계정 로그인" style="width: 400px; height: auto;  border-radius: 12px;"/>
 			 	</a>
 			</div>
 	    </div>
@@ -735,18 +752,29 @@ $(document).on("click",function(e){
 	}
 })
 
-
-
-
-$('#h_login').click(function(){
+function openLogin(){
 	$('.content_login').fadeIn();
     $('body').css("overflow", "hidden");
+}
+
+
+
+$('#h_login2').click(function(){
+	openLogin();
 });
 $(document).on("click",function(e){
 	if($('.content_login').is(e.target)) {
 		$('.content_login').fadeOut();
-        $('body').css("overflow", "scroll");
-
+		$('.input_email_txt').val(''); //아이디 텍스트 창 비우기
+		$('.input_pwd_txt').val(''); //pwd 텍스트 창 비우기
+		document.getElementById('log_email_label').style.color = "black";
+		document.getElementById('log_email_error').style.display = "none";
+		document.getElementById('log_email_input').style.borderColor = "black";
+		document.getElementById('log_pwd_label').style.color ="black";
+		document.getElementById('log_pwd_error').style.display = "none";
+		document.getElementById('log_pwd_input').style.borderColor = "black";
+		document.getElementById('login_btn').className = 'login_btn_disabled'
+        $('body').css("overflow-y", "scroll"); //스크롤 다시 보여주기
 	}
 })
 
@@ -779,7 +807,7 @@ $(window).scroll(function(){
 var naverLogin = new naver.LoginWithNaverId(
 		{
 			clientId: "GU6NNwfSmxJ3JXmCBaTf",  //내 애플리케이션 정보에 cliendId를 입력해줍니다.
-			callbackUrl: "http://localhost:8080/TeamProject/user/login", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
+			callbackUrl: "http://localhost:8080/TeamProject/", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
 			isPopup: false,
 			callbackHandle: true
 		}
@@ -806,6 +834,13 @@ window.addEventListener('load', function () {
 
 	});
 });
-
+$(document).on('click','#h_myPage', function(){
+    if(!'${sessionScope.memId}') {
+    	openLogin();
+    }
+    else {
+    	location.href="/TeamProject/user/myPage"
+    }
+})
 
 </script>

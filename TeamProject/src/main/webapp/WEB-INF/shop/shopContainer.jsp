@@ -1431,7 +1431,11 @@ li, ol, ul {
 		$('.slider-for').slick({
 			slidesToShow : 1,
 			slidesToScroll : 1,
-			fade : true
+			infinite: true,
+			speed: 500,
+			fade : true,
+			autoplay: true,
+			autoplaySpeed: 4000,
 		});
 
 		/* 슬라이드 페이지 */

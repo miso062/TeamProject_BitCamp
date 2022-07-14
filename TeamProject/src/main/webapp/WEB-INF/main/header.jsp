@@ -81,7 +81,7 @@ clear: both;
 
 
 .h_logo {
-margin-left : 20px;
+margin-left : -35px;
 }
 
 .h_header .h_main_inner {
@@ -180,8 +180,8 @@ input.h_show_placeholder_on_focus:focus::placeholder {
     font-weight: 700;
     font-size: 15px;
 }
-.h_layer_search .h_search_container,
-.h_layer_search .h_search_content_wrap {
+._search .h_search_container,
+._search .h_search_content_wrap {
     background-color : #ffffff;
 }
 .h_search_wrap {
@@ -287,6 +287,7 @@ clear : both;
 }
 .h_btn_close {
 height: 40px;
+cursor: pointer;
 }
 .h_search_wrap{
 margin: 0px  auto;
@@ -346,7 +347,7 @@ height:80px;
     display: flex;
     padding: 25px 40px 19px;
 }
-.h_layer_search {  /* 모달창 */
+._search {  /* 모달창 */
 	  z-index: 1000;
     position: fixed;
     top: 0;
@@ -386,6 +387,14 @@ height:80px;
     border-radius: 15px;
     
 }
+a {
+cursor: pointer;
+}
+#h_main_logo {
+	vertical-align : baseline;
+	width : atuo;
+	height: 45px;
+}
 </style>    
 <div class="h_header h_mo">
 	<div id="h_top">
@@ -398,17 +407,17 @@ height:80px;
 					<a href="#" class="h_top_link">관심상품</a>
 				</li>
 				<li class="h_top_item">
-					<a href="/TeamProject/user/myPage" class="h_top_link">마이페이지</a>
+					<a id="h_myPage" class="h_top_link">마이페이지</a>
 				</li>
-					<li class="h_top_item">
-					<%-- ${sessionScope.memId } --%>
-					<c:if test="${sessionScope.memId == null}">
-						<a id="h_login" class="h_top_link">로그인</a>
-					</c:if>
-					<c:if test="${sessionScope.memId != null}">
-						<a id="h_logout" class="h_top_link">로그아웃</a>
-					</c:if>
-					</li>
+        <li class="h_top_item">
+        <%-- ${sessionScope.memId } --%>
+        <c:if test="${sessionScope.memId == null}">
+          <a id="h_login" class="h_top_link">로그인</a>
+        </c:if>
+        <c:if test="${sessionScope.memId != null}">
+          <a id="h_logout" class="h_top_link">로그아웃</a>
+        </c:if>
+        </li>
 			</ul>
 		</div>
 	</div>
@@ -416,7 +425,7 @@ height:80px;
 		<div class="h_main_inner">
 			<h1 class="h_h1">
 				<a href="/TeamProject/" class="h_logo">
-					<img src="/TeamProject/img/main/header/kream.jpg" alt="kream로고" style="width:100px;">
+					<img src="/TeamProject/img/main/header/gese_logo.png" alt="kream로고"  id="h_main_logo">
 					</a>
 			</h1>
 		<div class="h_gnb_area">
@@ -440,7 +449,7 @@ height:80px;
 	</div>
 </div>
 <!-- 모달창 -->
-<div class="h_layer_search lg layer">
+<div class="_search lg layer">
 <div class="h_normal"></div>
 <div class="h_layout_content">
 	<div class="h_search_container">
@@ -544,21 +553,21 @@ height:80px;
 			
 			<ul class="look_box">
 				<li class="look_list">
-					<a href="/TeamProject/uesr/signUp" class="look_link">이메일 가입</a>
+					<a href="/TeamProject/user/signUp" class="look_link">이메일 가입</a>
 				</li>
 				<li class="look_list">
-					<a href="#" class="look_link" >이메일 찾기</a>
+					<a href="/TeamProject/user/findEmail" class="look_link" >이메일 찾기</a>
 				</li>
 				<li class="look_list">
-					<a href="#" class="look_link" >비밀번호 찾기</a>
+					<a href="/TeamProject/user/findPWD" class="look_link" >비밀번호 찾기</a>
 				</li>
 			</ul>
 			<div class="social_login">
 				<a id="naverIdLogin_loginButton" href="javascript:void(0)"> <!-- GU6NNwfSmxJ3JXmCBaTf  -->
-					<img src="/TeamProject/img/main/header/miso.png" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
+					<img src="/TeamProject/img/main/header/miso.png" class="login_login_logo" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
 				</a>	 
 			 	<a href="javascript:kakaoLogin();"> <!-- 144932b30082932e5eba55d918d38249 -->
-			 		<img src="/TeamProject/img/main/header/kakao_login_large_wide.png" alt="카카오계정 로그인" style="width: 400px; height: auto;  border-radius: 12px;"/>
+			 		<img src="/TeamProject/img/main/header/kakao_login_large_wide.png"  class="login_login_logo"  alt="카카오계정 로그인" style="width: 400px; height: auto;  border-radius: 12px;"/>
 			 	</a>
 			</div>
 	    </div>
@@ -567,7 +576,6 @@ height:80px;
 
 
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/TeamProject/js/user/login.js"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
@@ -590,7 +598,7 @@ $('#h_logout').click(function(){
 
 //돋보기 클릭시 검색 모달창
 $('.h_searchBtn').click(function(){
-	$('.h_layer_search').fadeIn();
+	$('._search').fadeIn();
     $('body').css("overflow", "hidden");
 });
 //모달창 검색어 삭제 
@@ -599,8 +607,8 @@ $('.h_btn_close').click(function(){
     
 })//모달창 검색창 끄기 
 $(document).on("click",function(e){
-	if($('.h_layer_search').is(e.target)) {
-		$('.h_layer_search').fadeOut();
+	if($('._search').is(e.target)) {
+		$('._search').fadeOut();
         $('.h_input_search').val('');
         $('body').css("overflow", "scroll");
         
@@ -612,10 +620,20 @@ $('#h_login').click(function(){
     $('body').css("overflow", "hidden");
     $('.content_login').css('overflow-y', 'scroll')
 });
+
 //로그인 모달창 닫기
 $(document).on("click",function(e){
 	if($('.content_login').is(e.target)) {
 		$('.content_login').fadeOut();
+		$('.input_email_txt').val(''); //아이디 텍스트 창 비우기
+		$('.input_pwd_txt').val(''); //pwd 텍스트 창 비우기
+		document.getElementById('log_email_label').style.color = "black";
+		document.getElementById('log_email_error').style.display = "none";
+		document.getElementById('log_email_input').style.borderColor = "black";
+		document.getElementById('log_pwd_label').style.color ="black";
+		document.getElementById('log_pwd_error').style.display = "none";
+		document.getElementById('log_pwd_input').style.borderColor = "black";
+		document.getElementById('login_btn').className = 'login_btn_disabled'
         $('body').css("overflow-y", "scroll"); //스크롤 다시 보여주기
 	}
 })
@@ -649,7 +667,7 @@ $(window).scroll(function(){
 var naverLogin = new naver.LoginWithNaverId(
 		{
 			clientId: "GU6NNwfSmxJ3JXmCBaTf",  //내 애플리케이션 정보에 cliendId를 입력해줍니다.
-			callbackUrl: "http://localhost:8080/TeamProject/user/login", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
+			callbackUrl: "http://localhost:8080/TeamProject", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
 			isPopup: false,
 			callbackHandle: true
 		}
@@ -675,6 +693,18 @@ window.addEventListener('load', function () {
 		}
 		
 	});
+});
+
+//로그인 여부에 따른 마이페이지 이동
+$('#h_myPage').click(function(){
+    if(!'${sessionScope.memId}') {
+        $('#h_login').trigger('click');
+        
+    }
+    else {
+    	location.href="/TeamProject/user/myPage"
+    	
+    }
 });
 
 </script>

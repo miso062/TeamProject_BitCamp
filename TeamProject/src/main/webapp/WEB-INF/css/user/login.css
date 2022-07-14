@@ -104,6 +104,10 @@ li{
     border-bottom: 1px solid #ebebeb;
     padding-right: 30px;
     height: 38px;
+    
+}
+input::placeholder{
+	color: #B8B7B7;
 }
 .input_email_txt:focus, .input_pwd_txt:focus {
 	border-bottom: 2px solid #000000;
@@ -185,7 +189,7 @@ li{
 .naver_btn, .kakao_btn {
 	position: relative;
     color: #222;
-    border-color: #ebebeb;
+    border-color: #B8B7B7;
     margin-bottom: 8px;
     border: 1px solid #d3d3d3;
     width: 100%;
@@ -219,6 +223,9 @@ li{
     height: 24px;
     top: 13px;
     left: 15px;
+}
+.login_login_logo {
+	vertical-align : baseline;
 }
 .input_email_error {
 	display: none;
