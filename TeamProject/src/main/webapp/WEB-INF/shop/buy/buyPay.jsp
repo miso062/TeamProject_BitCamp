@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 
 <link rel="stylesheet" type="text/css" href="/TeamProject/css/shop/buy/buyPay.css"/>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+
+<input type="hidden" id="payment_method" value="${payment_method}">
 <div class="container buy lg">
     <div class="content">
         <div class="buy_immediate">
@@ -144,16 +147,18 @@
                 <div class="section_title"><h3 class="title_txt">결제 방법</h3></div>
                 <div class="section_content">
                     <div class="simple_payment">
-                        <h4 class="method_title">
-                            <div class="main_title">간편 결제 <span class="sub_title">일시불</span></div>
-                            <!-- <a href="#none" class="btn_card_add">+ 새 카드 추가</a> -->
-                        </h4>
-                        <div class="card_list">
-                            <div class="main_card selected">
+                        <!-- <h4 class="method_title">
+                            <div class="main_title">카카오페이 간편 결제 <span class="sub_title">카카오페이 간편결제</span></div>
+                            <a href="#none" class="btn_card_add">+ 새 카드 추가</a>
+                        </h4> -->
+                        <div class="card_list" >
+                            <div class="main_card selected" style="cursor: pointer;">
                                 <div class="clickable_card">
-                                    <div class="card_info" style="text-align: center;">
+                                <span class="sub_title">카카오페이 간편결제&emsp;</span>
+                                <img alt="카카오페이 결제" src="/TeamProject/img/shop/payment_icon_yellow_large.png" id="kakaoPay_payment_btn" style="height: 20px;">
+                                    <!-- <div class="card_info" style="text-align: center;">
                                     	간편 결제 하기
-                                        <!-- <span class="card_name"> BC</span>
+                                        <span class="card_name"> BC</span>
                                         <div class="card_num">
                                             <span class="num_bind">
                                                 <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
@@ -161,15 +166,15 @@
                                                 <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
                                                 <span class="last_num">9324</span>
                                             </span>
-                                        </div> -->
-                                    </div>
+                                        </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="method_desc">
-                        <p class="desc_txt">구매 입찰은 일시불만 지원하며, 카드사 홈페이지나 앱에서 분할 납부로 변경 가능합니다. 단, 카드사별 정책에 따라 분할 납부 변경 시 수수료가 발생할 수 있습니다.</p>
-                    </div> -->
+                    <div class="method_desc">
+                        <p class="desc_txt">결제는 일시불만 지원합니다.<br>구매 입찰의 경우 입찰 당일 혹은 다음 날 오후 4시에 등록된 결제 수단으로 결제 됩니다.</p>
+                    </div>
                 </div>
             </section>
             <section class="buy_check">
@@ -244,24 +249,95 @@
 </div>
 
 <script type="text/javascript">
-	$(function(){
-		$('.check_area').click(function(){
-			img = $(this).find('.check_area_checkbox');
-			if(img.hasClass('active')){
-				img.attr('src', '/TeamProject/img/shop/checkbox-inactive.png');
-				img.removeClass('active');
-			}
-			else{
-				img.addClass('active');
-				img.attr('src', '/TeamProject/img/shop/checkbox-active.png');
-			}
-			
-			if($('.active').length == 4){
-				$('.buy_btn').css('background-color', '#ef6253');
-			}
-			else{
-				$('.buy_btn').css('background-color', '#ebebeb');
-			}
-		});
+
+var IMP = window.IMP; // 생략 가능
+IMP.init("imp50328177");
+
+$(function(){
+	$('.check_area').click(function(){
+		img = $(this).find('.check_area_checkbox');
+		if(img.hasClass('active')){
+			img.attr('src', '/TeamProject/img/shop/checkbox-inactive.png');
+			img.removeClass('active');
+		}
+		else{
+			img.addClass('active');
+			img.attr('src', '/TeamProject/img/shop/checkbox-active.png');
+		}
+		
+		if($('.active').length == 4){
+			$('.buy_btn').css('background-color', '#ef6253');
+		}
+		else{
+			$('.buy_btn').css('background-color', '#ebebeb');
+		}
 	});
+	
+	$('.card_list').click(function(){
+		if($('#payment_method').val() == '구매입찰'){
+			reservation_request_pay();
+		}else{
+			general_request_pay();
+		}
+	})
+});
+
+function general_request_pay() {
+	IMP.request_pay({ // param
+		pg : 'kakaopay',
+	    pay_method : 'card', //생략 가능
+	    merchant_uid: "order_no_0001", // 상점에서 관리하는 주문 번호
+	    name : '주문명:결제테스트',
+	    amount : 1,
+	    buyer_email : 'iamport@siot.do',
+	    buyer_name : '구매자이름',
+	    buyer_tel : '010-1234-5678',
+	    buyer_addr : '서울특별시 강남구 삼성동',
+	    buyer_postcode : '123-456'
+	}, function (rsp) { // callback
+		if (rsp.success) {
+			jQuery.ajax({
+				url: "{서버의 결제 정보를 받는 endpoint}", // 예: https://www.myservice.com/payments/complete
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				data: {
+				    imp_uid: rsp.imp_uid,
+				    merchant_uid: rsp.merchant_uid
+				}
+			}).done(function(data){
+				
+			})
+		} else {
+			alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
+		}
+	});
+}
+
+function reservation_request_pay(){
+	IMP.request_pay({
+		pg : 'kakaopay.TCSUBSCRIP',
+		pay_method: 'card',
+		merchant_uid: "order_monthly_0001" + new Date().getTime(), // 상점에서 관리하는 주문 번호
+		name : '최초인증결제',
+		amount : 0, // 빌링키 발급만 진행하며 결제승인을 하지 않습니다.
+		customer_uid: "gildong_0001_1234", // 필수 입력
+		buyer_email : 'iamport@siot.do',
+		buyer_name : '아임포트',
+		buyer_tel : '02-1234-1234',
+		buyer_addr: 'addr',
+	}, function(rsp) {
+		if ( rsp.success ) {
+			alert('빌링키 발급 성공');
+			$.ajax({
+				url: '/TeamProject/shop/',
+				type: 'post',
+				data: {
+					
+				}
+			});
+		} else {
+			alert('빌링키 발급 실패' + rsp.error_msg);
+		}
+	});
+}
 </script>

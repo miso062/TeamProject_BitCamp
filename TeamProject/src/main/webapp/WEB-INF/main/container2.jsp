@@ -265,14 +265,18 @@ $(document).ready(function(){
 				   }).append($('<img/>',{
 					   class: 'cd2_bookmark',
 					   src : '/TeamProject/img/main/container2/bookmark.svg'
-				   }))).appendTo($('#cd2_list_first'));
+				   }))).append($('<input/>',{
+					   type:'hidden',
+					   class : 'cd2_product_id',
+					   value : data.productList[i].product_id
+				   })).appendTo($('#cd2_list_first'));
 				}
 			$('#con_more_num').val(data.num);
 		},
 		error:function(e){
 			console.log(e);
 		}
-	}); //$.ajax
+	});//$.ajax
 });
 	
 $(function(){
@@ -336,7 +340,11 @@ $(function(){
 						   }).append($('<img/>',{
 							   class: 'cd2_bookmark',
 							   src : '/TeamProject/img/main/container2/bookmark.svg'
-						   }))).appendTo($('#cd2_list_second'));
+						   }))).append($('<input/>',{
+							   type:'hidden',
+							   class : 'cd2_product_id',
+							   value : data.productList[i].product_id
+						   })).appendTo($('#cd2_list_second'));
 						}
 					$('#con_more_num').val(data.num);
 				},
@@ -401,7 +409,11 @@ $(function(){
 							   }).append($('<img/>',{
 								   class: 'cd2_bookmark',
 								   src : '/TeamProject/img/main/container2/bookmark.svg'
-							   }))).appendTo($('#cd2_list_third'));
+							   }))).append($('<input/>',{
+								   type:'hidden',
+								   class : 'cd2_product_id',
+								   value : data.productList[i].product_id
+							   })).appendTo($('#cd2_list_third'));
 							}
 						$('#con_more_num').val(data.num);
 					},
@@ -465,14 +477,18 @@ $(function(){
 	 						   }).append($('<img/>',{
 	 							   class: 'cd2_bookmark',
 	 							   src : '/TeamProject/img/main/container2/bookmark.svg'
-	 						   }))).appendTo($('#cd2_list_for'));
-	 						}
-	 					$('#con_more_num').val(1);
-	 				},
-	 				error:function(e){
-	 					console.log(e);
-	 				}
-	 			});//$.ajax
+							   }))).append($('<input/>',{
+								   type:'hidden',
+								   class : 'cd2_product_id',
+								   value : data.productList[i].product_id
+							   })).appendTo($('#cd2_list_for'));
+							}
+						$('#con_more_num').val(data.num);
+					},
+					error:function(e){
+						console.log(e);
+					}
+				});//$.ajax
 	 			
 	         });
 	         
