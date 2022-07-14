@@ -186,6 +186,30 @@
 		   <artifactId>spring-security-web</artifactId>
 		   <version>5.0.8.RELEASE</version>
 		</dependency>
+		
+		<!-- common codec -->
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.5</version>
+		</dependency>
+		
+		<!-- HTTP Components -->
+		<dependency>
+		   <groupId>org.apache.httpcomponents</groupId>
+		   <artifactId>httpclient</artifactId>
+		   <version>4.5.2</version>
+		   <scope>runtime</scope>
+		</dependency>
+	
+		<!--  -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.datatype</groupId>
+		    <artifactId>jackson-datatype-jsr310</artifactId>
+		    <version>2.13.1</version>
+		</dependency>
+
+		
 		         
 	</dependencies>
     <build>

@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,6 +21,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import oracle.jdbc.proxy.annotation.Post;
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
+import user.send.Request;
+import user.send.SmsResponse;
+import user.send.SmsService;
 import user.service.UserService;
 
 @Controller
@@ -27,6 +32,9 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	SmsService smsService;
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -162,4 +170,16 @@ public class UserController {
 		
 		System.out.println(securityTest + " | " + encodeTest);
 	}
+
+	//sms 인증번호 보내기
+	@PostMapping(value="sms-sends") 
+	@ResponseBody
+	public ResponseEntity<SmsResponse> sms_sends(@ModelAttribute Request request) throws Exception {
+		System.out.println(request.getRecipientPhoneNumber());
+		SmsResponse data = smsService.sendSms(request.getRecipientPhoneNumber(), request.getContent());
+//        return ResponseEntity.ok().body(data);
+		return null;
+	}
+	//sms 인증번호 받기
+
 }
