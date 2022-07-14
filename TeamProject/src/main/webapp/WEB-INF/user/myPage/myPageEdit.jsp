@@ -207,6 +207,7 @@ input {
 }
 .profile_group {
     padding-top: 58px;
+    width: 500px;
 }
 .group_title {
     font-size: 18px;
@@ -320,8 +321,8 @@ svg:not(:root) {
 }
 /* 광고성수신 */
 .unit.to_receive {
-    padding-right: 200px;
     padding-bottom: 20px;
+    width: 500px;
 }
 .unit.to_receive .desc {
     font-size: 15px;
@@ -635,10 +636,14 @@ svg:not(:root) {
 .btn_layer_close {
     cursor: pointer;
 }
+.updateBtn{
+	background-color: black;
+	color: white;
+}
 </style>
-<link style="">
 </head>
 <body>
+<form name = "updateForm" id="updateForm" method = "post" action="/TeamProject/user/myPageUpdate">
 <div class="my_profile">
     <div class="content_title border">
         <div class="title">
@@ -650,7 +655,8 @@ svg:not(:root) {
         <div class="profile_detail">
             <strong id="nickName" class="name">${userDTO.nickname }</strong>
             <div class="profile_btn_box">
-                <a href="#" class="btn outlinegrey small"> 이미지 변경 </a><a href="#" class="btn outlinegrey small"> 삭제 </a>
+                <a href="#" class="btn outlinegrey small"> 이미지 변경 </a>
+                <a href="#" class="btn outlinegrey small"> 삭제 </a>
             </div>
         </div>
     </div>
@@ -664,69 +670,33 @@ svg:not(:root) {
                 <p class="desc email">${userDTO.user_id }</p>
             </div>
             
-            <div class="modify" style="display: none;">
-                <div class="input_box">
-                    <h6 class="input_title">이메일 주소 변경</h6>
-                    <div class="input_item"><input type="email" autocomplete="off" class="input_txt" placeholder="k*********5@naver.com" /></div>
-                    <p class="input_error"></p>
-                </div>
-                <div class="modify_btn_box">
-                    <button type="button" class="btn outlinegrey medium" slot="button">취소</button>
-                    <button disabled="disabled" type="button" class="btn solid medium disabled" slot="button">인증 메일 발송</button>
-                </div>
-            </div>
-            
             <div class="unit">
-                <h5 class="title">비밀번호</h5>
-                <p class="desc password">${userDTO.user_pwd }</p>
+                <h5 class="title input_pwd_title" id="log_pwd_label">비밀번호</h5>
+                    <div class="input_item input_pwd_text">
+                    <input type="password" value="${userDTO.user_pwd }"  id= "log_pwd_input" placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off" class="desc input_pwd_txt" oninput="oninputPwd(this.value)"/>
+                    </div>
+                    <p class="input_pwd_error input_error" id="log_pwd_error">영문, 숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
             </div>
             <div class="unit">
                 <h5 class="title">비밀번호 재확인</h5>
-                <p class="desc password">●●●●●●●●●</p>
+                    <div class="input_item">
+                    <input type="password" value="${userDTO.user_pwd }" placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off" class="desc" /></div>
+                    <p class="input_error">비밀번호와 일치하지 않습니다.</p>
             </div>         
-            
-            <div class="modify" style="display: none;">
-                <h5 class="title">비밀번호 변경</h5>
-                <div class="input_box">
-                    <h6 class="input_title">이전 비밀번호</h6>
-                    <div class="input_item"><input type="password" placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off" class="input_txt" /></div>
-                    <p class="input_error">영문, 숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
-                </div>
-                <div class="input_box">
-                    <h6 class="input_title">새 비밀번호</h6>
-                    <div class="input_item"><input type="password" placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off" class="input_txt" /></div>
-                    <p class="input_error">영문, 숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
-                </div>
-                <div class="modify_btn_box">
-                    <button type="button" class="btn outlinegrey medium" slot="button">취소</button>
-                    <button disabled="disabled" type="button" class="btn solid medium disabled" slot="button">저장</button>
-                </div>
-            </div>
-            
         </div>
+        
         <div class="profile_group">
             <h4 class="group_title">개인 정보</h4>
             <div class="unit">
                 <h5 class="title">이름</h5>
-                <p class="desc">kellysj5065</p>
-            </div>
-            
-            <div class="modify name" style="display: none;">
-                <h5 class="title">이름</h5>
-                <div class="input_box">
-                    <h6 class="input_title">새로운 이름</h6>
-                    <div class="input_item"><input type="text" placeholder="고객님의 이름" autocomplete="off" class="input_txt" /></div>
+                    <div class="input_item">
+                    <input type="text" value="${userDTO.user_name }" placeholder="고객님의 이름" autocomplete="off" class="desc" /></div>
                     <p class="input_error">올바른 이름을 입력해주세요. (2-50자)</p>
-                </div>
-                <div class="modify_btn_box">
-                    <button type="button" class="btn outlinegrey medium" slot="button">취소</button>
-                    <button disabled="disabled" type="button" class="btn solid medium disabled" slot="button">저장</button>
-                </div>
             </div>
             
             <div class="unit">
                 <h5 class="title">휴대폰 번호</h5>
-                <p class="desc">${userDTO.hp }</p>
+                <input type="text" value="${userDTO.hp }" autocomplete="off" class="desc" /></div>
             </div>
             
             <div class="unit">
@@ -805,7 +775,7 @@ svg:not(:root) {
 		<div class="profile_group">
 			<h4 class="group_title">광고성 정보 수신</h4>
 			<div class="unit to_receive">
-			    <p class="desc">문자 메시지</p>
+			    <p class="title desc">문자 메시지</p>
 			    <div class="radio_txt_box">
 			        <div class="radio_item">
 			            <label for="sms_agree" class="radio_label">
@@ -823,7 +793,7 @@ svg:not(:root) {
 			     </div>
 			 </div>
 			<div class="unit to_receive">
-			    <p class="desc">이메일</p>
+			    <p class="title desc">이메일</p>
 			    <div class="radio_txt_box">
 			        <div class="radio_item">
                         <label for="email_agree" class="radio_label">
@@ -839,16 +809,22 @@ svg:not(:root) {
 			        </div>
 			    </div>
 			</div>
-			
-			<button type="button" class="btn btn_modify outlinegrey small" onclick="location.reload(true)" ></button>
-			<button type="button" class="btn btn_modify outlinegrey small">변경</button>
+		</div>
+		<div class="unit to_receive" align = "center">
+			<button type="button" class="btn outlinegrey small updateBtn" onclick="location.reload()" >다시 작성</button>
+			<button type="button" class="btn outlinegrey small updateBtn" onclick="checkUpdate()">변경</button>
 		</div>
         <a href="/my/withdrawal" class="btn_withdrawal">회원 탈퇴</a>
     </div>
-</div>
-
+</form>
 </body>
 <script type="text/javascript">
+window.onload = function(){/* 지금까지 스크립트는 버튼을 클릭할 때 호출, window창이 열리자마자 실행 */
+		document.updateForm.message_radio['${userDTO.sms_allow}'].checked = true;
+		document.updateForm.email_radio['${userDTO.email_allow}'].checked = true;
+	}
+	
+	
 $('.btn_size_select').click(function(){
 	$('.layer_point').fadeIn();
     $('body').css("overflow", "hidden");
@@ -873,7 +849,40 @@ $('.size_item > .btn.outlinegrey').click(function(){
 	$('.size_item > .btn.outlinegrey').not($(this)).removeClass("on");
 });
 
+/* 비밀번호검사 */
+var resultPwd = false;
 
+function oninputPwd(value){
+	console.log(value);
+	resultPwd = checkPwd(value);	// 1개의 글자이벤트를 받을때마다 checkPwd호출
+	console.log(resultPwd);
+	loginOkCheck();
+}
 
+function checkPwd(value) { //비밀번호 유효성 검사
+	var regPwd = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+
+	if(regPwd.test(value) == true) {
+		console.log('제대로 된 비밀번호 입니다.');
+		document.getElementById('log_pwd_label').style.color ="black";
+		document.getElementById('log_pwd_error').style.display = "none";
+		document.getElementById('log_pwd_input').style.borderColor = "black";
+		return true;
+	} else {
+		console.log('올바른 비밀번호을 입력해주세요.');
+		document.getElementById('log_pwd_label').style.color = "#f15746";
+		document.getElementById('log_pwd_error').style.display = "block";
+		document.getElementById('log_pwd_input').style.borderColor = "#f15746";
+		return false;
+	}
+}
+/* update */
+function checkUpdate(){
+	
+}
+/* 탈퇴 */
+$('.btn_withdrawal').click(function(){
+	
+});
 </script>
 </html>
