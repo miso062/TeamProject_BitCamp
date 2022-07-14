@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import user.bean.UserDTO;
-import user.service.RandomPassword;
 import user.service.UserService;
 
 @Controller
