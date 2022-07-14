@@ -11,5 +11,5 @@ public interface UserDAO {
   public void addaddressbook(AddressDTO addressDTO);
 	public void updateflag(AddressDTO addressDTO);
 	public String findEmailAddress(String phone);
-
+	public int findPwCheck(Map<String, Object> map);
 }

@@ -33,7 +33,6 @@ public class UserServiceImpl implements UserService {
 		if(userDTO == null) {
 			map.put("success", "false");
 			map.put("message", "회원정보가 없습니다.");
-			
 		} else {
 			map.put("success", "true");
 			map.put("message", "로그인 되었습니다.");
@@ -41,12 +40,9 @@ public class UserServiceImpl implements UserService {
 			session.setAttribute("memId", userDTO.getUser_id());
 			session.setAttribute("memAuthority", userDTO.getAuthority());
 			System.out.println(session.getAttribute("memId"));
-			
 		}
-		
 		return map;
 	}
-	
 	//아이디 찾기
 	@Override
 	public Map<String, String> findEmailAddress(String phone) {
@@ -60,6 +56,19 @@ public class UserServiceImpl implements UserService {
 			map.put("message", "이메일 찾기 성공.");
 			map.put("user_id", user_id);
 		}
+		return map;
+	}
+	//비밀번호 찾기
+	@Override
+	public Map<String, Object> findPwCheck(String hp, String user_id) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("hp", hp);
+		map.put("user_id", user_id);
+		map.put("pwd", new RandomPassword().randomPassword(8));
+		int check = userDAO.findPwCheck(map);
+		map.put("check", check);
+
 		return map;
 	}
 	
