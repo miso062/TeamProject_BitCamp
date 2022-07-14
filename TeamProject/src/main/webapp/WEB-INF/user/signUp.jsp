@@ -6,6 +6,8 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	<link rel="stylesheet" href="/TeamProject/css/user/signUp.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 </head>
 <body>
 	<div id="header"><jsp:include page="/WEB-INF/main/header.jsp"></jsp:include></div>
@@ -159,8 +161,7 @@
         </div>
     </div>
 	<div id="footer"><jsp:include page="/WEB-INF/main/footer.jsp"></jsp:include></div>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+	
 	<script type="text/javascript">
 		$('.input_choose_size').click(function(){
 			$('.layer_point').fadeIn();

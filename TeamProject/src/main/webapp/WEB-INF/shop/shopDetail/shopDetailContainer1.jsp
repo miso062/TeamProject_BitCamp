@@ -2,13 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <style type="text/css">
 *, :after, :before {
     -webkit-box-sizing: border-box;
@@ -814,8 +807,7 @@ tr {
     color: rgba(34,34,34,.5);
 }
 </style>
-</head>
-<body>
+
 <div class="c1_container detail">
     <div class="c1_content">
         <h2 class="c1_blind">상품 상세</h2>
@@ -1279,8 +1271,7 @@ tr {
 </div>
 
 </body>
-<script src="/TeamProject/js/shop/chart.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script type="text/javascript">
 $("document").ready(function() {
 		$(window).scroll(function() { 
@@ -1400,4 +1391,3 @@ $('.c1_sell').on('click',function(){
 	$(location).attr("href", "/TeamProject/shop/selectSellSize");
 })
 </script>
-</html>
