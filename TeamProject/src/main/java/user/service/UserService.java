@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
+import user.send.SmsResponse;
 
 public interface UserService {
 	

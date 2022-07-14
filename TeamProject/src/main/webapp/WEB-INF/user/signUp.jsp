@@ -16,13 +16,27 @@
 		    <h2 class="join_title">회원가입</h2>
 		    <div class="input_box has_error">
 		        <h3 class="input_title ess log_email_label" >이메일 주소</h3>
-		        <div class="input_item"><input type="text" placeholder="예) gese_t@gese.co.kr" oninput="oninputEmail1(this.value)"  autocomplete="off" class="input_txt log_email_input" /></div>
+		        <div class="input_item"><input type="text" placeholder="예) gese_t@gese.co.kr" onchange="oninputEmail1(this.value)"  autocomplete="off" class="input_txt log_email_input" /></div>
 		        <p class="input_error log_email_error" >이메일 주소를 정확히 입력해주세요.</p>
 		    </div>
 		    <div class="input_box has_error has_button">
 		        <h3 class="input_title ess log_pwd_label" >비밀번호</h3>
-		        <div class="input_item"><input type="password" placeholder="영문, 숫자, 특수문자 조합 8-16자" oninput="oninputPwd1(this.value)"  autocomplete="off" class="input_txt log_pwd_input" /></div>
+		        <div class="input_item"><input type="password" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwd1(this.value)"  autocomplete="off" class="input_txt log_pwd_input" /></div>
 		        <p class="input_error log_pwd_error" >영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-16자)</p>
+		    </div>
+			<div class="input_box has_error has_button">
+		        <h3 class="input_title ess log_name_label" >이름</h3>
+		        <div class="input_item"><input type="text" placeholder="한글,영어만" oninput="oninputPwd1(this.value)"  autocomplete="off" class="input_txt log_name_input" /></div>
+		        <p class="input_error log_name_error" >영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-16자)</p>
+		    </div>
+			<div class="input_box has_error has_button">
+		        <h3 class="input_title ess log_hp_label" >휴대전화</h3>
+		        <div class="input_item">
+					<input type="text" placeholder="- 없이 숫자만" oninput="onHp(this.value)"  autocomplete="off" id="hp" class="input_txt log_hp_input"  style="width:70%;"/>
+					<span   class="check_number disabled" disabled="disabled">인증번호 받기</span>
+					<input type="number" id="hp_key" placeholder="인증 번호" disabled="disabled">
+				</div>
+		        <p class="input_error log_hp_error" >형식에 맞지 않는 번호입니다.</p>
 		    </div>
 		    <div  class="input_box">
 		        <h3  class="input_title">신발 사이즈</h3>
@@ -98,7 +112,7 @@
 	</div>
 	<div class="layer_point layer md" style="display: none;">
         <div class="layer_container">
-            <div class="layer_header"><h2 class="title">이용안내</h2></div>
+            <div class="layer_header"><h2 class="title">사이즈</h2></div>
             <div class="size_list_area" >
 			    <div class="size_item" >
 			        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >220</span></a>
@@ -154,9 +168,6 @@
 			</div>
 			<div class="layer_btn"><ahref="#" class="btn outline medium" > 확인 </a></div>
             <a href="#" class="btn_layer_close">
-                <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-                    <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
-                </svg>
             </a>
         </div>
     </div>
@@ -188,6 +199,7 @@
 
 		var resultEmail1 = false; //defalt값이 틀렸을떄를 가정
 		var resultPwd1 = false;
+		var resultHp = false;
 
 
 		function oninputEmail1(value){
@@ -203,6 +215,63 @@
 			//console.log(resultPwd);
 			signupCheck();
 		}
+		//인증번호 받기 버튼 활성화/비활성화
+		function onHp(value) {
+			var regHp= /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+			console.log(value)
+
+			if(regHp.test(value) ==true) {
+				$('.check_number').removeClass('disabled');
+				$('.check_number').addClass('abled');
+				$('.check_number').prop('disabled',false);
+			}else {
+				$('.check_number').removeClass('abled');
+				$('.check_number').addClass('disabled');
+				$('.check_number').prop('disabled',true);
+			}
+
+		}
+		//인증번호 보내고 인증번호 입력칸 활성화
+		$(document).on('click' , '.check_number.abled' , function(){
+			const verifyCode = Math.floor(Math.random() * (999999 - 100000)) + 100000;
+			verifyCode.toString();
+
+			console.log(verifyCode);
+
+			$.ajax({
+				url: '/TeamProject/user/sms-sends',
+				type: 'post',
+				data: {
+					'recipientPhoneNumber' : $('#hp').val(),
+					'title' : 'test',
+					'content' : verifyCode
+				},
+				success: function(data){
+					alert(JSON.stringify(data));
+					$('#hp_key').prop('disabled', false);
+				},
+				error : function(err) {
+					console.log(err);
+				} 
+			});
+			
+		});
+		// 인증번호 입력값 가져가서 비교하기 
+		$(document).on('change' ,'#hp_key' , function(){
+			$.ajax({
+				type: 'post',
+				url: '/TeamProject/user/sms-check',
+				data : {'hp_key' :$('#hp_key').val()},
+				succes: function(){
+					alert(hihi);
+				},
+				error : function(err){
+					console.log(err);
+				}
+
+			});
+
+		});
 
 		function checkEmail1(value) { //이메일 유효성 검사
 			var regEmail1 = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
@@ -309,6 +378,7 @@
 			}
 		}
 	});
+	//본인인증 창 후 DB에 정보 전달
 	$(document).on('click', '.btn_join.abled', function(){
 	
 

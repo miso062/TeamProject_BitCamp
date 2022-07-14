@@ -133,6 +133,16 @@ html {
 .input_txt.hover {
    	cursor: pointer;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 .btn_size_select{
 	display: inline-block;
 	cursor: pointer;
@@ -156,6 +166,33 @@ html {
   	width: 20px;
   	height: 20px;
     cursor: pointer;
+}
+.check_number.disabled {
+    background: #ebebeb;
+    font-weight: bold;
+    color: white;
+    border: solid 1px white;
+    border-radius: 6px;
+    font-size: 13px;
+    width: 100px;
+    display: inline-block;
+    height: 33px;
+    text-align: center;
+    line-height: 30px;
+}
+.check_number.abled {
+    background: gray;
+    font-weight: bold;
+    color: black;
+    border: solid 1px white;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor:pointer;
+    width: 100px;
+    display: inline-block;
+    height: 33px;
+    text-align: center;
+    line-height: 30px;
 }
 .btn_join.disabled{
 	background-color: #ebebeb;
