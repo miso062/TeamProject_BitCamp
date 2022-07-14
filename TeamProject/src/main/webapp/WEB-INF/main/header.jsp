@@ -180,8 +180,8 @@ input.h_show_placeholder_on_focus:focus::placeholder {
     font-weight: 700;
     font-size: 15px;
 }
-.h_layer_search .h_search_container,
-.h_layer_search .h_search_content_wrap {
+._search .h_search_container,
+._search .h_search_content_wrap {
     background-color : #ffffff;
 }
 .h_search_wrap {
@@ -347,7 +347,7 @@ height:80px;
     display: flex;
     padding: 25px 40px 19px;
 }
-.h_layer_search {  /* 모달창 */
+._search {  /* 모달창 */
 	  z-index: 1000;
     position: fixed;
     top: 0;
@@ -449,7 +449,7 @@ cursor: pointer;
 	</div>
 </div>
 <!-- 모달창 -->
-<div class="h_layer_search lg layer">
+<div class="_search lg layer">
 <div class="h_normal"></div>
 <div class="h_layout_content">
 	<div class="h_search_container">
@@ -598,7 +598,7 @@ $('#h_logout').click(function(){
 
 //돋보기 클릭시 검색 모달창
 $('.h_searchBtn').click(function(){
-	$('.h_layer_search').fadeIn();
+	$('._search').fadeIn();
     $('body').css("overflow", "hidden");
 });
 //모달창 검색어 삭제 
@@ -607,8 +607,8 @@ $('.h_btn_close').click(function(){
     
 })//모달창 검색창 끄기 
 $(document).on("click",function(e){
-	if($('.h_layer_search').is(e.target)) {
-		$('.h_layer_search').fadeOut();
+	if($('._search').is(e.target)) {
+		$('._search').fadeOut();
         $('.h_input_search').val('');
         $('body').css("overflow", "scroll");
         
@@ -667,7 +667,7 @@ $(window).scroll(function(){
 var naverLogin = new naver.LoginWithNaverId(
 		{
 			clientId: "GU6NNwfSmxJ3JXmCBaTf",  //내 애플리케이션 정보에 cliendId를 입력해줍니다.
-			callbackUrl: "http://localhost:8080/TeamProject/user/login", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
+			callbackUrl: "http://localhost:8080/TeamProject", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
 			isPopup: false,
 			callbackHandle: true
 		}

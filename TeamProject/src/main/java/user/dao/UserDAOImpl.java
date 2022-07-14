@@ -23,8 +23,6 @@ public class UserDAOImpl implements UserDAO {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("email", log_email_input);
 		map.put("pwd", log_pwd_input);
-		//System.out.println(map.get("email"));
-		//System.out.println(map.get("pwd"));
 		UserDTO userDTO = sqlSession.selectOne("userSQL.checkLogin", map);
 		return userDTO;
 	}
@@ -50,5 +48,13 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public UserDTO getUserInfo(String user_id) {
 		return sqlSession.selectOne("userSQL.getUserInfo", user_id);
+  }
+
+	public int findPwCheck(Map<String, Object> map) {
+		int check = sqlSession.selectOne("userSQL.isExistUser", map);
+		if(check == 1) {
+			sqlSession.update("userSQL.findPwCheck", map);			
+		}
+		return check;
 	}
 }

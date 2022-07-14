@@ -161,6 +161,14 @@ public class UserController {
 		return "forward:/user/findPWDMain";
 	}
 	
+	
+	@PostMapping(value="findPwCheck")
+	@ResponseBody
+	public Map<String, Object> findPwCheck(@RequestParam String phone, String user_id, HttpSession HttpSession){
+		Map<String, Object> map = userService.findPwCheck(phone, user_id);
+		return map;
+	}
+	
 	public void test() {
 		String test = "hihih";
 		String securityTest = passwordEncoder.encode(test);

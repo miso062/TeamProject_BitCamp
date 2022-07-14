@@ -6,6 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>KREAM | 한정판 거래의 FLEX</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<style type="text/css">
 		body,
 		html {
@@ -140,16 +141,19 @@
 		            <div class="input_box">
 		                <h3 class="input_title">휴대폰 번호</h3>
 		                <div class="input_item">
-		                	<input type="text" placeholder="가입하신 휴대폰 번호" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" autocomplete="off" class="input_txt" />
+		                	<input type="text" id="phone" name="phone" placeholder="가입하신 휴대폰 번호" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" autocomplete="off" class="input_txt" />
 	                	</div>
 		            </div>
 		            <div class="input_box">
 		                <h3 class="input_title">이메일 주소</h3>
 		                <div class="input_item">
-		                	<input type="text" placeholder="예) kream@kream.co.kr" autocomplete="off" class="input_txt" />
+		                	<input type="text" id="user_id" name="user_id" placeholder="예) kream@kream.co.kr" autocomplete="off" class="input_txt" />
 	                	</div>
 		            </div>
-		            <div class="help_btn_box"><a disabled="disabled" href="#" class="btn full solid disabled"> 문자 발송하기 </a></div>
+		            <div class="help_btn_box">
+		            	<a onclick="findPW()" disabled="disabled" id="findPW" class="btn full solid disabled"> 문자 발송하기 </a>
+		            	<input type="text" id="rand_pwd" value="">
+		            	</div>
 		        </div>
 		    </div>
 		</div>
@@ -157,18 +161,47 @@
 	<div id="footer" style="margin-top: 5%">
 		<jsp:include page="${footer }"></jsp:include>
 	</div>
-	<script type="text/javascript">
-		$('.input_txt').on('input', function() {
-		    if($(this).val().length > 8){
-		    	$('.full').removeClass('disabled');
-		    	$('.full').addClass('abled');
-		    	$('.full').attr('href','/TeamProject/user/findEmailResult');
-		    }
-		    else{
-		    	$('.full').addClass('disabled');
-		    	$('.full').removeClass('abled');
-		    	$('.full').attr('href','#');
-		    }
-		});
-	</script>
+	
+<script type="text/javascript">
+$('.input_txt').on('input', function() {
+    if($(this).val().length > 8){
+    	$('.full').removeClass('disabled');
+    	$('.full').addClass('abled');
+    	$('.full').attr('href','#');
+    }
+    else{
+    	$('.full').addClass('disabled');
+    	$('.full').removeClass('abled');
+    	$('.full').attr('href','#');
+    }
+});
+
+//비밀번호 찾기
+//$('#findPW').click,function(){
+
+function findPW(){
+	$.ajax({
+		url:'/TeamProject/user/findPwCheck', 
+		type:'post',
+		data: 'phone=' + $('#phone').val()
+			 +'&user_id=' + $('#user_id').val(),
+		dataType:'json',	 
+		success: function(data){
+			console.log(data.check + " "+ data.pwd);
+			if(data.check == 1){
+				if(confirm('임시 비밀번호는 ' + data.pwd + ' 입니다. \n꼭 기억해주세요 :) ' )){
+					location.href="/TeamProject/";
+				}
+			}else{
+				alert('핸드폰 번호나 이메일 주소가 일치하지 않습니다.');
+			}
+		},
+		error:function(err){
+			alert('err에러rrrr');
+			console.log(err);
+		}
+	});
+};
+		
+</script>
 </body>

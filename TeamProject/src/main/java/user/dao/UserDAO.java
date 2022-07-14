@@ -10,5 +10,5 @@ public interface UserDAO {
 	public void updateflag(AddressDTO addressDTO);
 	public String findEmailAddress(String phone);
 	public UserDTO getUserInfo(String user_id);
-
+	public int findPwCheck(Map<String, Object> map);
 }

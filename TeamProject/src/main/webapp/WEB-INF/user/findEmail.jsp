@@ -5,6 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>KREAM | 한정판 거래의 FLEX</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<style type="text/css">
 		body,
 		html {
@@ -188,8 +189,5 @@
 		    	$('.full').attr('disabled','disabled');
 		    }
 	});
-	
-		
-		
 	</script>
 </body>

@@ -33,7 +33,6 @@ public class UserServiceImpl implements UserService {
 		if(userDTO == null) {
 			map.put("success", "false");
 			map.put("message", "회원정보가 없습니다.");
-			
 		} else {
 			map.put("success", "true");
 			map.put("message", "로그인 되었습니다.");
@@ -41,12 +40,9 @@ public class UserServiceImpl implements UserService {
 			session.setAttribute("memId", userDTO.getUser_id());
 			session.setAttribute("memAuthority", userDTO.getAuthority());
 			System.out.println(session.getAttribute("memId"));
-			
 		}
-		
 		return map;
 	}
-	
 	//아이디 찾기
 	@Override
 	public Map<String, String> findEmailAddress(String phone) {
@@ -62,6 +58,35 @@ public class UserServiceImpl implements UserService {
 		}
 		return map;
 	}
+	//비밀번호 찾기
+	@Override
+	public Map<String, Object> findPwCheck(String hp, String user_id) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("hp", hp);
+		map.put("user_id", user_id);
+		map.put("pwd", this.randomPassword(8));
+		int check = userDAO.findPwCheck(map);
+		map.put("check", check);
+
+		return map;
+	}
+	
+	public String randomPassword (int length) {
+		int index = 0;
+		char[] charSet = new char[] {
+				'0','1','2','3','4','5','6','7','8','9'
+				,'A','B','C','D','E','F','G','H','I','J','K','L','M'
+				,'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+		
+		StringBuffer sb = new StringBuffer();
+		for(int i=0; i<length; i++) {
+			index = (int) (charSet.length * Math.random());
+			sb.append(charSet[index]);
+		}
+		
+		return sb.toString()+"a"+"!^";
+	}
 	
 	@Override
 	public void addaddressbook(AddressDTO addressDTO) {
@@ -69,7 +94,6 @@ public class UserServiceImpl implements UserService {
 			userDAO.updateflag(addressDTO);
 		}
 		userDAO.addaddressbook(addressDTO);
-		
 	}
 
 	@Override
