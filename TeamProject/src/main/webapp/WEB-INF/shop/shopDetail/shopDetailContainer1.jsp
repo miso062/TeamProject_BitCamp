@@ -10,6 +10,9 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <style type="text/css">
+.c1_title{
+margin:0;
+}
 *, :after, :before {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -1327,18 +1330,19 @@ $('.c1_bookmark').on(	{'click' : function() {
 	}
 });
 
-$('.c1_down_btn').on('click',function(){
-	 let index = $(".c1_down_btn").index(this);	
+$('.c1_dropdown_head').on('click',function(){
+	 let index = $(".c1_dropdown_head").index(this);	
 	 
 	if(index == 0){
 		if($('.c1_dropdownli').eq(index).hasClass('open')){
 			$('.open .c1_dropdown_content').css('display','none');
 			$('.c1_dropdownli').eq(index).removeClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 		}else{
 			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdown_head').not(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 			$('.c1_dropdownli').eq(index).addClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
 			$('.c1_dropdown_content').css({"display": "none"});
 			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
 		}
@@ -1346,11 +1350,12 @@ $('.c1_down_btn').on('click',function(){
 		if($('.c1_dropdownli').eq(index).hasClass('open')){
 			$('.open .c1_dropdown_content').css('display','none');
 			$('.c1_dropdownli').eq(index).removeClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 		}else{
 			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdown_head').not(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 			$('.c1_dropdownli').eq(index).addClass('open');
-			$(this).eq(index).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
 			$('.c1_dropdown_content').css({"display": "none"});
 			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
 		}
@@ -1358,11 +1363,12 @@ $('.c1_down_btn').on('click',function(){
 		if($('.c1_dropdownli').eq(index).hasClass('open')){
 			$('.open .c1_dropdown_content').css('display','none');
 			$('.c1_dropdownli').eq(index).removeClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 		}else{
 			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdown_head').not(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 			$('.c1_dropdownli').eq(index).addClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
 			$('.c1_dropdown_content').css({"display": "none"});
 			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
 		}

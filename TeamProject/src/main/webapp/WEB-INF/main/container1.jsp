@@ -118,7 +118,7 @@ $(function(){
 		  autoplay: true,
 		  prevArrow : "<button class='c1_slick-prev c1_slick-arrow'></button>",
 		  nextArrow : "<button class='c1_slick-next c1_slick-arrow'></button>",
-		  autoplaySpeed: 2000,
+		  autoplaySpeed: 5000,
 		  
 	});
 });
