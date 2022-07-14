@@ -6,6 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>KREAM | 한정판 거래의 FLEX</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<style type="text/css">
 		body,
 		html {
@@ -160,6 +161,7 @@
 	<div id="footer" style="margin-top: 5%">
 		<jsp:include page="${footer }"></jsp:include>
 	</div>
+	
 <script type="text/javascript">
 $('.input_txt').on('input', function() {
     if($(this).val().length > 8){
@@ -200,13 +202,6 @@ function findPW(){
 		}
 	});
 };
-	
 		
-		
-		
-		
-		
-		
-		
-	</script>
+</script>
 </body>

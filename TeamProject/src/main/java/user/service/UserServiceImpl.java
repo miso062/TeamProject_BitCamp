@@ -79,13 +79,15 @@ public class UserServiceImpl implements UserService {
 				,'A','B','C','D','E','F','G','H','I','J','K','L','M'
 				,'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 		
-			StringBuffer sb = new StringBuffer();
-			for(int i=0; i<length; i++) {
-				index = (int) (charSet.length * Math.random());
-				sb.append(charSet[index]);
-			}
-			
-			return sb.toString()+"a"+"!^";
+		StringBuffer sb = new StringBuffer();
+		for(int i=0; i<length; i++) {
+			index = (int) (charSet.length * Math.random());
+			sb.append(charSet[index]);
+		}
+		
+		return sb.toString()+"a"+"!^";
+	}
+	
 	@Override
 	public void addaddressbook(AddressDTO addressDTO) {
 		if(addressDTO.getFlag() == 1) {
