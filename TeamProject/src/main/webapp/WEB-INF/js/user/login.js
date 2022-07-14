@@ -107,7 +107,7 @@ function checkPwd(value) { //비밀번호 유효성 검사
 			}else{
 				console.log(data);
 				alert('로그인 되었습니다.');
-				                                                                                                                location.href='/TeamProject/';
+				location.href='/TeamProject/';
 			}
 			
 		},

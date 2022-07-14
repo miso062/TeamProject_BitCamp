@@ -108,6 +108,12 @@ html {
 }
 .input_error {
     display: none;
+    position: absolute;
+    line-height: 16px;
+    font-size: 11px;
+    color: #f15746;
+    margin: 0;
+    padding: 2px 0;
 }
 .input_item {
     position: relative;
@@ -138,7 +144,7 @@ html {
 #size_choose_img{
   	width: 15px;
 }
-.ico-check-active{
+.ico-check-inactive{
   	width: 25px;
   	height: 25px;
   	filter: opacity(0.5) drop-shadow(0 0 0 #DCDCDC);
@@ -146,12 +152,12 @@ html {
 .label_txt{
   	vertical-align: top;
 }
-.ico-plus{
+.ico-plus , .ico-minus{
   	width: 20px;
   	height: 20px;
-  	filter: opacity(0.5) drop-shadow(0 0 0 #DCDCDC);
+    cursor: pointer;
 }
-.btn_join{
+.btn_join.disabled{
 	background-color: #ebebeb;
 	color: #fff;
 	cursor: default;
@@ -165,6 +171,21 @@ html {
 	text-align: center;
 	line-height: 30px;
 	padding-top: 10px;
+}
+.btn_join.abled {
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+    height: 52px;
+    width: 100%;
+    font-size: 16px;
+    letter-spacing: -.16px;
+    font-weight: 700;
+    border-radius: 12px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    padding-top: 10px;    
 }
 
 .layer {
@@ -660,6 +681,9 @@ table td .text_info_warning {
     display: -ms-flexbox;
     display: flex;
     height: 24px;
+}
+.check_label {
+    cursor: pointer;
 }
 .check_sub {
     display: none;

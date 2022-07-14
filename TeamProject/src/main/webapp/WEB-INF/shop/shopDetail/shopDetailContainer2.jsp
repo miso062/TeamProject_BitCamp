@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="../css/shop/shopDetailContainer2.css">
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+
 <body>
 	<div class="c2_feed_area">
 		<h2 class="c2_feed_title" >
@@ -257,4 +251,3 @@
 		</div>
 	</div>
 </body>
-</html>

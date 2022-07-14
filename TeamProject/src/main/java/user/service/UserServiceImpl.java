@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import user.bean.AddressDTO;
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
@@ -71,11 +72,13 @@ public class UserServiceImpl implements UserService {
 		return map;
 	}
 	
-	
-
-
-
-	
-
+	@Override
+	public void addaddressbook(AddressDTO addressDTO) {
+		if(addressDTO.getFlag() == 1) {
+			userDAO.updateflag(addressDTO);
+		}
+		userDAO.addaddressbook(addressDTO);
+		
+	}
 
 }

@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import main.service.MainService;
 
 @Controller
+@RequestMapping(value="/")
 public class MainController {
 
 	@Autowired
 	MainService mainService;
 	
-	@RequestMapping(value="/", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public String index(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
 		model.addAttribute("container1", "/WEB-INF/main/container1.jsp");
@@ -31,9 +32,9 @@ public class MainController {
 	
 	@PostMapping(value="getProductList")
 	@ResponseBody
-	public Map<String, Object> getnoticeList(@RequestParam(required = false, defaultValue = "1") String num){
-		System.out.println(num);
+	public Map<String, Object> getProductList(@RequestParam String num){
 		Map<String, Object> map = mainService.getProductList(num);
+		System.out.println(map);
 		return map;
 	}
 	 
