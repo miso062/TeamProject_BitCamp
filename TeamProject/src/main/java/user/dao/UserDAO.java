@@ -11,5 +11,7 @@ public interface UserDAO {
 
 	public String findEmailAddress(String phone);
 
+	public int findPwCheck(Map<String, Object> map);
+
 	
 }

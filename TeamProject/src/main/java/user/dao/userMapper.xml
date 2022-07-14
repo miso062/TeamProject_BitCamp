@@ -4,12 +4,20 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 	
-<mapper namespace="userMapper">
+<mapper namespace="userSQL">
 	<select id="checkLogin" parameterType="java.util.Map" resultType="user">
   		select * from user_table where user_id = #{email} and user_pwd = #{pwd}
   	</select>
   	
   	<select id="findEmailAddress" parameterType="String" resultType="String">
 		select user_id from user_table where hp = #{phone}
+	</select>
+	
+	<update id="findPwCheck" parameterType="java.util.Map">
+		update user_table set user_pwd = #{pwd} where hp=#{hp} and user_id=#{user_id}
+	</update>
+	
+	<select id="isExistUser" parameterType="java.util.Map" resultType="int">
+		select count(*) from user_table where hp=#{hp} and user_id=#{user_id}
 	</select>
 </mapper>

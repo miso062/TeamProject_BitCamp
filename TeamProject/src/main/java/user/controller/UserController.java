@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import user.bean.UserDTO;
+import user.service.RandomPassword;
 import user.service.UserService;
 
 @Controller
@@ -135,6 +136,14 @@ public class UserController {
 	public String findPWD(Model model) {
 		model.addAttribute("container", "/WEB-INF/user/findPWD.jsp");
 		return "forward:/user/findPWDMain";
+	}
+	
+	
+	@PostMapping(value="findPwCheck")
+	@ResponseBody
+	public Map<String, Object> findPwCheck(@RequestParam String phone, String user_id, HttpSession HttpSession){
+		Map<String, Object> map = userService.findPwCheck(phone, user_id);
+		return map;
 	}
 	
 	public void test() {

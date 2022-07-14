@@ -13,6 +13,8 @@ public interface UserService {
 
 	public Map<String, String> findEmailAddress(String phone);
 
+	public Map<String, Object> findPwCheck(String hp, String user_id);
+
 
 	
 	

@@ -24,15 +24,24 @@ public class UserDAOImpl implements UserDAO {
 		map.put("pwd", log_pwd_input);
 		//System.out.println(map.get("email"));
 		//System.out.println(map.get("pwd"));
-		UserDTO userDTO = sqlSession.selectOne("userMapper.checkLogin", map);
+		UserDTO userDTO = sqlSession.selectOne("userSQL.checkLogin", map);
 		
 		return userDTO;
 	}
 
 	@Override
 	public String findEmailAddress(String phone) {
-		String user_id = sqlSession.selectOne("userMapper.findEmailAddress", phone);
+		String user_id = sqlSession.selectOne("userSQL.findEmailAddress", phone);
 		System.out.println(user_id);
 		return user_id;
+	}
+
+	@Override
+	public int findPwCheck(Map<String, Object> map) {
+		int check = sqlSession.selectOne("userSQL.isExistUser", map);
+		if(check == 1) {
+			sqlSession.update("userSQL.findPwCheck", map);			
+		}
+		return check;
 	}
 }
