@@ -59,6 +59,7 @@
 		-webkit-tap-highlight-color: transparent;
 	}	
 </style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 <body>
@@ -76,7 +77,6 @@
 	<div id="footer">
 		<jsp:include page="${footer }"></jsp:include> 
 	</div>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>
 </html>

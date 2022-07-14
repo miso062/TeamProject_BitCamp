@@ -10,19 +10,19 @@ import lombok.Data;
 @Data
 public class ProductDTO {
 	
-	private int productId;
+	private int product_id;
 	private String brand;
 	private String collection;
 	private String category;
-	private String engName;
-	private String korName;
+	private String eng_name;
+	private String kor_name;
 	private int gender;
-	private Date relDate; 
-	private int relPrice;
-	private String modelNum;
+	private Date release_date; 
+	private String release_price;
+	private String model_number;
 	private String color;
-	private String status;
-	private Date regDate;
+	private String post_status;
+	private Date regdate;
 	
 
 }

@@ -6,14 +6,17 @@
 <mapper namespace="mainSQL">
 	<select id="getProductList" parameterType="java.util.Map" resultType="product">
   		<!-- - 상품 4개씩 -->
-		select * from 
-		(select * from product where release_date is not null order by release_date desc) 
-		where <![CDATA[rownum>=#{startNum} and rownum<=#{endNum} ]]>;
+  		select * from (
+         select rownum rn, tt.* from (
+            select * from product where release_date is not null order by release_date desc)tt)
+           where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>
   	</select>
   	
 	<select id="getProductImg" parameterType="java.util.Map" resultType="productImg">
   		<!-- 이미지 -->
-		select * from pro_image where product_id in (select product_id from (select * from product where release_date is not null order by release_date desc) 
-		where <![CDATA[rownum>=#{startNum} and rownum<=#{endNum} ]]>;
+  		select * from pro_image where product_id in (select product_id from (
+         select ROWNUM rn, tt.* from (
+            select * from product where release_date is not null order by release_date desc)tt)
+          where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>)
   	</select>
 </mapper>

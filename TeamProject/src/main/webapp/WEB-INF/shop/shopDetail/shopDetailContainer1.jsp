@@ -2,14 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <style type="text/css">
+.c1_title{
+margin:0;
+}
 *, :after, :before {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -814,8 +810,7 @@ tr {
     color: rgba(34,34,34,.5);
 }
 </style>
-</head>
-<body>
+
 <div class="c1_container detail">
     <div class="c1_content">
         <h2 class="c1_blind">상품 상세</h2>
@@ -1279,8 +1274,7 @@ tr {
 </div>
 
 </body>
-<script src="/TeamProject/js/shop/chart.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script type="text/javascript">
 $("document").ready(function() {
 		$(window).scroll(function() { 
@@ -1327,18 +1321,19 @@ $('.c1_bookmark').on(	{'click' : function() {
 	}
 });
 
-$('.c1_down_btn').on('click',function(){
-	 let index = $(".c1_down_btn").index(this);	
+$('.c1_dropdown_head').on('click',function(){
+	 let index = $(".c1_dropdown_head").index(this);	
 	 
 	if(index == 0){
 		if($('.c1_dropdownli').eq(index).hasClass('open')){
 			$('.open .c1_dropdown_content').css('display','none');
 			$('.c1_dropdownli').eq(index).removeClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 		}else{
 			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdown_head').not(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 			$('.c1_dropdownli').eq(index).addClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
 			$('.c1_dropdown_content').css({"display": "none"});
 			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
 		}
@@ -1346,11 +1341,12 @@ $('.c1_down_btn').on('click',function(){
 		if($('.c1_dropdownli').eq(index).hasClass('open')){
 			$('.open .c1_dropdown_content').css('display','none');
 			$('.c1_dropdownli').eq(index).removeClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 		}else{
 			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdown_head').not(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 			$('.c1_dropdownli').eq(index).addClass('open');
-			$(this).eq(index).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
 			$('.c1_dropdown_content').css({"display": "none"});
 			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
 		}
@@ -1358,11 +1354,12 @@ $('.c1_down_btn').on('click',function(){
 		if($('.c1_dropdownli').eq(index).hasClass('open')){
 			$('.open .c1_dropdown_content').css('display','none');
 			$('.c1_dropdownli').eq(index).removeClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 		}else{
 			$('.c1_dropdownli').removeClass('open');
+			$('.c1_dropdown_head').not(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-down.svg');
 			$('.c1_dropdownli').eq(index).addClass('open');
-			$(this).attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
+			$(this).children('img').attr('src', '/TeamProject/img/shopDetail/chevron-up.svg');
 			$('.c1_dropdown_content').css({"display": "none"});
 			$('.c1_dropdown_content').eq(index).css({"display": "block"});	
 		}
@@ -1400,4 +1397,3 @@ $('.c1_sell').on('click',function(){
 	$(location).attr("href", "/TeamProject/shop/selectSellSize");
 })
 </script>
-</html>

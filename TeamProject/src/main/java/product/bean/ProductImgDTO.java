@@ -7,9 +7,9 @@ import lombok.Data;
 @Component
 @Data
 public class ProductImgDTO {
-	private int imgId;
-	private int productId;
-	private String orgFileName;
-	private String filePath;
+	private int pro_image_id;
+	private int product_id;
+	private String org_file_name;
+	private String file_path;
 	
 }

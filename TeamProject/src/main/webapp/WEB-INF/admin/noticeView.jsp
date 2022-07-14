@@ -72,6 +72,7 @@
     cursor:pointer;
 }
 </style>
+<div id="fadein">
 <form class="seqpg">
 <input type="hidden" id="seq" name="seq" value="${seq }">
 <input type="hidden" id="pg" name="pg" value="${pg }">
@@ -93,8 +94,14 @@
 	<input class="updel" type="button" value ="글삭제" style="margin:5px;" id="noticeDeletebtn">
 	<input class="updel"  type="button" value = "글수정" style="margin:5px;" id="noticeUpdatebtn">
 </div>
+</div>
 
 <script>
+$(document).ready(function(){
+	$('#sub_area > ul > li:eq(0)').addClass('bold');
+	$('#sub_area > ul > li:eq(1)').removeClass('bold');
+	$('#sub_area > ul > li:eq(2)').removeClass('bold');
+});
 $(document).ready(function(){
 	$.ajax({
 		type: 'post',
