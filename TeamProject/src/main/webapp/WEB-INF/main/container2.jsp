@@ -46,9 +46,9 @@
     position: relative;
     display: inline-block;
     vertical-align: top;
-    margin: 20px 0;
-    padding: 0 12px;
+    margin: 20px 12px;
     width: 25%;
+    cursor:pointer;
 }
 .cd2_product_item .cd2_item_inner {
     display: block;
@@ -226,8 +226,7 @@ $(document).ready(function(){
 
 				$('<div/>',{
 					class: 'cd2_product_item'
-				}).append($('<a/>',{
-						href: '#',
+				}).append($('<div/>',{
 						class: 'cd2_item_inner'
 				}).append($('<div/>',{
 					class: 'cd2_thum_box'
