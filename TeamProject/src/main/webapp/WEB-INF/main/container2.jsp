@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ㅣ<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <style type="text/css">
@@ -507,7 +507,14 @@ $(function(){
 	         $(this).attr('src', src);
 	    }
 	});
+	
 
 });
+
+	$(document).on('click','.cd2_bookmark', function() {
+		alert('hi');		
+	})
+
+
 </script>
 </body>
