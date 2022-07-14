@@ -72,7 +72,13 @@ public class UserController {
 	}
 	
 	@GetMapping(value="myPageEdit")
-	public String myPageEdit(Model model) {
+	public String myPageEdit(Model model, HttpSession session) {
+		String user_id = (String) session.getAttribute("memId");
+		System.out.println(session.getAttribute("user_id"));
+		UserDTO userDTO = userService.getUserInfo(user_id);
+		System.out.println(userDTO);
+		
+		model.addAttribute("userDTO", userDTO);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageEdit.jsp");
 		return "forward:/user/my";
 	}
