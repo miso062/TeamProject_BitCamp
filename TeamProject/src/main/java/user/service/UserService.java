@@ -13,5 +13,6 @@ public interface UserService {
 	public void addaddressbook(AddressDTO addressDTO);
 	public Map<String, Object> checkLogin(String log_email_input, String log_pwd_input);
 	public Map<String, String> findEmailAddress(String phone);
+	public UserDTO getUserInfo(String user_id);
 	public Map<String, Object> findPwCheck(String hp, String user_id);
 }

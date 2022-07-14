@@ -46,6 +46,10 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	public UserDTO getUserInfo(String user_id) {
+		return sqlSession.selectOne("userSQL.getUserInfo", user_id);
+  }
+
 	public int findPwCheck(Map<String, Object> map) {
 		int check = sqlSession.selectOne("userSQL.isExistUser", map);
 		if(check == 1) {

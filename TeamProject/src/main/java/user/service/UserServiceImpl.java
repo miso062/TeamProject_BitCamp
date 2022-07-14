@@ -96,4 +96,9 @@ public class UserServiceImpl implements UserService {
 		userDAO.addaddressbook(addressDTO);
 	}
 
+	@Override
+	public UserDTO getUserInfo(String user_id) {
+		return userDAO.getUserInfo(user_id);
+	}
+
 }

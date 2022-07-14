@@ -30,4 +30,8 @@
 	<update id="updateflag" parameterType="useraddress">
 		update address set flag=0 where user_id=#{user_id}
 	</update>
+	
+	<select id="getUserInfo" parameterType="String" resultType="user">
+		select * from user_table where user_id=#{user_id}
+	</select>
 </mapper>
