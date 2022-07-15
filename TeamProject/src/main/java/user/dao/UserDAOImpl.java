@@ -77,8 +77,11 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	public void update(UserDTO userDTO) {
+		sqlSession.update("userSQL.update", userDTO);
+  }
+  
 	public int checkId(String user_id) {
 		return sqlSession.selectOne("userSQL.checkId", user_id);
-		
 	}
 }
