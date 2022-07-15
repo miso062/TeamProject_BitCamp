@@ -53,4 +53,10 @@ public class BuyController {
 		model.addAttribute("container", "/WEB-INF/shop/buy/enterPrice.jsp");
 		return "forward:/shop/buy";
 	}
+	
+	@GetMapping(value="/buyFinish")
+	public String buyFinish(Model model) {
+		model.addAttribute("container", "/WEB-INF/shop/buy/buyFinish.jsp");
+		return "forward:/shop/buy";
+	}
 }
