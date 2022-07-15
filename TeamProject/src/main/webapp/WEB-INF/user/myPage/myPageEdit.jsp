@@ -183,6 +183,12 @@ input {
 }
 .input_error {
     display: none;
+    position: absolute;
+    line-height: 16px;
+    font-size: 11px;
+    color: #f15746;
+    margin: 0;
+    padding: 2px 0;
 }
 .modify_btn_box {
     padding-top: 28px;
@@ -640,6 +646,57 @@ svg:not(:root) {
 	background-color: black;
 	color: white;
 }
+.input_item {
+    position: relative;
+}
+.input_txt {
+    padding: 8px 0;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: -0.15px;
+    line-height: 22px;
+    border-bottom: 1px solid #ebebeb;
+}
+.input_txt:focus {
+    padding-bottom: 7px;
+    border-bottom: 2px solid #333;
+}
+.input_txt.hover {
+   	cursor: pointer;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.check_number.disabled {
+    background: #ebebeb;
+    font-weight: bold;
+    color: white;
+    border: solid 1px white;
+    border-radius: 6px;
+    font-size: 13px;
+    width: 100px;
+    display: inline-block;
+    height: 33px;
+    text-align: center;
+    line-height: 30px;
+}
+.check_number.abled {
+    background: gray;
+    font-weight: bold;
+    color: black;
+    border: solid 1px white;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor:pointer;
+    width: 100px;
+    display: inline-block;
+    height: 33px;
+    text-align: center;
+    line-height: 30px;
+}
+
 </style>
 </head>
 <body>
@@ -655,12 +712,13 @@ svg:not(:root) {
         <div class="profile_detail">
             <strong id="nickName" class="name">${userDTO.nickname }</strong>
             <div class="profile_btn_box">
-                <a href="#" class="btn outlinegrey small"> 이미지 변경 </a>
-                <a href="#" class="btn outlinegrey small"> 삭제 </a>
+                <a href="#" id="camera" class="btn outlinegrey small"> 이미지 변경 </a>
+                <a href="#" class="btn outlinegrey small reset"> 삭제 </a>
             </div>
         </div>
     </div>
-    <input type="file" accept="image/jpeg,image/png"  style="visibility : hidden;" /><canvas width="1000" height="1000" style="display: none;"></canvas>
+    <input type="file" accept="image/jpeg,image/png" id="uploadBtn" class="uploadBtn" style="visibility : hidden;" />
+    <canvas width="1000" height="1000" style="display: none;"></canvas>
    
     <div class="profile_info">
         <div class="profile_group">
@@ -701,11 +759,23 @@ svg:not(:root) {
                     <input type="text" value="${userDTO.user_name }" placeholder="고객님의 이름" autocomplete="off" class="desc" /></div>
                     <p class="input_error">올바른 이름을 입력해주세요. (2-50자)</p>
             </div>
-            
-            <div class="unit">
-                <h5 class="title">휴대폰 번호</h5>
-                <input type="text" value="${userDTO.hp }" autocomplete="off" class="desc" /></div>
+			
+			<div class="unit">
+                <h5 class="title">닉네임</h5>
+                    <div class="input_item">
+                    <input type="text" value="${userDTO.nickname }" placeholder="고객님의 이름" autocomplete="off" class="desc" /></div>
+                    <p class="input_error">올바른 이름을 입력해주세요. (2-50자)</p>
             </div>
+            
+            
+            <div class="unit input_box has_error has_button">
+                <h5 class="title">휴대폰 번호</h5>
+                 <div class="input_item">
+                <input type="text"  placeholder="- 없이 숫자만" oninput="onHp(this.value)"  autocomplete="off" id="hp" style="width:78%;" class="desc input_txt log_hp_input" value="${userDTO.hp }" autocomplete="off"  />
+                <span class="check_number disabled" disabled="disabled">인증번호 받기</span>
+                <input type="number" id="hp_key" placeholder="인증 번호" disabled="disabled">
+                </div>
+			</div>
             
             <div class="unit">
                 <h5 class="title">신발 사이즈</h5>
@@ -776,7 +846,8 @@ svg:not(:root) {
 		                </svg>
 		            </a>
 		        </div>
-		    </div>
+			</div>
+		</div>
     
         </div>
         
@@ -822,18 +893,17 @@ svg:not(:root) {
 			<button type="button" class="btn outlinegrey small updateBtn" onclick="location.reload()" >다시 작성</button>
 			<button type="button" class="btn outlinegrey small updateBtn" onclick="checkUpdate()">변경</button>
 		</div>
-        <a href="/my/withdrawal" class="btn_withdrawal">회원 탈퇴</a>
+        <a href="/my/withdrawal" class="btn_withdrawal" onclick="location.href='/TeamProject/my/withdrrawal'" >회원 탈퇴</a>
     </div>
 </form>
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-window.onload = function(){/* 지금까지 스크립트는 버튼을 클릭할 때 호출, window창이 열리자마자 실행 */
+window.onload = function(){ /* 광고성 정보 수신 동의 */
 		document.updateForm.message_radio['${userDTO.sms_allow}'].checked = true;
 		document.updateForm.email_radio['${userDTO.email_allow}'].checked = true;
-	}
-	
-	
+}
+/* 신발 */
 $('.btn_size_select').click(function(){
 	$('.layer_point').fadeIn();
     $('body').css("overflow", "hidden");
@@ -857,16 +927,17 @@ $('.size_item > .btn.outlinegrey').click(function(){
 	$(this).addClass("on");
 	$('.size_item > .btn.outlinegrey').not($(this)).removeClass("on");
 });
+/* 닉네임, 이름검사 */
 
 /* 비밀번호검사 */
-function oninputPwd(value){
+function oninputPwd1(value){
 	console.log(value);
-	resultPwd = checkPwd(value);	// 1개의 글자이벤트를 받을때마다 checkPwd호출
+	resultPwd = checkPwd1(value);	// 1개의 글자이벤트를 받을때마다 checkPwd호출
 	console.log(resultPwd);
 	loginOkCheck();
 }
 var resultPwd1 = false;
-
+var resultHp = false;
 function oninputPwd1(value){
 	//console.log(value);
 	resultPwd1 = checkPwd1(value);	// 1개의 글자이벤트를 받을때마다 checkPwd호출
@@ -889,14 +960,108 @@ function checkPwd1(value) { //비밀번호 유효성 검사
 		return false;
 	}
 }
+//인증번호 받기 버튼 활성화/비활성화
+function onHp(value) {
+	var regHp= /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+	console.log(value)
+
+	if(regHp.test(value) ==true) {
+		$('.check_number').removeClass('disabled');
+		$('.check_number').addClass('abled');
+		$('.check_number').prop('disabled',false);
+	}else {
+		$('.check_number').removeClass('abled');
+		$('.check_number').addClass('disabled');
+		$('.check_number').prop('disabled',true);
+	}
+
+}
+//인증번호 보내고 인증번호 입력칸 활성화
+$(document).on('click' , '.check_number.abled' , function(){
+	const verifyCode = Math.floor(Math.random() * (999999 - 100000)) + 100000;
+	verifyCode.toString();
+
+	console.log(verifyCode);
+
+	$.ajax({
+		url: '/TeamProject/user/sms-sends',
+		type: 'post',
+		data: {
+			'recipientPhoneNumber' : $('#hp').val(),
+			'title' : 'test',
+			'content' : verifyCode
+		},
+		success: function(data){
+			alert(JSON.stringify(data));
+			$('#hp_key').prop('disabled', false);
+		},
+		error : function(err) {
+			console.log(err);
+		} 
+	});
+	
+});
+// 인증번호 입력값 가져가서 비교하기 
+$(document).on('change' ,'#hp_key' , function(){
+	$.ajax({
+		type: 'post',
+		url: '/TeamProject/user/sms-check',
+		data : {'hp_key' :$('#hp_key').val()},
+		succes: function(){
+			alert(hihi);
+		},
+		error : function(err){
+			console.log(err);
+		}
+	});
+});
+
+/* 이미지변경 */
+$(function(){
+	$('#camera').click(function(){
+		$('#uploadBtn').trigger('click');
+	});
+	
+	$('#uploadBtn').on('change', function(){
+		readURL(this);
+	});
+	
+	function readURL(input){
+		if(input.files[0]){
+			var reader = new FileReader();
+			reader.onload = function(event){
+				$('.thumb_img').attr('src', event.target.result); //e.target 이벤트가 발생한 요소 반환 => result에 저장
+			} //불러온 이미지파일을 다 읽으면 그때 이미지를 뿌려라
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+	
+	$('#updateBtn').click(function(){
+		
+		//2.Ajax통신
+		var formData = new FormData($('#updateForm')[0]); //<form />안의 모든것
+		
+		$.ajax({
+			type: 'post',
+			url: '/TeamProject/imageboard/update',
+			enctype: 'multipart/form-data',
+			processData: false,
+			contentType: false,
+			data: formData,
+			success: function(){
+				alert('이미지변경 완료');
+			},error: function(err){
+				console.log(err);
+			}
+		});
+		
+	});
+});
 
 /* update */
 function checkUpdate(){
 	
 }
-/* 탈퇴 */
-$('.btn_withdrawal').click(function(){
-	
-});
+
 </script>
 </html>
