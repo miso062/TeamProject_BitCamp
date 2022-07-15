@@ -1,5 +1,9 @@
 package user.service;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,8 +11,12 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.multipart.MultipartFile;
 
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
@@ -22,7 +30,9 @@ public class UserServiceImpl implements UserService {
 	private UserDAO userDAO;
 	@Autowired
 	private HttpSession session;
-
+	@Value("${profileImgFolder")
+	private String uploadFolder;
+	
 	@Override
 	public Map<String, Object> checkLogin(String log_email_input, String log_pwd_input) {
 		
@@ -101,6 +111,7 @@ public class UserServiceImpl implements UserService {
 	public UserDTO getUserInfo(String user_id) {
 		return userDAO.getUserInfo(user_id);
 	}
+	
 	@Override
 	public String checkNick(String nickname) {
 		int a= userDAO.checkNick(nickname);
@@ -125,5 +136,28 @@ public class UserServiceImpl implements UserService {
 		}else {
 		return check1="1";	
 		}
+	}
+	@Override
+	public void update(UserDTO userDTO, @RequestParam MultipartFile multipartFile, HttpSession session) {
+		
+		//실제폴더
+		String imageFilePath = session.getServletContext().getRealPath("/WEB-INF/storage");
+		String imageFileName = userDTO.getUser_id() + "_" + multipartFile.getOriginalFilename();
+		
+		if(multipartFile.getSize() !=0 ) { //파일이 업로드 되었는지 확인
+			try {
+				if(userDTO.getProfile_img() != null) { //이미프로필 사진이 있는 경우
+					File file = new File(uploadFolder + userDTO.getProfile_img());
+					file.delete();
+					multipartFile.transferTo(file);
+				}
+				File file = new File(imageFilePath, imageFileName);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			userDTO.setProfile_img(imageFileName);
+		}
+		userDAO.update(userDTO);
+		session.invalidate();
 	}
 }

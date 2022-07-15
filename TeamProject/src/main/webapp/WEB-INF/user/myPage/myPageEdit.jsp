@@ -172,7 +172,6 @@ input {
     letter-spacing: -.07px;
     line-height: 18px;
 }
-
 .input_item {
     position: relative;
 }
@@ -696,11 +695,20 @@ input::-webkit-inner-spin-button {
     text-align: center;
     line-height: 30px;
 }
-
+.input_title.ess {
+    position: relative;
+    display: inline-block;
+    padding-right: 6px;
+}
+.input_title.ess:after {
+    position: absolute;
+    top: -2px;
+    right: 0;
+}
 </style>
 </head>
 <body>
-<form name = "updateForm" id="updateForm" method = "post" action="/TeamProject/user/myPageUpdate">
+<form name = "updateForm" id="updateForm" method = "post" enctype="multipart/form-data" action="/TeamProject/user/myPageUpdate">
 <div class="my_profile">
     <div class="content_title border">
         <div class="title">
@@ -708,16 +716,16 @@ input::-webkit-inner-spin-button {
         </div>
     </div>
     <div class="user_profile">
-        <div class="profile_thumb"><img src="${userDTO.profile_img }" alt="사용자 이미지" class="thumb_img" /></div>
+        <div class="profile_thumb"><img src="${userDTO.profile_img }" alt="사용자 이미지" name="profile_img" class="thumb_img" /></div>
         <div class="profile_detail">
-            <strong id="nickName" class="name">${userDTO.nickname }</strong>
+            <strong id="nickName" name="nickname" class="name">${userDTO.nickname }</strong>
             <div class="profile_btn_box">
                 <a href="#" id="camera" class="btn outlinegrey small"> 이미지 변경 </a>
                 <a href="#" class="btn outlinegrey small reset"> 삭제 </a>
             </div>
         </div>
     </div>
-    <input type="file" accept="image/jpeg,image/png" id="uploadBtn" class="uploadBtn" style="visibility : hidden;" />
+    <input type="file" accept="image/jpeg,image/png" id="uploadBtn profileImgUrl" class="profileImgUrl" style="visibility : hidden;" />
     <canvas width="1000" height="1000" style="display: none;"></canvas>
    
     <div class="profile_info">
@@ -725,53 +733,50 @@ input::-webkit-inner-spin-button {
             <h4 class="group_title">로그인 정보</h4>
             <div class="unit">
                 <h5 class="title">이메일 주소</h5>
-                <p class="desc email">${userDTO.user_id }</p>
+                <p name="user_id" class="desc email">${userDTO.user_id }</p>
             </div>
             
             <div class="unit">
             	<div class="input_box has_error has_button">
 		        	<h5 class="title input_pwd_title input_title ess log_pwd_label" >비밀번호</h5>
 		        		<div class="input_item">
-		        			<input type="password" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwd1(this.value)"  autocomplete="off" class="desc input_txt log_pwd_input" />
+		        			<input type="password" id="password_1" name="user_pwd" value="${userDTO.user_pwd }" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwd1(this.value)"  autocomplete="off" class="desc input_txt log_pwd_input" />
 		        		</div>
 		        	<p class="input_error log_pwd_error" >영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-16자)</p>
 		    	</div>
-		    		
-                <%-- <h5 class="title input_pwd_title" id="log_pwd_label">비밀번호</h5>
-                    <div class="input_item input_pwd_text">
-                    <input type="password" value="${userDTO.user_pwd }"  id= "log_pwd_input" placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off" class="desc input_pwd_txt" oninput="oninputPwd(this.value)"/>
-                    </div>
-                    <p class="input_pwd_error input_error" id="log_pwd_error">영문, 숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
-             --%></div>
+            </div>
+            
             <div class="unit">
-                <h5 class="title">비밀번호 재확인</h5>
-                    <div class="input_item">
-                    <input type="password" value="${userDTO.user_pwd }" placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off" class="desc" /></div>
-                    <p class="input_error">비밀번호와 일치하지 않습니다.</p>
+            	<div class="input_box has_error has_button">
+		        	<h5 class="title input_pwdcheck_title input_title ess log_pwdcheck_label" >비밀번호 재확인</h5>
+		        		<div class="input_item">
+		        			<input type="password" id="password_2" value="${userDTO.user_pwd }" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwdcheck(this.value)"  autocomplete="off" class="desc input_txt log_pwdcheck_input log_pwd_input" />
+		        		</div>
+		        	<p class="input_error log_pwdcheck_error" >비밀번호와 일치하지 않습니다. </p>
+		    	</div>
             </div>         
         </div>
         
-        <div class="profile_group">
+        <div class="input_box has_error has_button profile_group">
             <h4 class="group_title">개인 정보</h4>
             <div class="unit">
-                <h5 class="title">이름</h5>
+                <h5 class="title input_title ess log_name_label">이름</h5>
                     <div class="input_item">
-                    <input type="text" value="${userDTO.user_name }" placeholder="고객님의 이름" autocomplete="off" class="desc" /></div>
-                    <p class="input_error">올바른 이름을 입력해주세요. (2-50자)</p>
+                    <input type="text" name="user_name" value="${userDTO.user_name }"  placeholder="ex)홍길동 2-10자" onchange="inputName(this.value)"  autocomplete="off" class="desc input_txt log_name_input" /></div>
+                    <p class="input_error log_name_error">올바른 이름을 입력해주세요. (2-50자)</p>
             </div>
 			
-			<div class="unit">
-                <h5 class="title">닉네임</h5>
+			<div class="unit input_box has_error has_button">
+                <h5 class="title input_title ess log_nick_name_label">닉네임</h5>
                     <div class="input_item">
-                    <input type="text" value="${userDTO.nickname }" placeholder="고객님의 이름" autocomplete="off" class="desc" /></div>
-                    <p class="input_error">올바른 이름을 입력해주세요. (2-50자)</p>
+                    <input type="text" name="nickname" value="${userDTO.nickname }" placeholder="한글,영어.숫자 조합 2-12자" oninput="inputNick(this.value)"  autocomplete="off" class="desc input_txt log_nick_name_input"  /></div>
+                    <p class="input_error log_nick_name_error" >영문 또는 한글을 조합하여 입력해주세요.</p>
             </div>
-            
             
             <div class="unit input_box has_error has_button">
                 <h5 class="title">휴대폰 번호</h5>
                  <div class="input_item">
-                <input type="text"  placeholder="- 없이 숫자만" oninput="onHp(this.value)"  autocomplete="off" id="hp" style="width:78%;" class="desc input_txt log_hp_input" value="${userDTO.hp }" autocomplete="off"  />
+                <input type="text"  placeholder="- 없이 숫자만" oninput="onHp(this.value)"  autocomplete="off"  style="width:78%;" id="hp" class="desc input_txt log_hp_input" name="hp" value="${userDTO.hp }" autocomplete="off"  />
                 <span class="check_number disabled" disabled="disabled">인증번호 받기</span>
                 <input type="number" id="hp_key" placeholder="인증 번호" disabled="disabled">
                 </div>
@@ -779,7 +784,7 @@ input::-webkit-inner-spin-button {
             
             <div class="unit">
                 <h5 class="title">신발 사이즈</h5>
-                <p class="desc input_txt hover text_fill" >${userDTO.shoesize }</p>
+                <p name="shoesize" class="desc input_txt hover text_fill" >${userDTO.shoesize }</p>
                 <button type="button" class="btn btn_size_select btn_modify outlinegrey small">변경</button>
             </div>
 	
@@ -927,21 +932,67 @@ $('.size_item > .btn.outlinegrey').click(function(){
 	$(this).addClass("on");
 	$('.size_item > .btn.outlinegrey').not($(this)).removeClass("on");
 });
-/* 닉네임, 이름검사 */
 
+var resultPwd1 = false;
+var resultName =false;
+var resultNick = false;
+var resultHp = false;
+
+//이름 유효성 검사
+function inputName(value) {
+	var regName =/^[가-힣]{2,10}$/;
+	console.log(value)
+	
+	if(regName.test(value) ==true) {
+		document.getElementsByClassName("log_name_label")[0].style.color = "black";
+		document.getElementsByClassName("log_name_error")[0].style.display = "none";
+		document.getElementsByClassName("log_name_input")[0].style.borderColor = "black";
+		resultName = true;
+		signupCheck();
+	}else {
+		document.getElementsByClassName("log_name_label")[0].style.color = "#f15746";
+		document.getElementsByClassName("log_name_error")[0].style.display = "block";
+		document.getElementsByClassName("log_name_input")[0].style.borderColor = "#f15746";
+		resultName = false;
+		signupCheck();
+	}
+}
+//닉네임 유효성검사
+function inputNick(value) {
+	var regNick=/^[가-힣a-zA-Z0-9]{2,12}$/;
+
+	if(regNick.test(value) ==true) {
+		document.getElementsByClassName("log_nick_name_label")[0].style.color = "black";
+		document.getElementsByClassName("log_nick_name_input")[0].style.borderColor = "black";
+		resultNick = true;
+		$.ajax({
+			type: 'post',
+			url : '/TeamProject/user/checkNick' ,
+			data : 'nickname='+value,
+			success : function(data){
+				if(data =='ok') {
+					$('.log_nick_name_error').html('사용가능한 아이디입니다.');
+				}else {
+					$('.log_nick_name_error').html('이미 사용하고 있는 아이디입니다.');
+				}
+
+			},error : function(err){
+				console.log(err);
+			}
+		});
+		signupCheck();
+	}else {
+		document.getElementsByClassName("log_nick_name_label")[0].style.color = "#f15746";
+		document.getElementsByClassName("log_nick_name_error")[0].style.display = "block";
+		document.getElementsByClassName("log_nick_name_input")[0].style.borderColor = "#f15746";
+		$('.log_nick_name_error').html('올바르지 않은 표현 입니다.')
+		resultNick = false;
+		signupCheck();
+	}
+}
 /* 비밀번호검사 */
 function oninputPwd1(value){
-	console.log(value);
-	resultPwd = checkPwd1(value);	// 1개의 글자이벤트를 받을때마다 checkPwd호출
-	console.log(resultPwd);
-	loginOkCheck();
-}
-var resultPwd1 = false;
-var resultHp = false;
-function oninputPwd1(value){
-	//console.log(value);
 	resultPwd1 = checkPwd1(value);	// 1개의 글자이벤트를 받을때마다 checkPwd호출
-	//console.log(resultPwd);
 	signupCheck();
 }
 
@@ -960,6 +1011,24 @@ function checkPwd1(value) { //비밀번호 유효성 검사
 		return false;
 	}
 }
+
+$('.log_pwdcheck_input').focusout(function(){
+	let pass1 = $("#password_1").val();
+	let pass2 = $("#password_2").val();
+	
+	if(pass1 == pass2){
+		alert('true');
+		document.getElementsByClassName("log_pwdcheck_label")[0].style.color ="black";
+		document.getElementsByClassName("log_pwdcheck_error")[0].style.display = "none";
+		document.getElementsByClassName("log_pwdcheck_input")[0].style.borderColor = "black";
+	}else{
+		alert('false');
+		document.getElementsByClassName("log_pwdcheck_label")[0].style.color = "#f15746";
+		document.getElementsByClassName("log_pwdcheck_error")[0].style.display = "block";
+		document.getElementsByClassName("log_pwdcheck_input")[0].style.borderColor = "#f15746";
+	}
+});
+
 //인증번호 받기 버튼 활성화/비활성화
 function onHp(value) {
 	var regHp= /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
@@ -1026,6 +1095,10 @@ $(function(){
 		readURL(this);
 	});
 	
+	$('.reset').click(function(){
+		$('.thumb_img').attr('src', '');
+	});
+	
 	function readURL(input){
 		if(input.files[0]){
 			var reader = new FileReader();
@@ -1037,19 +1110,17 @@ $(function(){
 	}
 	
 	$('#updateBtn').click(function(){
-		
-		//2.Ajax통신
 		var formData = new FormData($('#updateForm')[0]); //<form />안의 모든것
 		
 		$.ajax({
 			type: 'post',
-			url: '/TeamProject/imageboard/update',
+			url: '/TeamProject/user/update',
 			enctype: 'multipart/form-data',
 			processData: false,
 			contentType: false,
 			data: formData,
 			success: function(){
-				alert('이미지변경 완료');
+				alert('업데이트 완료');
 			},error: function(err){
 				console.log(err);
 			}

@@ -5,6 +5,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
 import user.send.SmsResponse;
@@ -18,4 +20,5 @@ public interface UserService {
 	public Map<String, Object> findPwCheck(String hp, String user_id);
     public String checkNick(String nickname);
 	public String signUpWrite(UserDTO userDTO);
+	public void update(UserDTO userDTO, MultipartFile multipartFile, HttpSession session);
 }

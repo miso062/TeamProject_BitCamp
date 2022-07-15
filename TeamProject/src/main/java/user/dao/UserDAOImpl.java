@@ -75,4 +75,9 @@ public class UserDAOImpl implements UserDAO {
 	public void signUpWrite(UserDTO userDTO) {
 		sqlSession.insert("userSQL.signUpWrite", userDTO);
 	}
+
+	@Override
+	public void update(UserDTO userDTO) {
+		sqlSession.update("userSQL.update", userDTO);
+	}
 }

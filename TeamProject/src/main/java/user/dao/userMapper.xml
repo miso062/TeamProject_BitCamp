@@ -48,4 +48,15 @@
 		insert into user_table values(#{user_id},#{user_name},#{nickname},#{user_pwd},#{hp},#{shoesize},#{sms_allow},#{email_allow},0,1,'이메일',sysdate)
 	</insert>
 	
+	<!-- 회원정보수정 -->
+	<update id="update" parameterType="user">
+		update user_table set user_name = #{user_name}
+						,nickname = #{nickname}
+						,user_pwd = #{user_pwd}
+						,hp = #{hp}
+						,shoesize = #{shoesize}
+						,sms_allow = #{sms_allow}
+						,email_allow = #{email_allow}
+						,profile_img = #{profile_img}
+	</update>
 </mapper>
