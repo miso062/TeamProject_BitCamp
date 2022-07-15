@@ -18,7 +18,8 @@ public interface UserService {
 	public Map<String, String> findEmailAddress(String phone);
 	public UserDTO getUserInfo(String user_id);
 	public Map<String, Object> findPwCheck(String hp, String user_id);
-    public String checkNick(String nickname);
+  public String checkNick(String nickname);
 	public String signUpWrite(UserDTO userDTO);
 	public void update(UserDTO userDTO, MultipartFile multipartFile, HttpSession session);
+	public String checkId(String user_id);
 }

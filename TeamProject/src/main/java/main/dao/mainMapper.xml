@@ -17,6 +17,6 @@
   		select * from pro_image where product_id in (select product_id from (
          select ROWNUM rn, tt.* from (
             select * from product where release_date is not null order by release_date desc)tt)
-          where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>) order by product_id 
+          where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>) order by product_id
   	</select>
 </mapper>

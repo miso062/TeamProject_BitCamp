@@ -821,6 +821,7 @@ tr {
 </style>
 </head>
 <body>
+<input type="hidden" name="product_id" id="product_id" value="${product_id }">
 <div class="c1_container detail">
     <div class="c1_content">
         <h2 class="c1_blind">상품 상세</h2>
@@ -832,7 +833,7 @@ tr {
                           <div class="c1_item_inner">
                               <div class="c1_product" style="background-color: rgb(235, 240, 245);">
                                       <img alt="상품 이미지"
-                                          src="https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=l"
+                                          src=""
                                           class="c1_image"/>
                               </div>
                           </div>
@@ -1281,8 +1282,6 @@ tr {
         </div>
     </div>
 </div>
-
-</body>
 <script src="/TeamProject/js/shop/chart.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -1407,5 +1406,20 @@ $('.c1_buy').on('click',function(){
 $('.c1_sell').on('click',function(){
 	$(location).attr("href", "/TeamProject/shop/selectSellSize");
 })
+$(document).ready(function(){
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/shop/getshopDetail',
+		data:'product_id='+$('#product_id').val(),
+		dataType:'json',
+		success: function(data){
+			$('.c1_image').prop('src',data.productImgDTO.file_path);
+		},
+		error:function(err){
+			console.log(err);
+		}		
+	});
+});
 </script>
+</body>
 </html>
