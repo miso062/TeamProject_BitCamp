@@ -671,12 +671,20 @@ svg:not(:root) {
             </div>
             
             <div class="unit">
-                <h5 class="title input_pwd_title" id="log_pwd_label">비밀번호</h5>
+            	<div class="input_box has_error has_button">
+		        	<h5 class="title input_pwd_title input_title ess log_pwd_label" >비밀번호</h5>
+		        		<div class="input_item">
+		        			<input type="password" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwd1(this.value)"  autocomplete="off" class="desc input_txt log_pwd_input" />
+		        		</div>
+		        	<p class="input_error log_pwd_error" >영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-16자)</p>
+		    	</div>
+		    		
+                <%-- <h5 class="title input_pwd_title" id="log_pwd_label">비밀번호</h5>
                     <div class="input_item input_pwd_text">
                     <input type="password" value="${userDTO.user_pwd }"  id= "log_pwd_input" placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off" class="desc input_pwd_txt" oninput="oninputPwd(this.value)"/>
                     </div>
                     <p class="input_pwd_error input_error" id="log_pwd_error">영문, 숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
-            </div>
+             --%></div>
             <div class="unit">
                 <h5 class="title">비밀번호 재확인</h5>
                     <div class="input_item">
@@ -818,6 +826,7 @@ svg:not(:root) {
     </div>
 </form>
 </body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 window.onload = function(){/* 지금까지 스크립트는 버튼을 클릭할 때 호출, window창이 열리자마자 실행 */
 		document.updateForm.message_radio['${userDTO.sms_allow}'].checked = true;
@@ -850,32 +859,37 @@ $('.size_item > .btn.outlinegrey').click(function(){
 });
 
 /* 비밀번호검사 */
-var resultPwd = false;
-
 function oninputPwd(value){
 	console.log(value);
 	resultPwd = checkPwd(value);	// 1개의 글자이벤트를 받을때마다 checkPwd호출
 	console.log(resultPwd);
 	loginOkCheck();
 }
+var resultPwd1 = false;
 
-function checkPwd(value) { //비밀번호 유효성 검사
-	var regPwd = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+function oninputPwd1(value){
+	//console.log(value);
+	resultPwd1 = checkPwd1(value);	// 1개의 글자이벤트를 받을때마다 checkPwd호출
+	//console.log(resultPwd);
+	signupCheck();
+}
 
-	if(regPwd.test(value) == true) {
-		console.log('제대로 된 비밀번호 입니다.');
-		document.getElementById('log_pwd_label').style.color ="black";
-		document.getElementById('log_pwd_error').style.display = "none";
-		document.getElementById('log_pwd_input').style.borderColor = "black";
+function checkPwd1(value) { //비밀번호 유효성 검사
+	var regPwd1 = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+
+	if(regPwd1.test(value) == true) {
+		document.getElementsByClassName("log_pwd_label")[0].style.color ="black";
+		document.getElementsByClassName("log_pwd_error")[0].style.display = "none";
+		document.getElementsByClassName("log_pwd_input")[0].style.borderColor = "black";
 		return true;
 	} else {
-		console.log('올바른 비밀번호을 입력해주세요.');
-		document.getElementById('log_pwd_label').style.color = "#f15746";
-		document.getElementById('log_pwd_error').style.display = "block";
-		document.getElementById('log_pwd_input').style.borderColor = "#f15746";
+		document.getElementsByClassName("log_pwd_label")[0].style.color = "#f15746";
+		document.getElementsByClassName("log_pwd_error")[0].style.display = "block";
+		document.getElementsByClassName("log_pwd_input")[0].style.borderColor = "#f15746";
 		return false;
 	}
 }
+
 /* update */
 function checkUpdate(){
 	
