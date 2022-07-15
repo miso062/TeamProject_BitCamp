@@ -57,4 +57,22 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return check;
 	}
+
+	@Override
+	public int checkNick(String nickname) {
+		int nickcount = sqlSession.selectOne("userSQL.checkNick", nickname);
+		return nickcount;
+	}
+	//휴대전화로 가입 여부 조회
+	@Override
+	public int signUpCheck(String hp) {
+
+		return sqlSession.selectOne("userSQL.signUpCheck", hp);
+		
+	}
+
+	@Override
+	public void signUpWrite(UserDTO userDTO) {
+		sqlSession.insert("userSQL.signUpWrite", userDTO);
+	}
 }

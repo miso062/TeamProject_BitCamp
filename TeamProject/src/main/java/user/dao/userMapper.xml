@@ -34,4 +34,18 @@
 	<select id="getUserInfo" parameterType="String" resultType="user">
 		select * from user_table where user_id=#{user_id}
 	</select>
+	<!-- 닉네임 중복체크-->
+	<select id="checkNick" parameterType="String" resultType="int">
+	 select count(*) from user_table where nickname=#{nickname}
+	</select>
+	
+	<!-- 휴대전화로 가입 여부 조회 -->
+	<select id="signUpCheck" parameterType="String" resultType="int">
+	 select count(*) from user_table where hp=#{hp}
+	</select>
+	<!-- 이메일 회원가입 -->
+	<insert id="signUpWrite" parameterType="user">
+		insert into user_table values(#{user_id},#{user_name},#{nickname},#{user_pwd},#{hp},#{shoesize},#{sms_allow},#{email_allow},0,1,'이메일',sysdate)
+	</insert>
+	
 </mapper>

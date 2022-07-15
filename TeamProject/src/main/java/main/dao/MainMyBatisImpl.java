@@ -21,14 +21,14 @@ public class MainMyBatisImpl implements MainDAO {
 	
 	@Override
 	public Map<String, Object> getProductList(Map<String, Integer> map) {
-		System.out.println(map);
+		//System.out.println(map); endNum StartNum 확인
 		List<ProductDTO> productList = sqlSession.selectList("mainSQL.getProductList", map);
 		List<ProductImgDTO> productImgList = sqlSession.selectList("mainSQL.getProductImg", map);
 		
 		Map<String, Object> sendMap = new HashMap<String, Object>();
 		sendMap.put("productList", productList);
 		sendMap.put("productImgList", productImgList);
-		System.out.println(sendMap);
+		//	System.out.println(sendMap);
 		return sendMap;
 	}
 
