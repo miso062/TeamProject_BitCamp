@@ -173,8 +173,8 @@ img, video {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    height: 50px;
-    width: 120px;
+    height: 45px;
+    width: 105px;
 }
 .division_btn_box .btn_division.buy[data-v-23bbaa82] {
     background-color: #ef6253;
@@ -196,7 +196,7 @@ img, video {
 
 .division_btn_box .title[data-v-23bbaa82] {
     margin:0 auto; 
-    font-size:24px; 
+    font-size:17px; 
     font-weight: bold;
 }
 .division_btn_box .price[data-v-23bbaa82] {
