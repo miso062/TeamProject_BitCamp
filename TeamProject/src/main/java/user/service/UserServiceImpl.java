@@ -126,4 +126,16 @@ public class UserServiceImpl implements UserService {
 		return check1="1";	
 		}
 	}
+	//아이디 중복체크
+	@Override
+	public String checkId(String user_id) {
+		String check = null ; 
+		int a = userDAO.checkId(user_id);
+		if(a==0) {
+			check="0";
+		}else {
+			check="1";
+		}
+		return check;
+	}
 }

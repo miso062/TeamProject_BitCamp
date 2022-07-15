@@ -45,7 +45,7 @@
 		        <p class="input_error log_hp_error" >형식에 맞지 않는 번호입니다.</p>
 		    </div>
 		    <div  class="input_box">
-		        <h3  class="input_title">신발 사이즈</h3>
+		        <h3  class="input_title ess">신발 사이즈</h3>
 		        <div class="input_item input_choose_size">
 		            <input type="text" placeholder="선택하세요" disabled="disabled" autocomplete="off" class="input_txt hover text_fill" />
 		            <button type="button" class="btn btn_size_select" >
@@ -207,6 +207,7 @@
 		var resultName =false;
 		var resultNick = false;
 		var resultHp = false;
+		var resultSize =false;
 
 		//email 유효성 검사
 		function oninputEmail1(value){
@@ -341,16 +342,33 @@
 		function checkEmail1(value) { //이메일 유효성 검사
 			var regEmail1 = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 			
-			if (regEmail1.test(value) == true) {
-				document.getElementsByClassName("log_email_label")[0].style.color = "black";
-				document.getElementsByClassName("log_email_error")[0].style.display = "none";
-				document.getElementsByClassName("log_email_input")[0].style.borderColor = "black";
-				return true;
-			} else {
+			if(regEmail1.test(value) ==true) {
+				$.ajax({
+					type: 'post',
+					url : '/TeamProject/user/checkId',
+					data : {'user_id' : $('.log_email_input').val()},
+					success : function (data){
+						document.getElementsByClassName("log_email_label")[0].style.color = "black";
+						document.getElementsByClassName("log_email_input")[0].style.borderColor = "black";
+						if(data == "0") {
+							document.getElementsByClassName("log_email_error")[0].innerHTML='사용 가능한 아이디입니다.';
+							resultName = true;
+							signupCheck();
+						}else{
+							document.getElementsByClassName("log_email_error")[0].innerHTML='이미 사용중인 아이디입니다.';  
+						}
+						
+					},	
+					error: function(){}
+				});
+				
+			}else {
 				document.getElementsByClassName("log_email_label")[0].style.color = "#f15746";
 				document.getElementsByClassName("log_email_error")[0].style.display = "block";
 				document.getElementsByClassName("log_email_input")[0].style.borderColor = "#f15746";
-				return false;
+				document.getElementsByClassName("log_email_error")[0].innerHTML='이메일 주소를 정확히 입력해주세요.';
+				resultName = false;
+				signupCheck();
 			}
 		}
 		function checkPwd1(value) { //비밀번호 유효성 검사

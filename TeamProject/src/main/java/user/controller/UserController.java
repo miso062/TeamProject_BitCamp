@@ -210,6 +210,12 @@ public class UserController {
 		String check = userService.signUpWrite(userDTO);
 	return check;
 	}
+	//아이디 중복체크
+	@PostMapping(value="checkId")
+	@ResponseBody
+	public String checkId(@RequestParam String user_id) {
+		return userService.checkId(user_id);
+	}
 	
 
 }
