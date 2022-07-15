@@ -2,10 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <style type="text/css">
-.c1_title{
-margin:0;
-}
 *, :after, :before {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -17,7 +21,6 @@ div {
 li, ol, ul {
     list-style: none;
 }
-
 .c1_wrap {
     position: relative;
     padding-top: 100px;
@@ -642,6 +645,7 @@ li, ol, ul {
     color: rgba(34,34,34,.8);
 }
 .c1_tab_area .on .c1_item_link {
+    background-color: #fff;
     color: #222;
     font-weight: 700;
     -webkit-box-shadow: 0 0 0 0.5px #ebebeb inset;
@@ -786,13 +790,14 @@ tr {
 }
 .c1_guide_list .c1_guide_item .c1_text_area .c1_title {
     display: block;
-    line-height: 16px;
+    line-height: 20px;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: normal;
 }
 .c1_guide_list .c1_guide_item .c1_text_area .c1_desc {
-    margin-top: 1px;
+    margin-top: 2px;
+    margin-bottom: 7px;
     line-height: 16px;
     font-size: 13px;
     letter-spacing: normal;
@@ -809,7 +814,13 @@ tr {
     letter-spacing: -.05px;
     color: rgba(34,34,34,.5);
 }
+.c1_confirm_wrap_box{
+	margin: 10px;
+    padding: 10px;
+}
 </style>
+</head>
+<body>
 <input type="hidden" name="product_id" id="product_id" value="${product_id }">
 <div class="c1_container detail">
     <div class="c1_content">
@@ -1042,8 +1053,7 @@ tr {
                             </div>
                             </c:if> --%>
                             
-                        </div>
-                        <div>
+                        </div class="c1_confirm_box">
                             <div class="c1_confirm_wrap">
                                 <h3 class="c1_confirm_title">구매 전 꼭 확인해주세요!</h3>
                                 <div class="c1_confirm_content">
@@ -1272,9 +1282,8 @@ tr {
         </div>
     </div>
 </div>
-
-</body>
-
+<script src="/TeamProject/js/shop/chart.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $("document").ready(function() {
 		$(window).scroll(function() { 
@@ -1287,7 +1296,7 @@ $(function(){     
 	var lastScroll = 0;
 		$(window).scroll(function(event) {
 			var scroll = $(this).scrollTop();
-			if (scroll < 1600) { //이벤트를 적용시킬 스크롤 높이               
+			if (scroll < 1560) { //이벤트를 적용시킬 스크롤 높이               
 				$(".c1_column:eq(0)").addClass("c1_is_fixed");
 				$(".c1_column:eq(0)").removeClass("c1_is_absolute");
 			} else{
@@ -1366,6 +1375,7 @@ $('.c1_dropdown_head').on('click',function(){
 	}
 });
 
+
 /* 팝업 체결거래, 판매 입찰, 구매입찰 버튼 */
 $(document).on('click', '.c1_item_tab', function () {
     let index = $(".c1_item_tab").index(this);
@@ -1411,12 +1421,5 @@ $(document).ready(function(){
 	});
 });
 </script>
-
-
-
-
-
-
-
-
-
+</body>
+</html>
