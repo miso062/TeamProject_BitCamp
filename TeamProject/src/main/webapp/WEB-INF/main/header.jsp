@@ -667,7 +667,7 @@ $(window).scroll(function(){
 var naverLogin = new naver.LoginWithNaverId(
 		{
 			clientId: "GU6NNwfSmxJ3JXmCBaTf",  //내 애플리케이션 정보에 cliendId를 입력해줍니다.
-			callbackUrl: "http://localhost:8080/TeamProject", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
+			callbackUrl: "http://localhost:8080/TeamProject/", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
 			isPopup: false,
 			callbackHandle: true
 		}
@@ -680,8 +680,9 @@ window.addEventListener('load', function () {
 		console.log(status);
 		if (status) {
 			var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
-    		
-			console.log(naverLogin.user); 
+    		//여기서 db에 값을 넘겨야 한다.
+			console.log(naverLogin.user);
+			console.log("age="+naverLogin.user.age);
     		
             if( email == undefined || email == null) {
 				alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");

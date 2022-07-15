@@ -16,4 +16,6 @@ public interface UserService {
 	public Map<String, String> findEmailAddress(String phone);
 	public UserDTO getUserInfo(String user_id);
 	public Map<String, Object> findPwCheck(String hp, String user_id);
+    public String checkNick(String nickname);
+	public String signUpWrite(UserDTO userDTO);
 }

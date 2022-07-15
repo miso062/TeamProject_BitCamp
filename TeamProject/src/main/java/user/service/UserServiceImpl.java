@@ -101,4 +101,29 @@ public class UserServiceImpl implements UserService {
 	public UserDTO getUserInfo(String user_id) {
 		return userDAO.getUserInfo(user_id);
 	}
+	@Override
+	public String checkNick(String nickname) {
+		int a= userDAO.checkNick(nickname);
+		String b;
+		if(a==0) {
+			b= "ok";
+		}else {
+			b="fail";
+		}
+		 
+		return b;
+	}
+	@Override
+	public String signUpWrite(UserDTO userDTO) {
+		//휴대전화로 먼저 가입 여부 조회
+		
+		int check = userDAO.signUpCheck(userDTO.getHp());
+		String check1 = null ;
+		if(check==0) {
+			userDAO.signUpWrite(userDTO);
+		return	check1="0";
+		}else {
+		return check1="1";	
+		}
+	}
 }

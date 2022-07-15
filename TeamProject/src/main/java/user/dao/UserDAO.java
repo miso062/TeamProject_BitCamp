@@ -13,4 +13,7 @@ public interface UserDAO {
 	public String findEmailAddress(String phone);
 	public UserDTO getUserInfo(String user_id);
 	public int findPwCheck(Map<String, Object> map);
+	public int checkNick(String nickname);
+	public int signUpCheck(String hp);
+	public void signUpWrite(UserDTO userDTO);
 }
