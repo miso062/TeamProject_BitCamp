@@ -101,4 +101,21 @@ public class UserServiceImpl implements UserService {
 	public UserDTO getUserInfo(String user_id) {
 		return userDAO.getUserInfo(user_id);
 	}
+	@Override
+	public void bookMarkInsert(Map<String, String> map) {
+		String id = (String) session.getAttribute("memId");
+	
+		map.put("id", id);
+		
+		userDAO.bookMarkInsert(map);
+	}
+	@Override
+	public void bookMarkDelete(int product_id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+
+		map.put("product_id", product_id);
+		map.put("user_id", (String) session.getAttribute("memId"));
+
+		userDAO.bookMarkDelete(map);
+	}
 }

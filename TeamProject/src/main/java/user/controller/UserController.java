@@ -196,4 +196,17 @@ public class UserController {
 	}
 	//sms 인증번호 받기
 
+	//찜하기
+	@PostMapping(value="bookMarkInsert")
+	public void bookMarkInsert(@RequestParam Map<String, String> map) {
+		System.out.println(map);
+		userService.bookMarkInsert(map);
+	}
+	
+	@PostMapping(value="bookMarkDelete")
+	@ResponseBody
+	public void bookMarkDelete(@RequestParam int product_id) {
+		System.out.println("delete ="+product_id);
+		userService.bookMarkDelete(product_id);
+	}
 }

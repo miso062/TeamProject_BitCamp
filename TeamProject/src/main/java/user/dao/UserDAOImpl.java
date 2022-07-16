@@ -57,4 +57,16 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return check;
 	}
+
+	@Override
+	public void bookMarkInsert(Map<String, String> map) {
+		sqlSession.insert("userSQL.bookMarkInsert", map);
+	}
+
+	@Override
+	public void bookMarkDelete(Map<String, Object> map) {
+		System.out.println("너 여기까지 오냐?");
+		sqlSession.delete("userSQL.bookMarkDelete", map);
+		System.out.println("여기까지오냐고");
+	}
 }

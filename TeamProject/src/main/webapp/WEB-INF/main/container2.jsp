@@ -507,13 +507,55 @@ $(function(){
 	         $(this).attr('src', src);
 	    }
 	});
+	// 여기에서 책갈피 구현
+	$()
 	
-
 });
 
-	$(document).on('click','.cd2_bookmark', function() {
-		alert('hi');		
-	})
+$(document).on('click','.cd2_bookmark', function() {
+		if($(this).hasClass('active')){
+			$(this).attr('src', '/TeamProject/img/main/container2/bookmark.svg');
+			$(this).removeClass('active');
+			
+			$.ajax({
+				type:'post',
+				url: '/TeamProject/user/bookMarkDelete',
+				data: {'product_id': $(this).parent().next('.cd2_product_id').val()},
+				success: function(){
+					alert('관심상품이 취소되었습니다');
+				},
+				error: function(e){
+					console.log(e);
+				}
+			})
+		}else{
+			$(this).addClass('active');
+			$(this).attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+		$.ajax({
+			type: 'post',
+			url: '/TeamProject/user/bookMarkInsert',
+			data: {'product_id': $(this).parent().next('.cd2_product_id').val()},
+			success: function(){
+				alert('관심상품이 추가되었습니다 ');
+			},
+			error: function(e) {
+				console.log(e);
+			}
+		});//ajax
+	};//else
+		
+})
+	/* $.ajax({
+		type:'post',
+		url:'/TeamProject/user/bookMarkDelete',
+		data:'product_id=${product_id}',
+		success: function(data){
+			alert('찜 취소')
+		},
+		error: function(e) {
+			console.log(e);
+		}
+	}) */
 
 
 </script>
