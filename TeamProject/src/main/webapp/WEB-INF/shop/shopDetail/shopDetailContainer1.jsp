@@ -1400,7 +1400,8 @@ $(document).on('click', '.c1_item_tab', function () {
 });
 /* 구매 사이즈 판매사이즈로 이동 */
 $('.c1_buy').on('click',function(){
-	$(location).attr("href", "/TeamProject/shop/selectBuySize");
+	var href = "/TeamProject/shop/selectBuySize?product_id=" +  $('#product_id').val();
+	$(location).attr("href", href);
 })
 
 $('.c1_sell').on('click',function(){

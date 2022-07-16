@@ -1,4 +1,4 @@
-ㅣ<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <style type="text/css">
@@ -187,7 +187,7 @@
 
 <body>
  <!--섹션 1-->
-<input type="button" id="con_more_num" value="1">
+<input type="hidden" id="con_more_num" value="1">
 
 <div id="cd2_homeproducts">
 	<div class="cd2_product_title" >
