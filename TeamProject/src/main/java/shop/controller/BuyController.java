@@ -2,6 +2,7 @@ package shop.controller;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,9 +10,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import product.bean.ProductDTO;
+import shop.service.ShopService;
+
 @Controller
 @RequestMapping(value="/shop")
 public class BuyController {
+	
+	@Autowired
+	ShopService shopService;
 
 	@GetMapping(value="/buy")
 	public String buy(Model model) {
@@ -21,8 +28,9 @@ public class BuyController {
 	}
 	
 	@GetMapping(value="/selectBuySize")
-	public String selectSize(Model model) {
+	public String selectSize(Model model, @RequestParam int product_id) {
 		model.addAttribute("container", "/WEB-INF/shop/buy/selectSize.jsp");
+//		ProductDTO productDTO = shopService.getProduct(product_id);
 		return "forward:/shop/buy";
 	}
 	
@@ -51,6 +59,12 @@ public class BuyController {
 	@GetMapping(value="/enterBuyPrice")
 	public String enterBuyPrice(Model model) {
 		model.addAttribute("container", "/WEB-INF/shop/buy/enterPrice.jsp");
+		return "forward:/shop/buy";
+	}
+	
+	@GetMapping(value="/buyFinish")
+	public String buyFinish(Model model) {
+		model.addAttribute("container", "/WEB-INF/shop/buy/buyFinish.jsp");
 		return "forward:/shop/buy";
 	}
 }

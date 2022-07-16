@@ -681,8 +681,9 @@ window.addEventListener('load', function () {
 		console.log(status);
 		if (status) {
 			var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
-    		
-			console.log(naverLogin.user); 
+    		//여기서 db에 값을 넘겨야 한다.
+			console.log(naverLogin.user);
+			console.log("age="+naverLogin.user.age);
     		
             if( email == undefined || email == null) {
 				alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");

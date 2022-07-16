@@ -172,7 +172,6 @@ input {
     letter-spacing: -.07px;
     line-height: 18px;
 }
-
 .input_item {
     position: relative;
 }
@@ -183,6 +182,12 @@ input {
 }
 .input_error {
     display: none;
+    position: absolute;
+    line-height: 16px;
+    font-size: 11px;
+    color: #f15746;
+    margin: 0;
+    padding: 2px 0;
 }
 .modify_btn_box {
     padding-top: 28px;
@@ -640,10 +645,70 @@ svg:not(:root) {
 	background-color: black;
 	color: white;
 }
+.input_item {
+    position: relative;
+}
+.input_txt {
+    padding: 8px 0;
+    width: 100%;
+    font-size: 15px;
+    letter-spacing: -0.15px;
+    line-height: 22px;
+    border-bottom: 1px solid #ebebeb;
+}
+.input_txt:focus {
+    padding-bottom: 7px;
+    border-bottom: 2px solid #333;
+}
+.input_txt.hover {
+   	cursor: pointer;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.check_number.disabled {
+    background: #ebebeb;
+    font-weight: bold;
+    color: white;
+    border: solid 1px white;
+    border-radius: 6px;
+    font-size: 13px;
+    width: 100px;
+    display: inline-block;
+    height: 33px;
+    text-align: center;
+    line-height: 30px;
+}
+.check_number.abled {
+    background: gray;
+    font-weight: bold;
+    color: black;
+    border: solid 1px white;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor:pointer;
+    width: 100px;
+    display: inline-block;
+    height: 33px;
+    text-align: center;
+    line-height: 30px;
+}
+.input_title.ess {
+    position: relative;
+    display: inline-block;
+    padding-right: 6px;
+}
+.input_title.ess:after {
+    position: absolute;
+    top: -2px;
+    right: 0;
+}
 </style>
 </head>
 <body>
-<form name = "updateForm" id="updateForm" method = "post" action="/TeamProject/user/myPageUpdate">
+<form name = "updateForm" id="updateForm" method = "post" enctype="multipart/form-data" action="/TeamProject/user/myPageUpdate">
 <div class="my_profile">
     <div class="content_title border">
         <div class="title">
@@ -651,57 +716,75 @@ svg:not(:root) {
         </div>
     </div>
     <div class="user_profile">
-        <div class="profile_thumb"><img src="${userDTO.profile_img }" alt="사용자 이미지" class="thumb_img" /></div>
+        <div class="profile_thumb"><img src="${userDTO.profile_img }" alt="사용자 이미지" name="profile_img" class="thumb_img" /></div>
         <div class="profile_detail">
-            <strong id="nickName" class="name">${userDTO.nickname }</strong>
+            <strong id="nickName" name="nickname" class="name">${userDTO.nickname }</strong>
             <div class="profile_btn_box">
-                <a href="#" class="btn outlinegrey small"> 이미지 변경 </a>
-                <a href="#" class="btn outlinegrey small"> 삭제 </a>
+                <a href="#" id="camera" class="btn outlinegrey small"> 이미지 변경 </a>
+                <a href="#" class="btn outlinegrey small reset"> 삭제 </a>
             </div>
         </div>
     </div>
-    <input type="file" accept="image/jpeg,image/png"  style="visibility : hidden;" /><canvas width="1000" height="1000" style="display: none;"></canvas>
+    <input type="file" accept="image/jpeg,image/png" id="uploadBtn profileImgUrl" class="profileImgUrl" style="visibility : hidden;" />
+    <canvas width="1000" height="1000" style="display: none;"></canvas>
    
     <div class="profile_info">
         <div class="profile_group">
             <h4 class="group_title">로그인 정보</h4>
             <div class="unit">
                 <h5 class="title">이메일 주소</h5>
-                <p class="desc email">${userDTO.user_id }</p>
+                <p name="user_id" class="desc email">${userDTO.user_id }</p>
             </div>
             
             <div class="unit">
-                <h5 class="title input_pwd_title" id="log_pwd_label">비밀번호</h5>
-                    <div class="input_item input_pwd_text">
-                    <input type="password" value="${userDTO.user_pwd }"  id= "log_pwd_input" placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off" class="desc input_pwd_txt" oninput="oninputPwd(this.value)"/>
-                    </div>
-                    <p class="input_pwd_error input_error" id="log_pwd_error">영문, 숫자, 특수문자를 조합해서 입력해주세요. (8-16자)</p>
+            	<div class="input_box has_error has_button">
+		        	<h5 class="title input_pwd_title input_title ess log_pwd_label" >비밀번호</h5>
+		        		<div class="input_item">
+		        			<input type="password" id="password_1" name="user_pwd" value="${userDTO.user_pwd }" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwd1(this.value)"  autocomplete="off" class="desc input_txt log_pwd_input" />
+		        		</div>
+		        	<p class="input_error log_pwd_error" >영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-16자)</p>
+		    	</div>
             </div>
+            
             <div class="unit">
-                <h5 class="title">비밀번호 재확인</h5>
-                    <div class="input_item">
-                    <input type="password" value="${userDTO.user_pwd }" placeholder="영문, 숫자, 특수문자 조합 8-16자" autocomplete="off" class="desc" /></div>
-                    <p class="input_error">비밀번호와 일치하지 않습니다.</p>
+            	<div class="input_box has_error has_button">
+		        	<h5 class="title input_pwdcheck_title input_title ess log_pwdcheck_label" >비밀번호 재확인</h5>
+		        		<div class="input_item">
+		        			<input type="password" id="password_2" value="${userDTO.user_pwd }" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwdcheck(this.value)"  autocomplete="off" class="desc input_txt log_pwdcheck_input log_pwd_input" />
+		        		</div>
+		        	<p class="input_error log_pwdcheck_error" >비밀번호와 일치하지 않습니다. </p>
+		    	</div>
             </div>         
         </div>
         
-        <div class="profile_group">
+        <div class="input_box has_error has_button profile_group">
             <h4 class="group_title">개인 정보</h4>
             <div class="unit">
-                <h5 class="title">이름</h5>
+                <h5 class="title input_title ess log_name_label">이름</h5>
                     <div class="input_item">
-                    <input type="text" value="${userDTO.user_name }" placeholder="고객님의 이름" autocomplete="off" class="desc" /></div>
-                    <p class="input_error">올바른 이름을 입력해주세요. (2-50자)</p>
+                    <input type="text" name="user_name" value="${userDTO.user_name }"  placeholder="ex)홍길동 2-10자" onchange="inputName(this.value)"  autocomplete="off" class="desc input_txt log_name_input" /></div>
+                    <p class="input_error log_name_error">올바른 이름을 입력해주세요. (2-50자)</p>
+            </div>
+			
+			<div class="unit input_box has_error has_button">
+                <h5 class="title input_title ess log_nick_name_label">닉네임</h5>
+                    <div class="input_item">
+                    <input type="text" name="nickname" value="${userDTO.nickname }" placeholder="한글,영어.숫자 조합 2-12자" oninput="inputNick(this.value)"  autocomplete="off" class="desc input_txt log_nick_name_input"  /></div>
+                    <p class="input_error log_nick_name_error" >영문 또는 한글을 조합하여 입력해주세요.</p>
             </div>
             
-            <div class="unit">
+            <div class="unit input_box has_error has_button">
                 <h5 class="title">휴대폰 번호</h5>
-                <input type="text" value="${userDTO.hp }" autocomplete="off" class="desc" /></div>
-            </div>
+                 <div class="input_item">
+                <input type="text"  placeholder="- 없이 숫자만" oninput="onHp(this.value)"  autocomplete="off"  style="width:78%;" id="hp" class="desc input_txt log_hp_input" name="hp" value="${userDTO.hp }" autocomplete="off"  />
+                <span class="check_number disabled" disabled="disabled">인증번호 받기</span>
+                <input type="number" id="hp_key" placeholder="인증 번호" disabled="disabled">
+                </div>
+			</div>
             
             <div class="unit">
                 <h5 class="title">신발 사이즈</h5>
-                <p class="desc input_txt hover text_fill" >${userDTO.shoesize }</p>
+                <p name="shoesize" class="desc input_txt hover text_fill" >${userDTO.shoesize }</p>
                 <button type="button" class="btn btn_size_select btn_modify outlinegrey small">변경</button>
             </div>
 	
@@ -768,7 +851,8 @@ svg:not(:root) {
 		                </svg>
 		            </a>
 		        </div>
-		    </div>
+			</div>
+		</div>
     
         </div>
         
@@ -814,17 +898,17 @@ svg:not(:root) {
 			<button type="button" class="btn outlinegrey small updateBtn" onclick="location.reload()" >다시 작성</button>
 			<button type="button" class="btn outlinegrey small updateBtn" onclick="checkUpdate()">변경</button>
 		</div>
-        <a href="/my/withdrawal" class="btn_withdrawal">회원 탈퇴</a>
+        <a href="/my/withdrawal" class="btn_withdrawal" onclick="location.href='/TeamProject/my/withdrrawal'" >회원 탈퇴</a>
     </div>
 </form>
 </body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-window.onload = function(){/* 지금까지 스크립트는 버튼을 클릭할 때 호출, window창이 열리자마자 실행 */
+window.onload = function(){ /* 광고성 정보 수신 동의 */
 		document.updateForm.message_radio['${userDTO.sms_allow}'].checked = true;
 		document.updateForm.email_radio['${userDTO.email_allow}'].checked = true;
-	}
-	
-	
+}
+/* 신발 */
 $('.btn_size_select').click(function(){
 	$('.layer_point').fadeIn();
     $('body').css("overflow", "hidden");
@@ -849,40 +933,206 @@ $('.size_item > .btn.outlinegrey').click(function(){
 	$('.size_item > .btn.outlinegrey').not($(this)).removeClass("on");
 });
 
-/* 비밀번호검사 */
-var resultPwd = false;
+var resultPwd1 = false;
+var resultName =false;
+var resultNick = false;
+var resultHp = false;
 
-function oninputPwd(value){
-	console.log(value);
-	resultPwd = checkPwd(value);	// 1개의 글자이벤트를 받을때마다 checkPwd호출
-	console.log(resultPwd);
-	loginOkCheck();
+//이름 유효성 검사
+function inputName(value) {
+	var regName =/^[가-힣]{2,10}$/;
+	console.log(value)
+	
+	if(regName.test(value) ==true) {
+		document.getElementsByClassName("log_name_label")[0].style.color = "black";
+		document.getElementsByClassName("log_name_error")[0].style.display = "none";
+		document.getElementsByClassName("log_name_input")[0].style.borderColor = "black";
+		resultName = true;
+		signupCheck();
+	}else {
+		document.getElementsByClassName("log_name_label")[0].style.color = "#f15746";
+		document.getElementsByClassName("log_name_error")[0].style.display = "block";
+		document.getElementsByClassName("log_name_input")[0].style.borderColor = "#f15746";
+		resultName = false;
+		signupCheck();
+	}
+}
+//닉네임 유효성검사
+function inputNick(value) {
+	var regNick=/^[가-힣a-zA-Z0-9]{2,12}$/;
+
+	if(regNick.test(value) ==true) {
+		document.getElementsByClassName("log_nick_name_label")[0].style.color = "black";
+		document.getElementsByClassName("log_nick_name_input")[0].style.borderColor = "black";
+		resultNick = true;
+		$.ajax({
+			type: 'post',
+			url : '/TeamProject/user/checkNick' ,
+			data : 'nickname='+value,
+			success : function(data){
+				if(data =='ok') {
+					$('.log_nick_name_error').html('사용가능한 아이디입니다.');
+				}else {
+					$('.log_nick_name_error').html('이미 사용하고 있는 아이디입니다.');
+				}
+
+			},error : function(err){
+				console.log(err);
+			}
+		});
+		signupCheck();
+	}else {
+		document.getElementsByClassName("log_nick_name_label")[0].style.color = "#f15746";
+		document.getElementsByClassName("log_nick_name_error")[0].style.display = "block";
+		document.getElementsByClassName("log_nick_name_input")[0].style.borderColor = "#f15746";
+		$('.log_nick_name_error').html('올바르지 않은 표현 입니다.')
+		resultNick = false;
+		signupCheck();
+	}
+}
+/* 비밀번호검사 */
+function oninputPwd1(value){
+	resultPwd1 = checkPwd1(value);	// 1개의 글자이벤트를 받을때마다 checkPwd호출
+	signupCheck();
 }
 
-function checkPwd(value) { //비밀번호 유효성 검사
-	var regPwd = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
+function checkPwd1(value) { //비밀번호 유효성 검사
+	var regPwd1 = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
 
-	if(regPwd.test(value) == true) {
-		console.log('제대로 된 비밀번호 입니다.');
-		document.getElementById('log_pwd_label').style.color ="black";
-		document.getElementById('log_pwd_error').style.display = "none";
-		document.getElementById('log_pwd_input').style.borderColor = "black";
+	if(regPwd1.test(value) == true) {
+		document.getElementsByClassName("log_pwd_label")[0].style.color ="black";
+		document.getElementsByClassName("log_pwd_error")[0].style.display = "none";
+		document.getElementsByClassName("log_pwd_input")[0].style.borderColor = "black";
 		return true;
 	} else {
-		console.log('올바른 비밀번호을 입력해주세요.');
-		document.getElementById('log_pwd_label').style.color = "#f15746";
-		document.getElementById('log_pwd_error').style.display = "block";
-		document.getElementById('log_pwd_input').style.borderColor = "#f15746";
+		document.getElementsByClassName("log_pwd_label")[0].style.color = "#f15746";
+		document.getElementsByClassName("log_pwd_error")[0].style.display = "block";
+		document.getElementsByClassName("log_pwd_input")[0].style.borderColor = "#f15746";
 		return false;
 	}
 }
+
+$('.log_pwdcheck_input').focusout(function(){
+	let pass1 = $("#password_1").val();
+	let pass2 = $("#password_2").val();
+	
+	if(pass1 == pass2){
+		alert('true');
+		document.getElementsByClassName("log_pwdcheck_label")[0].style.color ="black";
+		document.getElementsByClassName("log_pwdcheck_error")[0].style.display = "none";
+		document.getElementsByClassName("log_pwdcheck_input")[0].style.borderColor = "black";
+	}else{
+		alert('false');
+		document.getElementsByClassName("log_pwdcheck_label")[0].style.color = "#f15746";
+		document.getElementsByClassName("log_pwdcheck_error")[0].style.display = "block";
+		document.getElementsByClassName("log_pwdcheck_input")[0].style.borderColor = "#f15746";
+	}
+});
+
+//인증번호 받기 버튼 활성화/비활성화
+function onHp(value) {
+	var regHp= /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+	console.log(value)
+
+	if(regHp.test(value) ==true) {
+		$('.check_number').removeClass('disabled');
+		$('.check_number').addClass('abled');
+		$('.check_number').prop('disabled',false);
+	}else {
+		$('.check_number').removeClass('abled');
+		$('.check_number').addClass('disabled');
+		$('.check_number').prop('disabled',true);
+	}
+
+}
+//인증번호 보내고 인증번호 입력칸 활성화
+$(document).on('click' , '.check_number.abled' , function(){
+	const verifyCode = Math.floor(Math.random() * (999999 - 100000)) + 100000;
+	verifyCode.toString();
+
+	console.log(verifyCode);
+
+	$.ajax({
+		url: '/TeamProject/user/sms-sends',
+		type: 'post',
+		data: {
+			'recipientPhoneNumber' : $('#hp').val(),
+			'title' : 'test',
+			'content' : verifyCode
+		},
+		success: function(data){
+			alert(JSON.stringify(data));
+			$('#hp_key').prop('disabled', false);
+		},
+		error : function(err) {
+			console.log(err);
+		} 
+	});
+	
+});
+// 인증번호 입력값 가져가서 비교하기 
+$(document).on('change' ,'#hp_key' , function(){
+	$.ajax({
+		type: 'post',
+		url: '/TeamProject/user/sms-check',
+		data : {'hp_key' :$('#hp_key').val()},
+		succes: function(){
+			alert(hihi);
+		},
+		error : function(err){
+			console.log(err);
+		}
+	});
+});
+
+/* 이미지변경 */
+$(function(){
+	$('#camera').click(function(){
+		$('#uploadBtn').trigger('click');
+	});
+	
+	$('#uploadBtn').on('change', function(){
+		readURL(this);
+	});
+	
+	$('.reset').click(function(){
+		$('.thumb_img').attr('src', '');
+	});
+	
+	function readURL(input){
+		if(input.files[0]){
+			var reader = new FileReader();
+			reader.onload = function(event){
+				$('.thumb_img').attr('src', event.target.result); //e.target 이벤트가 발생한 요소 반환 => result에 저장
+			} //불러온 이미지파일을 다 읽으면 그때 이미지를 뿌려라
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+	
+	$('#updateBtn').click(function(){
+		var formData = new FormData($('#updateForm')[0]); //<form />안의 모든것
+		
+		$.ajax({
+			type: 'post',
+			url: '/TeamProject/user/update',
+			enctype: 'multipart/form-data',
+			processData: false,
+			contentType: false,
+			data: formData,
+			success: function(){
+				alert('업데이트 완료');
+			},error: function(err){
+				console.log(err);
+			}
+		});
+		
+	});
+});
+
 /* update */
 function checkUpdate(){
 	
 }
-/* 탈퇴 */
-$('.btn_withdrawal').click(function(){
-	
-});
+
 </script>
 </html>
