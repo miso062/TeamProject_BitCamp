@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>GESE</title>
+	<title>GESE | 한정판 거래의 Flex</title>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<style type="text/css">
 		body,

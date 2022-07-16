@@ -1,4 +1,4 @@
-ㅣ<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <style type="text/css">
@@ -6,6 +6,9 @@
 	margin-top: 50px;
     padding-top: 0;
     padding-bottom: 0;
+}
+.cd2_info_box{
+	cursor:pointer;
 }
 /* 소제목 */
 .cd2_product_title{
@@ -46,15 +49,16 @@
     position: relative;
     display: inline-block;
     vertical-align: top;
-    margin: 20px 12px;
+    margin: 20px 0px;
+    padding: 0px 12px;
     width: 25%;
-    cursor:pointer;
 }
 .cd2_product_item .cd2_item_inner {
     display: block;
 /*  background-color: #fff; */
     border-radius: 12px;
-    background-color: #f6eeed
+    background-color: #f6eeed;
+    cursor:pointer;
 }
 .cd2_product {
     overflow: hidden;
@@ -183,7 +187,7 @@
 
 <body>
  <!--섹션 1-->
-<input type="button" id="con_more_num" value="1">
+<input type="hidden" id="con_more_num" value="1">
 
 <div id="cd2_homeproducts">
 	<div class="cd2_product_title" >
@@ -481,6 +485,7 @@ $(function(){
 								   class : 'cd2_product_id',
 								   value : data.productList[i].product_id
 							   })).appendTo($('#cd2_list_for'));
+	 						
 							}
 						$('#con_more_num').val(data.num);
 					},
@@ -511,10 +516,18 @@ $(function(){
 
 });
 
+
 	$(document).on('click','.cd2_bookmark', function() {
 		alert('hi');		
 	})
-
+	
+$(document).on('click','.cd2_item_inner', function() {
+	location.href = '/TeamProject/shop/shopDetail?product_id='+$(this).next().next().next().val();
+})
+	
+$(document).on('click','.cd2_info_box', function() {
+	location.href = '/TeamProject/shop/shopDetail?product_id='+$(this).next().next().val();
+})
 
 </script>
 </body>

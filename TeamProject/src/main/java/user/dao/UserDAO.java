@@ -16,6 +16,7 @@ public interface UserDAO {
 	public int checkNick(String nickname);
 	public int signUpCheck(String hp);
 	public void signUpWrite(UserDTO userDTO);
+	public void update(UserDTO userDTO);
 	public int checkId(String user_id);
 	
 }

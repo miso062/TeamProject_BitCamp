@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
@@ -45,13 +47,15 @@ public class UserController {
 	@PostMapping(value="checkLogin")
 	@ResponseBody
 	public String checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
-		
-		String check = userService.checkLogin(log_email_input, log_pwd_input);
-		
+		String check = userService.checkLogin(log_email_input, log_pwd_input);		
 		return check;
+  }
+  
+	public Map<String, Object> checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
+		Map<String, Object> map = userService.checkLogin(log_email_input, log_pwd_input);
+		return map;
 	}
 
-    
 	@PostMapping(value="checkLogout")
 	@ResponseBody
 	public void checkLogout(HttpSession session) {
@@ -87,6 +91,14 @@ public class UserController {
 		
 		model.addAttribute("userDTO", userDTO);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageEdit.jsp");
+		return "forward:/user/my";
+	}
+	
+	@PostMapping(value="update")
+	public String updateUser(@ModelAttribute UserDTO userDTO, @RequestParam("profileImgUrl") MultipartFile multipartFile, HttpSession session) {
+		userService.update(userDTO, multipartFile, session);
+		//System.out.println(userDTO);
+		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
 		return "forward:/user/my";
 	}
 	
@@ -206,7 +218,7 @@ public class UserController {
 	@PostMapping(value="signUpWrite")
 	@ResponseBody
 	public String signUpWrite(@ModelAttribute UserDTO userDTO) {
-		System.out.println(userDTO);
+		//System.out.println(userDTO);
 		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
 		String check = userService.signUpWrite(userDTO);
 	return check;
