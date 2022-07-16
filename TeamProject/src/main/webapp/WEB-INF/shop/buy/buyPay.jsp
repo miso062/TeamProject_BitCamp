@@ -16,7 +16,7 @@
 	                        class="image"/>
                     </div>
                     <div class="product_detail">
-                        <strong class="model_number">DD1391-100 </strong>
+                        <strong class="model_number">DD1391-100</strong>
                         <p class="model_title">Nike Dunk Low Retro Black</p>
                         <p class="model_ko">나이키 덩크 로우 레트로 블랙</p>
                         <div class="model_desc">
@@ -250,9 +250,6 @@
 
 <script type="text/javascript">
 
-var IMP = window.IMP; // 생략 가능
-IMP.init("imp50328177");
-
 $(function(){
 	$('.check_area').click(function(){
 		img = $(this).find('.check_area_checkbox');
@@ -282,28 +279,52 @@ $(function(){
 	})
 });
 
+var IMP = window.IMP; // 생략 가능
+IMP.init("imp50328177");
+
+var merchant_uid = $('.model_number').text() + "_"+ new Date().getTime();
+var name = $('.model_title').text() + " | " + $('.size_txt').text() + "mm";
+// nickname + pro_seq + size
+var customer_uid = "nickname" + "_" + "1234" + "_" + $('.size_txt').text();
+var buyer_email = '구매자@이메일';
+var buyer_name = '구매자이름';
+var buyer_tel = '폰-번-호';
+var buyer_addr = '구매자시 배송지구 주소동';
+var buyer_postcode = '우편-번호'
+
 function general_request_pay() {
 	IMP.request_pay({ // param
-		pg : 'kakaopay',
+		pg : 'kakaopay.TC0ONETIME',
 	    pay_method : 'card', //생략 가능
-	    merchant_uid: "order_no_0001", // 상점에서 관리하는 주문 번호
-	    name : '주문명:결제테스트',
+	    merchant_uid: merchant_uid, // 상점에서 관리하는 주문 번호
+	    name : name,
 	    amount : 1,
-	    buyer_email : 'iamport@siot.do',
-	    buyer_name : '구매자이름',
-	    buyer_tel : '010-1234-5678',
-	    buyer_addr : '서울특별시 강남구 삼성동',
-	    buyer_postcode : '123-456'
+	    buyer_email : buyer_email,
+	    buyer_name : buyer_name,
+	    buyer_tel : buyer_tel,
+	    buyer_addr : buyer_addr,
+	    buyer_postcode : buyer_postcode
 	}, function (rsp) { // callback
 		if (rsp.success) {
+            alert(rsp.imp_uid + " | " + rsp.merchant_uid);
 			jQuery.ajax({
-				url: "{서버의 결제 정보를 받는 endpoint}", // 예: https://www.myservice.com/payments/complete
+				url: "/TeamProject/shop/insertBuyPay",
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				data: {
-				    imp_uid: rsp.imp_uid,
-				    merchant_uid: rsp.merchant_uid
-				}
+				    product_id : '1234',
+                    addredd_id : '3',
+                    buy_price: '128000',
+                    period: '2022-07-14',
+                    size_type: 230,
+                    customer_uid: ''
+				},
+                success: function(){
+                    alert('저장 성공');
+                },
+                error: function(err){
+                    console.log(err);
+                }
 			}).done(function(data){
 				
 			})
@@ -317,22 +338,32 @@ function reservation_request_pay(){
 	IMP.request_pay({
 		pg : 'kakaopay.TCSUBSCRIP',
 		pay_method: 'card',
-		merchant_uid: "order_monthly_0001" + new Date().getTime(), // 상점에서 관리하는 주문 번호
-		name : '최초인증결제',
+		merchant_uid: merchant_uid, // 상점에서 관리하는 주문 번호
+		name : name,
 		amount : 0, // 빌링키 발급만 진행하며 결제승인을 하지 않습니다.
-		customer_uid: "gildong_0001_1234", // 필수 입력
-		buyer_email : 'iamport@siot.do',
-		buyer_name : '아임포트',
-		buyer_tel : '02-1234-1234',
-		buyer_addr: 'addr',
+		customer_uid: customer_uid, // 필수 입력
+		buyer_email : buyer_email,
+		buyer_name : buyer_name,
+		buyer_tel : buyer_tel,
+		buyer_addr: buyer_addr,
 	}, function(rsp) {
 		if ( rsp.success ) {
-			alert('빌링키 발급 성공');
-			$.ajax({
-				url: '/TeamProject/shop/',
+            $.ajax({
+                url: '/TeamProject/shop/insertBuyPay',
 				type: 'post',
 				data: {
-					
+                    product_id : '1234',
+                    addredd_id : '3',
+                    buy_price: '128000',
+                    period: '2022-07-14',
+                    size_type: 230,
+                    customer_uid: customer_uid
+				},
+				success: function(){
+                    alert('빌링키 발급 성공');
+				},
+				error: function(err){
+					console.log(err);
 				}
 			});
 		} else {

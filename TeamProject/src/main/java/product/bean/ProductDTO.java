@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 
 @Component
@@ -17,6 +19,7 @@ public class ProductDTO {
 	private String eng_name;
 	private String kor_name;
 	private int gender;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yy/MM/dd")
 	private Date release_date; 
 	private String release_price;
 	private String model_number;

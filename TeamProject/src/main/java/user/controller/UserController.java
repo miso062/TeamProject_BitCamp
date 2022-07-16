@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import oracle.jdbc.proxy.annotation.Post;
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
 import user.send.Request;
@@ -46,13 +46,18 @@ public class UserController {
 
 	@PostMapping(value="checkLogin")
 	@ResponseBody
-	public Map<String, Object> checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
-		Map<String, Object> map = userService.checkLogin(log_email_input, log_pwd_input);
-		
-		return map;
+	public String checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
+		String check = userService.checkLogin(log_email_input, log_pwd_input);		
+		return check;
 	}
+	
+//	@PostMapping(value="checkLogin")
+//	@ResponseBody
+//	public Map<String, Object> checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
+//		Map<String, Object> map = userService.checkLogin(log_email_input, log_pwd_input);
+//		return map;
+//	}
 
-    
 	@PostMapping(value="checkLogout")
 	@ResponseBody
 	public void checkLogout(HttpSession session) {
@@ -88,6 +93,14 @@ public class UserController {
 		
 		model.addAttribute("userDTO", userDTO);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageEdit.jsp");
+		return "forward:/user/my";
+	}
+	
+	@PostMapping(value="update")
+	public String updateUser(@ModelAttribute UserDTO userDTO, @RequestParam("profileImgUrl") MultipartFile multipartFile, HttpSession session) {
+		userService.update(userDTO, multipartFile, session);
+		//System.out.println(userDTO);
+		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
 		return "forward:/user/my";
 	}
 	
@@ -185,16 +198,40 @@ public class UserController {
 		System.out.println(securityTest + " | " + encodeTest);
 	}
 
+	//회원가입 별명 유효성 검사
+	@PostMapping(value="checkNick")
+	@ResponseBody
+	public String checkNick(@RequestParam String nickname) {
+		
+		return userService.checkNick(nickname);
+	}
+
 	//sms 인증번호 보내기
 	@PostMapping(value="sms-sends") 
 	@ResponseBody
 	public ResponseEntity<SmsResponse> sms_sends(@ModelAttribute Request request) throws Exception {
 		System.out.println(request.getRecipientPhoneNumber());
 		SmsResponse data = smsService.sendSms(request.getRecipientPhoneNumber(), request.getContent());
-//        return ResponseEntity.ok().body(data);
-		return null;
+        return ResponseEntity.ok().body(data);
+		
 	}
-	//sms 인증번호 받기
+
+	//회원가입 창에서 받은 정보 DB로 전달
+	@PostMapping(value="signUpWrite")
+	@ResponseBody
+	public String signUpWrite(@ModelAttribute UserDTO userDTO) {
+		//System.out.println(userDTO);
+		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
+		String check = userService.signUpWrite(userDTO);
+	return check;
+	}
+	//아이디 중복체크
+	@PostMapping(value="checkId")
+	@ResponseBody
+	public String checkId(@RequestParam String user_id) {
+		return userService.checkId(user_id);
+	}
+	
 
 	//찜하기
 	@PostMapping(value="bookMarkInsert")

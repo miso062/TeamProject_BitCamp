@@ -132,8 +132,7 @@
 		    <groupId>org.apache.commons</groupId>
 		    <artifactId>commons-dbcp2</artifactId>
 		    <version>2.9.0</version>
-		</dependency>
-		
+		</dependency>		
 		
 		<!-- Oracle -->
 		<dependency>
@@ -141,6 +140,33 @@
 		    <artifactId>ojdbc8</artifactId>
 		    <version>21.5.0.0</version>
 		</dependency>
+		
+		<dependency>
+		    <groupId>com.oracle.database.security</groupId>
+		    <artifactId>osdt_cert</artifactId>
+		    <version>21.5.0.0</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.oracle.database.security</groupId>
+		    <artifactId>osdt_core</artifactId>
+		    <version>21.5.0.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.security/oraclepki -->
+		<dependency>
+		    <groupId>com.oracle.database.security</groupId>
+		    <artifactId>oraclepki</artifactId>
+		    <version>21.5.0.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ucp -->
+		<dependency>
+		    <groupId>com.oracle.database.jdbc</groupId>
+		    <artifactId>ucp</artifactId>
+		    <version>21.4.0.0.1</version>
+		</dependency>
+		
 		
 		<!-- Mybatis -->
 		<dependency>

@@ -1,5 +1,9 @@
 package user.service;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,8 +11,12 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.multipart.MultipartFile;
 
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
@@ -22,27 +30,30 @@ public class UserServiceImpl implements UserService {
 	private UserDAO userDAO;
 	@Autowired
 	private HttpSession session;
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+	@Value("${profileImgFolder")
+	private String uploadFolder;
 
 	@Override
-	public Map<String, Object> checkLogin(String log_email_input, String log_pwd_input) {
-		
-		UserDTO userDTO = userDAO.checkLogin(log_email_input, log_pwd_input);
-		//id,pwd 맞는지 (user정보 포함) ->성공 ?
-		//pwd가 맞지 않을떄?
-		Map<String, Object> map = new HashMap<String, Object>();
-		//System.out.println(userDTO);
-		if(userDTO == null) {
-			map.put("success", "false");
-			map.put("message", "회원정보가 없습니다.");
-		} else {
-			map.put("success", "true");
-			map.put("message", "로그인 되었습니다.");
-			map.put("userDTO", userDTO);
-			session.setAttribute("memId", userDTO.getUser_id());
-			session.setAttribute("memAuthority", userDTO.getAuthority());
-			System.out.println(session.getAttribute("memId"));
+	public String checkLogin(String log_email_input, String log_pwd_input) {
+		String check ;
+		UserDTO userDTO = userDAO.checkLogin(log_email_input);
+		if(userDTO != null) {
+			
+			if(passwordEncoder.matches(log_pwd_input, userDTO.getUser_pwd())) {
+				session.setAttribute("memId", log_email_input);
+				session.setAttribute("memAuthority", userDTO.getAuthority());
+				check = "true";
+			} else {
+				check = "false";
+			}
+		}else {
+
+			check = "false";
 		}
-		return map;
+			return check;
 	}
 	//아이디 찾기
 	@Override
@@ -101,6 +112,7 @@ public class UserServiceImpl implements UserService {
 	public UserDTO getUserInfo(String user_id) {
 		return userDAO.getUserInfo(user_id);
 	}
+  
 	@Override
 	public void bookMarkInsert(Map<String, String> map) {
 		String id = (String) session.getAttribute("memId");
@@ -109,6 +121,7 @@ public class UserServiceImpl implements UserService {
 		
 		userDAO.bookMarkInsert(map);
 	}
+  
 	@Override
 	public void bookMarkDelete(int product_id) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -117,5 +130,67 @@ public class UserServiceImpl implements UserService {
 		map.put("user_id", (String) session.getAttribute("memId"));
 
 		userDAO.bookMarkDelete(map);
+	}
+  
+	@Override
+	public String checkNick(String nickname) {
+		int a= userDAO.checkNick(nickname);
+		String b;
+		if(a==0) {
+			b= "ok";
+		}else {
+			b="fail";
+		}
+		 
+		return b;
+	}
+	@Override
+	public String signUpWrite(UserDTO userDTO) {
+		//휴대전화로 먼저 가입 여부 조회
+		
+		int check = userDAO.signUpCheck(userDTO.getHp());
+		String check1 = null ;
+		if(check==0) {
+			userDAO.signUpWrite(userDTO);
+		return	check1="0";
+		}else {
+		return check1="1";	
+		}
+	}
+	@Override
+	public void update(UserDTO userDTO, @RequestParam MultipartFile multipartFile, HttpSession session) {
+		
+		//실제폴더
+		String imageFilePath = session.getServletContext().getRealPath("/WEB-INF/storage");
+		String imageFileName = userDTO.getUser_id() + "_" + multipartFile.getOriginalFilename();
+		
+		if(multipartFile.getSize() !=0 ) { //파일이 업로드 되었는지 확인
+			try {
+				if(userDTO.getProfile_img() != null) { //이미프로필 사진이 있는 경우
+					File file = new File(uploadFolder + userDTO.getProfile_img());
+					file.delete();
+					multipartFile.transferTo(file);
+				}
+				File file = new File(imageFilePath, imageFileName);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			userDTO.setProfile_img(imageFileName);
+		}
+		userDAO.update(userDTO);
+		session.invalidate();
+  }
+  
+	//아이디 중복체크
+	@Override
+	public String checkId(String user_id) {
+		String check = null ; 
+		int a = userDAO.checkId(user_id);
+		if(a==0) {
+			check="0";
+		}else {
+			check="1";
+		}
+		return check;
 	}
 }

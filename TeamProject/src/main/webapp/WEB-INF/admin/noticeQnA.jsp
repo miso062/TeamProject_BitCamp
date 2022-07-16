@@ -193,7 +193,6 @@ text-align:center;
 </div>
 
 
-
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#sub_area > ul > li:eq(1)').addClass('bold');

@@ -18,13 +18,19 @@ public class SellController {
 	
 	@GetMapping(value="/selectSellSize")
 	public String selectSize(Model model) {
-		model.addAttribute("container", "/WEB-INF/shop/buy/selectSize.jsp");
+		model.addAttribute("container", "/WEB-INF/shop/sell/selectSize.jsp");
 		return "forward:/shop/sell";
 	}
 	
 	@GetMapping(value="/sellCheck")
-	public String buyCheck(Model model) {
-		model.addAttribute("container", "/WEB-INF/shop/buy/buyCheck.jsp");
+	public String sellCheck(Model model) {
+		model.addAttribute("container", "/WEB-INF/shop/sell/sellCheck.jsp");
+		return "forward:/shop/sell";
+	}
+	
+	@GetMapping(value="/sellFinish")
+	public String sellFinish(Model model) {
+		model.addAttribute("container", "/WEB-INF/shop/sell/sellFinish.jsp");
 		return "forward:/shop/sell";
 	}
 }

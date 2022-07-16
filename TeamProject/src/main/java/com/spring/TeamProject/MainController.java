@@ -34,7 +34,6 @@ public class MainController {
 	@ResponseBody
 	public Map<String, Object> getProductList(@RequestParam String num){
 		Map<String, Object> map = mainService.getProductList(num);
-		System.out.println(map);
 		return map;
 	}
 	 
