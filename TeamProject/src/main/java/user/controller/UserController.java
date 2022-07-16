@@ -49,12 +49,14 @@ public class UserController {
 	public String checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
 		String check = userService.checkLogin(log_email_input, log_pwd_input);		
 		return check;
-  }
-  
-	public Map<String, Object> checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
-		Map<String, Object> map = userService.checkLogin(log_email_input, log_pwd_input);
-		return map;
 	}
+	
+//	@PostMapping(value="checkLogin")
+//	@ResponseBody
+//	public Map<String, Object> checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
+//		Map<String, Object> map = userService.checkLogin(log_email_input, log_pwd_input);
+//		return map;
+//	}
 
 	@PostMapping(value="checkLogout")
 	@ResponseBody
