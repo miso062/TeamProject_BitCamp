@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 
 @Repository
@@ -18,6 +19,12 @@ public class ShopMyBatisImpl implements ShopDAO {
 	public ProductImgDTO getimage(int product_id) {
 		ProductImgDTO productImgDTO = sqlSession.selectOne("shopSQL.getimage",product_id);
 		return productImgDTO;
+	}
+
+	@Override
+	public ProductDTO getproduct(int product_id) {
+		ProductDTO productDTO = sqlSession.selectOne("shopSQL.getproduct",product_id);
+		return productDTO;
 	}
 	
 	
