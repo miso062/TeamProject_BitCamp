@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
@@ -22,27 +23,27 @@ public class UserServiceImpl implements UserService {
 	private UserDAO userDAO;
 	@Autowired
 	private HttpSession session;
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 	@Override
-	public Map<String, Object> checkLogin(String log_email_input, String log_pwd_input) {
-		
-		UserDTO userDTO = userDAO.checkLogin(log_email_input, log_pwd_input);
-		//id,pwd 맞는지 (user정보 포함) ->성공 ?
-		//pwd가 맞지 않을떄?
-		Map<String, Object> map = new HashMap<String, Object>();
-		//System.out.println(userDTO);
-		if(userDTO == null) {
-			map.put("success", "false");
-			map.put("message", "회원정보가 없습니다.");
-		} else {
-			map.put("success", "true");
-			map.put("message", "로그인 되었습니다.");
-			map.put("userDTO", userDTO);
-			session.setAttribute("memId", userDTO.getUser_id());
-			session.setAttribute("memAuthority", userDTO.getAuthority());
-			System.out.println(session.getAttribute("memId"));
+	public String checkLogin(String log_email_input, String log_pwd_input) {
+		String check ;
+		UserDTO userDTO = userDAO.checkLogin(log_email_input);
+		if(userDTO != null) {
+			
+			if(passwordEncoder.matches(log_pwd_input, userDTO.getUser_pwd())) {
+				session.setAttribute("memId", log_email_input);
+				session.setAttribute("memAuthority", userDTO.getAuthority());
+				check = "true";
+			} else {
+				check = "false";
+			}
+		}else {
+
+			check = "false";
 		}
-		return map;
+			return check;
 	}
 	//아이디 찾기
 	@Override
@@ -138,4 +139,6 @@ public class UserServiceImpl implements UserService {
 		}
 		return check;
 	}
+	
+	
 }
