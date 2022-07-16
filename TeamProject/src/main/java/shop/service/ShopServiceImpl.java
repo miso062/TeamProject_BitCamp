@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import shop.dao.ShopDAO;
 
@@ -20,11 +21,17 @@ public class ShopServiceImpl implements ShopService {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("productImgDTO", getImage(product_id));
+		map.put("product", getproduct(product_id));
 		
 		System.out.println(map);
 		return map;
 	}
 	
+	private ProductDTO getproduct(int product_id) { 
+		ProductDTO productDTO = shopDAO.getproduct(product_id);
+		return productDTO;
+	}
+
 	public ProductImgDTO getImage(int product_id) {
 		return shopDAO.getimage(product_id);
 	}
