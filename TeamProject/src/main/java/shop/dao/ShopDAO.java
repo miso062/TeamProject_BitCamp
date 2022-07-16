@@ -1,7 +1,5 @@
 package shop.dao;
 
-public interface ShopDAO {
-
 import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 
