@@ -21,12 +21,8 @@ public class UserDAOImpl implements UserDAO {
 	private SqlSession sqlSession;
 	
 	@Override
-	public UserDTO checkLogin(String log_email_input, String log_pwd_input) {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("email", log_email_input);
-		map.put("pwd", log_pwd_input);
-		UserDTO userDTO = sqlSession.selectOne("userSQL.checkLogin", map);
-		return userDTO;
+	public UserDTO checkLogin(String log_email_input) {
+		return  sqlSession.selectOne("userSQL.checkLogin", log_email_input);
 	}
 
 	@Override
@@ -87,3 +83,4 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("userSQL.checkId", user_id);
 	}
 }
+	

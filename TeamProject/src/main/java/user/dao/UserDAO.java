@@ -7,7 +7,7 @@ import user.bean.UserDTO;
 
 public interface UserDAO {
 	
-	public UserDTO checkLogin(String log_email_input, String log_pwd_input);
+	public UserDTO checkLogin(String log_email_input);
 	public void addaddressbook(AddressDTO addressDTO);
 	public void updateflag(AddressDTO addressDTO);
 	public String findEmailAddress(String phone);
@@ -18,4 +18,5 @@ public interface UserDAO {
 	public void signUpWrite(UserDTO userDTO);
 	public void update(UserDTO userDTO);
 	public int checkId(String user_id);
+	
 }

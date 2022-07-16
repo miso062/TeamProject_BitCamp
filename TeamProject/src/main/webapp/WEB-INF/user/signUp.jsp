@@ -47,7 +47,8 @@
 		    <div  class="input_box">
 		        <h3  class="input_title ess">신발 사이즈</h3>
 		        <div class="input_item input_choose_size">
-		            <input type="text" placeholder="선택하세요" disabled="disabled" autocomplete="off" class="input_txt hover text_fill" />
+		            <input type="text" placeholder="선택하세요"  autocomplete="off" class="input_txt hover text_fill"  />
+					<input type="hidden" value="false">
 		            <button type="button" class="btn btn_size_select" >
 		                <img id="size_choose_img" src="/TeamProject/img/user/signUp/next.png" alt="선택">
 		            </button>
@@ -194,13 +195,16 @@
 		    $('.layer_point').fadeOut();
 		    $('body').css("overflow-y", "scroll");
 			$('.input_txt.hover.text_fill').val($('.btn.on > .info_txt').text());
+			$('.input_txt.hover.text_fill').next().val('true');
 		})
+
+	
+		
 
 		$('.size_item > .btn.outlinegrey').click(function(){
 			$(this).addClass("on");
 			$('.size_item > .btn.outlinegrey').not($(this)).removeClass("on");
 		});
-		
 
 		var resultEmail1 = false; //defalt값이 틀렸을떄를 가정
 		var resultPwd1 = false;
@@ -208,6 +212,7 @@
 		var resultNick = false;
 		var resultHp = false;
 		var resultSize =false;
+		//신발 사이즈
 
 		//email 유효성 검사
 		function oninputEmail1(value){
@@ -352,7 +357,7 @@
 						document.getElementsByClassName("log_email_input")[0].style.borderColor = "black";
 						if(data == "0") {
 							document.getElementsByClassName("log_email_error")[0].innerHTML='사용 가능한 아이디입니다.';
-							resultName = true;
+							resultEmail1 = true;
 							signupCheck();
 						}else{
 							document.getElementsByClassName("log_email_error")[0].innerHTML='이미 사용중인 아이디입니다.';  
@@ -367,7 +372,7 @@
 				document.getElementsByClassName("log_email_error")[0].style.display = "block";
 				document.getElementsByClassName("log_email_input")[0].style.borderColor = "#f15746";
 				document.getElementsByClassName("log_email_error")[0].innerHTML='이메일 주소를 정확히 입력해주세요.';
-				resultName = false;
+				resultEmail1 = false;
 				signupCheck();
 			}
 		}
