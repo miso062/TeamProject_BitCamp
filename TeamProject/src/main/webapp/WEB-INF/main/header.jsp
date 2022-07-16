@@ -578,7 +578,7 @@ cursor: pointer;
 
 <script type="text/javascript" src="/TeamProject/js/user/login.js"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script type="text/javascript">
 //로그아웃
 $('#h_logout').click(function(){
@@ -664,14 +664,15 @@ $(window).scroll(function(){
 
 
 //로그인 
+
 var naverLogin = new naver.LoginWithNaverId(
 		{
 			clientId: "GU6NNwfSmxJ3JXmCBaTf",  //내 애플리케이션 정보에 cliendId를 입력해줍니다.
-			callbackUrl: "http://localhost:8080/TeamProject", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
+			callbackUrl: "http://localhost:8080/TeamProject/", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
 			isPopup: false,
 			callbackHandle: true
 		}
-	);	
+	);
 
 naverLogin.init();
 
@@ -688,6 +689,7 @@ window.addEventListener('load', function () {
 				naverLogin.reprompt();
 				return;
 			}
+            
 		} else {
 			/* console.log("callback 처리에 실패하였습니다."); */
 		}
