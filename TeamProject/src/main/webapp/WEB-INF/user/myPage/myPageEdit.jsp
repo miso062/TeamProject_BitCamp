@@ -6,14 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-.container.my .content_area {
-    overflow: hidden;
-    min-height: 380px;
-}
-.content_title.border {
-    padding-bottom: 16px;
-    border-bottom: 3px solid #222;
-}
 .content_title {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -137,7 +129,7 @@ input {
 .unit {
     padding: 25px 60px 18px 0;
     position: relative;
-    border-bottom: 1px solid #ebebeb;
+    //border-bottom: 1px solid #ebebeb;
 }
 .title {
     font-size: 13px;
@@ -663,11 +655,6 @@ svg:not(:root) {
 .input_txt.hover {
    	cursor: pointer;
 }
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
 .check_number.disabled {
     background: #ebebeb;
     font-weight: bold;
@@ -708,226 +695,258 @@ input::-webkit-inner-spin-button {
 </style>
 </head>
 <body>
-<form name = "updateForm" id="updateForm" method = "post" enctype="multipart/form-data" action="/TeamProject/user/myPageUpdate">
-<div class="my_profile">
-    <div class="content_title border">
-        <div class="title">
-            <h3>프로필 정보</h3>
-        </div>
-    </div>
-    <div class="user_profile">
-        <div class="profile_thumb"><img src="${userDTO.profile_img }" alt="사용자 이미지" name="profile_img" class="thumb_img" /></div>
-        <div class="profile_detail">
-            <strong id="nickName" name="nickname" class="name">${userDTO.nickname }</strong>
-            <div class="profile_btn_box">
-                <a href="#" id="camera" class="btn outlinegrey small"> 이미지 변경 </a>
-                <a href="#" class="btn outlinegrey small reset"> 삭제 </a>
+<form method="post" enctype="multipart/form-data" action="/TeamProject/user/myPageUpdate">
+    <div class="my_profile">
+        <div class="content_title border">
+            <div class="title">
+                <h3>프로필 정보</h3>
             </div>
         </div>
-    </div>
-    <input type="file" accept="image/jpeg,image/png" id="uploadBtn profileImgUrl" class="profileImgUrl" style="visibility : hidden;" />
-    <canvas width="1000" height="1000" style="display: none;"></canvas>
-   
-    <div class="profile_info">
-        <div class="profile_group">
-            <h4 class="group_title">로그인 정보</h4>
-            <div class="unit">
-                <h5 class="title">이메일 주소</h5>
-                <p name="user_id" class="desc email">${userDTO.user_id }</p>
-            </div>
-            
-            <div class="unit">
-            	<div class="input_box has_error has_button">
-		        	<h5 class="title input_pwd_title input_title ess log_pwd_label" >비밀번호</h5>
-		        		<div class="input_item">
-		        			<input type="password" id="password_1" name="user_pwd" value="${userDTO.user_pwd }" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwd1(this.value)"  autocomplete="off" class="desc input_txt log_pwd_input" />
-		        		</div>
-		        	<p class="input_error log_pwd_error" >영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-16자)</p>
-		    	</div>
-            </div>
-            
-            <div class="unit">
-            	<div class="input_box has_error has_button">
-		        	<h5 class="title input_pwdcheck_title input_title ess log_pwdcheck_label" >비밀번호 재확인</h5>
-		        		<div class="input_item">
-		        			<input type="password" id="password_2" value="${userDTO.user_pwd }" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwdcheck(this.value)"  autocomplete="off" class="desc input_txt log_pwdcheck_input log_pwd_input" />
-		        		</div>
-		        	<p class="input_error log_pwdcheck_error" >비밀번호와 일치하지 않습니다. </p>
-		    	</div>
-            </div>         
-        </div>
-        
-        <div class="input_box has_error has_button profile_group">
-            <h4 class="group_title">개인 정보</h4>
-            <div class="unit">
-                <h5 class="title input_title ess log_name_label">이름</h5>
-                    <div class="input_item">
-                    <input type="text" name="user_name" value="${userDTO.user_name }"  placeholder="ex)홍길동 2-10자" onchange="inputName(this.value)"  autocomplete="off" class="desc input_txt log_name_input" /></div>
-                    <p class="input_error log_name_error">올바른 이름을 입력해주세요. (2-50자)</p>
-            </div>
-			
-			<div class="unit input_box has_error has_button">
-                <h5 class="title input_title ess log_nick_name_label">닉네임</h5>
-                    <div class="input_item">
-                    <input type="text" name="nickname" value="${userDTO.nickname }" placeholder="한글,영어.숫자 조합 2-12자" oninput="inputNick(this.value)"  autocomplete="off" class="desc input_txt log_nick_name_input"  /></div>
-                    <p class="input_error log_nick_name_error" >영문 또는 한글을 조합하여 입력해주세요.</p>
-            </div>
-            
-            <div class="unit input_box has_error has_button">
-                <h5 class="title">휴대폰 번호</h5>
-                 <div class="input_item">
-                <input type="text"  placeholder="- 없이 숫자만" oninput="onHp(this.value)"  autocomplete="off"  style="width:78%;" id="hp" class="desc input_txt log_hp_input" name="hp" value="${userDTO.hp }" autocomplete="off"  />
-                <span class="check_number disabled" disabled="disabled">인증번호 받기</span>
-                <input type="number" id="hp_key" placeholder="인증 번호" disabled="disabled">
+            <div class="user_profile">
+                <div class="profile_thumb">
+                    <img src="${userDTO.profile_img }" alt="사용자 이미지" name="profile_img" class="thumb_img profile_img">
                 </div>
-			</div>
-            
-            <div class="unit">
-                <h5 class="title">신발 사이즈</h5>
-                <p name="shoesize" class="desc input_txt hover text_fill" >${userDTO.shoesize }</p>
-                <button type="button" class="btn btn_size_select btn_modify outlinegrey small">변경</button>
+                <div class="profile_detail">
+                    <strong class="name" name="nickname" id="show_userid_title nickname">${userDTO.nickname }</strong>
+                    <div class="profile_btn_box">
+                    	<a href="#" id="upImage" class="btn outlinegrey small"> 이미지 변경 </a>
+                		<a href="#" id="delImage" class="btn outlinegrey small reset"> 삭제 </a>
+                    </div>
+                </div>
+                <input type="file" accept="image/jpeg,image/png" id="imageFileInput" class="profileImgUrl" name="file" style="visibility : hidden;" >
             </div>
-	
-			<div class="layer_point layer md" style="display: none;">
-		        <div class="layer_container">
-		            <div class="layer_header"><h2 class="title">이용안내</h2></div>
-		            <div class="size_list_area" >
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >220</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >225</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >230</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >235</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >240</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >245</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >250</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >255</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >260</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >265</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >270</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >275</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >280</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >285</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >290</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >295</span></a>
-					    </div>
-					    <div class="size_item" >
-					        <a href="#" class="btn outlinegrey medium"><span class="info_txt" >300</span></a>
-					    </div>
+        
+
+		<div class="profile_info">
+			<div class="profile_group">
+			<h4 class="group_title">로그인 정보</h4>
+				<div class="unit" id="unit_email">
+					<h5 class="title">이메일 주소</h5>
+                   	<p name="user_id" class="desc email" id="show_email">${userDTO.user_id }</p>
+               	</div>
+	                
+				<div class="unit">
+					<div class="input_box has_error has_button">
+	                <h5 class="title input_pwd_title input_title ess log_pwd_label" >비밀번호</h5>
+	                	<div class="input_item">
+	                    	<input type="password" id="password_1" name="user_pwd" value="${userDTO.user_pwd }" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwd1(this.value)"  autocomplete="off" class="desc input_txt log_pwd_input" />
+	                    </div>
+						<p class="input_error log_pwd_error" >영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-16자)</p>
 					</div>
-					<div class="layer_btn"><ahref="#" class="btn outline medium" > 확인 </a></div>
-		            <a href="#" class="btn_layer_close">
-		                <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-		                    <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
-		                </svg>
-		            </a>
-		        </div>
-			</div>
-		</div>
-    
+            	</div>
+            
+	            <div class="unit">
+	               <div class="input_box has_error has_button">
+	                 <h5 class="title input_pwdcheck_title input_title ess log_pwdcheck_label" >비밀번호 재확인</h5>
+	                    <div class="input_item">
+	                       <input type="password" id="password_2" value="${userDTO.user_pwd }" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwdcheck(this.value)"  autocomplete="off" class="desc input_txt log_pwdcheck_input log_pwd_input" />
+	                    </div>
+	                 <p class="input_error log_pwdcheck_error" >비밀번호와 일치하지 않습니다. </p>
+	             </div>
+	            </div>         
+        	</div>
+
+            <!-- 개인정보 -->
+            <div class="profile_group">
+                <h4 class="group_title">개인 정보</h4>
+
+                <div class="unit">
+	                <h5 class="title input_title ess log_name_label">이름</h5>
+	                    <div class="input_item">
+	                    <input type="text" name="user_name" value="${userDTO.user_name }"  placeholder="ex)홍길동 2-10자" onchange="inputName(this.value)"  autocomplete="off" class="desc input_txt log_name_input" /></div>
+	                    <p class="input_error log_name_error">올바른 이름을 입력해주세요. (2-50자)</p>
+	            </div>
+         
+         		<div class="unit input_box has_error has_button">
+	                <h5 class="title input_title ess log_nick_name_label">닉네임</h5>
+	                    <div class="input_item">
+	                    <input type="text" name="nickname" value="${userDTO.nickname }" placeholder="한글,영어.숫자 조합 2-12자" oninput="inputNick(this.value)"  autocomplete="off" class="desc input_txt log_nick_name_input"  /></div>
+	                    <p class="input_error log_nick_name_error" >영문 또는 한글을 조합하여 입력해주세요.</p>
+	            </div>
+                
+                <div class="unit" id="unit_hp">
+                    <h5 class="title">휴대폰 번호</h5>
+                    <p class="desc" id="show_hp">${userDTO.hp }</p>
+                    <button type="button" class="btn btn_modify outlinegrey small" id="openHpBtn"> 변경 </button>
+                </div>
+
+				<div class="unit modify input_box has_error has_button" id="modify_hp" style="display: none;">
+	                <h5 class="title">새로운 휴대폰 번호</h5>
+	                	<div class="input_item">
+	                	<input type="text"  placeholder="- 없이 숫자만" oninput="onHp(this.value)" autocomplete="off"  
+	                			style="width:78%;" id="hp" name="hp" class="desc input_txt log_hp_input"/>
+	                <span class="check_number disabled" disabled="disabled">인증번호 받기</span>
+	                	<input type="number" id="hp_key" placeholder="인증 번호" disabled="disabled">
+	                </div>
+         		</div>
+            
+            
+                <div class="unit">
+                    <h5 class="title">사이즈</h5>
+                    <p name="shoesize" class="desc input_txt hover text_fill" id="show_shoesize">${userDTO.shoesize }</p>
+                    <button type="button" class="btn btn_modify outlinegrey small btn_size_select" id="size_layer_open"> 변경 </button>
+                </div>
+				
+				<!-- 신발레이아웃 -->
+                <div class="layer_point layer md" style="display: none;">
+                    <div class="layer_container">
+                        <div class="layer_header"><h2 class="title">이용안내</h2></div>
+                        <div class="size_list_area" >
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >220</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >225</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >230</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >235</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >240</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >245</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >250</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >255</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >260</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >265</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >270</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >275</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >280</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >285</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >290</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >295</span></a>
+                            </div>
+                            <div class="size_item" >
+                                <a href="#" class="btn outlinegrey medium"><span class="info_txt" >300</span></a>
+                            </div>
+                        </div>
+                        
+                        <div class="layer_btn"><ahref="#" class="btn outline medium" > 확인 </a></div>
+                        <a href="#" class="btn_layer_close">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
+                                <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
         </div>
         
-		<div class="profile_group">
-			<h4 class="group_title">광고성 정보 수신</h4>
-			<div class="unit to_receive">
-			    <p class="title desc">문자 메시지</p>
-			    <div class="radio_txt_box">
-			        <div class="radio_item">
-			            <label for="sms_agree" class="radio_label">
-							<input type="radio" id="sms_agree" name="message_radio" value="1" class="ico-radio-inactive icon sprite-icons">
-							<span class="label_txt">수신 동의</span>
+        <!-- 광고성 정보 수신 -->
+        <div class="profile_group">
+            <h4 class="group_title">광고성 정보 수신</h4>
+            <div class="unit to_receive">
+                <p class="desc">문자 메시지</p>
+                <div class="radio_txt_box">
+                    <div class="radio_item">
+                        <label for="sms_agree" class="radio_label">
+                            <input type="radio" id="sms_agree" name="message_radio" value="1" class="ico-radio-inactive icon sprite-icons">
+                            <span class="label_txt">수신 동의</span>
                         </label>
-			        </div>
-			        <div class="radio_item">
-			            <input id="disagree1" type="radio" name="message_radio" class="radio_input" />
+                    </div>
+                    <div class="radio_item">
                         <label for="sms_disagree" class="radio_label">
                             <input type="radio" id="sms_disagree" name="message_radio" value="0" class="ico-radio-inactive icon sprite-icons">
                             <span class="label_txt">수신 거부</span>
                         </label>
-			         </div>
-			     </div>
-			 </div>
-			<div class="unit to_receive">
-			    <p class="title desc">이메일</p>
-			    <div class="radio_txt_box">
-			        <div class="radio_item">
+                    </div>
+                </div>
+            </div>
+            <div class="unit to_receive">
+                <p class="desc">이메일</p>
+                <div class="radio_txt_box">
+                    <div class="radio_item">
                         <label for="email_agree" class="radio_label">
-                               <input type="radio" id="email_agree" name="email_radio" value="1" class="ico-radio-inactive icon sprite-icons">
-                               <span class="label_txt">수신 동의</span>
-                       	</label>
-			       </div>
-					<div class="radio_item">
+                            <input type="radio" id="email_agree" name="email_radio" value="1" class="ico-radio-inactive icon sprite-icons">
+                            <span class="label_txt">수신 동의</span>
+                        </label>
+                    </div>
+                    <div class="radio_item">
                         <label for="email_disagree" class="radio_label">
                             <input type="radio" id="email_disagree" name="email_radio" value="0" class="ico-radio-inactive icon sprite-icons">
                             <span class="label_txt">수신 거부</span>
                         </label>
-			        </div>
-			    </div>
-			</div>
-		</div>
-		<div class="unit to_receive" align = "center">
-			<button type="button" class="btn outlinegrey small updateBtn" onclick="location.reload()" >다시 작성</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="unit to_receive" align = "center">
+			<button type="button" class="btn outlinegrey small" onclick="location.reload()" >다시 작성</button>
 			<button type="button" class="btn outlinegrey small updateBtn" onclick="checkUpdate()">변경</button>
 		</div>
-        <a href="/my/withdrawal" class="btn_withdrawal" onclick="location.href='/TeamProject/my/withdrrawal'" >회원 탈퇴</a>
+        <a href="/my/withdrawal" class="btn_withdrawal">회원 탈퇴</a>
     </div>
 </form>
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 window.onload = function(){ /* 광고성 정보 수신 동의 */
-		document.updateForm.message_radio['${userDTO.sms_allow}'].checked = true;
-		document.updateForm.email_radio['${userDTO.email_allow}'].checked = true;
+        var image = '${userDTO.profile_img}';
+		var sms_allow ='${userDTO.sms_allow}';
+		var email_allow = '${userDTO.email_allow}';
+		
+		if(image==null || image==''){
+            document.querySelector('.profile_img').setAttribute('src','/TeamProject/img/empty.png');
+        }else{
+            document.querySelector('.profile_img').setAttribute("src",image);
+        }
+        
+        if(sms_allow==1){
+            document.getElementById('sms_agree').checked = true;
+        }else{
+        	 document.getElementById('sms_disagree').checked = true;
+        }
+        
+      	if(email_allow==1){
+            document.getElementById('email_agree').checked = true;
+        }else{
+            document.getElementById('email_disagree').checked = true;
+        }
 }
+
 /* 신발 */
 $('.btn_size_select').click(function(){
 	$('.layer_point').fadeIn();
     $('body').css("overflow", "hidden");
 });
-
 $(document).on("click",function(e){
 	if($('.layer_point').is(e.target)) {
 		$('.layer_point').fadeOut();
         $('body').css("overflow-y", "scroll");
 	}
-})
-
+});
 $('.layer_btn').click(function(){ //신발 확인 버튼 눌러서 끄기
     $('.layer_point').fadeOut();
     $('body').css("overflow-y", "scroll");
 	alert($('.btn.on > .info_txt').text());
 	$('.desc.input_txt.hover.text_fill').text($('.btn.on > .info_txt').text());
 })
-
 $('.size_item > .btn.outlinegrey').click(function(){
 	$(this).addClass("on");
 	$('.size_item > .btn.outlinegrey').not($(this)).removeClass("on");
@@ -938,7 +957,7 @@ var resultName =false;
 var resultNick = false;
 var resultHp = false;
 
-//이름 유효성 검사
+/* 이름 유효성 검사 */
 function inputName(value) {
 	var regName =/^[가-힣]{2,10}$/;
 	console.log(value)
@@ -957,7 +976,7 @@ function inputName(value) {
 		signupCheck();
 	}
 }
-//닉네임 유효성검사
+/* 닉네임 유효성검사 */
 function inputNick(value) {
 	var regNick=/^[가-힣a-zA-Z0-9]{2,12}$/;
 
@@ -965,6 +984,7 @@ function inputNick(value) {
 		document.getElementsByClassName("log_nick_name_label")[0].style.color = "black";
 		document.getElementsByClassName("log_nick_name_input")[0].style.borderColor = "black";
 		resultNick = true;
+		
 		$.ajax({
 			type: 'post',
 			url : '/TeamProject/user/checkNick' ,
@@ -1029,6 +1049,13 @@ $('.log_pwdcheck_input').focusout(function(){
 	}
 });
 
+/* 휴대폰번호 */
+$(document).ready(function(){
+	$('#openHpBtn').click(function(){
+		$('#modify_hp').toggle('slow');
+	});
+})
+
 //인증번호 받기 버튼 활성화/비활성화
 function onHp(value) {
 	var regHp= /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
@@ -1086,53 +1113,51 @@ $(document).on('change' ,'#hp_key' , function(){
 });
 
 /* 이미지변경 */
-$(function(){
-	$('#camera').click(function(){
-		$('#uploadBtn').trigger('click');
-	});
+$('#upImage').click(function(){
+   $('#imageFileInput').trigger('click');
+});
+
+$('#imageFileInput').on('change', function(){
+   readURL(this);
+});
+
+$('#delImage').click(function(){
+   $('.thumb_img').attr('src', '');
+});
+
+function readURL(input){
+   if(input.files[0]){
+      var reader = new FileReader();
+      reader.onload = function(event){
+         $('.thumb_img').attr('src', event.target.result); //e.target 이벤트가 발생한 요소 반환 => result에 저장
+      } //불러온 이미지파일을 다 읽으면 그때 이미지를 뿌려라
+      reader.readAsDataURL(input.files[0]);
+   }
+};
+   
+$('#updateBtn').click(function(){
+	var formData = new FormData($('#updateForm')[0]); //<form />안의 모든것
 	
-	$('#uploadBtn').on('change', function(){
-		readURL(this);
-	});
-	
-	$('.reset').click(function(){
-		$('.thumb_img').attr('src', '');
-	});
-	
-	function readURL(input){
-		if(input.files[0]){
-			var reader = new FileReader();
-			reader.onload = function(event){
-				$('.thumb_img').attr('src', event.target.result); //e.target 이벤트가 발생한 요소 반환 => result에 저장
-			} //불러온 이미지파일을 다 읽으면 그때 이미지를 뿌려라
-			reader.readAsDataURL(input.files[0]);
+	$.ajax({
+		type: 'post',
+		url: '/TeamProject/user/update',
+		enctype: 'multipart/form-data',
+		processData: false,
+		contentType: false,
+		data: formData,
+		success: function(){
+			alert('업데이트 완료');
+		},error: function(err){
+			console.log(err);
 		}
-	}
-	
-	$('#updateBtn').click(function(){
-		var formData = new FormData($('#updateForm')[0]); //<form />안의 모든것
-		
-		$.ajax({
-			type: 'post',
-			url: '/TeamProject/user/update',
-			enctype: 'multipart/form-data',
-			processData: false,
-			contentType: false,
-			data: formData,
-			success: function(){
-				alert('업데이트 완료');
-			},error: function(err){
-				console.log(err);
-			}
-		});
-		
 	});
 });
 
 /* update */
-function checkUpdate(){
-	
-}
+	$(document).on('click', '.updateBtn', function(){
+		//$("input:radio[name="message_radio"]:checked").val();
+		//$("input:radio[name="email_radio"]:checked").val( ) ;
+	});
 
 </script>
 </html>
