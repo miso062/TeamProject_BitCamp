@@ -35,6 +35,15 @@
 		select * from user_table where user_id=#{user_id}
 	</select>
 	
+	<insert id="bookMarkInsert" parameterType="java.util.Map">
+		insert into	like_pro(like_pro_id,user_id,product_id,like_pro_date)
+		values(like_pro_seq.nextval,#{id},#{product_id},sysdate)
+	</insert>
+	
+	<delete id="bookMarkDelete" parameterType="java.util.Map">
+		delete like_pro where product_id=${product_id} and user_id=#{user_id}
+	</delete>
+  
 	<!-- 아이디 중복체크 -->
 	<select id="checkId" parameterType="String" resultType="int">
 	 select count(*) from user_table where user_id=#{user_id}

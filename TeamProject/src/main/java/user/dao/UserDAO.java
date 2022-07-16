@@ -13,10 +13,11 @@ public interface UserDAO {
 	public String findEmailAddress(String phone);
 	public UserDTO getUserInfo(String user_id);
 	public int findPwCheck(Map<String, Object> map);
+	public void bookMarkInsert(Map<String, String> map);
+	public void bookMarkDelete(Map<String, Object> map);
 	public int checkNick(String nickname);
 	public int signUpCheck(String hp);
 	public void signUpWrite(UserDTO userDTO);
 	public void update(UserDTO userDTO);
 	public int checkId(String user_id);
-	
 }
