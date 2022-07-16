@@ -14,8 +14,17 @@ import shop.dao.ShopDAO;
 public class ShopServiceImpl implements ShopService {
 	
 	@Autowired
-	private ShopDAO shopDAO;
+	public ShopDAO shopDAO;
 	
+	@Override
+	public Map<String, Object> scrollProduct(String num) {
+		int startNum = Integer.parseInt(num);
+		int endNum = startNum+3;
+		
+		Map<String, Integer>map = new HashMap<String, Integer>();
+		return null;
+  }
+
 	@Override
 	public Map<String, Object> getshopDetail(int product_id) {
 		

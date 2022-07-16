@@ -20,7 +20,7 @@ import shop.service.ShopService;
 public class ShopController {
 	
 	@Autowired
-	ShopService shopService;	
+	ShopService shopService;
 	
 	@GetMapping(value="/")
 	public String shop(Model model) {
@@ -40,6 +40,14 @@ public class ShopController {
 		return "shop/shopDetail/shopDetail";
 	}
 	
+	@PostMapping(value="scrollProduct")
+	@ResponseBody
+	public Map<String, Object> scrollProduct(@RequestParam String num){
+		
+		Map<String, Object> map = shopService.scrollProduct(num);
+    return map;
+  }
+  
 	@PostMapping(value="getshopDetail")
 	@ResponseBody
 	public Map<String, Object> getshopDetail(@RequestParam int product_id){

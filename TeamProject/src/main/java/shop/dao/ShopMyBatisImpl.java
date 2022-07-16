@@ -1,5 +1,9 @@
 package shop.dao;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class ShopMyBatisImpl implements ShopDAO {
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -26,7 +30,5 @@ public class ShopMyBatisImpl implements ShopDAO {
 		ProductDTO productDTO = sqlSession.selectOne("shopSQL.getproduct",product_id);
 		return productDTO;
 	}
-	
-	
 
 }
