@@ -704,7 +704,7 @@ svg:not(:root) {
 		<form id="updateImgForm" name="updateImgForm"><!-- method="post" enctype="multipart/form-data" -->
             <div class="user_profile">
                 <div class="profile_thumb">
-                    <img src="${userDTO.profile_img }" alt="/TeamProject/img/user/profile.png" name="profile_img" class="thumb_img profile_img">
+                    <img src="${userDTO.profile_img }" alt="https://kream.co.kr/_nuxt/img/blank_profile.4347742.png" name="profile_img" class="thumb_img profile_img">
                 </div>
                 <div class="profile_detail">
                     <strong class="name" name="nickname" id="show_userid_title nickname">${userDTO.nickname }</strong>
@@ -1159,7 +1159,7 @@ $('.delImage').click(function(){
 		contentType: false,
 		data: formData, 
 		success: function(){
-			$('.thumb_img').attr('src', '/TeamProject/img/user/profile.png');
+			$('.thumb_img').attr('src', 'https://kream.co.kr/_nuxt/img/blank_profile.4347742.png');
 		},error: function(err){
 			console.log(err);
 		}

@@ -81,17 +81,23 @@ public class UserController {
 	}
 	
 	@GetMapping(value="myPage")
-	public String myPageMain(Model model) {
+	public String myPageMain(Model model, HttpSession session) {
+		String user_id = (String) session.getAttribute("memId");
+		System.out.println(session.getAttribute("user_id"));
+		UserDTO userDTO = userService.getUserInfo(user_id);
+		userService.getBuyHistory(user_id);
+		userService.getSellHistory(user_id);
+		model.addAttribute("userDTO", userDTO);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageMain.jsp");
 		return "forward:/user/my";
 	}
 	
 	@GetMapping(value="myPageEdit")
 	public String myPageEdit(Model model, HttpSession session) {
-		//String user_id = (String) session.getAttribute("memId");
-		//System.out.println(session.getAttribute("user_id"));
-		//UserDTO userDTO = userService.getUserInfo(user_id);
-		UserDTO userDTO = userService.getUserInfo("eunji@gmail.com");
+		String user_id = (String) session.getAttribute("memId");
+		System.out.println(session.getAttribute("user_id"));
+		UserDTO userDTO = userService.getUserInfo(user_id);
+		//UserDTO userDTO = userService.getUserInfo("eunji@gmail.com");
 		//System.out.println(userDTO);
 		
 		model.addAttribute("userDTO", userDTO);
@@ -101,9 +107,9 @@ public class UserController {
 	
 	@PostMapping(value="update")
 	public String updateUser(@ModelAttribute UserDTO userDTO, HttpSession session) {
-		userService.update(userDTO, session);
 		System.out.println(userDTO);
 		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
+		userService.update(userDTO, session);
 		return "forward:/user/my";
 	}
 	
@@ -256,7 +262,7 @@ public class UserController {
 		//System.out.println(userDTO);
 		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
 		String check = userService.signUpWrite(userDTO);
-	return check;
+		return check;
 	}
 	//아이디 중복체크
 	@PostMapping(value="checkId")

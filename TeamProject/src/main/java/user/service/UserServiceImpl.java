@@ -192,4 +192,14 @@ public class UserServiceImpl implements UserService {
 		}
 		return check;
 	}
+	@Override
+	public void getBuyHistory(String user_id) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void getSellHistory(String user_id) {
+		// TODO Auto-generated method stub
+		
+	}
 }
