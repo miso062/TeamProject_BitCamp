@@ -695,16 +695,16 @@ svg:not(:root) {
 </style>
 </head>
 <body>
-<form method="post" enctype="multipart/form-data" action="/TeamProject/user/myPageUpdate">
     <div class="my_profile">
         <div class="content_title border">
             <div class="title">
                 <h3>프로필 정보</h3>
             </div>
         </div>
+		<form id="updateImgForm" name="updateImgForm"><!-- method="post" enctype="multipart/form-data" -->
             <div class="user_profile">
                 <div class="profile_thumb">
-                    <img src="${userDTO.profile_img }" alt="사용자 이미지" name="profile_img" class="thumb_img profile_img">
+                    <img src="${userDTO.profile_img }" alt="/TeamProject/img/user/profile.png" name="profile_img" class="thumb_img profile_img">
                 </div>
                 <div class="profile_detail">
                     <strong class="name" name="nickname" id="show_userid_title nickname">${userDTO.nickname }</strong>
@@ -715,8 +715,9 @@ svg:not(:root) {
                 </div>
                 <input type="file" accept="image/jpeg,image/png" id="imageFileInput" class="profileImgUrl" name="file" style="visibility : hidden;" >
             </div>
+        </form>
         
-
+		<form id="updateForm" name="updateForm">
 		<div class="profile_info">
 			<div class="profile_group">
 			<h4 class="group_title">로그인 정보</h4>
@@ -766,7 +767,7 @@ svg:not(:root) {
                 
                 <div class="unit" id="unit_hp">
                     <h5 class="title">휴대폰 번호</h5>
-                    <p class="desc" id="show_hp">${userDTO.hp }</p>
+                    <p class="desc" name="hp" id="show_hp">${userDTO.hp }</p>
                     <button type="button" class="btn btn_modify outlinegrey small" id="openHpBtn"> 변경 </button>
                 </div>
 
@@ -774,7 +775,7 @@ svg:not(:root) {
 	                <h5 class="title">새로운 휴대폰 번호</h5>
 	                	<div class="input_item">
 	                	<input type="text"  placeholder="- 없이 숫자만" oninput="onHp(this.value)" autocomplete="off"  
-	                			style="width:78%;" id="hp" name="hp" class="desc input_txt log_hp_input"/>
+	                			style="width:78%;" id="hp" class="desc input_txt log_hp_input"/>
 	                <span class="check_number disabled" disabled="disabled">인증번호 받기</span>
 	                	<input type="number" id="hp_key" placeholder="인증 번호" disabled="disabled">
 	                </div>
@@ -895,14 +896,14 @@ svg:not(:root) {
                 </div>
             </div>
         </div>
+        </form>
         
         <div class="unit to_receive" align = "center">
 			<button type="button" class="btn outlinegrey small" onclick="location.reload()" >다시 작성</button>
-			<button type="button" class="btn outlinegrey small updateBtn" onclick="checkUpdate()">변경</button>
+			<button type="button" class="btn outlinegrey small updateBtn" >변경</button>
 		</div>
         <a href="/my/withdrawal" class="btn_withdrawal">회원 탈퇴</a>
     </div>
-</form>
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -965,15 +966,15 @@ function inputName(value) {
 	if(regName.test(value) ==true) {
 		document.getElementsByClassName("log_name_label")[0].style.color = "black";
 		document.getElementsByClassName("log_name_error")[0].style.display = "none";
+		$('.log_name_error').removeClass('notallow');
 		document.getElementsByClassName("log_name_input")[0].style.borderColor = "black";
 		resultName = true;
-		signupCheck();
 	}else {
 		document.getElementsByClassName("log_name_label")[0].style.color = "#f15746";
 		document.getElementsByClassName("log_name_error")[0].style.display = "block";
+		$('.log_name_error').addClass('notallow');
 		document.getElementsByClassName("log_name_input")[0].style.borderColor = "#f15746";
 		resultName = false;
-		signupCheck();
 	}
 }
 /* 닉네임 유효성검사 */
@@ -991,29 +992,28 @@ function inputNick(value) {
 			data : 'nickname='+value,
 			success : function(data){
 				if(data =='ok') {
+					$('.log_nick_name_error').removeClass('notallow');
 					$('.log_nick_name_error').html('사용가능한 아이디입니다.');
 				}else {
+					$('.log_nick_name_error').addClass('notallow');
 					$('.log_nick_name_error').html('이미 사용하고 있는 아이디입니다.');
 				}
-
 			},error : function(err){
 				console.log(err);
 			}
 		});
-		signupCheck();
 	}else {
 		document.getElementsByClassName("log_nick_name_label")[0].style.color = "#f15746";
 		document.getElementsByClassName("log_nick_name_error")[0].style.display = "block";
+		$('.log_nick_name_error').addClass('notallow');
 		document.getElementsByClassName("log_nick_name_input")[0].style.borderColor = "#f15746";
 		$('.log_nick_name_error').html('올바르지 않은 표현 입니다.')
 		resultNick = false;
-		signupCheck();
 	}
 }
 /* 비밀번호검사 */
 function oninputPwd1(value){
 	resultPwd1 = checkPwd1(value);	// 1개의 글자이벤트를 받을때마다 checkPwd호출
-	signupCheck();
 }
 
 function checkPwd1(value) { //비밀번호 유효성 검사
@@ -1022,32 +1022,31 @@ function checkPwd1(value) { //비밀번호 유효성 검사
 	if(regPwd1.test(value) == true) {
 		document.getElementsByClassName("log_pwd_label")[0].style.color ="black";
 		document.getElementsByClassName("log_pwd_error")[0].style.display = "none";
+		$(".log_pwd_error").removeClass('notallow');
 		document.getElementsByClassName("log_pwd_input")[0].style.borderColor = "black";
 		return true;
 	} else {
+		$(".log_pwd_error").addClass('notallow');
 		document.getElementsByClassName("log_pwd_label")[0].style.color = "#f15746";
 		document.getElementsByClassName("log_pwd_error")[0].style.display = "block";
 		document.getElementsByClassName("log_pwd_input")[0].style.borderColor = "#f15746";
 		return false;
 	}
-}
-
-$('.log_pwdcheck_input').focusout(function(){
 	let pass1 = $("#password_1").val();
 	let pass2 = $("#password_2").val();
 	
 	if(pass1 == pass2){
-		alert('true');
 		document.getElementsByClassName("log_pwdcheck_label")[0].style.color ="black";
 		document.getElementsByClassName("log_pwdcheck_error")[0].style.display = "none";
+		$(".log_pwdcheck_error").removeClass('notallow');
 		document.getElementsByClassName("log_pwdcheck_input")[0].style.borderColor = "black";
 	}else{
-		alert('false');
 		document.getElementsByClassName("log_pwdcheck_label")[0].style.color = "#f15746";
+		$(".log_pwdcheck_error").addClass('notallow');
 		document.getElementsByClassName("log_pwdcheck_error")[0].style.display = "block";
 		document.getElementsByClassName("log_pwdcheck_input")[0].style.borderColor = "#f15746";
 	}
-});
+}
 
 /* 휴대폰번호 */
 $(document).ready(function(){
@@ -1070,94 +1069,133 @@ function onHp(value) {
 		$('.check_number').addClass('disabled');
 		$('.check_number').prop('disabled',true);
 	}
-
 }
+//난수 var로 전역 생성
+var verifyCode = Math.floor(Math.random() * (999999 - 100000)) + 100000;
 //인증번호 보내고 인증번호 입력칸 활성화
 $(document).on('click' , '.check_number.abled' , function(){
-	const verifyCode = Math.floor(Math.random() * (999999 - 100000)) + 100000;
-	verifyCode.toString();
-
-	console.log(verifyCode);
-
-	$.ajax({
-		url: '/TeamProject/user/sms-sends',
-		type: 'post',
-		data: {
-			'recipientPhoneNumber' : $('#hp').val(),
-			'title' : 'test',
-			'content' : verifyCode
-		},
-		success: function(data){
-			alert(JSON.stringify(data));
-			$('#hp_key').prop('disabled', false);
-		},
-		error : function(err) {
-			console.log(err);
-		} 
-	});
-	
+	if(confirm('인증번호를 전송하시겠습니까?')) {
+		$('#hp_key').prop('readonly' ,false);
+		verifyCode.toString();
+		
+		console.log(verifyCode);
+		
+		$.ajax({
+			url: '/TeamProject/user/sms-sends',
+			type: 'post',
+			data: {
+				'recipientPhoneNumber' : $('#hp').val(),
+				'title' : 'test',
+				'content' : '[GESE-T] \n 인증번호  ['+ verifyCode+']'
+			},
+			success: function(data){
+				$('#hp_key').prop('disabled', false);
+				$('#show_hp').text($('#hp_key').val());
+			},
+			error : function(err) {
+				console.log(err);
+			} 
+		});
+	}
 });
 // 인증번호 입력값 가져가서 비교하기 
 $(document).on('change' ,'#hp_key' , function(){
-	$.ajax({
-		type: 'post',
-		url: '/TeamProject/user/sms-check',
-		data : {'hp_key' :$('#hp_key').val()},
-		succes: function(){
-			alert(hihi);
-		},
-		error : function(err){
-			console.log(err);
-		}
-	});
+	if($('#hp_key').val()==verifyCode) {
+		alert('인증완료')
+		resultHp=true;
+		
+		$('#hp_key').prop('readonly' ,true);
+	}			
+	else{
+		alert('인증번호가 일치하지 않습니다.')
+	}
 });
-
 /* 이미지변경 */
 $('#upImage').click(function(){
-   $('#imageFileInput').trigger('click');
-});
+ 	
+	$('#imageFileInput').trigger('click');
 
-$('#imageFileInput').on('change', function(){
-   readURL(this);
-});
+ 	$('.imageFileInput').on('change', function(){
+ 		readURL(this);
+ 	});
+ 	
+ 	function readURL(input){
+ 		
+ 		if(input.files[0]){
+ 			var reader = new FileReader();
+ 			reader.onload = function(e){
+ 				$('.thumb_img').attr('src', e.target.result); 
+ 			}
+ 			reader.readAsDataURL(input.files[0]);
+ 		}
+ 		//ajax
+ 		var formData = new FormData($('#updateImgForm')[0]);
 
-$('#delImage').click(function(){
-   $('.thumb_img').attr('src', '');
+ 		$.ajax({
+ 			type: 'post',
+ 			url: '/TeamProject/user/updateImg',
+ 			enctype: 'multipart/form-data',
+ 			processData: false,
+ 			contentType: false,
+ 			data: formData,
+ 			success: function(){
+ 			},
+ 			error: function(err){
+ 				console.log(err);
+ 			}
+ 		});	
+ 	}
 });
-
-function readURL(input){
-   if(input.files[0]){
-      var reader = new FileReader();
-      reader.onload = function(event){
-         $('.thumb_img').attr('src', event.target.result); //e.target 이벤트가 발생한 요소 반환 => result에 저장
-      } //불러온 이미지파일을 다 읽으면 그때 이미지를 뿌려라
-      reader.readAsDataURL(input.files[0]);
-   }
-};
-   
-$('#updateBtn').click(function(){
-	var formData = new FormData($('#updateForm')[0]); //<form />안의 모든것
+/* 이미지 제거 */
+$('.delImage').click(function(){
+	
+	var formData = new FormData($('#updateImgForm')[0]);
 	
 	$.ajax({
 		type: 'post',
-		url: '/TeamProject/user/update',
+		url: '/TeamProject/user/deleteImg',
 		enctype: 'multipart/form-data',
 		processData: false,
 		contentType: false,
-		data: formData,
+		data: formData, 
 		success: function(){
-			alert('업데이트 완료');
+			$('.thumb_img').attr('src', '/TeamProject/img/user/profile.png');
 		},error: function(err){
 			console.log(err);
 		}
-	});
+	});	
 });
 
 /* update */
-	$(document).on('click', '.updateBtn', function(){
-		//$("input:radio[name="message_radio"]:checked").val();
-		//$("input:radio[name="email_radio"]:checked").val( ) ;
+$(document).on('click', function(){
+	/* 회원가입버튼활성화 */
+	if($('.notallow').length == 0){
+		$('.updateBtn').css("background-color","black");
+		$('.updateBtn').removeClass('disabled');
+		$('.updateBtn').addClass('abled');
+		$('.updateBtn').prop('disabled','false');
+	}else{
+		$('.updateBtn').css("background-color","grey");
+		$('.updateBtn').removeClass('abled');
+		$('.updateBtn').addClass('disabled');
+		$('.updateBtn').prop('disabled','true');
+	}
+});
+
+$('.updateBtn').on('click', function(event){
+	alert('true');
+	$.ajax({
+		type: 'post',
+		url: '/TeamProject/user/update',
+		data: $('#updateForm').serialize(), //'변수=값&변수=값&~~'
+		success: function(){
+			alert("회원정보를 수정하였습니다.");
+			location.href='/TeamProject/';
+		}, error: function(err){
+			console.log(err);
+			}
 	});
+});
 
 </script>
 </html>

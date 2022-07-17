@@ -141,9 +141,9 @@ public class UserServiceImpl implements UserService {
 		}else {
 			b="fail";
 		}
-		 
 		return b;
 	}
+	
 	@Override
 	public String signUpWrite(UserDTO userDTO) {
 		//휴대전화로 먼저 가입 여부 조회
@@ -158,29 +158,28 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 	@Override
-	public void update(UserDTO userDTO, @RequestParam MultipartFile multipartFile, HttpSession session) {
-		
-		//실제폴더
-		String imageFilePath = session.getServletContext().getRealPath("/WEB-INF/storage");
-		String imageFileName = userDTO.getUser_id() + "_" + multipartFile.getOriginalFilename();
-		
-		if(multipartFile.getSize() !=0 ) { //파일이 업로드 되었는지 확인
-			try {
-				if(userDTO.getProfile_img() != null) { //이미프로필 사진이 있는 경우
-					File file = new File(uploadFolder + userDTO.getProfile_img());
-					file.delete();
-					multipartFile.transferTo(file);
-				}
-				File file = new File(imageFilePath, imageFileName);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-			userDTO.setProfile_img(imageFileName);
-		}
+	public void update(UserDTO userDTO, HttpSession session) {
 		userDAO.update(userDTO);
 		session.invalidate();
-  }
-  
+	}
+	
+	@Override
+	public void updateImg(String fileName) {
+		
+		Map<String, String> map = new HashMap<String, String>();
+		
+		String user_id = (String) session.getAttribute("user_id");
+		map.put("user_id", user_id);
+		map.put("profile_img", fileName);
+		userDAO.updateImg(map);
+	}
+
+	@Override
+	public void deleteImg() {
+		String user_id = (String) session.getAttribute("user_id");
+		userDAO.deleteImg(user_id);
+	}
+	
 	//아이디 중복체크
 	@Override
 	public String checkId(String user_id) {

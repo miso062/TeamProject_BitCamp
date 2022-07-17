@@ -87,13 +87,24 @@ public class UserDAOImpl implements UserDAO {
 		sqlSession.insert("userSQL.signUpWrite", userDTO);
 	}
 
+	public int checkId(String user_id) {
+		return sqlSession.selectOne("userSQL.checkId", user_id);
+	}
+	
 	@Override
 	public void update(UserDTO userDTO) {
 		sqlSession.update("userSQL.update", userDTO);
   }
   
-	public int checkId(String user_id) {
-		return sqlSession.selectOne("userSQL.checkId", user_id);
+
+	@Override
+	public void updateImg(Map<String, String> map) {
+		sqlSession.update("userSQL.updateImg", map);
+	}
+
+	@Override
+	public void deleteImg(String user_id) {
+		sqlSession.update("userSQL.deleteImg", user_id);
 	}
 }
 	
