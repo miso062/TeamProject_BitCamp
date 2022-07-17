@@ -73,4 +73,13 @@
 						,email_allow = #{email_allow}
 						,profile_img = #{profile_img}
 	</update>
+	<!-- 프로필 이미지 업데이트 -->
+	<update id="updateImg" parameterType="java.util.Map">
+		update user_table set profile_img=#{profile_img} where user_id=#{user_id}
+	</update>
+	
+	<!-- 프로필 이미지 삭제 -->
+	<update id="deleteImg" parameterType="string">
+		update user_table set profile_img = null where user_id=#{user_id}
+	</update>
 </mapper>
