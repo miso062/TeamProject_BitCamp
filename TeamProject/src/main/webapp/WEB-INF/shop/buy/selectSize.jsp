@@ -1,12 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style type="text/css">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<style type="text/css">
 [data-v-454fa0b2] button {
 	border: none;
 	background: none;
@@ -100,8 +94,6 @@
 	height: 60px
 }
 
-
-}
 .product {
 	overflow: hidden;
 	position: relative;
@@ -639,7 +631,10 @@ button {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	width: 100% .box[data-v-57f23419] {   
+	width: 100% 
+}
+	
+.box[data-v-57f23419] {   
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -661,8 +656,6 @@ body{
 	background-color: #fafafa
 }
 
-
-
 .buy_before{
 	padding: 32px 32px 28px;
 	-webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .1);
@@ -680,250 +673,216 @@ body{
 	border-top: 1px solid #ebebeb
 }
 .size{
-	align: center;
+	text-align: center;
 }
-
 </style>
-</head>
-<body>
-	<div id="background-color">
-		<div data-v-23c6d8a8="" data-v-7ab136e9="" class="container buy md">
-			<div data-v-23c6d8a8="" class="content_area">
-				<div data-v-23c6d8a8="" class="buy_before">
-					<div data-v-23c6d8a8="" class="buy_before_check">
-						<div data-v-299f50cf="" data-v-23c6d8a8="" class="product_info">
-							<div data-v-299f50cf="" class="product_thumb">
-								<div data-v-75e33658="" data-v-299f50cf="" class="product"
-									style="background-color: rgb(246, 238, 237);">
-									<picture data-v-548c90f9="" data-v-75e33658=""
-										class="picture product_img">
-									<source data-v-548c90f9="" type="image/webp"
-										srcset="
-                                        https://kream-phinf.pstatic.net/MjAyMDEwMjJfOCAg/MDAxNjAzMzQwOTUzNzMx.nCU7Bumo43r7JZcTRjq4blFOcj33dPIxNYW-_94RtWgg.rJwsoEL3W-f7pgpwfYISb-0HBItIWL04h7p8Ixyp8CUg.PNG/p_4cedd884b4a3427ca616bc31b3bf2867.png?type=m_webp
-                                    " />
-									<source data-v-548c90f9=""
-										srcset="
-                                        https://kream-phinf.pstatic.net/MjAyMDEwMjJfOCAg/MDAxNjAzMzQwOTUzNzMx.nCU7Bumo43r7JZcTRjq4blFOcj33dPIxNYW-_94RtWgg.rJwsoEL3W-f7pgpwfYISb-0HBItIWL04h7p8Ixyp8CUg.PNG/p_4cedd884b4a3427ca616bc31b3bf2867.png?type=m
-                                    " />
-									<img data-v-548c90f9="" alt="상품 이미지"
-										src="https://kream-phinf.pstatic.net/MjAyMDEwMjJfOCAg/MDAxNjAzMzQwOTUzNzMx.nCU7Bumo43r7JZcTRjq4blFOcj33dPIxNYW-_94RtWgg.rJwsoEL3W-f7pgpwfYISb-0HBItIWL04h7p8Ixyp8CUg.PNG/p_4cedd884b4a3427ca616bc31b3bf2867.png?type=m"
-										class="image" /> </picture>
-									<!---->
-									<!---->
-									<!---->
-								</div>
-							</div>
-							<div data-v-299f50cf="" class="product_detail">
-								<p data-v-299f50cf="" class="code">555088-105</p>
-								<p data-v-299f50cf="" class="name">Jordan 1 Retro High OG
-									Black Mocha</p>
-								<p data-v-299f50cf="" class="translated_name">조던 1 레트로 하이 OG
-									블랙 모카</p>
 
+<input type="hidden" id="product_id" value=${productDTO.product_id}>
+<div id="background-color">
+	<div data-v-23c6d8a8="" data-v-7ab136e9="" class="container buy md">
+		<div data-v-23c6d8a8="" class="content_area">
+			<div data-v-23c6d8a8="" class="buy_before">
+				<div data-v-23c6d8a8="" class="buy_before_check">
+					<div data-v-299f50cf="" data-v-23c6d8a8="" class="product_info">
+						<div data-v-299f50cf="" class="product_thumb">
+							<div data-v-75e33658="" data-v-299f50cf="" class="product" style="background-color: rgb(246, 238, 237);">
+								<picture data-v-548c90f9="" data-v-75e33658="" class="picture product_img">
+									<source data-v-548c90f9="" type="image/webp" srcset=${productImgDTO.file_path } />
+									<source data-v-548c90f9="" srcset=${productImgDTO.file_path } />
+									<img data-v-548c90f9="" alt="상품 이미지" src=${productImgDTO.file_path } class="image" />
+								</picture>
 							</div>
 						</div>
-						<div data-v-23c6d8a8="" class="buy_before_select">
-							<div data-v-02c63ee6="" data-v-23c6d8a8=""
-								class="select_area mo column_double" id="select_area">
-								<!---->
-								<ul data-v-02c63ee6="" class="select_list">
-
-									<li data-v-02c63ee6="" class="select_item" id="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy bid" id="button">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size"> 225 </span> <span
-													data-v-02c63ee6="" class="price">구매입찰</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy bid">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size"> 230 </span> <span
-													data-v-02c63ee6="" class="price">구매입찰</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy bid">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size"> 235 </span> <span
-													data-v-02c63ee6="" class="price">구매입찰</span>
-											</div>
-										</button>
-									</li>
-									
-									
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size"> 240
-												</span> <span data-v-02c63ee6="" class="price">780,000</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy bid">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size"> 245 </span> <span
-													data-v-02c63ee6="" class="price">구매입찰</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size"> 250
-												</span> <span data-v-02c63ee6="" class="price"id="price">707,000</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size">255
-												</span> <span data-v-02c63ee6="" class="price">683,000</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size">260
-												</span> <span data-v-02c63ee6="" class="price">690,000</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size">265
-												</span> <span data-v-02c63ee6="" class="price">699,000</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size">270
-												</span> <span data-v-02c63ee6="" class="price">782,000</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size">275
-												</span> <span data-v-02c63ee6="" class="price">689,000</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size">280
-												</span> <span data-v-02c63ee6="" class="price">670,000</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size"> 285
-												</span> <span data-v-02c63ee6="" class="price">634,000</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size"> 290
-												</span> <span data-v-02c63ee6="" class="price">600,000</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size">295
-												</span> <span data-v-02c63ee6="" class="price">639,000</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size">300
-												</span> <span data-v-02c63ee6="" class="price">600,000</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy bid">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size"> 305 </span> <span
-													data-v-02c63ee6="" class="price">구매입찰</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy" id="button">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size"> 310 </span> <span
-													data-v-02c63ee6="" class="price">1,200,000</span>
-											</div>
-										</button>
-									</li>
-									<li data-v-02c63ee6="" class="select_item">
-										<button data-v-02c63ee6="" role="button" aria-selected="false"
-											class="select_link buy bid">
-											<div data-v-02c63ee6="" class="link_inner">
-												<span data-v-02c63ee6="" class="size" name="size"> 320 </span>
-												 <span data-v-02c63ee6="" class="price">구매입찰</span>
-											</div>
-										</button>
-									</li>
-								</ul>
-								<br>
-								<div id="black_button">
-								<hr>
-								<a href="/TeamProject/shop/buyCheck">
-									<div id="black_box">
-										<div id="font1"></div>
-										<div id="font2">일반배송(5-7일소요)</div>
-									</div>
-								</a>
+						<div data-v-299f50cf="" class="product_detail">
+							<p data-v-299f50cf="" class="code">${productDTO.model_number }</p>
+							<p data-v-299f50cf="" class="name">${productDTO.eng_name }</p>
+							<p data-v-299f50cf="" class="translated_name">${productDTO.kor_name }</p>
+						</div>
+					</div>
+					<div data-v-23c6d8a8="" class="buy_before_select">
+						<div data-v-02c63ee6="" data-v-23c6d8a8=""
+							class="select_area mo column_double" id="select_area">
+							<ul data-v-02c63ee6="" class="select_list">
+								<li data-v-02c63ee6="" class="select_item" id="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid" id="button">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">225</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_225">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">230</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_230">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">235</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_235">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">240</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_240">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">245</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_245">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">250</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_250">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">255</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_255">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">260</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_260">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">265</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_265">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">270</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_270">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">275</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_275">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">280</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_280">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">285</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_285">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">290</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_290">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">295</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_295">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">300</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_300">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">305</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_305">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid" id="button">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">310</span> 
+											<span data-v-02c63ee6="" class="price" id="price_size_310">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">315</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_315">구매입찰</span>
+										</div>
+									</button>
+								</li>
+								<li data-v-02c63ee6="" class="select_item">
+									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
+										<div data-v-02c63ee6="" class="link_inner">
+											<span data-v-02c63ee6="" class="size">320</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_320">구매입찰</span>
+										</div>
+									</button>
+								</li>
+							</ul>
+							<br>
+							<div id="black_button">
+							<hr>
+							<a id="goNextBtn">
+								<input type="hidden" id="selected_size" value="">
+								<div id="black_box">
+									<div id="font1"></div>
+									<div id="font2">일반배송(5-7일소요)</div>
 								</div>
+							</a>
 							</div>
-							<!---->
 						</div>
 					</div>
 				</div>
 			</div>
-			<!---->
-			<!---->
 		</div>
-
 	</div>
-</body>
+</div>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -931,10 +890,9 @@ $(function(){
 	$('.select_item').click(function(){
 		$('#black_button').show();
 		$('#font1').html($(this).find('.price').html());
-	})
-});
+		$('#selected_size').val($(this).find('.size').text());
+	});
 
-$(function(){
 	$('.select_item').each(function(){
 		$(this).click(function(){
 			$(this).css('border','1px solid black');
@@ -943,10 +901,30 @@ $(function(){
 			$('.select_item').not(this).find('.link_inner').css('font-weight', 'normal');
 		});
 	});
+
+	$.ajax({
+		url : "/TeamProject/shop/getSelectSizeInfo",
+		type: "post",
+		data: { "product_id": $('#product_id').val() },
+		dataType: 'json',
+		success: function(data){
+			$.each(data, function(index, items){
+				var id = "#price_size_" + items.size_type;
+				var price = items.sell_price.toString();
+				price = price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+				if(price != ''){
+					$(id).text(price);
+					$(id).parent().parent().removeClass('bid');
+				}
+			});
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
 });
 
-
-
-
+$('#goNextBtn').click(function(){
+	location.href="/TeamProject/shop/buyCheck?product_id="+$('#product_id').val()+"&size="+$('#selected_size').val();
+});
 </script>
-</html>

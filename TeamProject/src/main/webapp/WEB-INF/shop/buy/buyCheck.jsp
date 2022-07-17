@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
 <style type="text/css">
 .product[data-v-75e33658] {
 	overflow: hidden;
@@ -233,7 +229,6 @@
 	background-color: #fafafa
 }
 
-}
 .banner_link[data-v-e8c8b39e] {
 	position: relative;
 	display: -webkit-box;
@@ -648,8 +643,26 @@ a, a:active, a:focus, a:hover {
 	animation: erase-out .1s
 }
 
-@
--webkit-keyframes erase-in { 0%{
+to {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	opacity: 1
+}
+
+to {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	opacity: 1
+}
+
+
+to {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	opacity: 0
+}
+
+to {
 	-webkit-transform: scale(1);
 	transform: scale(1);
 	opacity: 0
@@ -659,64 +672,6 @@ to {
 	-webkit-transform: scale(1);
 	transform: scale(1);
 	opacity: 1
-}
-
-}
-@
-keyframes erase-in { 0%{
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	opacity: 0
-}
-
-to {
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	opacity: 1
-}
-
-}
-@
--webkit-keyframes erase-out { 0%{
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	opacity: 1
-}
-
-to {
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	opacity: 0
-}
-
-}
-@
-keyframes erase-out { 0%{
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	opacity: 1
-}
-
-to {
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	opacity: 0
-}
-
-}
-@
--webkit-keyframes op-erase-in { 0%{
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	opacity: .4
-}
-
-to {
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	opacity: 1
-}
-
 }
 
 keyframes op-erase-in { 
@@ -731,12 +686,11 @@ to {
 	opacity: 1
 }
 
-}
-@
--webkit-keyframes op-erase-out { 0%{
+
+to {
 	-webkit-transform: scale(1);
 	transform: scale(1);
-	opacity: 1
+	opacity: .2
 }
 
 to {
@@ -745,21 +699,6 @@ to {
 	opacity: .2
 }
 
-}
-@
-keyframes op-erase-out { 0%{
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	opacity: 1
-}
-
-to {
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	opacity: .2
-}
-
-}
 .kream-op-enter, .kream-op-enter-active {
 	-webkit-animation: op-erase-in .7s;
 	animation: op-erase-in .7s
@@ -790,11 +729,6 @@ to {
     
 }
 
-/* .solid.disabled[data-v-3d1bcc82], .solid[data-v-3d1bcc82]:disabled {
-    background-color: #ebebeb;
-    color: #fff;
-    cursor: default;
-} */
 #btn_continue {
 	border-radius: 12px;
     font-weight: 700;
@@ -839,165 +773,113 @@ to {
 	cursor: pointer;
 }
 </style>
-</head>
-<body>
-	<div data-v-66e3a22e="" data-v-7ab136e9="" class="container buy md">
-		<div data-v-66e3a22e="" class="content">
-			<div data-v-66e3a22e="" class="buy_before">
-				<div data-v-66e3a22e="" class="buy_before_check">
-					<div data-v-30c0be66="" data-v-66e3a22e="">
-						<div data-v-30c0be66="" class="title_area">
-							<h2 data-v-30c0be66="" class="check_title">
-								<span data-v-30c0be66="" class="accent_text">구매</span>하시기 전에 <br
-									data-v-30c0be66="" class="br_mo">꼭 확인하세요.
-							</h2>
-						</div>
-						<div data-v-30c0be66="" class="buy_product_area">
-							<div data-v-30c0be66="" class="buy_product">
-								<div data-v-75e33658="" data-v-30c0be66="" class="product"
-									style="background-color: rgb(246, 238, 237);">
-									<picture data-v-548c90f9="" data-v-75e33658=""
-										class="picture product_img">
-									<source data-v-548c90f9="" type="image/webp"
-										srcset="https://kream-phinf.pstatic.net/MjAyMDEwMjJfOCAg/MDAxNjAzMzQwOTUzNzMx.nCU7Bumo43r7JZcTRjq4blFOcj33dPIxNYW-_94RtWgg.rJwsoEL3W-f7pgpwfYISb-0HBItIWL04h7p8Ixyp8CUg.PNG/p_4cedd884b4a3427ca616bc31b3bf2867.png?type=l_webp">
-									<source data-v-548c90f9=""
-										srcset="https://kream-phinf.pstatic.net/MjAyMDEwMjJfOCAg/MDAxNjAzMzQwOTUzNzMx.nCU7Bumo43r7JZcTRjq4blFOcj33dPIxNYW-_94RtWgg.rJwsoEL3W-f7pgpwfYISb-0HBItIWL04h7p8Ixyp8CUg.PNG/p_4cedd884b4a3427ca616bc31b3bf2867.png?type=l">
-									<img data-v-548c90f9="" alt="상품 이미지"
-										src="https://kream-phinf.pstatic.net/MjAyMDEwMjJfOCAg/MDAxNjAzMzQwOTUzNzMx.nCU7Bumo43r7JZcTRjq4blFOcj33dPIxNYW-_94RtWgg.rJwsoEL3W-f7pgpwfYISb-0HBItIWL04h7p8Ixyp8CUg.PNG/p_4cedd884b4a3427ca616bc31b3bf2867.png?type=l"
-										class="image"></picture>
-									<!---->
-									<!---->
-									<!---->
-								</div>
-								<div data-v-30c0be66="" class="buy_info">
-									<div data-v-56991a6e="" data-v-30c0be66="" class="model_info">
-										<strong data-v-56991a6e="" class="model_number"> <!---->
-											<span data-v-56991a6e="" class="text">555088-105</span>
-										</strong>
-										<p data-v-56991a6e="" class="model_title">Jordan 1 Retro
-											High OG Black Mocha</p>
-										<p data-v-56991a6e="" class="model_ko">조던 1 레트로 하이 OG 블랙
-											모카</p>
-										<div data-v-56991a6e="" class="model_desc">
-											<p data-v-56991a6e="" class="size_txt">240</p>
-											<!---->
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+
+<input type="hidden" id="product_id" value=${productDTO.product_id}>
+<div data-v-66e3a22e="" data-v-7ab136e9="" class="container buy md">
+	<div data-v-66e3a22e="" class="content">
+		<div data-v-66e3a22e="" class="buy_before">
+			<div data-v-66e3a22e="" class="buy_before_check">
+				<div data-v-30c0be66="" data-v-66e3a22e="">
+					<div data-v-30c0be66="" class="title_area">
+						<h2 data-v-30c0be66="" class="check_title">
+							<span data-v-30c0be66="" class="accent_text">구매</span>하시기 전에 <br data-v-30c0be66="" class="br_mo">꼭 확인하세요.
+						</h2>
 					</div>
-					<div data-v-4146ec1a="" data-v-66e3a22e="" buy-type="bid">
-						<ul data-v-c9dd64ec="" data-v-4146ec1a="" class="check_list md">
-							<li data-v-c9dd64ec="" class="check_item">
-							<a data-v-c9dd64ec=""  class="check_area">
-									<div data-v-c9dd64ec="" class="notice_group">
-										<p data-v-c9dd64ec="" class="notice_maintext">구매하려는 상품이
-											맞습니다.</p>
-										<p data-v-c9dd64ec="" class="notice_subtext">상품 이미지, 모델번호,
-											출시일, 상품명, 사이즈를 한 번 더 확인했습니다.</p>
-										<!---->
-									</div>
-									
-									<div class="checkbox_item">
-										
-											<label for="check1" class="check_label">
-												<img src="/TeamProject/img/shop/checkbox-inactive.png" class="checkbox_item_img">
-											 </label>
-									</div>
-									
-							</a>
-							
-							</li>
-										
-							<li data-v-c9dd64ec="" class="check_item"><a
-								data-v-c9dd64ec="" class="check_area"><div
-										data-v-c9dd64ec="" class="notice_group">
-										<p data-v-c9dd64ec="" class="notice_maintext">국내/해외에서 발매한
-											정품 · 새상품입니다.</p>
-										<p data-v-c9dd64ec="" class="notice_subtext">모든 구성품이
-											그대로이며, 한 번도 착용하지 않은 정품・새상품입니다. 국내 발매 상품 여부는 확인드리지<br> 않습니다.</p>
-										<!---->
-									</div>
-									
-									<div class="checkbox_item">
-										
-											<label for="check2" class="check_label">
-												<img src="/TeamProject/img/shop/checkbox-inactive.png" class="checkbox_item_img">
-											 </label>
-									</div>
-									</a>
-									</li>
-									
-									
-							<li data-v-c9dd64ec="" class="check_items">
-							<a data-v-c9dd64ec="" class="check_area">
-							<div data-v-c9dd64ec="" class="notice_group">
-										<p data-v-c9dd64ec="" class="notice_maintext">제조사에서 불량으로
-											인정하지 않는 기준은 하자로 판단하지 않습니다.</p>
-											<div> 
-										 <p data-v-c9dd64ec="" class="notice_subtext">박스/패키지와 상품
-											컨디션에 민감하시다면 검수 기준을 반드시 확인하시기 바랍니다.</p>
-										
-									<div class="checkbox_item">
-											<label for="check3" class="check_label"> 
-												<img src="/TeamProject/img/shop/checkbox-inactive.png" class="checkbox_item_img">
-											</label>
-									</div>
-									
-									<div data-v-c9dd64ec="">
-											<a data-v-c9dd64ec=""
-												
-												target="_blank" class="check_view"> 검수기준 보기 </a>
-										 
-									</div>
-									
-							
-									
-									
-									</a>
-									</li>
-							<li data-v-c9dd64ec="" class="check_items"><a
-								data-v-c9dd64ec=""class="check_area">
-									<div data-v-c9dd64ec="" class="notice_group">
-										<p data-v-c9dd64ec="" class="notice_maintext">KREAM의 최신
-											이용정책을 모두 확인하였으며, 구매를 계속합니다.</p>
-											<div>
-										<p data-v-c9dd64ec="" class="notice_subtext">건전하고 안전한 거래를
-											위해 반드시 숙지해야 할 미입고, 페널티, 부정거래 등의 이용정책을 확인했습니다.</p>
-											
-										<div class="checkbox_item">
-										
-											<label for="check4" class="check_label">
-												<img src="/TeamProject/img/shop/checkbox-inactive.png" class="checkbox_item_img" >
-											 </label>
-									    </div>
-									    
-										<div data-v-c9dd64ec="">
-											<a data-v-c9dd64ec=""
-												
-												target="_blank" class="check_view"> 이용정책 보기 </a>
-										</div>
-									</div>
-									
-							</a></li>
-						</ul>
-						<div data-v-4146ec1a="" class="btn_confirm md" id="btn_import">
-							<a data-v-3d1bcc82="" data-v-4146ec1a="" disabled="disabled" href="#" class="btn full solid disabled" id="btn_continue">
-							<div id="font_continue">
-							 구매 계속
+					<div data-v-30c0be66="" class="buy_product_area">
+						<div data-v-30c0be66="" class="buy_product">
+							<div data-v-75e33658="" data-v-30c0be66="" class="product" style="background-color: rgb(246, 238, 237);">
+								<picture data-v-548c90f9="" data-v-75e33658="" class="picture product_img">
+								<source data-v-548c90f9="" type="image/webp" srcset=${productImgDTO.file_path }>
+								<source data-v-548c90f9="" srcset=${productImgDTO.file_path }>
+								<img data-v-548c90f9="" alt="상품 이미지" src=${productImgDTO.file_path } class="image"></picture>
 							</div>
-							</a>
+							<div data-v-30c0be66="" class="buy_info">
+								<div data-v-56991a6e="" data-v-30c0be66="" class="model_info">
+									<strong data-v-56991a6e="" class="model_number">
+										<span data-v-56991a6e="" class="text">${productDTO.model_number }</span>
+									</strong>
+									<p data-v-56991a6e="" class="model_title">${productDTO.eng_name }</p>
+									<p data-v-56991a6e="" class="model_ko">${productDTO.kor_name }</p>
+									<div data-v-56991a6e="" class="model_desc">
+										<p data-v-56991a6e="" class="size_txt">${size }</p>
+									</div>
+								</div>
+							</div>
 						</div>
-						
-						<!---->
 					</div>
 				</div>
-
+				<div data-v-4146ec1a="" data-v-66e3a22e="" buy-type="bid">
+					<ul data-v-c9dd64ec="" data-v-4146ec1a="" class="check_list md">
+						<li data-v-c9dd64ec="" class="check_item">
+							<a data-v-c9dd64ec=""  class="check_area">
+								<div data-v-c9dd64ec="" class="notice_group">
+									<p data-v-c9dd64ec="" class="notice_maintext">구매하려는 상품이 맞습니다.</p>
+									<p data-v-c9dd64ec="" class="notice_subtext">상품 이미지, 모델번호, 출시일, 상품명, 사이즈를 한 번 더 확인했습니다.</p>
+								</div>
+								<div class="checkbox_item">
+									<label for="check1" class="check_label">
+										<img src="/TeamProject/img/shop/checkbox-inactive.png" class="checkbox_item_img">
+									</label>
+								</div>
+							</a>
+						</li>
+						<li data-v-c9dd64ec="" class="check_item">
+							<a data-v-c9dd64ec="" class="check_area">
+								<div data-v-c9dd64ec="" class="notice_group">
+									<p data-v-c9dd64ec="" class="notice_maintext">국내/해외에서 발매한 정품 · 새상품입니다.</p>
+									<p data-v-c9dd64ec="" class="notice_subtext">모든 구성품이 그대로이며, 한 번도 착용하지 않은 정품・새상품입니다. 국내 발매 상품 여부는 확인드리지<br> 않습니다.</p>
+								</div>
+								<div class="checkbox_item">
+									<label for="check2" class="check_label">
+										<img src="/TeamProject/img/shop/checkbox-inactive.png" class="checkbox_item_img">
+									</label>
+								</div>
+							</a>
+						</li>
+						<li data-v-c9dd64ec="" class="check_items">
+							<a data-v-c9dd64ec="" class="check_area">
+								<div data-v-c9dd64ec="" class="notice_group">
+									<p data-v-c9dd64ec="" class="notice_maintext">제조사에서 불량으로 인정하지 않는 기준은 하자로 판단하지 않습니다.</p>
+									<p data-v-c9dd64ec="" class="notice_subtext">박스/패키지와 상품 컨디션에 민감하시다면 검수 기준을 반드시 확인하시기 바랍니다.</p>
+								</div> 
+								<div class="checkbox_item">
+									<label for="check3" class="check_label"> 
+										<img src="/TeamProject/img/shop/checkbox-inactive.png" class="checkbox_item_img">
+									</label>
+								</div>
+								<div data-v-c9dd64ec="">
+									<a data-v-c9dd64ec="" target="_blank" class="check_view"> 검수기준 보기 </a>
+								</div>
+							</a>
+						</li>
+						<li data-v-c9dd64ec="" class="check_items">
+							<a data-v-c9dd64ec=""class="check_area">
+								<div data-v-c9dd64ec="" class="notice_group">
+									<p data-v-c9dd64ec="" class="notice_maintext">KREAM의 최신 이용정책을 모두 확인하였으며, 구매를 계속합니다.</p>
+									<p data-v-c9dd64ec="" class="notice_subtext">건전하고 안전한 거래를 위해 반드시 숙지해야 할 미입고, 페널티, 부정거래 등의 이용정책을 확인했습니다.</p>
+								</div>
+								<div class="checkbox_item">
+									<label for="check4" class="check_label">
+										<img src="/TeamProject/img/shop/checkbox-inactive.png" class="checkbox_item_img" >
+									</label>
+								</div>
+								<div data-v-c9dd64ec="">
+									<a data-v-c9dd64ec="" target="_blank" class="check_view"> 이용정책 보기 </a>
+								</div>
+							</a>
+						</li>
+					</ul>
+					<div data-v-4146ec1a="" class="btn_confirm md" id="btn_import">
+						<a data-v-3d1bcc82="" data-v-4146ec1a="" disabled="disabled" href="#" class="btn full solid disabled" id="btn_continue">
+							<div id="font_continue"> 구매 계속 </div>
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</body>
+</div>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 
@@ -1013,30 +895,20 @@ $(function(){
 			img.addClass('active');
 			img.attr('src', '/TeamProject/img/shop/checkbox-active.png');
 		}
-		
 		if($('.active').length == 4){
 			$('#btn_continue').css('background-color', '#222');
-			$('#btn_continue').attr('href', '/TeamProject/shop/enterBuyPrice');
+			$('#btn_continue').attr('href', '/TeamProject/shop/enterBuyPrice?product_id='+$('#product_id').val()+'&size='+$('.size_txt').text());
 			
 		}
 		else{
 			$('#btn_continue').css('background-color', '#ebebeb');
 			$('#btn_continue').attr('href', '#');
 		}
-		
-	})
-});
-
-$(function(){
+	});
 	$('#upload_file_check').change(function(){
-		
 		var is_check = $(this).is(':checked');
 		$('#file_finder').prop('disabled', !is_check);
 	});
 });
 
-
-
- 
 </script>
-</html>
