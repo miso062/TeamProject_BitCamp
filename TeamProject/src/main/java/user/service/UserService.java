@@ -24,4 +24,5 @@ public interface UserService {
 	public String signUpWrite(UserDTO userDTO);
 	public void update(UserDTO userDTO, MultipartFile multipartFile, HttpSession session);
 	public String checkId(String user_id);
+	public String signUpCheckNaver(UserDTO userDTO);
 }

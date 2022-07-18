@@ -95,5 +95,10 @@ public class UserDAOImpl implements UserDAO {
 	public int checkId(String user_id) {
 		return sqlSession.selectOne("userSQL.checkId", user_id);
 	}
+
+	@Override
+	public int checkNaver(String hp) {
+		return sqlSession.selectOne("userSQL.checkNaver", hp);
+	}
 }
 	

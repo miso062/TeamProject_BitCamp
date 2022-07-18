@@ -57,6 +57,10 @@
 	<select id="signUpCheck" parameterType="String" resultType="int">
 	 select count(*) from user_table where hp=#{hp}
 	</select>
+	<!-- 네이버 회원 존재여부 -->
+	<select id="checkNaver" parameterType="String" resultType="int">
+	select count(*) from user_table where hp=#{hp} and sign_up_type='네이버'
+	</select>
 	<!-- 이메일 회원가입 -->
 	<insert id="signUpWrite" parameterType="user">
 		insert into user_table values(#{user_id},#{user_name},#{nickname},#{user_pwd},#{hp},#{shoesize},#{sms_allow},#{email_allow},0,1,'이메일',sysdate)
