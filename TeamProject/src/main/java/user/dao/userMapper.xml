@@ -92,7 +92,7 @@
 						,shoesize = #{shoesize}
 						,sms_allow = #{sms_allow}
 						,email_allow = #{email_allow}
-						,profile_img = #{profile_img}
+						 where user_id=#{user_id}
 	</update>
   
 	<!-- <select id="bookMarkGet" parameterType="java.util.Map" resultType="user">

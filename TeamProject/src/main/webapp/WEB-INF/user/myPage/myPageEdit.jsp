@@ -723,14 +723,14 @@ svg:not(:root) {
 			<h4 class="group_title">로그인 정보</h4>
 				<div class="unit" id="unit_email">
 					<h5 class="title">이메일 주소</h5>
-                   	<p name="user_id" class="desc email" id="show_email">${userDTO.user_id }</p>
+                   	<input type="text" name="user_id" class="desc email" id="show_email" value="${userDTO.user_id }" readonly />
                	</div>
 	                
 				<div class="unit">
 					<div class="input_box has_error has_button">
 	                <h5 class="title input_pwd_title input_title ess log_pwd_label" >비밀번호</h5>
 	                	<div class="input_item">
-	                    	<input type="password" id="password_1" name="user_pwd" value="${userDTO.user_pwd }" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwd1(this.value)"  autocomplete="off" class="desc input_txt log_pwd_input" />
+	                    	<input type="password" id="password_1" name="user_pwd" value="" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwd1(this.value)"  autocomplete="off" class="desc input_txt log_pwd_input" />
 	                    </div>
 						<p class="input_error log_pwd_error" >영문, 숫자, 특수문자를 조합하여 입력해주세요. (8-16자)</p>
 					</div>
@@ -740,7 +740,7 @@ svg:not(:root) {
 	               <div class="input_box has_error has_button">
 	                 <h5 class="title input_pwdcheck_title input_title ess log_pwdcheck_label" >비밀번호 재확인</h5>
 	                    <div class="input_item">
-	                       <input type="password" id="password_2" value="${userDTO.user_pwd }" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwdcheck(this.value)"  autocomplete="off" class="desc input_txt log_pwdcheck_input log_pwd_input" />
+	                       <input type="password" id="password_2" value="" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwdcheck(this.value)"  autocomplete="off" class="desc input_txt log_pwdcheck_input log_pwd_input" />
 	                    </div>
 	                 <p class="input_error log_pwdcheck_error" >비밀번호와 일치하지 않습니다. </p>
 	             </div>
@@ -767,7 +767,7 @@ svg:not(:root) {
                 
                 <div class="unit" id="unit_hp">
                     <h5 class="title">휴대폰 번호</h5>
-                    <p class="desc" name="hp" id="show_hp">${userDTO.hp }</p>
+                    <input type="text" class="desc" name="hp" id="show_hp" value="${userDTO.hp }" />
                     <button type="button" class="btn btn_modify outlinegrey small" id="openHpBtn"> 변경 </button>
                 </div>
 
@@ -784,7 +784,7 @@ svg:not(:root) {
             
                 <div class="unit">
                     <h5 class="title">사이즈</h5>
-                    <p name="shoesize" class="desc input_txt hover text_fill" id="show_shoesize">${userDTO.shoesize }</p>
+                    <input type="text" name="shoesize" class="desc input_txt hover text_fill" id="show_shoesize" value="${userDTO.shoesize }" />
                     <button type="button" class="btn btn_modify outlinegrey small btn_size_select" id="size_layer_open"> 변경 </button>
                 </div>
 				
@@ -847,11 +847,7 @@ svg:not(:root) {
                         </div>
                         
                         <div class="layer_btn"><ahref="#" class="btn outline medium" > 확인 </a></div>
-                        <a href="#" class="btn_layer_close">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-                                <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
-                            </svg>
-                        </a>
+                        <a href="#" class="btn_layer_close"></a>
                     </div>
                 </div>
                 
@@ -896,6 +892,7 @@ svg:not(:root) {
                 </div>
             </div>
         </div>
+        <input type="hidden" name="">
         </form>
         
         <div class="unit to_receive" align = "center">
@@ -1175,12 +1172,14 @@ $(document).on('click', function(){
 		$('.updateBtn').css("background-color","black");
 		$('.updateBtn').removeClass('disabled');
 		$('.updateBtn').addClass('abled');
-		$('.updateBtn').prop('disabled','false');
+		$('.updateBtn').prop('disabled',false);
+		
+		
 	}else{
 		$('.updateBtn').css("background-color","grey");
 		$('.updateBtn').removeClass('abled');
 		$('.updateBtn').addClass('disabled');
-		$('.updateBtn').prop('disabled','true');
+		$('.updateBtn').prop('disabled',true);
 	}
 });
 
@@ -1197,7 +1196,7 @@ $(function(){
 				location.href='/TeamProject/';
 			}, error: function(err){
 				console.log(err);
-				}
+			}
 		});
 	});
 });
