@@ -276,7 +276,6 @@ public class UserController {
 	@PostMapping(value="signUpCheckNaver")
 	@ResponseBody
 	public String signUpCheckNaver(@ModelAttribute UserDTO userDTO) {
-	
 		return userService.signUpCheckNaver(userDTO);
 	}
 

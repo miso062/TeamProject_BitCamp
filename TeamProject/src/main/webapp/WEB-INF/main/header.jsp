@@ -565,7 +565,7 @@ cursor: pointer;
 			<div class="social_login">
 				<li>
 					<a id="naverIdLogin_loginButton" href="javascript:void(0)"> <!-- GU6NNwfSmxJ3JXmCBaTf  -->
-						<img src="/TeamProject/img/main/header/miso.png" class="login_login_logo" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
+						<img src="/TeamProject/img/main/header/miso.png" id="naver_login_button"class="login_login_logo" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
 					</a>
 				</li>		 
 				 	<a href="javascript:kakaoLogin();"> <!-- 144932b30082932e5eba55d918d38249 -->
@@ -677,31 +677,36 @@ var naverLogin = new naver.LoginWithNaverId(
 	);
 
 naverLogin.init();
-
-window.addEventListener('load', function () {
+var id = document.getElementById('naver_login_button')
+id.addEventListener('click', function () {
 	naverLogin.getLoginStatus(function (status) {
 		console.log(status);
 		if (status) {
 			var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
     		//네이버 회원가입 및 로그인
-			console.log(naverLogin.user);
-			$.ajax({
-				url : '/TeamProject/user/signUpCheckNaver',
-				type : 'post',
-				data :  'user_id='+naverLogin.user.email+
-						'&user_pwd='+naverLogin.user.id+
-						'&user_name='+naverLogin.user.name+
-						'&hp='+naverLogin.user.mobile+
-						'&authority='+1 ,
-				sueccss: function(){},
-				error : function(err){
-					console.log(err);
+			if(sessionStorage.getItem("memId")==null) {
+	    		$.ajax({
+					url : '/TeamProject/user/signUpCheckNaver',
+					type : 'post',
+					data :  'user_id='+naverLogin.user.email+
+							'&user_pwd='+naverLogin.user.id+
+							'&user_name='+naverLogin.user.name+
+							'&hp='+naverLogin.user.mobile+
+							'&authority='+1,
+					success: function(data){
+						if(data=='fail') {
+						}
+						else {
+						}
+					},
+					error : function(err){
+						console.log(err);
+						
+					}
 					
-				}
-				
-			});
-			console.log("age="+naverLogin.user.age);
+				});
     		
+			}
             if( email == undefined || email == null) {
 				alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
 				naverLogin.reprompt();

@@ -305,11 +305,13 @@
 		$(document).on('click' , '.check_number.abled' , function(){
 			if(confirm('인증번호를 전송하시겠습니까?')) {
 				$('#hp_key').prop('readonly' ,false);
+				$('#hp_key').prop('disabled', false);
 				verifyCode.toString();
 				
 				console.log(verifyCode);
 				
-				$.ajax({
+				//실제로 이메일 보내는 기능
+		/* 		$.ajax({
 					url: '/TeamProject/user/sms-sends',
 					type: 'post',
 					data: {
@@ -323,7 +325,7 @@
 					error : function(err) {
 						console.log(err);
 					} 
-				});
+				}); */
 			}
 				
 		});
