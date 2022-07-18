@@ -202,8 +202,8 @@ public class UserServiceImpl implements UserService {
 		if(a==0) {
 			//다시 휴대전화와 가입타입을 네이버로 해 다시 한다.
 			int b = userDAO.checkNaver(hp);
-			if
 			String user_id = userDTO.getUser_id();
+			check="";
 				
 		}else {
 			check="fail";
