@@ -47,12 +47,22 @@
 				</li>
 			</ul>
 			<div class="social_login">
-				<a id="naverIdLogin_loginButton" href="javascript:void(0)"> <!-- GU6NNwfSmxJ3JXmCBaTf  -->
-					<img src="../img/miso.png" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
-				</a>	 
-			 	<a href="javascript:kakaoLogin();"> <!-- 144932b30082932e5eba55d918d38249 -->
-			 		<img src="../img/kakao_login_large_wide.png" alt="카카오계정 로그인" style="width: 400px; height: auto;  border-radius: 12px;"/>
-			 	</a>
+				<li>			
+					<a id="naverIdLogin_loginButton" href="javascript:void(0)"> <!-- GU6NNwfSmxJ3JXmCBaTf  -->
+						<img src="../img/miso.png" alt="네이버계정 로그인" style="width: 400px; height: auto; border-radius: 12px;" />
+					</a>
+				</li>	
+				<li onclick="naverLogout(); return false;">
+			      <a href="javascript:void(0)">
+			          <span>네이버 로그아웃</span>
+			      </a>
+				</li>
+				
+						 
+				 	<a href="javascript:kakaoLogin();"> <!-- 144932b30082932e5eba55d918d38249 -->
+				 		<img src="../img/kakao_login_large_wide.png" alt="카카오계정 로그인" style="width: 400px; height: auto;  border-radius: 12px;"/>
+				 	</a>
+				 
 			</div>
 	    </div>
     </div>

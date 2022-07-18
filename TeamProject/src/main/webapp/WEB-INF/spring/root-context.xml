@@ -23,7 +23,6 @@
 	<context:component-scan base-package="user.service" />
 	<context:component-scan base-package="user.dao" />
 	
-	<context:component-scan base-package="shop.bean" />
 	<context:component-scan base-package="shop.service" />
 	<context:component-scan base-package="shop.dao" />
 	
