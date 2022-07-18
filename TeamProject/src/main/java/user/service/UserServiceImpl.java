@@ -41,16 +41,22 @@ public class UserServiceImpl implements UserService {
 		String check ;
 		UserDTO userDTO = userDAO.checkLogin(log_email_input);
 		if(userDTO != null) {
-			
-			if(passwordEncoder.matches(log_pwd_input, userDTO.getUser_pwd())) {
+			if(log_pwd_input.equals(userDTO.getUser_pwd())) {
 				session.setAttribute("memId", log_email_input);
 				session.setAttribute("memAuthority", userDTO.getAuthority());
 				check = "true";
-			} else {
-				check = "false";
+			}
+			else {
+				if(passwordEncoder.matches(log_pwd_input, userDTO.getUser_pwd())) {
+					session.setAttribute("memId", log_email_input);
+					session.setAttribute("memAuthority", userDTO.getAuthority());
+					check = "true";
+				}
+				else {
+					check = "false";
+				}
 			}
 		}else {
-
 			check = "false";
 		}
 			return check;

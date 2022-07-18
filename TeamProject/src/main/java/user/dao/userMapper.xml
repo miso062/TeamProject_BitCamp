@@ -5,7 +5,7 @@
 
 	
 <mapper namespace="userSQL">
-  <select id="checkLogin" parameterType="java.util.Map" resultType="user">
+  <select id="checkLogin" parameterType="String" resultType="user">
     select user_pwd , authority from user_table where user_id = #{log_email_input}
   </select>
   

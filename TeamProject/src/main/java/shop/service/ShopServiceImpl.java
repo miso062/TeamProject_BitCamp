@@ -84,7 +84,7 @@ public class ShopServiceImpl implements ShopService {
 	@Override
 	public AddressDTO getDefalutAddress() {
 //		return shopDAO.getDefalutAddress((String) session.getAttribute("memID"));
-		AddressDTO defalutAddress = shopDAO.getDefalutAddress("j"); // ijiya@hotmail.net
+		AddressDTO defalutAddress = shopDAO.getDefalutAddress("yy1004@gmail.com"); // ijiya@hotmail.net
 		if(defalutAddress == null) {
 			defalutAddress = new AddressDTO();
 		}
