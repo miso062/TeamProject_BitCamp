@@ -194,7 +194,7 @@ public class UserServiceImpl implements UserService {
 		
 		Map<String, String> map = new HashMap<String, String>();
 		
-		String user_id = (String) session.getAttribute("user_id");
+		String user_id = (String) session.getAttribute("memId");
 		map.put("user_id", user_id);
 		map.put("profile_img", fileName);
 		userDAO.updateImg(map);
@@ -202,7 +202,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void deleteImg() {
-		String user_id = (String) session.getAttribute("user_id");
+		String user_id = (String) session.getAttribute("memId");
 		userDAO.deleteImg(user_id);
 	}
 

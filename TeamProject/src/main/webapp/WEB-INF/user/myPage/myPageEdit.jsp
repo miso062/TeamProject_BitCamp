@@ -701,7 +701,7 @@ svg:not(:root) {
                 <h3>프로필 정보</h3>
             </div>
         </div>
-		<form id="updateImgForm" name="updateImgForm"> <!-- method="post" enctype="multipart/form-data" -->
+		<form id="updateImgForm" name="updateImgForm"> 
             <div class="user_profile">
                 <div class="profile_thumb">
                     <img src="${userDTO.profile_img }" alt="사용자이미지" name="profile_img" class="thumb_img profile_img">
@@ -713,7 +713,7 @@ svg:not(:root) {
                 		<a href="#" id="delImage" class="btn outlinegrey small reset"> 삭제 </a>
                     </div>
                 </div>
-                <input type="file" accept="image/jpeg,image/png" id="imageFileInput" class="profileImgUrl" name="file" style="visibility : hidden;" >
+                <input type="file" accept="image/jpeg,image/png" id="imageFileInput" class="profileImgUrl" name="img" style="visibility : hidden;" >
             </div>
         </form>
         
@@ -1142,7 +1142,7 @@ $('#upImage').on('click', function(){
 		contentType: false,
 		data: formData,
 		success: function(){
-			alert("사진이 변경되었습니다.");
+			//alert("사진이 변경되었습니다.");
 		},error: function(err){
 			console.log(err);
 		}
@@ -1184,20 +1184,22 @@ $(document).on('click', function(){
 	}
 });
 
-$('.updateBtn').on('click', function(event){
-	alert('true');
-	$.ajax({
-		type: 'post',
-		url: '/TeamProject/user/update',
-		data: $('#updateForm').serialize(), //'변수=값&변수=값&~~'
-		success: function(){
-			alert("회원정보를 수정하였습니다.");
-			location.href='/TeamProject/';
-		}, error: function(err){
-			console.log(err);
-			}
+$(function(){
+	$('.updateBtn').click(function(){
+		alert('true');
+		
+		$.ajax({
+			type: 'post',
+			url: '/TeamProject/user/update',
+			data: $('#updateForm').serialize(), //'변수=값&변수=값&~~'
+			success: function(){
+				alert("회원정보를 수정하였습니다.");
+				location.href='/TeamProject/';
+			}, error: function(err){
+				console.log(err);
+				}
+		});
 	});
 });
-
 </script>
 </html>

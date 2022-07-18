@@ -96,7 +96,7 @@
 	</update>
 	
 	<!-- 프로필 이미지 삭제 -->
-	<update id="deleteImg" parameterType="string">
+	<update id="deleteImg" parameterType="java.util.Map">
 		update user_table set profile_img = null where user_id=#{user_id}
 	</update>
 
