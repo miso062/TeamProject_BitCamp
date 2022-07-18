@@ -21,4 +21,6 @@ public interface UserDAO {
 	public void update(UserDTO userDTO);
 	public int checkId(String user_id);
 	public int checkNaver(String hp);
+	public void updateImg(Map<String, String> map);
+	public void deleteImg(String user_id);
 }

@@ -20,7 +20,7 @@ public class MainController {
 	@Autowired
 	MainService mainService;
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping()
 	public String index(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
 		model.addAttribute("container1", "/WEB-INF/main/container1.jsp");

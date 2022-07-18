@@ -1,5 +1,7 @@
 package user.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -79,7 +81,13 @@ public class UserController {
 	}
 	
 	@GetMapping(value="myPage")
-	public String myPageMain(Model model) {
+	public String myPageMain(Model model, HttpSession session) {
+		String user_id = (String) session.getAttribute("memId");
+		System.out.println(session.getAttribute("user_id"));
+		UserDTO userDTO = userService.getUserInfo(user_id);
+		userService.getBuyHistory(user_id);
+		userService.getSellHistory(user_id);
+		model.addAttribute("userDTO", userDTO);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageMain.jsp");
 		return "forward:/user/my";
 	}
@@ -89,7 +97,8 @@ public class UserController {
 		String user_id = (String) session.getAttribute("memId");
 		System.out.println(session.getAttribute("user_id"));
 		UserDTO userDTO = userService.getUserInfo(user_id);
-		System.out.println(userDTO);
+		//UserDTO userDTO = userService.getUserInfo("eunji@gmail.com");
+		//System.out.println(userDTO);
 		
 		model.addAttribute("userDTO", userDTO);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageEdit.jsp");
@@ -97,11 +106,41 @@ public class UserController {
 	}
 	
 	@PostMapping(value="update")
-	public String updateUser(@ModelAttribute UserDTO userDTO, @RequestParam("profileImgUrl") MultipartFile multipartFile, HttpSession session) {
-		userService.update(userDTO, multipartFile, session);
-		//System.out.println(userDTO);
+	public String updateUser(@ModelAttribute UserDTO userDTO, HttpSession session) {
+		System.out.println(userDTO);
 		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
+		userService.update(userDTO, session);
 		return "forward:/user/my";
+	}
+	
+	@PostMapping(value="updateImg")
+	@ResponseBody
+	public void updateImg(@RequestParam MultipartFile multipartFile, HttpSession session) {
+
+		String filePath = session.getServletContext().getRealPath("/WEB-INF/img/user/storage");
+		String fileName = multipartFile.getOriginalFilename();
+		System.out.println(filePath);
+		File file = new File(filePath, fileName);
+		try {
+			multipartFile.transferTo(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		userService.updateImg(fileName);
+	}
+	
+	@PostMapping(value="deleteImg")
+	@ResponseBody
+	public void deleteImg(@RequestParam MultipartFile multipartFile, HttpSession session) {
+		
+		String filePath = session.getServletContext().getRealPath("/WEB-INF/img/user/storage");
+		String fileName = multipartFile.getOriginalFilename();
+		
+		File file = new File(filePath, fileName);
+		if(file.exists()) { 
+			file.delete(); 
+		}
+		userService.deleteImg();
 	}
 	
 	@GetMapping(value="buyHistory")
@@ -230,7 +269,7 @@ public class UserController {
 		//System.out.println(userDTO);
 		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
 		String check = userService.signUpWrite(userDTO);
-	return check;
+		return check;
 	}
 	
 	//네이버 회원가입 및 로그인

@@ -20,9 +20,13 @@ public interface UserService {
 	public Map<String, Object> findPwCheck(String hp, String user_id);
 	public void bookMarkInsert(Map<String, String> map);
 	public void bookMarkDelete(int product_id);
-  public String checkNick(String nickname);
+	public String checkNick(String nickname);
 	public String signUpWrite(UserDTO userDTO);
-	public void update(UserDTO userDTO, MultipartFile multipartFile, HttpSession session);
+	public void update(UserDTO userDTO, HttpSession session);
 	public String checkId(String user_id);
 	public String signUpCheckNaver(UserDTO userDTO);
+	public void deleteImg();
+	public void updateImg(String fileName);
+	public void getBuyHistory(String user_id);
+	public void getSellHistory(String user_id);
 }
