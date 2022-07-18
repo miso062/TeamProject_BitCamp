@@ -276,10 +276,7 @@ public class UserController {
 	@PostMapping(value="signUpCheckNaver")
 	@ResponseBody
 	public String signUpCheckNaver(@ModelAttribute UserDTO userDTO) {
-		System.out.println("1번!!");
-		String check = userService.signUpCheckNaver(userDTO);
-		System.out.println("-----------2" + check);
-		return check;
+		return userService.signUpCheckNaver(userDTO);
 	}
 
 	//찜하기
@@ -295,10 +292,11 @@ public class UserController {
 		System.out.println("delete ="+product_id);
 		userService.bookMarkDelete(product_id);
 	}
-	@PostMapping(value="bookMarkGet")
-	@ResponseBody
-	public Map<String, String> bookMarkGet(@RequestParam int product_id){
-		Map<String, String> map = userService.bookMarkGet(product_id);
-		return map;
-	}
+	/*
+	 * @PostMapping(value="bookMarkGet")
+	 * 
+	 * @ResponseBody public Map<String, String> bookMarkGet(@RequestParam int
+	 * product_id){ Map<String, String> map = userService.bookMarkGet(product_id);
+	 * return map; }
+	 */
 }
