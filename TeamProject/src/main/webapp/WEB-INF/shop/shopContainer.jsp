@@ -1389,62 +1389,80 @@ li, ol, ul {
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript">  
-	/* 관심버튼 이미지 클릭시 로테이션으로 변경하기 */
-	$('.shop_bookmark').on(	{'click' : function() {
-			var src = ($(this).attr('src') === '/TeamProject/img/shop/bookmark.svg') ? '/TeamProject/img/shop/bookmark-fill.svg'
-					: '/TeamProject/img/shop/bookmark.svg';
-			$(this).attr('src', src);
-		}
-	});
+/* 관심버튼 이미지 클릭시 로테이션으로 변경하기 */
+$('.shop_bookmark').on(	{'click' : function() {
+		var src = ($(this).attr('src') === '/TeamProject/img/shop/bookmark.svg') ? '/TeamProject/img/shop/bookmark-fill.svg'
+				: '/TeamProject/img/shop/bookmark.svg';
+		$(this).attr('src', src);
+	}
+});
 
-	/* 필터클릭시 목록보이기 */
-	$("#shop_sorting_title").click(function() {
-		if ($('.shop_sorting_list').css('display') == 'none') {
-			$('.shop_sorting_list').css({
-				'display' : 'block'
-			});
-		} else {
-			$('.shop_sorting_list').css({
-				'display' : 'none'
-			});
-		}
-	});
-
-	$(function() {
-		/* 필터목록클릭시 체크 */
-		$(".shop_sorting_list .shop_sorting_item").on('click', function() {
-			$(this).addClass("item_on");
-			$(".shop_sorting_list .shop_sorting_item").not(this).removeClass("item_on");
-			
-			var text = $(this).find('.shop_main_desc').html(); 
-			var icon = '<svg xmlns="http://www.w3.org/2000/svg" width="15px" height="13px" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/></svg>'
-
-			$('.shop_sorting_list').css({
-				'display' : 'none'
-			});
-			
-			$('.shop_sorting_title').html(text + " " + icon);
+/* 필터클릭시 목록보이기 */
+$("#shop_sorting_title").click(function() {
+	if ($('.shop_sorting_list').css('display') == 'none') {
+		$('.shop_sorting_list').css({
+			'display' : 'block'
 		});
-
-		$.noConflict();
-		/* 슬라이더 생성 */
-		$('.slider-for').slick({
-			slidesToShow : 1,
-			slidesToScroll : 1,
-			infinite: true,
-			speed: 500,
-			fade : true,
-			autoplay: true,
-			autoplaySpeed: 4000,
+	} else {
+		$('.shop_sorting_list').css({
+			'display' : 'none'
 		});
+	}
+});
 
-		/* 슬라이드 페이지 */
-		$('.slider-for').on('beforeChange',
-				function(event, slick, currentSlide, nextSlide) {
-					console.log(nextSlide);
-					$('.current').text(nextSlide + 1);
-				});
+$(function() {
+	/* 필터목록클릭시 체크 */
+	$(".shop_sorting_list .shop_sorting_item").on('click', function() {
+		$(this).addClass("item_on");
+		$(".shop_sorting_list .shop_sorting_item").not(this).removeClass("item_on");
+		
+		var text = $(this).find('.shop_main_desc').html(); 
+		var icon = '<svg xmlns="http://www.w3.org/2000/svg" width="15px" height="13px" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/></svg>'
+	
+		$('.shop_sorting_list').css({
+			'display' : 'none'
+		});
+		
+		$('.shop_sorting_title').html(text + " " + icon);
 	});
+	
+	$.noConflict();
+	/* 슬라이더 생성 */
+	$('.slider-for').slick({
+		slidesToShow : 1,
+		slidesToScroll : 1,
+		infinite: true,
+		speed: 500,
+		fade : true,
+		autoplay: true,
+		autoplaySpeed: 4000,
+	});
+	
+	/* 슬라이드 페이지 */
+	$('.slider-for').on('beforeChange',
+			function(event, slick, currentSlide, nextSlide) {
+				console.log(nextSlide);
+				$('.current').text(nextSlide + 1);
+			});
+});
+
+
+
+
+
+
+
+
+//페이지가 처음 로딩 될 때 1page를 보여주기 때문에 초기값을   1로 지정한다.
+let currentPage =1;
+//현재 페이지가 로딩중인지 여부를 저장할 변수이다.
+let isLoading=false;
+
+//웹 브라우저의 창을 스크롤 할때마다 호출되는 함수 등록
+
+
+
+
 </script>
 
 </body>
