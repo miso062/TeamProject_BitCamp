@@ -57,6 +57,10 @@
 	<select id="signUpCheck" parameterType="String" resultType="int">
 	 select count(*) from user_table where hp=#{hp}
 	</select>
+	<!-- 네이버 회원 존재여부 -->
+	<select id="checkNaver" parameterType="String" resultType="int">
+	select count(*) from user_table where hp=#{hp} and sign_up_type='네이버'
+	</select>
 	<!-- 이메일 회원가입 -->
 	<insert id="signUpWrite" parameterType="user">
 		insert into user_table values(#{user_id},#{user_name},#{nickname},#{user_pwd},#{hp},#{shoesize},#{sms_allow},#{email_allow},0,1,'이메일',sysdate)
@@ -73,8 +77,19 @@
 						,email_allow = #{email_allow}
 						,profile_img = #{profile_img}
 	</update>
+  
 	<select id="bookMarkGet" parameterType="java.util.Map" resultType="">
 		select * from user_table where user_id=#{id}, product_id=#{product_id}
-		
 	</select>
+  
+	<!-- 프로필 이미지 업데이트 -->
+	<update id="updateImg" parameterType="java.util.Map">
+		update user_table set profile_img=#{profile_img} where user_id=#{user_id}
+	</update>
+	
+	<!-- 프로필 이미지 삭제 -->
+	<update id="deleteImg" parameterType="string">
+		update user_table set profile_img = null where user_id=#{user_id}
+	</update>
+
 </mapper>

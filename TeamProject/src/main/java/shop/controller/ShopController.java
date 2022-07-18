@@ -22,7 +22,7 @@ public class ShopController {
 	@Autowired
 	ShopService shopService;
 	
-	@GetMapping(value="/")
+	@RequestMapping
 	public String shop(Model model) {
 		model.addAttribute("head", "/WEB-INF/shop/shopHeader.jsp");
 		model.addAttribute("container", "/WEB-INF/shop/shopContainer.jsp");
@@ -43,15 +43,15 @@ public class ShopController {
 	@PostMapping(value="scrollProduct")
 	@ResponseBody
 	public Map<String, Object> scrollProduct(@RequestParam String num){
-		
 		Map<String, Object> map = shopService.scrollProduct(num);
+		System.out.println(map);
     return map;
   }
   
 	@PostMapping(value="getshopDetail")
 	@ResponseBody
-	public Map<String, Object> getshopDetail(@RequestParam int product_id){
-		Map<String, Object> map = shopService.getshopDetail(product_id);
+	public Map<String, Object> getShopDetail(@RequestParam int product_id){
+		Map<String, Object> map = shopService.getShopDetail(product_id);
 		return map;
 	}
 }

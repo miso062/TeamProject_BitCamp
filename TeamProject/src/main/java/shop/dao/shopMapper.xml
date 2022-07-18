@@ -5,10 +5,45 @@
 	
 <mapper namespace="shopSQL">
 	<select id="getimage" parameterType="int" resultType="productImg"> 
-	select * from pro_image where product_id = ${product_id}
+	  select * from pro_image where product_id = ${product_id}
 	</select>
 
 	<select id="getproduct" parameterType="int" resultType="product"> 
-	select * from product where product_id = ${product_id}
+	  select * from product where product_id = ${product_id}
 	</select>
+	
+	<select id="getSellList" parameterType="int" resultType="sellhistory">
+		select * from sell_history where product_id=${product_id} and status1='입찰중'
+	</select>
+	
+	<select id="getSellDTO" parameterType="java.util.Map" resultType="sellhistory">
+		select * from (select * from sell_history order by sell_price) 
+		where product_id=${product_id} and size_type=${size} and status1='입찰중' and <![CDATA[rownum <= 1 ]]>
+	</select>
+	
+	<select id="getBuyDTO" parameterType="java.util.Map" resultType="buyhistory">
+		select * from (select * from buy_history order by buy_price desc) 
+		where product_id=${product_id} and size_type=${size} and status1='입찰중' and <![CDATA[rownum <= 1 ]]>
+	</select>
+	
+	<select id="getDefalutAddress" parameterType="String" resultType="useraddress">
+		select * from address where user_id=#{user_id} and flag=1
+	</select>
+  
+  <select id="scrollProductList" parameterType="java.util.Map" resultType="product">
+  		<!-- - 상품 4개씩 -->
+  		select * from (
+         select rownum rn, tt.* from (
+            select * from product where release_date is not null order by release_date desc)tt)
+           where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>
+  </select>
+  	
+	<select id="scrollProductImg" parameterType="java.util.Map" resultType="productImg">
+  		<!-- 이미지 -->
+  		select * from pro_image where product_id in (select product_id from (
+         select ROWNUM rn, tt.* from (
+            select * from product where release_date is not null order by release_date desc)tt)
+          where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>)
+  </select>
+
 </mapper>
