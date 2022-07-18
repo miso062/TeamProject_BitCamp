@@ -185,7 +185,6 @@
 }
 </style>
 
-<body>
  <!--섹션 1-->
 <input type="hidden" id="con_more_num" value="1">
 
@@ -213,6 +212,7 @@
 <div class="cd2_img_box">
    <img src="/TeamProject/img/main/container2/banner.png" alt="banner" class="cd2_banner_img" />
 </div>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -564,7 +564,6 @@ $(document).on('click','.cd2_bookmark', function() {
 			}
 		});//ajax
 	};//else
-		
 })
 	
 $(document).on('click','.cd2_item_inner', function() {
@@ -576,4 +575,3 @@ $(document).on('click','.cd2_info_box', function() {
 })
 
 </script>
-</body>
