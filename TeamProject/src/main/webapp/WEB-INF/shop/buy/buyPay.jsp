@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="/TeamProject/css/shop/buy/buyPay.css"/>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 
-<input type="hidden" id="payment_method" value="${payment_method}">
+<input type="hidden" id="payment_method" value="${map.payment_method}">
 <div class="container buy lg">
     <div class="content">
         <div class="buy_immediate">
@@ -12,15 +12,15 @@
                 <div class="product_info">
                     <div class="product" style="background-color: rgb(235, 240, 245);">
                     	<img alt="상품 이미지"
-	                        src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=l"
+	                        src=${map.productImgDTO.file_path}
 	                        class="image"/>
                     </div>
                     <div class="product_detail">
-                        <strong class="model_number">DD1391-100</strong>
-                        <p class="model_title">Nike Dunk Low Retro Black</p>
-                        <p class="model_ko">나이키 덩크 로우 레트로 블랙</p>
+                        <strong class="model_number">${map.productDTO.model_number }</strong>
+                        <p class="model_title">${map.productDTO.eng_name }</p>
+                        <p class="model_ko">${map.productDTO.kor_name }</p>
                         <div class="model_desc">
-                            <p class="size_txt">230</p>
+                            <p class="size_txt">${map.size }</p>
                         </div>
                     </div>
                 </div>
@@ -32,14 +32,21 @@
                         <a href="#" class="add_more_btn">+ 새 주소 추가</a>
                     </div>
                     <div class="section_content">
+                        <div class="must_add_address" style="display: none;">
+	                        <div class="way_info">
+	                            <div class="way_desc">
+	                                <p class="sub_text"> + 배송지를 추가해주세요. </p>
+	                            </div>
+                            </div>
+                        </div>
                         <div class="delivery_info">
                             <div class="address_info">
                                 <dl class="info_list">
-                                    <div class="info_box"><dt class="title">받는 분</dt><dd class="desc">김**</dd></div>
-                                    <div class="info_box"><dt class="title">연락처</dt><dd class="desc">010-9***-*150</dd></div>
+                                    <div class="info_box"><dt class="title">받는 분</dt><dd class="desc" id="address_name"></dd></div>
+                                    <div class="info_box"><dt class="title">연락처</dt><dd class="desc" id="address_hp"></dd></div>
                                     <div class="info_box">
                                         <dt class="title">배송 주소</dt>
-                                        <dd class="desc">경기 성남시 ㅇㅇ구 ㅇㅇㅇ로 000번길 00-00 (ㅇㅇ동) 0층</dd>
+                                        <dd class="desc" id="address_detail"></dd>
                                     </div>
                                 </dl>
                             </div>
@@ -55,8 +62,7 @@
 	                            <div class="way_status_thumb">
 	                                <img
 	                                    src="https://kream-phinf.pstatic.net/MjAyMTExMjlfMTQ4/MDAxNjM4MTc4MjI5NTk3.2phJLPtRvFqViNfhZu06HzNRiUBlT4cmZR4_Ukqsyesg.ikrfWOrL7WXCVO0Rqy5kMvOn3B2YpjLUj6RuJqosPX0g.PNG/a_8b54cbca40e945f4abf1ee24bdd031f7.png"
-	                                    alt="3,000원"
-	                                    class="way_img"/>
+	                                    alt="3,000원" class="way_img"/>
 	                            </div>
 	                            <div class="way_desc">
 	                                <p class="company">
@@ -66,6 +72,62 @@
 	                            </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="layer_delivery layer lg" style="display: none;">
+                    <div class="layer_container">
+                        <div class="layer_header"><h2 class="layer_title">새 주소 추가</h2></div>
+                        <div class="layer_content">
+                            <div class="delivery_bind">
+                                <div class="delivery_input">
+                                    <div class="input_box" id="input_box">
+                                        <h4 class="input_title" id="input_name">이름</h4>
+                                        <div class="input_item"><input type="text" placeholder="수령인의 이름" autocomplete="off" class="input_txt a" oninput="oninputName(this.value)" id="name_input" /></div>
+                                        <p class="input_error" id="input_error1" >올바른 이름을 입력해주세요. (2 - 50자)</p>
+                                    </div>
+                                    <div class="input_box" id="input_box1">
+                                        <h4 class="input_title" id="input_phone">휴대폰 번호</h4>
+                                        <div class="input_item"><input type="text" placeholder="- 없이 입력" autocomplete="off" class="input_txt a" oninput="oninputPhone(this.value)" id="phone_input"/></div>
+                                        <p class="input_error" id="input_error2" >정확한 휴대폰 번호를 입력해주세요.</p>
+                                    </div>
+                                    <div class="input_box">
+                                        <h4 class="input_title">우편번호</h4>
+                                        <div class="input_item">
+                                            <input type="text" placeholder="우편 번호를 검색하세요" readonly="readonly" autocomplete="off" class="input_txt" id="zipcode" />
+                                            <input type="button" value="우편번호" onclick="checkPost()" class="bTn bTn_zipcode outline small">
+                                        </div>
+                                    </div>
+                                    <div class="input_box">
+                                        <h4 class="input_title">주소</h4>
+                                        <div class="input_item"><input type="text" placeholder="우편 번호 검색 후, 자동입력 됩니다" readonly="readonly" autocomplete="off" class="input_txt" id="addr1" /></div>
+                                    </div>
+                                    <div class="input_box">
+                                        <h4 class="input_title">상세 주소</h4>
+                                        <div class="input_item"><input type="text" placeholder="건물, 아파트, 동/호수 입력" autocomplete="off" class="input_txt a" id="addr2" oninput="oninputaddr2(this.value)"/></div>
+                                    </div>
+                                </div>
+                                <div class="delivery_check">
+                                    <div class="checkbox_item" >
+                                        <input id="check1" type="checkbox" name="" class="blind" value="0" id="check2"/>
+                                        <label for="check1" class="check_default_address_label">
+                                            <img src="/TeamProject/img/shop/checkbox-inactive.png" class="icon sprite-icons ico-check-inactive">
+                                            <span class="label_txt">기본 배송지로 설정</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layer_bTn" id="layer_bTn">
+                                <a href="#" class="bTn bTn_delete outlinegrey medium"> 취소 </a>
+                                <a disabled="disabled" href="#" class="bTn bTn_save solid medium disabled" id="saveBtn"> 저장하기 </a>
+                            </div>
+                        </div>
+                        <a href="#" class="bTn_layer_close">
+                            <div>
+                                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
+                                    <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
+                                </svg> -->
+                            </div>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -91,16 +153,16 @@
                         <div class="price_total order_info">
                             <dl class="price_box">
                                 <dt class="price_title">총 결제금액</dt>
-                                <dd class="price"><span class="amount">33,600</span><span class="unit">원</span></dd>
+                                <dd class="price"><span class="amount">${map.total_price}</span><span class="unit">원</span></dd>
                             </dl>
 
                         </div>
                         <div class="price_bind">
                             <dl class="price_addition is_dark">
                                 <dt class="price_title">
-                                    <span>구매 희망가</span>
+                                    <span id="payment_method_price"></span>
                                 </dt>
-                                <dd class="price_text">30,000원</dd>
+                                <dd class="price_text">${map.price}</dd>
                             </dl>
                             <dl class="price_addition">
                                 <dt class="price_title">
@@ -132,12 +194,12 @@
                                 <dd class="price_text">3,000원</dd>
                             </dl>
                         </div>
-                        <div class="price_bind">
+                        <div class="price_bind" id="deadline_peroid">
                             <dl class="price_addition is_dark">
                                 <dt class="price_title">
                                     <span>입찰 마감 기한</span>
                                 </dt>
-                                <dd class="price_text">1일 - 2022/07/11까지</dd>
+                                <dd class="price_text">${map.deadline}일 - ${map.peroid}까지</dd>
                             </dl>
                         </div>
                     </div>
@@ -240,17 +302,220 @@
                             <dd class="total_price"><span class="amount">33,600</span><span class="unit">원</span></dd>
                         </dl>
                     </div>
-                    <div class="btn_confirm"><a href="#" class="buy_btn"> 구매 입찰하기 </a></div>
-                    <%-- <a href="#" class="buy_btn"> 구매 입찰하기 </a> --%>
+                    <div class="btn_confirm"><a class="buy_btn"> 구매 입찰하기 </a></div>
                 </div>
             </section>
         </div>
     </div>
 </div>
 
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 
+var resultName = false; //defalt값이 틀렸을떄를 가정
+var resultPhone = false;
+var resultzipcode = false;
+var resultaddr1 = false;
+var resultaddr2 = false;
+
+$('.add_more_btn, .must_add_address').click(function(){
+    $('.layer_delivery').fadeIn();
+    $('body').css("overflow", "hidden");
+});
+$(document).on("click",function(e){
+    if($('.layer_delivery').is(e.target)) {
+        $('.layer_delivery').fadeOut();
+        $('body').css("overflow-y", "scroll");
+    }
+})
+$('.layer_bTn').click(function(){ //신발 확인 버튼 눌러서 끄기
+    $('.layer_delivery').fadeOut();
+    $('body').css("overflow-y", "scroll");
+    $('.input_txt.hover.text_fill').val($('.btn.on > .info_txt').text());
+    $('.input_txt.hover.text_fill').next().val('true');
+})
+
+function oninputaddr2(value){
+	console.log(value);
+	resultaddr2 = checkaddr2(value);  // 1개의 글자이벤트를 받을때마다 checkEmail호출
+	resultaddr1 = checkaddr1(value);
+	resultzipcode = checkzipcode(value);
+	console.log(resultaddr2);
+	console.log(resultaddr1);
+	console.log(resultzipcode);
+	saveOkCheck();
+}
+function oninputName(value){
+	console.log(value);
+	resultName = checkName(value);  // 1개의 글자이벤트를 받을때마다 checkEmail호출
+	console.log(resultName);
+	saveOkCheck();
+}
+
+function oninputPhone(value){
+	console.log(value);
+	resultPhone = checkPhone(value);	// 1개의 글자이벤트를 받을때마다 checkPwd호출
+	console.log(resultPhone);
+	saveOkCheck();
+}
+
+//로그인 버튼 활성 비활성
+function saveOkCheck(){ 
+	if((resultName == true) && (resultPhone == true ) && (resultzipcode == true ) && (resultaddr1 == true ) && (resultaddr2 == true )){
+		document.getElementById('saveBtn').className = 'bTn bTn_save solid medium passadd';
+	}else {
+		document.getElementById('saveBtn').className = 'bTn bTn_save solid medium disabled';
+	}
+}
+
+function checkzipcode(value) { //이름 유효성 검사
+	if(document.getElementById('zipcode').value==''){
+		return false;
+	} else {
+		return true;
+	}
+}
+function checkaddr1(value) { //이름 유효성 검사
+	if(document.getElementById('zipcode').value==''){
+		return false;
+	} else {
+		return true;
+	}
+}
+function checkaddr2(value) { //이름 유효성 검사
+	var reg_required = /.{1,}/;
+	
+	if (reg_required.test(value) == true) {
+		return true;
+	} else {
+		return false;
+	}
+}
+function checkName(value) { //이름 유효성 검사
+	var regName = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]+$/;
+	
+	if (regName.test(value) == true) {
+		document.getElementById('input_box').className = 'input_box';
+		document.getElementById('input_error1').style.display = "none";
+		document.getElementById('name_input').className = 'input_txt a';
+		return true;
+	} else {
+		document.getElementById('input_box').className ='input_box has_error';
+		document.getElementById('input_error1').style.display = "block";
+		document.getElementById('name_input').className ='input_txt b';
+		return false;
+	}
+}
+function checkPhone(value) { //핸드폰 유효성 검사
+	var regPhone = /^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/;
+
+	if(regPhone.test(value) == true) {
+		document.getElementById('input_box1').className = 'input_box';
+		document.getElementById('input_error2').style.display = "none";
+		document.getElementById('phone_input').className = 'input_txt a';
+		return true;
+	} else {
+		document.getElementById('input_box1').className ='input_box has_error';
+		document.getElementById('input_error2').style.display = "block";
+		document.getElementById('phone_input').className ='input_txt b';
+		return false;
+	}
+}
+
+function checkPost() { // 우편 번호
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var addr = ''; // 주소 변수
+            var extraAddr = ''; // 참고항목 변수
+
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                addr = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                addr = data.jibunAddress;
+            }
+
+           
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('zipcode').value = data.zonecode;
+            document.getElementById("addr1").value = addr;
+            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById("addr2").focus();
+        }
+    }).open();
+}
+
+$(document).on('click','.check_default_address_label',function(){ // 기본 배송지 선택
+		if($(this).children('img').hasClass('icon sprite-icons ico-check-inactive')){
+			$(this).children('img').attr('src', '/TeamProject/img/shop/checkbox-active.png');
+			$(this).children('img').addClass('ico-check-active');
+			$(this).children('img').removeClass('ico-check-inactive');
+			$(this).prev().val('1');
+		}
+		else{
+			$(this).children('img').attr('src', '/TeamProject/img/shop/checkbox-inactive.png');
+			$(this).children('img').addClass('ico-check-inactive');
+			$(this).children('img').removeClass('ico-check-active');
+			$(this).prev().val('0');
+		}
+});
+
+$(document).on('click','.bTn.bTn_save.solid.medium.passadd',function(){ // 배송지 저장
+	$.ajax({
+		url:'/TeamProject/user/addaddressbook',
+		type: 'post',
+		data: {
+			'name': $('#name_input').val(),
+			'hp': $('#phone_input').val(),
+			'zipcode': $('#zipcode').val(),
+			'addr': $('#addr1').val(),
+			'addr_detail': $('#addr2').val(),
+			'flag' : $('#check1').val()
+		},
+		success: function(){
+			alert('저장되었습니다.');
+		},
+		error: function(err){
+		console.log(err);
+		}
+	});
+});
+
 $(function(){
+    // 결제 방법에 따른 구매 시기 표시
+    if($('#payment_method').val() == '구매 입찰'){
+        $('#payment_method_price').text('구매 희망가');
+    } else{
+        $('#payment_method_price').text('즉시 구매가');
+        $('#deadline_peroid').css('display', 'none');
+    }
+
+    // 사용자 기본 배송지 불러오기
+    $.ajax({
+        url: '/TeamProject/shop/getDefalutAddress',
+        type: 'get',
+        dataType: 'json',
+        success: function(data){
+            if(!data.address_id){
+                $('.delivery_info').css('display', 'none');
+                $('.must_add_address').css('display', 'block');
+            }
+            else{
+                $('#address_name').text(data.name);
+                $('#address_hp').text(data.hp);
+                $('#address_detail').text(data.addr + " " + data.addr_detail);
+            }
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+
+    // 구매 확인 사항 체크
 	$('.check_area').click(function(){
 		img = $(this).find('.check_area_checkbox');
 		if(img.hasClass('active')){
@@ -262,20 +527,27 @@ $(function(){
 			img.attr('src', '/TeamProject/img/shop/checkbox-active.png');
 		}
 		
-		if($('.active').length == 4){
+		if($('.active').length == 4 && $('#address_name').html() != ''){
 			$('.buy_btn').css('background-color', '#ef6253');
+            $('.buy_btn').css('cursor', 'pointer');
+            $('.buy_btn').addClass('able');
 		}
 		else{
 			$('.buy_btn').css('background-color', '#ebebeb');
+            $('.buy_btn').css('cursor', 'default');
+            $('.buy_btn').removeClass('able');
 		}
 	});
 	
-	$('.card_list').click(function(){
-		if($('#payment_method').val() == '구매입찰'){
-			reservation_request_pay();
-		}else{
-			general_request_pay();
-		}
+    // 입찰 방법 결정
+	$('.btn_confirm').click(function(){
+		if($('.buy_btn').hasClass('able')){
+            if($('#payment_method').val() == '구매 입찰'){
+                reservation_request_pay();
+            }else{
+                general_request_pay();
+            }
+        }
 	})
 });
 
@@ -292,6 +564,7 @@ var buyer_tel = '폰-번-호';
 var buyer_addr = '구매자시 배송지구 주소동';
 var buyer_postcode = '우편-번호'
 
+// 즉시 결제
 function general_request_pay() {
 	IMP.request_pay({ // param
 		pg : 'kakaopay.TC0ONETIME',
@@ -334,6 +607,7 @@ function general_request_pay() {
 	});
 }
 
+// 정기 결제
 function reservation_request_pay(){
 	IMP.request_pay({
 		pg : 'kakaopay.TCSUBSCRIP',

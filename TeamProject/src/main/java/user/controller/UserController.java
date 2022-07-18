@@ -1,5 +1,7 @@
 package user.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -13,12 +15,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import oracle.jdbc.proxy.annotation.Post;
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
 import user.send.Request;
@@ -46,13 +48,18 @@ public class UserController {
 
 	@PostMapping(value="checkLogin")
 	@ResponseBody
-	public Map<String, Object> checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
-		Map<String, Object> map = userService.checkLogin(log_email_input, log_pwd_input);
-		
-		return map;
+	public String checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
+		String check = userService.checkLogin(log_email_input, log_pwd_input);		
+		return check;
 	}
+	
+//	@PostMapping(value="checkLogin")
+//	@ResponseBody
+//	public Map<String, Object> checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
+//		Map<String, Object> map = userService.checkLogin(log_email_input, log_pwd_input);
+//		return map;
+//	}
 
-    
 	@PostMapping(value="checkLogout")
 	@ResponseBody
 	public void checkLogout(HttpSession session) {
@@ -74,7 +81,13 @@ public class UserController {
 	}
 	
 	@GetMapping(value="myPage")
-	public String myPageMain(Model model) {
+	public String myPageMain(Model model, HttpSession session) {
+		String user_id = (String) session.getAttribute("memId");
+		System.out.println(session.getAttribute("user_id"));
+		UserDTO userDTO = userService.getUserInfo(user_id);
+		userService.getBuyHistory(user_id);
+		userService.getSellHistory(user_id);
+		model.addAttribute("userDTO", userDTO);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageMain.jsp");
 		return "forward:/user/my";
 	}
@@ -84,11 +97,50 @@ public class UserController {
 		String user_id = (String) session.getAttribute("memId");
 		System.out.println(session.getAttribute("user_id"));
 		UserDTO userDTO = userService.getUserInfo(user_id);
-		System.out.println(userDTO);
+		//UserDTO userDTO = userService.getUserInfo("eunji@gmail.com");
+		//System.out.println(userDTO);
 		
 		model.addAttribute("userDTO", userDTO);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageEdit.jsp");
 		return "forward:/user/my";
+	}
+	
+	@PostMapping(value="update")
+	public String updateUser(@ModelAttribute UserDTO userDTO, HttpSession session) {
+		System.out.println(userDTO);
+		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
+		userService.update(userDTO, session);
+		return "forward:/user/my";
+	}
+	
+	@PostMapping(value="updateImg")
+	@ResponseBody
+	public void updateImg(@RequestParam MultipartFile multipartFile, HttpSession session) {
+
+		String filePath = session.getServletContext().getRealPath("/WEB-INF/img/user/storage");
+		String fileName = multipartFile.getOriginalFilename();
+		System.out.println(filePath);
+		File file = new File(filePath, fileName);
+		try {
+			multipartFile.transferTo(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		userService.updateImg(fileName);
+	}
+	
+	@PostMapping(value="deleteImg")
+	@ResponseBody
+	public void deleteImg(@RequestParam MultipartFile multipartFile, HttpSession session) {
+		
+		String filePath = session.getServletContext().getRealPath("/WEB-INF/img/user/storage");
+		String fileName = multipartFile.getOriginalFilename();
+		
+		File file = new File(filePath, fileName);
+		if(file.exists()) { 
+			file.delete(); 
+		}
+		userService.deleteImg();
 	}
 	
 	@GetMapping(value="buyHistory")
@@ -184,6 +236,21 @@ public class UserController {
 		
 		System.out.println(securityTest + " | " + encodeTest);
 	}
+	
+	//아이디 중복체크
+	@PostMapping(value="checkId")
+	@ResponseBody
+	public String checkId(@RequestParam String user_id) {
+		return userService.checkId(user_id);
+	}
+	
+	//회원가입 별명 유효성 검사
+	@PostMapping(value="checkNick")
+	@ResponseBody
+	public String checkNick(@RequestParam String nickname) {
+		
+		return userService.checkNick(nickname);
+	}
 
 	//sms 인증번호 보내기
 	@PostMapping(value="sms-sends") 
@@ -191,9 +258,39 @@ public class UserController {
 	public ResponseEntity<SmsResponse> sms_sends(@ModelAttribute Request request) throws Exception {
 		System.out.println(request.getRecipientPhoneNumber());
 		SmsResponse data = smsService.sendSms(request.getRecipientPhoneNumber(), request.getContent());
-//        return ResponseEntity.ok().body(data);
-		return null;
+        return ResponseEntity.ok().body(data);
+		
 	}
-	//sms 인증번호 받기
 
+	//회원가입 창에서 받은 정보 DB로 전달
+	@PostMapping(value="signUpWrite")
+	@ResponseBody
+	public String signUpWrite(@ModelAttribute UserDTO userDTO) {
+		//System.out.println(userDTO);
+		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
+		String check = userService.signUpWrite(userDTO);
+		return check;
+	}
+	
+	//네이버 회원가입 및 로그인
+	@PostMapping(value="signUpCheckNaver")
+	@ResponseBody
+	public String signUpCheckNaver(@ModelAttribute UserDTO userDTO) {
+	
+		return  userService.signUpCheckNaver(userDTO);
+	}
+
+	//찜하기
+	@PostMapping(value="bookMarkInsert")
+	public void bookMarkInsert(@RequestParam Map<String, String> map) {
+		System.out.println(map);
+		userService.bookMarkInsert(map);
+	}
+	
+	@PostMapping(value="bookMarkDelete")
+	@ResponseBody
+	public void bookMarkDelete(@RequestParam int product_id) {
+		System.out.println("delete ="+product_id);
+		userService.bookMarkDelete(product_id);
+	}
 }

@@ -6,9 +6,9 @@
 	
 <mapper namespace="userSQL">
   <select id="checkLogin" parameterType="java.util.Map" resultType="user">
-    select * from user_table where user_id = #{email} and user_pwd = #{pwd}
+    select user_pwd , authority from user_table where user_id = #{log_email_input}
   </select>
-  	
+  
   <select id="findEmailAddress" parameterType="String" resultType="String">
 		select user_id from user_table where hp = #{phone}
 	</select>
@@ -34,4 +34,56 @@
 	<select id="getUserInfo" parameterType="String" resultType="user">
 		select * from user_table where user_id=#{user_id}
 	</select>
+	
+	<insert id="bookMarkInsert" parameterType="java.util.Map">
+		insert into	like_pro(like_pro_id,user_id,product_id,like_pro_date)
+		values(like_pro_seq.nextval,#{id},#{product_id},sysdate)
+	</insert>
+	
+	<delete id="bookMarkDelete" parameterType="java.util.Map">
+		delete like_pro where product_id=${product_id} and user_id=#{user_id}
+	</delete>
+  
+	<!-- 아이디 중복체크 -->
+	<select id="checkId" parameterType="String" resultType="int">
+	 select count(*) from user_table where user_id=#{user_id}
+	</select>
+	<!-- 닉네임 중복체크-->
+	<select id="checkNick" parameterType="String" resultType="int">
+	 select count(*) from user_table where nickname=#{nickname}
+	</select>
+	
+	<!-- 휴대전화로 가입 여부 조회 -->
+	<select id="signUpCheck" parameterType="String" resultType="int">
+	 select count(*) from user_table where hp=#{hp}
+	</select>
+	<!-- 네이버 회원 존재여부 -->
+	<select id="checkNaver" parameterType="String" resultType="int">
+	select count(*) from user_table where hp=#{hp} and sign_up_type='네이버'
+	</select>
+	<!-- 이메일 회원가입 -->
+	<insert id="signUpWrite" parameterType="user">
+		insert into user_table values(#{user_id},#{user_name},#{nickname},#{user_pwd},#{hp},#{shoesize},#{sms_allow},#{email_allow},0,1,'이메일',sysdate)
+	</insert>
+	
+	<!-- 회원정보수정 -->
+	<update id="update" parameterType="user">
+		update user_table set user_name = #{user_name}
+						,nickname = #{nickname}
+						,user_pwd = #{user_pwd}
+						,hp = #{hp}
+						,shoesize = #{shoesize}
+						,sms_allow = #{sms_allow}
+						,email_allow = #{email_allow}
+						,profile_img = #{profile_img}
+	</update>
+	<!-- 프로필 이미지 업데이트 -->
+	<update id="updateImg" parameterType="java.util.Map">
+		update user_table set profile_img=#{profile_img} where user_id=#{user_id}
+	</update>
+	
+	<!-- 프로필 이미지 삭제 -->
+	<update id="deleteImg" parameterType="string">
+		update user_table set profile_img = null where user_id=#{user_id}
+	</update>
 </mapper>

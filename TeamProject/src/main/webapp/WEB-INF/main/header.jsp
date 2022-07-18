@@ -683,8 +683,24 @@ window.addEventListener('load', function () {
 		console.log(status);
 		if (status) {
 			var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
-    		
-			console.log(naverLogin.user); 
+    		//네이버 회원가입 및 로그인
+			console.log(naverLogin.user);
+			$.ajax({
+				url : '/TeamProject/user/signUpCheckNaver',
+				type : 'post',
+				data :  'user_id='+naverLogin.user.email+
+						'&user_pwd='+naverLogin.user.id+
+						'&user_name='+naverLogin.user.name+
+						'&hp='+naverLogin.user.mobile+
+						'&authority='+1 ,
+				sueccss: function(){},
+				error : function(err){
+					console.log(err);
+					
+				}
+				
+			});
+			console.log("age="+naverLogin.user.age);
     		
             if( email == undefined || email == null) {
 				alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
