@@ -166,23 +166,6 @@ public class UserServiceImpl implements UserService {
 		return check;
 	}
 	
-	@Override
-	public String signUpCheckNaver(UserDTO userDTO) {
-		String check;
-		// 휴대전화로 동일가입여부 조회
-		String hp = userDTO.getHp();
-		int a = userDAO.signUpCheck(hp);
-		if (a == 0) {
-			// 다시 휴대전화와 가입타입을 네이버로 해 다시 한다.
-			int b = userDAO.checkNaver(hp);
-			String user_id = userDTO.getUser_id();
-			check = "";
-		} else {
-			check = "fail";
-		}
-		return check;
-	}
-	
 	/* 회원정보수정 MyPageEdit */
 	@Override
 	public UserDTO getUserInfo(String user_id) {
@@ -223,23 +206,15 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getSellHistory(user_id);
 	}
 	
-	@Override
-	public Map<String, String> bookMarkGet(int product_id) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		String id = (String) session.getAttribute("memId");
-		
-		map.put("id", id);
-		return userDAO.bookMarkGet(map);
-  }
-
-	/*
-	 * @Override public Map<String, String> bookMarkGet(int product_id) {
-	 * Map<String, Object> map = new HashMap<String, Object>(); String id = (String)
-	 * session.getAttribute("memId");
-	 * 
-	 * map.put("id", id); return userDAO.bookMarkGet(map); }
-	 */
-  
+//	@Override
+//	public Map<String, String> bookMarkGet(int product_id) {
+//		Map<String, Object> map = new HashMap<String, Object>();
+//		String id = (String) session.getAttribute("memId");
+//		
+//		map.put("id", id);
+//		return userDAO.bookMarkGet(map);
+//	}
+  	
 	@Override
 	public String signUpCheckNaver(UserDTO userDTO) {
 		System.out.println("2번!!");
@@ -286,14 +261,5 @@ public class UserServiceImpl implements UserService {
 		System.out.println("-----------1 " + check);
 		return check;
   }
-  
-  @Override
-	public void getBuyHistory(String user_id) {
-		// TODO Auto-generated method stub
-	}
-  
-	@Override
-	public void getSellHistory(String user_id) {
-		// TODO Auto-generated method stub
-	}
+
 }
