@@ -7,24 +7,22 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
 
 
 @Repository 
+@Transactional
 public class UserDAOImpl implements UserDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
 	
 	@Override
-	public UserDTO checkLogin(String log_email_input, String log_pwd_input) {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("email", log_email_input);
-		map.put("pwd", log_pwd_input);
-		UserDTO userDTO = sqlSession.selectOne("userSQL.checkLogin", map);
-		return userDTO;
+	public UserDTO checkLogin(String log_email_input) {
+		return  sqlSession.selectOne("userSQL.checkLogin", log_email_input);
 	}
 
 	@Override
@@ -59,10 +57,23 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+
+	public void bookMarkInsert(Map<String, String> map) {
+		sqlSession.insert("userSQL.bookMarkInsert", map);
+	}
+
+	@Override
+	public void bookMarkDelete(Map<String, Object> map) {
+		System.out.println("너 여기까지 오냐?");
+		sqlSession.delete("userSQL.bookMarkDelete", map);
+		System.out.println("여기까지오냐고");
+  }
+  
 	public int checkNick(String nickname) {
 		int nickcount = sqlSession.selectOne("userSQL.checkNick", nickname);
 		return nickcount;
 	}
+  
 	//휴대전화로 가입 여부 조회
 	@Override
 	public int signUpCheck(String hp) {
@@ -76,9 +87,24 @@ public class UserDAOImpl implements UserDAO {
 		sqlSession.insert("userSQL.signUpWrite", userDTO);
 	}
 
-	@Override
 	public int checkId(String user_id) {
 		return sqlSession.selectOne("userSQL.checkId", user_id);
-		
+	}
+	
+	@Override
+	public void update(UserDTO userDTO) {
+		sqlSession.update("userSQL.update", userDTO);
+  }
+  
+
+	@Override
+	public void updateImg(Map<String, String> map) {
+		sqlSession.update("userSQL.updateImg", map);
+	}
+
+	@Override
+	public void deleteImg(String user_id) {
+		sqlSession.update("userSQL.deleteImg", user_id);
 	}
 }
+	

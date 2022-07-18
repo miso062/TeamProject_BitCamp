@@ -695,10 +695,10 @@ height:80px;
 					<a href="/TeamProject/user/signUp" class="look_link">이메일 가입</a>
 				</li>
 				<li class="look_list">
-					<a href="#" class="look_link" >이메일 찾기</a>
+					<a href="/TeamProject/user/findEmail" class="look_link" >이메일 찾기</a>
 				</li>
 				<li class="look_list">
-					<a href="#" class="look_link" >비밀번호 찾기</a>
+					<a href="/TeamProject/user/findPWD" class="look_link" >비밀번호 찾기</a>
 				</li>
 			</ul>
 			<div class="social_login">

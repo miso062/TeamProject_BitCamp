@@ -20,7 +20,7 @@ public class MainController {
 	@Autowired
 	MainService mainService;
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping()
 	public String index(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
 		model.addAttribute("container1", "/WEB-INF/main/container1.jsp");
@@ -34,7 +34,6 @@ public class MainController {
 	@ResponseBody
 	public Map<String, Object> getProductList(@RequestParam String num){
 		Map<String, Object> map = mainService.getProductList(num);
-		 //System.out.println(map); 상품 담아오는지 확인하는 것
 		return map;
 	}
 	 

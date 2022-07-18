@@ -4,14 +4,15 @@ CREATE TABLE BUY_HISTORY (
                     REFERENCES PRODUCT(PRODUCT_ID) ON DELETE CASCADE,
 		ADDRESS_ID number(7,0)					NOT NULL
                     REFERENCES ADDRESS(ADDRESS_ID) ON DELETE SET NULL,
-		USER_ID    varchar2(30 BYTE)			NOT NULL
+		USER_ID    varchar2(30 BYTE)		NOT NULL
                     REFERENCES USER_TABLE(USER_ID) ON DELETE SET NULL,
 		BUY_PRICE  number(30,0)			 		NOT NULL ,
-		PERIOD     date 						NOT NULL ,
-		SIZE_TYPE  varchar2(100 BYTE) 			NOT NULL ,
-		STATUS1    varchar2(20 BYTE) 			NULL ,
-		STATUS2    varchar2(20 BYTE) 			NULL ,
-		BUY_DATE   date 						NOT NULL ,
+		PERIOD     date 								NOT NULL ,
+		SIZE_TYPE  varchar2(100 BYTE) 	NOT NULL ,
+		CUM_UID    varchar2(100 BYTE)   NOT NULL ,
+		STATUS1    varchar2(20 BYTE) 		NULL ,
+		STATUS2    varchar2(20 BYTE) 		NULL ,
+		BUY_DATE   date 								NOT NULL ,
 		PRIMARY KEY (BUY_ID)
 );
 
@@ -20,19 +21,20 @@ INCREMENT BY 1
 NOCACHE NOCYCLE;
 
 CREATE TABLE SELL_HISTORY (
-		SELL_ID     number(7,0) 			NOT NULL ,
-		PRODUCT_ID number(7,0) 				NOT NULL
+		SELL_ID     number(7,0) 					NOT NULL ,
+		PRODUCT_ID 	number(7,0) 					NOT NULL
                     REFERENCES PRODUCT(PRODUCT_ID) ON DELETE CASCADE,
-		ADDRESS_ID number(7,0)				NOT NULL
+		ADDRESS_ID 	number(7,0)						NOT NULL
                     REFERENCES ADDRESS(ADDRESS_ID) ON DELETE SET NULL,
-		USER_ID    varchar2(30 BYTE)		NOT NULL
+		USER_ID    	varchar2(30 BYTE)			NOT NULL
                     REFERENCES USER_TABLE(USER_ID) ON DELETE SET NULL,
-		SELL_PRICE  number(30,0) 			NOT NULL ,
-		PERIOD     date 					NOT NULL ,
-		SIZE_TYPE  varchar2(100 BYTE) 		NOT NULL ,
-		STATUS1    varchar2(20 BYTE) 		NULL ,
-		STATUS2    varchar2(20 BYTE) 		NULL ,
-		SELL_DATE   date 					NOT NULL ,
+		SELL_PRICE  number(30,0) 					NOT NULL ,
+		PERIOD     	date 									NOT NULL ,
+		SIZE_TYPE  	varchar2(100 BYTE) 		NOT NULL ,
+		ACCOUNT    	varchar2(100 BYTE)    NOT NULL ,
+		STATUS1    	varchar2(20 BYTE) 		NULL ,
+		STATUS2    	varchar2(20 BYTE) 		NULL ,
+		SELL_DATE   date 									NOT NULL ,
 		PRIMARY KEY (SELL_ID)
 );
 

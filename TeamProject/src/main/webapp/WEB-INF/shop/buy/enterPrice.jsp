@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
 <style type="text/css">
 .notice[data-v-2ab7e5d3] {
 	display: -webkit-box;
@@ -940,8 +936,6 @@ input {
 	letter-spacing: -.01px
 }
 
-
-
 .title_txt[data-v-5b2bf95b] {
 	line-height: 26px;
 	font-size: 22px;
@@ -949,7 +943,6 @@ input {
 	letter-spacing: -.15px;
 	color: #000
 }
-
 
 .list_item[data-v-04587d2a] {
 	padding-top: 21px;
@@ -1088,7 +1081,6 @@ input {
 	font-size: 12px;
 	letter-spacing: -.06px
 }
-
 
 .wrap_loading[data-v-6bcea0de] {
 	position: fixed;
@@ -1545,128 +1537,97 @@ input {
     font-weight: 700;
     background-color: #ef6253;
 }
-
 </style>
-</head>
-<body>
 
+<form id="enterPriceForm" method="post" action="/TeamProject/shop/buyPay">
+	<input type="hidden" name="product_id" id="product_id"value=${productDTO.product_id}>
+	<input type="hidden" name="size" id="size" value=${size}>
+	<input type="hidden" name="peroid" id="peroid" value="">
+	<input type="hidden" name="payment_method" id="payment_method" value="">
+	<input type="hidden" name="price" id="price" value="">
+	<input type="hidden" name="deadline" id="deadline" value="">
+</form>
 <div id="content1">
 	<div data-v-6657f7cc="" data-v-7ab136e9="" class="container buy md">
-		<!---->
 		<div data-v-6657f7cc="" class="content">
 			<div data-v-1e6a25e8="" data-v-6657f7cc="" class="buy_immediate">
 				<div data-v-1643775e="" data-v-1e6a25e8="" class="product_info_area">
 					<div data-v-1643775e="" class="product_info">
-						<div data-v-75e33658="" data-v-1643775e="" class="product"
-							style="background-color: rgb(246, 238, 237);">
-							<picture data-v-548c90f9="" data-v-75e33658=""
-								class="picture product_img">
-							<source data-v-548c90f9="" type="image/webp"
-								srcset="
-                                    https://kream-phinf.pstatic.net/MjAyMDEwMjJfOCAg/MDAxNjAzMzQwOTUzNzMx.nCU7Bumo43r7JZcTRjq4blFOcj33dPIxNYW-_94RtWgg.rJwsoEL3W-f7pgpwfYISb-0HBItIWL04h7p8Ixyp8CUg.PNG/p_4cedd884b4a3427ca616bc31b3bf2867.png?type=l_webp
-                                " />
-							<source data-v-548c90f9=""
-								srcset="
-                                    https://kream-phinf.pstatic.net/MjAyMDEwMjJfOCAg/MDAxNjAzMzQwOTUzNzMx.nCU7Bumo43r7JZcTRjq4blFOcj33dPIxNYW-_94RtWgg.rJwsoEL3W-f7pgpwfYISb-0HBItIWL04h7p8Ixyp8CUg.PNG/p_4cedd884b4a3427ca616bc31b3bf2867.png?type=l
-                                " />
-							<img data-v-548c90f9="" alt="상품 이미지"
-								src="https://kream-phinf.pstatic.net/MjAyMDEwMjJfOCAg/MDAxNjAzMzQwOTUzNzMx.nCU7Bumo43r7JZcTRjq4blFOcj33dPIxNYW-_94RtWgg.rJwsoEL3W-f7pgpwfYISb-0HBItIWL04h7p8Ixyp8CUg.PNG/p_4cedd884b4a3427ca616bc31b3bf2867.png?type=l"
-								class="image" /> </picture>
-							<!---->
-							<!---->
-							<!---->
+						<div data-v-75e33658="" data-v-1643775e="" class="product" style="background-color: rgb(246, 238, 237);">
+							<picture data-v-548c90f9="" data-v-75e33658="" class="picture product_img">
+								<source data-v-548c90f9="" type="image/webp" srcset=${productImgDTO.file_path } />
+								<source data-v-548c90f9="" srcset=${productImgDTO.file_path } />
+								<img data-v-548c90f9="" alt="상품 이미지" src=${productImgDTO.file_path } class="image" /> 
+							</picture>
 						</div>
 						<div data-v-1643775e="" class="product_detail">
-							<strong data-v-1643775e="" class="model_number">555088-105
-							</strong>
-							<p data-v-1643775e="" class="model_title">Jordan 1 Retro High
-								OG Black Mocha</p>
-							<p data-v-1643775e="" class="model_ko">조던 1 레트로 하이 OG 블랙 모카</p>
+							<strong data-v-1643775e="" class="model_number">${productDTO.model_number }</strong>
+							<p data-v-1643775e="" class="model_title">${productDTO.eng_name }</p>
+							<p data-v-1643775e="" class="model_ko">${productDTO.kor_name }</p>
 							<div data-v-1643775e="" class="model_desc">
-								<p data-v-1643775e="" class="size_txt">265</p>
-								<!---->
+								<p data-v-1643775e="" class="size_txt">${size }</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div data-v-158ed304="" data-v-1e6a25e8=""
-					class="price_descision_box">
+				<div data-v-158ed304="" data-v-1e6a25e8="" class="price_descision_box">
 					<ul data-v-638c1354="" data-v-158ed304="" class="price_list">
 						<li data-v-638c1354="" class="list_item">
-							<p data-v-638c1354="" class="title">즉시 구매가</p> <span
-							data-v-638c1354="" class="price " id="title_price">721,000</span><span
-							data-v-638c1354="" class="unit">원</span>
+							<p data-v-638c1354="" class="title">즉시 구매가</p> 
+							<span data-v-638c1354="" class="price im_buy_price" id="title_price"></span><span data-v-638c1354="" class="unit">원</span>
 						</li>
 						<li data-v-638c1354="" class="list_item">
-							<p data-v-638c1354="" class="title">즉시 판매가</p> <span
-							data-v-638c1354="" class="price">693,000</span><span
-							data-v-638c1354="" class="unit">원</span>
+							<p data-v-638c1354="" class="title">즉시 판매가</p> 
+							<span data-v-638c1354="" class="price im_sell_price"></span><span data-v-638c1354="" class="unit">원</span>
 						</li>
 					</ul>
 					<div data-v-158ed304="" class="instant_group">
-						<div data-v-b6b2883e="" data-v-158ed304=""
-							class="tab_area buy_tab">
+						<div data-v-b6b2883e="" data-v-158ed304="" class="tab_area buy_tab">
 							<ul data-v-b6b2883e="" role="tablist" class="tab_list">
-								<li data-v-b6b2883e="" role="tab" aria-selected="true"
-									aria-controls="panel1" class="item"><a
-									data-v-b6b2883e="" href="#" class="item_link" id="hide_Btn1">구매 입찰</a></li>
-								<li data-v-b6b2883e="" role="tab" aria-selected="false"
-									aria-controls="panel2" class="item on"><a data-v-b6b2883e=""
-									href="#" class="item_link" id="hide_Btn2">즉시 구매</a></li>
+								<li data-v-b6b2883e="" role="tab" aria-selected="true" aria-controls="panel1" class="item">
+									<a data-v-b6b2883e="" href="#" class="item_link" id="hide_Btn1">구매 입찰</a>
+								</li>
+								<li data-v-b6b2883e="" role="tab" aria-selected="false" aria-controls="panel2" class="item on">
+									<a data-v-b6b2883e="" href="#" class="item_link" id="disabledBtn">즉시 구매</a>
+								</li>
 							</ul>
-							<!---->
-							<!---->
 						</div>
 						<div class="hide_content1">
-						
-						<div data-v-03750f89="" data-v-158ed304=""
-							class="price_now active_input">
-							<dl data-v-03750f89="" class="price_now_box">
-								<dt data-v-03750f89="" class="price_now_title">즉시 구매가</dt>
-								<dd data-v-03750f89="" class="price_warning" style="display: none;">
-							3만원 부터 천원단위로 입력하세요.
-								</dd>
-							
-								<dd data-v-03750f89="" class="price">
-									<input data-v-03750f89="" type="text"
-										pattern="([0-9]+.{0,1}[0-9]*,{0,1})*[0-9]" required="required"
-										placeholder="희망가 입력" autocomplete="off"
-										 class="input_amount" onfocus="this.placeholder=''" 
-										 onblur="this.placeholder='희망가 입력'" inputmode="numeric" oninput="check_price(this.value)" id="input_price"/>
-									<span data-v-03750f89="" class="unit">원</span>
-								</dd>
-							</dl>
-							
+							<div data-v-03750f89="" data-v-158ed304="" class="price_now active_input">
+								<dl data-v-03750f89="" class="price_now_box">
+									<dt data-v-03750f89="" class="price_now_title">즉시 구매가</dt>
+									<dd data-v-03750f89="" class="price_warning" style="display: none;">
+										3만원 부터 천원단위로 입력하세요.
+									</dd>
+									<dd data-v-03750f89="" class="price">
+										<input data-v-03750f89="" type="text" pattern="([0-9]+.{0,1}[0-9]*,{0,1})*[0-9]" required="required"
+											placeholder="희망가 입력" autocomplete="off" class="input_amount" onfocus="this.placeholder=''" 
+											onblur="this.placeholder='희망가 입력'" inputmode="numeric" oninput="check_price(this.value)" id="input_price"/>
+										<span data-v-03750f89="" class="unit">원</span>
+									</dd>
+								</dl>
+							</div>
+							<div data-v-158ed304="" class="price_bind">
+								<p data-v-158ed304="" class="price_bind_empty">총 결제금액은 다음화면에서 계산됩니다.</p>
+							</div>
 						</div>
-						<div data-v-158ed304="" class="price_bind">
-							<p data-v-158ed304="" class="price_bind_empty">총 결제금액은 다음
-								화면에서 계산됩니다.</p>
-						</div>
-						</div>
-						
 					</div>
 				</div>
-				<div data-v-4963821f="" data-v-1e6a25e8=""
-					class="deadline_info_area">
+				<div data-v-4963821f="" data-v-1e6a25e8="" class="deadline_info_area">
 					<div data-v-4963821f="" class="section_title">
 						<h3 data-v-4963821f="" class="title_txt">입찰 마감기한</h3>
 					</div>
 					<div data-v-4963821f="" class="section_content">
 						<div data-v-4963821f="" class="bid_deadline">
 							<p data-v-4963821f="" class="deadline_txt">
-								<div id="deadline_text">
-								
-								</div>
-								</p>
+								<div id="deadline_text"></div>
+							</p>
 							<div data-v-4963821f="" class="deadline_tab">
-								<a data-v-3d1bcc82="" data-v-4963821f="" href="#"
-									class="btn outlinegrey medium" class="outlinegrey" id="D1"> 1일 </a><a data-v-3d1bcc82=""
-									data-v-4963821f="" href="#" class="btn outlinegrey medium" class="outlinegrey" id="D3">
-									3일 </a> <a data-v-3d1bcc82="" data-v-4963821f="" href="#"
-									class="btn outlinegrey medium" class="outlinegrey" id="D7"> 7일 </a><a data-v-3d1bcc82=""
-									data-v-4963821f="" href="#" class="btn outlinegrey medium is_active" class="outlinegrey" id="D30">
-									30일 </a> <a data-v-3d1bcc82="" data-v-4963821f="" href="#"
-									class="btn outlinegrey medium" class="outlinegrey" id="D60"> 60일 </a>
+								<a data-v-3d1bcc82="" data-v-4963821f="" href="#" class="btn outlinegrey medium" class="outlinegrey" id="D1"> 1일 </a>
+								<a data-v-3d1bcc82="" data-v-4963821f="" href="#" class="btn outlinegrey medium" class="outlinegrey" id="D3"> 3일 </a> 
+								<a data-v-3d1bcc82="" data-v-4963821f="" href="#" class="btn outlinegrey medium" class="outlinegrey" id="D7"> 7일 </a>
+								<a data-v-3d1bcc82="" data-v-4963821f="" href="#" class="btn outlinegrey medium" class="outlinegrey" id="D30"> 30일 </a> 
+								<a data-v-3d1bcc82="" data-v-4963821f="" href="#" class="btn outlinegrey medium" class="outlinegrey" id="D60"> 60일 </a>
 							</div>
 						</div>
 					</div>
@@ -1677,27 +1638,19 @@ input {
 							<dt data-v-679d7250="" class="price_title">총 결제금액</dt>
 							<dd data-v-679d7250="" class="price_empty_desc">다음 화면에서 확인</dd>
 						</dl>
-						<span data-v-679d7250="" class="price_warning"
-							style="display:none;"><em data-v-679d7250=""> </em></span>
+						<span data-v-679d7250="" class="price_warning" style="display:none;"><em data-v-679d7250=""> </em></span>
 					</div>
 					<div data-v-65a8cedc="" class="btn_confirm">
-						<a data-v-3d1bcc82="" data-v-65a8cedc="" href="#" class="btn full solid false disabled" disabled="disabled" id="btn_continue">
-						<div id="continue_btn">
-						 즉시 구매 계속
-						</div>
-						 </a>
+						<a data-v-3d1bcc82="" data-v-65a8cedc="" class="btn full solid false disabled" id="btn_continue">
+							<div id="continue_btn"> 즉시 구매 계속 </div>
+						</a>
 					</div>
 				</div>
 			</div>
-			<!---->
-			<!---->
 		</div>
-		<!---->
-		<!---->
 	</div>
-	</div>
+</div>
 
-</body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -1714,7 +1667,7 @@ $(function(){
 //입력창 클릭시 border색깔 변경
 $(function(){
 	$(".input_amount").click(function(){
-		$('.price_now_box').css('border-color', 'black');
+		$('.price_now_box').css('border-color', '#222');
 		$('.input_amount').blur(function(){
 			$('.price_now_box').css('border-color', '#ebebeb');
 		});
@@ -1725,12 +1678,15 @@ $(function(){
 $(function(){
 	$('.item_link').each(function(){
 		$(this).click(function(){
-			$(this).css('background-color', '#ef6253');
-			$(this).css('color', '#fff');
-			$(this).css('font-weight', '700');
-			$('.item_link').not(this).css('background-color', '#f4f4f4');
-			$('.item_link').not(this).css('font-weight', '200');
-			$('.item_link').not(this).css('color', '#222222CC');
+			if($(this).attr('id') != 'disabledBtn'){
+				$(this).css('background-color', '#ef6253');
+				$(this).css('color', '#fff');
+				$(this).css('font-weight', '700');
+				$('#payment_method').val($(this).text());
+				$('.item_link').not(this).css('background-color', '#f4f4f4');
+				$('.item_link').not(this).css('font-weight', '200');
+				$('.item_link').not(this).css('color', '#222222CC');
+			}
 		})
 	})
 });
@@ -1747,20 +1703,31 @@ $(function(){
 	$('#hide_Btn1').click(function(){
 		$('.deadline_info_area').show();
 		$('#btn_continue').css('background-color', '#ebebeb');
+		$('#btn_continue').attr('disabled', true);
 		$('#continue_btn').html('구매 입찰 계속');
 		$('.input_amount').val('');
 		$('.input_amount').attr('readonly', false);
 		$('.price_now_title').html('구매 희망가');
-	})
-	$('#hide_Btn2').click(function(){
+	});
+	$(document).on('click', '#hide_Btn2', function(){
 		$('.deadline_info_area').hide();
-		$('#btn_continue').css('background-color', 'black');
+		$('#btn_continue').css('background-color', '#222');
+		$('#btn_continue').attr('disabled', false);
 		$('#continue_btn').html('즉시 구매 계속');
 		$('.price_now_title').html('즉시 구매가');
 		$('.input_amount').val($('#title_price').text());
 		$('.input_amount').attr('readonly', true);
-		/* $('input').html($(this).find('#title_price'),html()); */
-	})
+	});
+	// $('#hide_Btn2').click(function(){
+	// 	$('.deadline_info_area').hide();
+	// 	$('#btn_continue').css('background-color', '#222');
+	// 	$('#btn_continue').attr('disabled', false);
+	// 	$('#continue_btn').html('즉시 구매 계속');
+	// 	$('.price_now_title').html('즉시 구매가');
+	// 	$('.input_amount').val($('#title_price').text());
+	// 	$('.input_amount').attr('readonly', true);
+	// 	/* $('input').html($(this).find('#title_price'),html()); */
+	// })
 });
 
 var result;
@@ -1774,6 +1741,8 @@ function today(num){
 	var mm = calDate.getMonth()+1;
 	var dd = calDate.getDate();
 	
+	$('#peroid').val(yy+"/"+mm+'/'+dd);
+	$('#deadline').val(num);
 	result = num+"일"+""+"("+yy+"/"+mm+"/"+dd+"마감)";
 } 
 
@@ -1803,15 +1772,13 @@ $(function(){
 	$('#deadline_text').append(result);
 });
 
-
 /* 숫자 세자리마다 콤마 */
 $(function(){
-$(document).on('keyup','input[inputmode=numeric]',function(event){
-	this.value = this.value.replace(/[^0-9]/g,'');   // 입력값이 숫자가 아니면 공백
-	this.value = this.value.replace(/,/g,'');          // ,값 공백처리
-	this.value = this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ","); // 정규식을 이용해서 3자리 마다 , 추가 	
-	}); 
-	
+	$(document).on('keyup','input[inputmode=numeric]',function(event){
+		this.value = this.value.replace(/[^0-9]/g,'');   // 입력값이 숫자가 아니면 공백
+		this.value = this.value.replace(/,/g,'');          // ,값 공백처리
+		this.value = this.value.replace(/\B(?=(\d{3})+(?!\d))/g, ","); // 정규식을 이용해서 3자리 마다 , 추가 	
+	});
 });
 
 function check_price(price){
@@ -1821,10 +1788,12 @@ function check_price(price){
 		$('.price_now_title').css('color','#ef6253');
 		$("input").focusout(function(){
 			$('#btn_continue').css('background-color', '#ebebeb');
+			$('#btn_continue').attr('disabled', true);
 			$('#btn_continue').attr('href', '#');
 		});
 		$("input").focusin(function(){
 			$('#btn_continue').css('background-color', '#ebebeb');
+			$('#btn_continue').attr('disabled', true);
 			$('#btn_continue').attr('href', '#');
 		});
 	}
@@ -1834,10 +1803,12 @@ function check_price(price){
 		$('.price_now_title').css('color','#222');
 		$("input").focusout(function(){
 			$('#btn_continue').css('background-color', '#222');
+			$('#btn_continue').attr('disabled', false);
 			$('#btn_continue').attr('href', '#');
 		});
 		$("input").focusin(function(){
 			$('#btn_continue').css('background-color', '#ebebeb');
+			$('#btn_continue').attr('disabled', true);
 			$('#btn_continue').attr('href', '#');
 		});
 	}
@@ -1856,6 +1827,47 @@ $('#input_price').focusout(function(){
 	var count = Math.floor(input_price/1000)*1000;
 	count = count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	$('#input_price').val(count);
+});
+
+$(function(){
+	$.ajax({
+		url: '/TeamProject/shop/getPrice',
+		type: 'post',
+		data: {
+			'product_id' : $('#product_id').val(),
+			'size': $('.size_txt').text()
+		},
+		dataType: 'json',
+		success: function(data){
+			// alert(JSON.stringify(data));
+			if(!data.sellDTO){
+				$('.im_buy_price').text('-');
+				$('#hide_Btn1').trigger('click');
+				$('#payment_method').val('구매 입찰');
+			}
+			else{
+				$('.im_buy_price').text(data.sellDTO.sell_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
+				$('#input_price').val($('.im_buy_price').text());
+				$('#disabledBtn').attr('id', 'hide_Btn2');
+				$('#payment_method').val('즉시 구매');
+			}
+			$('.im_sell_price').text(data.buyDTO.buy_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
+
+$('#btn_continue').click(function(){
+	if($(this).prop('disabled') != 'disabled'){
+		$('#price').val($('#input_price').val());
+		if($('#payment_method').val() == '즉시 구매'){
+			$('#peroid').val('');
+			$('#deadline').val('');
+		}
+		$('#enterPriceForm').submit();
+	}
 });
 
 </script>

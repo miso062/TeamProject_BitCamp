@@ -821,6 +821,7 @@ tr {
 </style>
 </head>
 <body>
+<input type="hidden" name="product_id" id="product_id" value="${product_id }">
 <div class="c1_container detail">
     <div class="c1_content">
         <h2 class="c1_blind">상품 상세</h2>
@@ -832,7 +833,7 @@ tr {
                           <div class="c1_item_inner">
                               <div class="c1_product" style="background-color: rgb(235, 240, 245);">
                                       <img alt="상품 이미지"
-                                          src="https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=l"
+                                          src=""
                                           class="c1_image"/>
                               </div>
                           </div>
@@ -847,9 +848,9 @@ tr {
                     <div class="c1_column_top">
                         <div class="c1_detail_main_title lg">
                             <div class="c1_main_title_box">
-                                <a href="#" class="c1_brand"> Nike </a>
-                                <p class="c1_title">Nike Air Force 1 '07 Low White</p>
-                                <p class="c1_sub_title">나이키 에어포스 1 '07 로우 화이트</p>
+                               <a href="https://naver.com" class="c1_brand"><span class="c1_getbrand"></span></a>
+                                <p class="c1_title" id="eng_name"></p>
+                                <p class="c1_sub_title" id="kor_name"></p>
                             </div>
                         </div>
                         
@@ -889,19 +890,19 @@ tr {
                             <dl class="detail_product">
                                 <div class="detail_box model_num">
                                     <dt class="c1_product_title">모델번호</dt>
-                                    <dd class="c1_product_info">315122-111/CW2288-111</dd>
+                                    <dd class="c1_product_info" id="c1_product_info_modelnum"></dd>
                                 </div>
                                 <div class="detail_box">
                                     <dt class="c1_product_title">출시일</dt>
-                                    <dd class="c1_product_info">-</dd>
+                                    <dd class="c1_product_info" id="c1_product_info_reldate"></dd>
                                 </div>
                                 <div class="detail_box">
                                     <dt class="c1_product_title">컬러</dt>
-                                    <dd class="c1_product_info">WHITE/WHITE</dd>
+                                    <dd class="c1_product_info" id="c1_product_info_color"></dd>
                                 </div>
                                 <div class="detail_box">
                                     <dt class="c1_product_title">발매가</dt>
-                                    <dd class="c1_product_info">129,000원</dd>
+                                    <dd class="c1_product_info" id="c1_product_info_release_price"></dd>
                                 </div>
                             </dl>
                         </div>
@@ -1249,8 +1250,8 @@ tr {
                                         />
                                 </div>
                                 <div class="c1_product_info">
-                                    <p class="c1_name">Nike Air Force 1 '07 Low White</p>
-                                    <p class="c1_translated_name">나이키 에어포스 1 '07 로우 화이트</p>
+                                    <p class="c1_name" id="eng_name1"></p>
+                                    <p class="c1_translated_name" id="kor_name1"></p>
                                 </div>
                             </div>
                             <div class="c1_btn_area">
@@ -1281,8 +1282,6 @@ tr {
         </div>
     </div>
 </div>
-
-</body>
 <script src="/TeamProject/js/shop/chart.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -1401,11 +1400,46 @@ $(document).on('click', '.c1_item_tab', function () {
 });
 /* 구매 사이즈 판매사이즈로 이동 */
 $('.c1_buy').on('click',function(){
-	$(location).attr("href", "/TeamProject/shop/selectBuySize");
+	var href = "/TeamProject/shop/selectBuySize?product_id=" +  $('#product_id').val();
+	$(location).attr("href", href);
 })
 
 $('.c1_sell').on('click',function(){
 	$(location).attr("href", "/TeamProject/shop/selectSellSize");
 })
+$(document).ready(function(){
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/shop/getshopDetail',
+		data:'product_id='+$('#product_id').val(),
+		dataType:'json',
+		success: function(data){
+			$('.c1_image').prop('src',data.productImgDTO.file_path);
+			$('.c1_product_img').prop('src',data.productImgDTO.file_path);
+			$('.c1_getbrand').text(data.product.brand);
+			$('#eng_name').text(data.product.eng_name);
+			$('#eng_name1').text(data.product.eng_name);
+			$('#kor_name').text(data.product.kor_name);
+			$('#kor_name1').text(data.product.kor_name);
+			$('#c1_product_info_color').text(data.product.color);
+			$('#c1_product_info_modelnum').text(data.product.model_number);
+			if(data.product.release_price == null){
+				$('#c1_product_info_release_price').text('-');	
+			}else{
+				$('#c1_product_info_release_price').text(data.product.release_price);
+			}
+			if(data.product.release_date == null){
+				$('#c1_product_info_reldate').text('-');	
+			}else{
+				$('#c1_product_info_reldate').text(data.product.release_date);	
+			}
+			
+		},
+		error:function(err){
+			console.log(err);
+		}		
+	});
+});
 </script>
+</body>
 </html>

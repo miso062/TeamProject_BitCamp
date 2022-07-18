@@ -23,11 +23,19 @@
 	<context:component-scan base-package="user.service" />
 	<context:component-scan base-package="user.dao" />
 	
+	<context:component-scan base-package="shop.bean" />
+	<context:component-scan base-package="shop.service" />
+	<context:component-scan base-package="shop.dao" />
+	
 	<context:component-scan base-package="product.bean" />
 	<context:component-scan base-package="main.service" />
 	<context:component-scan base-package="main.dao" />
 	
 	<context:component-scan base-package="spring.conf"></context:component-scan>
 	<context:component-scan base-package="user.send"></context:component-scan>
+	
+	<context:component-scan base-package="shop.dao"></context:component-scan>
+	<context:component-scan base-package="shop.service"></context:component-scan>
+	<context:component-scan base-package="shop.bean"></context:component-scan>
 		
 </beans>

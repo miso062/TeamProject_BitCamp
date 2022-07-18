@@ -7,19 +7,19 @@
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
     }
-    .user_membership[data-v-5acef129] {
+    .user_membership {
         padding: 23px 0 23px 23px;
         border: 1px solid #ebebeb;
         border-radius: 10px;
         background-color: #fff;
     }
-    .user_detail[data-v-5acef129],
-    .user_membership[data-v-5acef129] {
+    .user_detail,
+    .user_membership {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
     }
-    .user_thumb[data-v-5acef129] {
+    .user_thumb {
         position: relative;
         margin-right: 12px;
         width: 100px;
@@ -28,7 +28,7 @@
         -ms-flex-negative: 0;
         flex-shrink: 0;
     }
-    .user_thumb[data-v-5acef129]:after {
+    .user_thumb:after {
         content: "";
         position: absolute;
         top: 0;
@@ -38,47 +38,47 @@
         border: 1px solid rgba(34, 34, 34, 0.05);
         border-radius: 50%;
     }
-    .user_thumb .thumb_img[data-v-5acef129] {
+    .user_thumb .thumb_img {
         width: 100%;
         height: 100%;
         border-radius: 100%;
     }
-    .user_info[data-v-5acef129] {
+    .user_info {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
     }
-    .user_info .name[data-v-5acef129],
-    .user_info[data-v-5acef129] {
+    .user_info .name,
+    .user_info {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
     }
-    .user_info .name[data-v-5acef129] {
+    .user_info .name {
         line-height: 21px;
         font-size: 18px;
         letter-spacing: -0.27px;
         font-weight: 600;
         color: #000;
     }
-    .user_info .email[data-v-5acef129] {
+    .user_info .email {
         line-height: 18px;
         font-size: 14px;
         letter-spacing: -0.21px;
         letter-spacing: -0.05px;
         color: rgba(34, 34, 34, 0.5);
     }
-    .btn[data-v-5acef129] {
+    .btn {
         margin-top: 12px;
         -ms-flex-item-align: start;
         align-self: flex-start;
         height: 36px;
         line-height: 34px;
     }
-    .btn.btn_my_style[data-v-5acef129] {
+    .btn.btn_my_style {
         margin-left: 7px;
     }
-    .info_box[data-v-5acef129] {
+    .info_box {
         max-width: 100%;
     }
     .info_box .title[data-v-4e153e07] {
@@ -88,10 +88,10 @@
         letter-spacing: -0.07px;
         color: rgba(34, 34, 34, 0.5);
     }
-    .mbtn .btn_my_style[data-v-5acef129] {
+    .mbtn .btn_my_style {
         margin-left: 7px;
     }
-    .membership_detail[data-v-5acef129] {
+    .membership_detail {
         position: relative;
         margin-left: auto;
         display: -webkit-box;
@@ -104,7 +104,7 @@
         -ms-flex-pack: center;
         justify-content: center;
     }
-    .membership_detail[data-v-5acef129]:before {
+    .membership_detail:before {
         content: "";
         position: absolute;
         top: 0;
@@ -113,12 +113,12 @@
         background-color: #ebebeb;
         width: 1px;
     }
-    .membership_item[data-v-5acef129] {
+    .membership_item {
         display: inline-block;
         width: 159px;
         text-align: center;
     }
-    .btn[data-v-3d1bcc82] {
+    .btn {
         display: inline-block;
         cursor: pointer;
         vertical-align: middle;
@@ -126,44 +126,44 @@
         color: rgba(34, 34, 34, 0.8);
         background-color: #fff;
     }
-    .outlinegrey[data-v-3d1bcc82] {
+    .outlinegrey {
         border: 1px solid #d3d3d3;
         color: rgba(34, 34, 34, 0.8);
     }
-    .outlinegrey[data-v-3d1bcc82]:active {
+    .outlinegrey:active {
         border-color: #ebebeb;
         background-color: #f4f4f4;
         color: rgba(34, 34, 34, 0.5);
     }
-    .small[data-v-3d1bcc82],
-    .xsmall[data-v-3d1bcc82] {
+    .small,
+    .xsmall {
         font-size: 12px;
         letter-spacing: -0.06px;
     }
-    .small[data-v-3d1bcc82] {
+    .small {
         padding: 0 14px;
         height: 34px;
         line-height: 32px;
         border-radius: 10px;
     }
-    .membership_item.disabled[data-v-5acef129] {
+    .membership_item.disabled {
         pointer-events: none;
         cursor: default;
     }
-    .membership_item .info[data-v-5acef129] {
+    .membership_item .info {
         display: block;
         line-height: 19px;
         font-size: 16px;
         letter-spacing: -0.16px;
         font-weight: 700;
     }
-    .membership_item .title[data-v-5acef129] {
+    .membership_item .title {
         line-height: 19px;
         font-size: 13px;
         letter-spacing: -0.07px;
         color: rgba(34, 34, 34, 0.5);
     }
-    .my_home_title[data-v-6752ceb2] {
+    .my_home_title {
         margin-top: 42px;
         padding-bottom: 16px;
         display: -webkit-box;
@@ -171,11 +171,11 @@
         display: flex;
         max-width: 100%;
     }
-    .my_home_title .title[data-v-6752ceb2] {
+    .my_home_title .title {
         font-size: 18px;
         letter-spacing: -0.27px;
     }
-    .my_home_title .btn_more[data-v-6752ceb2] {
+    .my_home_title .btn_more {
         margin-top: 3px;
         margin-left: auto;
         padding-top: 3px;
@@ -186,36 +186,36 @@
         -ms-flex-negative: 0;
         flex-shrink: 0;
     }
-    .my_home_title .btn_txt[data-v-6752ceb2] {
+    .my_home_title .btn_txt {
         font-size: 13px;
         letter-spacing: -0.07px;
         color: rgba(34, 34, 34, 0.5);
     }
-    .my_home_title .arr-right-gray[data-v-6752ceb2] {
+    .my_home_title .arr-right-gray {
         width: 20px;
         height: 20px;
     }
-    .purchase_list_tab[data-v-bbed98be] {
+    .purchase_list_tab {
         display: table;
         table-layout: fixed;
         width: 100%;
         background-color: #fafafa;
         border-radius: 12px;
     }
-    .tab_item[data-v-bbed98be] {
+    .tab_item {
         display: table-cell;
         text-align: center;
     }
-    .tab_item.total .count[data-v-bbed98be] {
+    .tab_item.total .count {
         color: #f15746;
     }
-    .tab_link[data-v-bbed98be] {
+    .tab_link {
         position: relative;
         display: block;
         padding-top: 18px;
         height: 96px;
     }
-    .tab_item:first-of-type .tab_link[data-v-bbed98be]:before {
+    .tab_item:first-of-type .tab_link:before {
         content: "";
         position: absolute;
         top: 18px;
@@ -224,27 +224,27 @@
         bottom: 18px;
         background-color: #ebebeb;
     }
-    .tab_link .title[data-v-bbed98be] {
+    .tab_link .title {
         font-size: 13px;
         letter-spacing: -0.07px;
         color: rgba(34, 34, 34, 0.8);
     }
-    .tab_link .count[data-v-bbed98be] {
+    .tab_link .count {
         margin-top: 2px;
         font-size: 18px;
         line-height: 20px;
         letter-spacing: -0.09px;
         font-weight: 700;
     }
-    .purchase_list .purchase_item[data-v-62dace61] {
+    .purchase_list .purchase_item {
         border-bottom: 1px solid #ebebeb;
     }
-    .history_product[data-v-62dace61] {
+    .history_product {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     }
-    .history_product .product_box[data-v-62dace61] {
+    .history_product .product_box {
         position: relative;
         -webkit-box-flex: 0;
         -ms-flex: none;
@@ -252,10 +252,10 @@
         width: 80px;
         height: 80px;
     }
-    .history_product .product_box .product[data-v-62dace61] {
+    .history_product .product_box .product {
         border-radius: 12px;
     }
-    .product_detail[data-v-62dace61] {
+    .product_detail {
         margin-left: 16px;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -267,7 +267,7 @@
         -ms-flex-item-align: center;
         align-self: center;
     }
-    .name[data-v-62dace61] {
+    .name {
         line-height: 17px;
         font-size: 14px;
         overflow: hidden;
@@ -277,11 +277,11 @@
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
     }
-    .size[data-v-62dace61] {
+    .size {
         line-height: 19px;
         margin-top: 4px;
     }
-    .size_text[data-v-62dace61] {
+    .size_text {
         display: inline-block;
         vertical-align: top;
         font-size: 14px;
@@ -290,7 +290,7 @@
         letter-spacing: -0.5px;
         color: rgba(34, 34, 34, 0.5);
     }
-    .history_status[data-v-62dace61] {
+    .history_status {
         margin-left: auto;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -300,51 +300,51 @@
         align-items: center;
         text-align: right;
     }
-    .history_status .status_box[data-v-62dace61] {
+    .history_status .status_box {
         display: none;
         margin-left: 10px;
         width: 134px;
     }
-    .history_status .status_box[data-v-62dace61]:first-child {
+    .history_status .status_box:first-child {
     width: 140px;
     }
-    .purchase_list.active_first .history_status .status_box[data-v-62dace61]:first-child {
+    .purchase_list.active_first .history_status .status_box:first-child {
         font-weight: 700;
     }
-    .date[data-v-62dace61] {
+    .date {
         font-size: 14px;
     }
-    .history_product .date[data-v-62dace61] {
+    .history_product .date {
         display: none;
     }
-    .all .status_box.field_status[data-v-62dace61],
-    .ask.finished .status_box.field_date_paid[data-v-62dace61],
-    .bid.finished .status_box.field_date_purchased[data-v-62dace61],
-    .bidding .status_box.field_expires_at[data-v-62dace61],
-    .bidding .status_box.field_price[data-v-62dace61],
-    .finished .status_box.field_status[data-v-62dace61],
-    .pending .status_box.field_status[data-v-62dace61] {
+    .all .status_box.field_status,
+    .ask.finished .status_box.field_date_paid,
+    .bid.finished .status_box.field_date_purchased,
+    .bidding .status_box.field_expires_at,
+    .bidding .status_box.field_price,
+    .finished .status_box.field_status,
+    .pending .status_box.field_status {
         display: block;
     }
-    .price[data-v-62dace61] {
+    .price {
         margin-top: 2px;
         font-size: 0;
     }
-    .amount[data-v-62dace61],
-    .unit[data-v-62dace61] {
+    .amount,
+    .unit {
         display: inline-block;
         font-size: 14px;
     }
-    .unit[data-v-62dace61] {
+    .unit {
         margin-top: -1px;
     }
-    .product[data-v-75e33658] {
+    .product {
         overflow: hidden;
         position: relative;
         padding-top: 100%;
         border-radius: 8px;
     }
-    .product[data-v-75e33658]:after {
+    .product:after {
         content: "";
         position: absolute;
         top: 0;
@@ -354,7 +354,7 @@
         background: rgba(0, 0, 0, 0);
         height: 80px;
     }
-    .purchase_item[data-v-62dace61] {
+    .purchase_item {
         padding: 12px;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -364,27 +364,27 @@
         align-items: center;
         cursor: pointer;
     }
-    .purchase_list .purchase_item[data-v-62dace61] {
+    .purchase_list .purchase_item {
     border-bottom: 1px solid #ebebeb;
     }
-    .purchase_item.bg_warning[data-v-62dace61] {
+    .purchase_item.bg_warning {
         background-color: #fef9f5;
     }
-    .purchase_item.buy_95[data-v-62dace61] .stocked_status_mark {
+    .purchase_item.buy_95 .stocked_status_mark {
         top: 3px;
         left: 3px;
     }
-    .image[data-v-548c90f9] {
+    .image {
         -o-object-fit: cover;
         object-fit: cover; 
         width: 100%; 
         height: 100%;
         image-rendering: -webkit-optimize-contrast; 
     }
-    .product_img[data-v-75e33658] {
+    .product_img {
         width: 91.03%;
     }
-    .product_img[data-v-75e33658] {
+    .product_img {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -394,40 +394,40 @@
         width: 81.5%;
         height: auto;
     }
-    .purchase_list_tab.sell .tab_item.total .count[data-v-bbed98be] {
+    .purchase_list_tab.sell .tab_item.total .count {
         color: #31b46e;
     }
-    .my .empty_area[data-v-e2f6767a] {
+    .my .empty_area {
         padding: 80px 0;
     }
-    .empty_area[data-v-e2f6767a] {
+    .empty_area {
       text-align: center;
     }
-    .empty_area .desc[data-v-e2f6767a] {
+    .empty_area .desc {
         font-size: 13px;
         letter-spacing: -.07px;
         color: rgba(34,34,34,.5);
         }
-        .interest_product .empty_area[data-v-e2f6767a] {
+        .interest_product .empty_area {
         margin: 0 10px;
         border-radius: 12px;
     }
-    .interest_product .empty_area .desc[data-v-e2f6767a] {
+    .interest_product .empty_area .desc {
         font-size: 14px;
         letter-spacing: -0.21px;
     }
-    .interest_product .empty_area .btn[data-v-e2f6767a] {
+    .interest_product .empty_area .btn {
         background-color: #fafafa;
     }
-    .interest_product[data-v-5f779880] {
+    .interest_product {
         margin: 0 -10px;
     }
-    .interest_product[data-v-5f779880]:after {
+    .interest_product:after {
         content: "";
         display: block;
         clear: both;
     }
-    .product_item[data-v-eb375314] {
+    .product_item {
         position: relative;
         display: inline-block;
         vertical-align: top;
@@ -438,15 +438,15 @@
         -o-transition: all 0.4s ease-in-out;
         transition: all 0.4s ease-in-out;
     }
-    .product_item .item_inner[data-v-eb375314] {
+    .product_item .item_inner {
         display: block;
         background-color: #fff;
         border-radius: 12px;
     }
-    .product_item .info_box[data-v-eb375314] {
+    .product_item .info_box {
         padding-top: 9px;
     }
-    .product_item .name[data-v-eb375314] {
+    .product_item .name {
         line-height: 17px;
         margin-top: 8.5px;
         max-height: 34px;
@@ -460,15 +460,15 @@
         font-size: 14px;
         color: #222;
     }
-    .product_item .price[data-v-eb375314] {
+    .product_item .price {
         padding-top: 7px;
     }
-    .product_item .amount[data-v-eb375314] {
+    .product_item .amount {
         font-size: 0;
         line-height: 0;
     }
-    .product_item .num[data-v-eb375314],
-    .product_item .won[data-v-eb375314] {
+    .product_item .num ,
+    .product_item .won {
         display: inline-block;
         vertical-align: top;
         line-height: 17px;
@@ -477,7 +477,7 @@
         font-weight: 700;
         letter-spacing: -0.04px;
     }
-    .product_item .desc[data-v-eb375314] {
+    .product_item .desc {
         line-height: 13px;
         font-size: 11px;
         color: rgba(34, 34, 34, 0.5);
@@ -501,7 +501,7 @@
     .brand-text.long-name {
         font-size: 12px;
     }
-    .layer[data-v-350bc372] {
+    .layer {
         position: fixed;
         top: 0;
         left: 0;
@@ -510,10 +510,10 @@
         background-color: rgba(34,34,34,.5);
         z-index: 1010;
     }
-    .layer_point .layer_container[data-v-350bc372] {
+    .layer_point .layer_container {
         width: 444px;
     }
-    .layer_container[data-v-350bc372] {
+    .layer_container {
         overflow: hidden;
         position: absolute;
         top: 50%;
@@ -527,7 +527,7 @@
         -webkit-box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
         box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
     }
-    .layer_header .title[data-v-350bc372] {
+    .layer_header .title {
         line-height: 22px;
         padding: 18px 50px 20px;
         min-height: 60px;
@@ -539,55 +539,55 @@
         text-align: center;
         background-color: #fff;
     }
-    .usable_wrap[data-v-28cabbb5] {
+    .usable_wrap {
         padding: 19px 32px 30px;
     }
-    .usable_point[data-v-28cabbb5] {
+    .usable_point {
         padding-bottom: 30px;
     }
-    .usable_point .title[data-v-28cabbb5] {
+    .usable_point .title {
         font-size: 14px;
         letter-spacing: -.21px;
     }
-    .point_box[data-v-28cabbb5] {
+    .point_box {
         padding: 18px 0 2px;
         border-bottom: 2px solid #222;
         line-height: 36px;
         font-size: 24px;
         letter-spacing: -.12px;
     }
-    .point_box .point[data-v-28cabbb5] {
+    .point_box .point {
         font-weight: 700;
     }
-    .point_box[data-v-28cabbb5] {
+    .point_box {
         padding: 18px 0 2px;
         border-bottom: 2px solid #222;
         line-height: 36px;
         font-size: 24px;
         letter-spacing: -.12px;
     }
-    .point_info[data-v-28cabbb5] {
+    .point_info {
         padding-top: 13px;
         font-size: 13px;
         letter-spacing: -.07px;
         color: rgba(34,34,34,.8);
     }
-    .point_info .info_item+.info_item[data-v-28cabbb5] {
+    .point_info .info_item+.info_item {
         margin-top: 8px;
         color: rgba(34,34,34,.5);
     }
-    .usable_list[data-v-28cabbb5] {
+    .usable_list {
         border-top: 1px solid #ebebeb;
         padding-top: 20px;
     }
-    .usable_item[data-v-28cabbb5] {
+    .usable_item {
         position: relative;
         padding-left: 11px;
         font-size: 12px;
         letter-spacing: -.06px;
         color: rgba(34,34,34,.8);
     }
-    .usable_item[data-v-28cabbb5]:before {
+    .usable_item:before {
         content: "";
         position: absolute;
         top: 9px;
@@ -600,7 +600,7 @@
         background-color: #333;
         border-radius: 50%;
     }
-    .layer_btn[data-v-350bc372] {
+    .layer_btn {
         padding: 24px 32px 32px;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -609,13 +609,13 @@
         -ms-flex-pack: center;
         justify-content: center;
     }
-    .layer_btn .btn[data-v-350bc372] {
+    .layer_btn .btn {
         width: 120px;
     }
-    .outline[data-v-3d1bcc82] {
+    .outline {
         border: 1px solid #d3d3d3;
     }
-    .medium[data-v-3d1bcc82] {
+    .medium {
         padding: 0 18px;
         height: 42px;
         line-height: 40px;
@@ -623,7 +623,7 @@
         font-size: 14px;
         letter-spacing: -.14px;
     }
-    .btn[data-v-3d1bcc82] {
+    .btn {
         display: inline-block;
         cursor: pointer;
         vertical-align: middle;
@@ -631,7 +631,7 @@
         color: rgba(34,34,34,.8);
         background-color: #fff;
     }
-    .btn_layer_close[data-v-350bc372] {
+    .btn_layer_close {
         position: absolute;
         top: 18px;
         right: 20px;
@@ -644,121 +644,106 @@
     
 </style>
 
-<div data-v-5f779880="" class="my_home">
-    <div data-v-5acef129="" data-v-5f779880="" class="user_membership">
-        <div data-v-5acef129="" class="user_detail">
-            <div data-v-5acef129="" class="user_thumb"><img data-v-5acef129="" src="https://kream.co.kr/_nuxt/img/blank_profile.4347742.png" alt="사용자 이미지" class="thumb_img" /></div>
-            <div data-v-5acef129="" class="user_info">
-                <div data-v-5acef129="" class="info_box">
-                    <strong data-v-5acef129="" class="name">wnscks19</strong>
-                    <p data-v-5acef129="" class="email">w******9@naver.com</p>
-                    <a data-v-3d1bcc82="" data-v-5acef129="" href="/TeamProject/user/myPageEdit" class="btn btn outlinegrey small" type="button"> 프로필 수정 </a>
-                    <a data-v-3d1bcc82="" data-v-5acef129="" href="/social/users/@ein7di" class="btn btn btn_my_style outlinegrey small" type="button"> 내 스타일 </a>
+<div class="my_home">
+    <div class="user_membership">
+        <div class="user_detail">
+            <div class="user_thumb"><img src="${userDTO.profile_img }" alt="https://kream.co.kr/_nuxt/img/blank_profile.4347742.png" class="thumb_img" /></div>
+            <div class="user_info">
+                <div class="info_box">
+                    <strong class="name">${userDTO.nickname }</strong>
+                    <p class="email">w******9@naver.com</p>
+                    <a href="/TeamProject/user/myPageEdit" class="btn btn outlinegrey small" type="button"> 프로필 수정 </a>
+                    <a href="/social/users/@ein7di" class="btn btn btn_my_style outlinegrey small" type="button"> 내 스타일 </a>
                 </div>
             </div>
         </div>
-        <div data-v-5acef129="" class="membership_detail">
-            <a data-v-5acef129="" href="#" class="membership_item disabled">
-                <strong data-v-5acef129="" class="info"> 일반 회원 </strong>
-                <p data-v-5acef129="" class="title">회원 등급</p>
+        <div class="membership_detail">
+            <a href="#" class="membership_item disabled">
+                <strong class="info"> 일반 회원 </strong>
+                <p class="title">회원 등급</p>
             </a>
-            <a data-v-5acef129=""  class="membership_item">
-                <strong data-v-5acef129="" class="info"> 400000P </strong>
-                <p data-v-5acef129="" class="title">포인트</p>
+            <a  class="membership_item">
+                <strong class="info"> 400000P </strong>
+                <p class="title">포인트</p>
             </a>
         </div>
     </div>
-    <div data-v-6752ceb2="" data-v-5f779880="" class="my_home_title">
-        <h3 data-v-6752ceb2="" class="title">구매 내역</h3>
-        <a data-v-6752ceb2="" href="#" class="btn_more">
-            <span data-v-6752ceb2="" class="btn_txt">더보기</span>
-            <div data-v-6752ceb2=""  class="icon sprite-icons arr-right-gray">
-                <img data-v-6752ceb2="" src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
+    <div class="my_home_title">
+        <h3 class="title">구매 내역</h3>
+        <a href="#" class="btn_more">
+            <span class="btn_txt">더보기</span>
+            <div  class="icon sprite-icons arr-right-gray">
+                <img src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
             </div>
         </a>
     </div>
-    <div data-v-5f779880="" class="recent_purchase">
-        <div data-v-bbed98be="" data-v-5f779880="" class="purchase_list_tab">
-            <div data-v-bbed98be="" class="tab_item total">
-                <a data-v-bbed98be="" href="#" class="tab_link">
-                    <dl data-v-bbed98be="" class="tab_box">
-                        <dt data-v-bbed98be="" class="title">전체</dt>
-                        <dd data-v-bbed98be="" class="count">1</dd>
+    <div class="recent_purchase">
+        <div class="purchase_list_tab">
+            <div class="tab_item total">
+                <a href="#" class="tab_link">
+                    <dl class="tab_box">
+                        <dt class="title">전체</dt>
+                        <dd class="count">1</dd>
                     </dl>
                 </a>
             </div>
-            <div data-v-bbed98be="" class="tab_item tab_on">
-                <a data-v-bbed98be="" href="#" class="tab_link">
-                    <dl data-v-bbed98be="" class="tab_box">
-                        <dt data-v-bbed98be="" class="title">입찰 중</dt>
-                        <dd data-v-bbed98be="" class="count">0</dd>
+            <div class="tab_item tab_on">
+                <a href="#" class="tab_link">
+                    <dl class="tab_box">
+                        <dt class="title">입찰 중</dt>
+                        <dd class="count">0</dd>
                     </dl>
                 </a>
             </div>
-            <div data-v-bbed98be="" class="tab_item">
-                <a data-v-bbed98be="" href="#" class="tab_link">
-                    <dl data-v-bbed98be="" class="tab_box">
-                        <dt data-v-bbed98be="" class="title">진행 중</dt>
-                        <dd data-v-bbed98be="" class="count">0</dd>
+            <div class="tab_item">
+                <a href="#" class="tab_link">
+                    <dl class="tab_box">
+                        <dt class="title">진행 중</dt>
+                        <dd class="count">0</dd>
                         <!---->
                     </dl>
                 </a>
             </div>
-            <div data-v-bbed98be="" class="tab_item">
-                <a data-v-bbed98be="" href="#" class="tab_link">
-                    <dl data-v-bbed98be="" class="tab_box">
-                        <dt data-v-bbed98be="" class="title">종료</dt>
-                        <dd data-v-bbed98be="" class="count">1</dd>
+            <div class="tab_item">
+                <a href="#" class="tab_link">
+                    <dl class="tab_box">
+                        <dt class="title">종료</dt>
+                        <dd class="count">1</dd>
                     </dl>
                 </a>
             </div>
         </div>
-        <div data-v-5f779880="">
-            <div data-v-21d527e4="" data-v-5f779880="" class="purchase_list all bid">
+        <div>
+            <div class="purchase_list all bid">
                 <!---->
-                <div data-v-62dace61="" data-v-21d527e4="" class="purchase_item buy">
-                    <div data-v-62dace61="" class="history_product">
-                        <div data-v-62dace61="" class="product_box">
-                            <div data-v-75e33658="" data-v-62dace61="" class="product" style="background-color: rgb(235, 240, 245);">
-                                <picture data-v-548c90f9="" data-v-75e33658="" class="picture product_img" style="height:80px;">
-                                    <source
-                                        data-v-548c90f9=""
-                                        type="image/webp"
-                                        srcset="
-                                            https://kream-phinf.pstatic.net/MjAyMjAzMDdfMTMw/MDAxNjQ2NjM5MjMzNzM2.pELmvUZpCO9IHBnqPuT-MM_3KgRHEBM3PwKQITCziUwg.qa5jj2sXWiAyhwX4RP5m5ozoZinAf3yX8kSdf7UChDEg.PNG/a_1379738ed20947a8a52338c76436c3b8.png?type=m_webp
-                                        "
-                                    />
-                                    <source
-                                        data-v-548c90f9=""
-                                        srcset="
-                                            https://kream-phinf.pstatic.net/MjAyMjAzMDdfMTMw/MDAxNjQ2NjM5MjMzNzM2.pELmvUZpCO9IHBnqPuT-MM_3KgRHEBM3PwKQITCziUwg.qa5jj2sXWiAyhwX4RP5m5ozoZinAf3yX8kSdf7UChDEg.PNG/a_1379738ed20947a8a52338c76436c3b8.png?type=m
-                                        "
-                                    />
+                <div class="purchase_item buy">
+                    <div class="history_product">
+                        <div class="product_box">
+                            <div class="product" style="background-color: rgb(235, 240, 245);">
+                                <picture  class="picture product_img" style="height:80px;">
                                     <img
-                                        data-v-548c90f9=""
                                         alt="Nike x Supreme Air Force 1 Low White"
                                         src="https://kream-phinf.pstatic.net/MjAyMjAzMDdfMTMw/MDAxNjQ2NjM5MjMzNzM2.pELmvUZpCO9IHBnqPuT-MM_3KgRHEBM3PwKQITCziUwg.qa5jj2sXWiAyhwX4RP5m5ozoZinAf3yX8kSdf7UChDEg.PNG/a_1379738ed20947a8a52338c76436c3b8.png?type=m"
                                         class="image"
                                     />
                                 </picture>
-                                <!----><!----><!---->
                             </div>
                         </div>
-                        <div data-v-62dace61="" class="product_detail">
+                        <div class="product_detail">
                             <!---->
-                            <p data-v-62dace61="" class="name">Nike x Supreme Air Force 1 Low White</p>
-                            <p data-v-62dace61="" class="size"><span data-v-62dace61="" class="size_text">270</span></p>
+                            <p class="name">Nike x Supreme Air Force 1 Low White</p>
+                            <p class="size"><span class="size_text">270</span></p>
                         </div>
                     </div>
-                    <div data-v-62dace61="" class="history_status">
-                        <div data-v-62dace61="" class="status_box field_price">
-                            <div data-v-62dace61="" class="price"><span data-v-62dace61="" class="amount">244,000</span><span data-v-62dace61="" class="unit">원</span></div>
+                    <div class="history_status">
+                        <div class="status_box field_price">
+                            <div class="price"><span class="amount">244,000</span><span class="unit">원</span></div>
                         </div>
-                        <div data-v-62dace61="" class="status_box field_date_purchased"><span data-v-62dace61="" class="date"> 21/11/08</span></div>
-                        <div data-v-62dace61="" class="status_box field_date_paid"><span data-v-62dace61="" class="date"> </span></div>
-                        <div data-v-62dace61="" class="status_box field_expires_at"><span data-v-62dace61="" class="date text-default">-</span></div>
-                        <div data-v-62dace61="" class="status_box field_status">
-                            <span data-v-62dace61="" class="status_txt text-default">배송완료</span>
+                        <div class="status_box field_date_purchased"><span class="date"> 21/11/08</span></div>
+                        <div class="status_box field_date_paid"><span class="date"> </span></div>
+                        <div class="status_box field_expires_at"><span class="date text-default">-</span></div>
+                        <div class="status_box field_status">
+                            <span class="status_txt text-default">배송완료</span>
                             <!---->
                         </div>
                     </div>
@@ -768,56 +753,56 @@
             <!---->
         </div>
     </div>
-    <div data-v-6752ceb2="" data-v-5f779880="" class="my_home_title">
-        <h3 data-v-6752ceb2="" class="title">판매 내역</h3>
-        <a data-v-6752ceb2="" href="#" class="btn_more">
-            <span data-v-6752ceb2="" class="btn_txt">더보기</span>
-            <div data-v-6752ceb2=""  class="icon sprite-icons arr-right-gray">
-                <img data-v-6752ceb2="" src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
+    <div class="my_home_title">
+        <h3 class="title">판매 내역</h3>
+        <a href="#" class="btn_more">
+            <span class="btn_txt">더보기</span>
+            <div class="icon sprite-icons arr-right-gray">
+                <img src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
             </div>
         </a>
     </div>
-    <div data-v-5f779880="" class="recent_purchase">
-        <div data-v-bbed98be="" data-v-5f779880="" class="purchase_list_tab sell">
-            <div data-v-bbed98be="" class="tab_item total">
-                <a data-v-bbed98be="" href="#" class="tab_link">
-                    <dl data-v-bbed98be="" class="tab_box">
-                        <dt data-v-bbed98be="" class="title">전체</dt>
-                        <dd data-v-bbed98be="" class="count">0</dd>
+    <div class="recent_purchase">
+        <div class="purchase_list_tab sell">
+            <div class="tab_item total">
+                <a href="#" class="tab_link">
+                    <dl class="tab_box">
+                        <dt class="title">전체</dt>
+                        <dd class="count">0</dd>
                     </dl>
                 </a>
             </div>
-            <div data-v-bbed98be="" class="tab_item tab_on">
-                <a data-v-bbed98be="" href="#" class="tab_link">
-                    <dl data-v-bbed98be="" class="tab_box">
-                        <dt data-v-bbed98be="" class="title">입찰 중</dt>
-                        <dd data-v-bbed98be="" class="count">0</dd>
+            <div class="tab_item tab_on">
+                <a href="#" class="tab_link">
+                    <dl class="tab_box">
+                        <dt class="title">입찰 중</dt>
+                        <dd class="count">0</dd>
                     </dl>
                 </a>
             </div>
-            <div data-v-bbed98be="" class="tab_item">
-                <a data-v-bbed98be="" href="#" class="tab_link">
-                    <dl data-v-bbed98be="" class="tab_box">
-                        <dt data-v-bbed98be="" class="title">진행 중</dt>
-                        <dd data-v-bbed98be="" class="count">0</dd>
+            <div class="tab_item">
+                <a href="#" class="tab_link">
+                    <dl class="tab_box">
+                        <dt class="title">진행 중</dt>
+                        <dd class="count">0</dd>
                         <!---->
                     </dl>
                 </a>
             </div>
-            <div data-v-bbed98be="" class="tab_item">
-                <a data-v-bbed98be="" href="#" class="tab_link">
-                    <dl data-v-bbed98be="" class="tab_box">
-                        <dt data-v-bbed98be="" class="title">종료</dt>
-                        <dd data-v-bbed98be="" class="count">0</dd>
+            <div class="tab_item">
+                <a href="#" class="tab_link">
+                    <dl class="tab_box">
+                        <dt class="title">종료</dt>
+                        <dd class="count">0</dd>
                     </dl>
                 </a>
             </div>
         </div>
-        <div data-v-5f779880="">
-            <div data-v-21d527e4="" data-v-5f779880="" class="purchase_list all ask">
+        <div>
+            <div class="purchase_list all ask">
                 <!---->
-                <div data-v-e2f6767a="" data-v-21d527e4="" class="empty_area">
-                    <p data-v-e2f6767a="" class="desc">거래 내역이 없습니다.</p>
+                <div class="empty_area">
+                    <p class="desc">거래 내역이 없습니다.</p>
                     <!---->
                 </div>
                 <!----><!----><!----><!---->
@@ -825,37 +810,23 @@
             <!---->
         </div>
     </div>
-    <div data-v-6752ceb2="" data-v-5f779880="" class="my_home_title">
-        <h3 data-v-6752ceb2="" class="title">관심 상품</h3>
-        <a data-v-6752ceb2="" href="/TeamProject/user/likePro" class="btn_more">
-            <span data-v-6752ceb2="" class="btn_txt">더보기</span>
-            <div data-v-6752ceb2=""  class="icon sprite-icons arr-right-gray">
-                <img data-v-6752ceb2="" src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
+    <div class="my_home_title">
+        <h3 class="title">관심 상품</h3>
+        <a href="/TeamProject/user/likePro" class="btn_more">
+            <span class="btn_txt">더보기</span>
+            <div class="icon sprite-icons arr-right-gray">
+                <img src="/TeamProject/img/user/myPageContainer/more_icon.svg" alt="더보기" style="width:16px; height:16px;">
             </div>
         </a>
     </div>
-    <div data-v-5f779880="" class="interest_product">
-        <div data-v-5f779880="" class="product_list">
-            <div data-v-eb375314="" data-v-5f779880="" class="product_item">
-                <a data-v-eb375314="" href="/products/57553" class="item_inner">
-                    <div data-v-eb375314="" class="thumb_box">
-                        <div data-v-75e33658="" data-v-eb375314="" class="product" style="background-color: rgb(244, 244, 244);">
-                            <picture data-v-548c90f9="" data-v-75e33658="" class="picture product_img">
-                                <source
-                                    data-v-548c90f9=""
-                                    type="image/webp"
-                                    srcset="
-                                        https://kream-phinf.pstatic.net/MjAyMjA0MTNfMjY4/MDAxNjQ5ODQyMTA1ODc0.-TvJ4Ce3ZEkJvgGL1EA64df67Vyow_t31WKv126nxbwg.s_s7bWMGTmnEAKAuQ-Iz4Ml9oKoaxIIvp4QcLNdbHfog.PNG/a_3e9ab26474954befb3fb619a0ec2191d.png?type=m_webp
-                                    "
-                                />
-                                <source
-                                    data-v-548c90f9=""
-                                    srcset="
-                                        https://kream-phinf.pstatic.net/MjAyMjA0MTNfMjY4/MDAxNjQ5ODQyMTA1ODc0.-TvJ4Ce3ZEkJvgGL1EA64df67Vyow_t31WKv126nxbwg.s_s7bWMGTmnEAKAuQ-Iz4Ml9oKoaxIIvp4QcLNdbHfog.PNG/a_3e9ab26474954befb3fb619a0ec2191d.png?type=m
-                                    "
-                                />
+    <div class="interest_product">
+        <div class="product_list">
+            <div class="product_item">
+                <a href="/products/57553" class="item_inner">
+                    <div class="thumb_box">
+                        <div class="product" style="background-color: rgb(244, 244, 244);">
+                            <picture class="picture product_img">
                                 <img
-                                    data-v-548c90f9=""
                                     alt="상품 이미지"
                                     src="https://kream-phinf.pstatic.net/MjAyMjA0MTNfMjY4/MDAxNjQ5ODQyMTA1ODc0.-TvJ4Ce3ZEkJvgGL1EA64df67Vyow_t31WKv126nxbwg.s_s7bWMGTmnEAKAuQ-Iz4Ml9oKoaxIIvp4QcLNdbHfog.PNG/a_3e9ab26474954befb3fb619a0ec2191d.png?type=m"
                                     class="image"
@@ -864,40 +835,26 @@
                             <!----><!----><!---->
                         </div>
                     </div>
-                    <div data-v-eb375314="" class="info_box">
-                        <div data-v-eb375314="" class="brand">
+                    <div class="info_box">
+                        <div class="brand">
                             <!---->
-                            <p data-v-eb375314="" class="brand-text">Hermes</p>
+                            <p class="brand-text">Hermes</p>
                         </div>
-                        <p data-v-eb375314="" class="name">Hermes Izmir Sandal Calfskin &amp; Gold</p>
+                        <p class="name">Hermes Izmir Sandal Calfskin &amp; Gold</p>
                         <!---->
-                        <div data-v-eb375314="" class="price">
-                            <div data-v-eb375314="" class="amount md"><em data-v-eb375314="" class="num"> 1,199,000 </em><span data-v-eb375314="" class="won md">원</span></div>
-                            <div data-v-eb375314="" class="desc"><p data-v-eb375314="">즉시 구매가</p></div>
+                        <div class="price">
+                            <div class="amount md"><em class="num"> 1,199,000 </em><span class="won md">원</span></div>
+                            <div class="desc"><p>즉시 구매가</p></div>
                         </div>
                     </div>
                 </a>
             </div>
-            <div data-v-eb375314="" data-v-5f779880="" class="product_item">
-                <a data-v-eb375314="" href="/products/46178" class="item_inner">
-                    <div data-v-eb375314="" class="thumb_box">
-                        <div data-v-75e33658="" data-v-eb375314="" class="product" style="background-color: rgb(244, 244, 244);">
-                            <picture data-v-548c90f9="" data-v-75e33658="" class="picture product_img">
-                                <source
-                                    data-v-548c90f9=""
-                                    type="image/webp"
-                                    srcset="
-                                        https://kream-phinf.pstatic.net/MjAyMTEyMDJfMjUw/MDAxNjM4NDIyMTM5MzY4.R9ZV4AuKye2tKA3g6W_zCeDEKTWgsAhJyYnbAvjFAYsg.PQ8cY_jktruT6TjdGhhczKmkySmR-wfv7rhv-gmJWmAg.PNG/a_0bfa4c7bd3f64cc5b2f6689f97607277.png?type=m_webp
-                                    "
-                                />
-                                <source
-                                    data-v-548c90f9=""
-                                    srcset="
-                                        https://kream-phinf.pstatic.net/MjAyMTEyMDJfMjUw/MDAxNjM4NDIyMTM5MzY4.R9ZV4AuKye2tKA3g6W_zCeDEKTWgsAhJyYnbAvjFAYsg.PQ8cY_jktruT6TjdGhhczKmkySmR-wfv7rhv-gmJWmAg.PNG/a_0bfa4c7bd3f64cc5b2f6689f97607277.png?type=m
-                                    "
-                                />
+            <div class="product_item">
+                <a href="/products/46178" class="item_inner">
+                    <div class="thumb_box">
+                        <div class="product" style="background-color: rgb(244, 244, 244);">
+                            <picture class="picture product_img">
                                 <img
-                                    data-v-548c90f9=""
                                     alt="상품 이미지"
                                     src="https://kream-phinf.pstatic.net/MjAyMTEyMDJfMjUw/MDAxNjM4NDIyMTM5MzY4.R9ZV4AuKye2tKA3g6W_zCeDEKTWgsAhJyYnbAvjFAYsg.PQ8cY_jktruT6TjdGhhczKmkySmR-wfv7rhv-gmJWmAg.PNG/a_0bfa4c7bd3f64cc5b2f6689f97607277.png?type=m"
                                     class="image"
@@ -906,19 +863,19 @@
                             <!----><!----><!---->
                         </div>
                     </div>
-                    <div data-v-eb375314="" class="info_box">
-                        <div data-v-eb375314="" class="brand">
+                    <div class="info_box">
+                        <div class="brand">
                             <!---->
-                            <p data-v-eb375314="" class="brand-text">Mihara Yasuhiro</p>
+                            <p class="brand-text">Mihara Yasuhiro</p>
                         </div>
-                        <p data-v-eb375314="" class="name">Maison Mihara Yasuhiro Blakey OG Sole Canvas Low-top Sneaker Black White</p>
+                        <p class="name">Maison Mihara Yasuhiro Blakey OG Sole Canvas Low-top Sneaker Black White</p>
                         <!---->
-                        <div data-v-eb375314="" class="price">
-                            <div data-v-eb375314="" class="amount md">
-                                <em data-v-eb375314="" class="num"> - </em>
+                        <div class="price">
+                            <div class="amount md">
+                                <em class="num"> - </em>
                                 <!---->
                             </div>
-                            <div data-v-eb375314="" class="desc"><p data-v-eb375314="">즉시 구매가</p></div>
+                            <div class="desc"><p data-v-eb375314="">즉시 구매가</p></div>
                         </div>
                     </div>
                 </a>
@@ -927,31 +884,31 @@
         <!---->
     </div>
     <!---->
-    <div data-v-350bc372="" data-v-28cabbb5="" data-v-5f779880="" class="layer_point layer md" style="display: none;">
-        <div data-v-350bc372="" class="layer_container">
-            <div data-v-350bc372="" class="layer_header"><h2 data-v-28cabbb5="" data-v-350bc372="" class="title">이용안내</h2></div>
-            <div data-v-350bc372="" class="layer_content">
-                <div data-v-28cabbb5="" data-v-350bc372="" class="usable_wrap">
-                    <div data-v-28cabbb5="" data-v-350bc372="" class="usable_point">
-                        <h3 data-v-28cabbb5="" data-v-350bc372="" class="title">사용 가능한 포인트</h3>
-                        <p data-v-28cabbb5="" data-v-350bc372="" class="point_box"><span data-v-28cabbb5="" data-v-350bc372="" class="point" id="point"></span><span data-v-28cabbb5="" data-v-350bc372="" class="unit">P</span></p>
-                        <div data-v-28cabbb5="" data-v-350bc372="" class="point_info">
-                            <p data-v-28cabbb5="" data-v-350bc372="" class="info_item">이번달 소멸 예정 포인트 0P</p>
-                            <p data-v-28cabbb5="" data-v-350bc372="" class="info_item">포인트 유효기간은 적립일로부터 최대 1년까지이며, 유형에 따라 달라질 수 있습니다.</p>
+    <div class="layer_point layer md" style="display: none;">
+        <div class="layer_container">
+            <div class="layer_header"><h2 class="title">이용안내</h2></div>
+            <div class="layer_content">
+                <div class="usable_wrap">
+                    <div class="usable_point">
+                        <h3 class="title">사용 가능한 포인트</h3>
+                        <p class="point_box"><span class="point" id="point"></span><span class="unit">P</span></p>
+                        <div class="point_info">
+                            <p class="info_item">이번달 소멸 예정 포인트 0P</p>
+                            <p class="info_item">포인트 유효기간은 적립일로부터 최대 1년까지이며, 유형에 따라 달라질 수 있습니다.</p>
                         </div>
                     </div>
-                    <ul data-v-28cabbb5="" data-v-350bc372="" class="usable_list">
-                        <li data-v-28cabbb5="" data-v-350bc372="" class="usable_item">1,000P 이상부터 구매금액 제한 없이 사용하실 수 있습니다.</li>
-                        <li data-v-28cabbb5="" data-v-350bc372="" class="usable_item">입찰 삭제, 거래 취소 시 사용한 포인트는 환불됩니다.</li>
-                        <li data-v-28cabbb5="" data-v-350bc372="" class="usable_item">먼저 적립된 포인트부터 순서대로 사용되며, 사용하지 않으실 경우 유효기간이 지나면 자동 소멸됩니다.</li>
-                        <li data-v-28cabbb5="" data-v-350bc372="" class="usable_item">유효기간이 지난 후 환불받은 포인트는 다시 사용하실 수 없습니다.</li>
+                    <ul class="usable_list">
+                        <li class="usable_item">1,000P 이상부터 구매금액 제한 없이 사용하실 수 있습니다.</li>
+                        <li class="usable_item">입찰 삭제, 거래 취소 시 사용한 포인트는 환불됩니다.</li>
+                        <li class="usable_item">먼저 적립된 포인트부터 순서대로 사용되며, 사용하지 않으실 경우 유효기간이 지나면 자동 소멸됩니다.</li>
+                        <li class="usable_item">유효기간이 지난 후 환불받은 포인트는 다시 사용하실 수 없습니다.</li>
                     </ul>
                 </div>
-                <div data-v-28cabbb5="" data-v-350bc372="" class="layer_btn"><a data-v-3d1bcc82="" data-v-28cabbb5="" href="#" class="btn outline medium" data-v-350bc372=""> 확인 </a></div>
+                <div class="layer_btn"><a data-v-28cabbb5="" href="#" class="btn outline medium" > 확인 </a></div>
             </div>
-            <a data-v-28cabbb5="" data-v-350bc372="" href="#" class="btn_layer_close">
-                <svg data-v-28cabbb5="" data-v-350bc372="" xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-                    <use data-v-28cabbb5="" data-v-350bc372="" href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
+            <a href="#" class="btn_layer_close">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
+                    <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
                 </svg>
             </a>
         </div>

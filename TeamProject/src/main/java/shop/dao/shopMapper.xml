@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="shopSQL">
+	<select id="getimage" parameterType="int" resultType="productImg"> 
+	select * from pro_image where product_id = ${product_id}
+	</select>
+
+	<select id="getproduct" parameterType="int" resultType="product"> 
+	select * from product where product_id = ${product_id}
+	</select>
+	
+	<select id="getSellList" parameterType="int" resultType="sellhistory">
+		select * from sell_history where product_id=${product_id} and status1='입찰중'
+	</select>
+	
+	<select id="getSellDTO" parameterType="java.util.Map" resultType="sellhistory">
+		select * from (select * from sell_history order by sell_price) 
+		where product_id=${product_id} and size_type=${size} and status1='입찰중' and <![CDATA[rownum <= 1 ]]>
+	</select>
+	
+	<select id="getBuyDTO" parameterType="java.util.Map" resultType="buyhistory">
+		select * from (select * from buy_history order by buy_price desc) 
+		where product_id=${product_id} and size_type=${size} and status1='입찰중' and <![CDATA[rownum <= 1 ]]>
+	</select>
+	
+	<select id="getDefalutAddress" parameterType="String" resultType="useraddress">
+		select * from address where user_id=#{user_id} and flag=1
+	</select>
+</mapper>
