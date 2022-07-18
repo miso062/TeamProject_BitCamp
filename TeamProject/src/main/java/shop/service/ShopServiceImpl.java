@@ -31,7 +31,13 @@ public class ShopServiceImpl implements ShopService {
 		int endNum = startNum+3;
 		
 		Map<String, Integer>map = new HashMap<String, Integer>();
-		return null;
+		map.put("startNum", startNum);
+		map.put("endNum", endNum);
+		
+		Map<String, Object> sendMap = shopDAO.scrollProduct(map);
+		sendMap.put("num", startNum + 4);
+		
+		return sendMap;
   }
 
 	@Override

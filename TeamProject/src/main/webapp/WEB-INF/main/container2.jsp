@@ -231,7 +231,7 @@ $(document).ready(function(){
 				$('<div/>',{
 					class: 'cd2_product_item'
 				}).append($('<div/>',{
-						class: 'cd2_item_inner'
+					class: 'cd2_item_inner'
 				}).append($('<div/>',{
 					class: 'cd2_thum_box'
 				}).append($('<div/>',{
