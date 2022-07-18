@@ -116,5 +116,15 @@ public class UserDAOImpl implements UserDAO {
 	public Map<String, String> bookMarkGet(Map<String, Object> map) {
 		return sqlSession.selectOne("userSQL.bookMarkGet", map);
 	}
+
+	@Override
+	public void SignUpNaver(UserDTO userDTO) {
+		sqlSession.selectOne("userSQL.signUpNaver", userDTO);
+	}
+
+	@Override
+	public UserDTO loginNaver(String user_id) {
+		return sqlSession.selectOne("userSQL.loginNaver", user_id);
+	}
 }
 	

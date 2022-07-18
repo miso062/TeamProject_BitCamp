@@ -276,8 +276,10 @@ public class UserController {
 	@PostMapping(value="signUpCheckNaver")
 	@ResponseBody
 	public String signUpCheckNaver(@ModelAttribute UserDTO userDTO) {
-	
-		return  userService.signUpCheckNaver(userDTO);
+		System.out.println("1번!!");
+		String check = userService.signUpCheckNaver(userDTO);
+		System.out.println("-----------2" + check);
+		return check;
 	}
 
 	//찜하기
