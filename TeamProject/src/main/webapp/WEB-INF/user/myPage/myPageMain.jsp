@@ -647,7 +647,7 @@
 <div class="my_home">
     <div class="user_membership">
         <div class="user_detail">
-            <div class="user_thumb"><img src="${userDTO.profile_img }" alt="https://kream.co.kr/_nuxt/img/blank_profile.4347742.png" class="thumb_img" /></div>
+            <div class="user_thumb"><img src="${userDTO.profile_img }" alt="사용자이미지" class="thumb_img" /></div>
             <div class="user_info">
                 <div class="info_box">
                     <strong class="name">${userDTO.nickname }</strong>

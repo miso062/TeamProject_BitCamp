@@ -2,6 +2,7 @@ package user.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -19,8 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import product.bean.Buy_historyDTO;
+import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
 import user.send.Request;
@@ -83,10 +85,11 @@ public class UserController {
 	@GetMapping(value="myPage")
 	public String myPageMain(Model model, HttpSession session) {
 		String user_id = (String) session.getAttribute("memId");
-		System.out.println(session.getAttribute("user_id"));
 		UserDTO userDTO = userService.getUserInfo(user_id);
-		userService.getBuyHistory(user_id);
-		userService.getSellHistory(user_id);
+		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
+		List<Sell_historyDTO> sell_historyList = userService.getSellHistory(user_id);
+		model.addAttribute("buy_historyList", buy_historyList);
+		model.addAttribute("sell_historyList", sell_historyList);
 		model.addAttribute("userDTO", userDTO);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageMain.jsp");
 		return "forward:/user/my";
@@ -95,10 +98,7 @@ public class UserController {
 	@GetMapping(value="myPageEdit")
 	public String myPageEdit(Model model, HttpSession session) {
 		String user_id = (String) session.getAttribute("memId");
-		System.out.println(session.getAttribute("user_id"));
 		UserDTO userDTO = userService.getUserInfo(user_id);
-		//UserDTO userDTO = userService.getUserInfo("eunji@gmail.com");
-		//System.out.println(userDTO);
 		
 		model.addAttribute("userDTO", userDTO);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageEdit.jsp");
@@ -106,7 +106,7 @@ public class UserController {
 	}
 	
 	@PostMapping(value="update")
-	public String updateUser(@ModelAttribute UserDTO userDTO, HttpSession session) {
+	public String updateUser(@RequestParam UserDTO userDTO, HttpSession session) {
 		System.out.println(userDTO);
 		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
 		userService.update(userDTO, session);
@@ -115,14 +115,13 @@ public class UserController {
 	
 	@PostMapping(value="updateImg")
 	@ResponseBody
-	public void updateImg(@RequestParam MultipartFile multipartFile, HttpSession session) {
-
+	public void updateImg(@RequestParam MultipartFile img, HttpSession session) {
 		String filePath = session.getServletContext().getRealPath("/WEB-INF/img/user/storage");
-		String fileName = multipartFile.getOriginalFilename();
+		String fileName = img.getOriginalFilename();
 		System.out.println(filePath);
 		File file = new File(filePath, fileName);
 		try {
-			multipartFile.transferTo(file);
+			img.transferTo(file);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -131,10 +130,10 @@ public class UserController {
 	
 	@PostMapping(value="deleteImg")
 	@ResponseBody
-	public void deleteImg(@RequestParam MultipartFile multipartFile, HttpSession session) {
+	public void deleteImg(@RequestParam MultipartFile img, HttpSession session) {
 		
 		String filePath = session.getServletContext().getRealPath("/WEB-INF/img/user/storage");
-		String fileName = multipartFile.getOriginalFilename();
+		String fileName = img.getOriginalFilename();
 		
 		File file = new File(filePath, fileName);
 		if(file.exists()) { 
