@@ -74,6 +74,61 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="layer_address layer lg"><!-- style="display: none;" -->
+				    <div class="layer_container">
+				        <div class="layer_header"><h2 class="layer_title">주소록</h2></div>
+				        <div class="layer_content">
+				            <div class="list_wrap">
+				                <div class="my_list">
+				                    <div class="other">
+				                        <div class="other_list">
+				                            <div class="my_item is_active select">
+				                                <div class="info_bind">
+				                                    <div class="address_info">
+				                                        <div class="name_box"><span class="name">김**</span><span class="mark">기본 배송지</span></div>
+				                                        <p class="phone">
+				                                            010<span class="hyphen"></span>9<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="hyphen"></span><span class="dot"></span>150
+				                                        </p>
+				                                        <div class="address_box">
+				                                            <span class="zipcode">(13332)</span><span class="address">경기 성남시 수정구 산성대로173번길 20-15 (수진동) 1층</span>
+				                                        </div>
+				                                    </div>
+				                                </div>
+				                                <div class="btn_bind">
+				                                    <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
+				                                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-check-s" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-check-s"></use>
+				                                    </svg>
+				                                </div>
+				                            </div>
+				                            <div class="my_item select">
+				                                <div class="info_bind">
+				                                    <div class="address_info">
+				                                        <div class="name_box">
+				                                            <span class="name">김**</span>
+				                                        </div>
+				                                        <p class="phone">
+				                                            010<span class="hyphen"></span>9<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="hyphen"></span><span class="dot"></span>150
+				                                        </p>
+				                                        <div class="address_box"><span class="zipcode">(13536)</span><span class="address">경기 성남시 분당구 판교역로 4 (백현동) 1층</span></div>
+				                                    </div>
+				                                </div>
+				                                <div class="btn_bind"><!----></div>
+				                            </div>
+				                        </div>
+				                    </div>
+				                </div>
+				                <!---->
+				            </div>
+				        </div>
+				        <a href="#" class="btn_layer_close">
+				            <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons ico-close">
+				                <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
+				            </svg>
+				        </a>
+				    </div>
+				</div>
+
                 <div class="layer_delivery layer lg" style="display: none;">
                     <div class="layer_container">
                         <div class="layer_header"><h2 class="layer_title">새 주소 추가</h2></div>
@@ -563,6 +618,7 @@ var buyer_name = '구매자이름';
 var buyer_tel = '폰-번-호';
 var buyer_addr = '구매자시 배송지구 주소동';
 var buyer_postcode = '우편-번호'
+var amount = 1;
 
 // 즉시 결제
 function general_request_pay() {
@@ -571,7 +627,7 @@ function general_request_pay() {
 	    pay_method : 'card', //생략 가능
 	    merchant_uid: merchant_uid, // 상점에서 관리하는 주문 번호
 	    name : name,
-	    amount : 1,
+	    amount : amount,
 	    buyer_email : buyer_email,
 	    buyer_name : buyer_name,
 	    buyer_tel : buyer_tel,
