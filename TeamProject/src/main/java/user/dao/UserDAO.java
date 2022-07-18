@@ -1,7 +1,10 @@
 package user.dao;
 
+import java.util.List;
 import java.util.Map;
 
+import product.bean.Buy_historyDTO;
+import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
 
@@ -24,4 +27,6 @@ public interface UserDAO {
 	public int checkNaver(String hp);
 	public void updateImg(Map<String, String> map);
 	public void deleteImg(String user_id);
+	public List<Buy_historyDTO> getBuyHistory(String user_id);
+	public List<Sell_historyDTO> getSellHistory(String user_id);
 }

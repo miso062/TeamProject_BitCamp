@@ -701,10 +701,10 @@ svg:not(:root) {
                 <h3>프로필 정보</h3>
             </div>
         </div>
-		<form id="updateImgForm" name="updateImgForm"><!-- method="post" enctype="multipart/form-data" -->
+		<form id="updateImgForm" name="updateImgForm"> <!-- method="post" enctype="multipart/form-data" -->
             <div class="user_profile">
                 <div class="profile_thumb">
-                    <img src="${userDTO.profile_img }" alt="https://kream.co.kr/_nuxt/img/blank_profile.4347742.png" name="profile_img" class="thumb_img profile_img">
+                    <img src="${userDTO.profile_img }" alt="사용자이미지" name="profile_img" class="thumb_img profile_img">
                 </div>
                 <div class="profile_detail">
                     <strong class="name" name="nickname" id="show_userid_title nickname">${userDTO.nickname }</strong>
@@ -1110,47 +1110,49 @@ $(document).on('change' ,'#hp_key' , function(){
 		alert('인증번호가 일치하지 않습니다.')
 	}
 });
+
 /* 이미지변경 */
-$('#upImage').click(function(){
+
+$('#upImage').on('click', function(){
  	
 	$('#imageFileInput').trigger('click');
 
- 	$('.imageFileInput').on('change', function(){
+ 	$('#imageFileInput').on('change', function(){
  		readURL(this);
  	});
  	
  	function readURL(input){
- 		
  		if(input.files[0]){
  			var reader = new FileReader();
  			reader.onload = function(e){
  				$('.thumb_img').attr('src', e.target.result); 
  			}
  			reader.readAsDataURL(input.files[0]);
- 		}
- 		//ajax
- 		var formData = new FormData($('#updateImgForm')[0]);
-
- 		$.ajax({
- 			type: 'post',
- 			url: '/TeamProject/user/updateImg',
- 			enctype: 'multipart/form-data',
- 			processData: false,
- 			contentType: false,
- 			data: formData,
- 			success: function(){
- 			},
- 			error: function(err){
- 				console.log(err);
- 			}
- 		});	
+ 	    }
  	}
-});
-/* 이미지 제거 */
-$('.delImage').click(function(){
-	
+ 	
+	//ajax
 	var formData = new FormData($('#updateImgForm')[0]);
 	
+	$.ajax({
+		type: 'post',
+		url: '/TeamProject/user/updateImg',
+		enctype: 'multipart/form-data',
+		processData: false,
+		contentType: false,
+		data: formData,
+		success: function(){
+			alert("사진이 변경되었습니다.");
+		},error: function(err){
+			console.log(err);
+		}
+	});	
+});
+
+/* 이미지 제거 */
+$('#delImage').on('click', function(){
+	var formData = new FormData($('#updateImgForm')[0]);
+
 	$.ajax({
 		type: 'post',
 		url: '/TeamProject/user/deleteImg',
@@ -1159,7 +1161,7 @@ $('.delImage').click(function(){
 		contentType: false,
 		data: formData, 
 		success: function(){
-			$('.thumb_img').attr('src', 'https://kream.co.kr/_nuxt/img/blank_profile.4347742.png');
+			$('.thumb_img').attr('src', '/TeamProject/img/user/profile.png');
 		},error: function(err){
 			console.log(err);
 		}

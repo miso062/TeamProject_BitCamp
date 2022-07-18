@@ -1,15 +1,15 @@
 package user.service;
 
+import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.web.multipart.MultipartFile;
 
+import product.bean.Buy_historyDTO;
+import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
-import user.send.SmsResponse;
 
 public interface UserService {
 	
@@ -28,6 +28,6 @@ public interface UserService {
 	public String signUpCheckNaver(UserDTO userDTO);
 	public void deleteImg();
 	public void updateImg(String fileName);
-	public void getBuyHistory(String user_id);
-	public void getSellHistory(String user_id);
+	public List<Buy_historyDTO> getBuyHistory(String user_id);
+	public List<Sell_historyDTO> getSellHistory(String user_id);
 }
