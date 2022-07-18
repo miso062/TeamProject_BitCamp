@@ -24,6 +24,7 @@ public interface UserService {
 	public String signUpWrite(UserDTO userDTO);
 	public void update(UserDTO userDTO, HttpSession session);
 	public String checkId(String user_id);
+	public String signUpCheckNaver(UserDTO userDTO);
 	public void deleteImg();
 	public void updateImg(String fileName);
 	public void getBuyHistory(String user_id);

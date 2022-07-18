@@ -192,14 +192,32 @@ public class UserServiceImpl implements UserService {
 		}
 		return check;
 	}
+  
 	@Override
+	public String signUpCheckNaver(UserDTO userDTO) {
+		String check;
+		//휴대전화로 동일가입여부 조회
+		String hp = userDTO.getHp();
+		int a = userDAO.signUpCheck(hp);
+		if(a==0) {
+			//다시 휴대전화와 가입타입을 네이버로 해 다시 한다.
+			int b = userDAO.checkNaver(hp);
+			if
+			String user_id = userDTO.getUser_id();
+				
+		}else {
+			check="fail";
+		}
+		return check;
+  }
+  
+  @Override
 	public void getBuyHistory(String user_id) {
 		// TODO Auto-generated method stub
-		
 	}
+  
 	@Override
 	public void getSellHistory(String user_id) {
 		// TODO Auto-generated method stub
-		
 	}
 }

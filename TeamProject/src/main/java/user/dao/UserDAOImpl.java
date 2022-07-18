@@ -106,5 +106,10 @@ public class UserDAOImpl implements UserDAO {
 	public void deleteImg(String user_id) {
 		sqlSession.update("userSQL.deleteImg", user_id);
 	}
+
+	@Override
+	public int checkNaver(String hp) {
+		return sqlSession.selectOne("userSQL.checkNaver", hp);
+	}
 }
 	

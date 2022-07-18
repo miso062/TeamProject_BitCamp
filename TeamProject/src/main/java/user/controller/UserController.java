@@ -236,7 +236,14 @@ public class UserController {
 		
 		System.out.println(securityTest + " | " + encodeTest);
 	}
-
+	
+	//아이디 중복체크
+	@PostMapping(value="checkId")
+	@ResponseBody
+	public String checkId(@RequestParam String user_id) {
+		return userService.checkId(user_id);
+	}
+	
 	//회원가입 별명 유효성 검사
 	@PostMapping(value="checkNick")
 	@ResponseBody
@@ -264,13 +271,14 @@ public class UserController {
 		String check = userService.signUpWrite(userDTO);
 		return check;
 	}
-	//아이디 중복체크
-	@PostMapping(value="checkId")
-	@ResponseBody
-	public String checkId(@RequestParam String user_id) {
-		return userService.checkId(user_id);
-	}
 	
+	//네이버 회원가입 및 로그인
+	@PostMapping(value="signUpCheckNaver")
+	@ResponseBody
+	public String signUpCheckNaver(@ModelAttribute UserDTO userDTO) {
+	
+		return  userService.signUpCheckNaver(userDTO);
+	}
 
 	//찜하기
 	@PostMapping(value="bookMarkInsert")
