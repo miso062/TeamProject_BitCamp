@@ -26,4 +26,6 @@ public interface UserService {
 	public String checkId(String user_id);
 	public void deleteImg();
 	public void updateImg(String fileName);
+	public void getBuyHistory(String user_id);
+	public void getSellHistory(String user_id);
 }
