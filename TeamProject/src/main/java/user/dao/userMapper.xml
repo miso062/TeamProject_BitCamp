@@ -78,7 +78,7 @@
 						,profile_img = #{profile_img}
 	</update>
   
-	<select id="bookMarkGet" parameterType="java.util.Map" resultType="">
+	<select id="bookMarkGet" parameterType="java.util.Map" resultType="user">
 		select * from user_table where user_id=#{id}, product_id=#{product_id}
 	</select>
   
