@@ -24,6 +24,7 @@ public interface UserService {
 	public String signUpWrite(UserDTO userDTO);
 	public void update(UserDTO userDTO, HttpSession session);
 	public String checkId(String user_id);
+	public Map<String, String> bookMarkGet(int product_id);
 	public String signUpCheckNaver(UserDTO userDTO);
 	public void deleteImg();
 	public void updateImg(String fileName);

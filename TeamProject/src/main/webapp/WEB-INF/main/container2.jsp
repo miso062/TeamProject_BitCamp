@@ -513,7 +513,23 @@ $(function(){
 	    }
 	});
 	// 여기에서 책갈피 구현
-	$()
+	$(document).ready(function(){
+		$(window).on('load', function(){
+			$.ajax({
+			 type:'post',
+			 url:'/TeamProject/user/bookMarkGet',
+			 data:{'product_id': $(this).parent().next('.cd2_product_id').val()},
+			 dataType:'json',
+			 success: function(){
+				$('.cd2_bookmark').attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+			 },
+			 error: function(e){
+				 console.log(e);
+			 }
+		})
+		
+	});
+
 	
 });
 
@@ -550,17 +566,6 @@ $(document).on('click','.cd2_bookmark', function() {
 	};//else
 		
 })
-	/* $.ajax({
-		type:'post',
-		url:'/TeamProject/user/bookMarkDelete',
-		data:'product_id=${product_id}',
-		success: function(data){
-			alert('찜 취소')
-		},
-		error: function(e) {
-			console.log(e);
-		}
-	}) */
 	
 $(document).on('click','.cd2_item_inner', function() {
 	location.href = '/TeamProject/shop/shopDetail?product_id='+$(this).next().next().next().val();
