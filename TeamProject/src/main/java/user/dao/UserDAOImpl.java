@@ -111,11 +111,10 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("userSQL.checkNaver", hp);
 	}
 
-
-	@Override
-	public Map<String, String> bookMarkGet(Map<String, Object> map) {
-		return sqlSession.selectOne("userSQL.bookMarkGet", map);
-	}
+//	@Override
+//	public Map<String, String> bookMarkGet(Map<String, Object> map) {
+//		return sqlSession.selectOne("userSQL.bookMarkGet", map);
+//	}
 
 	@Override
 	public void SignUpNaver(UserDTO userDTO) {
@@ -126,11 +125,6 @@ public class UserDAOImpl implements UserDAO {
 	public UserDTO loginNaver(String user_id) {
 		return sqlSession.selectOne("userSQL.loginNaver", user_id);
 	}
-
-	/*
-	 * @Override public Map<String, String> bookMarkGet(Map<String, Object> map) {
-	 * return sqlSession.selectOne("userSQL.bookMarkGet", map); }
-	 */
 
 }
 	
