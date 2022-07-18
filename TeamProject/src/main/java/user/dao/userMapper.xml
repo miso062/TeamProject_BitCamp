@@ -5,7 +5,7 @@
 
 	
 <mapper namespace="userSQL">
-  <select id="checkLogin" parameterType="java.util.Map" resultType="user">
+  <select id="checkLogin" parameterType="String" resultType="user">
     select user_pwd , authority from user_table where user_id = #{log_email_input}
   </select>
   
@@ -73,6 +73,15 @@
 	<insert id="signUpWrite" parameterType="user">
 		insert into user_table values(#{user_id},#{user_name},#{nickname},#{user_pwd},#{hp},#{shoesize},#{sms_allow},#{email_allow},0,1,'이메일',sysdate)
 	</insert>
+	<!-- 네이버 회원가입 -->
+		<insert id="signUpNaver" parameterType="user">
+		insert into user_table(user_id,user_name,user_pwd,hp,shoesize,sms_allow,email_allow,authority,sign_up_type,sign_up_date)
+		 values(#{user_id},#{user_name},#{user_pwd},#{hp},0,0,0,1,'네이버',sysdate)
+		</insert>
+	<!-- 네이버 로그인 -->
+	<select id="loginNaver" parameterType="String" resultType="user">
+		select *from user_table where user_id=#{user_id}
+	</select>
 	
 	<!-- 회원정보수정 -->
 	<update id="update" parameterType="user">
@@ -86,9 +95,9 @@
 						,profile_img = #{profile_img}
 	</update>
   
-	<select id="bookMarkGet" parameterType="java.util.Map" resultType="user">
+	<!-- <select id="bookMarkGet" parameterType="java.util.Map" resultType="user">
 		select * from user_table where user_id=#{id}, product_id=#{product_id}
-	</select>
+	</select> -->
   
 	<!-- 프로필 이미지 업데이트 -->
 	<update id="updateImg" parameterType="java.util.Map">

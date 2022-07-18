@@ -35,16 +35,22 @@ public class UserServiceImpl implements UserService {
 		String check ;
 		UserDTO userDTO = userDAO.checkLogin(log_email_input);
 		if(userDTO != null) {
-			
-			if(passwordEncoder.matches(log_pwd_input, userDTO.getUser_pwd())) {
+			if(log_pwd_input.equals(userDTO.getUser_pwd())) {
 				session.setAttribute("memId", log_email_input);
 				session.setAttribute("memAuthority", userDTO.getAuthority());
 				check = "true";
-			} else {
-				check = "false";
+			}
+			else {
+				if(passwordEncoder.matches(log_pwd_input, userDTO.getUser_pwd())) {
+					session.setAttribute("memId", log_email_input);
+					session.setAttribute("memAuthority", userDTO.getAuthority());
+					check = "true";
+				}
+				else {
+					check = "false";
+				}
 			}
 		}else {
-
 			check = "false";
 		}
 			return check;
@@ -225,4 +231,69 @@ public class UserServiceImpl implements UserService {
 		map.put("id", id);
 		return userDAO.bookMarkGet(map);
   }
+
+	/*
+	 * @Override public Map<String, String> bookMarkGet(int product_id) {
+	 * Map<String, Object> map = new HashMap<String, Object>(); String id = (String)
+	 * session.getAttribute("memId");
+	 * 
+	 * map.put("id", id); return userDAO.bookMarkGet(map); }
+	 */
+  
+	@Override
+	public String signUpCheckNaver(UserDTO userDTO) {
+		System.out.println("2번!!");
+		String check;
+		//휴대전화로 동일가입여부 조회
+		String hp = userDTO.getHp();
+		int a = userDAO.signUpCheck(hp);
+		if(a==0) {
+			System.out.println("3번!!");
+			//아이디로 다시 한 번 조회 해준다.
+			String user_id = userDTO.getUser_id(); 
+			int b = userDAO.checkId(user_id);
+			if(b==0) {
+				//회원가입 한 적이 없으므로 db에 넣어주자
+				userDAO.SignUpNaver(userDTO);
+				//로그인 해준다.
+				UserDTO userDTO1 = userDAO.loginNaver(user_id);
+				session.setAttribute("memId", userDTO.getUser_id());
+				System.out.println(session.getAttribute("memId"));
+				session.setAttribute("memAuthority", userDTO.getAuthority());
+				check="success";
+			}
+			else {
+				System.out.println("4번!!");
+				check ="fail";
+			}
+		}else {
+			System.out.println("5번!!");
+			//다시 hp, 네이버 여부로 해 조회
+			int c = userDAO.checkNaver(hp);
+			if(c==0) {
+				System.out.println("6번!!");
+				check = "fail";
+			}else {
+				System.out.println("7번!!");
+				String user_id = userDTO.getUser_id(); 
+				UserDTO userDTO1 = userDAO.loginNaver(user_id);
+				session.setAttribute("memId", userDTO.getUser_id());
+				System.out.println(session.getAttribute("memId"));
+				session.setAttribute("memAuthority", userDTO.getAuthority());
+				check="success";
+			}
+		}
+		System.out.println("-----------1 " + check);
+		return check;
+  }
+  
+  @Override
+	public void getBuyHistory(String user_id) {
+		// TODO Auto-generated method stub
+	}
+  
+	@Override
+	public void getSellHistory(String user_id) {
+		// TODO Auto-generated method stub
+	}
 }

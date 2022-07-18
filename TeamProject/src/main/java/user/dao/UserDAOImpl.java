@@ -98,7 +98,6 @@ public class UserDAOImpl implements UserDAO {
 		sqlSession.update("userSQL.update", userDTO);
   }
   
-
 	@Override
 	public void updateImg(Map<String, String> map) {
 		sqlSession.update("userSQL.updateImg", map);
@@ -114,9 +113,19 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("userSQL.checkNaver", hp);
 	}
 
+//	@Override
+//	public Map<String, String> bookMarkGet(Map<String, Object> map) {
+//		return sqlSession.selectOne("userSQL.bookMarkGet", map);
+//	}
+
 	@Override
-	public Map<String, String> bookMarkGet(Map<String, Object> map) {
-		return sqlSession.selectOne("userSQL.bookMarkGet", map);
+	public void SignUpNaver(UserDTO userDTO) {
+		sqlSession.selectOne("userSQL.signUpNaver", userDTO);
+	}
+
+	@Override
+	public UserDTO loginNaver(String user_id) {
+		return sqlSession.selectOne("userSQL.loginNaver", user_id);
 	}
 
 	@Override

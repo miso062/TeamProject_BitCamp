@@ -185,7 +185,6 @@
 }
 </style>
 
-<body>
  <!--섹션 1-->
 <input type="hidden" id="con_more_num" value="1">
 
@@ -213,6 +212,7 @@
 <div class="cd2_img_box">
    <img src="/TeamProject/img/main/container2/banner.png" alt="banner" class="cd2_banner_img" />
 </div>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -512,14 +512,16 @@ $(function(){
 	         $(this).attr('src', src);
 	    }
 	});
+});
 	// 여기에서 책갈피 구현
-	$(document).ready(function(){
+	
+	
+	 $(document).ready(function(){
 		$(window).on('load', function(){
 			$.ajax({
 			 type:'post',
 			 url:'/TeamProject/user/bookMarkGet',
 			 data:{'product_id': $(this).parent().next('.cd2_product_id').val()},
-			 dataType:'json',
 			 success: function(){
 				$('.cd2_bookmark').attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
 			 },
@@ -531,7 +533,7 @@ $(function(){
 	});
 
 	
-});
+}); 
 
 $(document).on('click','.cd2_bookmark', function() {
 		if($(this).hasClass('active')){
@@ -558,22 +560,20 @@ $(document).on('click','.cd2_bookmark', function() {
 			data: {'product_id': $(this).parent().next('.cd2_product_id').val()},
 			success: function(){
 				alert('관심상품이 추가되었습니다 ');
-			},
+			},                                                                    
 			error: function(e) {
 				console.log(e);
 			}
 		});//ajax
 	};//else
-		
-})
-	
+});
+
 $(document).on('click','.cd2_item_inner', function() {
 	location.href = '/TeamProject/shop/shopDetail?product_id='+$(this).next().next().next().val();
-})
-	
+});
 $(document).on('click','.cd2_info_box', function() {
 	location.href = '/TeamProject/shop/shopDetail?product_id='+$(this).next().next().val();
-})
+});
 
 </script>
-</body>
+
