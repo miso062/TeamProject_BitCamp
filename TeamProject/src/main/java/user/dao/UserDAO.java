@@ -20,4 +20,5 @@ public interface UserDAO {
 	public void signUpWrite(UserDTO userDTO);
 	public void update(UserDTO userDTO);
 	public int checkId(String user_id);
+	public Map<String, String> bookMarkGet(Map<String, Object> map);
 }

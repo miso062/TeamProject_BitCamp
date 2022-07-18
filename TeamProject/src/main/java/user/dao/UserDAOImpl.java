@@ -95,5 +95,10 @@ public class UserDAOImpl implements UserDAO {
 	public int checkId(String user_id) {
 		return sqlSession.selectOne("userSQL.checkId", user_id);
 	}
+
+	@Override
+	public Map<String, String> bookMarkGet(Map<String, Object> map) {
+		return sqlSession.selectOne("userSQL.bookMarkGet", map);
+	}
 }
 	

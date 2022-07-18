@@ -73,4 +73,8 @@
 						,email_allow = #{email_allow}
 						,profile_img = #{profile_img}
 	</update>
+	<select id="bookMarkGet" parameterType="java.util.Map" resultType="">
+		select * from user_table where user_id=#{id}, product_id=#{product_id}
+		
+	</select>
 </mapper>

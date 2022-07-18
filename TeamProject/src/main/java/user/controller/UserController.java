@@ -246,4 +246,10 @@ public class UserController {
 		System.out.println("delete ="+product_id);
 		userService.bookMarkDelete(product_id);
 	}
+	@PostMapping(value="bookMarkGet")
+	@ResponseBody
+	public Map<String, String> bookMarkGet(@RequestParam int product_id){
+		Map<String, String> map = userService.bookMarkGet(product_id);
+		return map;
+	}
 }
