@@ -704,7 +704,7 @@ svg:not(:root) {
       <form id="updateImgForm" name="updateImgForm"> 
             <div class="user_profile">
                 <div class="profile_thumb">
-                    <img src="${userDTO.profile_img }" alt="사용자이미지" name="profile_img" class="thumb_img profile_img">
+                    <img src="/TeamProject/img/user/profile.png" alt="" name="profile_img" class="thumb_img profile_img">
                 </div>
                 <div class="profile_detail">
                     <strong class="name" name="nickname" id="show_userid_title nickname">${userDTO.nickname }</strong>

@@ -649,7 +649,7 @@
     <div class="user_membership">
         <div class="user_detail">
             <div class="user_thumb">
-            	<img src="${userDTO.profile_img }" name="profile_img" alt="사용자이미지" class="thumb_img" /></div>
+            	<img src="/TeamProject/img/user/profile.png" name="profile_img" alt="사용자이미지" class="thumb_img" /></div>
             <div class="user_info">
                 <div class="info_box">
                     <strong class="name">${userDTO.nickname }</strong>
