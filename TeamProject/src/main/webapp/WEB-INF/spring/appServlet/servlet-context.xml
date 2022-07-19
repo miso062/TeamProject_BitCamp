@@ -19,6 +19,7 @@
 	<resources mapping="/js/**" location="/WEB-INF/js/" />
 	<resources mapping="/css/**" location="/WEB-INF/css/" />
 	<resources mapping="/img/**" location="/WEB-INF/img/"/>
+	<resources mapping="/storage/**"  location="/WEB-INF/storage/" ></resources>
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

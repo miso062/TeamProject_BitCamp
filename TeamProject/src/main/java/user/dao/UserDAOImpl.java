@@ -100,6 +100,7 @@ public class UserDAOImpl implements UserDAO {
   
 	@Override
 	public void updateImg(Map<String, String> map) {
+		System.out.println(map);
 		sqlSession.update("userSQL.updateImg", map);
 	}
 
@@ -130,12 +131,12 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public List<Buy_historyDTO> getBuyHistory(String user_id) {
-		return sqlSession.selectOne("userSQL.getBuyHistory", user_id);
+		return sqlSession.selectList("userSQL.getBuyHistory", user_id);
 	}
 
 	@Override
 	public List<Sell_historyDTO> getSellHistory(String user_id) {
-		return sqlSession.selectOne("userSQL.getSellHistory", user_id);
+		return sqlSession.selectList("userSQL.getSellHistory", user_id);
 	}
 }
 	
