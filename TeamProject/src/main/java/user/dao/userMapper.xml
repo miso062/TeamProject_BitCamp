@@ -22,7 +22,7 @@
 		select count(*) from user_table where hp=#{hp} and user_id=#{user_id}
 	</select>
 	
-	<insert id="addaddress" parameterType="useraddress">
+	<insert id="addAddress" parameterType="useraddress">
 		insert into address(address_id,user_id,name,hp,zipcode,addr,addr_detail,flag)
 		values(address_seq.nextval,#{user_id},#{name},#{hp},#{zipcode},#{addr},#{addr_detail},#{flag})
 	</insert>

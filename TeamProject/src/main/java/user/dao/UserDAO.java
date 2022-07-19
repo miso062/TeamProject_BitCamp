@@ -12,7 +12,7 @@ import user.bean.UserDTO;
 public interface UserDAO {
 	
 	public UserDTO checkLogin(String log_email_input);
-	public void addaddressbook(AddressDTO addressDTO);
+	public void addAddressBook(AddressDTO addressDTO);
 	public void updateflag(AddressDTO addressDTO);
 	public String findEmailAddress(String phone);
 	public UserDTO getUserInfo(String user_id);

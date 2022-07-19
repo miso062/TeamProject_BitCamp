@@ -84,4 +84,9 @@ public class ShopMyBatisImpl implements ShopDAO {
 		return sqlSession.selectList("shopSQL.getchart",product_id);
 	}
 
+	@Override
+	public List<AddressDTO> getAddrList(String user_id) {
+		return sqlSession.selectList("shopSQL.getAddrList",user_id);
+	}
+
 }

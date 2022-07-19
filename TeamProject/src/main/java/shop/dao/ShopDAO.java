@@ -19,4 +19,5 @@ public interface ShopDAO {
 	public AddressDTO getDefalutAddress(String user_id);
   	Map<String, Object> scrollProduct(Map<String, Integer> map);
 	public List<Market_priceDTO> getchart(int product_id);
+	public List<AddressDTO> getAddrList(String user_id);
 }

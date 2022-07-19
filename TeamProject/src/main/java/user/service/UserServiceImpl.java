@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import product.bean.Buy_historyDTO;
 import product.bean.Sell_historyDTO;
+import shop.dao.ShopDAO;
 import user.bean.AddressDTO;
 import user.bean.LikeProDTO;
 import user.bean.UserDTO;
@@ -23,6 +24,8 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserDAO userDAO;
+	@Autowired
+	private ShopDAO shopDAO;
 	@Autowired
 	private HttpSession session;
 	@Autowired
@@ -102,11 +105,19 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public void addaddressbook(AddressDTO addressDTO) {
+	public void addAddressBook(AddressDTO addressDTO) {
+		String user_id = (String) session.getAttribute("memId");
+		addressDTO.setUser_id(user_id);
+		AddressDTO defalutAddress = shopDAO.getDefalutAddress(user_id);
+		
 		if(addressDTO.getFlag() == 1) {
 			userDAO.updateflag(addressDTO);
 		}
-		userDAO.addaddressbook(addressDTO);
+		else if(defalutAddress == null) {
+			userDAO.updateflag(addressDTO);
+			addressDTO.setFlag(1);
+		}
+		userDAO.addAddressBook(addressDTO);
 	}
   
 	@Override
