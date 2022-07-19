@@ -73,7 +73,7 @@ public class UserController {
 		return "user/signUp";
 	}
 	
-	@GetMapping(value="/my")
+	@RequestMapping(value="/my")
 	public String myPage(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
 		model.addAttribute("nav", "/WEB-INF/user/myPage/myPageNav.jsp");
@@ -106,11 +106,11 @@ public class UserController {
 	}
 	
 	@PostMapping(value="update")
-	public String updateUser(@RequestParam UserDTO userDTO, HttpSession session) {
+	@ResponseBody
+	public void updateUser(@ModelAttribute UserDTO userDTO, HttpSession session) {
 		System.out.println(userDTO);
 		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
 		userService.update(userDTO, session);
-		return "forward:/user/my";
 	}
 	
 	@PostMapping(value="updateImg")
@@ -291,11 +291,11 @@ public class UserController {
 		System.out.println("delete ="+product_id);
 		userService.bookMarkDelete(product_id);
 	}
-	/*
-	 * @PostMapping(value="bookMarkGet")
-	 * 
-	 * @ResponseBody public Map<String, String> bookMarkGet(@RequestParam int
-	 * product_id){ Map<String, String> map = userService.bookMarkGet(product_id);
-	 * return map; }
-	 */
+	
+	  @PostMapping(value="bookMarkGet")
+	  
+	  @ResponseBody public Map<String, String> bookMarkGet(@RequestParam int
+	  product_id){ Map<String, String> map = userService.bookMarkGet(product_id);
+	  return map; }
+	 
 }
