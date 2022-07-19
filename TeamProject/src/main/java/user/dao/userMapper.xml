@@ -95,7 +95,7 @@
 						 where user_id=#{user_id}
 	</update>
   
-	<select id="bookMarkGet" parameterType="java.util.Map" resultType="user">
+	<select id="bookMarkGet" parameterType="java.util.Map" resultType="likePro">
 		select * from like_pro where user_id=#{id}
 	</select> 
   

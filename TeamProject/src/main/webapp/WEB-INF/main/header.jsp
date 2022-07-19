@@ -739,7 +739,6 @@ function naverLogout() {
 $('#h_myPage').click(function(){
     if(!'${sessionScope.memId}') {
         $('#h_login').trigger('click');
-        
     }
     else {
     	location.href="/TeamProject/user/myPage"

@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import product.bean.Buy_historyDTO;
 import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
+import user.bean.LikeProDTO;
 import user.bean.UserDTO;
 import user.send.Request;
 import user.send.SmsResponse;
@@ -292,10 +293,11 @@ public class UserController {
 		userService.bookMarkDelete(product_id);
 	}
 	
-	  @PostMapping(value="bookMarkGet")
-	  
-	  @ResponseBody public Map<String, String> bookMarkGet(@RequestParam int
-	  product_id){ Map<String, String> map = userService.bookMarkGet(product_id);
-	  return map; }
+	@PostMapping(value="bookMarkGet")
+	@ResponseBody
+	public List<LikeProDTO> bookMarkGet(){
+		List<LikeProDTO> list = userService.bookMarkGet();
+		return list; 
+	}
 	 
 }
