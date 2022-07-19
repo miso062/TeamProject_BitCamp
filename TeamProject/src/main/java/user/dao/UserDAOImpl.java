@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import product.bean.Buy_historyDTO;
 import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
+import user.bean.LikeProDTO;
 import user.bean.UserDTO;
 
 
@@ -68,7 +69,12 @@ public class UserDAOImpl implements UserDAO {
 		System.out.println("너 여기까지 오냐?");
 		sqlSession.delete("userSQL.bookMarkDelete", map);
 		System.out.println("여기까지오냐고");
-  }
+	}
+	
+	@Override
+	public List<LikeProDTO> bookMarkGet(Map<String, Object> map) {
+		return sqlSession.selectList("userSQL.bookMarkGet", map);
+	}
   
 	public int checkNick(String nickname) {
 		int nickcount = sqlSession.selectOne("userSQL.checkNick", nickname);
@@ -113,10 +119,6 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("userSQL.checkNaver", hp);
 	}
 
-	@Override
-	public Map<String, String> bookMarkGet(Map<String, Object> map) {
-		return sqlSession.selectOne("userSQL.bookMarkGet", map);
-	}
 
 	@Override
 	public void SignUpNaver(UserDTO userDTO) {

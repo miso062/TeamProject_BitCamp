@@ -15,6 +15,7 @@ import product.bean.Buy_historyDTO;
 import product.bean.Sell_historyDTO;
 import shop.dao.ShopDAO;
 import user.bean.AddressDTO;
+import user.bean.LikeProDTO;
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
@@ -218,10 +219,9 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public Map<String, String> bookMarkGet(int product_id) {
+	public List<LikeProDTO> bookMarkGet() {
 		Map<String, Object> map = new HashMap<String, Object>();
 		String id = (String) session.getAttribute("memId");
-		
 		map.put("id", id);
 		return userDAO.bookMarkGet(map);
 	}

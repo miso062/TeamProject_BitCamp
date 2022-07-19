@@ -270,10 +270,12 @@ $(document).ready(function(){
 					   class: 'cd2_btn_wish'
 				   }).append($('<img/>',{
 					   class: 'cd2_bookmark',
+					   id: 'cd2_bookmark'+data.productList[i].product_id,
 					   src : '/TeamProject/img/main/container2/bookmark.svg'
 				   }))).append($('<input/>',{
 					   type:'hidden',
 					   class : 'cd2_product_id',
+					   id: 'cd2_product_id'+data.productList[i].product_id,
 					   value : data.productList[i].product_id
 				   })).appendTo($('#cd2_list_first'));
 				}
@@ -345,10 +347,12 @@ $(function(){
 							   class: 'cd2_btn_wish'
 						   }).append($('<img/>',{
 							   class: 'cd2_bookmark',
+							   id: 'cd2_bookmark'+data.productList[i].product_id,
 							   src : '/TeamProject/img/main/container2/bookmark.svg'
 						   }))).append($('<input/>',{
 							   type:'hidden',
 							   class : 'cd2_product_id',
+							   id: 'cd2_product_id'+data.productList[i].product_id,
 							   value : data.productList[i].product_id
 						   })).appendTo($('#cd2_list_second'));
 						}
@@ -414,10 +418,12 @@ $(function(){
 								   class: 'cd2_btn_wish'
 							   }).append($('<img/>',{
 								   class: 'cd2_bookmark',
+								   id: 'cd2_bookmark'+data.productList[i].product_id,
 								   src : '/TeamProject/img/main/container2/bookmark.svg'
 							   }))).append($('<input/>',{
 								   type:'hidden',
 								   class : 'cd2_product_id',
+								   id: 'cd2_product_id'+data.productList[i].product_id,
 								   value : data.productList[i].product_id
 							   })).appendTo($('#cd2_list_third'));
 							}
@@ -482,10 +488,12 @@ $(function(){
 	 							   class: 'cd2_btn_wish'
 	 						   }).append($('<img/>',{
 	 							   class: 'cd2_bookmark',
+	 							  id: 'cd2_bookmark'+data.productList[i].product_id,
 	 							   src : '/TeamProject/img/main/container2/bookmark.svg'
 							   }))).append($('<input/>',{
 								   type:'hidden',
 								   class : 'cd2_product_id',
+								   id: 'cd2_product_id'+data.productList[i].product_id,
 								   value : data.productList[i].product_id
 							   })).appendTo($('#cd2_list_for'));
 	 						
@@ -523,10 +531,15 @@ $(function(){
 		 url:'/TeamProject/user/bookMarkGet',
 		 dataType: 'json',
 		 success: function(data){
-			// data를 반복문에 넣음
-			// pro_id를 뽑아서 
-			// hidden id가 pro_id와 같은 것은 검정생ㄱ으로 칠해준다.
-			$('.cd2_bookmark').attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+			 $.each(data, function(index, items){
+					
+					product_id = $('#cd2_product_id'+items.product_id).val();
+				if(items.product_id == product_id){
+					$('#cd2_bookmark'+items.product_id).attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+					
+				}
+			 })
+			
 		 },
 		 error: function(e){
 			 console.log(e);
@@ -565,6 +578,14 @@ $(document).on('click','.cd2_bookmark', function() {
 			}
 		});//ajax
 	};//else
+});
+
+//로그인안되있을떄 bookmark x
+$(document).on('click', '.cd2_bookmark', function(){
+	if(!'${sessionScope.memId}'){
+		$(this).attr('src', '/TeamProject/img/main/container2/bookmark.svg');
+		alert('로그인 먼저해주세요');
+	}
 });
 
 $(document).on('click','.cd2_item_inner', function() {
