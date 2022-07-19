@@ -737,13 +737,13 @@ svg:not(:root) {
             	</div>
             
 	            <div class="unit">
-	               <div class="input_box has_error has_button">
-	                 <h5 class="title input_pwdcheck_title input_title ess log_pwdcheck_label" >비밀번호 재확인</h5>
-	                    <div class="input_item">
-	                       <input type="password" id="password_2" value="" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwdcheck(this.value)"  autocomplete="off" class="desc input_txt log_pwdcheck_input log_pwd_input" />
-	                    </div>
-	                 <p class="input_error log_pwdcheck_error" >비밀번호와 일치하지 않습니다. </p>
-	             </div>
+	            	<div class="input_box has_error has_button">
+			        	<h5 class="title input_pwdcheck_title input_title ess log_pwdcheck_label" >비밀번호 재확인</h5>
+			        		<div class="input_item">
+			        			<input type="password" id="password_2" value="" placeholder="영문, 숫자, 특수문자 조합 8-16자" onchange="oninputPwdcheck(this.value)"  autocomplete="off" class="desc input_txt log_pwdcheck_input log_pwd_input" />
+			        		</div>
+			        	<p class="input_error log_pwdcheck_error" >비밀번호와 일치하지 않습니다. </p>
+			    	</div>
 	            </div>         
         	</div>
 
@@ -862,13 +862,13 @@ svg:not(:root) {
                 <div class="radio_txt_box">
                     <div class="radio_item">
                         <label for="sms_agree" class="radio_label">
-                            <input type="radio" id="sms_agree" name="message_radio" value="1" class="ico-radio-inactive icon sprite-icons">
+                            <input type="radio" id="sms_agree" name="sms_allow" value="1" class="ico-radio-inactive icon sprite-icons">
                             <span class="label_txt">수신 동의</span>
                         </label>
                     </div>
                     <div class="radio_item">
                         <label for="sms_disagree" class="radio_label">
-                            <input type="radio" id="sms_disagree" name="message_radio" value="0" class="ico-radio-inactive icon sprite-icons">
+                            <input type="radio" id="sms_disagree" name="sms_allow" value="0" class="ico-radio-inactive icon sprite-icons">
                             <span class="label_txt">수신 거부</span>
                         </label>
                     </div>
@@ -879,13 +879,13 @@ svg:not(:root) {
                 <div class="radio_txt_box">
                     <div class="radio_item">
                         <label for="email_agree" class="radio_label">
-                            <input type="radio" id="email_agree" name="email_radio" value="1" class="ico-radio-inactive icon sprite-icons">
+                            <input type="radio" id="email_agree" name="email_allow" value="1" class="ico-radio-inactive icon sprite-icons">
                             <span class="label_txt">수신 동의</span>
                         </label>
                     </div>
                     <div class="radio_item">
                         <label for="email_disagree" class="radio_label">
-                            <input type="radio" id="email_disagree" name="email_radio" value="0" class="ico-radio-inactive icon sprite-icons">
+                            <input type="radio" id="email_disagree" name="email_allow" value="0" class="ico-radio-inactive icon sprite-icons">
                             <span class="label_txt">수신 거부</span>
                         </label>
                     </div>
@@ -910,7 +910,7 @@ window.onload = function(){ /* 광고성 정보 수신 동의 */
 		var email_allow = '${userDTO.email_allow}';
 		
 		if(image==null || image==''){
-            document.querySelector('.profile_img').setAttribute('src','/TeamProject/img/empty.png');
+            document.querySelector('.profile_img').setAttribute('src','/TeamProject/img/user/profile.png');
         }else{
             document.querySelector('.profile_img').setAttribute("src",image);
         }
@@ -1015,7 +1015,6 @@ function oninputPwd1(value){
 
 function checkPwd1(value) { //비밀번호 유효성 검사
 	var regPwd1 = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;
-
 	if(regPwd1.test(value) == true) {
 		document.getElementsByClassName("log_pwd_label")[0].style.color ="black";
 		document.getElementsByClassName("log_pwd_error")[0].style.display = "none";
@@ -1029,6 +1028,8 @@ function checkPwd1(value) { //비밀번호 유효성 검사
 		document.getElementsByClassName("log_pwd_input")[0].style.borderColor = "#f15746";
 		return false;
 	}
+}
+$('.log_pwdcheck_input').focusout(function(){
 	let pass1 = $("#password_1").val();
 	let pass2 = $("#password_2").val();
 	
@@ -1043,7 +1044,7 @@ function checkPwd1(value) { //비밀번호 유효성 검사
 		document.getElementsByClassName("log_pwdcheck_error")[0].style.display = "block";
 		document.getElementsByClassName("log_pwdcheck_input")[0].style.borderColor = "#f15746";
 	}
-}
+});
 
 /* 휴대폰번호 */
 $(document).ready(function(){
