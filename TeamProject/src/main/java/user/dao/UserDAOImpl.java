@@ -113,10 +113,10 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("userSQL.checkNaver", hp);
 	}
 
-//	@Override
-//	public Map<String, String> bookMarkGet(Map<String, Object> map) {
-//		return sqlSession.selectOne("userSQL.bookMarkGet", map);
-//	}
+	@Override
+	public Map<String, String> bookMarkGet(Map<String, Object> map) {
+		return sqlSession.selectOne("userSQL.bookMarkGet", map);
+	}
 
 	@Override
 	public void SignUpNaver(UserDTO userDTO) {
