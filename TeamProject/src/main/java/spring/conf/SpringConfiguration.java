@@ -1,5 +1,7 @@
 package spring.conf;
 
+import java.io.IOException;
+
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -11,6 +13,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -21,6 +25,7 @@ public class SpringConfiguration {
 
 	private @Value("${jdbc.driver}") String driver;
 	private @Value("${jdbc.url}") String url;
+//	private String url = "jdbc:oracle:thin:@gese_high?TNS_ADMIN=";
 	private @Value("${jdbc.username}") String username;
 	private @Value("${jdbc.password}") String password;
 	
@@ -29,11 +34,18 @@ public class SpringConfiguration {
 	
 	@Bean
 	public BasicDataSource dataSource() {
+		
+		String path = getClass().getResource("/").getPath();
+		
+		System.out.println(path);
+		
 		BasicDataSource bsSource = new BasicDataSource();
 		bsSource.setDriverClassName(driver);
+//		bsSource.setUrl(url+path+"Wallet_GESE");
 		bsSource.setUrl(url);
 		bsSource.setUsername(username);
 		bsSource.setPassword(password);
+	
 		
 		return bsSource;
 	}

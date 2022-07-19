@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import product.bean.Buy_historyDTO;
+import product.bean.Market_priceDTO;
 import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
@@ -47,7 +48,6 @@ public class ShopServiceImpl implements ShopService {
 		map.put("productImgDTO", getImage(product_id));
 		map.put("product", getProduct(product_id));
 		
-		System.out.println(map);
 		return map;
 	}
 	
@@ -89,6 +89,12 @@ public class ShopServiceImpl implements ShopService {
 			defalutAddress = new AddressDTO();
 		}
 		return defalutAddress;
+	}
+
+	@Override
+	public List<Market_priceDTO> getchart(int product_id) {
+		
+		return shopDAO.getchart(product_id);
 	}
 
 }

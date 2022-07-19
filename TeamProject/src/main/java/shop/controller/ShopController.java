@@ -1,6 +1,7 @@
 package shop.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import product.bean.Market_priceDTO;
 import product.bean.ProductImgDTO;
 import shop.service.ShopService;
 
@@ -44,7 +46,6 @@ public class ShopController {
 	@ResponseBody
 	public Map<String, Object> scrollProduct(@RequestParam String num){
 		Map<String, Object> map = shopService.scrollProduct(num);
-		System.out.println(map);
     return map;
   }
   
@@ -53,5 +54,11 @@ public class ShopController {
 	public Map<String, Object> getShopDetail(@RequestParam int product_id){
 		Map<String, Object> map = shopService.getShopDetail(product_id);
 		return map;
+	}
+	@PostMapping(value="getchart")
+	@ResponseBody
+	public List<Market_priceDTO> getchart(@RequestParam int product_id) {
+		return shopService.getchart(product_id);
+		 
 	}
 }

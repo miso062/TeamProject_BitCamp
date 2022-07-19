@@ -45,5 +45,9 @@
             select * from product where release_date is not null order by release_date desc)tt)
           where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>)
   </select>
+  
+  <select id="getchart" parameterType="int" resultType="marketprice">
+  	select from market_price where product_id=${product_id} order by signing_date desc;
+  </select>
 
 </mapper>

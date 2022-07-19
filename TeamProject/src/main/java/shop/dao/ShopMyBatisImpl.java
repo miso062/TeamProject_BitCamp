@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import product.bean.Buy_historyDTO;
+import product.bean.Market_priceDTO;
 import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
@@ -77,5 +78,10 @@ public class ShopMyBatisImpl implements ShopDAO {
 		
 		return sendMap;
   }
+
+	@Override
+	public List<Market_priceDTO> getchart(int product_id) {
+		return sqlSession.selectList("shopSQL.getchart",product_id);
+	}
 
 }
