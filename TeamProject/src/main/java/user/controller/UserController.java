@@ -73,7 +73,7 @@ public class UserController {
 		return "user/signUp";
 	}
 	
-	@GetMapping(value="/my")
+	@RequestMapping(value="/my")
 	public String myPage(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
 		model.addAttribute("nav", "/WEB-INF/user/myPage/myPageNav.jsp");
@@ -106,11 +106,11 @@ public class UserController {
 	}
 	
 	@PostMapping(value="update")
-	public String updateUser(@RequestParam UserDTO userDTO, HttpSession session) {
+	@ResponseBody
+	public void updateUser(@ModelAttribute UserDTO userDTO, HttpSession session) {
 		System.out.println(userDTO);
 		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
 		userService.update(userDTO, session);
-		return "forward:/user/my";
 	}
 	
 	@PostMapping(value="updateImg")
