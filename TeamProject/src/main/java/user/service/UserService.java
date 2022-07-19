@@ -13,7 +13,7 @@ import user.bean.UserDTO;
 
 public interface UserService {
 	
-	public void addaddressbook(AddressDTO addressDTO);
+	public void addAddressBook(AddressDTO addressDTO);
 	public String checkLogin(String log_email_input, String log_pwd_input);
 	public Map<String, String> findEmailAddress(String phone);
 	public UserDTO getUserInfo(String user_id);

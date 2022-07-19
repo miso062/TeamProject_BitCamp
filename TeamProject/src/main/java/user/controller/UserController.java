@@ -160,19 +160,16 @@ public class UserController {
 		return "forward:/user/my";
 	}
 	
-
 	@GetMapping(value="addressbook")
 	public String addressbook(Model model)  {
 		model.addAttribute("container","/WEB-INF/user/myPage/addressbook.jsp");
 		return "forward:/user/my";
 	}
   
-	@PostMapping(value="addaddressbook")
+	@PostMapping(value="addAddressBook")
 	@ResponseBody
-	public void addaddressbook(@ModelAttribute AddressDTO addressDTO) {
-		System.out.println(addressDTO.getAddr());
-		addressDTO.setUser_id("yy1004@gmail.com");
-		userService.addaddressbook(addressDTO);
+	public void addAddressBook(@ModelAttribute AddressDTO addressDTO) {
+		userService.addAddressBook(addressDTO);
   }
 
 	@GetMapping(value="findEmailMain")

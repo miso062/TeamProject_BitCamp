@@ -28,9 +28,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public void addaddressbook(AddressDTO addressDTO) {
-		sqlSession.insert("userSQL.addaddress",addressDTO);
-		
+	public void addAddressBook(AddressDTO addressDTO) {
+		sqlSession.insert("userSQL.addAddress",addressDTO);
 	}
 
 	@Override

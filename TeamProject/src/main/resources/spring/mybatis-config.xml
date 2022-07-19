@@ -9,7 +9,7 @@
 		<typeAlias type="admin.bean.AdminDTO" alias="admin"/>
 		<typeAlias type="admin.bean.AdminQnADTO" alias="adminqna"/>
 		<typeAlias type="user.bean.UserDTO" alias="user"/>
-		<typeAlias type="user.bean.AddressDTO" alias="useraddress"/>
+		<typeAlias type="user.bean.AddressDTO" alias="userAddress"/>
 		<typeAlias type="product.bean.ProductImgDTO" alias="productImg"/>
 		<typeAlias type="product.bean.ProductDTO" alias="product"/>
 		<typeAlias type="product.bean.Market_priceDTO" alias="marketprice"/>

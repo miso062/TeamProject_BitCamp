@@ -27,6 +27,7 @@ public class BuyController {
 	@Autowired
 	ShopService shopService;
 
+//	buy main 페이지
 	@RequestMapping(value = "/buy")
 	public String buy(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
@@ -34,6 +35,7 @@ public class BuyController {
 		return "/shop/buy/buy";
 	}
 	
+//	구매 사이즈 선택 페이지
 	@GetMapping(value="/selectBuySize")
 	public String selectSize(Model model, @RequestParam int product_id) {
 		model.addAttribute("container", "/WEB-INF/shop/buy/selectSize.jsp");
@@ -42,12 +44,14 @@ public class BuyController {
 		return "forward:/shop/buy";
 	}
 	
+//	상품 정보 불러오기
 	@PostMapping(value="/getSelectSizeInfo")
 	@ResponseBody
 	public List<Sell_historyDTO> getSelectSizeInfo(@RequestParam int product_id) {
 		return shopService.getSellList(product_id);
 	}
 	
+//	구매 시 체크사항 페이지
 	@GetMapping(value="/buyCheck")
 	public String buyCheck(Model model, @RequestParam int product_id, @RequestParam int size) {
 		model.addAttribute("container", "/WEB-INF/shop/buy/buyCheck.jsp");
@@ -57,6 +61,27 @@ public class BuyController {
 		return "forward:/shop/buy";
 	}
 	
+//	구매 금액 입력 페이지
+	@GetMapping(value="/enterBuyPrice")
+	public String enterBuyPrice(Model model, @RequestParam int product_id, @RequestParam int size) {
+		model.addAttribute("container", "/WEB-INF/shop/buy/enterPrice.jsp");
+		model.addAttribute("productDTO", shopService.getProduct(product_id));
+		model.addAttribute("productImgDTO", shopService.getImage(product_id));
+		model.addAttribute("size", size);
+		return "forward:/shop/buy";
+	}
+	
+//	현재 입찰 정보 가져오기
+	@PostMapping(value="/getPrice")
+	@ResponseBody
+	public Map<String, Object> getPrice(@RequestParam int product_id, @RequestParam int size) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("sellDTO", shopService.getSellDTO(product_id, size));
+		map.put("buyDTO", shopService.getBuyDTO(product_id, size));
+		return map;
+	}
+	
+//	구매 결제 페이지
 	@PostMapping(value="/buyPay")
 	public String buyPay(Model model, @RequestParam Map<String, Object> map) {
 		DecimalFormat decFormat = new DecimalFormat("###,###");
@@ -73,30 +98,21 @@ public class BuyController {
 		return "forward:/shop/buy";
 	}
 	
+//	기본 배송지 반환
 	@GetMapping(value="/getDefalutAddress")
 	@ResponseBody
 	public AddressDTO getDefalutAddress() {
 		return shopService.getDefalutAddress();
 	}
 	
-	@GetMapping(value="/enterBuyPrice")
-	public String enterBuyPrice(Model model, @RequestParam int product_id, @RequestParam int size) {
-		model.addAttribute("container", "/WEB-INF/shop/buy/enterPrice.jsp");
-		model.addAttribute("productDTO", shopService.getProduct(product_id));
-		model.addAttribute("productImgDTO", shopService.getImage(product_id));
-		model.addAttribute("size", size);
-		return "forward:/shop/buy";
-	}
-	
-	@PostMapping(value="/getPrice")
+//	배송지 목록 반환
+	@PostMapping(value="/getAddrList")
 	@ResponseBody
-	public Map<String, Object> getPrice(@RequestParam int product_id, @RequestParam int size) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("sellDTO", shopService.getSellDTO(product_id, size));
-		map.put("buyDTO", shopService.getBuyDTO(product_id, size));
-		return map;
+	public List<AddressDTO> getAddrList(){
+		return shopService.getAddrList();
 	}
 	
+//	구매 정보 입력
 	@PostMapping(value="/insertBuyPay")
 	public void insertBuyPay(@RequestParam Map<String, Object> map) {
 //		TODO insert Buy Information to DB
@@ -106,6 +122,7 @@ public class BuyController {
 		System.out.println(map);
 	}
 	
+//	구매 완료 페이지
 	@GetMapping(value="/buyFinish")
 	public String buyFinish(Model model) {
 		model.addAttribute("container", "/WEB-INF/shop/buy/buyFinish.jsp");
