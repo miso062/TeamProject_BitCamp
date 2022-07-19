@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import product.bean.Buy_historyDTO;
+import product.bean.Market_priceDTO;
 import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
@@ -16,5 +17,6 @@ public interface ShopDAO {
 	public Sell_historyDTO getSellDTO(Map<String, Integer> map);
 	public Buy_historyDTO getBuyDTO(Map<String, Integer> map);
 	public AddressDTO getDefalutAddress(String user_id);
-	Map<String, Object> scrollProduct(Map<String, Integer> map);
+  	Map<String, Object> scrollProduct(Map<String, Integer> map);
+	public List<Market_priceDTO> getchart(int product_id);
 }

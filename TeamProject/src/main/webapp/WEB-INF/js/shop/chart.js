@@ -1,61 +1,69 @@
 	var ctx = document.getElementById('shoeChart');
-	  
-	var config = {
-		type: 'line',
-		data: {
-			labels: [ // Date Objects
-				'data1',
-				'data2',
-				'data3',
-				'data4',
-				'data5',
-				'data6',
-				'data7'
-			],
-			datasets: [{
-				label: '',
-				backgroundColor: 'rgba(75, 192, 192, 1)',
-				borderColor: 'rgba(75, 192, 192, 1)',
-				fill: false,
-				data: [
-					Math.floor(Math.random() * 100000),
-					Math.floor(Math.random() * 100000),
-					Math.floor(Math.random() * 100000),
-					Math.floor(Math.random() * 100000),
-					Math.floor(Math.random() * 100000),
-					Math.floor(Math.random() * 100000),
-					Math.floor(Math.random() * 100000)
-				],
-			}]
-		},
-		options: {
-			legend: {
-                display: false
-            },
-			maintainAspectRatio: false,
-			title: {
-				text: 'Chart.js Time Scale'
-			},
-			tooltips: {
-	            mode: 'index',
-	            callbacks: {
-	            	label: function(tooltipItem, data) {
-	                    return tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원"; 
-	                }
-	            }
-	        },
-			scales: {
-				yAxes: [{
-					position: 'right',
-					scaleLabel: {
-		                suggestedMin: 0,
-		                suggestedMax: 10000000,
-						display: true,
+	
+	$.ajax({
+		type:'post',
+		url:'/Teamproject/shop/getchart',
+		data:'product_id='+$('#product_id').val(),
+		dataType:'json',
+		success:function(data){
+			var config = {
+					type: 'line',
+					data: {
+						labels: [ // Date Objects
+							$.each(data.list,function(index, items){
+								items.signing_date,
+							},
+						],
+						datasets: [{
+							label: '',
+							backgroundColor: 'rgba(75, 192, 192, 1)',
+							borderColor: 'rgba(75, 192, 192, 1)',
+							fill: false,
+							data: [
+								$.each(data.list,function(index, items){
+									items.price,
+								},
+							],
+						}]
+					},
+					options: {
+						legend: {
+			                display: false
+			            },
+						maintainAspectRatio: false,
+						title: {
+							text: 'Chart.js Time Scale'
+						},
+						tooltips: {
+				            mode: 'index',
+				            callbacks: {
+				            	label: function(tooltipItem, data) {
+				                    return tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원"; 
+				                }
+				            }
+				        },
+						scales: {
+							yAxes: [{
+								position: 'right',
+								scaleLabel: {
+					                suggestedMin: 0,
+					                suggestedMax: 10000000,
+									display: true,
+								}
+							}]
+						},
 					}
-				}]
-			},
+				};
+			
+			var myChart = new Chart(ctx, config);
+			
+		},
+		error:function(err){
+			console.log(err);
 		}
-	};
+		
+	})
+	  
 	 
 	//차트 그리기
 	var myChart = new Chart(ctx, config);
