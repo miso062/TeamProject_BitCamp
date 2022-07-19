@@ -23,7 +23,7 @@ public interface UserDAO {
 	public void signUpWrite(UserDTO userDTO);
 	public void update(UserDTO userDTO);
 	public int checkId(String user_id);
-	//public Map<String, String> bookMarkGet(Map<String, Object> map);
+	public Map<String, String> bookMarkGet(Map<String, Object> map);
 	public int checkNaver(String hp);
 	public void updateImg(Map<String, String> map);
 	public void deleteImg(String user_id);

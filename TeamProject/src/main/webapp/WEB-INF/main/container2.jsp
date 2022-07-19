@@ -183,6 +183,9 @@
     bottom: 0;
     background: rgba(0,0,0,0);
 }
+.cd2_bookmark{
+	cursor: pointer
+}
 </style>
 
  <!--섹션 1-->
@@ -513,26 +516,22 @@ $(function(){
 	    }
 	});
 });
-	// 여기에서 책갈피 구현
-	
-	
-	 $(document).ready(function(){
-		$(window).on('load', function(){
-			$.ajax({
-			 type:'post',
-			 url:'/TeamProject/user/bookMarkGet',
-			 data:{'product_id': $(this).parent().next('.cd2_product_id').val()},
-			 success: function(){
-				$('.cd2_bookmark').attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
-			 },
-			 error: function(e){
-				 console.log(e);
-			 }
-		})
-		
-	});
-
-	
+// 여기에서 책갈피 구현
+ $(document).ready(function(){
+	$.ajax({
+		 type:'post',
+		 url:'/TeamProject/user/bookMarkGet',
+		 dataType: 'json',
+		 success: function(data){
+			// data를 반복문에 넣음
+			// pro_id를 뽑아서 
+			// hidden id가 pro_id와 같은 것은 검정생ㄱ으로 칠해준다.
+			$('.cd2_bookmark').attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+		 },
+		 error: function(e){
+			 console.log(e);
+		 }
+	})
 }); 
 
 $(document).on('click','.cd2_bookmark', function() {
