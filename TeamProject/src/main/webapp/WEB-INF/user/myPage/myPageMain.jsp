@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <style type="text/css">
  *, :after, :before {
@@ -81,7 +82,7 @@
     .info_box {
         max-width: 100%;
     }
-    .info_box .title[data-v-4e153e07] {
+    .info_box .title {
         float: left;
         min-width: 80px;
         font-size: 13px;
@@ -647,11 +648,12 @@
 <div class="my_home">
     <div class="user_membership">
         <div class="user_detail">
-            <div class="user_thumb"><img src="${userDTO.profile_img }" alt="사용자이미지" class="thumb_img" /></div>
+            <div class="user_thumb">
+            	<img src="/TeamProject/img/user/profile.png" name="profile_img" alt="사용자이미지" class="thumb_img" /></div>
             <div class="user_info">
                 <div class="info_box">
                     <strong class="name">${userDTO.nickname }</strong>
-                    <p class="email">w******9@naver.com</p>
+                    <p class="email">${userDTO.user_id }</p>
                     <a href="/TeamProject/user/myPageEdit" class="btn btn outlinegrey small" type="button"> 프로필 수정 </a>
                     <a href="/social/users/@ein7di" class="btn btn btn_my_style outlinegrey small" type="button"> 내 스타일 </a>
                 </div>
@@ -785,7 +787,6 @@
                     <dl class="tab_box">
                         <dt class="title">진행 중</dt>
                         <dd class="count">0</dd>
-                        <!---->
                     </dl>
                 </a>
             </div>
@@ -800,14 +801,10 @@
         </div>
         <div>
             <div class="purchase_list all ask">
-                <!---->
                 <div class="empty_area">
                     <p class="desc">거래 내역이 없습니다.</p>
-                    <!---->
                 </div>
-                <!----><!----><!----><!---->
             </div>
-            <!---->
         </div>
     </div>
     <div class="my_home_title">
@@ -919,6 +916,15 @@ window.onload = function() {
 	alert(document.getElementsByClassName('membership_item > info').value());
 	document.getElementById('point').value() = document.getElementsByClassName('membership_item > info').value()
 }
+window.onload = function(){
+	var image = '${userDTO.profile_img}';
+	
+	if(image==null || image==''){
+        document.querySelector('.thumb_img').setAttribute('src','/TeamProject/img/user/profile.png');
+    }else{
+    	document.querySelector('.thumb_img').setAttribute('src', '/TeamProject/storage/'+image);
+    }
+}
 $('.membership_item').click(function(){
 	$('.layer_point').fadeIn();
     $('body').css("overflow", "hidden");
@@ -934,4 +940,6 @@ $('.layer_btn').click(function(){
     $('.layer_point').fadeOut();
     $('body').css("overflow", "scroll");
 })
+
+
 </script>

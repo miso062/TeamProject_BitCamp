@@ -86,8 +86,10 @@ public class UserController {
 	public String myPageMain(Model model, HttpSession session) {
 		String user_id = (String) session.getAttribute("memId");
 		UserDTO userDTO = userService.getUserInfo(user_id);
-		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
-		List<Sell_historyDTO> sell_historyList = userService.getSellHistory(user_id);
+		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
+		//List<Sell_historyDTO> sell_historyList = userService.getSellHistory(user_id);
+		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory("jijiya@hotmail.net");
+		List<Sell_historyDTO> sell_historyList = userService.getSellHistory("jijiya@hotmail.net");
 		model.addAttribute("buy_historyList", buy_historyList);
 		model.addAttribute("sell_historyList", sell_historyList);
 		model.addAttribute("userDTO", userDTO);
@@ -116,9 +118,9 @@ public class UserController {
 	@PostMapping(value="updateImg")
 	@ResponseBody
 	public void updateImg(@RequestParam MultipartFile img, HttpSession session) {
-		String filePath = session.getServletContext().getRealPath("/WEB-INF/img/user/storage");
+		System.out.println(img);
+		String filePath = session.getServletContext().getRealPath("/WEB-INF/storage");
 		String fileName = img.getOriginalFilename();
-		System.out.println(filePath);
 		File file = new File(filePath, fileName);
 		try {
 			img.transferTo(file);
@@ -132,7 +134,7 @@ public class UserController {
 	@ResponseBody
 	public void deleteImg(@RequestParam MultipartFile img, HttpSession session) {
 		
-		String filePath = session.getServletContext().getRealPath("/WEB-INF/img/user/storage");
+		String filePath = session.getServletContext().getRealPath("/WEB-INF/storage");
 		String fileName = img.getOriginalFilename();
 		
 		File file = new File(filePath, fileName);
