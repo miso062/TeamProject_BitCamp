@@ -1,27 +1,21 @@
 package user.service;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
-import org.springframework.web.multipart.MultipartFile;
 
+import product.bean.Buy_historyDTO;
+import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
 import user.dao.UserDAO;
-import user.send.SmsResponse;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -113,11 +107,6 @@ public class UserServiceImpl implements UserService {
 		}
 		userDAO.addaddressbook(addressDTO);
 	}
-
-	@Override
-	public UserDTO getUserInfo(String user_id) {
-		return userDAO.getUserInfo(user_id);
-	}
   
 	@Override
 	public void bookMarkInsert(Map<String, String> map) {
@@ -163,29 +152,7 @@ public class UserServiceImpl implements UserService {
 		return check1="1";	
 		}
 	}
-	@Override
-	public void update(UserDTO userDTO, HttpSession session) {
-		userDAO.update(userDTO);
-		session.invalidate();
-	}
-	
-	@Override
-	public void updateImg(String fileName) {
-		
-		Map<String, String> map = new HashMap<String, String>();
-		
-		String user_id = (String) session.getAttribute("user_id");
-		map.put("user_id", user_id);
-		map.put("profile_img", fileName);
-		userDAO.updateImg(map);
-	}
 
-	@Override
-	public void deleteImg() {
-		String user_id = (String) session.getAttribute("user_id");
-		userDAO.deleteImg(user_id);
-	}
-	
 	//아이디 중복체크
 	@Override
 	public String checkId(String user_id) {
@@ -198,15 +165,56 @@ public class UserServiceImpl implements UserService {
 		}
 		return check;
 	}
+	
+	/* 회원정보수정 MyPageEdit */
+	@Override
+	public UserDTO getUserInfo(String user_id) {
+		return userDAO.getUserInfo(user_id);
+	}
+	
+	@Override
+	public void update(UserDTO userDTO, HttpSession session) {
+		userDAO.update(userDTO);
+		session.invalidate();
+	}
+	
+	@Override
+	public void updateImg(String fileName) {
+		
+		Map<String, String> map = new HashMap<String, String>();
+		
+		String user_id = (String) session.getAttribute("memId");
+		map.put("user_id", user_id);
+		map.put("profile_img", fileName);
+		userDAO.updateImg(map);
+	}
 
-	/*
-	 * @Override public Map<String, String> bookMarkGet(int product_id) {
-	 * Map<String, Object> map = new HashMap<String, Object>(); String id = (String)
-	 * session.getAttribute("memId");
-	 * 
-	 * map.put("id", id); return userDAO.bookMarkGet(map); }
-	 */
+	@Override
+	public void deleteImg() {
+		String user_id = (String) session.getAttribute("memId");
+		userDAO.deleteImg(user_id);
+	}
+
+	/* 마이페이지 메인 */
+	@Override
+	public List<Buy_historyDTO> getBuyHistory(String user_id) {
+	  	return userDAO.getBuyHistory(user_id);
+	}
   
+	@Override
+	public List<Sell_historyDTO> getSellHistory(String user_id) {
+		return userDAO.getSellHistory(user_id);
+	}
+	
+//	@Override
+//	public Map<String, String> bookMarkGet(int product_id) {
+//		Map<String, Object> map = new HashMap<String, Object>();
+//		String id = (String) session.getAttribute("memId");
+//		
+//		map.put("id", id);
+//		return userDAO.bookMarkGet(map);
+//	}
+  	
 	@Override
 	public String signUpCheckNaver(UserDTO userDTO) {
 		System.out.println("2번!!");
@@ -253,14 +261,5 @@ public class UserServiceImpl implements UserService {
 		System.out.println("-----------1 " + check);
 		return check;
   }
-  
-  @Override
-	public void getBuyHistory(String user_id) {
-		// TODO Auto-generated method stub
-	}
-  
-	@Override
-	public void getSellHistory(String user_id) {
-		// TODO Auto-generated method stub
-	}
+
 }

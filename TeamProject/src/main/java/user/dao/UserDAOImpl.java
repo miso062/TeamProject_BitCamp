@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import product.bean.Buy_historyDTO;
+import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
 
@@ -126,5 +128,14 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("userSQL.loginNaver", user_id);
 	}
 
+	@Override
+	public List<Buy_historyDTO> getBuyHistory(String user_id) {
+		return sqlSession.selectOne("userSQL.getBuyHistory", user_id);
+	}
+
+	@Override
+	public List<Sell_historyDTO> getSellHistory(String user_id) {
+		return sqlSession.selectOne("userSQL.getSellHistory", user_id);
+	}
 }
 	
