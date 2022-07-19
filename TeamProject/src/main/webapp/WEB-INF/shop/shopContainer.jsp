@@ -1459,7 +1459,30 @@ let currentPage =1;
 let isLoading=false;
 
 //웹 브라우저의 창을 스크롤 할때마다 호출되는 함수 등록
-
+/* $(window).on("scroll",function(){
+	//위로 스크롤된 길이
+	let scrollTop=$(window).scrollTop();
+	//웹 브라우저의 창의 높이
+	let windowHeight=$(document).height();
+	//바닥까지 스크롤 되었는지 여부 알아낸다.
+	let isBottom=scrollTop+windowHeight+16 >= documentHeight;
+	
+	if(isBottom){
+		//만약 현재 마지막페이지라면
+		if(currentPage == ${totalPageCount} || isLoading){
+			return; //함수를 여기서 끝낸다.
+		}
+		//현재 로딩중표시
+		isLoading=true;
+		//로딩바를 띄움
+		$(".back-drop").show();
+		//요청할 페이지 번호를 1증가
+		currentPage++;
+		//추가로 받아올페이지를 서버에 ajax요청한다
+		console.log("inscroll+currentPage);
+		GetList(currentPage);
+	}
+}) */
 
 
 
