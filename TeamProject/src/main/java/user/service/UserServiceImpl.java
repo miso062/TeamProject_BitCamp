@@ -220,8 +220,10 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public List<LikeProDTO> bookMarkGet() {
+		System.out.println("여기222냐");
 		Map<String, Object> map = new HashMap<String, Object>();
 		String id = (String) session.getAttribute("memId");
+		System.out.println("memId" +id);
 		map.put("id", id);
 		return userDAO.bookMarkGet(map);
 	}
