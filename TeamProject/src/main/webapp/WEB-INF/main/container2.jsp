@@ -526,25 +526,27 @@ $(function(){
 });
 // 여기에서 책갈피 구현
  $(document).ready(function(){
-	$.ajax({
-		 type:'post',
-		 url:'/TeamProject/user/bookMarkGet',
-		 dataType: 'json',
-		 success: function(data){
-			 $.each(data, function(index, items){
-					
-					product_id = $('#cd2_product_id'+items.product_id).val();
-				if(items.product_id == product_id){
-					$('#cd2_bookmark'+items.product_id).attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
-					
-				}
-			 })
-			
-		 },
-		 error: function(e){
-			 console.log(e);
-		 }
-	})
+	 if('${sessionScope.memId}'){
+		 $.ajax({
+			 type:'post',
+			 url:'/TeamProject/user/bookMarkGet',
+			 dataType: 'json',
+			 success: function(data){
+				 $.each(data, function(index, items){
+						
+						product_id = $('#cd2_product_id'+items.product_id).val();
+					if(items.product_id == product_id){
+						$('#cd2_bookmark'+items.product_id).attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+						
+					}
+				 })
+				
+			 },
+			 error: function(e){
+				 console.log(e);
+			 }
+		}); 
+	}//if
 }); 
 
 $(document).on('click','.cd2_bookmark', function() {
