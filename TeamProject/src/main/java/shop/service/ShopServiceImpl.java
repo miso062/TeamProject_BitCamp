@@ -28,21 +28,20 @@ public class ShopServiceImpl implements ShopService {
 	@Override
 	public Map<String, Object> scrollProduct(String num) {
 		int startNum = Integer.parseInt(num);
-		int endNum = startNum+3;
+		int endNum = startNum+15;
 		
 		Map<String, Integer>map = new HashMap<String, Integer>();
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);
 		
 		Map<String, Object> sendMap = shopDAO.scrollProduct(map);
-		sendMap.put("num", startNum + 4);
+		sendMap.put("num", startNum + 15);
 		
 		return sendMap;
   }
 
 	@Override
 	public Map<String, Object> getShopDetail(int product_id) {
-		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("productImgDTO", getImage(product_id));
 		map.put("product", getProduct(product_id));

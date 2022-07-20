@@ -4,11 +4,11 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="shopSQL">
-	<select id="getimage" parameterType="int" resultType="productImg"> 
+	<select id="getImage" parameterType="int" resultType="productImg"> 
 	  select * from pro_image where product_id = ${product_id}
 	</select>
 
-	<select id="getproduct" parameterType="int" resultType="product"> 
+	<select id="getProduct" parameterType="int" resultType="product"> 
 	  select * from product where product_id = ${product_id}
 	</select>
 	

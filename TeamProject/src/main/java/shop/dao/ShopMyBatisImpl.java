@@ -70,6 +70,7 @@ public class ShopMyBatisImpl implements ShopDAO {
 		List<ProductDTO> productList = sqlSession.selectList("shopSQL.scrollProductList", map);
 		List<ProductImgDTO> productImgList = sqlSession.selectList("shopSQL.scrollProductImg", map);
 		
+		
 		Map<String, Object> sendMap = new HashMap<String, Object>();
 		sendMap.put("productList", productList);
 		sendMap.put("productImgList", productImgList);

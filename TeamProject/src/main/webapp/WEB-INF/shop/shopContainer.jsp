@@ -517,8 +517,10 @@ li, ol, ul {
 		<div class="shop_filter_tag" style=""></div><!-- shop_filter_tag -->
       
     <!-- content 시작-->
+    <input type="hidden" id="shop_num" value="1">
+    
     <ul class="shop-list-ul">
-		<li class="card-list-li">
+		 <li class="card-list-li">
 			<div class="shop_search_result_item">
                 <a href="#" class="shop_item_inner">
                     <div class="shop_product" style="background-color: rgb(235, 240, 245);">
@@ -557,7 +559,7 @@ li, ol, ul {
                 </div>
             </div>
 		</li>
-		<li class="card-list-li">
+		<!-- <li class="card-list-li">
 			<div class="shop_search_result_item">
                 <a href="#" class="shop_item_inner">
                     <div class="shop_product" style="background-color: rgb(235, 240, 245);">
@@ -1141,7 +1143,7 @@ li, ol, ul {
                     </span>
                 </div>
             </div>
-		</li>
+		</li> -->
 	</ul>
 	
     <!-- <div class="shop_search_result">
@@ -1447,19 +1449,53 @@ $(function() {
 });
 
 
-
-
-
-
-
-
-//페이지가 처음 로딩 될 때 1page를 보여주기 때문에 초기값을   1로 지정한다.
-let currentPage =1;
-//현재 페이지가 로딩중인지 여부를 저장할 변수이다.
-let isLoading=false;
-
-//웹 브라우저의 창을 스크롤 할때마다 호출되는 함수 등록
-
+$(document).ready(function(){
+	
+	function getInitData() {
+		$.ajax({
+			type:'post',
+			url:'/TeamProject/shop/scrollProduct',
+			data:'num=' + 1,
+			dataType:'json',
+			success: function(data){
+				console.log(data)
+				alert(JSON.stringify(data));
+				
+				for(var i=0; i<16; i++){
+					/* console.log(data.num, data.scrollProduct[i].brand, data.scrollProduct[i].eng_name, data.scrollProduct[i].kor_name, data.scrollProduct[i].release_price, data.scrollProduct[i].file_path); */
+					
+					$('.shop-list-ul').append(
+						$('<li/>', { class:'card-list-li'})
+						.append($('<div/>', { class:'shop_search_result_item' })
+							.append($('<a/>', { class:'shop_item_inner'})
+								.append($('<div/>', { class:'shop_product'})
+									.append($('<img/>', { src:data.productImgList[i].file_path, class: 'shop_product_img'})))))
+									.append($('<div/>', { class: 'shop_product_info' }))
+									.append($('<div/>', { class: 'shop_title' }))
+									.append($('<p/>', { class: 'shop_brand', text: data.productList[i].brand }))
+									.append($('<p/>', { class: 'shop_name', text: data.productList[i].eng_name }))
+									.append($('<p/>', { class: 'shop_translated_name', text: data.productList[i].kor_name }))
+									.append($('<div/>', { class: 'shop_price' }))
+									.append($('<div/>', { class: 'shop_amount', text: data.productList[i].release_price }))
+									.append($('<div/>', { class: 'shop_desc' }))
+									.append($('<p/>', { text:'즉시구매가' }))
+									.append($('<div/>', { class:'shop_interest_figure' }))
+									.append($('<span/>', { class:'shop_wish_figure' }))
+									.append($('<img/>',{ class:'shop_bookmark', src:'/TeamProject/img/shop/bookmark.svg' }))
+									.append($('<span/>',{ class:'shop_text' }))
+									.append($('<span/>',{ class:'shop_review_figure'}))
+									.append($('<a/>',{ class:'review_link'}))
+									.append($('<svg/>',{ class: 'bi bi-postcard', xmlns:"http://www.w3.org/2000/svg"}))
+						)
+					}
+				}
+			}
+		);	
+	}
+	
+	getInitData();
+	
+});
 
 
 
