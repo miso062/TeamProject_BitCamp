@@ -25,6 +25,7 @@ import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
+import user.bean.LikeProDTO;
 
 @Repository
 @Transactional
@@ -65,16 +66,19 @@ public class ShopMyBatisImpl implements ShopDAO {
 		return sqlSession.selectOne("shopSQL.getDefalutAddress", user_id);
 	}
   
+  @Override
+  public List<AddressDTO> getAddrList(String user_id) {
+		return sqlSession.selectList("shopSQL.getAddrList",user_id);
+  }
+  
 	@Override
 	public Map<String, Object> scrollProduct(Map<String, Integer> map) {
-		System.out.println(map);
 		List<ProductDTO> productList = sqlSession.selectList("shopSQL.scrollProductList", map);
 		List<ProductImgDTO> productImgList = sqlSession.selectList("shopSQL.scrollProductImg", map);
 		
 		Map<String, Object> sendMap = new HashMap<String, Object>();
 		sendMap.put("productList", productList);
 		sendMap.put("productImgList", productImgList);
-		System.out.println(sendMap);
 		
 		return sendMap;
   }
@@ -85,8 +89,23 @@ public class ShopMyBatisImpl implements ShopDAO {
 	}
 
 	@Override
-	public List<AddressDTO> getAddrList(String user_id) {
-		return sqlSession.selectList("shopSQL.getAddrList",user_id);
+	public Integer getbuyhistory(int product_id) {
+		return sqlSession.selectOne("shopSQL.getbuyhistory",product_id);
+	}
+
+	@Override
+	public Integer getsellhistory(int product_id) {
+		return sqlSession.selectOne("shopSQL.getsellhistory",product_id);
+	}
+
+	@Override
+	public Market_priceDTO getsigningdateprice(int product_id) {
+		return sqlSession.selectOne("shopSQL.getsigningdateprice",product_id);
+	}
+
+	@Override
+	public Integer getlikeproduct(int product_id) {
+		return sqlSession.selectOne("shopSQL.getlikeproduct",product_id);
 	}
 
 }

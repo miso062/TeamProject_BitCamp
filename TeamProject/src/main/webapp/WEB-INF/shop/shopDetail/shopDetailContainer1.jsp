@@ -858,7 +858,7 @@ tr {
                             <div class="c1_detail_price">
                                 <div class="c1_title"><span class="c1_title_txt">최근 거래가</span></div>
                                 <div class="c1_price">
-                                    <div class="c1_amount"><span class="c1_num">133,000</span><span class="c1_won">원</span></div>
+                                    <div class="c1_amount"><span class="c1_num" id="signingdateprice"></span><span class="c1_won">원</span></div>
                                     <div class="c1_fluctuation decrease"><p data-v-5943a237="">5,000원 (-3.6%)</p></div>
                                 </div>
                             </div>
@@ -868,19 +868,19 @@ tr {
                                 <a href="#" class="c1_btn_division c1_buy">
                                     <strong class="c1_title">구매</strong>
                                     <div class="c1_price">
-                                        <span class="c1_amount"><em class="c1_num">129,000</em><span class="c1_won">원</span></span><span class="c1_desc">즉시 구매가</span>
+                                        <span class="c1_amount"><em class="c1_num" id="buyprice"></em><span class="c1_won">원</span></span><span class="c1_desc">즉시 구매가</span>
                                     </div>
                                 </a>
                                 <a href="#" class="c1_btn_division c1_sell">
                                     <strong class="c1_title">판매</strong>
                                     <div class="c1_price">
-                                        <span class="c1_amount"><em class="c1_num">170,000</em><span class="c1_won">원</span></span><span class="c1_desc">즉시 판매가</span>
+                                        <span class="c1_amount"><em class="c1_num" id="sellprice"></em><span class="c1_won">원</span></span><span class="c1_desc">즉시 판매가</span>
                                     </div>
                                 </a>
                             </div>
                             <a href="#" class="c1_btn c1_full c1_outlinegrey c1_btn_wish c1_large" aria-label="관심상품">
                             <img alt="" src="/TeamProject/img/shopDetail/bookmark.svg" class="c1_bookmark ico-wish-off">
-                                <span class="c1_btn_text">관심상품</span><span class="c1_wish_count_num">9.5만</span>
+                                <span class="c1_btn_text">관심상품</span><span class="c1_wish_count_num" id="likepro"></span>
                             </a>
                         </div>
                     </div>
@@ -1257,19 +1257,19 @@ tr {
                             <div class="c1_btn_area">
                                 <a href="#" class="c1_btn c1_outlinegrey c1_large c1_btn_wish" aria-label="관심상품">
                             	<img alt="" src="/TeamProject/img/shopDetail/bookmark.svg" class="c1_bookmark ico-wish-off">
-                                    <span class="c1_wish_count_c1_num">9.5만</span>
+                                    <span class="c1_wish_count_c1_num" id="likepro1"></span>
                                 </a>
                                 <div class="c1_division_btn_box lg">
                                     <a href="#" class="c1_btn_division c1_buy">
                                         <strong class="c1_title">구매</strong>
                                         <div class="c1_price">
-                                            <span class="c1_amount"><em class="c1_num">129,000</em><span class="c1_won">원</span></span><span class="c1_desc">즉시 구매가</span>
+                                            <span class="c1_amount"><em class="c1_num" id="buyprice1"></em><span class="c1_won">원</span></span><span class="c1_desc">즉시 구매가</span>
                                         </div>
                                     </a>
                                     <a href="#" class="c1_btn_division c1_sell">
                                         <strong class="c1_title">판매</strong>
                                         <div class="c1_price">
-                                            <span class="c1_amount"><em class="c1_num">170,000</em><span class="c1_won">원</span></span><span class="c1_desc">즉시 판매가</span>
+                                            <span class="c1_amount"><em class="c1_num" id="sellprice1"></em><span class="c1_won">원</span></span><span class="c1_desc">즉시 판매가</span>
                                         </div>
                                     </a>
                                 </div>
@@ -1283,12 +1283,10 @@ tr {
     </div>
 </div>
 <script src="/TeamProject/js/shop/chart.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $("document").ready(function() {
 		$(window).scroll(function() { 
 			var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다. 
-		console.log(position);
 		     });    
 		});
 
@@ -1407,6 +1405,13 @@ $('.c1_buy').on('click',function(){
 $('.c1_sell').on('click',function(){
 	$(location).attr("href", "/TeamProject/shop/selectSellSize");
 })
+Number.prototype.format = function(){    
+	if(this==0) return 0;     
+	var reg = /(^[+-]?\d+)(\d{3})/;    
+	var n = (this + '');     
+	while (reg.test(n)) n = n.replace(reg, '$1' + ',' + '$2');     
+	return n;
+}; 
 $(document).ready(function(){
 	$.ajax({
 		type:'post',
@@ -1433,7 +1438,13 @@ $(document).ready(function(){
 			}else{
 				$('#c1_product_info_reldate').text(data.product.release_date);	
 			}
-			
+			$('#buyprice').text(data.buyhistory);
+			$('#sellprice').text(data.sellhistory);
+			$('#buyprice1').text(data.buyhistory);
+			$('#sellprice1').text(data.sellhistory);
+			$('#signingdateprice').text(data.signingdateprice.price.format());
+			$('#likepro').text(data.likeproduct.format());
+			$('#likepro1').text(data.likeproduct.format());
 		},
 		error:function(err){
 			console.log(err);
