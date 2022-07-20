@@ -183,6 +183,9 @@
     bottom: 0;
     background: rgba(0,0,0,0);
 }
+.cd2_bookmark{
+	cursor: pointer
+}
 </style>
 
  <!--섹션 1-->
@@ -267,10 +270,12 @@ $(document).ready(function(){
 					   class: 'cd2_btn_wish'
 				   }).append($('<img/>',{
 					   class: 'cd2_bookmark',
+					   id: 'cd2_bookmark'+data.productList[i].product_id,
 					   src : '/TeamProject/img/main/container2/bookmark.svg'
 				   }))).append($('<input/>',{
 					   type:'hidden',
 					   class : 'cd2_product_id',
+					   id: 'cd2_product_id'+data.productList[i].product_id,
 					   value : data.productList[i].product_id
 				   })).appendTo($('#cd2_list_first'));
 				}
@@ -342,10 +347,12 @@ $(function(){
 							   class: 'cd2_btn_wish'
 						   }).append($('<img/>',{
 							   class: 'cd2_bookmark',
+							   id: 'cd2_bookmark'+data.productList[i].product_id,
 							   src : '/TeamProject/img/main/container2/bookmark.svg'
 						   }))).append($('<input/>',{
 							   type:'hidden',
 							   class : 'cd2_product_id',
+							   id: 'cd2_product_id'+data.productList[i].product_id,
 							   value : data.productList[i].product_id
 						   })).appendTo($('#cd2_list_second'));
 						}
@@ -411,10 +418,12 @@ $(function(){
 								   class: 'cd2_btn_wish'
 							   }).append($('<img/>',{
 								   class: 'cd2_bookmark',
+								   id: 'cd2_bookmark'+data.productList[i].product_id,
 								   src : '/TeamProject/img/main/container2/bookmark.svg'
 							   }))).append($('<input/>',{
 								   type:'hidden',
 								   class : 'cd2_product_id',
+								   id: 'cd2_product_id'+data.productList[i].product_id,
 								   value : data.productList[i].product_id
 							   })).appendTo($('#cd2_list_third'));
 							}
@@ -479,10 +488,12 @@ $(function(){
 	 							   class: 'cd2_btn_wish'
 	 						   }).append($('<img/>',{
 	 							   class: 'cd2_bookmark',
+	 							  id: 'cd2_bookmark'+data.productList[i].product_id,
 	 							   src : '/TeamProject/img/main/container2/bookmark.svg'
 							   }))).append($('<input/>',{
 								   type:'hidden',
 								   class : 'cd2_product_id',
+								   id: 'cd2_product_id'+data.productList[i].product_id,
 								   value : data.productList[i].product_id
 							   })).appendTo($('#cd2_list_for'));
 	 						
@@ -513,29 +524,36 @@ $(function(){
 	    }
 	});
 });
-	// 여기에서 책갈피 구현
-	
-	
-	 $(document).ready(function(){
-		$(window).on('load', function(){
-			$.ajax({
+// 여기에서 책갈피 구현
+ $(document).ready(function(){
+	 if('${sessionScope.memId}'){	 
+		$.ajax({
 			 type:'post',
 			 url:'/TeamProject/user/bookMarkGet',
-			 data:{'product_id': $(this).parent().next('.cd2_product_id').val()},
-			 success: function(){
-				$('.cd2_bookmark').attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+			 dataType: 'json',
+			 success: function(data){
+				 $.each(data, function(index, items){
+						
+						product_id = $('#cd2_product_id'+items.product_id).val();
+					if(items.product_id == product_id){
+						$('#cd2_bookmark'+items.product_id).attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+						
+					}
+				 })
+				
 			 },
 			 error: function(e){
 				 console.log(e);
 			 }
-		})
-		
-	});
-
-	
+		}); 
+	 }//if 
 }); 
 
 $(document).on('click','.cd2_bookmark', function() {
+	if(!'${sessionScope.memId}'){
+		$(this).attr('src', '/TeamProject/img/main/container2/bookmark.svg');
+		alert('로그인 먼저해주세요');
+	}else{
 		if($(this).hasClass('active')){
 			$(this).attr('src', '/TeamProject/img/main/container2/bookmark.svg');
 			$(this).removeClass('active');
@@ -554,19 +572,21 @@ $(document).on('click','.cd2_bookmark', function() {
 		}else{
 			$(this).addClass('active');
 			$(this).attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
-		$.ajax({
-			type: 'post',
-			url: '/TeamProject/user/bookMarkInsert',
-			data: {'product_id': $(this).parent().next('.cd2_product_id').val()},
-			success: function(){
-				alert('관심상품이 추가되었습니다 ');
-			},                                                                    
-			error: function(e) {
-				console.log(e);
-			}
-		});//ajax
-	};//else
+			$.ajax({
+				type: 'post',
+				url: '/TeamProject/user/bookMarkInsert',
+				data: {'product_id': $(this).parent().next('.cd2_product_id').val()},
+				success: function(){
+					alert('관심상품이 추가되었습니다 ');
+				},                                                                    
+				error: function(e) {
+					console.log(e);
+				}
+			});//ajax
+		} // else
+	}
 });
+
 
 $(document).on('click','.cd2_item_inner', function() {
 	location.href = '/TeamProject/shop/shopDetail?product_id='+$(this).next().next().next().val();

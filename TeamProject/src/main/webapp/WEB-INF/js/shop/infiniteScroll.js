@@ -55,7 +55,7 @@
 //const ioCallback = (entries, io) => {
 //  entries.forEach((entry) => {
 //	  // 화면 안에 요소가 들어왔는지 체크
-//	  if(pending === false) {		  
+//	  if(pending === false) {
 //		  if (entry.isIntersecting) {
 //			  // 기존 관찰하던 요소는 더 이상 관찰하지 않음
 //			  pending = true;
@@ -63,7 +63,7 @@
 //			  // TODO: 새로운 컨텐츠 추가
 //		      // TODO: 새로운 컨텐츠의 마지막 요소를 관찰 시작
 //
-//			  
+//
 //			  getList(function () {
 //			      loadingStart();
 //				  loadingFinish();
@@ -96,10 +96,10 @@
 //		success: function(data){
 //			console.log(data)
 //			//alert(JSON.stringify(data));
-//			
+//
 //			for(var i=0; i<16; i++){
 //				/* console.log(data.num, data.scrollProduct[i].brand, data.scrollProduct[i].eng_name, data.scrollProduct[i].kor_name, data.scrollProduct[i].release_price, data.scrollProduct[i].file_path); */
-//				
+//
 //				$('.shop-list-ul').append(
 //					$('<li/>', { class:'card-list-li'})
 //					.append($('<div/>', { class:'shop_search_result_item' })
@@ -124,7 +124,7 @@
 //								.append($('<svg/>',{ class: 'bi bi-postcard', xmlns:"http://www.w3.org/2000/svg"}))
 //					)
 //			}
-//			
+//
 //			num = num + 1;
 //			callback();
 //			}

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import product.bean.Buy_historyDTO;
+import product.bean.Market_priceDTO;
 import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
@@ -22,4 +23,6 @@ public interface ShopService {
 	public Sell_historyDTO getSellDTO(int product_id, int size);
 	public Buy_historyDTO getBuyDTO(int product_id, int size);
 	public AddressDTO getDefalutAddress();
+	public List<Market_priceDTO> getchart(int product_id);
+	public List<AddressDTO> getAddrList();
 }

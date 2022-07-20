@@ -1,5 +1,6 @@
 package shop.service;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,11 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import product.bean.Buy_historyDTO;
+import product.bean.Market_priceDTO;
 import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import shop.dao.ShopDAO;
 import user.bean.AddressDTO;
+import user.bean.LikeProDTO;
 
 @Service
 public class ShopServiceImpl implements ShopService {
@@ -45,11 +48,34 @@ public class ShopServiceImpl implements ShopService {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("productImgDTO", getImage(product_id));
 		map.put("product", getProduct(product_id));
+		map.put("sellhistory",getsellhistory(product_id));
+		map.put("buyhistory",getbuyhistory(product_id));
+		map.put("signingdateprice", getsigningdateprice(product_id));
+		map.put("likeproduct", getlikeproduct(product_id));
 		
-		System.out.println(map);
+		
 		return map;
 	}
 	
+	private Integer getlikeproduct(int product_id) {
+		return shopDAO.getlikeproduct(product_id);
+	}
+
+	private Market_priceDTO getsigningdateprice(int product_id) {
+		return shopDAO.getsigningdateprice(product_id);
+		
+	}
+
+	private Integer getbuyhistory(int product_id) {
+		return shopDAO.getbuyhistory(product_id);
+		
+	}
+
+	private Integer getsellhistory(int product_id) {
+		return  shopDAO.getsellhistory(product_id);
+		
+	}
+
 	public ProductDTO getProduct(int product_id) { 
 		ProductDTO productDTO = shopDAO.getProduct(product_id);
 		return productDTO;
@@ -82,12 +108,23 @@ public class ShopServiceImpl implements ShopService {
 
 	@Override
 	public AddressDTO getDefalutAddress() {
-//		return shopDAO.getDefalutAddress((String) session.getAttribute("memID"));
-		AddressDTO defalutAddress = shopDAO.getDefalutAddress("yy1004@gmail.com"); // ijiya@hotmail.net
+		AddressDTO defalutAddress = shopDAO.getDefalutAddress((String) session.getAttribute("memId"));
 		if(defalutAddress == null) {
 			defalutAddress = new AddressDTO();
 		}
 		return defalutAddress;
 	}
+	
+	@Override
+	public List<AddressDTO> getAddrList() {
+		String user_id = (String) session.getAttribute("memId");
+		return shopDAO.getAddrList(user_id);
+	}
+
+	@Override
+	public List<Market_priceDTO> getchart(int product_id) {
+		return shopDAO.getchart(product_id);
+	}
+
 
 }

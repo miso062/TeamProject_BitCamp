@@ -22,7 +22,7 @@
 		select count(*) from user_table where hp=#{hp} and user_id=#{user_id}
 	</select>
 	
-	<insert id="addaddress" parameterType="useraddress">
+	<insert id="addAddress" parameterType="useraddress">
 		insert into address(address_id,user_id,name,hp,zipcode,addr,addr_detail,flag)
 		values(address_seq.nextval,#{user_id},#{name},#{hp},#{zipcode},#{addr},#{addr_detail},#{flag})
 	</insert>
@@ -82,6 +82,14 @@
 	<select id="loginNaver" parameterType="String" resultType="user">
 		select *from user_table where user_id=#{user_id}
 	</select>
+	<!-- 카카오 회원 존재 -->
+	<select id="checkIdKakao" parameterType="String" resultType="int">
+	 select count(*) from user_table where user_id=#{user_id} and sign_up_type='카카오'
+	</select>
+	<!-- 카카오 일단 아이디 입력 후 수정하는 방식 -->
+	<insert id="writeKakao" parameterType="String">
+	insert into user_table values(#{user_id},0,0,0,0,0,0,0,0,1,'카카오',sysdate)
+	</insert>
 	
 	<!-- 회원정보수정 -->
 	<update id="update" parameterType="user">
@@ -92,12 +100,12 @@
 						,shoesize = #{shoesize}
 						,sms_allow = #{sms_allow}
 						,email_allow = #{email_allow}
-						,profile_img = #{profile_img}
+						 where user_id=#{user_id}
 	</update>
   
-	<!-- <select id="bookMarkGet" parameterType="java.util.Map" resultType="user">
-		select * from user_table where user_id=#{id}, product_id=#{product_id}
-	</select> -->
+	<select id="bookMarkGet" parameterType="java.util.Map" resultType="likePro">
+		select * from like_pro where user_id=#{id}
+	</select> 
   
 	<!-- 프로필 이미지 업데이트 -->
 	<update id="updateImg" parameterType="java.util.Map">

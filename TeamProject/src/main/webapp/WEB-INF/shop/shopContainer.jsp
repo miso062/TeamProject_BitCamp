@@ -89,7 +89,7 @@ li, ol, ul {
 .shop_sorting_title {
     font-size: 14px;
     letter-spacing: -.07px;
-    
+
     display: -webkit-box;
     align-items: center;
     cursor: pointer;
@@ -344,7 +344,7 @@ li, ol, ul {
 }
 .action a {
   display:inline-block;
-  padding:5px 10px; 
+  padding:5px 10px;
   background:#f30;
   color:#fff;
   text-decoration:none;
@@ -383,83 +383,83 @@ li, ol, ul {
 <div class="banner_main">
 	<div class="slider slider-for">
 		<div class="detail_banner">
-			<div class="banner_img" 
-				style="background: rgb(219, 224, 191); 
-					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA3MDVfMTA0/MDAxNjU2OTk2NDgxNzQ3.gtTHaXpp66kF0wdCasV-5sOLw4dS-S7s2Wzb9Ur2CRMg.nLvv3ljNs-hFjcB77Ozg-Y39wQi36aAbjqWHz1NXoJIg.JPEG/a_9cc89f7ccaa14201a10027ada2cd7642.jpg'); 
-					   background-size: auto 100px; 
-					   background-position: center; 
+			<div class="banner_img"
+				style="background: rgb(219, 224, 191);
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA3MDVfMTA0/MDAxNjU2OTk2NDgxNzQ3.gtTHaXpp66kF0wdCasV-5sOLw4dS-S7s2Wzb9Ur2CRMg.nLvv3ljNs-hFjcB77Ozg-Y39wQi36aAbjqWHz1NXoJIg.JPEG/a_9cc89f7ccaa14201a10027ada2cd7642.jpg');
+					   background-size: auto 100px;
+					   background-position: center;
 					   background-repeat: no-repeat;">
 		   </div>
 		</div>
 		<div class="detail_banner">
-			<div class="banner_img" 
+			<div class="banner_img"
 				style="background: rgb(255, 217, 82);
-					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA3MDFfMTY3/MDAxNjU2NjU1MDYwOTc2.ueQfTc0XpCu42XqmiFa-FNHg3IEiN0VcUS___47yYvMg.EXHBu8gfgk1VTZAnI6bzDAEvUMDu6kLsc7vyW0X2300g.JPEG/a_133b8c8a407b46368fa034aacb2cc5ec.jpg'); 
-					   background-size: auto 100px; 
-					   background-position: center; 
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA3MDFfMTY3/MDAxNjU2NjU1MDYwOTc2.ueQfTc0XpCu42XqmiFa-FNHg3IEiN0VcUS___47yYvMg.EXHBu8gfgk1VTZAnI6bzDAEvUMDu6kLsc7vyW0X2300g.JPEG/a_133b8c8a407b46368fa034aacb2cc5ec.jpg');
+					   background-size: auto 100px;
+					   background-position: center;
 					   background-repeat: no-repeat;">
 		   </div>
 		</div>
 		<div class="detail_banner">
-			<div class="banner_img" 
+			<div class="banner_img"
 				style="background: rgb(255, 245, 210);
-					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA2MzBfMjMx/MDAxNjU2NTYyODQwNjg3.8E3ck06GreqSLbQcln9rvVz9LbfG2WUema5P2w2SDcMg._oMIiXndXi5xG8dUv9XJP6UWn_Ah9KbCg4P0HtSToMgg.JPEG/a_dfb459ddc40d41c6b8897945afb88cea.jpg'); 
-					   background-size: auto 100px; 
-					   background-position: center; 
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA2MzBfMjMx/MDAxNjU2NTYyODQwNjg3.8E3ck06GreqSLbQcln9rvVz9LbfG2WUema5P2w2SDcMg._oMIiXndXi5xG8dUv9XJP6UWn_Ah9KbCg4P0HtSToMgg.JPEG/a_dfb459ddc40d41c6b8897945afb88cea.jpg');
+					   background-size: auto 100px;
+					   background-position: center;
 					   background-repeat: no-repeat;">
 		   </div>
 		</div>
 		<div class="detail_banner">
-			<div class="banner_img" 
+			<div class="banner_img"
 				style="background: rgb(136, 146, 174);
-					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA3MDRfMTk4/MDAxNjU2OTI0MTM3MDA5.1AcR76sfCImjibgrcraQRWkKYRqG672tbvQWgAZ8tbMg.sk7m5nHVzuswfb0zDTTkJKDVUZ31Q0rSQ-9o0BNBKKcg.PNG/a_4bf5ecd915e14e1f83cc7847401873fd.png'); 
-					   background-size: auto 100px; 
-					   background-position: center; 
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA3MDRfMTk4/MDAxNjU2OTI0MTM3MDA5.1AcR76sfCImjibgrcraQRWkKYRqG672tbvQWgAZ8tbMg.sk7m5nHVzuswfb0zDTTkJKDVUZ31Q0rSQ-9o0BNBKKcg.PNG/a_4bf5ecd915e14e1f83cc7847401873fd.png');
+					   background-size: auto 100px;
+					   background-position: center;
 					   background-repeat: no-repeat;">
 		   </div>
 		</div>
 		<div class="detail_banner">
-			<div class="banner_img" 
+			<div class="banner_img"
 				style="background: rgb(110, 74, 254);
-					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA2MjhfMTgw/MDAxNjU2MzkyNjQ1OTI5.LhUjE231Cj36tDWqdnfcdMmyyipjUjcfcUFxuW5H_ZQg.usNpTMcZpF6EC_SmjCFxBg4XgxnRCia1mBt3oJx_Rn4g.PNG/a_1f3e13becba041f1a6afda28c36b0f04.png'); 
-					   background-size: auto 100px; 
-					   background-position: center; 
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA2MjhfMTgw/MDAxNjU2MzkyNjQ1OTI5.LhUjE231Cj36tDWqdnfcdMmyyipjUjcfcUFxuW5H_ZQg.usNpTMcZpF6EC_SmjCFxBg4XgxnRCia1mBt3oJx_Rn4g.PNG/a_1f3e13becba041f1a6afda28c36b0f04.png');
+					   background-size: auto 100px;
+					   background-position: center;
 					   background-repeat: no-repeat;">
 		   </div>
 		</div>
 		<div class="detail_banner">
-			<div class="banner_img" 
+			<div class="banner_img"
 				style="background: rgb(245, 241, 196);
-					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA2MjlfOTkg/MDAxNjU2NDkzNTYyNzE2.H9LYf27neY3ycoUuuPz9fs703xx-Q1MkF99IqLNq6Ncg.qeOpC1q7Dtm0nWmpFZlj7MLewrVwVtspoH6YJ4Un04Ug.JPEG/a_c009a479c4fb48d9bc7ed976bcc1c7ef.jpg'); 
-					   background-size: auto 100px; 
-					   background-position: center; 
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA2MjlfOTkg/MDAxNjU2NDkzNTYyNzE2.H9LYf27neY3ycoUuuPz9fs703xx-Q1MkF99IqLNq6Ncg.qeOpC1q7Dtm0nWmpFZlj7MLewrVwVtspoH6YJ4Un04Ug.JPEG/a_c009a479c4fb48d9bc7ed976bcc1c7ef.jpg');
+					   background-size: auto 100px;
+					   background-position: center;
 					   background-repeat: no-repeat;">
 		   </div>
 		</div>
 		<div class="detail_banner">
-			<div class="banner_img" 
+			<div class="banner_img"
 				style="background: rgb(12, 180, 89);
-					   background-image: url('https://kream-phinf.pstatic.net/MjAyMTExMDhfMTQg/MDAxNjM2MzUyODQ4MTAy.Cw85PX23DLnCC0JXxlf5uRR4V6OUxDsz12MQLHRVeXsg.xdWI38nU5YX5e8cq6zifnXghc7o6Jl26o0U_vV7QVbkg.PNG/a_4e25f1b123af4f79ab8eb2c243321230.png'); 
-					   background-size: auto 100px; 
-					   background-position: center; 
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMTExMDhfMTQg/MDAxNjM2MzUyODQ4MTAy.Cw85PX23DLnCC0JXxlf5uRR4V6OUxDsz12MQLHRVeXsg.xdWI38nU5YX5e8cq6zifnXghc7o6Jl26o0U_vV7QVbkg.PNG/a_4e25f1b123af4f79ab8eb2c243321230.png');
+					   background-size: auto 100px;
+					   background-position: center;
 					   background-repeat: no-repeat;">
 		   </div>
 		</div>
 		<div class="detail_banner">
-			<div class="banner_img" 
+			<div class="banner_img"
 				style="background: rgb(212, 235, 232);
-					   background-image: url('https://kream-phinf.pstatic.net/MjAyMTA4MTBfODIg/MDAxNjI4NTM2Nzg2OTgw.w-hLutujBYPkNUNO9MH6D5xwwbEzmPUBgGNna7Fe2TQg.PhY3IcBEGM-4uoXqe9Yf0mAsRxJzGGDJ6HAei8RhSAMg.JPEG/a_c3e55535dd75452b802e180c312e1525.jpg'); 
-					   background-size: auto 100px; 
-					   background-position: center; 
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMTA4MTBfODIg/MDAxNjI4NTM2Nzg2OTgw.w-hLutujBYPkNUNO9MH6D5xwwbEzmPUBgGNna7Fe2TQg.PhY3IcBEGM-4uoXqe9Yf0mAsRxJzGGDJ6HAei8RhSAMg.JPEG/a_c3e55535dd75452b802e180c312e1525.jpg');
+					   background-size: auto 100px;
+					   background-position: center;
 					   background-repeat: no-repeat;">
 		   </div>
 		</div>
 		<div class="detail_banner">
-			<div class="banner_img" 
+			<div class="banner_img"
 				style="background: rgb(3, 4, 35);
-					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA0MDVfMjg3/MDAxNjQ5MTQxNDQ2MzE5.KmWw8NmaqtTEZQUwNB-qnk94UoRvQjTBz6HE-wcsUPwg.uKnTAOmBZVasnEheK77-WjBLVGkrxaev02tgaOLhqz0g.JPEG/a_e84bc8e4c55041b29479627fc78a2469.jpg'); 
-					   background-size: auto 100px; 
-					   background-position: center; 
+					   background-image: url('https://kream-phinf.pstatic.net/MjAyMjA0MDVfMjg3/MDAxNjQ5MTQxNDQ2MzE5.KmWw8NmaqtTEZQUwNB-qnk94UoRvQjTBz6HE-wcsUPwg.uKnTAOmBZVasnEheK77-WjBLVGkrxaev02tgaOLhqz0g.JPEG/a_e84bc8e4c55041b29479627fc78a2469.jpg');
+					   background-size: auto 100px;
+					   background-position: center;
 					   background-repeat: no-repeat;">
 		   </div>
 		</div>
@@ -473,7 +473,7 @@ li, ol, ul {
 	<div class="shop_search_filter">
 		<jsp:include page="/WEB-INF/shop/shopFilter.jsp"></jsp:include>
 	</div>
-	
+
 <div class="shop_search_content">
     <div class="shop_search_option" >
 		<div class="shop_filter_sorting" >
@@ -513,12 +513,12 @@ li, ol, ul {
 				</ul>
 			</div>
 		</div>
-		
+
 		<div class="shop_filter_tag" style=""></div><!-- shop_filter_tag -->
-      
+
     <!-- content 시작-->
     <input type="hidden" id="shop_num" value="1">
-    
+
     <ul class="shop-list-ul">
 		 <li class="card-list-li">
 			<div class="shop_search_result_item">
@@ -1145,7 +1145,7 @@ li, ol, ul {
             </div>
 		</li> -->
 	</ul>
-	
+
     <!-- <div class="shop_search_result">
         <div class="shop_search_result_list">
 
@@ -1187,7 +1187,7 @@ li, ol, ul {
                     </span>
                 </div>
             </div>
-            
+
             <div class="shop_search_result_item">
                 <a href="#" class="shop_item_inner">
                     <div class="shop_product" style="background-color: rgb(235, 240, 245);">
@@ -1225,7 +1225,7 @@ li, ol, ul {
                     </span>
                 </div>
             </div>
-            
+
             <div class="shop_search_result_item">
                 <a href="#" class="shop_item_inner">
                     <div class="shop_product" style="background-color: rgb(235, 240, 245);">
@@ -1390,7 +1390,7 @@ li, ol, ul {
 <script src="/TeamProject/js/shop/infiniteScroll.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script type="text/javascript">  
+<script type="text/javascript"> 
 /* 관심버튼 이미지 클릭시 로테이션으로 변경하기 */
 $('.shop_bookmark').on(	{'click' : function() {
 		var src = ($(this).attr('src') === '/TeamProject/img/shop/bookmark.svg') ? '/TeamProject/img/shop/bookmark-fill.svg'
@@ -1417,17 +1417,17 @@ $(function() {
 	$(".shop_sorting_list .shop_sorting_item").on('click', function() {
 		$(this).addClass("item_on");
 		$(".shop_sorting_list .shop_sorting_item").not(this).removeClass("item_on");
-		
-		var text = $(this).find('.shop_main_desc').html(); 
+
+		var text = $(this).find('.shop_main_desc').html();
 		var icon = '<svg xmlns="http://www.w3.org/2000/svg" width="15px" height="13px" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/></svg>'
-	
+
 		$('.shop_sorting_list').css({
 			'display' : 'none'
 		});
-		
+
 		$('.shop_sorting_title').html(text + " " + icon);
 	});
-	
+
 	$.noConflict();
 	/* 슬라이더 생성 */
 	$('.slider-for').slick({
@@ -1439,7 +1439,7 @@ $(function() {
 		autoplay: true,
 		autoplaySpeed: 4000,
 	});
-	
+
 	/* 슬라이드 페이지 */
 	$('.slider-for').on('beforeChange',
 			function(event, slick, currentSlide, nextSlide) {
@@ -1450,7 +1450,7 @@ $(function() {
 
 
 $(document).ready(function(){
-	
+
 	function getInitData() {
 		$.ajax({
 			type:'post',
@@ -1460,10 +1460,10 @@ $(document).ready(function(){
 			success: function(data){
 				console.log(data)
 				alert(JSON.stringify(data));
-				
+
 				for(var i=0; i<16; i++){
 					/* console.log(data.num, data.scrollProduct[i].brand, data.scrollProduct[i].eng_name, data.scrollProduct[i].kor_name, data.scrollProduct[i].release_price, data.scrollProduct[i].file_path); */
-					
+
 					$('.shop-list-ul').append(
 						$('<li/>', { class:'card-list-li'})
 						.append($('<div/>', { class:'shop_search_result_item' })
@@ -1490,17 +1490,46 @@ $(document).ready(function(){
 					}
 				}
 			}
-		);	
+		);
 	}
-	
+
 	getInitData();
-	
+
 });
 
+//페이지가 처음 로딩 될 때 1page를 보여주기 때문에 초기값을   1로 지정한다.
+let currentPage =1;
+//현재 페이지가 로딩중인지 여부를 저장할 변수이다.
+let isLoading=false;
+
+//웹 브라우저의 창을 스크롤 할때마다 호출되는 함수 등록
+/* $(window).on("scroll",function(){
+	//위로 스크롤된 길이
+	let scrollTop=$(window).scrollTop();
+	//웹 브라우저의 창의 높이
+	let windowHeight=$(document).height();
+	//바닥까지 스크롤 되었는지 여부 알아낸다.
+	let isBottom=scrollTop+windowHeight+16 >= documentHeight;
+
+	if(isBottom){
+		//만약 현재 마지막페이지라면
+		if(currentPage == ${totalPageCount} || isLoading){
+			return; //함수를 여기서 끝낸다.
+		}
+		//현재 로딩중표시
+		isLoading=true;
+		//로딩바를 띄움
+		$(".back-drop").show();
+		//요청할 페이지 번호를 1증가
+		currentPage++;
+		//추가로 받아올페이지를 서버에 ajax요청한다
+		console.log("inscroll+currentPage);
+		GetList(currentPage);
+	}
+}) */
 
 
 </script>
 
 </body>
 </html>
- 
