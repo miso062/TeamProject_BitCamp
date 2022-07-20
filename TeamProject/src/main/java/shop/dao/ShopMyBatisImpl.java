@@ -66,6 +66,11 @@ public class ShopMyBatisImpl implements ShopDAO {
 		return sqlSession.selectOne("shopSQL.getDefalutAddress", user_id);
 	}
   
+  @Override
+  public List<AddressDTO> getAddrList(String user_id) {
+		return sqlSession.selectList("shopSQL.getAddrList",user_id);
+  }
+  
 	@Override
 	public Map<String, Object> scrollProduct(Map<String, Integer> map) {
 		List<ProductDTO> productList = sqlSession.selectList("shopSQL.scrollProductList", map);

@@ -13,7 +13,9 @@ import org.springframework.stereotype.Service;
 
 import product.bean.Buy_historyDTO;
 import product.bean.Sell_historyDTO;
+import shop.dao.ShopDAO;
 import user.bean.AddressDTO;
+import user.bean.LikeProDTO;
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
@@ -22,6 +24,8 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserDAO userDAO;
+	@Autowired
+	private ShopDAO shopDAO;
 	@Autowired
 	private HttpSession session;
 	@Autowired
@@ -101,11 +105,19 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public void addaddressbook(AddressDTO addressDTO) {
+	public void addAddressBook(AddressDTO addressDTO) {
+		String user_id = (String) session.getAttribute("memId");
+		addressDTO.setUser_id(user_id);
+		AddressDTO defalutAddress = shopDAO.getDefalutAddress(user_id);
+		
 		if(addressDTO.getFlag() == 1) {
 			userDAO.updateflag(addressDTO);
 		}
-		userDAO.addaddressbook(addressDTO);
+		else if(defalutAddress == null) {
+			userDAO.updateflag(addressDTO);
+			addressDTO.setFlag(1);
+		}
+		userDAO.addAddressBook(addressDTO);
 	}
   
 	@Override
@@ -207,23 +219,20 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public Map<String, String> bookMarkGet(int product_id) {
+	public List<LikeProDTO> bookMarkGet() {
 		Map<String, Object> map = new HashMap<String, Object>();
 		String id = (String) session.getAttribute("memId");
-		
 		map.put("id", id);
 		return userDAO.bookMarkGet(map);
 	}
   	
 	@Override
 	public String signUpCheckNaver(UserDTO userDTO) {
-		System.out.println("2번!!");
 		String check;
 		//휴대전화로 동일가입여부 조회
 		String hp = userDTO.getHp();
 		int a = userDAO.signUpCheck(hp);
 		if(a==0) {
-			System.out.println("3번!!");
 			//아이디로 다시 한 번 조회 해준다.
 			String user_id = userDTO.getUser_id(); 
 			int b = userDAO.checkId(user_id);
@@ -238,28 +247,51 @@ public class UserServiceImpl implements UserService {
 				check="success";
 			}
 			else {
-				System.out.println("4번!!");
 				check ="fail";
 			}
 		}else {
-			System.out.println("5번!!");
 			//다시 hp, 네이버 여부로 해 조회
 			int c = userDAO.checkNaver(hp);
 			if(c==0) {
-				System.out.println("6번!!");
 				check = "fail";
 			}else {
-				System.out.println("7번!!");
 				String user_id = userDTO.getUser_id(); 
 				UserDTO userDTO1 = userDAO.loginNaver(user_id);
 				session.setAttribute("memId", userDTO.getUser_id());
-				System.out.println(session.getAttribute("memId"));
 				session.setAttribute("memAuthority", userDTO.getAuthority());
 				check="success";
 			}
 		}
-		System.out.println("-----------1 " + check);
 		return check;
-  }
+  }	
+	//카카오 회원 조회
+	@Override
+	public String checkKakao(String user_id) {
+		String check ;
+		int a = userDAO.checkId(user_id);
+		if(a==0) {
+			userDAO.writeKakao(user_id);
+			UserDTO userDTO = userDAO.loginNaver(user_id);
+			session.setAttribute("memId", userDTO.getUser_id());
+			session.setAttribute("memAuthority", userDTO.getAuthority());
+			
+			check = "success";
+			
+			
+		}else {
+			//카카오도 들고 조회
+			int b = userDAO.checkIdKakao(user_id);
+			if(b==0) {
+				check ="fail";
+			}else {
+				UserDTO userDTO = userDAO.loginNaver(user_id);
+				session.setAttribute("memId", userDTO.getUser_id());
+				session.setAttribute("memAuthority", userDTO.getAuthority());
+				
+				check = "success";
+			}
+		}
+		return check;
+	}
 
 }

@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import product.bean.Buy_historyDTO;
 import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
+import user.bean.LikeProDTO;
 import user.bean.UserDTO;
 
 
@@ -28,9 +29,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public void addaddressbook(AddressDTO addressDTO) {
-		sqlSession.insert("userSQL.addaddress",addressDTO);
-		
+	public void addAddressBook(AddressDTO addressDTO) {
+		sqlSession.insert("userSQL.addAddress",addressDTO);
 	}
 
 	@Override
@@ -69,7 +69,12 @@ public class UserDAOImpl implements UserDAO {
 		System.out.println("너 여기까지 오냐?");
 		sqlSession.delete("userSQL.bookMarkDelete", map);
 		System.out.println("여기까지오냐고");
-  }
+	}
+	
+	@Override
+	public List<LikeProDTO> bookMarkGet(Map<String, Object> map) {
+		return sqlSession.selectList("userSQL.bookMarkGet", map);
+	}
   
 	public int checkNick(String nickname) {
 		int nickcount = sqlSession.selectOne("userSQL.checkNick", nickname);
@@ -100,6 +105,7 @@ public class UserDAOImpl implements UserDAO {
   
 	@Override
 	public void updateImg(Map<String, String> map) {
+		System.out.println(map);
 		sqlSession.update("userSQL.updateImg", map);
 	}
 
@@ -113,10 +119,6 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("userSQL.checkNaver", hp);
 	}
 
-	@Override
-	public Map<String, String> bookMarkGet(Map<String, Object> map) {
-		return sqlSession.selectOne("userSQL.bookMarkGet", map);
-	}
 
 	@Override
 	public void SignUpNaver(UserDTO userDTO) {
@@ -130,12 +132,23 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public List<Buy_historyDTO> getBuyHistory(String user_id) {
-		return sqlSession.selectOne("userSQL.getBuyHistory", user_id);
+		return sqlSession.selectList("userSQL.getBuyHistory", user_id);
 	}
 
 	@Override
 	public List<Sell_historyDTO> getSellHistory(String user_id) {
-		return sqlSession.selectOne("userSQL.getSellHistory", user_id);
+		return sqlSession.selectList("userSQL.getSellHistory", user_id);
+	}
+
+	@Override
+	public int checkIdKakao(String user_id) {
+
+		return sqlSession.selectOne("userSQL.checkIdKakao", user_id);
+	}
+
+	@Override
+	public void writeKakao(String user_id) {
+		sqlSession.insert("userSQL.writeKakao", user_id);
 	}
 }
 	

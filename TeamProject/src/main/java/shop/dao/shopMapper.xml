@@ -26,17 +26,22 @@
 		where product_id=${product_id} and size_type=${size} and status1='입찰중' and <![CDATA[rownum <= 1 ]]>
 	</select>
 	
-	<select id="getDefalutAddress" parameterType="String" resultType="useraddress">
+	<!-- 기본배송지 -->
+	<select id="getDefalutAddress" parameterType="String" resultType="userAddress">
 		select * from address where user_id=#{user_id} and flag=1
 	</select>
+	
+	<select id="getAddrList" parameterType="String" resultType="userAddress">
+		select * from address where user_id=#{user_id} order by flag desc
+	</select>
   
-  <select id="scrollProductList" parameterType="java.util.Map" resultType="product">
-  		<!-- - 상품 4개씩 -->
-  		select * from (
-         select rownum rn, tt.* from (
-            select * from product where release_date is not null order by release_date desc)tt)
-           where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>
-  </select>
+	<select id="scrollProductList" parameterType="java.util.Map" resultType="product">
+		<!-- - 상품 4개씩 -->
+		select * from (
+			select rownum rn, tt.* from (
+				select * from product where release_date is not null order by release_date desc)tt)
+				where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>
+	</select>
   	
 	<select id="scrollProductImg" parameterType="java.util.Map" resultType="productImg">
   		<!-- 이미지 -->

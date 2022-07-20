@@ -110,18 +110,23 @@ public class ShopServiceImpl implements ShopService {
 
 	@Override
 	public AddressDTO getDefalutAddress() {
-//		return shopDAO.getDefalutAddress((String) session.getAttribute("memID"));
-		AddressDTO defalutAddress = shopDAO.getDefalutAddress("yy1004@gmail.com"); // ijiya@hotmail.net
+		AddressDTO defalutAddress = shopDAO.getDefalutAddress((String) session.getAttribute("memId"));
 		if(defalutAddress == null) {
 			defalutAddress = new AddressDTO();
 		}
 		return defalutAddress;
 	}
+	
+	@Override
+	public List<AddressDTO> getAddrList() {
+		String user_id = (String) session.getAttribute("memId");
+		return shopDAO.getAddrList(user_id);
+	}
 
 	@Override
 	public List<Market_priceDTO> getchart(int product_id) {
-		
 		return shopDAO.getchart(product_id);
 	}
+
 
 }

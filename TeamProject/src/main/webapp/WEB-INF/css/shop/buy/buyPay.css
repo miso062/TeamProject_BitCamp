@@ -797,12 +797,10 @@ input::placeholder{
 }
 .my_item {
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
+	justify-content: space-between;
 }
 .btn_layer_close {
     position: absolute;
@@ -815,4 +813,84 @@ input::placeholder{
     top: 18px;
     right: 20px;
     cursor: pointer;
+}
+.layer_address .layer_container {
+    width: 520px;
+    height: 620px;
+}
+.address_info .mark {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 14px;
+    margin-top: 0;
+    margin-left: 4px;
+    padding: 3px 6px;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+}
+.is_active .address_info .name {
+    font-weight: 700;
+}
+.address_info {
+    line-height: 17px;
+}
+.address_info .name {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 20px;
+    font-size: 15px;
+    letter-spacing: -.15px;
+    font-weight: 700;
+}
+.address_info .phone {
+    padding-top: 5px;
+    font-size: 15px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.address_info .address_box {
+    padding-top: 4px;
+    font-size: 14px;
+    letter-spacing: -.21px;
+}
+.address_info .phone .dot:after {
+    content: "";
+    margin-left: 2px;
+    display: inline-flex;
+    width: 5px;
+    height: 5px;
+    background-color: #222;
+    border-radius: 100%;
+}
+.address_info .phone .dot {
+    white-space: nowrap;
+    margin-top: -5px;
+}
+.address_info .phone .hyphen {
+    margin-left: 4px;
+    margin-right: 2px;
+    display: inline-flex;
+    width: 4px;
+    height: 1px;
+    background-color: #000;
+}
+.btn_layer_close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    cursor: pointer;
+}
+.address_close_btn {
+    width: 17px;
+    height: 17px;
+    filter: opacity(0.5) drop-shadow(0 0 0 #fff);
+}
+.address_check_flag {
+    width: 20px;
+    height: 20px;
 }

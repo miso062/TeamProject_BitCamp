@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 
-                <div class="layer_address layer lg"><!-- style="display: none;" -->
+                <div class="layer_address layer lg" style="display: none;">
 				    <div class="layer_container">
 				        <div class="layer_header"><h2 class="layer_title">주소록</h2></div>
 				        <div class="layer_content">
@@ -83,48 +83,14 @@
 				                <div class="my_list">
 				                    <div class="other">
 				                        <div class="other_list">
-				                            <div class="my_item is_active select">
-				                                <div class="info_bind">
-				                                    <div class="address_info">
-				                                        <div class="name_box"><span class="name">김**</span><span class="mark">기본 배송지</span></div>
-				                                        <p class="phone">
-				                                            010<span class="hyphen"></span>9<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="hyphen"></span><span class="dot"></span>150
-				                                        </p>
-				                                        <div class="address_box">
-				                                            <span class="zipcode">(13332)</span><span class="address">경기 성남시 수정구 산성대로173번길 20-15 (수진동) 1층</span>
-				                                        </div>
-				                                    </div>
-				                                </div>
-				                                <div class="btn_bind">
-				                                    <svg xmlns="http://www.w3.org/2000/svg" class="ico-check-s icon sprite-icons">
-				                                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-check-s" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-check-s"></use>
-				                                    </svg>
-				                                </div>
-				                            </div>
-				                            <div class="my_item select">
-				                                <div class="info_bind">
-				                                    <div class="address_info">
-				                                        <div class="name_box">
-				                                            <span class="name">김**</span>
-				                                        </div>
-				                                        <p class="phone">
-				                                            010<span class="hyphen"></span>9<span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="hyphen"></span><span class="dot"></span>150
-				                                        </p>
-				                                        <div class="address_box"><span class="zipcode">(13536)</span><span class="address">경기 성남시 분당구 판교역로 4 (백현동) 1층</span></div>
-				                                    </div>
-				                                </div>
-				                                <div class="btn_bind"><!----></div>
-				                            </div>
+				                            
 				                        </div>
 				                    </div>
 				                </div>
-				                <!---->
 				            </div>
 				        </div>
 				        <a href="#" class="btn_layer_close">
-				            <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons ico-close">
-				                <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
-				            </svg>
+                            <img src="/TeamProject/img/shop/cancel.png" alt="닫기" class="address_close_btn">
 				        </a>
 				    </div>
 				</div>
@@ -373,22 +339,93 @@ var resultzipcode = false;
 var resultaddr1 = false;
 var resultaddr2 = false;
 
+// open change address modal
+$('.change_btn').click(function(){
+    $('.layer_address').fadeIn();
+    $('body').css("overflow", "hidden");
+    $.ajax({
+        url: '/TeamProject/shop/getAddrList',
+        type: 'post',
+        dataType: 'json',
+        success: function(data){
+            $('.other_list').html('');
+            $.each(data, function(index, items){
+                var hp = items.hp.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/\-{1,2}$/g, "");
+                if(index == 0){
+                    var default_addr = '<div class="my_item is_active select">'+
+                        '<div class="info_bind">'+
+                        '<div class="address_info"><div class="name_box">'+
+                        '<span class="name">'+items.name+'</span>'+
+                        '<span class="mark">기본 배송지</span></div>'+
+                        '<p class="phone">'+hp+'</p>'+
+                        '<div class="address_box">'+
+                        '<span class="zipcode">('+items.zipcode+') </span>'+
+                        '<span class="address">'+items.addr+' '+items.addr_detail+'</span>'+
+                        '</div></div></div><div class="btn_bind">'+
+                        '<img src="/TeamProject/img/shop/check.png" alt="선택" class="address_check_flag"></div></div>'+
+                        '<input type="hidden" class="address_id" value='+items.address_id+'>';
+
+                    $(".other_list").append(default_addr);
+                }
+                else{
+                    var addr = '<div class="my_item select">'+
+                        '<div class="info_bind">'+
+                        '<div class="address_info"><div class="name_box">'+
+                        '<span class="name">'+items.name+'</span>'+
+                        '<p class="phone">'+hp+'</p>'+
+                        '<div class="address_box">'+
+                        '<span class="zipcode">('+items.zipcode+') </span>'+
+                        '<span class="address">'+items.addr+' '+items.addr_detail+'</span>'+
+                        '</div></div></div><div class="btn_bind"></div></div>'+
+                        '<input type="hidden" class="address_id" value='+items.address_id+'>';
+                    $(".other_list").append(addr);
+                }
+            })
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+});
+
+$(document).on("click",function(e){
+    if($('.layer_address').is(e.target)) {
+        $('.layer_address').fadeOut();
+        $('body').css("overflow-y", "scroll");
+    }
+});
+$('.btn_layer_close').click(function(){ // 취소 버튼 눌러서 종료
+    $('.layer_address').fadeOut();
+    $('body').css("overflow-y", "scroll");
+});
+
+// open add address modal
+function addr_initialization(){
+    $('.input_error').css('display', 'none');
+    $('.has_error').removeClass('has_error');
+    $('.b').removeClass('b');
+    $('#name_input').val('');
+    $('#phone_input').val('');
+    $('#zipcode').val('');
+    $('#addr1').val('');
+    $('#addr2').val('');
+}
+
 $('.add_more_btn, .must_add_address').click(function(){
     $('.layer_delivery').fadeIn();
     $('body').css("overflow", "hidden");
+    addr_initialization();
 });
 $(document).on("click",function(e){
     if($('.layer_delivery').is(e.target)) {
         $('.layer_delivery').fadeOut();
         $('body').css("overflow-y", "scroll");
     }
-})
-$('.layer_bTn').click(function(){ //신발 확인 버튼 눌러서 끄기
+});
+$('.layer_bTn').click(function(){ // 취소 버튼 눌러서 종료
     $('.layer_delivery').fadeOut();
     $('body').css("overflow-y", "scroll");
-    $('.input_txt.hover.text_fill').val($('.btn.on > .info_txt').text());
-    $('.input_txt.hover.text_fill').next().val('true');
-})
+});
 
 function oninputaddr2(value){
 	console.log(value);
@@ -480,25 +517,15 @@ function checkPhone(value) { //핸드폰 유효성 검사
 function checkPost() { // 우편 번호
     new daum.Postcode({
         oncomplete: function(data) {
-            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
             var addr = ''; // 주소 변수
             var extraAddr = ''; // 참고항목 변수
-
-            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
             if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
                 addr = data.roadAddress;
             } else { // 사용자가 지번 주소를 선택했을 경우(J)
                 addr = data.jibunAddress;
             }
-
-           
-            // 우편번호와 주소 정보를 해당 필드에 넣는다.
             document.getElementById('zipcode').value = data.zonecode;
             document.getElementById("addr1").value = addr;
-            // 커서를 상세주소 필드로 이동한다.
             document.getElementById("addr2").focus();
         }
     }).open();
@@ -521,7 +548,7 @@ $(document).on('click','.check_default_address_label',function(){ // 기본 배�
 
 $(document).on('click','.bTn.bTn_save.solid.medium.passadd',function(){ // 배송지 저장
 	$.ajax({
-		url:'/TeamProject/user/addaddressbook',
+		url:'/TeamProject/user/addAddressBook',
 		type: 'post',
 		data: {
 			'name': $('#name_input').val(),
@@ -533,6 +560,7 @@ $(document).on('click','.bTn.bTn_save.solid.medium.passadd',function(){ // 배�
 		},
 		success: function(){
 			alert('저장되었습니다.');
+            location.reload();
 		},
 		error: function(err){
 		console.log(err);
