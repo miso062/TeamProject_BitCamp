@@ -9,6 +9,7 @@ import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
+import user.bean.LikeProDTO;
 
 public interface ShopDAO {
 	public ProductImgDTO getImage(int product_id);
@@ -19,4 +20,8 @@ public interface ShopDAO {
 	public AddressDTO getDefalutAddress(String user_id);
   	Map<String, Object> scrollProduct(Map<String, Integer> map);
 	public List<Market_priceDTO> getchart(int product_id);
+	public Integer getbuyhistory(int product_id);
+	public Integer getsellhistory(int product_id);
+	public Market_priceDTO getsigningdateprice(int product_id);
+	public Integer getlikeproduct(int product_id);
 }

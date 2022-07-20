@@ -1,5 +1,6 @@
 package shop.service;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,7 @@ import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import shop.dao.ShopDAO;
 import user.bean.AddressDTO;
+import user.bean.LikeProDTO;
 
 @Service
 public class ShopServiceImpl implements ShopService {
@@ -44,13 +46,38 @@ public class ShopServiceImpl implements ShopService {
 	@Override
 	public Map<String, Object> getShopDetail(int product_id) {
 		
+		DecimalFormat decFormat = new DecimalFormat("###,###");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("productImgDTO", getImage(product_id));
 		map.put("product", getProduct(product_id));
+		map.put("sellhistory",decFormat.format(getsellhistory(product_id)));
+		map.put("buyhistory",decFormat.format(getbuyhistory(product_id)));
+		map.put("signingdateprice", getsigningdateprice(product_id));
+		map.put("likeproduct", getlikeproduct(product_id));
+		
 		
 		return map;
 	}
 	
+	private Integer getlikeproduct(int product_id) {
+		return shopDAO.getlikeproduct(product_id);
+	}
+
+	private Market_priceDTO getsigningdateprice(int product_id) {
+		return shopDAO.getsigningdateprice(product_id);
+		
+	}
+
+	private Integer getbuyhistory(int product_id) {
+		return shopDAO.getbuyhistory(product_id);
+		
+	}
+
+	private Integer getsellhistory(int product_id) {
+		return  shopDAO.getsellhistory(product_id);
+		
+	}
+
 	public ProductDTO getProduct(int product_id) { 
 		ProductDTO productDTO = shopDAO.getProduct(product_id);
 		return productDTO;
