@@ -107,6 +107,7 @@ div > ul > li > a{
 #footer_hr_line{
    align:center;
    position: relative;
+   
    width: 95%;
 }
 #footer_company_import{
@@ -122,6 +123,7 @@ div > ul > li > a{
 
 #footer_service_info{
    list-style:none;
+   margin: 50px;
 }
 
 #footer_service_type{
@@ -134,9 +136,7 @@ div > ul > li > a{
 .footer_info_title{
    color: white;
 }
-#footer_service_info{
-   margin: 60px;
-}
+
 .footer_corporation{
    margin: 40px;
 }
@@ -155,7 +155,7 @@ a.banner_box2{
 #footer_cs_center{
    float: right;
    position: relative;
-  
+   margin-top: -170px;
    margin-right:5px
 }
 #footer_cs_time1{
@@ -177,37 +177,52 @@ font-size:13px;
 }
 #footer_exe{
 font-size:12px;
+padding-bottom: 50px;
 }
  #footer_instagram{
    float: right;
    position: relative; 
-   right:5px;
-   bottom:125px;
+   right: 10px;
+   bottom:175px;
 }
 #footer_kakao{
    float: right;
    position: relative;
-   right: 28px;
-   bottom:125px;
+   right: 35px;
+   bottom:175px;
 }
 #footer_facebook{
    float: right;
    position: relative;
-   right: 50px;
-   bottom:125px;
+   right: 65px;
+   bottom:175px;
 }
 #footer_kakao_Img{
-	width:21px
+	width:19px
 }
 #footer_instagram_Img{
-	width:21px
+	width:19px
 }
 #footer_facebook_Img{
-	width:21px
+	width:19px
 }
-/* .banner_box1 .banner_box2{
+.footer_menu_box1{
+	width: 160px
+}
+.footer_menu_box2{
+	width: 160px;
+	margin-left: 270px;
+	margin-top: -173px;
+}
+#footer_a{
+	font-size: 14px;
+	color: #22222280
+}
+#footer_a2{
+	margin-right: 18px;
+    font-size: 14px;
+}
 
-} */
 
 </style>
 <div class="footer">
@@ -236,10 +251,28 @@ font-size:12px;
 </div>
 
 <div id="footer_service_info">
-   <ul>
-      <li>
-         <b>이용안내</b>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+   	  <div class="footer_menu_box1">
+         <b>이용안내</b>
+         <ul>
+         <br>
+         <li ><a class="footer_a" id="footer_a" href="">검수기준</a></li><br>
+         <li><a class="footer_a" id="footer_a" href="">이용정책<a></li><br>
+         <li><a class="footer_a" id="footer_a" href="">패널티 정책</a></li><br>
+         <li><a class="footer_a" id="footer_a" href="">커뮤니티 가이드라인</a></li>
+         </ul>
+      </div> 
+      
+      <div class="footer_menu_box2">
          <b>고객지원</b>
+         <ul>
+         <br>
+          <li ><a class="footer_a" id="footer_a" href="">공지사항</a></li><br>
+          <li><a class="footer_a" id="footer_a" href="">서비스소개<a></li><br>
+          <li><a class="footer_a" id="footer_a" href="">쇼룸 안내</a></li><br>
+          <li><a class="footer_a" id="footer_a" href="">판매자 방문접수</a></li>
+          </ul>
+       </div>
+        
          <div id="footer_cs_center">
             <strong>고객센터 1588-7813</strong><br><br>
             <div id="footer_cs_time1">
@@ -248,27 +281,19 @@ font-size:12px;
             <div id="footer_cs_time2">1:1 문의하기는 앱에서만 가능합니다</div><br>
             <a href="#" class="footer_btn"><strong>자주 묻는 질문</strong></a>
          </div>
-      </li><br>
-
-      <div id="footer_service_type">
-         <li ><a class="footer_a" href="">검수기준&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;공지사항</a></li><br>
-         <li><a class="footer_a" href="">이용정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;서비스 소개</a></li><br>
-         <li><a class="footer_a" href="">패널티 정책&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;쇼룸 안내</a></li><br>
-         <li><a class="footer_a" href="">커뮤니티 가이드라인&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;판매자 방문접수</a></li>
-   </ul>
 </div>
 
 <hr id="footer_hr_line">
 <div class="footer_corporation">
    <ul >
-      <li ><a class="footer_a" href="">회사소개&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-      <li><a class="footer_a" href="">인재채용&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-      <li><a class="footer_a" href="">제휴제안&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-      <li><a class="footer_a" href="">이용약관&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+      <li ><a class="footer_a" id="footer_a2" href="">회사소개</a></li>
+      <li><a class="footer_a" id="footer_a2" href="">인재채용</a></li>
+      <li><a class="footer_a" id="footer_a2" href="">제휴제안</a></li>
+      <li><a class="footer_a" id="footer_a2" href="">이용약관</a></li>
       <li><a class="footer_a" href=""><b>개인정보처리방침</b></a></li><br><br>
       <div id="footer_company_import">
-         크림 주식회사 · 대표김창욱&emsp;사업자등록번호:570-88-01618<a id="footer_btnBusiness" href="">사업자정보확인</a>&emsp;통신판매업:제 2021-성남분당C-0093호<br>
-         사업장소재지:경기도 성남시 분당구 분당내곡로 117, 8층&emsp;개인정보관리책임자:김미진&emsp;호스팅 서비스:네이버 클라우드 (주)<br><br>
+                   크림 주식회사 · 대표김창욱&emsp;사업자등록번호:570-88-01618<a id="footer_btnBusiness" href="">사업자정보확인</a>&emsp;통신판매업:제 2021-성남분당C-0093호<br>
+                   사업장소재지:경기도 성남시 분당구 분당내곡로 117, 8층&emsp;개인정보관리책임자:김미진&emsp;호스팅 서비스:네이버 클라우드 (주)<br><br>
          <div id="footer_exe">크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별 판매자가 등록한 상품저보에 대해서 책임을 지지 않<br>
             습니다. 단, 거래과정에서 검수하고 보증하는 내용에 대한 책임은 당사에 있습니다</div>
          </div>
