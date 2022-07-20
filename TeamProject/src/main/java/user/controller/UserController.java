@@ -317,12 +317,11 @@ public class UserController {
 		System.out.println("delete ="+product_id);
 		userService.bookMarkDelete(product_id);
 	}
-	/*
+
 	@PostMapping(value="bookMarkGet")
 	@ResponseBody
 	public List<LikeProDTO> bookMarkGet(){
 		List<LikeProDTO> list = userService.bookMarkGet();
 		return list; 
 	}
-	 */
 }
