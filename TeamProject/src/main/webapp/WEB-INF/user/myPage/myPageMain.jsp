@@ -891,11 +891,7 @@
                 </div>
                 <div class="layer_btn"><a data-v-28cabbb5="" href="#" class="btn outline medium" > 확인 </a></div>
             </div>
-            <a href="#" class="btn_layer_close">
-                <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-                    <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
-                </svg>
-            </a>
+            <a href="#" class="btn_layer_close"></a>
         </div>
     </div>
 </div>
@@ -937,8 +933,8 @@ $(document).ready(function(){
 		dataType:'json',
 		success: function(data){
 			alert(JSON.stringify(data));
-			$.each(data, function(index, item) {
-				console.log(item.size_type)
+			$.each(data , function(index, items) {
+				//console.log(items.size_type)
 				$('<div/>',{
 				    class: 'purchase_item buy'
 				}).append($('<div/>',{
@@ -959,16 +955,16 @@ $(document).ready(function(){
 				    class: 'size'
 				}).append($('<span/>'),{
 				    class: 'size_text'
-				    //text: item.size_type
+				    //,text: item.size_type
 				})))).append($('<div/>',{
 				    class:'history_status'
-				    //text: item.status1
+				    //,text: items.status1
 				}).append($('<div/>',{
 				    class: 'status_box field_status'
 				}).append($('<span/>',{
 				    class: 'status_txt text-default'
 				})))).appendTo('.purchase_list');
-			}
+			});
 		},
 		error:function(err){
 			console.log(err);
