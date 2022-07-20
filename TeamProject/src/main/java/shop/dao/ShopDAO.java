@@ -15,6 +15,7 @@ public interface ShopDAO {
 	public ProductImgDTO getImage(int product_id);
 	public ProductDTO getProduct(int product_id);
 	public List<Sell_historyDTO> getSellList(int product_id);
+	public List<Buy_historyDTO> getBuyList(int product_id);
 	public Sell_historyDTO getSellDTO(Map<String, Integer> map);
 	public Buy_historyDTO getBuyDTO(Map<String, Integer> map);
 	public AddressDTO getDefalutAddress(String user_id);

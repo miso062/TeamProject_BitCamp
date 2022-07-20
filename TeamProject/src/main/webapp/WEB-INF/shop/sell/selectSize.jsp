@@ -79,7 +79,7 @@
 }
 
 .select_link.buy .price {
-	color: #f15746
+	color: #41b979
 }
 
 .select_link.sell .price {
@@ -151,7 +151,7 @@
 }
 
 .status_value.premium_up {
-	color: #f15746;
+	color: #41b979;
 	font-weight: 700
 }
 
@@ -707,7 +707,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid" id="button">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">225</span>
-											<span data-v-02c63ee6="" class="price" id="price_size_225">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_225">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -715,7 +715,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">230</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_230">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_230">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -723,7 +723,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">235</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_235">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_235">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -731,7 +731,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">240</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_240">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_240">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -739,7 +739,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">245</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_245">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_245">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -747,7 +747,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">250</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_250">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_250">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -755,7 +755,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">255</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_255">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_255">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -763,7 +763,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">260</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_260">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_260">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -771,7 +771,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">265</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_265">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_265">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -779,7 +779,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">270</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_270">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_270">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -787,7 +787,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">275</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_275">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_275">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -795,7 +795,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">280</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_280">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_280">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -803,7 +803,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">285</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_285">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_285">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -811,7 +811,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">290</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_290">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_290">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -819,7 +819,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">295</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_295">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_295">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -827,7 +827,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">300</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_300">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_300">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -835,7 +835,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">305</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_305">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_305">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -843,7 +843,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid" id="button">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">310</span> 
-											<span data-v-02c63ee6="" class="price" id="price_size_310">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_310">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -851,7 +851,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">315</span>
-											<span data-v-02c63ee6="" class="price" id="price_size_315">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_315">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -859,7 +859,7 @@ body{
 									<button data-v-02c63ee6="" role="button" aria-selected="false" class="select_link buy bid">
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">320</span>
-											<span data-v-02c63ee6="" class="price" id="price_size_320">구매입찰</span>
+											<span data-v-02c63ee6="" class="price" id="price_size_320">판매입찰</span>
 										</div>
 									</button>
 								</li>
@@ -903,14 +903,14 @@ $(function(){
 	});
 
 	$.ajax({
-		url : "/TeamProject/shop/getSelectSizeInfo",
+		url : "/TeamProject/shop/getSelectSellSizeInfo",
 		type: "post",
 		data: { "product_id": $('#product_id').val() },
 		dataType: 'json',
 		success: function(data){
 			$.each(data, function(index, items){
 				var id = "#price_size_" + items.size_type;
-				var price = items.sell_price.toString();
+				var price = items.buy_price.toString();
 				price = price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 				if(price != ''){
 					$(id).text(price);
@@ -925,6 +925,6 @@ $(function(){
 });
 
 $('#goNextBtn').click(function(){
-	location.href="/TeamProject/shop/buyCheck?product_id="+$('#product_id').val()+"&size="+$('#selected_size').val();
+	location.href="/TeamProject/shop/sellCheck?product_id="+$('#product_id').val()+"&size="+$('#selected_size').val();
 });
 </script>

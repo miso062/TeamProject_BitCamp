@@ -90,6 +90,11 @@ public class ShopServiceImpl implements ShopService {
 	}
 
 	@Override
+	public List<Buy_historyDTO> getBuyList(int product_id) {
+		return shopDAO.getBuyList(product_id);
+	}
+
+	@Override
 	public Sell_historyDTO getSellDTO(int product_id, int size) {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("product_id", product_id);
@@ -134,5 +139,4 @@ public class ShopServiceImpl implements ShopService {
 	public List<Market_priceDTO> getchart(int product_id) {
 		return shopDAO.getchart(product_id);
 	}
-
 }

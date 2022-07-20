@@ -46,7 +46,7 @@ public class BuyController {
 	}
 	
 //	상품 정보 불러오기
-	@PostMapping(value="/getSelectSizeInfo")
+	@PostMapping(value="/getSelectBuySizeInfo")
 	@ResponseBody
 	public List<Sell_historyDTO> getSelectSizeInfo(@RequestParam int product_id) {
 		return shopService.getSellList(product_id);

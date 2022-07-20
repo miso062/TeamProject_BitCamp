@@ -16,6 +16,10 @@
 		select * from sell_history where product_id=${product_id} and status1='입찰중'
 	</select>
 	
+	<select id="getBuyList" parameterType="int" resultType="buyHistory">
+		select * from buy_history where product_id=${product_id} and status1='입찰중'
+	</select>
+	
 	<select id="getSellDTO" parameterType="java.util.Map" resultType="sellHistory">
 		select * from (select * from sell_history order by sell_price) 
 		where product_id=${product_id} and size_type=${size} and status1='입찰중' and <![CDATA[rownum <= 1 ]]>

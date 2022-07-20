@@ -1406,7 +1406,12 @@ $('.c1_buy').on('click',function(){
 })
 
 $('.c1_sell').on('click',function(){
-	$(location).attr("href", "/TeamProject/shop/selectSellSize");
+	if('${sessionScope.memId}'){
+        var href = "/TeamProject/shop/selectSellSize?product_id=" +  $('#product_id').val();
+	    $(location).attr("href", href);
+    }else{
+        alert('로그인 후 이용해주세요');
+    }
 })
 Number.prototype.format = function(){
 	if(this==0) return 0;

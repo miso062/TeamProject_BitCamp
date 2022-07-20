@@ -50,6 +50,11 @@ public class ShopMyBatisImpl implements ShopDAO {
 	public List<Sell_historyDTO> getSellList(int product_id) {
 		return sqlSession.selectList("shopSQL.getSellList", product_id);
 	}
+	
+	@Override
+	public List<Buy_historyDTO> getBuyList(int product_id) {
+		return sqlSession.selectList("shopSQL.getBuyList", product_id);
+	}
 
 	@Override
 	public Sell_historyDTO getSellDTO(Map<String, Integer> map) {
