@@ -894,3 +894,115 @@ input::placeholder{
     width: 20px;
     height: 20px;
 }
+
+.layer_alert {
+    text-align: center;
+}
+.layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(34,34,34,.5);
+    z-index: 1010;
+}
+.layer_order_price_confirm .layer_container {
+    width: 400px;
+    text-align: center;
+}
+.layer_container {
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+}
+.layer_order_price_confirm .alert_title {
+    margin: 32px 32px 0;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 20px;
+}
+.layer_order_price_confirm .alert_title .alert_notice {
+    position: relative;
+    margin-bottom: 14px;
+}
+.layer_order_price_confirm .alert_title .alert_notice .notice {
+    background: #333;
+    color: #fff;
+    font-size: 13px;
+    width: 136px;
+    margin: 0 auto;
+    padding: 9px;
+    border-radius: 20px;
+}
+.layer_order_price_confirm .alert_title .alert_notice .rectangle {
+    position: absolute;
+    top: 26px;
+    border-radius: 1px;
+    display: inline-block;
+    margin-left: -16px;
+    width: 0;
+    height: 0;
+    border-left: 16px solid rgba(0,0,0,0);
+    border-right: 16px solid rgba(0,0,0,0);
+    border-top: 16px solid #333;
+}
+.layer_order_price_confirm .alert_title .alert_total_price {
+    font-size: 14px;
+    font-weight: 600;
+}
+.layer_order_price_confirm .alert_title .price {
+    font-size: 24px;
+    letter-spacing: -.36px;
+    font-weight: 700;
+    color: #f15746;
+    margin-top: 3px;
+}
+.layer_order_price_confirm .alert_box {
+    padding: 8px 32px 0;
+}
+.layer_order_price_confirm .alert_desc {
+    font-size: 18px;
+    letter-spacing: -.09px;
+    width: 300px;
+    margin: 0 auto;
+    line-height: 22px;
+}
+.layer_order_price_confirm .alert_desc em {
+    color: #222;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(239,98,83,.36078);
+    text-decoration-thickness: 6px;
+    text-underline-offset: -6px;
+}
+.layer_btn {
+    padding: 24px 32px 32px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+.layer .layer_btn .alert_done_btn {
+    width: 100%;
+}
+.layer .alert_done_btn {
+    font-weight: 700;
+}
+.alert_done_btn {
+    padding: 0 25px;
+    height: 52px;
+    line-height: 50px;
+    border-radius: 14px;
+    font-size: 16px;
+    letter-spacing: -.16px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #ef6253;
+    color: #fff;
+}

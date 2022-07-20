@@ -1,6 +1,5 @@
 package shop.service;
 
-import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,13 +16,17 @@ import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import shop.dao.ShopDAO;
 import user.bean.AddressDTO;
-import user.bean.LikeProDTO;
+import user.bean.UserDTO;
+import user.dao.UserDAO;
 
 @Service
 public class ShopServiceImpl implements ShopService {
 	
 	@Autowired
 	public ShopDAO shopDAO;
+	
+	@Autowired
+	public UserDAO userDAO;
 	
 	@Autowired
 	HttpSession session;
@@ -123,9 +126,13 @@ public class ShopServiceImpl implements ShopService {
 	}
 	
 	@Override
+	public UserDTO getUserInfo() {
+		return userDAO.getUserInfo((String) session.getAttribute("memId"));
+	}
+	
+	@Override
 	public List<Market_priceDTO> getchart(int product_id) {
 		return shopDAO.getchart(product_id);
 	}
-
 
 }

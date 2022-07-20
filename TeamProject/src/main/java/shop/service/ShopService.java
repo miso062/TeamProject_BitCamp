@@ -12,6 +12,7 @@ import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import shop.dao.ShopDAO;
 import user.bean.AddressDTO;
+import user.bean.UserDTO;
 
 public interface ShopService {
 
@@ -26,4 +27,5 @@ public interface ShopService {
 	public List<Market_priceDTO> getchart(int product_id);
 	public List<AddressDTO> getAddrList();
 	public AddressDTO getAddress(int addr_id);
+	public UserDTO getUserInfo();
 }

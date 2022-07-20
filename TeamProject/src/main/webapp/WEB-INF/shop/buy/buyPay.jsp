@@ -43,6 +43,7 @@
                             <div class="address_info">
                                 <dl class="info_list">
                                     <input type="hidden" id="selected_addr_id">
+                                    <input type="hidden" id="selected_zipcode">
                                     <div class="info_box"><dt class="title">받는 분</dt><dd class="desc" id="address_name"></dd></div>
                                     <div class="info_box"><dt class="title">연락처</dt><dd class="desc" id="address_hp"></dd></div>
                                     <div class="info_box">
@@ -145,9 +146,7 @@
                         </div>
                         <a href="#" class="bTn_layer_close">
                             <div>
-                                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-                                    <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
-                                </svg> -->
+                                <!-- <img src="/TeamProject/img/shop/cancel.png" alt="닫기" class="address_close_btn"> -->
                             </div>
                         </a>
                     </div>
@@ -321,12 +320,34 @@
                     <div class="price_total_confirm">
                         <dl class="price_box">
                             <dt class="price_title">총 결제금액</dt>
-                            <dd class="total_price"><span class="amount">33,600</span><span class="unit">원</span></dd>
+                            <dd class="total_price"><span class="amount">${map.total_price}</span><span class="unit">원</span></dd>
                         </dl>
                     </div>
-                    <div class="btn_confirm"><a class="buy_btn"> 구매 입찰하기 </a></div>
+                    <div class="btn_confirm"><a class="buy_btn"></a></div>
                 </div>
             </section>
+            <div class="layer_order_price_confirm layer lg" style="display: none">
+                <div class="layer_container">
+                    <div class="layer_header"></div>
+                    <div class="layer_content">
+                        <div class="alert_title">
+                            <div class="alert_notice">
+                                <p class="notice">한번 더 확인하세요</p>
+                                <span class="rectangle"></span>
+                            </div>
+                            <p class="alert_total_price">총 결제금액</p>
+                            <p class="price">${map.total_price}원</p>
+                        </div>
+                        <div class="alert_box">
+                            <p class="alert_desc">해당 거래는 개인간 거래로 단순변심 또는 실수에 따른 <em>체결 후 취소는 불가능합니다.</em></p>
+                        </div>
+                        <div class="layer_btn"><button type="button" class="alert_done_btn" data-v-350bc372="">구매 입찰완료</button></div>
+                    </div>
+                    <a href="#" class="btn_layer_close">
+                        <img src="/TeamProject/img/shop/cancel.png" alt="닫기" class="address_close_btn">
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -411,6 +432,7 @@ $(document).on('click', '.my_item', function(){
             $('#address_hp').text(data.hp);
             $('#address_detail').text(data.addr + ' ' + data.addr_detail);
             $('#selected_addr_id').val(data.address_id);
+            $('#selected_zipcode').val(data.zipcode);
             $('.layer_address').fadeOut();
             $('body').css("overflow-y", "scroll");
         },
@@ -456,6 +478,24 @@ $(document).on("click",function(e){
 });
 $('.layer_bTn').click(function(){ // 취소 버튼 눌러서 종료
     $('.layer_delivery').fadeOut();
+    $('body').css("overflow-y", "scroll");
+});
+
+
+// open alert check modal
+$('.btn_confirm').click(function(){
+    $('.layer_order_price_confirm').fadeIn();
+    $('body').css("overflow", "hidden");
+    addr_initialization();
+});
+$(document).on("click",function(e){
+    if($('.layer_order_price_confirm').is(e.target)) {
+        $('.layer_order_price_confirm').fadeOut();
+        $('body').css("overflow-y", "scroll");
+    }
+});
+$('.btn_layer_close').click(function(){ // 취소 버튼 눌러서 종료
+    $('.layer_order_price_confirm').fadeOut();
     $('body').css("overflow-y", "scroll");
 });
 
@@ -624,7 +664,9 @@ $(function(){
                 $('#address_hp').text(data.hp);
                 $('#address_detail').text(data.addr + " " + data.addr_detail);
                 $('#selected_addr_id').val(data.address_id);
+                $('#selected_zipcode').val(data.zipcode);
             }
+            $('.buy_btn').text($('#payment_method').val()+'하기');
         },
         error: function(err){
             console.log(err);
@@ -656,7 +698,7 @@ $(function(){
 	});
 	
     // 입찰 방법 결정
-	$('.btn_confirm').click(function(){
+	$('.alert_done_btn').click(function(){
 		if($('.buy_btn').hasClass('able')){
             if($('#payment_method').val() == '구매 입찰'){
                 reservation_request_pay();
@@ -672,14 +714,12 @@ IMP.init("imp50328177");
 
 var merchant_uid = $('.model_number').text() + "_"+ new Date().getTime();
 var name = $('.model_title').text() + " | " + $('.size_txt').text() + "mm";
-// nickname + pro_seq + size
-var customer_uid = "nickname" + "_" + "1234" + "_" + $('.size_txt').text();
-var buyer_email = '구매자@이메일';
-var buyer_name = '구매자이름';
-var buyer_tel = '폰-번-호';
-var buyer_addr = '구매자시 배송지구 주소동';
-var buyer_postcode = '우편-번호'
-var amount = 1;
+// username + pro_seq + size
+var customer_uid = '${map.userDTO.user_name}' + "_" + "${map.productDTO.product_id }" + "_" + $('.size_txt').text();
+var buyer_email = '${sessionScope.memId}';
+var buyer_name = '${map.userDTO.user_name}';
+var buyer_tel = '${map.userDTO.hp}';
+var amount = '${map.total_price}';
 
 // 즉시 결제
 function general_request_pay() {
@@ -692,8 +732,8 @@ function general_request_pay() {
 	    buyer_email : buyer_email,
 	    buyer_name : buyer_name,
 	    buyer_tel : buyer_tel,
-	    buyer_addr : buyer_addr,
-	    buyer_postcode : buyer_postcode
+	    buyer_addr : $('#address_detail').text(),
+	    buyer_postcode : $('#selected_zipcode').val()
 	}, function (rsp) { // callback
 		if (rsp.success) {
             alert(rsp.imp_uid + " | " + rsp.merchant_uid);
@@ -736,7 +776,8 @@ function reservation_request_pay(){
 		buyer_email : buyer_email,
 		buyer_name : buyer_name,
 		buyer_tel : buyer_tel,
-		buyer_addr: buyer_addr,
+	    buyer_addr : $('#address_detail').text(),
+	    buyer_postcode : $('#selected_zipcode').val()
 	}, function(rsp) {
 		if ( rsp.success ) {
             $.ajax({

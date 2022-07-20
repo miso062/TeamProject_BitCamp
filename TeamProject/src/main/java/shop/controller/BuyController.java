@@ -19,6 +19,7 @@ import product.bean.ProductDTO;
 import product.bean.Sell_historyDTO;
 import shop.service.ShopService;
 import user.bean.AddressDTO;
+import user.service.UserServiceImpl;
 
 @Controller
 @RequestMapping(value="/shop")
@@ -92,6 +93,7 @@ public class BuyController {
 		map.put("productDTO", shopService.getProduct(product_id));
 		map.put("productImgDTO", shopService.getImage(product_id));
 		map.put("total_price", decFormat.format(total_price));
+		map.put("userDTO", shopService.getUserInfo());
 		
 		model.addAttribute("container", "/WEB-INF/shop/buy/buyPay.jsp");
 		model.addAttribute("map", map);
