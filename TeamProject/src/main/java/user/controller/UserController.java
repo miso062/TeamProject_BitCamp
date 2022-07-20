@@ -293,6 +293,7 @@ public class UserController {
 
 	//찜하기
 	@PostMapping(value="bookMarkInsert")
+	@ResponseBody
 	public void bookMarkInsert(@RequestParam Map<String, String> map) {
 		System.out.println(map);
 		userService.bookMarkInsert(map);

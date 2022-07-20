@@ -526,28 +526,35 @@ $(function(){
 });
 // 여기에서 책갈피 구현
  $(document).ready(function(){
-	$.ajax({
-		 type:'post',
-		 url:'/TeamProject/user/bookMarkGet',
-		 dataType: 'json',
-		 success: function(data){
-			 $.each(data, function(index, items){
-					
-					product_id = $('#cd2_product_id'+items.product_id).val();
-				if(items.product_id == product_id){
-					$('#cd2_bookmark'+items.product_id).attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
-					
-				}
-			 })
-			
-		 },
-		 error: function(e){
-			 console.log(e);
-		 }
-	})
+	 if('${sessionScope.memId}'){	 
+		$.ajax({
+			 type:'post',
+			 url:'/TeamProject/user/bookMarkGet',
+			 dataType: 'json',
+			 success: function(data){
+				 $.each(data, function(index, items){
+						
+						product_id = $('#cd2_product_id'+items.product_id).val();
+					if(items.product_id == product_id){
+						$('#cd2_bookmark'+items.product_id).attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+						
+					}
+				 })
+				
+			 },
+			 error: function(e){
+				 console.log(e);
+			 }
+		})
+	 }
 }); 
 
 $(document).on('click','.cd2_bookmark', function() {
+	if(!'${sessionScope.memId}'){
+		$(this).attr('src', '/TeamProject/img/main/container2/bookmark.svg');
+		alert('로그인 먼저해주세요');
+	}else {
+		
 		if($(this).hasClass('active')){
 			$(this).attr('src', '/TeamProject/img/main/container2/bookmark.svg');
 			$(this).removeClass('active');
@@ -578,15 +585,9 @@ $(document).on('click','.cd2_bookmark', function() {
 			}
 		});//ajax
 	};//else
-});
-
-//로그인안되있을떄 bookmark x
-$(document).on('click', '.cd2_bookmark', function(){
-	if(!'${sessionScope.memId}'){
-		$(this).attr('src', '/TeamProject/img/main/container2/bookmark.svg');
-		alert('로그인 먼저해주세요');
 	}
 });
+
 
 $(document).on('click','.cd2_item_inner', function() {
 	location.href = '/TeamProject/shop/shopDetail?product_id='+$(this).next().next().next().val();

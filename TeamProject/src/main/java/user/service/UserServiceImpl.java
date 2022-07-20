@@ -222,6 +222,7 @@ public class UserServiceImpl implements UserService {
 	public List<LikeProDTO> bookMarkGet() {
 		Map<String, Object> map = new HashMap<String, Object>();
 		String id = (String) session.getAttribute("memId");
+		System.out.println("memId" +id);
 		map.put("id", id);
 		return userDAO.bookMarkGet(map);
 	}
