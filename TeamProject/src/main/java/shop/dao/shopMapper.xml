@@ -5,23 +5,23 @@
 	
 <mapper namespace="shopSQL">
 	<select id="getImage" parameterType="int" resultType="productImg"> 
-	  select * from pro_image where product_id = ${product_id}
-	</select>
-
-	<select id="getProduct" parameterType="int" resultType="product"> 
-	  select * from product where product_id = ${product_id}
+		select * from pro_image where product_id = ${product_id}
 	</select>
 	
-	<select id="getSellList" parameterType="int" resultType="sellhistory">
+	<select id="getProduct" parameterType="int" resultType="product"> 
+		select * from product where product_id = ${product_id}
+	</select>
+	
+	<select id="getSellList" parameterType="int" resultType="sellHistory">
 		select * from sell_history where product_id=${product_id} and status1='입찰중'
 	</select>
 	
-	<select id="getSellDTO" parameterType="java.util.Map" resultType="sellhistory">
+	<select id="getSellDTO" parameterType="java.util.Map" resultType="sellHistory">
 		select * from (select * from sell_history order by sell_price) 
 		where product_id=${product_id} and size_type=${size} and status1='입찰중' and <![CDATA[rownum <= 1 ]]>
 	</select>
 	
-	<select id="getBuyDTO" parameterType="java.util.Map" resultType="buyhistory">
+	<select id="getBuyDTO" parameterType="java.util.Map" resultType="buyHistory">
 		select * from (select * from buy_history order by buy_price desc) 
 		where product_id=${product_id} and size_type=${size} and status1='입찰중' and <![CDATA[rownum <= 1 ]]>
 	</select>
@@ -31,8 +31,13 @@
 		select * from address where user_id=#{user_id} and flag=1
 	</select>
 	
+	<!-- 해당 유저의 주소 리스트 -->
 	<select id="getAddrList" parameterType="String" resultType="userAddress">
 		select * from address where user_id=#{user_id} order by flag desc
+	</select>
+	
+	<select id="getAddress" parameterType="int" resultType="userAddress">
+		select * from address where address_id=${addr_id}
 	</select>
   
 	<select id="scrollProductList" parameterType="java.util.Map" resultType="product">
@@ -44,27 +49,30 @@
 	</select>
   	
 	<select id="scrollProductImg" parameterType="java.util.Map" resultType="productImg">
-  		<!-- 이미지 -->
-  		select * from pro_image where product_id in (select product_id from (
-         select ROWNUM rn, tt.* from (
-            select * from product where release_date is not null order by release_date desc)tt)
-          where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>)
-  </select>
+		<!-- 이미지 -->
+		select * from pro_image where product_id in (select product_id from (
+			select ROWNUM rn, tt.* from (
+				select * from product where release_date is not null order by release_date desc)tt)
+			where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>)
+	</select>
   
-  <select id="getchart" parameterType="int" resultType="marketprice">
-  	select * from market_price where product_id=${product_id} order by signing_date
-  </select>
+	<select id="getChart" parameterType="int" resultType="marketPrice">
+		select * from market_price where product_id=${product_id} order by signing_date
+	</select>
 	
-	<select id="getbuyhistory" parameterType="Int" resultType="Int">
+	<select id="getBuyHistory" parameterType="Int" resultType="Int">
 		select min(buy_price) from buy_history where product_id=${product_id} and status1='입찰중'
 	</select>
-	<select id="getsellhistory" parameterType="Int" resultType="Int">
+	
+	<select id="getSellHistory" parameterType="Int" resultType="Int">
 		select max(sell_price) from sell_history where product_id=${product_id} and status1='입찰중'
 	</select>
-	<select id="getsigningdateprice" parameterType="Int" resultType="marketprice">
+	
+	<select id="getSigningDatePrice" parameterType="Int" resultType="marketPrice">
 		select * from (select * from market_price where product_id=${product_id} order by signing_date desc) where <![CDATA[rownum <= 1 ]]>
 	</select>
-	<select id="getlikeproduct" parameterType="Int" resultType="Int">
+	
+	<select id="getLikeProduct" parameterType="Int" resultType="Int">
 		select count(*) from like_pro where product_id = ${product_id}
 	</select>
 </mapper>
