@@ -62,7 +62,8 @@ public class ShopController {
 	@PostMapping(value="getchart")
 	@ResponseBody
 	public List<Market_priceDTO> getchart(@RequestParam int product_id) {
-		return shopService.getchart(product_id);
+		List<Market_priceDTO> list = shopService.getchart(product_id);
+		return list;
 		 
 	}
 }
