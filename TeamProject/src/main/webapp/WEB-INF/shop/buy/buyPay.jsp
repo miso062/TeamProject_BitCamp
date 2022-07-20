@@ -42,6 +42,7 @@
                         <div class="delivery_info">
                             <div class="address_info">
                                 <dl class="info_list">
+                                    <input type="hidden" id="selected_addr_id">
                                     <div class="info_box"><dt class="title">받는 분</dt><dd class="desc" id="address_name"></dd></div>
                                     <div class="info_box"><dt class="title">연락처</dt><dd class="desc" id="address_hp"></dd></div>
                                     <div class="info_box">
@@ -339,6 +340,8 @@ var resultzipcode = false;
 var resultaddr1 = false;
 var resultaddr2 = false;
 
+var img = '<img src="/TeamProject/img/shop/check.png" alt="선택" class="address_check_flag">';
+
 // open change address modal
 $('.change_btn').click(function(){
     $('.layer_address').fadeIn();
@@ -350,25 +353,23 @@ $('.change_btn').click(function(){
         success: function(data){
             $('.other_list').html('');
             $.each(data, function(index, items){
+                var addr;
                 var hp = items.hp.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/\-{1,2}$/g, "");
                 if(index == 0){
-                    var default_addr = '<div class="my_item is_active select">'+
+                    addr = '<div class="my_item select">'+
                         '<div class="info_bind">'+
                         '<div class="address_info"><div class="name_box">'+
                         '<span class="name">'+items.name+'</span>'+
-                        '<span class="mark">기본 배송지</span></div>'+
+                        '<span class="mark">기본 배송지</span>'+
                         '<p class="phone">'+hp+'</p>'+
                         '<div class="address_box">'+
                         '<span class="zipcode">('+items.zipcode+') </span>'+
                         '<span class="address">'+items.addr+' '+items.addr_detail+'</span>'+
-                        '</div></div></div><div class="btn_bind">'+
-                        '<img src="/TeamProject/img/shop/check.png" alt="선택" class="address_check_flag"></div></div>'+
-                        '<input type="hidden" class="address_id" value='+items.address_id+'>';
-
-                    $(".other_list").append(default_addr);
+                        '</div></div></div></div><div class="btn_bind"></div>'+
+                        '<input type="hidden" class="address_id" value='+items.address_id+'></div>';
                 }
                 else{
-                    var addr = '<div class="my_item select">'+
+                    addr = '<div class="my_item select">'+
                         '<div class="info_bind">'+
                         '<div class="address_info"><div class="name_box">'+
                         '<span class="name">'+items.name+'</span>'+
@@ -376,9 +377,16 @@ $('.change_btn').click(function(){
                         '<div class="address_box">'+
                         '<span class="zipcode">('+items.zipcode+') </span>'+
                         '<span class="address">'+items.addr+' '+items.addr_detail+'</span>'+
-                        '</div></div></div><div class="btn_bind"></div></div>'+
-                        '<input type="hidden" class="address_id" value='+items.address_id+'>';
-                    $(".other_list").append(addr);
+                        '</div></div></div></div><div class="btn_bind"></div>'+
+                        '<input type="hidden" class="address_id" value='+items.address_id+'></div>';
+                }
+                $(".other_list").append(addr);
+            });
+
+            $.each($('.my_item'), function(){
+                if($('#selected_addr_id').val() == $(this).find('.address_id').val()){
+                	$(this).addClass('is_active');
+                	$(this).find('.btn_bind').html(img);
                 }
             })
         },
@@ -387,6 +395,30 @@ $('.change_btn').click(function(){
         }
     });
 });
+
+$(document).on('click', '.my_item', function(){
+    $('.my_item').removeClass('is_active');
+    $(this).addClass('is_active');
+    $('.btn_bind').empty();
+    $(this).find('.btn_bind').html(img);
+    $.ajax({
+        url: '/TeamProject/shop/getAddress',
+        type: 'post',
+        data: {addr_id : $(this).find('.address_id').val()},
+        dataType: 'json',
+        success: function(data){
+            $('#address_name').text(data.name);
+            $('#address_hp').text(data.hp);
+            $('#address_detail').text(data.addr + ' ' + data.addr_detail);
+            $('#selected_addr_id').val(data.address_id);
+            $('.layer_address').fadeOut();
+            $('body').css("overflow-y", "scroll");
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+})
 
 $(document).on("click",function(e){
     if($('.layer_address').is(e.target)) {
@@ -591,6 +623,7 @@ $(function(){
                 $('#address_name').text(data.name);
                 $('#address_hp').text(data.hp);
                 $('#address_detail').text(data.addr + " " + data.addr_detail);
+                $('#selected_addr_id').val(data.address_id);
             }
         },
         error: function(err){

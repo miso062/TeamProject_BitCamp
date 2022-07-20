@@ -25,4 +25,5 @@ public interface ShopService {
 	public AddressDTO getDefalutAddress();
 	public List<Market_priceDTO> getchart(int product_id);
 	public List<AddressDTO> getAddrList();
+	public AddressDTO getAddress(int addr_id);
 }

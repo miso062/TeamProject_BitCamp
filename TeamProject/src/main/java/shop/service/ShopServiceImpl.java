@@ -53,7 +53,6 @@ public class ShopServiceImpl implements ShopService {
 		map.put("signingdateprice", getsigningdateprice(product_id));
 		map.put("likeproduct", getlikeproduct(product_id));
 		
-		
 		return map;
 	}
 	
@@ -63,17 +62,14 @@ public class ShopServiceImpl implements ShopService {
 
 	private Market_priceDTO getsigningdateprice(int product_id) {
 		return shopDAO.getsigningdateprice(product_id);
-		
 	}
 
 	private Integer getbuyhistory(int product_id) {
 		return shopDAO.getbuyhistory(product_id);
-		
 	}
 
 	private Integer getsellhistory(int product_id) {
 		return  shopDAO.getsellhistory(product_id);
-		
 	}
 
 	public ProductDTO getProduct(int product_id) { 
@@ -121,6 +117,11 @@ public class ShopServiceImpl implements ShopService {
 		return shopDAO.getAddrList(user_id);
 	}
 
+	@Override
+	public AddressDTO getAddress(int addr_id) {		
+		return shopDAO.getAddress(addr_id);
+	}
+	
 	@Override
 	public List<Market_priceDTO> getchart(int product_id) {
 		return shopDAO.getchart(product_id);

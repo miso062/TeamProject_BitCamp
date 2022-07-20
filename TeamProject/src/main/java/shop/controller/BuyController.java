@@ -112,6 +112,13 @@ public class BuyController {
 		return shopService.getAddrList();
 	}
 	
+//	선택된 주소지 반환
+	@PostMapping(value="/getAddress")
+	@ResponseBody
+	public AddressDTO getAddress(@RequestParam int addr_id){
+		return shopService.getAddress(addr_id);
+	}
+	
 //	구매 정보 입력
 	@PostMapping(value="/insertBuyPay")
 	public void insertBuyPay(@RequestParam Map<String, Object> map) {
