@@ -146,7 +146,7 @@ public class UserServiceImpl implements UserService {
 		map.put("id", id);
 		return userDAO.bookMarkGet(map);
 	}
-	
+  
 	@Override
 	public String checkNick(String nickname) {
 		int a= userDAO.checkNick(nickname);
@@ -225,8 +225,7 @@ public class UserServiceImpl implements UserService {
 	public List<Sell_historyDTO> getSellHistory(String user_id) {
 		return userDAO.getSellHistory(user_id);
 	}
-	
-  	
+
 	@Override
 	public String signUpCheckNaver(UserDTO userDTO) {
 		String check;
