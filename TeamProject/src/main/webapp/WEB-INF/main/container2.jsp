@@ -526,7 +526,7 @@ $(function(){
 });
 // 여기에서 책갈피 구현
  $(document).ready(function(){
-	 if('${sessionScope.memId}'){
+	  if('${sessionScope.memId}'){ 
 		 $.ajax({
 			 type:'post',
 			 url:'/TeamProject/user/bookMarkGet',
@@ -546,10 +546,16 @@ $(function(){
 				 console.log(e);
 			 }
 		}); 
-	}//if
+	 }//if 
 }); 
 
 $(document).on('click','.cd2_bookmark', function() {
+	if(!'${sessionScope.memId}'){
+		$(this).attr('src', '/TeamProject/img/main/container2/bookmark.svg');
+		alert('로그인 먼저해주세요');
+	}else{
+		
+	
 		if($(this).hasClass('active')){
 			$(this).attr('src', '/TeamProject/img/main/container2/bookmark.svg');
 			$(this).removeClass('active');
@@ -580,6 +586,7 @@ $(document).on('click','.cd2_bookmark', function() {
 			}
 		});//ajax
 	};//else
+	}
 });
 
 //로그인안되있을떄 bookmark x
