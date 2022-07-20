@@ -2,6 +2,7 @@ package user.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -87,15 +88,26 @@ public class UserController {
 	public String myPageMain(Model model, HttpSession session) {
 		String user_id = (String) session.getAttribute("memId");
 		UserDTO userDTO = userService.getUserInfo(user_id);
-		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
-		//List<Sell_historyDTO> sell_historyList = userService.getSellHistory(user_id);
-		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory("jijiya@hotmail.net");
-		List<Sell_historyDTO> sell_historyList = userService.getSellHistory("jijiya@hotmail.net");
-		model.addAttribute("buy_historyList", buy_historyList);
-		model.addAttribute("sell_historyList", sell_historyList);
 		model.addAttribute("userDTO", userDTO);
+		System.out.println(model);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageMain.jsp");
 		return "forward:/user/my";
+	}
+	
+	@PostMapping(value="getBuyHistory")
+	@ResponseBody
+	public List<Buy_historyDTO> getBuyHistory(@RequestParam String user_id){
+		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
+		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory("jijiya@hotmail.net");
+		return buy_historyList;
+	}
+	
+	@PostMapping(value="getSellHistory")
+	@ResponseBody
+	public List<Sell_historyDTO> getSellHistory(@RequestParam String user_id){
+		//List<Sell_historyDTO> sell_historyList = userService.getSellHistory(user_id);
+		List<Sell_historyDTO> sell_historyList = userService.getSellHistory("jijiya@hotmail.net");
+		return sell_historyList;
 	}
 	
 	@GetMapping(value="myPageEdit")
@@ -305,12 +317,12 @@ public class UserController {
 		System.out.println("delete ="+product_id);
 		userService.bookMarkDelete(product_id);
 	}
-	
+	/*
 	@PostMapping(value="bookMarkGet")
 	@ResponseBody
 	public List<LikeProDTO> bookMarkGet(){
 		List<LikeProDTO> list = userService.bookMarkGet();
 		return list; 
 	}
-	 
+	 */
 }
