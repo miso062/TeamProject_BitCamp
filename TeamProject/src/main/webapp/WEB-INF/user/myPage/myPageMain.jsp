@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <style type="text/css">
  *, :after, :before {
@@ -642,7 +642,6 @@
         width: 24px;
         height : 24px;
     }
-    
 </style>
 
 <div class="my_home">
@@ -653,7 +652,7 @@
             <div class="user_info">
                 <div class="info_box">
                     <strong class="name">${userDTO.nickname }</strong>
-                    <p class="email">${userDTO.user_id }</p>
+                    <p class="email" id="user_id">${userDTO.user_id }</p>
                     <a href="/TeamProject/user/myPageEdit" class="btn btn outlinegrey small" type="button"> 프로필 수정 </a>
                     <a href="/social/users/@ein7di" class="btn btn btn_my_style outlinegrey small" type="button"> 내 스타일 </a>
                 </div>
@@ -717,36 +716,25 @@
         </div>
         <div>
             <div class="purchase_list all bid">
-                <!---->
                 <div class="purchase_item buy">
                     <div class="history_product">
                         <div class="product_box">
                             <div class="product" style="background-color: rgb(235, 240, 245);">
-                                <picture  class="picture product_img" style="height:80px;">
                                     <img
                                         alt="Nike x Supreme Air Force 1 Low White"
                                         src="https://kream-phinf.pstatic.net/MjAyMjAzMDdfMTMw/MDAxNjQ2NjM5MjMzNzM2.pELmvUZpCO9IHBnqPuT-MM_3KgRHEBM3PwKQITCziUwg.qa5jj2sXWiAyhwX4RP5m5ozoZinAf3yX8kSdf7UChDEg.PNG/a_1379738ed20947a8a52338c76436c3b8.png?type=m"
-                                        class="image"
+                                       class="picture product_img image" style="height:80px;"
                                     />
-                                </picture>
                             </div>
                         </div>
                         <div class="product_detail">
-                            <!---->
                             <p class="name">Nike x Supreme Air Force 1 Low White</p>
-                            <p class="size"><span class="size_text">270</span></p>
+                            <p class="size"><span class="size_text">${Buy_historyDTO.size_type }</span></p>
                         </div>
                     </div>
                     <div class="history_status">
-                        <div class="status_box field_price">
-                            <div class="price"><span class="amount">244,000</span><span class="unit">원</span></div>
-                        </div>
-                        <div class="status_box field_date_purchased"><span class="date"> 21/11/08</span></div>
-                        <div class="status_box field_date_paid"><span class="date"> </span></div>
-                        <div class="status_box field_expires_at"><span class="date text-default">-</span></div>
                         <div class="status_box field_status">
-                            <span class="status_txt text-default">배송완료</span>
-                            <!---->
+                            <span class="status_txt text-default">${Buy_historyDTO.status1}</span>
                         </div>
                     </div>
                 </div>
@@ -941,5 +929,65 @@ $('.layer_btn').click(function(){
     $('body').css("overflow", "scroll");
 })
 
+$(document).ready(function(){
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/user/getBuyHistory',
+		data:'user_id='+$('#user_id').val(),
+		dataType:'json',
+		success: function(data){
+			alert(JSON.stringify(data));
+			$.each(data, function(index, item) {
+				console.log(item.size_type)
+				$('<div/>',{
+				    class: 'purchase_item buy'
+				}).append($('<div/>',{
+				    class: 'history_product'
+				}).append($('<div/>',{
+				    class: 'product_box'
+				}).append($('<div/>',{
+				    class: 'product',
+				    style: 'background-color: rgb(235, 240, 245);'
+				}).append($('<img/>'),{
+				    class: 'picture product_img image',
+				    style: 'height:80px;'
+				}))).append($('<div/>',{
+				    class: 'product_detail'
+				}).append($('<p/>'),{
+				    class: 'name',
+				}).append($('<p/>',{
+				    class: 'size'
+				}).append($('<span/>'),{
+				    class: 'size_text'
+				    //text: item.size_type
+				})))).append($('<div/>',{
+				    class:'history_status'
+				    //text: item.status1
+				}).append($('<div/>',{
+				    class: 'status_box field_status'
+				}).append($('<span/>',{
+				    class: 'status_txt text-default'
+				})))).appendTo('.purchase_list');
+			}
+		},
+		error:function(err){
+			console.log(err);
+		}		
+	});
+});
 
+$(document).ready(function(){
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/user/getSellHistory',
+		data:'user_id='+$('#user_id').val(),
+		dataType:'json',
+		success: function(data){
+			alert(JSON.stringify(data));
+		},
+		error:function(err){
+			console.log(err);
+		}		
+	});
+});
 </script>
