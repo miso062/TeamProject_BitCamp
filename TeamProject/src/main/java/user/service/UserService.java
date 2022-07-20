@@ -30,4 +30,5 @@ public interface UserService {
 	public void updateImg(String fileName);
 	public List<Buy_historyDTO> getBuyHistory(String user_id);
 	public List<Sell_historyDTO> getSellHistory(String user_id);
+	public String checkKakao(String user_id);
 }

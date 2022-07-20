@@ -82,6 +82,14 @@
 	<select id="loginNaver" parameterType="String" resultType="user">
 		select *from user_table where user_id=#{user_id}
 	</select>
+	<!-- 카카오 회원 존재 -->
+	<select id="checkIdKakao" parameterType="String" resultType="int">
+	 select count(*) from user_table where user_id=#{user_id} and sign_up_type='카카오'
+	</select>
+	<!-- 카카오 일단 아이디 입력 후 수정하는 방식 -->
+	<insert id="writeKakao" parameterType="String">
+	insert into user_table values(#{user_id},0,0,0,0,0,0,0,0,1,'카카오',sysdate)
+	</insert>
 	
 	<!-- 회원정보수정 -->
 	<update id="update" parameterType="user">

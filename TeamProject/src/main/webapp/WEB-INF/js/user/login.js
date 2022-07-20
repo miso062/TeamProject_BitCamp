@@ -13,6 +13,24 @@ function kakaoLogin() {
                 success: (res) => {
                     const kakao_account = res.kakao_account;
                     console.log(kakao_account)
+                    console.log(kakao_account.email)
+                    $.ajax({
+                    	type: 'post',
+                    	url : '/TeamProject/user/checkKakao',
+                    	data : 'user_id='+kakao_account.email,
+                    	success: function(data){
+                    		if(data=='fail') {
+                    			alert('이미가입한 아이디입니다.')
+                    			location.href ='/TeamProject/'
+                    		}else {
+                    			location.href ='/TeamProject/'
+                    		}
+                    		
+                    	},
+                    	error : function(err){
+                    		console.log(err)
+                    	}
+                    })
                 }
             });
             // window.location.href='/ex/kakao_login.html' //리다이렉트 되는 코드

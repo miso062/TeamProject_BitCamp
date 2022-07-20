@@ -137,5 +137,16 @@ public class UserDAOImpl implements UserDAO {
 	public List<Sell_historyDTO> getSellHistory(String user_id) {
 		return sqlSession.selectOne("userSQL.getSellHistory", user_id);
 	}
+
+	@Override
+	public int checkIdKakao(String user_id) {
+
+		return sqlSession.selectOne("userSQL.checkIdKakao", user_id);
+	}
+
+	@Override
+	public void writeKakao(String user_id) {
+		sqlSession.insert("userSQL.writeKakao", user_id);
+	}
 }
 	

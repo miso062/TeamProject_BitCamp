@@ -277,6 +277,19 @@ public class UserController {
 	public String signUpCheckNaver(@ModelAttribute UserDTO userDTO) {
 		return userService.signUpCheckNaver(userDTO);
 	}
+	
+	//카카오 아이디 들고 회원조회
+	@PostMapping(value="checkKakao")
+	@ResponseBody
+	public String checkKakao(@RequestParam String user_id) {
+		String check= userService.checkKakao(user_id);
+		
+		return check;
+	}
+	@GetMapping(value="signUpKakao")
+	public String signUpKakao() {
+		return "/user/signUpKakao";
+	}
 
 	//찜하기
 	@PostMapping(value="bookMarkInsert")
