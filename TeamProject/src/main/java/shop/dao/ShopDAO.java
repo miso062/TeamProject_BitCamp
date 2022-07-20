@@ -19,7 +19,7 @@ public interface ShopDAO {
 	public Buy_historyDTO getBuyDTO(Map<String, Integer> map);
 	public AddressDTO getDefalutAddress(String user_id);
   public List<AddressDTO> getAddrList(String user_id);
-  Map<String, Object> scrollProduct(Map<String, Integer> map);
+  public Map<String, Object> scrollProduct(Map<String, Integer> map);
 	public List<Market_priceDTO> getchart(int product_id);
 	public Integer getbuyhistory(int product_id);
 	public Integer getsellhistory(int product_id);
