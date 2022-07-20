@@ -32,4 +32,6 @@ public interface UserDAO {
 	public List<Sell_historyDTO> getSellHistory(String user_id);
 	public void SignUpNaver(UserDTO userDTO);
 	public UserDTO loginNaver(String user_id);
+	public int checkIdKakao(String user_id);
+	public void writeKakao(String user_id);
 }

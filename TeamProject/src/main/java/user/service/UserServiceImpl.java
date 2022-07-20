@@ -228,13 +228,11 @@ public class UserServiceImpl implements UserService {
   	
 	@Override
 	public String signUpCheckNaver(UserDTO userDTO) {
-		System.out.println("2번!!");
 		String check;
 		//휴대전화로 동일가입여부 조회
 		String hp = userDTO.getHp();
 		int a = userDAO.signUpCheck(hp);
 		if(a==0) {
-			System.out.println("3번!!");
 			//아이디로 다시 한 번 조회 해준다.
 			String user_id = userDTO.getUser_id(); 
 			int b = userDAO.checkId(user_id);
@@ -249,28 +247,51 @@ public class UserServiceImpl implements UserService {
 				check="success";
 			}
 			else {
-				System.out.println("4번!!");
 				check ="fail";
 			}
 		}else {
-			System.out.println("5번!!");
 			//다시 hp, 네이버 여부로 해 조회
 			int c = userDAO.checkNaver(hp);
 			if(c==0) {
-				System.out.println("6번!!");
 				check = "fail";
 			}else {
-				System.out.println("7번!!");
 				String user_id = userDTO.getUser_id(); 
 				UserDTO userDTO1 = userDAO.loginNaver(user_id);
 				session.setAttribute("memId", userDTO.getUser_id());
-				System.out.println(session.getAttribute("memId"));
 				session.setAttribute("memAuthority", userDTO.getAuthority());
 				check="success";
 			}
 		}
-		System.out.println("-----------1 " + check);
 		return check;
-  }
+  }	
+	//카카오 회원 조회
+	@Override
+	public String checkKakao(String user_id) {
+		String check ;
+		int a = userDAO.checkId(user_id);
+		if(a==0) {
+			userDAO.writeKakao(user_id);
+			UserDTO userDTO = userDAO.loginNaver(user_id);
+			session.setAttribute("memId", userDTO.getUser_id());
+			session.setAttribute("memAuthority", userDTO.getAuthority());
+			
+			check = "success";
+			
+			
+		}else {
+			//카카오도 들고 조회
+			int b = userDAO.checkIdKakao(user_id);
+			if(b==0) {
+				check ="fail";
+			}else {
+				UserDTO userDTO = userDAO.loginNaver(user_id);
+				session.setAttribute("memId", userDTO.getUser_id());
+				session.setAttribute("memAuthority", userDTO.getAuthority());
+				
+				check = "success";
+			}
+		}
+		return check;
+	}
 
 }
