@@ -545,16 +545,15 @@ $(function(){
 			 error: function(e){
 				 console.log(e);
 			 }
-		})
-	 }
+		}); 
+	 }//if 
 }); 
 
 $(document).on('click','.cd2_bookmark', function() {
 	if(!'${sessionScope.memId}'){
 		$(this).attr('src', '/TeamProject/img/main/container2/bookmark.svg');
 		alert('로그인 먼저해주세요');
-	}else {
-		
+	}else{
 		if($(this).hasClass('active')){
 			$(this).attr('src', '/TeamProject/img/main/container2/bookmark.svg');
 			$(this).removeClass('active');
@@ -585,7 +584,6 @@ $(document).on('click','.cd2_bookmark', function() {
 			}
 		});//ajax
 	};//else
-	}
 });
 
 
