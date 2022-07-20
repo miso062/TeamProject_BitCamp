@@ -588,6 +588,7 @@ $(document).on('click','.cd2_bookmark', function() {
 	}
 });
 
+
 $(document).on('click','.cd2_item_inner', function() {
 	location.href = '/TeamProject/shop/shopDetail?product_id='+$(this).next().next().next().val();
 });

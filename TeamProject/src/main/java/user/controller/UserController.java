@@ -293,6 +293,7 @@ public class UserController {
 
 	//찜하기
 	@PostMapping(value="bookMarkInsert")
+	@ResponseBody
 	public void bookMarkInsert(@RequestParam Map<String, String> map) {
 		System.out.println(map);
 		userService.bookMarkInsert(map);
@@ -308,9 +309,7 @@ public class UserController {
 	@PostMapping(value="bookMarkGet")
 	@ResponseBody
 	public List<LikeProDTO> bookMarkGet(){
-		System.out.println("여기냐");
 		List<LikeProDTO> list = userService.bookMarkGet();
-		System.out.println("여기냐33");
 		return list; 
 	}
 	 
