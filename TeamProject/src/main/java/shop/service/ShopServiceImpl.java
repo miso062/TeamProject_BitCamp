@@ -46,12 +46,11 @@ public class ShopServiceImpl implements ShopService {
 	@Override
 	public Map<String, Object> getShopDetail(int product_id) {
 		
-		DecimalFormat decFormat = new DecimalFormat("###,###");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("productImgDTO", getImage(product_id));
 		map.put("product", getProduct(product_id));
-		map.put("sellhistory",decFormat.format(getsellhistory(product_id)));
-		map.put("buyhistory",decFormat.format(getbuyhistory(product_id)));
+		map.put("sellhistory",getsellhistory(product_id));
+		map.put("buyhistory",getbuyhistory(product_id));
 		map.put("signingdateprice", getsigningdateprice(product_id));
 		map.put("likeproduct", getlikeproduct(product_id));
 		

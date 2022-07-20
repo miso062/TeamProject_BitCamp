@@ -1440,8 +1440,21 @@ $(document).ready(function(){
 			}
 			$('#buyprice').text(data.buyhistory);
 			$('#sellprice').text(data.sellhistory);
-			$('#buyprice1').text(data.buyhistory);
-			$('#sellprice1').text(data.sellhistory);
+			if(data.buyhistory!=null){
+			$('#buyprice1').text(data.buyhistory.format());
+			$('#buyprice').text(data.buyhistory.format());
+			}else{
+				$('#buyprice1').text('-');	
+				$('#buyprice').text('-');	
+			}
+			if(data.sellhistory!=null){
+				$('#sellprice1').text(data.sellhistory.format());
+				$('#sellprice').text(data.sellhistory.format());
+				}else{
+					$('#sellprice1').text('-');	
+					$('#sellprice').text('-');	
+				}
+			
 			$('#signingdateprice').text(data.signingdateprice.price.format());
 			$('#likepro').text(data.likeproduct.format());
 			$('#likepro1').text(data.likeproduct.format());
