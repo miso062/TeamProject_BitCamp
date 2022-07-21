@@ -280,17 +280,40 @@ $(document).ready(function(){
 				   })).appendTo($('#cd2_list_first'));
 				}
 			$('#con_more_num').val(data.num);
+
+			//찜하기 구현
+			if('${sessionScope.memId}'){	 
+				$.ajax({
+					 type:'post',
+					 url:'/TeamProject/user/bookMarkGet',
+					 success: function(data){
+						 $.each(data.list, function(index, items){
+							product_id = $('#cd2_product_id'+items.product_id).val();
+							if(items.product_id == product_id){
+								$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+								
+							}else {
+								$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
+								
+							}
+						 })
+						
+					 },
+					 error: function(e){
+						 console.log(e);
+					 }
+				}); 
+			 }//if 
 		},
 		error:function(e){
 			console.log(e);
 		}
 	});//$.ajax
+	 $('.cd2_btn2').hide();
+     $('.cd2_btn3').hide();
+	
 });
 	
-$(function(){
-       $('.cd2_btn2').hide();
-       $('.cd2_btn3').hide();
-});
 
 $('#cd2_btn1').on('click', function(){
 	 
@@ -618,31 +641,8 @@ $(function(){
 	    }
 	});
 });
-// 여기에서 책갈피 구현
- $(document).ready(function(){
-	 if('${sessionScope.memId}'){	 
-		$.ajax({
-			 type:'post',
-			 url:'/TeamProject/user/bookMarkGet',
-			 success: function(data){
-				 $.each(data.list, function(index, items){
-					product_id = $('#cd2_product_id'+items.product_id).val();
-					if(items.product_id == product_id){
-						$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
-						
-					}else {
-						$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
-						
-					}
-				 })
-				
-			 },
-			 error: function(e){
-				 console.log(e);
-			 }
-		}); 
-	 }//if 
-}); 
+
+
 
 $(document).on('click','.cd2_bookmark', function() {
 	if(!'${sessionScope.memId}'){
