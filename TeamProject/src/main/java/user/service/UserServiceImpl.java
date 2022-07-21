@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import product.bean.Buy_historyDTO;
+import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import shop.dao.ShopDAO;
 import user.bean.AddressDTO;
@@ -224,6 +225,19 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<Sell_historyDTO> getSellHistory(String user_id) {
 		return userDAO.getSellHistory(user_id);
+	}
+
+	@Override
+	public ProductImgDTO getProductImg(int product_id) {
+		return userDAO.getProductImg(product_id);
+	}
+	
+	@Override
+	public List<LikeProDTO> bookMarkGet() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		String id = (String) session.getAttribute("memId");
+		map.put("id", id);
+		return userDAO.bookMarkGet(map);
 	}
 
 	@Override
