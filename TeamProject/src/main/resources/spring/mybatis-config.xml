@@ -7,14 +7,16 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="admin.bean.AdminDTO" alias="admin"/>
-		<typeAlias type="admin.bean.AdminQnADTO" alias="adminqna"/>
+		<typeAlias type="admin.bean.AdminQnADTO" alias="adminQna"/>
+		
 		<typeAlias type="user.bean.UserDTO" alias="user"/>
 		<typeAlias type="user.bean.LikeProDTO" alias="likePro"/>
 		<typeAlias type="user.bean.AddressDTO" alias="userAddress"/>
+		
 		<typeAlias type="product.bean.ProductImgDTO" alias="productImg"/>
 		<typeAlias type="product.bean.ProductDTO" alias="product"/>
-		<typeAlias type="product.bean.Market_priceDTO" alias="marketprice"/>
-		<typeAlias type="product.bean.Buy_historyDTO" alias="buyhistory"/>
-		<typeAlias type="product.bean.Sell_historyDTO" alias="sellhistory"/>
+		<typeAlias type="product.bean.Market_priceDTO" alias="marketPrice"/>
+		<typeAlias type="product.bean.Buy_historyDTO" alias="buyHistory"/>
+		<typeAlias type="product.bean.Sell_historyDTO" alias="sellHistory"/>
 	</typeAliases>
 </configuration>

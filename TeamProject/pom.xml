@@ -239,7 +239,7 @@
 		   <scope>runtime</scope>
 		</dependency>
 	
-		<!--  -->
+		<!-- Jackson -->
 		<dependency>
 		    <groupId>com.fasterxml.jackson.datatype</groupId>
 		    <artifactId>jackson-datatype-jsr310</artifactId>
@@ -260,6 +260,14 @@
 		    <artifactId>commons-io</artifactId>
 		    <version>2.11.0</version>
 		</dependency>
+		
+		<!-- Firebase -->
+		<dependency>
+			<groupId>com.google.firebase</groupId>
+			<artifactId>firebase-admin</artifactId>
+			<version>9.0.0</version>
+		</dependency>
+     
 		
 	</dependencies>
     <build>

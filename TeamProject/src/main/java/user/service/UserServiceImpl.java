@@ -141,6 +141,14 @@ public class UserServiceImpl implements UserService {
 	}
   
 	@Override
+	public List<LikeProDTO> bookMarkGet() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		String id = (String) session.getAttribute("memId");
+		map.put("id", id);
+		return userDAO.bookMarkGet(map);
+	}
+  
+	@Override
 	public String checkNick(String nickname) {
 		int a= userDAO.checkNick(nickname);
 		String b;
@@ -218,7 +226,7 @@ public class UserServiceImpl implements UserService {
 	public List<Sell_historyDTO> getSellHistory(String user_id) {
 		return userDAO.getSellHistory(user_id);
 	}
-	
+
 	@Override
 	public ProductImgDTO getProductImg(int product_id) {
 		return userDAO.getProductImg(product_id);
@@ -231,7 +239,7 @@ public class UserServiceImpl implements UserService {
 		map.put("id", id);
 		return userDAO.bookMarkGet(map);
 	}
-  	
+
 	@Override
 	public String signUpCheckNaver(UserDTO userDTO) {
 		String check;

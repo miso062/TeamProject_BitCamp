@@ -304,12 +304,12 @@ section .section_unit + .section_unit {
 .price_box .price {
     -webkit-box-align: center;
     align-items: center;
-    color: #f15746;
+    color: #31b46e;
 }
 .total_price{
 	-webkit-box-align: center;
     align-items: center;
-    color: #f15746;
+    color: #31b46e;
     float: right;
     position: relative;
     top: -35px;
@@ -595,7 +595,7 @@ section .section_unit + .section_unit {
 	height: 24px;
 }
 .input_txt.b{
-	border-bottom: 1px solid #f15746;
+	border-bottom: 1px solid #31b46e;
 	padding: 8px 0;
     width: 100%;
     font-size: 15px;
@@ -604,8 +604,8 @@ section .section_unit + .section_unit {
 	
 }
 .has_error{
-	border-bottom:#f15746;
-	color: #f15746; 
+	border-bottom:#31b46e;
+	color: #31b46e; 
 }
 .input_txt.a:focus::placeholder{
     color:transparent;
@@ -691,7 +691,7 @@ section .section_unit + .section_unit {
     position: absolute;
     line-height: 16px;
     font-size: 11px;
-    color: #f15746;
+    color: #31b46e;
 }
 .input_error {
     display: none;
@@ -959,7 +959,7 @@ input::placeholder{
     font-size: 24px;
     letter-spacing: -.36px;
     font-weight: 700;
-    color: #f15746;
+    color: #31b46e;
     margin-top: 3px;
 }
 .layer_order_price_confirm .alert_box {

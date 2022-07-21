@@ -264,7 +264,7 @@ li, ol, ul {
 	vertical-align: top;
 	overflow: hidden;
 }
-..c1_detail_price:after {
+.c1_detail_price:after {
     content: "";
     display: block;
     clear: both;
@@ -1285,12 +1285,12 @@ tr {
 <script src="/TeamProject/js/shop/chart.js"></script>
 <script type="text/javascript">
 $("document").ready(function() {
-		$(window).scroll(function() { 
-			var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다. 
-		     });    
-		});
+    $(window).scroll(function() { 
+        var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다. 
+    });
+});
 
-$(function(){     
+$(function(){
 	var lastScroll = 0;
 		$(window).scroll(function(event) {
 			var scroll = $(this).scrollTop();
@@ -1305,7 +1305,7 @@ $(function(){     
 		});
 	});
 
-$(function(){     
+$(function(){
 	var lastScroll = 0;
 		$(window).scroll(function(event) {
 			var scroll = $(this).scrollTop();
@@ -1373,7 +1373,6 @@ $('.c1_dropdown_head').on('click',function(){
 	}
 });
 
-
 /* 팝업 체결거래, 판매 입찰, 구매입찰 버튼 */
 $(document).on('click', '.c1_item_tab', function () {
     let index = $(".c1_item_tab").index(this);
@@ -1398,20 +1397,29 @@ $(document).on('click', '.c1_item_tab', function () {
 });
 /* 구매 사이즈 판매사이즈로 이동 */
 $('.c1_buy').on('click',function(){
-	var href = "/TeamProject/shop/selectBuySize?product_id=" +  $('#product_id').val();
-	$(location).attr("href", href);
+	if('${sessionScope.memId}'){
+        var href = "/TeamProject/shop/selectBuySize?product_id=" +  $('#product_id').val();
+	    $(location).attr("href", href);
+    }else{
+        alert('로그인 후 이용해주세요');
+    }
 })
 
 $('.c1_sell').on('click',function(){
-	$(location).attr("href", "/TeamProject/shop/selectSellSize");
+	if('${sessionScope.memId}'){
+        var href = "/TeamProject/shop/selectSellSize?product_id=" +  $('#product_id').val();
+	    $(location).attr("href", href);
+    }else{
+        alert('로그인 후 이용해주세요');
+    }
 })
-Number.prototype.format = function(){    
-	if(this==0) return 0;     
-	var reg = /(^[+-]?\d+)(\d{3})/;    
-	var n = (this + '');     
-	while (reg.test(n)) n = n.replace(reg, '$1' + ',' + '$2');     
+Number.prototype.format = function(){
+	if(this==0) return 0;
+	var reg = /(^[+-]?\d+)(\d{3})/;
+	var n = (this + '');
+	while (reg.test(n)) n = n.replace(reg, '$1' + ',' + '$2');
 	return n;
-}; 
+};
 $(document).ready(function(){
 	$.ajax({
 		type:'post',

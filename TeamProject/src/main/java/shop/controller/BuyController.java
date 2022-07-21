@@ -19,6 +19,7 @@ import product.bean.ProductDTO;
 import product.bean.Sell_historyDTO;
 import shop.service.ShopService;
 import user.bean.AddressDTO;
+import user.service.UserServiceImpl;
 
 @Controller
 @RequestMapping(value="/shop")
@@ -45,7 +46,7 @@ public class BuyController {
 	}
 	
 //	상품 정보 불러오기
-	@PostMapping(value="/getSelectSizeInfo")
+	@PostMapping(value="/getSelectBuySizeInfo")
 	@ResponseBody
 	public List<Sell_historyDTO> getSelectSizeInfo(@RequestParam int product_id) {
 		return shopService.getSellList(product_id);
@@ -92,6 +93,7 @@ public class BuyController {
 		map.put("productDTO", shopService.getProduct(product_id));
 		map.put("productImgDTO", shopService.getImage(product_id));
 		map.put("total_price", decFormat.format(total_price));
+		map.put("userDTO", shopService.getUserInfo());
 		
 		model.addAttribute("container", "/WEB-INF/shop/buy/buyPay.jsp");
 		model.addAttribute("map", map);
@@ -110,6 +112,13 @@ public class BuyController {
 	@ResponseBody
 	public List<AddressDTO> getAddrList(){
 		return shopService.getAddrList();
+	}
+	
+//	선택된 주소지 반환
+	@PostMapping(value="/getAddress")
+	@ResponseBody
+	public AddressDTO getAddress(@RequestParam int addr_id){
+		return shopService.getAddress(addr_id);
 	}
 	
 //	구매 정보 입력

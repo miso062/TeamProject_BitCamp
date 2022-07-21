@@ -6,10 +6,10 @@
 <mapper namespace="adminSQL">
 
 	<select id="getnoticeList" parameterType="java.util.Map" resultType="admin">
-  		select * from 
-  		(select rownum rn,tt.* from 
-  		(select * from notice order by notice_id desc)tt) 
-  		where <![CDATA[rn>=#{startNum} and rn<=#{endNum}]]>
+		select * from 
+		(select rownum rn,tt.* from 
+		(select * from notice order by notice_id desc)tt) 
+		where <![CDATA[rn>=#{startNum} and rn<=#{endNum}]]>
   	</select>
   	
   	<select id="getnoticeView" parameterType="String" resultType="admin">
@@ -17,12 +17,12 @@
   	</select>
   	
   	<insert id="getnoticeWrite" parameterType="admin">
-  		  insert into notice(notice_id,title,content,registrant,regdate)
-  		  values(notice_seq.nextval,#{title},#{content},#{registrant},sysdate)
+		insert into notice(notice_id,title,content,registrant,regdate)
+		values(notice_seq.nextval,#{title},#{content},#{registrant},sysdate)
   	</insert>
   	
   	<select id="getTotalA" resultType="Integer">
-  	select count(*) from notice
+		select count(*) from notice
   	</select>
   	
   	<delete id="noticeDelete" parameterType="String">
@@ -33,46 +33,46 @@
   		select * from notice where notice_id=#{seq}
   	</select>
   	
-  	<update id="addnoticeUpdate" parameterType="admin">
-  		update notice set title=#{title}, content=#{content} where notice_id=#{notice_id}
-  	</update>
-  	<insert id="getnoticeQnAWrite" parameterType="adminqna">
-  		  insert into qna(qna_id,category,title,content,registrant,regdate)
-  		  values(qna_seq.nextval,#{category},#{title},#{content},#{registrant},sysdate)
+	<update id="addnoticeUpdate" parameterType="admin">
+		update notice set title=#{title}, content=#{content} where notice_id=#{notice_id}
+	</update>
+  	<insert id="getnoticeQnAWrite" parameterType="adminQna">
+		insert into qna(qna_id,category,title,content,registrant,regdate)
+		values(qna_seq.nextval,#{category},#{title},#{content},#{registrant},sysdate)
   	</insert>
   	
-  	<select id="getnoticeQnAList" parameterType="java.util.Map" resultType="adminqna">
-  		select * from 
-  		(select rownum rn,tt.* from 
-  		(select * from qna order by qna_id desc)tt) 
-  		where <![CDATA[rn>=#{startNum} and rn<=#{endNum}]]>
+  	<select id="getnoticeQnAList" parameterType="java.util.Map" resultType="adminQna">
+		select * from 
+		(select rownum rn,tt.* from 
+		(select * from qna order by qna_id desc)tt) 
+		where <![CDATA[rn>=#{startNum} and rn<=#{endNum}]]>
   	</select>
   	
   	<select id="getTotalA1" resultType="Integer">
-  	select count(*) from qna
+  		select count(*) from qna
   	</select>
   	
-  	<select id="getnoticeQnAListsearch" parameterType="java.util.Map" resultType="adminqna">
-  		<![CDATA[
-  		select * from 
-  		(select rownum rn,tt.* from 
-  		(select * from qna where category like '%'||#{category}||'%' order by qna_id desc)tt) 
-  		where rn>=#{startNum} and rn<=#{endNum}]]>
+  	<select id="getnoticeQnAListsearch" parameterType="java.util.Map" resultType="adminQna">
+		<![CDATA[
+		select * from 
+		(select rownum rn,tt.* from 
+		(select * from qna where category like '%'||#{category}||'%' order by qna_id desc)tt) 
+		where rn>=#{startNum} and rn<=#{endNum}]]>
   	</select>
   	
   	<select id="getTotalA2" parameterType="String" resultType="Integer">
-  	select count(*) from qna where category like '%'||#{category}||'%'
+  		select count(*) from qna where category like '%'||#{category}||'%'
   	</select>
-	<select id="getnoticeQnAListsearch1" parameterType="java.util.Map" resultType="adminqna">
+	<select id="getnoticeQnAListsearch1" parameterType="java.util.Map" resultType="adminQna">
 		select * from 
   		(select rownum rn,tt.* from 
   		(select * from qna order by qna_id desc)tt) 
   		where <![CDATA[rn>=#{startNum} and rn<=#{endNum}]]>
 	</select>
-	<select id="getnoticeQnAUpdate" parameterType="String" resultType="adminqna">
+	<select id="getnoticeQnAUpdate" parameterType="String" resultType="adminQna">
   		select * from qna where qna_id=#{seq}
   	</select>
-  	<update id="addnoticeQnAUpdate" parameterType="adminqna">
+  	<update id="addnoticeQnAUpdate" parameterType="adminQna">
   		update qna set category=#{category}, title=#{title}, content=#{content} where qna_id=#{qna_id}
   	</update>
   	<delete id="noticeqnaDelete" parameterType="String">

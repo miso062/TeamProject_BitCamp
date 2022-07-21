@@ -903,7 +903,7 @@ $(function(){
 	});
 
 	$.ajax({
-		url : "/TeamProject/shop/getSelectSizeInfo",
+		url : "/TeamProject/shop/getSelectBuySizeInfo",
 		type: "post",
 		data: { "product_id": $('#product_id').val() },
 		dataType: 'json',
