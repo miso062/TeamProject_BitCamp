@@ -163,6 +163,12 @@ public class UserController {
 		return "forward:/user/my";
 	}
 	
+	@GetMapping(value="buyHistory11")
+	public String buyHistory11(Model model) {
+		model.addAttribute("container", "/WEB-INF/user/myPage/buyHistory_11.jsp");
+		return "forward:/user/my";
+	}
+	
 	@GetMapping(value="sellHistory")
 	public String sellHistory(Model model) {
 		model.addAttribute("container", "/WEB-INF/user/myPage/sellHistory.jsp");
