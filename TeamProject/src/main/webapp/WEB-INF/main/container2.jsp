@@ -290,13 +290,110 @@ $(document).ready(function(){
 $(function(){
        $('.cd2_btn2').hide();
        $('.cd2_btn3').hide();
+});
 
-	   $('#cd2_btn1').on('click', function(){
-		   
-		      $('.cd2_btn1').hide();
-		      $('.cd2_btn2').show();
-		      
-		   $.ajax({
+$('#cd2_btn1').on('click', function(){
+	 
+	      $('.cd2_btn1').hide();
+	      $('.cd2_btn2').show();
+	      
+	   $.ajax({
+			type: 'post',
+			url: '/TeamProject/getProductList',
+			data: 'num=' + $('#con_more_num').val(),
+			dataType:'json',
+			success: function(data){
+				//alert(JSON.stringify(data));
+
+				for(var i = 0; i < 4; i++){
+					console.log(data.num, data.productList[i].brand, data.productList[i].eng_name, data.productList[i].release_price, data.productImgList[i].file_path );
+
+					$('<div/>',{
+						class: 'cd2_product_item'
+					}).append($('<a/>',{
+							href: '#',
+							class: 'cd2_item_inner'
+					}).append($('<div/>',{
+						class: 'cd2_thum_box'
+					}).append($('<div/>',{
+						class: 'cd2_product'
+					}).append($('<img/>',{
+							   src: data.productImgList[i].file_path,
+							   class: 'cd2_product_img' 
+							}))))).append($('<div/>',{
+								class: 'cd2_info_box'
+							}).append($('<div/>',{
+								class: 'cd2_brand'
+							}).append($('<p/>',{
+								class: 'cd2_brand_text',
+								text: data.productList[i].brand
+						   }))).append($('<p/>',{
+							   class: 'cd2_name',
+							   text: data.productList[i].eng_name
+						   })).append($('<div/>',{
+							   class: 'cd2_price'
+						   }).append($('<div/>',{
+								class: 'amount'
+						   }).append($('<div/>',{
+							   class: 'cd2_num',
+							   text: data.productList[i].release_price
+							   })).append($('<div/>',{
+								   text: '',
+								   class: 'cd2_won'
+					   }))).append($('<div/>',{
+						   class : 'cd2_desc'
+					   }).append($('<p/>',{
+						   text: '즉시구매가'
+					   }))))).append($('<div/>',{
+						   class: 'cd2_btn_wish'
+					   }).append($('<img/>',{
+						   class: 'cd2_bookmark',
+						   id: 'cd2_bookmark'+data.productList[i].product_id,
+						   src : '/TeamProject/img/main/container2/bookmark.svg'
+					   }))).append($('<input/>',{
+						   type:'hidden',
+						   class : 'cd2_product_id',
+						   id: 'cd2_product_id'+data.productList[i].product_id,
+						   value : data.productList[i].product_id
+					   })).appendTo($('#cd2_list_second'));
+					}//for
+				   //더보기 후에도 찜하기 등록
+				   if('${sessionScope.memId}'){	 
+						
+					
+					$.ajax({
+						 type:'post',
+						 url:'/TeamProject/user/bookMarkGet',
+						 success: function(data){
+							 $.each(data.list, function(index, items){
+								product_id = $('#cd2_product_id'+items.product_id).val();
+							 if(items.product_id == product_id){
+									$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+									
+							}else {
+									$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
+								}
+							 })
+							
+							 },
+							 error: function(e){
+								 console.log(e);
+							 }
+						}); 
+					 }//if
+				$('#con_more_num').val(data.num);
+			},
+			error:function(e){
+				console.log(e);
+			}
+		});//$.ajax
+ 
+   
+   $('#cd2_btn2').on('click',function(){
+      $('.cd2_btn2').hide();
+      $('.cd2_btn3').show();
+ 
+      $.ajax({
 				type: 'post',
 				url: '/TeamProject/getProductList',
 				data: 'num=' + $('#con_more_num').val(),
@@ -354,163 +451,160 @@ $(function(){
 							   class : 'cd2_product_id',
 							   id: 'cd2_product_id'+data.productList[i].product_id,
 							   value : data.productList[i].product_id
-						   })).appendTo($('#cd2_list_second'));
-						}
+						   })).appendTo($('#cd2_list_third'));
+						}//for
+					 // 2번쨰 더보기찜하기 보이기
+				      if('${sessionScope.memId}'){	 
+				  		$.ajax({
+				  			 type:'post',
+				  			 url:'/TeamProject/user/bookMarkGet',
+				  			 success: function(data){
+				  				 $.each(data.list, function(index, items){
+				  					product_id = $('#cd2_product_id'+items.product_id).val();
+				  					if(items.product_id == product_id){
+				  						$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+				  						
+				  					}else {
+				  						$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
+				  						
+				  					}
+				  				 })
+				  				
+				  			 },
+				  			 error: function(e){
+				  				 console.log(e);
+				  			 }
+				  		}); 
+				  	 }//if
 					$('#con_more_num').val(data.num);
 				},
 				error:function(e){
 					console.log(e);
 				}
 			});//$.ajax
-	      
-	      $('#cd2_btn2').on('click',function(){
-	         $('.cd2_btn2').hide();
-	         $('.cd2_btn3').show();
-	         
-	         $.ajax({
-					type: 'post',
-					url: '/TeamProject/getProductList',
-					data: 'num=' + $('#con_more_num').val(),
-					dataType:'json',
-					success: function(data){
-						//alert(JSON.stringify(data));
+			
+		     
+			
+      $('#cd2_btn3').on('click',function(){
+     	 $('.cd2_btn3').hide();
+     	 $.ajax({
+				type: 'post',
+				url: '/TeamProject/getProductList',
+				data: 'num=' + $('#con_more_num').val(),
+				dataType:'json',
+				success: function(data){
+					//alert(JSON.stringify(data));
 
-						for(var i = 0; i < 4; i++){
-							console.log(data.num, data.productList[i].brand, data.productList[i].eng_name, data.productList[i].release_price, data.productImgList[i].file_path );
+					for(var i = 0; i < 4; i++){
+						console.log(data.num, data.productList[i].brand, data.productList[i].eng_name, data.productList[i].release_price, data.productImgList[i].file_path );
 
-							$('<div/>',{
-								class: 'cd2_product_item'
-							}).append($('<a/>',{
-									href: '#',
-									class: 'cd2_item_inner'
-							}).append($('<div/>',{
-								class: 'cd2_thum_box'
-							}).append($('<div/>',{
-								class: 'cd2_product'
-							}).append($('<img/>',{
-									   src: data.productImgList[i].file_path,
-									   class: 'cd2_product_img' 
-									}))))).append($('<div/>',{
-										class: 'cd2_info_box'
-									}).append($('<div/>',{
-										class: 'cd2_brand'
-									}).append($('<p/>',{
-										class: 'cd2_brand_text',
-										text: data.productList[i].brand
-								   }))).append($('<p/>',{
-									   class: 'cd2_name',
-									   text: data.productList[i].eng_name
+						$('<div/>',{
+							class: 'cd2_product_item'
+						}).append($('<a/>',{
+								href: '#',
+								class: 'cd2_item_inner'
+						}).append($('<div/>',{
+							class: 'cd2_thum_box'
+						}).append($('<div/>',{
+							class: 'cd2_product'
+						}).append($('<img/>',{
+								   src: data.productImgList[i].file_path,
+								   class: 'cd2_product_img' 
+								}))))).append($('<div/>',{
+									class: 'cd2_info_box'
+								}).append($('<div/>',{
+									class: 'cd2_brand'
+								}).append($('<p/>',{
+									class: 'cd2_brand_text',
+									text: data.productList[i].brand
+							   }))).append($('<p/>',{
+								   class: 'cd2_name',
+								   text: data.productList[i].eng_name
+							   })).append($('<div/>',{
+								   class: 'cd2_price'
+							   }).append($('<div/>',{
+									class: 'amount'
+							   }).append($('<div/>',{
+								   class: 'cd2_num',
+								   text: data.productList[i].release_price
 								   })).append($('<div/>',{
-									   class: 'cd2_price'
-								   }).append($('<div/>',{
-										class: 'amount'
-								   }).append($('<div/>',{
-									   class: 'cd2_num',
-									   text: data.productList[i].release_price
-									   })).append($('<div/>',{
-										   text: '',
-										   class: 'cd2_won'
-							   }))).append($('<div/>',{
-								   class : 'cd2_desc'
-							   }).append($('<p/>',{
-								   text: '즉시구매가'
-							   }))))).append($('<div/>',{
-								   class: 'cd2_btn_wish'
-							   }).append($('<img/>',{
-								   class: 'cd2_bookmark',
-								   id: 'cd2_bookmark'+data.productList[i].product_id,
-								   src : '/TeamProject/img/main/container2/bookmark.svg'
-							   }))).append($('<input/>',{
-								   type:'hidden',
-								   class : 'cd2_product_id',
-								   id: 'cd2_product_id'+data.productList[i].product_id,
-								   value : data.productList[i].product_id
-							   })).appendTo($('#cd2_list_third'));
-							}
-						$('#con_more_num').val(data.num);
-					},
-					error:function(e){
-						console.log(e);
-					}
-				});//$.ajax
-				
-	         $('#cd2_btn3').on('click',function(){
-	        	 $('.cd2_btn3').hide();
-	        	 
-	        	 $.ajax({
-	 				type: 'post',
-	 				url: '/TeamProject/getProductList',
-	 				data: 'num=' + $('#con_more_num').val(),
-	 				dataType:'json',
-	 				success: function(data){
-	 					//alert(JSON.stringify(data));
-
-	 					for(var i = 0; i < 4; i++){
-	 						console.log(data.num, data.productList[i].brand, data.productList[i].eng_name, data.productList[i].release_price, data.productImgList[i].file_path );
-
-	 						$('<div/>',{
-	 							class: 'cd2_product_item'
-	 						}).append($('<a/>',{
-	 								href: '#',
-	 								class: 'cd2_item_inner'
-	 						}).append($('<div/>',{
-	 							class: 'cd2_thum_box'
-	 						}).append($('<div/>',{
-	 							class: 'cd2_product'
-	 						}).append($('<img/>',{
-	 								   src: data.productImgList[i].file_path,
-	 								   class: 'cd2_product_img' 
-	 								}))))).append($('<div/>',{
-	 									class: 'cd2_info_box'
-	 								}).append($('<div/>',{
-	 									class: 'cd2_brand'
-	 								}).append($('<p/>',{
-	 									class: 'cd2_brand_text',
-	 									text: data.productList[i].brand
-	 							   }))).append($('<p/>',{
-	 								   class: 'cd2_name',
-	 								   text: data.productList[i].eng_name
-	 							   })).append($('<div/>',{
-	 								   class: 'cd2_price'
-	 							   }).append($('<div/>',{
-	 									class: 'amount'
-	 							   }).append($('<div/>',{
-	 								   class: 'cd2_num',
-	 								   text: data.productList[i].release_price
-	 								   })).append($('<div/>',{
-	 									   text: '',
-	 									   class: 'cd2_won'
-	 						   }))).append($('<div/>',{
-	 							   class : 'cd2_desc'
-	 						   }).append($('<p/>',{
-	 							   text: '즉시구매가'
-	 						   }))))).append($('<div/>',{
-	 							   class: 'cd2_btn_wish'
-	 						   }).append($('<img/>',{
-	 							   class: 'cd2_bookmark',
-	 							  id: 'cd2_bookmark'+data.productList[i].product_id,
-	 							   src : '/TeamProject/img/main/container2/bookmark.svg'
-							   }))).append($('<input/>',{
-								   type:'hidden',
-								   class : 'cd2_product_id',
-								   id: 'cd2_product_id'+data.productList[i].product_id,
-								   value : data.productList[i].product_id
-							   })).appendTo($('#cd2_list_for'));
-	 						
-							}
-						$('#con_more_num').val(data.num);
-					},
-					error:function(e){
-						console.log(e);
-					}
-				});//$.ajax
-	 			
-	         });
-	         
-	      });
-	   });
-	   
-	});
+									   text: '',
+									   class: 'cd2_won'
+						   }))).append($('<div/>',{
+							   class : 'cd2_desc'
+						   }).append($('<p/>',{
+							   text: '즉시구매가'
+						   }))))).append($('<div/>',{
+							   class: 'cd2_btn_wish'
+						   }).append($('<img/>',{
+							   class: 'cd2_bookmark',
+							  id: 'cd2_bookmark'+data.productList[i].product_id,
+							   src : '/TeamProject/img/main/container2/bookmark.svg'
+						   }))).append($('<input/>',{
+							   type:'hidden',
+							   class : 'cd2_product_id',
+							   id: 'cd2_product_id'+data.productList[i].product_id,
+							   value : data.productList[i].product_id
+						   })).appendTo($('#cd2_list_for'));
+						
+						}//for
+					 // 2번쨰 더보기찜하기 보이기
+				      if('${sessionScope.memId}'){	 
+				  		$.ajax({
+				  			 type:'post',
+				  			 url:'/TeamProject/user/bookMarkGet',
+				  			 success: function(data){
+				  				 $.each(data.list, function(index, items){
+				  					product_id = $('#cd2_product_id'+items.product_id).val();
+				  					if(items.product_id == product_id){
+				  						$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+				  						
+				  					}else {
+				  						$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
+				  						
+				  					}
+				  				 })
+				  				
+				  			 },
+				  			 error: function(e){
+				  				 console.log(e);
+				  			 }
+				  		}); 
+				  	 }//if
+					$('#con_more_num').val(data.num);
+				},
+				error:function(e){
+					console.log(e);
+				}
+			});//$.ajax
+			
+     	 //3번쨰 더보기 찜하기 보이기
+	     	 if('${sessionScope.memId}'){	 
+	     			$.ajax({
+	     				 type:'post',
+	     				 url:'/TeamProject/user/bookMarkGet',
+	     				 success: function(data){
+	     					 $.each(data.list, function(index, items){
+	     						product_id = $('#cd2_product_id'+items.product_id).val();
+	     						if(items.product_id == product_id){
+	     							$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+	     							
+	     						}else {
+	     							$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
+	     							
+	     						}
+	     					 })
+	     					
+	     				 },
+	     				 error: function(e){
+	     					 console.log(e);
+	     				 }
+	     			}); 
+	     		 }//if 
+      }); //btn3
+      
+   });//btn2
+});//btn1
 </script>
 <script type="text/javascript">
 $(function(){
@@ -530,13 +624,14 @@ $(function(){
 		$.ajax({
 			 type:'post',
 			 url:'/TeamProject/user/bookMarkGet',
-			 dataType: 'json',
 			 success: function(data){
-				 $.each(data, function(index, items){
-						
-						product_id = $('#cd2_product_id'+items.product_id).val();
+				 $.each(data.list, function(index, items){
+					product_id = $('#cd2_product_id'+items.product_id).val();
 					if(items.product_id == product_id){
-						$('#cd2_bookmark'+items.product_id).attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+						$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+						
+					}else {
+						$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
 						
 					}
 				 })

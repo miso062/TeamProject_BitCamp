@@ -22,7 +22,7 @@ public interface UserService {
 	public Map<String, Object> findPwCheck(String hp, String user_id);
 	public void bookMarkInsert(Map<String, String> map);
 	public void bookMarkDelete(int product_id);
-	public List<LikeProDTO> bookMarkGet();
+	public Map<String, Object>bookMarkGet();
 	public String checkNick(String nickname);
 	public String signUpWrite(UserDTO userDTO);
 	public void update(UserDTO userDTO, HttpSession session);

@@ -20,7 +20,7 @@ public interface UserDAO {
 	public int findPwCheck(Map<String, Object> map);
 	public void bookMarkInsert(Map<String, String> map);
 	public void bookMarkDelete(Map<String, Object> map);
-	public List<LikeProDTO> bookMarkGet(Map<String, Object> map);
+	public List<LikeProDTO> bookMarkGet(String id);
 	public int checkNick(String nickname);
 	public int signUpCheck(String hp);
 	public void signUpWrite(UserDTO userDTO);
