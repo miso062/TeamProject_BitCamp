@@ -898,7 +898,7 @@
 <script type="text/javascript">
 window.onload = function() {
 	alert(document.getElementsByClassName('membership_item > info').value());
-	document.getElementById('point').value() = document.getElementsByClassName('membership_item > info').value()
+	document.getElementById('point').value() = document.getElementsByClassName('membership_item > info').value();
 }
 window.onload = function(){
 	var image = '${userDTO.profile_img}';
@@ -933,8 +933,9 @@ $(document).ready(function(){
 		dataType:'json',
 		success: function(data){
 			alert(JSON.stringify(data));
-			$.each(data , function(index, items) {
-				//console.log(items.size_type)
+			
+			$.each(data.buy_historyList , function(index, item) {
+				
 				$('<div/>',{
 				    class: 'purchase_item buy'
 				}).append($('<div/>',{
@@ -955,10 +956,10 @@ $(document).ready(function(){
 				    class: 'size'
 				}).append($('<span/>'),{
 				    class: 'size_text'
-				    //,text: item.size_type
+				    ,text: item.size_type
 				})))).append($('<div/>',{
 				    class:'history_status'
-				    //,text: items.status1
+				    ,text: item.status1
 				}).append($('<div/>',{
 				    class: 'status_box field_status'
 				}).append($('<span/>',{

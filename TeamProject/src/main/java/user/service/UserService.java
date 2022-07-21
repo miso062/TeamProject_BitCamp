@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 
 import product.bean.Buy_historyDTO;
+import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
 import user.bean.LikeProDTO;
@@ -32,4 +33,5 @@ public interface UserService {
 	public List<Buy_historyDTO> getBuyHistory(String user_id);
 	public List<Sell_historyDTO> getSellHistory(String user_id);
 	public String checkKakao(String user_id);
+	public ProductImgDTO getProductImg(int product_id);
 }

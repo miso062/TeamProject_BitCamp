@@ -356,6 +356,9 @@ svg:not(:root) {
 .radio_txt_box .radio_item {
     margin-left: 19px;
 }
+.radio_label:hover, .icon:hover{
+	cursor: pointer;
+}
 .radio_input {
     overflow: hidden!important;
     position: absolute!important;
@@ -726,7 +729,7 @@ svg:not(:root) {
                       <input type="text" name="user_id" class="desc email" id="show_email" value="${userDTO.user_id }" readonly />
                   </div>
                    
-            <div class="unit">
+            <div class="unit input_box has_error has_button">
                <div class="input_box has_error has_button">
                    <h5 class="title input_pwd_title input_title ess log_pwd_label" >비밀번호</h5>
                       <div class="input_item">
@@ -736,7 +739,7 @@ svg:not(:root) {
                </div>
                </div>
             
-               <div class="unit">
+               <div class="unit input_box has_error has_button">
                   <div class="input_box has_error has_button">
                     <h5 class="title input_pwdcheck_title input_title ess log_pwdcheck_label" >비밀번호 재확인</h5>
                        <div class="input_item">
@@ -751,7 +754,7 @@ svg:not(:root) {
             <div class="profile_group">
                 <h4 class="group_title">개인 정보</h4>
 
-                <div class="unit">
+                <div class="unit input_box has_error has_button">
                    <h5 class="title input_title ess log_name_label">이름</h5>
                        <div class="input_item">
                        <input type="text" name="user_name" value="${userDTO.user_name }"  placeholder="ex)홍길동 2-10자" onchange="inputName(this.value)"  autocomplete="off" class="desc input_txt log_name_input" /></div>
@@ -767,7 +770,7 @@ svg:not(:root) {
                 
                 <div class="unit" id="unit_hp">
                     <h5 class="title">휴대폰 번호</h5>
-                    <input type="text" class="desc" name="hp" id="show_hp" value="${userDTO.hp }" />
+                    <input type="text" class="desc" name="hp" id="show_hp" value="${userDTO.hp }" readonly />
                     <button type="button" class="btn btn_modify outlinegrey small" id="openHpBtn"> 변경 </button>
                 </div>
 
@@ -784,7 +787,7 @@ svg:not(:root) {
             
                 <div class="unit">
                     <h5 class="title">사이즈</h5>
-                    <input type="text" name="shoesize" class="desc input_txt hover text_fill" id="show_shoesize" value="${userDTO.shoesize }" />
+                    <input type="text" name="shoesize" class="desc" id="show_shoesize" value="${userDTO.shoesize }" readonly />
                     <button type="button" class="btn btn_modify outlinegrey small btn_size_select" id="size_layer_open"> 변경 </button>
                 </div>
             
@@ -941,8 +944,8 @@ $(document).on("click",function(e){
 $('.layer_btn').click(function(){ //신발 확인 버튼 눌러서 끄기
     $('.layer_point').fadeOut();
     $('body').css("overflow-y", "scroll");
-   alert($('.btn.on > .info_txt').text());
-   $('.desc.input_txt.hover.text_fill').text($('.btn.on > .info_txt').text());
+   //alert($('.btn.on > .info_txt').text());
+   $('#show_shoesize').val($('.btn.on > .info_txt').text());
 })
 $('.size_item > .btn.outlinegrey').click(function(){
    $(this).addClass("on");
