@@ -256,6 +256,14 @@
     .history_product .product_box .product {
         border-radius: 12px;
     }
+    .text-danger {
+    color: #f15746;
+	}
+	.status_txt {
+	    display: block;
+	    font-size: 14px;
+	    letter-spacing: -.21px;
+	}
     .product_detail {
         margin-left: 16px;
         display: -webkit-box;
@@ -936,42 +944,44 @@ $(document).ready(function(){
 		dataType:'json',
 		success: function(data){
 			//alert(JSON.stringify(data));
-			for(var i = 0; i< 3; i++){
-			console.log(data.num, data.buy_historyList[i].user_id, data.productImgList[i].org_file_name ,data.productImgList[i].file_path);
-            $('<div/>',{
-			    class: 'purchase_item buy'
-			}).append($('<div/>',{
-			    class: 'history_product'
-			}).append($('<div/>',{
-			    class: 'product_box'
-			}).append($('<div/>',{
-			    class: 'product',
-			    style: 'background-color: rgb(235, 240, 245);'
-			}).append($('<img/>',{
-			    class: 'picture product_img image',
-			    style: 'height:80px;',
-			    src: data.productImgList[i].file_path
-			})))).append($('<div/>',{
-			    class: 'product_detail'
-			}).append($('<p/>',{
-			    class: 'name',
-			    text: data.productImgList[i].org_file_name
-			})).append($('<p/>',{
-			    class: 'size'
-			}).append($('<span/>',{
-			    class: 'size_text',
-			    text: data.buy_historyList[i].size_type
-			}))))).append($('<div/>',{
-			    class:'history_status',
-			    text: data.buy_historyList[i].status1
-			}).append($('<div/>',{
-			    class: 'status_box field_status'
-			}).append($('<span/>',{
-			    class: 'status_txt text-default'
-			})))).appendTo('.buy_list');
-			}
-		},
-		error:function(err){
+			for(var i = 0; i< data.buy_historyList.length ; i++){
+				console.log(data.num, data.buy_historyList[i].user_id, data.productImgList[i].org_file_name ,data.productImgList[i].file_path);
+	            $('<div/>',{
+				    class: 'purchase_item buy_purchase_item'
+				}).append($('<div/>',{
+				    class: 'history_product'
+				}).append($('<div/>',{
+				    class: 'product_box'
+				}).append($('<div/>',{
+				    class: 'product',
+				    style: 'background-color: rgb(235, 240, 245);'
+				}).append($('<img/>',{
+				    class: 'picture product_img image',
+				    style: 'height:80px;',
+				    src: data.productImgList[i].file_path
+				})))).append($('<div/>',{
+				    class: 'product_detail'
+				}).append($('<p/>',{
+				    class: 'name',
+				    text: data.productImgList[i].org_file_name
+				})).append($('<p/>',{
+				    class: 'size'
+				}).append($('<span/>',{
+				    class: 'size_text',
+				    text: data.buy_historyList[i].size_type
+				}))))).append($('<div/>',{
+				    class:'history_status'
+				}).append($('<div/>',{
+				    class: 'status_box field_status'
+				}).append($('<span/>',{
+				    class: 'status_txt text-default',
+				    text: data.buy_historyList[i].status1
+				})).append($('<span/>',{
+	                class: 'status_txt text-default text-danger',
+	                text: data.buy_historyList[i].status2
+	            })))).appendTo('.buy_list');
+			} 
+		},error:function(err){
 			console.log(err);
 		}		
 	});
@@ -986,9 +996,9 @@ $(document).ready(function(){
 		success: function(data){
 			//alert(JSON.stringify(data));
 			
-			for(var i = 0; i< 3; i++){
+			for(var i = 0; i< data.sell_historyList.length ; i++){
 	            $('<div/>',{
-				    class: 'purchase_item buy'
+				    class: 'purchase_item sell_purchase_item'
 				}).append($('<div/>',{
 				    class: 'history_product'
 				}).append($('<div/>',{
@@ -1011,13 +1021,16 @@ $(document).ready(function(){
 				    class: 'size_text',
 				    text: data.sell_historyList[i].size_type
 				}))))).append($('<div/>',{
-				    class:'history_status',
-				    text: data.sell_historyList[i].status1
+				    class:'history_status'
 				}).append($('<div/>',{
 				    class: 'status_box field_status'
 				}).append($('<span/>',{
-				    class: 'status_txt text-default'
-				})))).appendTo('.sell_list');
+				    class: 'status_txt text-default',
+				    text: data.sell_historyList[i].status1
+				})).append($('<span/>',{
+                    class: 'status_txt text-default text-danger',
+                    text: data.sell_historyList[i].status2
+                })))).appendTo('.sell_list');
 			} 
 		},
 		error:function(err){
@@ -1025,4 +1038,10 @@ $(document).ready(function(){
 		}		
 	});
 });
+
+/* $(function(){
+	$('.sell_purchase_item').gx(4).hide();
+	$('.buy_purchase_item').gx(4).hide();	
+});
+ */
 </script>
