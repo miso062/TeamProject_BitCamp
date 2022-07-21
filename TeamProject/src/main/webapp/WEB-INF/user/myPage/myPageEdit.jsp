@@ -929,7 +929,10 @@ window.onload = function(){ /* 광고성 정보 수신 동의 */
             document.getElementById('email_disagree').checked = true;
         }
 }
-
+window.onload = function() {
+    $('.snb_menu').eq(1).find('.menu_link').eq(0).removeClass('unbold');
+    $('.snb_menu').eq(1).find('.menu_link').eq(0).addClass('bold');
+}
 /* 신발 */
 $('.btn_size_select').click(function(){
    $('.layer_point').fadeIn();

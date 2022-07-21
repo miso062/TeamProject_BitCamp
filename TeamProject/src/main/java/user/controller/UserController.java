@@ -101,7 +101,7 @@ public class UserController {
 	public Map<String, Object> getBuyHistory(@RequestParam String user_id){
 		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
 		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory("jijiya@hotmail.net");
-		System.out.println(buy_historyList);
+		//System.out.println(buy_historyList);
 		Map<String, Object> buy_map = new HashMap<String, Object>();
 		buy_map.put("buy_historyList", buy_historyList);
 
@@ -112,7 +112,7 @@ public class UserController {
 		   productImgList.add(productImgDTO);
 		}
 		buy_map.put("productImgList", productImgList);
-		System.out.println(buy_map);
+		//System.out.println(buy_map);
 		return buy_map;
 	}
 	
@@ -121,7 +121,7 @@ public class UserController {
 	public Map<String, Object> getSellHistory(@RequestParam String user_id){
 		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
 		List<Sell_historyDTO> sell_historyList =  userService.getSellHistory("jijiya@hotmail.net");
-		System.out.println(sell_historyList);
+		//System.out.println(sell_historyList);
 		Map<String, Object> sell_map = new HashMap<String, Object>();
 		sell_map.put("sell_historyList", sell_historyList);
 
@@ -132,7 +132,7 @@ public class UserController {
 		   productImgList.add(productImgDTO);
 		}
 		sell_map.put("productImgList", productImgList);
-		System.out.println(sell_map);
+		//System.out.println(sell_map);
 		return sell_map;
 	}
 	
