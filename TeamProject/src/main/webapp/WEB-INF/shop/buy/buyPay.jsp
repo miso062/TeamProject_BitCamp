@@ -723,7 +723,7 @@ var amount = '${map.total_price}';
 
 // 즉시 결제
 function general_request_pay() {
-	IMP.request_pay({ // param
+    IMP.request_pay({ // param
 		pg : 'kakaopay.TC0ONETIME',
 	    pay_method : 'card', //생략 가능
 	    merchant_uid: merchant_uid, // 상점에서 관리하는 주문 번호
@@ -736,18 +736,27 @@ function general_request_pay() {
 	    buyer_postcode : $('#selected_zipcode').val()
 	}, function (rsp) { // callback
 		if (rsp.success) {
-            alert(rsp.imp_uid + " | " + rsp.merchant_uid);
+            var orig_price = '${map.price}';
+            var regex = /[^0-9]/g;
+            var buy_price = orig_price.replace(regex, "");
+
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = ('0' + (today.getMonth() + 1)).slice(-2);
+            var day = ('0' + today.getDate()).slice(-2);
+            var dateString = year + '/' + month  + '/' + day;
 			jQuery.ajax({
 				url: "/TeamProject/shop/insertBuyPay",
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
+				type: 'post',
 				data: {
-				    product_id : '1234',
-                    addredd_id : '3',
-                    buy_price: '128000',
-                    period: '2022-07-14',
-                    size_type: 230,
-                    customer_uid: ''
+				    product_id : '${map.productDTO.product_id }',
+                    addredd_id : $('#selected_addr_id').val(),
+                    user_id: buyer_email,
+                    buy_price: buy_price,
+                    period: dateString,
+                    size_type: '${map.size }',
+                    cum_uid: '0',
+                    status1: '결제완료', 
 				},
                 success: function(){
                     alert('저장 성공');
@@ -780,16 +789,27 @@ function reservation_request_pay(){
 	    buyer_postcode : $('#selected_zipcode').val()
 	}, function(rsp) {
 		if ( rsp.success ) {
+            var orig_price = '${map.price}';
+            var regex = /[^0-9]/g;
+            var buy_price = orig_price.replace(regex, "");
+
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = ('0' + (today.getMonth() + 1)).slice(-2);
+            var day = ('0' + today.getDate()).slice(-2);
+            var dateString = year + '/' + month  + '/' + day;
             $.ajax({
                 url: '/TeamProject/shop/insertBuyPay',
 				type: 'post',
 				data: {
-                    product_id : '1234',
-                    addredd_id : '3',
-                    buy_price: '128000',
-                    period: '2022-07-14',
-                    size_type: 230,
-                    customer_uid: customer_uid
+                    product_id : '${map.productDTO.product_id }',
+                    addredd_id : $('#selected_addr_id').val(),
+                    user_id: buyer_email,
+                    buy_price: buy_price,
+                    period: dateString,
+                    size_type: '${map.size }',
+                    cum_uid: customer_uid,
+                    status1: '입찰중', 
 				},
 				success: function(){
                     alert('빌링키 발급 성공');

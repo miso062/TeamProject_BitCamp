@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -82,24 +83,6 @@ public class BuyController {
 		return map;
 	}
 	
-//	구매 결제 페이지
-	@PostMapping(value="/buyPay")
-	public String buyPay(Model model, @RequestParam Map<String, Object> map) {
-		DecimalFormat decFormat = new DecimalFormat("###,###");
-		
-		int product_id = Integer.parseInt(String.valueOf(map.get("product_id")));
-		int total_price = Integer.parseInt(String.valueOf(map.get("price")).replaceAll(",", ""))+3600;
-		
-		map.put("productDTO", shopService.getProduct(product_id));
-		map.put("productImgDTO", shopService.getImage(product_id));
-		map.put("total_price", decFormat.format(total_price));
-		map.put("userDTO", shopService.getUserInfo());
-		
-		model.addAttribute("container", "/WEB-INF/shop/buy/buyPay.jsp");
-		model.addAttribute("map", map);
-		return "forward:/shop/buy";
-	}
-	
 //	기본 배송지 반환
 	@GetMapping(value="/getDefalutAddress")
 	@ResponseBody
@@ -121,14 +104,33 @@ public class BuyController {
 		return shopService.getAddress(addr_id);
 	}
 	
+//	구매 결제 페이지
+	@PostMapping(value="/buyPay")
+	public String buyPay(Model model, @RequestParam Map<String, Object> map) {
+		DecimalFormat decFormat = new DecimalFormat("###,###");
+		
+		int product_id = Integer.parseInt(String.valueOf(map.get("product_id")));
+		int total_price = Integer.parseInt(String.valueOf(map.get("price")).replaceAll(",", ""))+3600;
+		
+		map.put("productDTO", shopService.getProduct(product_id));
+		map.put("productImgDTO", shopService.getImage(product_id));
+		map.put("total_price", decFormat.format(total_price));
+		map.put("userDTO", shopService.getUserInfo());
+		
+		model.addAttribute("container", "/WEB-INF/shop/buy/buyPay.jsp");
+		model.addAttribute("map", map);
+		return "forward:/shop/buy";
+	}
+	
 //	구매 정보 입력
 	@PostMapping(value="/insertBuyPay")
-	public void insertBuyPay(@RequestParam Map<String, Object> map) {
+	@ResponseBody
+	public void insertBuyPay(@ModelAttribute Buy_historyDTO buy_historyDTO) {
 //		TODO insert Buy Information to DB
 //		TODO make scheduler for reservation payment
 //		TODO 만약, 즉시 결제라면 -> Sell_History Status 내역 업데이트
 //			 						Market_Price 내역 추가 
-		System.out.println(map);
+		System.out.println(buy_historyDTO);
 	}
 	
 //	구매 완료 페이지
@@ -138,3 +140,4 @@ public class BuyController {
 		return "forward:/shop/buy";
 	}
 }
+
