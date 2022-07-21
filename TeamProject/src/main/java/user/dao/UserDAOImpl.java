@@ -66,14 +66,12 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public void bookMarkDelete(Map<String, Object> map) {
-		System.out.println("너 여기까지 오냐?");
 		sqlSession.delete("userSQL.bookMarkDelete", map);
-		System.out.println("여기까지오냐고");
 	}
 	
 	@Override
-	public List<LikeProDTO> bookMarkGet(Map<String, Object> map) {
-		return sqlSession.selectList("userSQL.bookMarkGet", map);
+	public List<LikeProDTO> bookMarkGet(String id) {
+		return sqlSession.selectList("userSQL.bookMarkGet", id);
 	}
   
 	public int checkNick(String nickname) {

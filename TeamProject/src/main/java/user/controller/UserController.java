@@ -326,8 +326,8 @@ public class UserController {
 
 	@PostMapping(value="bookMarkGet")
 	@ResponseBody
-	public List<LikeProDTO> bookMarkGet(){
-		List<LikeProDTO> list = userService.bookMarkGet();
-		return list; 
+	public Map<String, Object> bookMarkGet(){
+		Map<String, Object> map = userService.bookMarkGet();
+		return map; 
 	}
 }

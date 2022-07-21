@@ -140,11 +140,13 @@ public class UserServiceImpl implements UserService {
 	}
   
 	@Override
-	public List<LikeProDTO> bookMarkGet() {
-		Map<String, Object> map = new HashMap<String, Object>();
+	public Map<String, Object> bookMarkGet() {
 		String id = (String) session.getAttribute("memId");
-		map.put("id", id);
-		return userDAO.bookMarkGet(map);
+	 	List<LikeProDTO> list= userDAO.bookMarkGet(id);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list",list);
+	 	
+		return map; 
 	}
   
 	@Override
