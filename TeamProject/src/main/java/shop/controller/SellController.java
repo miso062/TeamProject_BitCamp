@@ -1,6 +1,9 @@
 package shop.controller;
 
+import java.text.DecimalFormat;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +26,7 @@ public class SellController {
 	ShopService shopService;
 
 //	sell main 페이지
-	@GetMapping(value="/sell")
+	@RequestMapping(value="/sell")
 	public String buy(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
 		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
@@ -53,6 +56,34 @@ public class SellController {
 		model.addAttribute("productDTO", shopService.getProduct(product_id));
 		model.addAttribute("productImgDTO", shopService.getImage(product_id));
 		model.addAttribute("size", size);
+		return "forward:/shop/sell";
+	}
+	
+//	판매 금액 입력 페이지
+	@GetMapping(value="/enterSellPrice")
+	public String enterBuyPrice(Model model, @RequestParam int product_id, @RequestParam int size) {
+		model.addAttribute("container", "/WEB-INF/shop/sell/enterPrice.jsp");
+		model.addAttribute("productDTO", shopService.getProduct(product_id));
+		model.addAttribute("productImgDTO", shopService.getImage(product_id));
+		model.addAttribute("size", size);
+		return "forward:/shop/sell";
+	}
+	
+//	판매 결제 페이지
+	@PostMapping(value="/sellPay")
+	public String sellPay(Model model, @RequestParam Map<String, Object> map) {
+		DecimalFormat decFormat = new DecimalFormat("###,###");
+		
+		int product_id = Integer.parseInt(String.valueOf(map.get("product_id")));
+		int total_price = Integer.parseInt(String.valueOf(map.get("price")).replaceAll(",", ""))+3600;
+		
+		map.put("productDTO", shopService.getProduct(product_id));
+		map.put("productImgDTO", shopService.getImage(product_id));
+		map.put("total_price", decFormat.format(total_price));
+		map.put("userDTO", shopService.getUserInfo());
+		
+		model.addAttribute("container", "/WEB-INF/shop/sell/sellPay.jsp");
+		model.addAttribute("map", map);
 		return "forward:/shop/sell";
 	}
 	

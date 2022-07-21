@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" type="text/css" href="/TeamProject/css/shop/buy/buyPay.css"/>
+<link rel="stylesheet" type="text/css" href="/TeamProject/css/shop/sell/sellPay.css"/>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 
 <input type="hidden" id="payment_method" value="${map.payment_method}">
@@ -53,26 +53,6 @@
                                 </dl>
                             </div>
                             <a href="#" class="change_btn btn_edit outlinegrey small"> 변경 </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="section_unit">
-                    <div class="section_title"><h3 class="title_txt">배송 방법</h3></div>
-                    <div class="section_content">
-                        <div class="delivery_service_option">
-	                        <div class="way_info">
-	                            <div class="way_status_thumb">
-	                                <img
-	                                    src="https://kream-phinf.pstatic.net/MjAyMTExMjlfMTQ4/MDAxNjM4MTc4MjI5NTk3.2phJLPtRvFqViNfhZu06HzNRiUBlT4cmZR4_Ukqsyesg.ikrfWOrL7WXCVO0Rqy5kMvOn3B2YpjLUj6RuJqosPX0g.PNG/a_8b54cbca40e945f4abf1ee24bdd031f7.png"
-	                                    alt="3,000원" class="way_img"/>
-	                            </div>
-	                            <div class="way_desc">
-	                                <p class="company">
-	                                    <span class="badge_title">일반배송</span><span class="company_title">3,000원</span>
-	                                </p>
-	                                <p class="sub_text">검수 후 배송 ・ 5-7일 내 도착 예정</p>
-	                            </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -149,21 +129,6 @@
                                 <!-- <img src="/TeamProject/img/shop/cancel.png" alt="닫기" class="address_close_btn"> -->
                             </div>
                         </a>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class="section_title"><h3 class="title_txt">포인트</h3></div>
-                <div class="section_content">
-                    <div class="section_input">
-                        <input placeholder="결제 시점에 최대 사용" disabled="disabled" class="input_credit" /><button class="btn_use_credit">최대 사용</button>
-                    </div>
-                    <div class="info_point">
-                        <div>
-                            <span class="text_current">보유 포인트</span>
-                            <div class="value_current"><span class="point">0</span><span class="unit">P</span></div>
-                        </div>
-                        <p class="guide_point">구매 입찰은 ‘최대 사용'만 선택 가능하며, 거래 체결 시점에 보유한 모든 포인트를 사용합니다.</p>
                     </div>
                 </div>
             </section>
@@ -686,7 +651,7 @@ $(function(){
 		}
 		
 		if($('.active').length == 4 && $('#address_name').html() != ''){
-			$('.buy_btn').css('background-color', '#ef6253');
+			$('.buy_btn').css('background-color', '#31b46e');
             $('.buy_btn').css('cursor', 'pointer');
             $('.buy_btn').addClass('able');
 		}

@@ -141,7 +141,7 @@
 }
 
 .select_link.buy .price[data-v-02c63ee6] {
-	color: #f15746
+	color: #31b46e
 }
 
 .select_link.sell .price[data-v-02c63ee6] {
@@ -322,7 +322,7 @@
 }
 
 .check_title .accent_text[data-v-30c0be66] {
-	color: #f15746
+	color: #31b46e
 }
 
 .container.sell .check_title .accent_text[data-v-30c0be66] {
@@ -782,7 +782,7 @@ to {
 				<div data-v-30c0be66="" data-v-66e3a22e="">
 					<div data-v-30c0be66="" class="title_area">
 						<h2 data-v-30c0be66="" class="check_title">
-							<span data-v-30c0be66="" class="accent_text">구매</span>하시기 전에 <br data-v-30c0be66="" class="br_mo">꼭 확인하세요.
+							<span data-v-30c0be66="" class="accent_text">판매</span>하시기 전에 <br data-v-30c0be66="" class="br_mo">꼭 확인하세요.
 						</h2>
 					</div>
 					<div data-v-30c0be66="" class="buy_product_area">
@@ -813,7 +813,7 @@ to {
 						<li data-v-c9dd64ec="" class="check_item">
 							<a data-v-c9dd64ec=""  class="check_area">
 								<div data-v-c9dd64ec="" class="notice_group">
-									<p data-v-c9dd64ec="" class="notice_maintext">구매하려는 상품이 맞습니다.</p>
+									<p data-v-c9dd64ec="" class="notice_maintext">판매하려는 상품이 맞습니다.</p>
 									<p data-v-c9dd64ec="" class="notice_subtext">상품 이미지, 모델번호, 출시일, 상품명, 사이즈를 한 번 더 확인했습니다.</p>
 								</div>
 								<div class="checkbox_item">
@@ -827,7 +827,7 @@ to {
 							<a data-v-c9dd64ec="" class="check_area">
 								<div data-v-c9dd64ec="" class="notice_group">
 									<p data-v-c9dd64ec="" class="notice_maintext">국내/해외에서 발매한 정품 · 새상품입니다.</p>
-									<p data-v-c9dd64ec="" class="notice_subtext">모든 구성품이 그대로이며, 한 번도 착용하지 않은 정품・새상품입니다. 국내 발매 상품 여부는 확인드리지<br> 않습니다.</p>
+									<p data-v-c9dd64ec="" class="notice_subtext">모든 구성품이 그대로이며, 한 번도 착용하지 않은 정품・새상품입니다. 중고품 판매는 불가능합니다.</p>
 								</div>
 								<div class="checkbox_item">
 									<label for="check2" class="check_label">
@@ -839,8 +839,8 @@ to {
 						<li data-v-c9dd64ec="" class="check_items">
 							<a data-v-c9dd64ec="" class="check_area">
 								<div data-v-c9dd64ec="" class="notice_group">
-									<p data-v-c9dd64ec="" class="notice_maintext">제조사에서 불량으로 인정하지 않는 기준은 하자로 판단하지 않습니다.</p>
-									<p data-v-c9dd64ec="" class="notice_subtext">박스/패키지와 상품 컨디션에 민감하시다면 검수 기준을 반드시 확인하시기 바랍니다.</p>
+									<p data-v-c9dd64ec="" class="notice_maintext">박스/패키지의 상태를 확인합니다.</p>
+									<p data-v-c9dd64ec="" class="notice_subtext">박스/패키지의 상태에 따른 검수 기준을 확인했습니다.</p>
 								</div> 
 								<div class="checkbox_item">
 									<label for="check3" class="check_label"> 
@@ -852,10 +852,23 @@ to {
 								</div>
 							</a>
 						</li>
+						<li data-v-c9dd64ec="" class="check_item">
+							<a data-v-c9dd64ec="" class="check_area">
+								<div data-v-c9dd64ec="" class="notice_group">
+									<p data-v-c9dd64ec="" class="notice_maintext">이중 포장하여 선불 발송합니다.</p>
+									<p data-v-c9dd64ec="" class="notice_subtext">반드시 이중 포장하여 택배 상자에 담아 선불 발송합니다. 합배송은 권장하지 않으며 이로 인한 박스/<br>패키지 훼손은 판매자의 책임입니다.</p>
+								</div>
+								<div class="checkbox_item">
+									<label for="check2" class="check_label">
+										<img src="/TeamProject/img/shop/checkbox-inactive.png" class="checkbox_item_img">
+									</label>
+								</div>
+							</a>
+						</li>
 						<li data-v-c9dd64ec="" class="check_items">
 							<a data-v-c9dd64ec=""class="check_area">
 								<div data-v-c9dd64ec="" class="notice_group">
-									<p data-v-c9dd64ec="" class="notice_maintext">KREAM의 최신 이용정책을 모두 확인하였으며, 구매를 계속합니다.</p>
+									<p data-v-c9dd64ec="" class="notice_maintext">KREAM의 최신 이용정책을 모두 확인하였으며, 판매를 계속합니다.</p>
 									<p data-v-c9dd64ec="" class="notice_subtext">건전하고 안전한 거래를 위해 반드시 숙지해야 할 미입고, 페널티, 부정거래 등의 이용정책을 확인했습니다.</p>
 								</div>
 								<div class="checkbox_item">
@@ -871,7 +884,7 @@ to {
 					</ul>
 					<div data-v-4146ec1a="" class="btn_confirm md" id="btn_import">
 						<a data-v-3d1bcc82="" data-v-4146ec1a="" disabled="disabled" href="#" class="btn full solid disabled" id="btn_continue">
-							<div id="font_continue"> 구매 계속 </div>
+							<div id="font_continue"> 판매 계속 </div>
 						</a>
 					</div>
 				</div>
@@ -895,9 +908,9 @@ $(function(){
 			img.addClass('active');
 			img.attr('src', '/TeamProject/img/shop/checkbox-active.png');
 		}
-		if($('.active').length == 4){
+		if($('.active').length == 5){
 			$('#btn_continue').css('background-color', '#222');
-			$('#btn_continue').attr('href', '/TeamProject/shop/enterBuyPrice?product_id='+$('#product_id').val()+'&size='+$('.size_txt').text());
+			$('#btn_continue').attr('href', '/TeamProject/shop/enterSellPrice?product_id='+$('#product_id').val()+'&size='+$('.size_txt').text());
 			
 		}
 		else{
