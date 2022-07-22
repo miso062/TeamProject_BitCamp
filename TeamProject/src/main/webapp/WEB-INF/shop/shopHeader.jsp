@@ -474,7 +474,7 @@ height:80px;
 					<a href="/TeamProject/admin/notice" class="h_top_link">고객센터</a>
 				</li>
 				<li class="h_top_item">
-					<a href="#" class="h_top_link">관심상품</a>
+					<a id="h_likePro" class="h_top_link" style="cursor: pointer;">관심상품</a>
 				</li>
 				<li class="h_top_item">
 					<a id="h_myPage" class="h_top_link">마이페이지</a>
@@ -718,6 +718,22 @@ height:80px;
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script type="text/javascript">
+//로그아웃
+$('#h_logout').click(function(){
+	$.ajax({
+		url:'/TeamProject/user/checkLogout',
+		type:'post',
+		
+		success: function(){
+			alert("로그아웃 되었습니다.");
+			location.href='/TeamProject/';
+		},
+		error:function(err){
+			console.log(err);
+		}
+	});
+});
+
 
 //방문시 링크
 $(document).ready(function(){
@@ -834,12 +850,25 @@ window.addEventListener('load', function () {
 
 	});
 });
+
+//비로그인시 마이페이지 x
 $(document).on('click','#h_myPage', function(){
     if(!'${sessionScope.memId}') {
     	openLogin();
     }
     else {
     	location.href="/TeamProject/user/myPage"
+    }
+})
+
+//비로그인시 관심상품 x
+$('#h_likePro').click(function(){
+ if(!'${sessionScope.memId}') {
+        $('#h_login').trigger('click');
+    }
+    else {
+    	location.href="/TeamProject/user/likePro"
+    	
     }
 })
 

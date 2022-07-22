@@ -229,7 +229,6 @@ $(document).ready(function(){
 			//alert(JSON.stringify(data));
 
 			for(var i = 0; i < 4; i++){
-				console.log(data.num, data.productList[i].brand, data.productList[i].eng_name, data.productList[i].release_price, data.productImgList[i].file_path );
 
 				$('<div/>',{
 					class: 'cd2_product_item'
@@ -329,7 +328,6 @@ $('#cd2_btn1').on('click', function(){
 				//alert(JSON.stringify(data));
 
 				for(var i = 0; i < 4; i++){
-					console.log(data.num, data.productList[i].brand, data.productList[i].eng_name, data.productList[i].release_price, data.productImgList[i].file_path );
 
 					$('<div/>',{
 						class: 'cd2_product_item'
@@ -426,7 +424,6 @@ $('#cd2_btn1').on('click', function(){
 					//alert(JSON.stringify(data));
 
 					for(var i = 0; i < 4; i++){
-						console.log(data.num, data.productList[i].brand, data.productList[i].eng_name, data.productList[i].release_price, data.productImgList[i].file_path );
 
 						$('<div/>',{
 							class: 'cd2_product_item'
@@ -520,7 +517,6 @@ $('#cd2_btn1').on('click', function(){
 					//alert(JSON.stringify(data));
 
 					for(var i = 0; i < 4; i++){
-						console.log(data.num, data.productList[i].brand, data.productList[i].eng_name, data.productList[i].release_price, data.productImgList[i].file_path );
 
 						$('<div/>',{
 							class: 'cd2_product_item'
@@ -612,6 +608,7 @@ $('#cd2_btn1').on('click', function(){
 	     						product_id = $('#cd2_product_id'+items.product_id).val();
 	     						if(items.product_id == product_id){
 	     							$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+			  						$('#cd2_bookmark'+items.product_id).addClass('active');
 	     							
 	     						}else {
 	     							$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');

@@ -140,7 +140,7 @@ $(document).ready(function(){
 			);
 
 		}
-
+		/*
 
 		if (_total === 0) {
 			$('#sentinel').hide();
@@ -156,7 +156,7 @@ $(document).ready(function(){
 				//관찰중인 요소를 보여준다.
 			}
 		}
-
+		*/
 		/*https://velog.io/@eunoia/%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4Infinite-scroll-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0*/
 
 })

@@ -126,11 +126,6 @@ public class BuyController {
 	@PostMapping(value="/insertBuyPay")
 	@ResponseBody
 	public Buy_historyDTO insertBuyPay(@ModelAttribute Buy_historyDTO buy_historyDTO) {
-		System.out.println(buy_historyDTO);
-//		TODO insert Buy Information to DB
-//		TODO make scheduler for reservation payment
-//		TODO 만약, 즉시 결제라면 -> Sell_History Status 내역 업데이트
-//			 						Market_Price 내역 추가 
 		return shopService.insertBuyPay(buy_historyDTO);
 	}
 	

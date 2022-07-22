@@ -404,7 +404,7 @@ cursor: pointer;
 					<a href="/TeamProject/admin/notice" class="h_top_link">고객센터</a>
 				</li>
 				<li class="h_top_item">
-					<a href="/TeamProject/user/likePro" class="h_top_link">관심상품</a>
+					<a id="h_likePro" class="h_top_link">관심상품</a>
 				</li>
 				<li class="h_top_item">
 					<a id="h_myPage" class="h_top_link">마이페이지</a>
@@ -745,5 +745,15 @@ $('#h_myPage').click(function(){
     	
     }
 });
+//비로그인시 관심상품 x
+$('#h_likePro').click(function(){
+ if(!'${sessionScope.memId}') {
+        $('#h_login').trigger('click');
+    }
+    else {
+    	location.href="/TeamProject/user/likePro"
+    	
+    }
+})
 
 </script>
