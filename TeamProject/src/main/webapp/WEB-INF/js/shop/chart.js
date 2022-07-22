@@ -55,59 +55,62 @@ $(function(){
 				},
 			}
 		};
-	
-		var myChart = new Chart(ctx, config);
-		
-		//데이터 추가
-		document.getElementById('addData').onclick = function(){
-			
-			//라벨추가
-			config.data.labels.push('data'+config.data.labels.length)
-			
-			//데이터셋 수 만큼 반복
-			var dataset = config.data.datasets;
-			for(var i=0; i<dataset.length; i++){
-				//데이터셋의 데이터 추가
-				dataset[i].data.push(Math.floor(Math.random() * 50));
-			}
-			myChart.update();	//차트 업데이트
-		}
 
-		//데이터 변경
-		document.getElementById('reData').onclick = function(){
-			
-			//데이터셋 수 만큼 반복
-			var dataset = config.data.datasets;
-			for(var i=0; i<dataset.length; i++){
-				console.log(dataset);
-				//데이터 갯수 만큼 반복
-				var data = dataset[i].data;
-				for(var j=0 ; j < data.length ; j++){
-					data[j] = Math.floor(Math.random() * 50);
-				}
-			}
-			
-			myChart.update();	//차트 업데이트
-		}
+	
+var myChart = new Chart(ctx, config);
 
-		//데이터 삭제
-		document.getElementById('delData').onclick = function(){
-			
-			config.data.labels.splice(-1,1);//라벨 삭제
-			
-			//데이터 삭제
-			config.data.datasets.forEach(function(dataset) {
-				dataset.data.pop();
-			});
-			
-			myChart.update();	//차트 업데이트
-		}
-	
-		},
-		error: function(err){
-			console.log(err);
-		}
-	
-	});
-})
+//데이터 추가
+//document.getElementById('addData').onclick = function(){
+//	
+//	//라벨추가
+//	config.data.labels.push('data'+config.data.labels.length)
+//	
+//	//데이터셋 수 만큼 반복
+//	var dataset = config.data.datasets;
+//	for(var i=0; i<dataset.length; i++){
+//		//데이터셋의 데이터 추가
+//		dataset[i].data.push(Math.floor(Math.random() * 50));
+//	}
+//	myChart.update();	//차트 업데이트
+//}
+
+//데이터 변경
+//document.getElementById('reData').onclick = function(){
+//	
+//	//데이터셋 수 만큼 반복
+//	var dataset = config.data.datasets;
+//	for(var i=0; i<dataset.length; i++){
+//		console.log(dataset);
+//		//데이터 갯수 만큼 반복
+//		var data = dataset[i].data;
+//		for(var j=0 ; j < data.length ; j++){
+//			data[j] = Math.floor(Math.random() * 50);
+//		}
+//	}
+//	
+//	myChart.update();	//차트 업데이트
+//}
+
+//데이터 삭제
+//document.getElementById('delData').onclick = function(){
+//	
+//	config.data.labels.splice(-1,1);//라벨 삭제
+//	
+//	//데이터 삭제
+//	config.data.datasets.forEach(function(dataset) {
+//		dataset.data.pop();
+//	});
+//	
+//	myChart.update();	//차트 업데이트
+//	}
+//
+	},
+	error: function(err){
+		console.log(err);
+	}
+
+});
+});
+
+
 

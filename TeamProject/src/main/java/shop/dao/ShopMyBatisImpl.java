@@ -118,4 +118,9 @@ public class ShopMyBatisImpl implements ShopDAO {
 		return sqlSession.selectOne("shopSQL.getLikeProduct",product_id);
 	}
 
+	@Override
+	public List<Market_priceDTO> getshopDetaillist(int product_id) {
+		return sqlSession.selectList("shopSQL.getshopDetaillist",product_id);
+	}
+	
 }

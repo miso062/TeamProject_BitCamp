@@ -27,4 +27,5 @@ public interface ShopDAO {
 	public Integer getsellhistory(int product_id);
 	public Market_priceDTO getsigningdateprice(int product_id);
 	public Integer getlikeproduct(int product_id);
+	public List<Market_priceDTO> getshopDetaillist(int product_id);
 }

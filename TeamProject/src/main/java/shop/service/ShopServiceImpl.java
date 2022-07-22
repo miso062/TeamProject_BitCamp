@@ -139,4 +139,9 @@ public class ShopServiceImpl implements ShopService {
 	public List<Market_priceDTO> getchart(int product_id) {
 		return shopDAO.getchart(product_id);
 	}
+
+	@Override
+	public List<Market_priceDTO> getshopDetaillist(int product_id) {
+		return shopDAO.getshopDetaillist(product_id);
+	}
 }

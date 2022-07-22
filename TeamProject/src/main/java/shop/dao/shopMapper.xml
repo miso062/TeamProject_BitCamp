@@ -79,4 +79,8 @@
 	<select id="getLikeProduct" parameterType="Int" resultType="Int">
 		select count(*) from like_pro where product_id = ${product_id}
 	</select>
+	
+	<select id="getshopDetaillist" parameterType="Int" resultType="marketPrice">
+		select * from (select * from market_price where product_id=${product_id} order by signing_date desc) where <![CDATA[rownum <= 5 ]]>
+	</select>
 </mapper>
