@@ -93,13 +93,16 @@ $(document).ready(function(){
 				dataType:'json',
 				success: function(data){
 					console.log('current: ', page)
+					var colorList = [ 'rgb(241, 233, 252)', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
 					for(var i=0; i<16; i++){
 						/* console.log(data.num, data.scrollProduct[i].brand, data.scrollProduct[i].eng_name, data.scrollProduct[i].kor_name, data.scrollProduct[i].release_price, data.scrollProduct[i].file_path); */
 						console.log(data)
+						var random = Math.floor( Math.random() * 4 ); 
 						$('.shop-list-ul').append(
 							$('<li/>', { class:'card-list-li'})
 							.append($('<div/>', { class:'shop_search_result_item' })
-								.append($('<a/>', { class:'shop_item_inner'})
+								.append($('<a/>', { class:'shop_item_inner',
+					                style: 'background-color: '+ colorList[random] + ';'})
 									.append($('<div/>', { class:'shop_product'})
 										.append($('<img/>', { src:data.productImgList[i].file_path, class: 'shop_product_img'})))))
 										.append($('<div/>', { class: 'shop_product_info' }))
