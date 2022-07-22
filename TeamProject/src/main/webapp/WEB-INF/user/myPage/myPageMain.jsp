@@ -723,7 +723,8 @@
             </div>
         </div>
         <div>
-            <div class="purchase_list buy_list all bid">
+			<div class="purchase_list buy_list all bid">
+            <!--
                 <div class="purchase_item buy">
                     <div class="history_product">
                         <div class="product_box">
@@ -745,8 +746,9 @@
                             <span class="status_txt text-default">${Buy_historyDTO.status1}</span>
                         </div>
                     </div>
-                </div>
-                <div class="empty_area" style="display: none;">
+                -->
+			</div>
+                <div class="empty_area buy_empty_area" style="display: none;">
                     <p class="desc">거래 내역이 없습니다.</p>
                 </div>
                 <!----><!----><!----><!----><!---->
@@ -800,7 +802,7 @@
         </div>
         <div>
             <div class="purchase_list sell_list all ask">
-                <div class="empty_area" style="display: none;" >
+                <div class="empty_area sell_empty_area" style="display: none;" >
                     <p class="desc">거래 내역이 없습니다.</p>
                 </div>
             </div>
@@ -943,9 +945,12 @@ $(document).ready(function(){
 		data:'user_id='+$('#user_id').val(),
 		dataType:'json',
 		success: function(data){
+			if(data.buy_historyList.length == 0){
+				$('.buy_empty_area').show();
+			}
 			//alert(JSON.stringify(data));
 			for(var i = 0; i< data.buy_historyList.length ; i++){
-				console.log(data.num, data.buy_historyList[i].user_id, data.productImgList[i].org_file_name ,data.productImgList[i].file_path);
+				//console.log(data.num, data.buy_historyList[i].user_id, data.productImgList[i].org_file_name ,data.productImgList[i].file_path);
 	            $('<div/>',{
 				    class: 'purchase_item buy_purchase_item'
 				}).append($('<div/>',{
@@ -980,6 +985,10 @@ $(document).ready(function(){
 	                class: 'status_txt text-default text-danger',
 	                text: data.buy_historyList[i].status2
 	            })))).appendTo('.buy_list');
+	            //상품 3개까지 보이게하기
+	            if( i > 1){
+	            	break;
+	            }
 			} 
 		},error:function(err){
 			console.log(err);
@@ -995,7 +1004,10 @@ $(document).ready(function(){
 		dataType:'json',
 		success: function(data){
 			//alert(JSON.stringify(data));
-			
+			if(data.sell_historyList.length == 0){
+				$('.sell_empty_area').show();
+			}
+			 
 			for(var i = 0; i< data.sell_historyList.length ; i++){
 	            $('<div/>',{
 				    class: 'purchase_item sell_purchase_item'
@@ -1031,17 +1043,14 @@ $(document).ready(function(){
                     class: 'status_txt text-default text-danger',
                     text: data.sell_historyList[i].status2
                 })))).appendTo('.sell_list');
+                //상품 3개까지 보이게하기
+	            if( i > 1){
+	            	break;
+	            }
 			} 
-		},
-		error:function(err){
+		},error:function(err){
 			console.log(err);
 		}		
 	});
 });
-
-/* $(function(){
-	$('.sell_purchase_item').gx(4).hide();
-	$('.buy_purchase_item').gx(4).hide();	
-});
- */
 </script>
