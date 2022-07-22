@@ -291,7 +291,7 @@ $(document).ready(function(){
 							product_id = $('#cd2_product_id'+items.product_id).val();
 							if(items.product_id == product_id){
 								$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
-								
+								$('#cd2_bookmark'+items.product_id).addClass('active');
 							}else {
 								$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
 								
@@ -392,6 +392,7 @@ $('#cd2_btn1').on('click', function(){
 								product_id = $('#cd2_product_id'+items.product_id).val();
 							 if(items.product_id == product_id){
 									$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+									$('#cd2_bookmark'+items.product_id).addClass('active');
 									
 							}else {
 									$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
@@ -486,7 +487,7 @@ $('#cd2_btn1').on('click', function(){
 				  					product_id = $('#cd2_product_id'+items.product_id).val();
 				  					if(items.product_id == product_id){
 				  						$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
-				  						
+				  						$('#cd2_bookmark'+items.product_id).addClass('active');
 				  					}else {
 				  						$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
 				  						
@@ -581,7 +582,7 @@ $('#cd2_btn1').on('click', function(){
 				  					product_id = $('#cd2_product_id'+items.product_id).val();
 				  					if(items.product_id == product_id){
 				  						$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
-				  						
+				  						$('#cd2_bookmark'+items.product_id).addClass('active');
 				  					}else {
 				  						$('#cd2_bookmark'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
 				  						

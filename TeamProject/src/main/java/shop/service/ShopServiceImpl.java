@@ -41,10 +41,10 @@ public class ShopServiceImpl implements ShopService {
 		map.put("endNum", endNum);
 		
 		Map<String, Object> sendMap = shopDAO.scrollProduct(map);
-		sendMap.put("num", startNum + 15);
+		sendMap.put("num", startNum + 16);
 		
 		return sendMap;
-  }
+	}
 
 	@Override
 	public Map<String, Object> getShopDetail(int product_id) {

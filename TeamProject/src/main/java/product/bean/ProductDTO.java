@@ -26,6 +26,6 @@ public class ProductDTO {
 	private String color;
 	private String post_status;
 	private Date regdate;
-	
+	private String cnt;
 
 }
