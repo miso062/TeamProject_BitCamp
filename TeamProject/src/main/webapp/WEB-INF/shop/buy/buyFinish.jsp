@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>구매입찰완료페이지</title>
+
 <style type="text/css">
 .container.buy {
     background-color: #fafafa;
@@ -17,6 +13,7 @@
 .buy_complete {
     margin: 0 auto;
     width: 440px;
+    padding-top: 60px;
 }
 .complete_box {
     background-color: #fff;
@@ -247,12 +244,9 @@ address, em {
     height: 24px;
 }
 </style>
-</head>
-<body>
+
 <div class="container buy lg">
-
     <div class="content">
-
         <div class="buy_complete lg">
             <div class="complete_box">
                 <div class="product" style="background-color: rgb(235, 240, 245);">
@@ -263,7 +257,6 @@ address, em {
                             class="image"
                         />
                     </picture>
-                    <!----><!----><!---->
                 </div>
                 <div class="complete_detail">
                     <div class="complete_info">
@@ -292,14 +285,12 @@ address, em {
                                 <dl class="price_addition is_dark">
                                     <dt class="price_title">
                                         <span data-v-3a2a7b6b="">구매 희망가</span>
-                                        <!---->
                                     </dt>
                                     <dd class="price_text">210,000원</dd>
                                 </dl>
                                 <dl class="price_addition">
                                     <dt class="price_title">
                                         <span data-v-3a2a7b6b="">검수비</span>
-                                        <!---->
                                     </dt>
                                     <dd class="price_text">무료</dd>
                                 </dl>
@@ -317,7 +308,6 @@ address, em {
                                 <dl class="price_addition">
                                     <dt class="price_title">
                                         <span>배송비</span>
-                                        <!---->
                                     </dt>
                                     <dd class="price_text">선불 ・ 구매자 부담</dd>
                                 </dl>
@@ -326,14 +316,12 @@ address, em {
                                 <dl class="price_addition">
                                     <dt class="price_title dark">
                                         <span>입찰 마감 기한</span>
-                                        <!---->
                                     </dt>
                                     <dd class="price_text">3일 - 2022/07/17까지</dd>
                                 </dl>
                             </div>
                         </div>
                     </div>
-                    <!---->
                 </div>
             </div>
             <div class="layer_point layer lg" style="display: none;">
@@ -368,6 +356,3 @@ address, em {
         </div>
     </div>
 </div>
-
-</body>
-</html>

@@ -887,6 +887,7 @@ input {
 }
 
 .buy_immediate[data-v-1e6a25e8], .price_descision_box[data-v-1e6a25e8] {
+	box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
 	background-color: #fff
 }
 
@@ -1541,6 +1542,7 @@ input {
 
 <form id="enterPriceForm" method="post" action="/TeamProject/shop/buyPay">
 	<input type="hidden" name="product_id" id="product_id"value=${productDTO.product_id}>
+	<input type="hidden" name="sell" id="sell" value=${sellDTO.sell_id}>
 	<input type="hidden" name="size" id="size" value=${size}>
 	<input type="hidden" name="peroid" id="peroid" value="">
 	<input type="hidden" name="payment_method" id="payment_method" value="">
@@ -1565,7 +1567,7 @@ input {
 							<p data-v-1643775e="" class="model_title">${productDTO.eng_name }</p>
 							<p data-v-1643775e="" class="model_ko">${productDTO.kor_name }</p>
 							<div data-v-1643775e="" class="model_desc">
-								<p data-v-1643775e="" class="size_txt">${size }</p>
+								<p data-v-1643775e="" class="size_txt">${size}</p>
 							</div>
 						</div>
 					</div>
@@ -1835,7 +1837,8 @@ $(function(){
 		type: 'post',
 		data: {
 			'product_id' : $('#product_id').val(),
-			'size': $('.size_txt').text()
+			'size': $('#size').val(),
+			'sell': $('#sell').val()
 		},
 		dataType: 'json',
 		success: function(data){
@@ -1844,6 +1847,7 @@ $(function(){
 				$('.im_buy_price').text('-');
 				$('#hide_Btn1').trigger('click');
 				$('#payment_method').val('구매 입찰');
+				$('#disabledBtn').css('cursor', 'default');
 			}
 			else{
 				$('.im_buy_price').text(data.sellDTO.sell_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
@@ -1851,7 +1855,12 @@ $(function(){
 				$('#disabledBtn').attr('id', 'hide_Btn2');
 				$('#payment_method').val('즉시 구매');
 			}
-			$('.im_sell_price').text(data.buyDTO.buy_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
+			if(!data.buyDTO){
+				$('.im_sell_price').text('-');
+			}
+			else{
+				$('.im_sell_price').text(data.buyDTO.buy_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
+			}
 		},
 		error: function(err){
 			console.log(err);
@@ -1865,6 +1874,9 @@ $('#btn_continue').click(function(){
 		if($('#payment_method').val() == '즉시 구매'){
 			$('#peroid').val('');
 			$('#deadline').val('');
+		}
+		else{
+			$('#sell').val('');
 		}
 		$('#enterPriceForm').submit();
 	}
