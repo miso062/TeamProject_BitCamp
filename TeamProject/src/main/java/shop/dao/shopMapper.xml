@@ -83,11 +83,11 @@
 	</select>
 	
 	<select id="getBuyHistory" parameterType="Int" resultType="Int">
-		select min(buy_price) from buy_history where product_id=${product_id} and status1='입찰중'
+		select min(sell_price) from sell_history where product_id=${product_id} and status1='입찰중'
 	</select>
 	
 	<select id="getSellHistory" parameterType="Int" resultType="Int">
-		select max(sell_price) from sell_history where product_id=${product_id} and status1='입찰중'
+		select max(buy_price) from buy_history where product_id=${product_id} and status1='입찰중'
 	</select>
 	
 	<select id="getSigningDatePrice" parameterType="Int" resultType="marketPrice">
