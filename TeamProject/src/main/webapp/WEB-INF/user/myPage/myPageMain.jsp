@@ -692,7 +692,7 @@
                 <a href="#" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">전체</dt>
-                        <dd class="count">1</dd>
+                        <dd class="count buy_countAll">1</dd>
                     </dl>
                 </a>
             </div>
@@ -734,14 +734,14 @@
                 <a href="#" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">전체</dt>
-                        <dd class="count">0</dd>
+                        <dd class="count sell_countAll">0</dd>
                     </dl>
                 </a>
             </div>
             <div class="tab_item tab_on">
                 <a href="#" class="tab_link">
                     <dl class="tab_box">
-                        <dt class="title">진행 중</dt>
+                        <dt class="title">입찰 중</dt>
                         <dd class="count sell_status1">0</dd>
                     </dl>
                 </a>
@@ -852,7 +852,6 @@ $(document).on("click",function(e){
    if($('.layer_point').is(e.target)) {
       $('.layer_point').fadeOut();
         $('body').css("overflow-y", "scroll");
-        
    }
 })
 $('.layer_btn').click(function(){
@@ -861,19 +860,37 @@ $('.layer_btn').click(function(){
 })
 
 $(document).ready(function(){
-<<<<<<< HEAD
    $.ajax({
       type:'post',
       url:'/TeamProject/user/getBuyHistory',
       data:'user_id='+$('#user_id').val(),
       dataType:'json',
       success: function(data){
-         var colorList = [ 'rgb(241, 233, 252)', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
-         if(data.buy_historyList.length == 0){
-            $('.buy_empty_area').show();
-         }
-         //alert(JSON.stringify(data));
-         for(var i = 0; i< data.buy_historyList.length ; i++){
+		//배경 색
+		var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+		//거래내역없을 때
+		if(data.buy_historyList.length == 0){
+			$('.buy_empty_area').show();
+		}
+		//구매거래내역 카운트
+		var buy_status1_count = 0;
+		var buy_status2_count = 0;
+		
+		
+       	for(var i = 0; i < data.buy_historyList.length; i++){
+       		if(data.buy_historyList[i].status1 != null){
+       			buy_status1_count = buy_status1_count + 1;
+       		}
+       		if(data.buy_historyList[i].status2 != null){
+       			buy_status2_count = buy_status2_count + 1;
+       		}
+       	}
+       	
+   		$('.buy_status1').text(buy_status1_count);
+   		$('.buy_status2').text(buy_status2_count);
+   		$('.buy_countAll').text(buy_status1_count + buy_status2_count);
+   		
+		for(var i = 0; i< data.buy_historyList.length ; i++){
             //console.log(data.num, data.buy_historyList[i].user_id, data.productImgList[i].org_file_name ,data.productImgList[i].file_path);
             var random = Math.floor( Math.random() * 4 ); 
                $('<div/>',{
@@ -904,99 +921,52 @@ $(document).ready(function(){
             }).append($('<div/>',{
                 class: 'status_box field_status'
             }).append($('<span/>',{
-                class: 'status_txt text-default buy_status1_count',
+                class: 'status_txt text-default',
                 text: data.buy_historyList[i].status1
             })).append($('<span/>',{
-                   class: 'status_txt text-default text-danger buy_status2_count',
+                   class: 'status_txt text-default text-danger',
                    text: data.buy_historyList[i].status2
                })))).appendTo('.buy_list');
-               //상품 3개까지 보이게하기
-               if( i > 1){
-                  break;
-               }
+			//상품 3개까지 보이게하기
+			if( i > 1){
+			   break;
+			}
          } 
-         $('.buy_status1').text($('.buy_status1_count').length);
-         //$('.buy_status2').text($('.buy_status2_count').length);
       },error:function(err){
          console.log(err);
       }      
    });
-=======
-	$.ajax({
-		type:'post',
-		url:'/TeamProject/user/getBuyHistory',
-		data:'user_id='+$('#user_id').val(),
-		dataType:'json',
-		success: function(data){
-			var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
-			if(data.buy_historyList.length == 0){
-				$('.buy_empty_area').show();
-			}
-			//alert(JSON.stringify(data));
-			for(var i = 0; i< data.buy_historyList.length ; i++){
-				//console.log(data.num, data.buy_historyList[i].user_id, data.productImgList[i].org_file_name ,data.productImgList[i].file_path);
-				var random = Math.floor( Math.random() * 4 ); 
-	            $('<div/>',{
-				    class: 'purchase_item buy_purchase_item'
-				}).append($('<div/>',{
-				    class: 'history_product'
-				}).append($('<div/>',{
-				    class: 'product_box'
-				}).append($('<div/>',{
-				    class: 'product',
-				    style: 'background-color: '+ colorList[random] + ';'
-				}).append($('<img/>',{
-				    class: 'picture product_img image',
-				    style: 'height:80px;',
-				    src: data.productImgList[i].file_path
-				})))).append($('<div/>',{
-				    class: 'product_detail'
-				}).append($('<p/>',{
-				    class: 'name',
-				    text: data.productImgList[i].org_file_name
-				})).append($('<p/>',{
-				    class: 'size'
-				}).append($('<span/>',{
-				    class: 'size_text',
-				    text: data.buy_historyList[i].size_type
-				}))))).append($('<div/>',{
-				    class:'history_status'
-				}).append($('<div/>',{
-				    class: 'status_box field_status'
-				}).append($('<span/>',{
-				    class: 'status_txt text-default buy_status1_count',
-				    text: data.buy_historyList[i].status1
-				})).append($('<span/>',{
-	                class: 'status_txt text-default text-danger buy_status2_count',
-	                text: data.buy_historyList[i].status2
-	            })))).appendTo('.buy_list');
-	            //상품 3개까지 보이게하기
-	            if( i > 1){
-	            	break;
-	            }
-			} 
-			$('.buy_status1').text($('.buy_status1_count').length);
-			//$('.buy_status2').text($('.buy_status2_count').length);
-		},error:function(err){
-			console.log(err);
-		}		
-	});
->>>>>>> branch '0722' of https://github.com/sudong1004/TeamProject_BitCamp.git
 });
 
 $(document).ready(function(){
-<<<<<<< HEAD
    $.ajax({
       type:'post',
       url:'/TeamProject/user/getSellHistory',
       data:'user_id='+$('#user_id').val(),
       dataType:'json',
       success: function(data){
-         var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
-         //alert(JSON.stringify(data));
-         if(data.sell_historyList.length == 0){
+		//배경 색
+		var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+		//거래내역 없을때
+		if(data.sell_historyList.length == 0){
             $('.sell_empty_area').show();
-         }
+		}
+		//구매거래내역 카운트
+		var sell_status1_count = 0;
+		var sell_status2_count = 0;
+		
+       	for(var i = 0; i < data.sell_historyList.length; i++){
+       		if(data.sell_historyList[i].status1 != null){
+       			sell_status1_count = sell_status1_count + 1;
+       		}
+       		if(data.sell_historyList[i].status2 != null){
+       			sell_status2_count = sell_status2_count + 1;
+       		}
+       	}
+       	
+   		$('.sell_status1').text(sell_status1_count);
+   		$('.sell_status2').text(sell_status2_count);
+   		$('.sell_countAll').text(sell_status1_count + sell_status2_count);
           
          for(var i = 0; i< data.sell_historyList.length ; i++){
             var random = Math.floor( Math.random() * 4 ); 
@@ -1029,67 +999,17 @@ $(document).ready(function(){
             }).append($('<div/>',{
                 class: 'status_box field_status'
             }).append($('<span/>',{
-                class: 'status_txt text-default sell_status1_count',
+                class: 'status_txt text-default',
                 text: data.sell_historyList[i].status1
             })).append($('<span/>',{
-=======
-	$.ajax({
-		type:'post',
-		url:'/TeamProject/user/getSellHistory',
-		data:'user_id='+$('#user_id').val(),
-		dataType:'json',
-		success: function(data){
-			var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
-			//alert(JSON.stringify(data));
-			if(data.sell_historyList.length == 0){
-				$('.sell_empty_area').show();
-			}
-			 
-			for(var i = 0; i< data.sell_historyList.length ; i++){
-				var random = Math.floor( Math.random() * 4 ); 
-				
-	            $('<div/>',{
-				    class: 'purchase_item sell_purchase_item'
-				}).append($('<div/>',{
-				    class: 'history_product'
-				}).append($('<div/>',{
-				    class: 'product_box'
-				}).append($('<div/>',{
-				    class: 'product',
-				    style: 'background-color: '+ colorList[random] + ';'
-				}).append($('<img/>',{
-				    class: 'picture product_img image',
-				    style: 'height:80px;',
-				    src: data.productImgList[i].file_path
-				})))).append($('<div/>',{
-				    class: 'product_detail'
-				}).append($('<p/>',{
-				    class: 'name',
-				    text: data.productImgList[i].org_file_name
-				})).append($('<p/>',{
-				    class: 'size'
-				}).append($('<span/>',{
-				    class: 'size_text',
-				    text: data.sell_historyList[i].size_type
-				}))))).append($('<div/>',{
-				    class:'history_status'
-				}).append($('<div/>',{
-				    class: 'status_box field_status'
-				}).append($('<span/>',{
-				    class: 'status_txt text-default sell_status1_count',
-				    text: data.sell_historyList[i].status1
-				})).append($('<span/>',{
->>>>>>> branch '0722' of https://github.com/sudong1004/TeamProject_BitCamp.git
-                    class: 'status_txt text-default text-danger sell_status2_count',
+                    class: 'status_txt text-default text-danger',
                     text: data.sell_historyList[i].status2
                 })))).appendTo('.sell_list');
-                //상품 3개까지 보이게하기
-               if( i > 1){
-                  break;
-               }
+			 //상품 3개까지 보이게하기
+			if( i > 1){
+			   break;
+			}
          } 
-            $('.sell_status1').text($('.sell_status1_count').length); //결제완료, 입찰중 ,검수중  => 진행중
-            //$('.sell_status2').text($('.sell_status2_count').length);
       },error:function(err){
          console.log(err);
       }      
