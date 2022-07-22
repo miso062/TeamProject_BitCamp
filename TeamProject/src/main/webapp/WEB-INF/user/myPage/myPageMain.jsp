@@ -258,12 +258,12 @@
     }
     .text-danger {
     color: #f15746;
-	}
-	.status_txt {
-	    display: block;
-	    font-size: 14px;
-	    letter-spacing: -.21px;
-	}
+   }
+   .status_txt {
+       display: block;
+       font-size: 14px;
+       letter-spacing: -.21px;
+   }
     .product_detail {
         margin-left: 16px;
         display: -webkit-box;
@@ -656,7 +656,7 @@
     <div class="user_membership">
         <div class="user_detail">
             <div class="user_thumb">
-            	<img src="/TeamProject/img/user/profile.png" name="profile_img" alt="사용자이미지" class="thumb_img" /></div>
+               <img src="/TeamProject/img/user/profile.png" name="profile_img" alt="사용자이미지" class="thumb_img" /></div>
             <div class="user_info">
                 <div class="info_box">
                     <strong class="name">${userDTO.nickname }</strong>
@@ -713,11 +713,11 @@
                 </a>
             </div>
         </div>
-		<div class="purchase_list buy_list all bid">
+      <div class="purchase_list buy_list all bid">
                <div class="empty_area buy_empty_area" style="display: none;">
                    <p class="desc">거래 내역이 없습니다.</p>
                </div>
-		</div>
+      </div>
     </div>
     <div class="my_home_title">
         <h3 class="title">판매 내역</h3>
@@ -728,7 +728,7 @@
             </div>
         </a>
     </div>
-	<div class="recent_purchase">
+   <div class="recent_purchase">
         <div class="purchase_list_tab sell">
             <div class="tab_item total">
                 <a href="#" class="tab_link">
@@ -741,7 +741,7 @@
             <div class="tab_item tab_on">
                 <a href="#" class="tab_link">
                     <dl class="tab_box">
-                        <dt class="title">입찰 중</dt>
+                        <dt class="title">진행 중</dt>
                         <dd class="count sell_status1">0</dd>
                     </dl>
                 </a>
@@ -756,12 +756,12 @@
             </div>
         </div>
         
-		<div class="purchase_list sell_list all ask">
+      <div class="purchase_list sell_list all ask">
                <div class="empty_area sell_empty_area" style="display: none;" >
                    <p class="desc">거래 내역이 없습니다.</p>
                </div>
-		</div>
-	</div>
+      </div>
+   </div>
     <div class="my_home_title">
         <h3 class="title">관심 상품</h3>
         <a href="/TeamProject/user/likePro" class="btn_more">
@@ -828,32 +828,32 @@
             <a href="#" class="btn_layer_close"></a>
         </div>
     </div>
-	<!---->
+   <!---->
 </div>
 <script type="text/javascript">
 window.onload = function() {
-	alert(document.getElementsByClassName('membership_item > info').value());
-	document.getElementById('point').value() = document.getElementsByClassName('membership_item > info').value();
+   alert(document.getElementsByClassName('membership_item > info').value());
+   document.getElementById('point').value() = document.getElementsByClassName('membership_item > info').value();
 }
 window.onload = function(){
-	var image = '${userDTO.profile_img}';
-	
-	if(image==null || image==''){
+   var image = '${userDTO.profile_img}';
+   
+   if(image==null || image==''){
         document.querySelector('.thumb_img').setAttribute('src','/TeamProject/img/user/profile.png');
     }else{
-    	document.querySelector('.thumb_img').setAttribute('src', '/TeamProject/storage/'+image);
+       document.querySelector('.thumb_img').setAttribute('src', '/TeamProject/storage/'+image);
     }
 }
 $('.membership_item').click(function(){
-	$('.layer_point').fadeIn();
+   $('.layer_point').fadeIn();
     $('body').css("overflow", "hidden");
 });
 $(document).on("click",function(e){
-	if($('.layer_point').is(e.target)) {
-		$('.layer_point').fadeOut();
+   if($('.layer_point').is(e.target)) {
+      $('.layer_point').fadeOut();
         $('body').css("overflow-y", "scroll");
         
-	}
+   }
 })
 $('.layer_btn').click(function(){
     $('.layer_point').fadeOut();
@@ -861,123 +861,127 @@ $('.layer_btn').click(function(){
 })
 
 $(document).ready(function(){
-	$.ajax({
-		type:'post',
-		url:'/TeamProject/user/getBuyHistory',
-		data:'user_id='+$('#user_id').val(),
-		dataType:'json',
-		success: function(data){
-			
-			if(data.buy_historyList.length == 0){
-				$('.buy_empty_area').show();
-			}
-			//alert(JSON.stringify(data));
-			for(var i = 0; i< data.buy_historyList.length ; i++){
-				//console.log(data.num, data.buy_historyList[i].user_id, data.productImgList[i].org_file_name ,data.productImgList[i].file_path);
-	            $('<div/>',{
-				    class: 'purchase_item buy_purchase_item'
-				}).append($('<div/>',{
-				    class: 'history_product'
-				}).append($('<div/>',{
-				    class: 'product_box'
-				}).append($('<div/>',{
-				    class: 'product',
-				    style: 'background-color: rgb(235, 240, 245);'
-				}).append($('<img/>',{
-				    class: 'picture product_img image',
-				    style: 'height:80px;',
-				    src: data.productImgList[i].file_path
-				})))).append($('<div/>',{
-				    class: 'product_detail'
-				}).append($('<p/>',{
-				    class: 'name',
-				    text: data.productImgList[i].org_file_name
-				})).append($('<p/>',{
-				    class: 'size'
-				}).append($('<span/>',{
-				    class: 'size_text',
-				    text: data.buy_historyList[i].size_type
-				}))))).append($('<div/>',{
-				    class:'history_status'
-				}).append($('<div/>',{
-				    class: 'status_box field_status'
-				}).append($('<span/>',{
-				    class: 'status_txt text-default buy_status1_count',
-				    text: data.buy_historyList[i].status1
-				})).append($('<span/>',{
-	                class: 'status_txt text-default text-danger buy_status2_count',
-	                text: data.buy_historyList[i].status2
-	            })))).appendTo('.buy_list');
-	            //상품 3개까지 보이게하기
-	            if( i > 1){
-	            	break;
-	            }
-			} 
-			$('.buy_status1').text($('.buy_status1_count').length);
-			//$('.buy_status2').text($('.buy_status2_count').length);
-		},error:function(err){
-			console.log(err);
-		}		
-	});
+   $.ajax({
+      type:'post',
+      url:'/TeamProject/user/getBuyHistory',
+      data:'user_id='+$('#user_id').val(),
+      dataType:'json',
+      success: function(data){
+         var colorList = [ 'rgb(241, 233, 252)', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+         if(data.buy_historyList.length == 0){
+            $('.buy_empty_area').show();
+         }
+         //alert(JSON.stringify(data));
+         for(var i = 0; i< data.buy_historyList.length ; i++){
+            //console.log(data.num, data.buy_historyList[i].user_id, data.productImgList[i].org_file_name ,data.productImgList[i].file_path);
+            var random = Math.floor( Math.random() * 4 ); 
+               $('<div/>',{
+                class: 'purchase_item buy_purchase_item'
+            }).append($('<div/>',{
+                class: 'history_product'
+            }).append($('<div/>',{
+                class: 'product_box'
+            }).append($('<div/>',{
+                class: 'product',
+                style: 'background-color: '+ colorList[random] + ';'
+            }).append($('<img/>',{
+                class: 'picture product_img image',
+                style: 'height:80px;',
+                src: data.productImgList[i].file_path
+            })))).append($('<div/>',{
+                class: 'product_detail'
+            }).append($('<p/>',{
+                class: 'name',
+                text: data.productImgList[i].org_file_name
+            })).append($('<p/>',{
+                class: 'size'
+            }).append($('<span/>',{
+                class: 'size_text',
+                text: data.buy_historyList[i].size_type
+            }))))).append($('<div/>',{
+                class:'history_status'
+            }).append($('<div/>',{
+                class: 'status_box field_status'
+            }).append($('<span/>',{
+                class: 'status_txt text-default buy_status1_count',
+                text: data.buy_historyList[i].status1
+            })).append($('<span/>',{
+                   class: 'status_txt text-default text-danger buy_status2_count',
+                   text: data.buy_historyList[i].status2
+               })))).appendTo('.buy_list');
+               //상품 3개까지 보이게하기
+               if( i > 1){
+                  break;
+               }
+         } 
+         $('.buy_status1').text($('.buy_status1_count').length);
+         //$('.buy_status2').text($('.buy_status2_count').length);
+      },error:function(err){
+         console.log(err);
+      }      
+   });
 });
 
 $(document).ready(function(){
-	$.ajax({
-		type:'post',
-		url:'/TeamProject/user/getSellHistory',
-		data:'user_id='+$('#user_id').val(),
-		dataType:'json',
-		success: function(data){
-			//alert(JSON.stringify(data));
-			if(data.sell_historyList.length == 0){
-				$('.sell_empty_area').show();
-			}
-			 
-			for(var i = 0; i< data.sell_historyList.length ; i++){
-	            $('<div/>',{
-				    class: 'purchase_item sell_purchase_item'
-				}).append($('<div/>',{
-				    class: 'history_product'
-				}).append($('<div/>',{
-				    class: 'product_box'
-				}).append($('<div/>',{
-				    class: 'product',
-				    style: 'background-color: rgb(235, 240, 245);'
-				}).append($('<img/>',{
-				    class: 'picture product_img image',
-				    style: 'height:80px;',
-				    src: data.productImgList[i].file_path
-				})))).append($('<div/>',{
-				    class: 'product_detail'
-				}).append($('<p/>',{
-				    class: 'name',
-				    text: data.productImgList[i].org_file_name
-				})).append($('<p/>',{
-				    class: 'size'
-				}).append($('<span/>',{
-				    class: 'size_text',
-				    text: data.sell_historyList[i].size_type
-				}))))).append($('<div/>',{
-				    class:'history_status'
-				}).append($('<div/>',{
-				    class: 'status_box field_status'
-				}).append($('<span/>',{
-				    class: 'status_txt text-default sell_status1_count',
-				    text: data.sell_historyList[i].status1
-				})).append($('<span/>',{
+   $.ajax({
+      type:'post',
+      url:'/TeamProject/user/getSellHistory',
+      data:'user_id='+$('#user_id').val(),
+      dataType:'json',
+      success: function(data){
+         var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+         //alert(JSON.stringify(data));
+         if(data.sell_historyList.length == 0){
+            $('.sell_empty_area').show();
+         }
+          
+         for(var i = 0; i< data.sell_historyList.length ; i++){
+            var random = Math.floor( Math.random() * 4 ); 
+            
+               $('<div/>',{
+                class: 'purchase_item sell_purchase_item'
+            }).append($('<div/>',{
+                class: 'history_product'
+            }).append($('<div/>',{
+                class: 'product_box'
+            }).append($('<div/>',{
+                class: 'product',
+                style: 'background-color: '+ colorList[random] + ';'
+            }).append($('<img/>',{
+                class: 'picture product_img image',
+                style: 'height:80px;',
+                src: data.productImgList[i].file_path
+            })))).append($('<div/>',{
+                class: 'product_detail'
+            }).append($('<p/>',{
+                class: 'name',
+                text: data.productImgList[i].org_file_name
+            })).append($('<p/>',{
+                class: 'size'
+            }).append($('<span/>',{
+                class: 'size_text',
+                text: data.sell_historyList[i].size_type
+            }))))).append($('<div/>',{
+                class:'history_status'
+            }).append($('<div/>',{
+                class: 'status_box field_status'
+            }).append($('<span/>',{
+                class: 'status_txt text-default sell_status1_count',
+                text: data.sell_historyList[i].status1
+            })).append($('<span/>',{
                     class: 'status_txt text-default text-danger sell_status2_count',
                     text: data.sell_historyList[i].status2
                 })))).appendTo('.sell_list');
                 //상품 3개까지 보이게하기
-	            if( i > 1){
-	            	break;
-	            }
-			} 
-				$('.sell_status1').text($('.sell_status1_count').length);
-				//$('.sell_status2').text($('.sell_status2_count').length);
-		},error:function(err){
-			console.log(err);
-		}		
-	});
+               if( i > 1){
+                  break;
+               }
+         } 
+            $('.sell_status1').text($('.sell_status1_count').length); //결제완료, 입찰중 ,검수중  => 진행중
+            //$('.sell_status2').text($('.sell_status2_count').length);
+      },error:function(err){
+         console.log(err);
+      }      
+   });
 });
 </script>
