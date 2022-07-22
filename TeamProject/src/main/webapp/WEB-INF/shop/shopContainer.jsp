@@ -181,9 +181,8 @@ li, ol, ul {
 }
 .shop_item_inner {
     display: block;
-    background-color: #fff;
+    /* background-color: #fff,  rgb(244, 244, 244); */
     border-radius: 12px;
-    background-color: rgb(244, 244, 244);
 }
 
 .shop_product {
