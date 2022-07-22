@@ -91,7 +91,7 @@ public class UserController {
 		String user_id = (String) session.getAttribute("memId");
 		UserDTO userDTO = userService.getUserInfo(user_id);
 		model.addAttribute("userDTO", userDTO);
-		System.out.println(model);
+		//System.out.println(model);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageMain.jsp");
 		return "forward:/user/my";
 	}
