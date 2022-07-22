@@ -758,18 +758,17 @@ function general_request_pay() {
                     cum_uid: '0',
                     status1: '결제완료', 
 				},
-                success: function(){
-                    location.herf = '/TeamProject/shop/buy/buyFinish';
-                },
+				success: function(data){
+					alert(JSON.stringify(data));
+				},
                 error: function(err){
                     console.log(err);
                 }
-			}).done(function(data){
-				
-			})
+			});
 		} else {
 			alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
 		}
+		location.href = "/TeamProject/shop/buyFinish"
 	});
 }
 

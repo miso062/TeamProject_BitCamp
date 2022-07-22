@@ -147,7 +147,9 @@ public class ShopServiceImpl implements ShopService {
  
   @Override
 	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO) {
-		buy_historyDTO.setUser_id((String) session.getAttribute("memId")); 
-		return shopDAO.insertBuyPay(buy_historyDTO);		
+		buy_historyDTO.setUser_id((String) session.getAttribute("memId"));
+		buy_historyDTO = shopDAO.insertBuyPay(buy_historyDTO);
+		System.out.println(buy_historyDTO);
+		return buy_historyDTO;		
 	}
 }
