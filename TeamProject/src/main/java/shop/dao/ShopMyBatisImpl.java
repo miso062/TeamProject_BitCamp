@@ -99,7 +99,6 @@ public class ShopMyBatisImpl implements ShopDAO {
 //		}
   
 		Map<String, Object> sendMap = new HashMap<String, Object>();
-		
 		sendMap.put("productList", productList);
 		sendMap.put("productImgList", productImgList);
 
@@ -133,6 +132,7 @@ public class ShopMyBatisImpl implements ShopDAO {
 
 	@Override
 	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO) {
-		return sqlSession.selectOne("shopSQL.insertBuyPay", buy_historyDTO);
+		sqlSession.insert("shopSQL.insertBuyPay", buy_historyDTO); 
+		return sqlSession.selectOne("shopSQL.getLastBuyHistory");
 	}
 }
