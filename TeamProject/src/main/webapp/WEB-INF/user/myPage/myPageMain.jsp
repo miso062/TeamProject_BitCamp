@@ -679,7 +679,7 @@
     </div>
     <div class="my_home_title">
         <h3 class="title">구매 내역</h3>
-        <a href="#" class="btn_more">
+        <a href="/TeamProject/user/buyHistory" class="btn_more">
             <span class="btn_txt">더보기</span>
             <div  class="icon sprite-icons arr-right-gray">
                 <img src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
@@ -758,7 +758,7 @@
     </div>
     <div class="my_home_title">
         <h3 class="title">판매 내역</h3>
-        <a href="#" class="btn_more">
+        <a href="/TeamProject/user/sellHistory" class="btn_more">
             <span class="btn_txt">더보기</span>
             <div class="icon sprite-icons arr-right-gray">
                 <img src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
