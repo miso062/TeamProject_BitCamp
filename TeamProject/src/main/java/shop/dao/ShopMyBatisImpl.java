@@ -118,4 +118,8 @@ public class ShopMyBatisImpl implements ShopDAO {
 		return sqlSession.selectOne("shopSQL.getLikeProduct",product_id);
 	}
 
+	@Override
+	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO) {
+		return sqlSession.selectOne("shopSQL.insertBuyPay", buy_historyDTO);
+	}
 }

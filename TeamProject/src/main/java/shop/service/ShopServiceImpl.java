@@ -139,4 +139,10 @@ public class ShopServiceImpl implements ShopService {
 	public List<Market_priceDTO> getchart(int product_id) {
 		return shopDAO.getchart(product_id);
 	}
+
+	@Override
+	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO) {
+		buy_historyDTO.setUser_id((String) session.getAttribute("memId")); 
+		return shopDAO.insertBuyPay(buy_historyDTO);		
+	}
 }

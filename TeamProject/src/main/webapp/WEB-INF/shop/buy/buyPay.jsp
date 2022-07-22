@@ -750,7 +750,7 @@ function general_request_pay() {
 				type: 'post',
 				data: {
 				    product_id : '${map.productDTO.product_id }',
-                    addredd_id : $('#selected_addr_id').val(),
+                    address_id : $('#selected_addr_id').val(),
                     user_id: buyer_email,
                     buy_price: buy_price,
                     period: dateString,
@@ -759,7 +759,7 @@ function general_request_pay() {
                     status1: '결제완료', 
 				},
                 success: function(){
-                    alert('저장 성공');
+                    location.herf = '/TeamProject/shop/buy/buyFinish';
                 },
                 error: function(err){
                     console.log(err);
@@ -803,7 +803,7 @@ function reservation_request_pay(){
 				type: 'post',
 				data: {
                     product_id : '${map.productDTO.product_id }',
-                    addredd_id : $('#selected_addr_id').val(),
+                    address_id : $('#selected_addr_id').val(),
                     user_id: buyer_email,
                     buy_price: buy_price,
                     period: dateString,

@@ -79,4 +79,12 @@
 	<select id="getLikeProduct" parameterType="Int" resultType="Int">
 		select count(*) from like_pro where product_id = ${product_id}
 	</select>
+	
+	<select id="insertBuyPay" parameterType="buyHistory" resultType="buyHistory">
+		BEGIN
+			insert into buy_history(buy_id, product_id, address_id, user_id, buy_price, period, size_type, cum_uid, status1, buy_date)
+				values(buy_history_seq.nextval, #{product_id}, #{address_id}, #{user_id}, #{buy_price}, #{period}, #{size_type}, #{cum_uid}, #{status1}, sysdate);
+			select * from buy_history where buy_id IN (SELECT (LAST_NUMBER-1) FROM USER_SEQUENCES WHERE SEQUENCE_NAME='BUY_HISTORY_SEQ');
+		END;
+	</select>
 </mapper>

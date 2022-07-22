@@ -29,4 +29,5 @@ public interface ShopService {
 	public List<AddressDTO> getAddrList();
 	public AddressDTO getAddress(int addr_id);
 	public UserDTO getUserInfo();
+	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO);
 }
