@@ -106,4 +106,9 @@
 	<select id="getLastBuyHistory" resultType="buyHistory">
 		select * from buy_history where buy_id IN (SELECT (LAST_NUMBER-1) FROM USER_SEQUENCES WHERE SEQUENCE_NAME='BUY_HISTORY_SEQ')
 	</select>
+
+	<select id="getshopDetaillist" parameterType="Int" resultType="marketPrice">
+		select * from (select * from market_price where product_id=${product_id} order by signing_date desc) where <![CDATA[rownum <= 5 ]]>
+  	</select>
+
 </mapper>

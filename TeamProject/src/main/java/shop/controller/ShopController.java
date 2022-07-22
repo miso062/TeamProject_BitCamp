@@ -66,4 +66,15 @@ public class ShopController {
 		return list;
 		 
 	}
+	@PostMapping(value="getshopDetaillist")
+	@ResponseBody
+	public List<Market_priceDTO> getshopDetaillist(@RequestParam int product_id){
+		List<Market_priceDTO> list = shopService.getshopDetaillist(product_id);
+		return list;
+	}
 }
+
+
+
+
+

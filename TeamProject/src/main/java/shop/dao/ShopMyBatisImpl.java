@@ -131,6 +131,10 @@ public class ShopMyBatisImpl implements ShopDAO {
 	}
 
 	@Override
+	public List<Market_priceDTO> getshopDetaillist(int product_id) {
+		return sqlSession.selectList("shopSQL.getshopDetaillist",product_id);
+	}
+	
 	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO) {
 		sqlSession.insert("shopSQL.insertBuyPay", buy_historyDTO); 
 		return sqlSession.selectOne("shopSQL.getLastBuyHistory");
