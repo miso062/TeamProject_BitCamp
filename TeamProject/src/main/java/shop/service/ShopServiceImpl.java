@@ -17,7 +17,6 @@ import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import shop.dao.ShopDAO;
 import user.bean.AddressDTO;
-import user.bean.LikeProDTO;
 
 @Service
 public class ShopServiceImpl implements ShopService {
@@ -38,10 +37,10 @@ public class ShopServiceImpl implements ShopService {
 		map.put("endNum", endNum);
 		
 		Map<String, Object> sendMap = shopDAO.scrollProduct(map);
-		sendMap.put("num", startNum + 15);
+		sendMap.put("num", startNum + 16);
 		
 		return sendMap;
-  }
+	}
 
 	@Override
 	public Map<String, Object> getShopDetail(int product_id) {

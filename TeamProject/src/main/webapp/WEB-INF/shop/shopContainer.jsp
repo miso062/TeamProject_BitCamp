@@ -55,6 +55,11 @@ li, ol, ul {
 .shop_search_content {
     flex: 1;
 }
+.shop-list-ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 .shop_search_option{
     display: flex;
     justify-content: flex-end;
@@ -178,6 +183,7 @@ li, ol, ul {
     display: block;
     background-color: #fff;
     border-radius: 12px;
+    background-color: rgb(244, 244, 244);
 }
 
 .shop_product {
@@ -203,6 +209,10 @@ li, ol, ul {
   /* background: bisque; */
 }
 
+.card-list-li {
+	height: 400px;
+}
+
 .card-list-li,
 .skeleton {
   width: 25%;
@@ -217,6 +227,10 @@ li, ol, ul {
   height: 300px;
   object-fit: cover;
 }
+.loading {
+	width: 100%;
+}
+
 .spinner {
   margin: 0 auto;
   display: block;
@@ -244,10 +258,20 @@ li, ol, ul {
     font-weight: 700;
     color: #333;
 }
-.shop_title .shop_name, .shop_title .shop_translated_name {
+
+.shop_brand {
+	font-weight: bold;
+}
+
+.shop_title, .shop_name, .shop_title, .shop_translated_name { // 2줄 말줄임표
     margin-top: 2px;
     overflow: hidden;
-    text-overflow: ellipsis;
+ 	text-overflow: ellipsis;
+ 	display: -webkit-box;
+ 	-webkit-line-clamp: 2;
+ 	-webkit-box-orient: vertical;
+ 	font-size: 13px;
+ 	line-height: 16px;
 }
 .shop_title .shop_translated_name {
     line-height: 14px;
@@ -258,12 +282,12 @@ li, ol, ul {
 .shop_price {
     padding-top: 11px;
 }
-.shop_price .shop_amount {
+.shop_price, .shop_amount {
     line-height: 17px;
     font-size: 14px;
     font-weight: 700;
 }
-.shop_price .shop_desc {
+.shop_price, .shop_desc {
     line-height: 13px;
     font-size: 11px;
     color: rgba(34,34,34,.5);
@@ -285,6 +309,7 @@ li, ol, ul {
 .shop_interest_figure .shop_wish_figure .shop_text {
     margin-left: 2px;
     font-size: 13px;
+    padding-top: 12px;
 }
 .shop_interest_figure .shop_review_figure .shop_text {
     margin-left: 2px;
@@ -375,6 +400,14 @@ li, ol, ul {
     color: hsla(0,0%,100%,.8);
     font-weight: 600;
     display: inline-block;
+}
+.shop_bookmark {
+	width: 20px;
+	height:20px;
+}
+.shop_text {
+	margin-left: 2px;
+	margin-bottom: 2px;
 }
 
 </style>
@@ -520,46 +553,8 @@ li, ol, ul {
     <input type="hidden" id="shop_num" value="1">
 
     <ul class="shop-list-ul">
-		 <li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
-		<!-- <li class="card-list-li">
+    	
+		<li class="card-list-li" style="display: none;">
 			<div class="shop_search_result_item">
                 <a href="#" class="shop_item_inner">
                     <div class="shop_product" style="background-color: rgb(235, 240, 245);">
@@ -598,789 +593,7 @@ li, ol, ul {
                 </div>
             </div>
 		</li>
-		<li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
-		<li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
-		<li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
-		<li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
-		<li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
-		<li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
-		<li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
-		<li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
-		<li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
-		<li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
-		<li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
-		<li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
-		<li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
-		<li class="card-list-li">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li> -->
 	</ul>
-
-    <!-- <div class="shop_search_result">
-        <div class="shop_search_result_list">
-
-            상품
-            <div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/container2/bookmark.svg" >
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-
-            <div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-
-            <div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-
-            <div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-
-            <div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-
-            <div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                            <img alt="" src="/TeamProject/img/container2/bookmark.svg" class="cd2_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-            shop_product 끝
-        </div>
-    </div> -->
-    <!-- content 끝-->
 </div>
 
     <div class="list_loading" style="display: none;">
@@ -1449,84 +662,6 @@ $(function() {
 });
 
 
-$(document).ready(function(){
-
-	function getInitData() {
-		$.ajax({
-			type:'post',
-			url:'/TeamProject/shop/scrollProduct',
-			data:'num=' + 1,
-			dataType:'json',
-			success: function(data){
-				console.log(data)
-				alert(JSON.stringify(data));
-
-				for(var i=0; i<16; i++){
-					/* console.log(data.num, data.scrollProduct[i].brand, data.scrollProduct[i].eng_name, data.scrollProduct[i].kor_name, data.scrollProduct[i].release_price, data.scrollProduct[i].file_path); */
-
-					$('.shop-list-ul').append(
-						$('<li/>', { class:'card-list-li'})
-						.append($('<div/>', { class:'shop_search_result_item' })
-							.append($('<a/>', { class:'shop_item_inner'})
-								.append($('<div/>', { class:'shop_product'})
-									.append($('<img/>', { src:data.productImgList[i].file_path, class: 'shop_product_img'})))))
-									.append($('<div/>', { class: 'shop_product_info' }))
-									.append($('<div/>', { class: 'shop_title' }))
-									.append($('<p/>', { class: 'shop_brand', text: data.productList[i].brand }))
-									.append($('<p/>', { class: 'shop_name', text: data.productList[i].eng_name }))
-									.append($('<p/>', { class: 'shop_translated_name', text: data.productList[i].kor_name }))
-									.append($('<div/>', { class: 'shop_price' }))
-									.append($('<div/>', { class: 'shop_amount', text: data.productList[i].release_price }))
-									.append($('<div/>', { class: 'shop_desc' }))
-									.append($('<p/>', { text:'즉시구매가' }))
-									.append($('<div/>', { class:'shop_interest_figure' }))
-									.append($('<span/>', { class:'shop_wish_figure' }))
-									.append($('<img/>',{ class:'shop_bookmark', src:'/TeamProject/img/shop/bookmark.svg' }))
-									.append($('<span/>',{ class:'shop_text' }))
-									.append($('<span/>',{ class:'shop_review_figure'}))
-									.append($('<a/>',{ class:'review_link'}))
-									.append($('<svg/>',{ class: 'bi bi-postcard', xmlns:"http://www.w3.org/2000/svg"}))
-						)
-					}
-				}
-			}
-		);
-	}
-
-	getInitData();
-
-});
-
-//페이지가 처음 로딩 될 때 1page를 보여주기 때문에 초기값을   1로 지정한다.
-let currentPage =1;
-//현재 페이지가 로딩중인지 여부를 저장할 변수이다.
-let isLoading=false;
-
-//웹 브라우저의 창을 스크롤 할때마다 호출되는 함수 등록
-/* $(window).on("scroll",function(){
-	//위로 스크롤된 길이
-	let scrollTop=$(window).scrollTop();
-	//웹 브라우저의 창의 높이
-	let windowHeight=$(document).height();
-	//바닥까지 스크롤 되었는지 여부 알아낸다.
-	let isBottom=scrollTop+windowHeight+16 >= documentHeight;
-
-	if(isBottom){
-		//만약 현재 마지막페이지라면
-		if(currentPage == ${totalPageCount} || isLoading){
-			return; //함수를 여기서 끝낸다.
-		}
-		//현재 로딩중표시
-		isLoading=true;
-		//로딩바를 띄움
-		$(".back-drop").show();
-		//요청할 페이지 번호를 1증가
-		currentPage++;
-		//추가로 받아올페이지를 서버에 ajax요청한다
-		console.log("inscroll+currentPage);
-		GetList(currentPage);
-	}
-}) */
 
 
 </script>
