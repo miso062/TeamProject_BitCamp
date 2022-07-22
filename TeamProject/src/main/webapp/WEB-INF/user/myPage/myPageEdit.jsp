@@ -906,11 +906,10 @@ svg:not(:root) {
     </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-window.onload = function(){ /* 광고성 정보 수신 동의 */
+$(document).ready(function(){ /* 광고성 정보 수신 동의 */
       var image = '${userDTO.profile_img}';
       var sms_allow ='${userDTO.sms_allow}';
       var email_allow = '${userDTO.email_allow}';
-      
       if(image==null || image==''){
             document.querySelector('.profile_img').setAttribute('src','/TeamProject/img/user/profile.png');
         }else{
@@ -928,7 +927,7 @@ window.onload = function(){ /* 광고성 정보 수신 동의 */
         }else{
             document.getElementById('email_disagree').checked = true;
         }
-}
+})
 window.onload = function() {
     $('.snb_menu').eq(1).find('.menu_link').eq(0).removeClass('unbold');
     $('.snb_menu').eq(1).find('.menu_link').eq(0).addClass('bold');
