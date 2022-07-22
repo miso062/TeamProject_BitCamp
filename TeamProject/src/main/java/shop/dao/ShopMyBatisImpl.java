@@ -97,13 +97,13 @@ public class ShopMyBatisImpl implements ShopDAO {
 //			System.out.println(DTO);
 //			System.out.println("=================================================");
 //		}
-  }
   
-  Map<String, Object> sendMap = new HashMap<String, Object>();
-    sendMap.put("productList", productList);
-    sendMap.put("productImgList", productImgList);
+		Map<String, Object> sendMap = new HashMap<String, Object>();
+		
+		sendMap.put("productList", productList);
+		sendMap.put("productImgList", productImgList);
 
-    return sendMap;
+		return sendMap;
 	}
 
 	@Override
