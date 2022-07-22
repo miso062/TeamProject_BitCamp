@@ -861,6 +861,7 @@ $('.layer_btn').click(function(){
 })
 
 $(document).ready(function(){
+<<<<<<< HEAD
    $.ajax({
       type:'post',
       url:'/TeamProject/user/getBuyHistory',
@@ -920,9 +921,71 @@ $(document).ready(function(){
          console.log(err);
       }      
    });
+=======
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/user/getBuyHistory',
+		data:'user_id='+$('#user_id').val(),
+		dataType:'json',
+		success: function(data){
+			var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+			if(data.buy_historyList.length == 0){
+				$('.buy_empty_area').show();
+			}
+			//alert(JSON.stringify(data));
+			for(var i = 0; i< data.buy_historyList.length ; i++){
+				//console.log(data.num, data.buy_historyList[i].user_id, data.productImgList[i].org_file_name ,data.productImgList[i].file_path);
+				var random = Math.floor( Math.random() * 4 ); 
+	            $('<div/>',{
+				    class: 'purchase_item buy_purchase_item'
+				}).append($('<div/>',{
+				    class: 'history_product'
+				}).append($('<div/>',{
+				    class: 'product_box'
+				}).append($('<div/>',{
+				    class: 'product',
+				    style: 'background-color: '+ colorList[random] + ';'
+				}).append($('<img/>',{
+				    class: 'picture product_img image',
+				    style: 'height:80px;',
+				    src: data.productImgList[i].file_path
+				})))).append($('<div/>',{
+				    class: 'product_detail'
+				}).append($('<p/>',{
+				    class: 'name',
+				    text: data.productImgList[i].org_file_name
+				})).append($('<p/>',{
+				    class: 'size'
+				}).append($('<span/>',{
+				    class: 'size_text',
+				    text: data.buy_historyList[i].size_type
+				}))))).append($('<div/>',{
+				    class:'history_status'
+				}).append($('<div/>',{
+				    class: 'status_box field_status'
+				}).append($('<span/>',{
+				    class: 'status_txt text-default buy_status1_count',
+				    text: data.buy_historyList[i].status1
+				})).append($('<span/>',{
+	                class: 'status_txt text-default text-danger buy_status2_count',
+	                text: data.buy_historyList[i].status2
+	            })))).appendTo('.buy_list');
+	            //상품 3개까지 보이게하기
+	            if( i > 1){
+	            	break;
+	            }
+			} 
+			$('.buy_status1').text($('.buy_status1_count').length);
+			//$('.buy_status2').text($('.buy_status2_count').length);
+		},error:function(err){
+			console.log(err);
+		}		
+	});
+>>>>>>> branch '0722' of https://github.com/sudong1004/TeamProject_BitCamp.git
 });
 
 $(document).ready(function(){
+<<<<<<< HEAD
    $.ajax({
       type:'post',
       url:'/TeamProject/user/getSellHistory',
@@ -969,6 +1032,54 @@ $(document).ready(function(){
                 class: 'status_txt text-default sell_status1_count',
                 text: data.sell_historyList[i].status1
             })).append($('<span/>',{
+=======
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/user/getSellHistory',
+		data:'user_id='+$('#user_id').val(),
+		dataType:'json',
+		success: function(data){
+			var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+			//alert(JSON.stringify(data));
+			if(data.sell_historyList.length == 0){
+				$('.sell_empty_area').show();
+			}
+			 
+			for(var i = 0; i< data.sell_historyList.length ; i++){
+				var random = Math.floor( Math.random() * 4 ); 
+				
+	            $('<div/>',{
+				    class: 'purchase_item sell_purchase_item'
+				}).append($('<div/>',{
+				    class: 'history_product'
+				}).append($('<div/>',{
+				    class: 'product_box'
+				}).append($('<div/>',{
+				    class: 'product',
+				    style: 'background-color: '+ colorList[random] + ';'
+				}).append($('<img/>',{
+				    class: 'picture product_img image',
+				    style: 'height:80px;',
+				    src: data.productImgList[i].file_path
+				})))).append($('<div/>',{
+				    class: 'product_detail'
+				}).append($('<p/>',{
+				    class: 'name',
+				    text: data.productImgList[i].org_file_name
+				})).append($('<p/>',{
+				    class: 'size'
+				}).append($('<span/>',{
+				    class: 'size_text',
+				    text: data.sell_historyList[i].size_type
+				}))))).append($('<div/>',{
+				    class:'history_status'
+				}).append($('<div/>',{
+				    class: 'status_box field_status'
+				}).append($('<span/>',{
+				    class: 'status_txt text-default sell_status1_count',
+				    text: data.sell_historyList[i].status1
+				})).append($('<span/>',{
+>>>>>>> branch '0722' of https://github.com/sudong1004/TeamProject_BitCamp.git
                     class: 'status_txt text-default text-danger sell_status2_count',
                     text: data.sell_historyList[i].status2
                 })))).appendTo('.sell_list');
