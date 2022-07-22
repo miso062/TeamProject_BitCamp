@@ -98,6 +98,11 @@
 		select count(*) from like_pro where product_id = ${product_id}
 	</select>
 	
+
+	<select id="getshopDetaillist" parameterType="Int" resultType="marketPrice">
+		select * from (select * from market_price where product_id=${product_id} order by signing_date desc) where <![CDATA[rownum <= 5 ]]>
+  </select>
+
 	<select id="insertBuyPay" parameterType="buyHistory" resultType="buyHistory">
 		BEGIN
 			insert into buy_history(buy_id, product_id, address_id, user_id, buy_price, period, size_type, cum_uid, status1, buy_date)

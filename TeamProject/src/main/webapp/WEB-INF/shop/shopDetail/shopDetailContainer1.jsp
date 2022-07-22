@@ -859,7 +859,6 @@ tr {
                                 <div class="c1_title"><span class="c1_title_txt">최근 거래가</span></div>
                                 <div class="c1_price">
                                     <div class="c1_amount"><span class="c1_num" id="signingdateprice"></span><span class="c1_won">원</span></div>
-                                    <div class="c1_fluctuation decrease"><p data-v-5943a237="">5,000원 (-3.6%)</p></div>
                                 </div>
                             </div>
                         </div>
@@ -1005,32 +1004,7 @@ tr {
                                                         <th class="table_th align_right">거래일</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="table_td">290</td>
-                                                        <td class="table_td align_right">133,000원</td>
-                                                        <td class="table_td align_right">22/07/07</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">265</td>
-                                                        <td class="table_td align_right">138,000원</td>
-                                                        <td class="table_td align_right">22/07/07</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">275</td>
-                                                        <td class="table_td align_right">133,000원</td>
-                                                        <td class="table_td align_right">22/07/07</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">285</td>
-                                                        <td class="table_td align_right">140,000원</td>
-                                                        <td class="table_td align_right">22/07/07</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">280</td>
-                                                        <td class="table_td align_right">138,000원</td>
-                                                        <td class="table_td align_right">22/07/07</td>
-                                                    </tr>
+                                                <tbody id="SDlist">
                                                 </tbody>
                                             </table>
                                         </div>
@@ -1462,15 +1436,57 @@ $(document).ready(function(){
 					$('#sellprice1').text('-');	
 					$('#sellprice').text('-');	
 				}
+			if(data.signingdateprice!=null){
+				$('#signingdateprice').text(data.signingdateprice.price.format());
+				}else{
+					$('#signingdateprice').text('-');	
+				}
 			
-			$('#signingdateprice').text(data.signingdateprice.price.format());
-			$('#likepro').text(data.likeproduct.format());
-			$('#likepro1').text(data.likeproduct.format());
+			if(data.likeproduct!=null){
+				$('#likepro').text(data.likeproduct.format());
+				$('#likepro1').text(data.likeproduct.format());
+				}else{
+					$('#likepro').text('0');	
+					$('#likepro1').text('0');	
+				}
 		},
 		error:function(err){
 			console.log(err);
 		}		
 	});
+});
+$(document).ready(function(){
+    $.ajax({
+        url: '/TeamProject/shop/getshopDetaillist',
+        type: 'post',
+        data: 'product_id='+$('#product_id').val(),
+        dataType: 'json',
+        success: function(data){
+            $('#SDlist').html('');
+           	var addr;
+           	if(data != ''){
+	            $.each(data, function(index, items){
+					addr = '<tr>'+
+	                   '<td class="table_td">'+items.size_type+'</td>'+
+	                   '<td class="table_td align_right">'+items.price.format()+'</td>'+
+	                   '<td class="table_td align_right">'+items.signing_date+'</td>'+
+	                   '</tr>';
+	              	 $("#SDlist").append(addr);
+	           	})
+            }
+           	else{
+        		 addr = 
+        			 '<tr>'+
+        			'<td colspan="3" align="center" height="100" >최근 체결된 거래 내역이 없습니다.</td>'+
+        			'</tr>';
+        		$("#SDlist").append(addr);
+        	}
+
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
 });
 </script>
 </body>

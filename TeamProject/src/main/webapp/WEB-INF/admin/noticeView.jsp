@@ -91,13 +91,18 @@
 	<a href="/TeamProject/admin/notice?pg=${pg}" class="back_list">목록보기</a>
 </div>
 <div >
-	<input class="updel" type="button" value ="글삭제" style="margin:5px;" id="noticeDeletebtn">
-	<input class="updel"  type="button" value = "글수정" style="margin:5px;" id="noticeUpdatebtn">
+	<input class="updel onlyadmin" type="button" value ="글삭제" style="margin:5px;" id="noticeDeletebtn">
+	<input class="updel onlyadmin"  type="button" value = "글수정" style="margin:5px;" id="noticeUpdatebtn">
 </div>
 </div>
 
 <script>
 $(document).ready(function(){
+	if('${sessionScope.memAuthority}'!= 10){
+		$('.onlyadmin').hide();
+	}else{
+		$('.onlyadmin').show();
+	}
 	$('#sub_area > ul > li:eq(0)').addClass('bold');
 	$('#sub_area > ul > li:eq(1)').removeClass('bold');
 	$('#sub_area > ul > li:eq(2)').removeClass('bold');
