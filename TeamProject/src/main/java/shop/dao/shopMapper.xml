@@ -5,11 +5,11 @@
 	
 <mapper namespace="shopSQL">
 	<select id="getImage" parameterType="int" resultType="productImg"> 
-		select * from pro_image where product_id = ${product_id}
+	  select * from pro_image where product_id = ${product_id}
 	</select>
-	
+
 	<select id="getProduct" parameterType="int" resultType="product"> 
-		select * from product where product_id = ${product_id}
+	  select * from product where product_id = ${product_id}
 	</select>
 	
 	<select id="getSellList" parameterType="int" resultType="sellHistory">
@@ -46,19 +46,37 @@
   
 	<select id="scrollProductList" parameterType="java.util.Map" resultType="product">
 		<!-- - 상품 4개씩 -->
-		select * from (
+		<!-- select * from (
 			select rownum rn, tt.* from (
 				select * from product where release_date is not null order by release_date desc)tt)
-				where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>
+				where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]> order by product_id -->
+				
+				
+		select aa.rn, aa.product_id, aa.brand, aa.collection, aa.category,
+		aa.eng_name, aa.kor_name, aa.gender, aa.release_date, aa.release_price,
+		aa.model_number, aa.color, aa.post_status, aa.regdate, 
+		count(lp.product_id) as cnt
+		from (
+		    select rownum rn, tt.* from (
+		        select * from product where release_date is not null order by release_date desc
+		    ) tt
+		) aa
+		left join like_pro lp on lp.product_id like aa.product_id
+		where <![CDATA[aa.rn>=${startNum} and aa.rn<=${endNum} ]]>
+		group by aa.rn, aa.product_id, aa.brand, aa.collection, aa.category,
+		aa.eng_name, aa.kor_name, aa.gender, aa.release_date, aa.release_price,
+		aa.model_number, aa.color, aa.post_status, aa.regdate
+		order by aa.product_id
 	</select>
   	
 	<select id="scrollProductImg" parameterType="java.util.Map" resultType="productImg">
-		<!-- 이미지 -->
-		select * from pro_image where product_id in (select product_id from (
-			select ROWNUM rn, tt.* from (
-				select * from product where release_date is not null order by release_date desc)tt)
-			where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>)
-	</select>
+  		<!-- 이미지 -->
+  		select * from pro_image where product_id in (select product_id from (
+         select ROWNUM rn, tt.* from (
+            select * from product where release_date is not null order by release_date desc)tt)
+          where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>) order by product_id
+  </select>
+
   
 	<select id="getChart" parameterType="int" resultType="marketPrice">
 		select * from market_price where product_id=${product_id} order by signing_date
@@ -80,7 +98,16 @@
 		select count(*) from like_pro where product_id = ${product_id}
 	</select>
 	
+
 	<select id="getshopDetaillist" parameterType="Int" resultType="marketPrice">
 		select * from (select * from market_price where product_id=${product_id} order by signing_date desc) where <![CDATA[rownum <= 5 ]]>
+  </select>
+
+	<select id="insertBuyPay" parameterType="buyHistory" resultType="buyHistory">
+		BEGIN
+			insert into buy_history(buy_id, product_id, address_id, user_id, buy_price, period, size_type, cum_uid, status1, buy_date)
+				values(buy_history_seq.nextval, #{product_id}, #{address_id}, #{user_id}, #{buy_price}, #{period}, #{size_type}, #{cum_uid}, #{status1}, sysdate);
+			select * from buy_history where buy_id IN (SELECT (LAST_NUMBER-1) FROM USER_SEQUENCES WHERE SEQUENCE_NAME='BUY_HISTORY_SEQ');
+		END;
 	</select>
 </mapper>

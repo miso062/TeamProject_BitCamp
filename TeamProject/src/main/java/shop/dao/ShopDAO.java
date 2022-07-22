@@ -28,4 +28,5 @@ public interface ShopDAO {
 	public Market_priceDTO getsigningdateprice(int product_id);
 	public Integer getlikeproduct(int product_id);
 	public List<Market_priceDTO> getshopDetaillist(int product_id);
+	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO);
 }

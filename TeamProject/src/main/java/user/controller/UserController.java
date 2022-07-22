@@ -2,6 +2,7 @@ package user.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import product.bean.Buy_historyDTO;
+import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
 import user.bean.LikeProDTO;
@@ -89,25 +91,49 @@ public class UserController {
 		String user_id = (String) session.getAttribute("memId");
 		UserDTO userDTO = userService.getUserInfo(user_id);
 		model.addAttribute("userDTO", userDTO);
-		System.out.println(model);
+		//System.out.println(model);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageMain.jsp");
 		return "forward:/user/my";
 	}
 	
 	@PostMapping(value="getBuyHistory")
 	@ResponseBody
-	public List<Buy_historyDTO> getBuyHistory(@RequestParam String user_id){
+	public Map<String, Object> getBuyHistory(@RequestParam String user_id){
 		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
 		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory("jijiya@hotmail.net");
-		return buy_historyList;
+		//System.out.println(buy_historyList);
+		Map<String, Object> buy_map = new HashMap<String, Object>();
+		buy_map.put("buy_historyList", buy_historyList);
+
+		List<ProductImgDTO> productImgList = new ArrayList<ProductImgDTO>();
+
+		for(int i=0; i< buy_historyList.size(); i++) {//1 2 3 4 5 7 8 9
+		   ProductImgDTO productImgDTO = userService.getProductImg(buy_historyList.get(i).getProduct_id());
+		   productImgList.add(productImgDTO);
+		}
+		buy_map.put("productImgList", productImgList);
+		//System.out.println(buy_map);
+		return buy_map;
 	}
 	
 	@PostMapping(value="getSellHistory")
 	@ResponseBody
-	public List<Sell_historyDTO> getSellHistory(@RequestParam String user_id){
-		//List<Sell_historyDTO> sell_historyList = userService.getSellHistory(user_id);
-		List<Sell_historyDTO> sell_historyList = userService.getSellHistory("jijiya@hotmail.net");
-		return sell_historyList;
+	public Map<String, Object> getSellHistory(@RequestParam String user_id){
+		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
+		List<Sell_historyDTO> sell_historyList =  userService.getSellHistory("jijiya@hotmail.net");
+		//System.out.println(sell_historyList);
+		Map<String, Object> sell_map = new HashMap<String, Object>();
+		sell_map.put("sell_historyList", sell_historyList);
+
+		List<ProductImgDTO> productImgList = new ArrayList<ProductImgDTO>();
+
+		for(int i=0; i< sell_historyList.size(); i++) {//1 2 3 4 5 7 8 9
+		   ProductImgDTO productImgDTO = userService.getProductImg(sell_historyList.get(i).getProduct_id());
+		   productImgList.add(productImgDTO);
+		}
+		sell_map.put("productImgList", productImgList);
+		//System.out.println(sell_map);
+		return sell_map;
 	}
 	
 	@GetMapping(value="myPageEdit")
@@ -326,8 +352,8 @@ public class UserController {
 
 	@PostMapping(value="bookMarkGet")
 	@ResponseBody
-	public List<LikeProDTO> bookMarkGet(){
-		List<LikeProDTO> list = userService.bookMarkGet();
-		return list; 
+	public Map<String, Object> bookMarkGet(){
+		Map<String, Object> map = userService.bookMarkGet();
+		return map; 
 	}
 }

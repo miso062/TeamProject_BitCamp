@@ -404,7 +404,7 @@ cursor: pointer;
 					<a href="/TeamProject/admin/notice" class="h_top_link">고객센터</a>
 				</li>
 				<li class="h_top_item">
-					<a href="#" class="h_top_link">관심상품</a>
+					<a href="/TeamProject/user/likePro" class="h_top_link">관심상품</a>
 				</li>
 				<li class="h_top_item">
 					<a id="h_myPage" class="h_top_link">마이페이지</a>

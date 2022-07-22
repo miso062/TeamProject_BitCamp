@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import product.bean.Buy_historyDTO;
+import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
 import user.bean.LikeProDTO;
@@ -19,7 +20,7 @@ public interface UserDAO {
 	public int findPwCheck(Map<String, Object> map);
 	public void bookMarkInsert(Map<String, String> map);
 	public void bookMarkDelete(Map<String, Object> map);
-	public List<LikeProDTO> bookMarkGet(Map<String, Object> map);
+	public List<LikeProDTO> bookMarkGet(String id);
 	public int checkNick(String nickname);
 	public int signUpCheck(String hp);
 	public void signUpWrite(UserDTO userDTO);
@@ -34,4 +35,5 @@ public interface UserDAO {
 	public UserDTO loginNaver(String user_id);
 	public int checkIdKakao(String user_id);
 	public void writeKakao(String user_id);
+	public ProductImgDTO getProductImg(int product_id);
 }
