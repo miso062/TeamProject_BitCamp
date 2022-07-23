@@ -970,7 +970,10 @@ $(document).ready(function(){
           
          for(var i = 0; i< data.sell_historyList.length ; i++){
             var random = Math.floor( Math.random() * 4 ); 
-            
+            var size_type = data.sell_historyList[i].size_type;
+            if(size_type == 'null'){
+                size_type = ' - '
+            } 
                $('<div/>',{
                 class: 'purchase_item sell_purchase_item'
             }).append($('<div/>',{
@@ -993,7 +996,7 @@ $(document).ready(function(){
                 class: 'size'
             }).append($('<span/>',{
                 class: 'size_text',
-                text: data.sell_historyList[i].size_type
+                text: size_type
             }))))).append($('<div/>',{
                 class:'history_status'
             }).append($('<div/>',{

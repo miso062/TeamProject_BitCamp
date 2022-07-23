@@ -302,6 +302,9 @@
     margin-left: 10px;
     width: 134px;
 }
+.status_box{
+	display: none;
+}
 .price {
     margin-top: 2px;
     font-size: 0;
@@ -398,26 +401,26 @@
     </div>
     <div class="purchase_list_tab detail_tab">
         <div class="tab_item total">
-            <a href="#" class="tab_link">
-                <dl class="tab_box">
-                    <dt class="title">전체</dt>
-                    <dd class="count">1</dd>
+			<a href="#" class="tab_link">
+				<dl class="tab_box">
+					<dt class="title">전체</dt>
+					<dd class="count buy_countAll">1</dd>
+				</dl>
+			</a>
+		</div>
+		<div class="tab_item tab_on">
+			<a href="#" class="tab_link">
+				<dl class="tab_box">
+					<dt class="title">구매 입찰</dt>
+                    <dd class="count buy_status1">1</dd>
                 </dl>
-            </a>
-        </div>
-        <div class="tab_item tab_on">
-            <a href="#" class="tab_link">
-                <dl class="tab_box">
-                    <dt class="title">구매 입찰</dt>
-                    <dd class="count">1</dd>
-                </dl>
-            </a>
+			</a>
         </div>
         <div class="tab_item">
             <a href="#" class="tab_link">
-                <dl class="tab_box">
+                <dl class="tab_box ">
                     <dt class="title">종료</dt>
-                    <dd class="count">0</dd>
+                    <dd class="count buy_status2">0</dd>
                 </dl>
             </a>
         </div>
@@ -427,19 +430,15 @@
         <li class="info_item"><p>한 번에 조회 가능한 기간은 최대 6개월입니다.</p></li>
         <li class="info_item"><p>기간별 조회 결과는 입찰일 기준으로 노출됩니다.</p></li>
     </ul>
+    
     <div class="purchase_list bidding bid">
         <div class="purchase_head">
             <div class="head_product">
-                <a href="#" class="btn_filter">
-                    전체
-                    <svg xmlns="http://www.w3.org/2000/svg" class="ico-arr-dir-down-circle icon sprite-icons">
-                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-arr-dir-down-circle" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-arr-dir-down-circle"></use>
-                    </svg>
-                </a>
+                <a href="#" class="btn_filter"> 전체</a>
             </div>
             <div class="head_status">
                 <div class="status_box field_price">
-                    <a href="#" class="status_link"><span class="status_txt">판매 희망가</span></a>
+                    <a href="#" class="status_link"><span class="status_txt">구매 희망가</span></a>
                 </div>
                 <div class="status_box field_date_purchased">
                     <a href="#" class="status_link"><span class="status_txt">구매일</span></a>
@@ -455,25 +454,23 @@
                 </div>
 			</div>
         </div>
+
+		<div class="empty_area buy_empty_area" style="display: none">
+			<p  class="desc">거래 내역이 없습니다.</p>
+		</div>
+
         <div class="purchase_item bid">
-			<div class="empty_area" style="display: none">
-				<p  class="desc">거래 내역이 없습니다.</p>
-			</div>
             <div class="history_product">
                 <div class="product_box">
                     <div class="product" style="background-color: rgb(242, 242, 242);">
-                        <picture class="picture product_img">
-                            <img
-                            
-                                alt="Malbon Golf Stand Bag + Jordan 1 Low Golf Chicago"
-                                src="https://kream-phinf.pstatic.net/MjAyMjA2MjhfODcg/MDAxNjU2NDI3MjYyNTg3.IxUjfB7QVgwfi0q7hKsszseQHvBYQM5kE4w5bAo8qhYg.k4Mvf8zAAIF5Yj9FUFDypOLJzLJwT-xFvEJ28mtEBr4g.JPEG/a_88bd913f34504b11bcbcc85750dab83b.jpg?type=m"
-                                class="image"
-                            />
-                        </picture>
+	                    <img
+	                        alt="Malbon Golf Stand Bag + Jordan 1 Low Golf Chicago"
+	                        src="https://kream-phinf.pstatic.net/MjAyMjA2MjhfODcg/MDAxNjU2NDI3MjYyNTg3.IxUjfB7QVgwfi0q7hKsszseQHvBYQM5kE4w5bAo8qhYg.k4Mvf8zAAIF5Yj9FUFDypOLJzLJwT-xFvEJ28mtEBr4g.JPEG/a_88bd913f34504b11bcbcc85750dab83b.jpg?type=m"
+	                        class="image picture product_img"
+	                    />
                     </div>
                 </div>
                 <div class="product_detail">
-                    <!---->
                     <p class="name">Malbon Golf Stand Bag + Jordan 1 Low Golf Chicago</p>
                     <p class="size"><span class="size_text">-</span></p>
                 </div>
@@ -487,7 +484,6 @@
                 <div class="status_box field_expires_at"><span class="date text-danger">기한만료</span></div>
                 <div class="status_box field_status">
                     <span class="status_txt text-danger">기한만료</span>
-                    <!---->
                 </div>
             </div>
         </div>
@@ -527,7 +523,114 @@
 window.onload = function() {
 	$('.snb_menu').eq(0).find('.menu_link').eq(0).removeClass('unbold');
 	$('.snb_menu').eq(0).find('.menu_link').eq(0).addClass('bold');
+	$('.tab_item').eq(1).click();
 }
+
+//입찰, 종료 카테고리
+$(document).on('click', '.tab_item', function(){
+	if($(this).index() == 1){ //입찰중
+		$(this).addClass('tab_on');
+		$('.tab_item').not(this).removeClass('tab_on');
+		$('.status_box').css('display','none');
+		//구매희망가 만료일 상태
+		$('.field_price').css('display','block');
+		$('.field_expires_at').css('display', 'block');
+		$('.field_status').css('display', 'block');
+		$('.status2_text').hide();
+		$('.status1_text').show();
+	}else{ //종료
+		$(this).addClass('tab_on');
+		$('.tab_item').not(this).removeClass('tab_on');
+		$('.status_box').css('display','none');
+		//정산일 상태
+		$('.field_date_paid').css('display', 'block');
+		$('.field_status').css('display', 'block');
+		$('.status1_text').hide();
+		$('.status2_text').show();
+	}
+});
+
+$(document).ready(function(){
+   $.ajax({
+      type:'post',
+      url:'/TeamProject/user/getBuyHistory',
+      dataType:'json',
+      success: function(data){
+		//배경 색
+		var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+        //거래내역없을 때
+		if(data.buy_historyList.length == 0){
+			$('.buy_empty_area').show();
+		}
+		for(var i = 0; i< data.buy_historyList.length ; i++){
+	        var user_id = data.buy_historyList[i].user_id;
+	        var product_id = data.buy_historyList[i].product_id;
+	        var product_name = data.productImgList[i].org_file_name;
+	        var img = data.productImgList[i].file_path;
+	        var status1 = data.buy_historyList[i].status1;   
+	        var status2 = data.buy_historyList[i].status2;   
+	        var size_type = data.buy_historyList[i].size_type;
+	        if(size_type == 'null'){
+	            size_type = ' - ';
+	        } 
+	        var buy_price = data.buy_historyList[i].buy_price;
+            if ( buy_price == 'null') {
+            	buy_price = ' - ';
+            } else {
+            	buy_price = buy_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+	        var buy_date = new Date(data.buy_historyList[i].buy_date); //구매일자
+	       	var period = new Date(data.buy_historyList[i].period);
+	       	var random = Math.floor( Math.random() * 4 ); 
+	       	
+	   		let buylist = '<div class="purchase_item">' +
+	                '<div class="history_product">' +
+	                '<div class="product_box">' +
+	                '<div class="product" style="background-color:' + colorList[random] + ';">' +
+	                '<img src="' + img + '" alt="' + product_name + '" class="image picture product_img">' +
+	                '</div></div>' +
+	                '<div class="product_detail">' +
+	                '<p class="name">' + product_name + '</p><span class="size">' + size_type + '</span>' +
+	                '</div></div><div class="history_status">' +
+	                '<div class="status_box field_price"><div class="price">' +
+	                '<span class="amount">' + buy_price + '</span>' +
+	                '<span class="unit">원</span>' +
+	                '</div></div>' +
+	                '<div class="status_box field_date_purchased" style="display: none">' +
+	                '<span class="date">' + buy_date.toLocaleDateString() + '</span>' +
+	                '</div>' +
+	                '<div class="status_box field_date_paid" style="display: none">' +
+	                '<span class="date">' + buy_date.toLocaleDateString() + '</span>' +
+	                '</div>' +
+	                '<div class="status_box field_expires_at">' +
+	                '<span class="date text-default">' + period.toLocaleDateString() + '</span>' +
+	                '</div>' +
+	                '<div class="status_box field_status" style="display: none">' +
+	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
+	                '<span class="status_txt text-default status2_text">' + status2 + '</span>' +
+	                '</div></div></div>'
+				$('.purchase_list').append(buylist);
+			}
+			//구매거래내역 카운트
+			var buy_status1_count = 0;
+			var buy_status2_count = 0;
+			
+	       	for(var i = 0; i < data.buy_historyList.length; i++){
+	       		if(status1 != null){
+	       			buy_status1_count = buy_status1_count + 1;
+	       		}
+	       		if(status2 != null){
+	       			buy_status2_count = buy_status2_count + 1;
+	       		}
+	       	}
+	   		$('.buy_status1').text(buy_status1_count);
+	   		$('.buy_status2').text(buy_status2_count);
+	   		$('.buy_countAll').text(buy_status1_count + buy_status2_count);
+      },error:function(err){
+         console.log(err);
+      }      
+   });
+});
 
 </script>
 </body>

@@ -164,7 +164,9 @@
     display: none;
     width: 140px;
 }
-
+.status_box{
+	display: none;
+}
 .head_status .status_box {
     margin-left: 10px;
     width: 134px;
@@ -397,29 +399,29 @@
     </div>
     <div class="purchase_list_tab sell detail_tab">
         <div class="tab_item total">
-            <a href="#" class="tab_link">
+            <div class="tab_link">
                 <dl class="tab_box">
                     <dt class="title">전체</dt>
-                    <dd class="count">6</dd>
+                    <dd class="count sell_countAll">6</dd>
                 </dl>
-            </a>
+            </div>
         </div>
         <div class="tab_item tab_on">
-            <a href="#" class="tab_link">
+            <div class="tab_link">
                 <dl class="tab_box">
                     <dt class="title">판매 입찰</dt>
-                    <dd class="count">4</dd>
+                    <dd class="count sell_status1">4</dd>
                 </dl>
-            </a>
+            </div>
         </div>
 
         <div class="tab_item">
-            <a href="#" class="tab_link">
+            <div class="tab_link">
                 <dl class="tab_box">
                     <dt class="title">종료</dt>
-                    <dd class="count">2</dd>
+                    <dd class="count sell_status1">2</dd>
                 </dl>
-            </a>
+            </div>
         </div>
     </div>
     
@@ -431,19 +433,14 @@
     <div class="purchase_list bidding ask">
         <div class="purchase_head">
             <div class="head_product">
-                <a href="#" class="btn_filter">
-                    전체
-                    <svg xmlns="http://www.w3.org/2000/svg" class="ico-arr-dir-down-circle icon sprite-icons">
-                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-arr-dir-down-circle" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-arr-dir-down-circle"></use>
-                    </svg>
-                </a>
+                <a href="#" class="btn_filter"> 전체  </a>
             </div>
             <div class="head_status">
                 <div class="status_box field_price">
                     <a href="#" class="status_link"><span class="status_txt">판매 희망가</span></a>
                 </div>
                 <div class="status_box field_date_purchased">
-                    <a href="#" class="status_link"><span class="status_txt">구매일</span></a>
+                    <a href="#" class="status_link"><span class="status_txt">판매일</span></a>
                 </div>
                 <div class="status_box field_expires_at">
                     <a href="#" class="status_link"><span class="status_txt">만료일</span></a>
@@ -456,17 +453,20 @@
                 </div>
             </div>
         </div>
+        
+        <div class="empty_area sell_empty_area" style="display: none">
+			<p  class="desc">거래 내역이 없습니다.</p>
+		</div>
+        
         <div class="purchase_item">
             <div class="history_product">
                 <div class="product_box">
                     <div class="product" style="background-color: rgb(235, 240, 245);">
-                        <picture class="picture product_img">
-                            <img
-                                alt="Nike Dunk Low Retro Black"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="image"
-                            />
-                        </picture>
+                       <img
+                           alt="Nike Dunk Low Retro Black"
+                           src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
+                           class="picture product_img"
+                       />
                     </div>
                 </div>
                 <div class="product_detail">
@@ -524,27 +524,18 @@
         <div class="pagination_box first last">
             <div class="prev_btn_box">
                 <a href="#" class="btn_arr">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-first icon sprite-icons">
-                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-first" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-first"></use>
-                    </svg>
+
                 </a>
                 <a href="#" class="btn_arr">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-prev icon sprite-icons">
-                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-prev" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-prev"></use>
-                    </svg>
+
                 </a>
             </div>
             <div class="page_bind"><a href="#" class="btn_page active"> 1 </a></div>
             <div class="next_btn_box">
                 <a href="#" class="btn_arr">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-next icon sprite-icons">
-                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-next" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-next"></use>
-                    </svg>
                 </a>
                 <a href="#" class="btn_arr">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-last icon sprite-icons">
-                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-last" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-last"></use>
-                    </svg>
+
                 </a>
             </div>
         </div>
@@ -555,84 +546,115 @@
 window.onload = function() {
 	$('.snb_menu').eq(0).find('.menu_link').eq(1).removeClass('unbold');
 	$('.snb_menu').eq(0).find('.menu_link').eq(1).addClass('bold');
+	$('.tab_item').eq(1).click();
 }
+
+//입찰, 종료 카테고리
+$(document).on('click', '.tab_item', function(){
+	if($(this).index() == 1){ //입찰중
+		$(this).addClass('tab_on');
+		$('.tab_item').not(this).removeClass('tab_on');
+		$('.status_box').css('display','none');
+		//판매희망가 만료일 상태
+		$('.field_price').css('display','block');
+		$('.field_expires_at').css('display', 'block');
+		$('.field_status').css('display', 'block');
+		$('.status2_text').hide();
+		$('.status1_text').show();
+	}else{ //종료
+		$(this).addClass('tab_on');
+		$('.tab_item').not(this).removeClass('tab_on');
+		$('.status_box').css('display','none');
+		//정산일 상태
+		$('.field_date_paid').css('display', 'block');
+		$('.field_status').css('display', 'block');
+		$('.status1_text').hide();
+		$('.status2_text').show();
+	}
+});
+
 $(document).ready(function(){
    $.ajax({
       type:'post',
       url:'/TeamProject/user/getSellHistory',
-      data:'user_id='+$('#user_id').val(),
       dataType:'json',
       success: function(data){
 		//배경 색
 		var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
-		//거래내역 없을때
+		//거래내역없을 때
 		if(data.sell_historyList.length == 0){
-            $('.sell_empty_area').show();
+			$('.sell_empty_area').show();
 		}
-		//구매거래내역 카운트
-		var sell_status1_count = 0;
-		var sell_status2_count = 0;
-		
-       	for(var i = 0; i < data.sell_historyList.length; i++){
-       		if(data.sell_historyList[i].status1 != null){
-       			sell_status1_count = sell_status1_count + 1;
-       		}
-       		if(data.sell_historyList[i].status2 != null){
-       			sell_status2_count = sell_status2_count + 1;
-       		}
-       	}
-       	
-   		$('.sell_status1').text(sell_status1_count);
-   		$('.sell_status2').text(sell_status2_count);
-   		$('.sell_countAll').text(sell_status1_count + sell_status2_count);
-          
-         for(var i = 0; i< data.sell_historyList.length ; i++){
-            var random = Math.floor( Math.random() * 4 ); 
-            
-               $('<div/>',{
-                class: 'purchase_item sell_purchase_item'
-            }).append($('<div/>',{
-                class: 'history_product'
-            }).append($('<div/>',{
-                class: 'product_box'
-            }).append($('<div/>',{
-                class: 'product',
-                style: 'background-color: '+ colorList[random] + ';'
-            }).append($('<img/>',{
-                class: 'picture product_img image',
-                style: 'height:80px;',
-                src: data.productImgList[i].file_path
-            })))).append($('<div/>',{
-                class: 'product_detail'
-            }).append($('<p/>',{
-                class: 'name',
-                text: data.productImgList[i].org_file_name
-            })).append($('<p/>',{
-                class: 'size'
-            }).append($('<span/>',{
-                class: 'size_text',
-                text: data.sell_historyList[i].size_type
-            }))))).append($('<div/>',{
-                class:'history_status'
-            }).append($('<div/>',{
-                class: 'status_box field_status'
-            }).append($('<span/>',{
-                class: 'status_txt text-default',
-                text: data.sell_historyList[i].status1
-            })).append($('<span/>',{
-                    class: 'status_txt text-default text-danger',
-                    text: data.sell_historyList[i].status2
-                })))).appendTo('.sell_list');
-			 //상품 3개까지 보이게하기
-			if( i > 1){
-			   break;
+		for(var i = 0; i< data.sell_historyList.length ; i++){
+	        var user_id = data.sell_historyList[i].user_id;
+	        var product_id = data.sell_historyList[i].product_id;
+	        var product_name = data.productImgList[i].org_file_name;
+	        var img = data.productImgList[i].file_path;
+	        var status1 = data.sell_historyList[i].status1;   
+	        var status2 = data.sell_historyList[i].status2;   
+	        var size_type = data.sell_historyList[i].size_type;
+	        if(size_type == 'null'){
+	            size_type = ' - ';
+	        } 
+	        var sell_price = data.sell_historyList[i].sell_price;
+            if ( sell_price == 'null') {
+            	sell_price = ' - ';
+            } else {
+            	sell_price = sell_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+	        var sell_date = new Date(data.sell_historyList[i].sell_date); //판매일자
+	       	var period = new Date(data.sell_historyList[i].period);
+	       	var random = Math.floor( Math.random() * 4 ); 
+			
+	   		let selllist = '<div class="purchase_item">' +
+	                '<div class="history_product">' +
+	                '<div class="product_box">' +
+	                '<div class="product" style="background-color:' + colorList[random] + ';">' +
+	                '<img src="' + img + '" alt="' + product_name + '" class="image picture product_img">' +
+	                '</div></div>' +
+	                '<div class="product_detail">' +
+	                '<p class="name">' + product_name + '</p><span class="size">' + size_type + '</span>' +
+	                '</div></div><div class="history_status">' +
+	                '<div class="status_box field_price"><div class="price">' +
+	                '<span class="amount">' + sell_price + '</span>' +
+	                '<span class="unit">원</span>' +
+	                '</div></div>' +
+	                '<div class="status_box field_date_purchased" style="display: none">' +
+	                '<span class="date">' + sell_date.toLocaleDateString() + '</span>' +
+	                '</div>' +
+	                '<div class="status_box field_date_paid" style="display: none">' +
+	                '<span class="date">' + sell_date.toLocaleDateString() + '</span>' +
+	                '</div>' +
+	                '<div class="status_box field_expires_at">' +
+	                '<span class="date text-default">' + period.toLocaleDateString() + '</span>' +
+	                '</div>' +
+	                '<div class="status_box field_status" style="display: none">' +
+	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
+	                '<span class="status_txt text-default status2_text">' + status2 + '</span>' +
+	                '</div></div></div>'
+				$('.purchase_list').append(selllist);
 			}
-         } 
+			//판매거래내역 카운트
+			var sell_status1_count = 0;
+			var sell_status2_count = 0;
+			
+	       	for(var i = 0; i < data.sell_historyList.length; i++){
+	       		if(status1 != null){
+	       			sell_status1_count = sell_status1_count + 1;
+	       		}
+	       		if(status2 != null){
+	       			sell_status2_count = sell_status2_count + 1;
+	       		}
+	       	}
+	   		$('.sell_status1').text(sell_status1_count);
+	   		$('.sell_status2').text(sell_status2_count);
+	   		$('.sell_countAll').text(sell_status1_count + sell_status2_count);
       },error:function(err){
          console.log(err);
       }      
    });
 });
-</script>   
+
+</script>
 </body>
-</html> 
+</html>
