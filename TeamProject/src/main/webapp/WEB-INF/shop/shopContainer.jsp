@@ -262,7 +262,7 @@ li, ol, ul {
 	font-weight: bold;
 }
 
-.shop_title, .shop_name, .shop_title, .shop_translated_name { // 2줄 말줄임표
+.shop_title, .shop_name, .shop_title, .shop_translated_name { /* 2줄 말줄임표 */ 
     margin-top: 2px;
     overflow: hidden;
  	text-overflow: ellipsis;
@@ -272,7 +272,7 @@ li, ol, ul {
  	font-size: 13px;
  	line-height: 16px;
 }
-.shop_title .shop_translated_name {
+.shop_title  .shop_translated_name {
     line-height: 14px;
     font-size: 12px;
     letter-spacing: -.06px;
@@ -338,7 +338,7 @@ li, ol, ul {
 }
 
 .banner_img {
-	line-height: 100px;/
+	line-height: 100px;
     position: relative;
     text-align: center;
     height: 100%;
@@ -612,10 +612,10 @@ li, ol, ul {
         <img src="/_nuxt/img/loading.410eb77.gif" alt="리스트 로딩중입니다." class="loading_img" />
     </div>
 </div>
+
 <script src="/TeamProject/js/shop/infiniteScroll.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript"> 
+$.noConflict();
 /* 관심버튼 이미지 클릭시 로테이션으로 변경하기 */
  $('.shop_bookmark').on({'click' : function() {
 		var src = ($(this).attr('src') === '/TeamProject/img/shop/bookmark.svg') ? '/TeamProject/img/shop/bookmark-fill.svg'
@@ -709,7 +709,6 @@ $(function() {
 	/* 슬라이드 페이지 */
 	$('.slider-for').on('beforeChange',
 			function(event, slick, currentSlide, nextSlide) {
-				console.log(nextSlide);
 				$('.current').text(nextSlide + 1);
 			});
 });

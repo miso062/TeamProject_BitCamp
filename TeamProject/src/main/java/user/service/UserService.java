@@ -34,5 +34,6 @@ public interface UserService {
 	public List<Sell_historyDTO> getSellHistory(String user_id);
 	public String checkKakao(String user_id);
 	public ProductImgDTO getProductImg(int product_id);
+	public String bookMarkGetDetail(String product_id);
 	public String checkPwd(String pwd);
 }

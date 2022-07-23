@@ -41,8 +41,9 @@ public class ShopServiceImpl implements ShopService {
 		map.put("endNum", endNum);
 		
 		Map<String, Object> sendMap = shopDAO.scrollProduct(map);
-		sendMap.put("num", startNum + 1);
-		
+		sendMap.put("num", startNum + 16);
+		System.out.println();
+		// sendMap.put("num", startNum + 1);
 		return sendMap;
 	}
 
@@ -58,8 +59,10 @@ public class ShopServiceImpl implements ShopService {
 		
 		return map;
 	}
-	
-	private Integer getlikeproduct(int product_id) {
+	//찜하기 카운트 수
+	@Override
+	public Integer getlikeproduct(int product_id) {
+		
 		return shopDAO.getlikeproduct(product_id);
 	}
 
@@ -151,8 +154,11 @@ public class ShopServiceImpl implements ShopService {
   }
  
 	@Override
-	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO) {
-		return shopDAO.insertBuyPay(buy_historyDTO);		
+	public Buy_historyDTO insertBuyPayBySellId(Buy_historyDTO buy_historyDTO, int sell) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("buy_historyDTO", buy_historyDTO);
+		map.put("sell", sell);
+		return shopDAO.insertBuyPayBySellId(map);
 	}
 
 	@Override

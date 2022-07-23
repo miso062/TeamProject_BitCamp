@@ -105,10 +105,15 @@
 						,email_allow = #{email_allow}
 						 where user_id=#{user_id}
 	</update>
-  
+  	<!-- 메인화면 찜하기 불러오기 -->
 	<select id="bookMarkGet" parameterType="java.util.Map" resultType="likePro">
 		select * from like_pro where user_id=#{id}
 	</select> 
+	
+	<!-- 상품디테일 페이지 찜하기 불러오기 -->
+	<select id="bookMarkGetDetail" parameterType="java.util.Map" resultType="int">
+	 select count(*) from like_pro where user_id=#{user_id} and product_id=#{product_id}
+	</select>
   
 	<!-- 프로필 이미지 업데이트 -->
 	<update id="updateImg" parameterType="java.util.Map">
