@@ -264,7 +264,7 @@ li, ol, ul {
 	vertical-align: top;
 	overflow: hidden;
 }
-..c1_detail_price:after {
+.c1_detail_price:after {
     content: "";
     display: block;
     clear: both;
@@ -859,7 +859,6 @@ tr {
                                 <div class="c1_title"><span class="c1_title_txt">최근 거래가</span></div>
                                 <div class="c1_price">
                                     <div class="c1_amount"><span class="c1_num" id="signingdateprice"></span><span class="c1_won">원</span></div>
-                                    <div class="c1_fluctuation decrease"><p data-v-5943a237="">5,000원 (-3.6%)</p></div>
                                 </div>
                             </div>
                         </div>
@@ -1005,32 +1004,7 @@ tr {
                                                         <th class="table_th align_right">거래일</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td class="table_td">290</td>
-                                                        <td class="table_td align_right">133,000원</td>
-                                                        <td class="table_td align_right">22/07/07</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">265</td>
-                                                        <td class="table_td align_right">138,000원</td>
-                                                        <td class="table_td align_right">22/07/07</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">275</td>
-                                                        <td class="table_td align_right">133,000원</td>
-                                                        <td class="table_td align_right">22/07/07</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">285</td>
-                                                        <td class="table_td align_right">140,000원</td>
-                                                        <td class="table_td align_right">22/07/07</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="table_td">280</td>
-                                                        <td class="table_td align_right">138,000원</td>
-                                                        <td class="table_td align_right">22/07/07</td>
-                                                    </tr>
+                                                <tbody id="SDlist">
                                                 </tbody>
                                             </table>
                                         </div>
@@ -1285,12 +1259,12 @@ tr {
 <script src="/TeamProject/js/shop/chart.js"></script>
 <script type="text/javascript">
 $("document").ready(function() {
-		$(window).scroll(function() { 
-			var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다. 
-		     });    
-		});
+    $(window).scroll(function() { 
+        var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다. 
+    });
+});
 
-$(function(){     
+$(function(){
 	var lastScroll = 0;
 		$(window).scroll(function(event) {
 			var scroll = $(this).scrollTop();
@@ -1305,7 +1279,7 @@ $(function(){     
 		});
 	});
 
-$(function(){     
+$(function(){
 	var lastScroll = 0;
 		$(window).scroll(function(event) {
 			var scroll = $(this).scrollTop();
@@ -1373,7 +1347,6 @@ $('.c1_dropdown_head').on('click',function(){
 	}
 });
 
-
 /* 팝업 체결거래, 판매 입찰, 구매입찰 버튼 */
 $(document).on('click', '.c1_item_tab', function () {
     let index = $(".c1_item_tab").index(this);
@@ -1398,20 +1371,29 @@ $(document).on('click', '.c1_item_tab', function () {
 });
 /* 구매 사이즈 판매사이즈로 이동 */
 $('.c1_buy').on('click',function(){
-	var href = "/TeamProject/shop/selectBuySize?product_id=" +  $('#product_id').val();
-	$(location).attr("href", href);
+	if('${sessionScope.memId}'){
+        var href = "/TeamProject/shop/selectBuySize?product_id=" +  $('#product_id').val();
+	    $(location).attr("href", href);
+    }else{
+        alert('로그인 후 이용해주세요');
+    }
 })
 
 $('.c1_sell').on('click',function(){
-	$(location).attr("href", "/TeamProject/shop/selectSellSize");
+	if('${sessionScope.memId}'){
+        var href = "/TeamProject/shop/selectSellSize?product_id=" +  $('#product_id').val();
+	    $(location).attr("href", href);
+    }else{
+        alert('로그인 후 이용해주세요');
+    }
 })
-Number.prototype.format = function(){    
-	if(this==0) return 0;     
-	var reg = /(^[+-]?\d+)(\d{3})/;    
-	var n = (this + '');     
-	while (reg.test(n)) n = n.replace(reg, '$1' + ',' + '$2');     
+Number.prototype.format = function(){
+	if(this==0) return 0;
+	var reg = /(^[+-]?\d+)(\d{3})/;
+	var n = (this + '');
+	while (reg.test(n)) n = n.replace(reg, '$1' + ',' + '$2');
 	return n;
-}; 
+};
 $(document).ready(function(){
 	$.ajax({
 		type:'post',
@@ -1454,15 +1436,57 @@ $(document).ready(function(){
 					$('#sellprice1').text('-');	
 					$('#sellprice').text('-');	
 				}
+			if(data.signingdateprice!=null){
+				$('#signingdateprice').text(data.signingdateprice.price.format());
+				}else{
+					$('#signingdateprice').text('-');	
+				}
 			
-			$('#signingdateprice').text(data.signingdateprice.price.format());
-			$('#likepro').text(data.likeproduct.format());
-			$('#likepro1').text(data.likeproduct.format());
+			if(data.likeproduct!=null){
+				$('#likepro').text(data.likeproduct.format());
+				$('#likepro1').text(data.likeproduct.format());
+				}else{
+					$('#likepro').text('0');	
+					$('#likepro1').text('0');	
+				}
 		},
 		error:function(err){
 			console.log(err);
 		}		
 	});
+});
+$(document).ready(function(){
+    $.ajax({
+        url: '/TeamProject/shop/getshopDetaillist',
+        type: 'post',
+        data: 'product_id='+$('#product_id').val(),
+        dataType: 'json',
+        success: function(data){
+            $('#SDlist').html('');
+           	var addr;
+           	if(data != ''){
+	            $.each(data, function(index, items){
+					addr = '<tr>'+
+	                   '<td class="table_td">'+items.size_type+'</td>'+
+	                   '<td class="table_td align_right">'+items.price.format()+'</td>'+
+	                   '<td class="table_td align_right">'+items.signing_date+'</td>'+
+	                   '</tr>';
+	              	 $("#SDlist").append(addr);
+	           	})
+            }
+           	else{
+        		 addr = 
+        			 '<tr>'+
+        			'<td colspan="3" align="center" height="100" >최근 체결된 거래 내역이 없습니다.</td>'+
+        			'</tr>';
+        		$("#SDlist").append(addr);
+        	}
+
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
 });
 </script>
 </body>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" type="text/css" href="/TeamProject/css/shop/buy/buyPay.css"/>
+<link rel="stylesheet" type="text/css" href="/TeamProject/css/shop/sell/sellPay.css"/>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 
 <input type="hidden" id="payment_method" value="${map.payment_method}">
@@ -53,26 +53,6 @@
                                 </dl>
                             </div>
                             <a href="#" class="change_btn btn_edit outlinegrey small"> 변경 </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="section_unit">
-                    <div class="section_title"><h3 class="title_txt">배송 방법</h3></div>
-                    <div class="section_content">
-                        <div class="delivery_service_option">
-	                        <div class="way_info">
-	                            <div class="way_status_thumb">
-	                                <img
-	                                    src="https://kream-phinf.pstatic.net/MjAyMTExMjlfMTQ4/MDAxNjM4MTc4MjI5NTk3.2phJLPtRvFqViNfhZu06HzNRiUBlT4cmZR4_Ukqsyesg.ikrfWOrL7WXCVO0Rqy5kMvOn3B2YpjLUj6RuJqosPX0g.PNG/a_8b54cbca40e945f4abf1ee24bdd031f7.png"
-	                                    alt="3,000원" class="way_img"/>
-	                            </div>
-	                            <div class="way_desc">
-	                                <p class="company">
-	                                    <span class="badge_title">일반배송</span><span class="company_title">3,000원</span>
-	                                </p>
-	                                <p class="sub_text">검수 후 배송 ・ 5-7일 내 도착 예정</p>
-	                            </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -149,21 +129,6 @@
                                 <!-- <img src="/TeamProject/img/shop/cancel.png" alt="닫기" class="address_close_btn"> -->
                             </div>
                         </a>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <div class="section_title"><h3 class="title_txt">포인트</h3></div>
-                <div class="section_content">
-                    <div class="section_input">
-                        <input placeholder="결제 시점에 최대 사용" disabled="disabled" class="input_credit" /><button class="btn_use_credit">최대 사용</button>
-                    </div>
-                    <div class="info_point">
-                        <div>
-                            <span class="text_current">보유 포인트</span>
-                            <div class="value_current"><span class="point">0</span><span class="unit">P</span></div>
-                        </div>
-                        <p class="guide_point">구매 입찰은 ‘최대 사용'만 선택 가능하며, 거래 체결 시점에 보유한 모든 포인트를 사용합니다.</p>
                     </div>
                 </div>
             </section>
@@ -686,7 +651,7 @@ $(function(){
 		}
 		
 		if($('.active').length == 4 && $('#address_name').html() != ''){
-			$('.buy_btn').css('background-color', '#ef6253');
+			$('.buy_btn').css('background-color', '#31b46e');
             $('.buy_btn').css('cursor', 'pointer');
             $('.buy_btn').addClass('able');
 		}
@@ -723,7 +688,7 @@ var amount = '${map.total_price}';
 
 // 즉시 결제
 function general_request_pay() {
-    IMP.request_pay({ // param
+	IMP.request_pay({ // param
 		pg : 'kakaopay.TC0ONETIME',
 	    pay_method : 'card', //생략 가능
 	    merchant_uid: merchant_uid, // 상점에서 관리하는 주문 번호
@@ -736,36 +701,28 @@ function general_request_pay() {
 	    buyer_postcode : $('#selected_zipcode').val()
 	}, function (rsp) { // callback
 		if (rsp.success) {
-            var orig_price = '${map.price}';
-            var regex = /[^0-9]/g;
-            var buy_price = orig_price.replace(regex, "");
-
-            var today = new Date();
-            var year = today.getFullYear();
-            var month = ('0' + (today.getMonth() + 1)).slice(-2);
-            var day = ('0' + today.getDate()).slice(-2);
-            var dateString = year + '/' + month  + '/' + day;
-            jQuery.ajax({
-                url: "/TeamProject/shop/insertBuyPay",
-                type: 'post',
-                data: {
-                    product_id : '${map.productDTO.product_id }',
-                    address_id : $('#selected_addr_id').val(),
-                    user_id: buyer_email,
-                    buy_price: buy_price,
-                    period: dateString,
-                    size_type: '${map.size }',
-                    cum_uid: '0',
-                    status1: '결제완료',
-                    sell: '${map.sell}'
-                },
-                success: function(data){
-                    location.href = "/TeamProject/shop/buyFinish?bid="+data.buy_id;
+            alert(rsp.imp_uid + " | " + rsp.merchant_uid);
+			jQuery.ajax({
+				url: "/TeamProject/shop/insertBuyPay",
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				data: {
+				    product_id : '1234',
+                    addredd_id : '3',
+                    buy_price: '128000',
+                    period: '2022-07-14',
+                    size_type: 230,
+                    customer_uid: ''
+				},
+                success: function(){
+                    alert('저장 성공');
                 },
                 error: function(err){
                     console.log(err);
                 }
-            });
+			}).done(function(data){
+				
+			})
 		} else {
 			alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
 		}
@@ -788,31 +745,24 @@ function reservation_request_pay(){
 	    buyer_postcode : $('#selected_zipcode').val()
 	}, function(rsp) {
 		if ( rsp.success ) {
-            var orig_price = '${map.price}';
-            var regex = /[^0-9]/g;
-            var buy_price = orig_price.replace(regex, "");
-            var arr = $('.price_text:eq(5)').text().split(" ");
-            var dateString = arr[2].substring(0, arr[2].length-2);
             $.ajax({
                 url: '/TeamProject/shop/insertBuyPay',
-                type: 'post',
-                data: {
-                    product_id : '${map.productDTO.product_id }',
-                    address_id : $('#selected_addr_id').val(),
-                    user_id: buyer_email,
-                    buy_price: buy_price,
-                    period: dateString,
-                    size_type: '${map.size }',
-                    cum_uid: customer_uid,
-                    status1: '입찰중', 
-                },
-                success: function(data){
-                    /* location.href = "/TeamProject/shop/buyFinish?bid="+data.buy_id; */
-                },
-                error: function(err){
-                    console.log(err);
-                }
-            });
+				type: 'post',
+				data: {
+                    product_id : '1234',
+                    addredd_id : '3',
+                    buy_price: '128000',
+                    period: '2022-07-14',
+                    size_type: 230,
+                    customer_uid: customer_uid
+				},
+				success: function(){
+                    alert('빌링키 발급 성공');
+				},
+				error: function(err){
+					console.log(err);
+				}
+			});
 		} else {
 			alert('빌링키 발급 실패' + rsp.error_msg);
 		}

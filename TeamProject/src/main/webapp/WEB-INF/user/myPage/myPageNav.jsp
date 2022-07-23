@@ -73,16 +73,16 @@
             <div data-v-7bcac446="" class="snb_list">
                 <strong data-v-7bcac446="" class="snb_title">쇼핑 정보</strong>
                 <ul data-v-4d11470e="" data-v-7bcac446="" class="snb_menu">
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link unbold"> 구매 내역 </a></li>
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link unbold"> 판매 내역 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/TeamProject/user/buyHistory" class="menu_link unbold"> 구매 내역 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/TeamProject/user/sellHistory" class="menu_link unbold"> 판매 내역 </a></li>
                     <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/TeamProject/user/likePro" class="menu_link unbold"> 관심 상품 </a></li>
                 </ul>
             </div>
             <div data-v-7bcac446="" class="snb_list">
                 <strong data-v-7bcac446="" class="snb_title">내 정보</strong>
                 <ul data-v-4d11470e="" data-v-7bcac446="" class="snb_menu">
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link unbold"> 프로필 정보 </a></li>
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link unbold"> 판매 정산 계좌 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/TeamProject/user/myPageEdit" class="menu_link unbold"> 프로필 정보 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link unbold"> 주소록 </a></li>
                 </ul>
             </div>
         </nav>

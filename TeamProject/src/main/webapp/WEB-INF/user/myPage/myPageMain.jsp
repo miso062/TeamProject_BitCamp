@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <style type="text/css">
  *, :after, :before {
@@ -256,6 +256,14 @@
     .history_product .product_box .product {
         border-radius: 12px;
     }
+    .text-danger {
+    color: #f15746;
+   }
+   .status_txt {
+       display: block;
+       font-size: 14px;
+       letter-spacing: -.21px;
+   }
     .product_detail {
         margin-left: 16px;
         display: -webkit-box;
@@ -642,18 +650,17 @@
         width: 24px;
         height : 24px;
     }
-    
 </style>
 
 <div class="my_home">
     <div class="user_membership">
         <div class="user_detail">
             <div class="user_thumb">
-            	<img src="/TeamProject/img/user/profile.png" name="profile_img" alt="사용자이미지" class="thumb_img" /></div>
+               <img src="/TeamProject/img/user/profile.png" name="profile_img" alt="사용자이미지" class="thumb_img" /></div>
             <div class="user_info">
                 <div class="info_box">
                     <strong class="name">${userDTO.nickname }</strong>
-                    <p class="email">${userDTO.user_id }</p>
+                    <p class="email" id="user_id">${userDTO.user_id }</p>
                     <a href="/TeamProject/user/myPageEdit" class="btn btn outlinegrey small" type="button"> 프로필 수정 </a>
                     <a href="/social/users/@ein7di" class="btn btn btn_my_style outlinegrey small" type="button"> 내 스타일 </a>
                 </div>
@@ -672,7 +679,7 @@
     </div>
     <div class="my_home_title">
         <h3 class="title">구매 내역</h3>
-        <a href="#" class="btn_more">
+        <a href="/TeamProject/user/buyHistory" class="btn_more">
             <span class="btn_txt">더보기</span>
             <div  class="icon sprite-icons arr-right-gray">
                 <img src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
@@ -685,7 +692,7 @@
                 <a href="#" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">전체</dt>
-                        <dd class="count">1</dd>
+                        <dd class="count buy_countAll">1</dd>
                     </dl>
                 </a>
             </div>
@@ -693,16 +700,7 @@
                 <a href="#" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">입찰 중</dt>
-                        <dd class="count">0</dd>
-                    </dl>
-                </a>
-            </div>
-            <div class="tab_item">
-                <a href="#" class="tab_link">
-                    <dl class="tab_box">
-                        <dt class="title">진행 중</dt>
-                        <dd class="count">0</dd>
-                        <!---->
+                        <dd class="count buy_status1">0</dd>
                     </dl>
                 </a>
             </div>
@@ -710,67 +708,33 @@
                 <a href="#" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">종료</dt>
-                        <dd class="count">1</dd>
+                        <dd class="count buy_status2">1</dd>
                     </dl>
                 </a>
             </div>
         </div>
-        <div>
-            <div class="purchase_list all bid">
-                <!---->
-                <div class="purchase_item buy">
-                    <div class="history_product">
-                        <div class="product_box">
-                            <div class="product" style="background-color: rgb(235, 240, 245);">
-                                <picture  class="picture product_img" style="height:80px;">
-                                    <img
-                                        alt="Nike x Supreme Air Force 1 Low White"
-                                        src="https://kream-phinf.pstatic.net/MjAyMjAzMDdfMTMw/MDAxNjQ2NjM5MjMzNzM2.pELmvUZpCO9IHBnqPuT-MM_3KgRHEBM3PwKQITCziUwg.qa5jj2sXWiAyhwX4RP5m5ozoZinAf3yX8kSdf7UChDEg.PNG/a_1379738ed20947a8a52338c76436c3b8.png?type=m"
-                                        class="image"
-                                    />
-                                </picture>
-                            </div>
-                        </div>
-                        <div class="product_detail">
-                            <!---->
-                            <p class="name">Nike x Supreme Air Force 1 Low White</p>
-                            <p class="size"><span class="size_text">270</span></p>
-                        </div>
-                    </div>
-                    <div class="history_status">
-                        <div class="status_box field_price">
-                            <div class="price"><span class="amount">244,000</span><span class="unit">원</span></div>
-                        </div>
-                        <div class="status_box field_date_purchased"><span class="date"> 21/11/08</span></div>
-                        <div class="status_box field_date_paid"><span class="date"> </span></div>
-                        <div class="status_box field_expires_at"><span class="date text-default">-</span></div>
-                        <div class="status_box field_status">
-                            <span class="status_txt text-default">배송완료</span>
-                            <!---->
-                        </div>
-                    </div>
-                </div>
-                <!----><!----><!----><!----><!---->
-            </div>
-            <!---->
-        </div>
+      <div class="purchase_list buy_list all bid">
+               <div class="empty_area buy_empty_area" style="display: none;">
+                   <p class="desc">거래 내역이 없습니다.</p>
+               </div>
+      </div>
     </div>
     <div class="my_home_title">
         <h3 class="title">판매 내역</h3>
-        <a href="#" class="btn_more">
+        <a href="/TeamProject/user/sellHistory" class="btn_more">
             <span class="btn_txt">더보기</span>
             <div class="icon sprite-icons arr-right-gray">
                 <img src="/TeamProject/img/user/myPageContainer/more_icon.svg" art="더보기" style="width:16px; height:16px;">
             </div>
         </a>
     </div>
-    <div class="recent_purchase">
+   <div class="recent_purchase">
         <div class="purchase_list_tab sell">
             <div class="tab_item total">
                 <a href="#" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">전체</dt>
-                        <dd class="count">0</dd>
+                        <dd class="count sell_countAll">0</dd>
                     </dl>
                 </a>
             </div>
@@ -778,35 +742,26 @@
                 <a href="#" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">입찰 중</dt>
-                        <dd class="count">0</dd>
+                        <dd class="count sell_status1">0</dd>
                     </dl>
                 </a>
             </div>
             <div class="tab_item">
                 <a href="#" class="tab_link">
-                    <dl class="tab_box">
-                        <dt class="title">진행 중</dt>
-                        <dd class="count">0</dd>
-                    </dl>
-                </a>
-            </div>
-            <div class="tab_item">
-                <a href="#" class="tab_link">
-                    <dl class="tab_box">
+                    <dl class="tab_box ">
                         <dt class="title">종료</dt>
-                        <dd class="count">0</dd>
+                        <dd class="count sell_status2">0</dd>
                     </dl>
                 </a>
             </div>
         </div>
-        <div>
-            <div class="purchase_list all ask">
-                <div class="empty_area">
-                    <p class="desc">거래 내역이 없습니다.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+        
+      <div class="purchase_list sell_list all ask">
+               <div class="empty_area sell_empty_area" style="display: none;" >
+                   <p class="desc">거래 내역이 없습니다.</p>
+               </div>
+      </div>
+   </div>
     <div class="my_home_title">
         <h3 class="title">관심 상품</h3>
         <a href="/TeamProject/user/likePro" class="btn_more">
@@ -818,59 +773,26 @@
     </div>
     <div class="interest_product">
         <div class="product_list">
-            <div class="product_item">
-                <a href="/products/57553" class="item_inner">
-                    <div class="thumb_box">
-                        <div class="product" style="background-color: rgb(244, 244, 244);">
-                            <picture class="picture product_img">
-                                <img
-                                    alt="상품 이미지"
-                                    src="https://kream-phinf.pstatic.net/MjAyMjA0MTNfMjY4/MDAxNjQ5ODQyMTA1ODc0.-TvJ4Ce3ZEkJvgGL1EA64df67Vyow_t31WKv126nxbwg.s_s7bWMGTmnEAKAuQ-Iz4Ml9oKoaxIIvp4QcLNdbHfog.PNG/a_3e9ab26474954befb3fb619a0ec2191d.png?type=m"
-                                    class="image"
-                                />
-                            </picture>
-                            <!----><!----><!---->
-                        </div>
-                    </div>
-                    <div class="info_box">
-                        <div class="brand">
-                            <!---->
-                            <p class="brand-text">Hermes</p>
-                        </div>
-                        <p class="name">Hermes Izmir Sandal Calfskin &amp; Gold</p>
-                        <!---->
-                        <div class="price">
-                            <div class="amount md"><em class="num"> 1,199,000 </em><span class="won md">원</span></div>
-                            <div class="desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+        <!--관심 상품 -->
             <div class="product_item">
                 <a href="/products/46178" class="item_inner">
                     <div class="thumb_box">
                         <div class="product" style="background-color: rgb(244, 244, 244);">
-                            <picture class="picture product_img">
                                 <img
                                     alt="상품 이미지"
                                     src="https://kream-phinf.pstatic.net/MjAyMTEyMDJfMjUw/MDAxNjM4NDIyMTM5MzY4.R9ZV4AuKye2tKA3g6W_zCeDEKTWgsAhJyYnbAvjFAYsg.PQ8cY_jktruT6TjdGhhczKmkySmR-wfv7rhv-gmJWmAg.PNG/a_0bfa4c7bd3f64cc5b2f6689f97607277.png?type=m"
-                                    class="image"
+                                    class="image picture product_img"
                                 />
-                            </picture>
-                            <!----><!----><!---->
                         </div>
                     </div>
                     <div class="info_box">
                         <div class="brand">
-                            <!---->
                             <p class="brand-text">Mihara Yasuhiro</p>
                         </div>
                         <p class="name">Maison Mihara Yasuhiro Blakey OG Sole Canvas Low-top Sneaker Black White</p>
-                        <!---->
                         <div class="price">
                             <div class="amount md">
                                 <em class="num"> - </em>
-                                <!---->
                             </div>
                             <div class="desc"><p data-v-eb375314="">즉시 구매가</p></div>
                         </div>
@@ -880,7 +802,7 @@
         </div>
         <!---->
     </div>
-    <!---->
+    <!--포인트 레이어 -->
     <div class="layer_point layer md" style="display: none;">
         <div class="layer_container">
             <div class="layer_header"><h2 class="title">이용안내</h2></div>
@@ -903,43 +825,194 @@
                 </div>
                 <div class="layer_btn"><a data-v-28cabbb5="" href="#" class="btn outline medium" > 확인 </a></div>
             </div>
-            <a href="#" class="btn_layer_close">
-                <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-                    <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
-                </svg>
-            </a>
+            <a href="#" class="btn_layer_close"></a>
         </div>
     </div>
+   <!---->
 </div>
 <script type="text/javascript">
 window.onload = function() {
-	alert(document.getElementsByClassName('membership_item > info').value());
-	document.getElementById('point').value() = document.getElementsByClassName('membership_item > info').value()
+   alert(document.getElementsByClassName('membership_item > info').value());
+   document.getElementById('point').value() = document.getElementsByClassName('membership_item > info').value();
 }
 window.onload = function(){
-	var image = '${userDTO.profile_img}';
-	
-	if(image==null || image==''){
+   var image = '${userDTO.profile_img}';
+   
+   if(image==null || image==''){
         document.querySelector('.thumb_img').setAttribute('src','/TeamProject/img/user/profile.png');
     }else{
-    	document.querySelector('.thumb_img').setAttribute('src', '/TeamProject/storage/'+image);
+       document.querySelector('.thumb_img').setAttribute('src', '/TeamProject/storage/'+image);
     }
 }
 $('.membership_item').click(function(){
-	$('.layer_point').fadeIn();
+   $('.layer_point').fadeIn();
     $('body').css("overflow", "hidden");
 });
 $(document).on("click",function(e){
-	if($('.layer_point').is(e.target)) {
-		$('.layer_point').fadeOut();
+   if($('.layer_point').is(e.target)) {
+      $('.layer_point').fadeOut();
         $('body').css("overflow-y", "scroll");
-        
-	}
+   }
 })
 $('.layer_btn').click(function(){
     $('.layer_point').fadeOut();
     $('body').css("overflow", "scroll");
 })
 
+$(document).ready(function(){
+   $.ajax({
+      type:'post',
+      url:'/TeamProject/user/getBuyHistory',
+      data:'user_id='+$('#user_id').val(),
+      dataType:'json',
+      success: function(data){
+		//배경 색
+		var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+		//거래내역없을 때
+		if(data.buy_historyList.length == 0){
+			$('.buy_empty_area').show();
+		}
+		//구매거래내역 카운트
+		var buy_status1_count = 0;
+		var buy_status2_count = 0;
+		
+		
+       	for(var i = 0; i < data.buy_historyList.length; i++){
+       		if(data.buy_historyList[i].status1 != null){
+       			buy_status1_count = buy_status1_count + 1;
+       		}
+       		if(data.buy_historyList[i].status2 != null){
+       			buy_status2_count = buy_status2_count + 1;
+       		}
+       	}
+       	
+   		$('.buy_status1').text(buy_status1_count);
+   		$('.buy_status2').text(buy_status2_count);
+   		$('.buy_countAll').text(buy_status1_count + buy_status2_count);
+   		
+		for(var i = 0; i< data.buy_historyList.length ; i++){
+            //console.log(data.num, data.buy_historyList[i].user_id, data.productImgList[i].org_file_name ,data.productImgList[i].file_path);
+            var random = Math.floor( Math.random() * 4 ); 
+               $('<div/>',{
+                class: 'purchase_item buy_purchase_item'
+            }).append($('<div/>',{
+                class: 'history_product'
+            }).append($('<div/>',{
+                class: 'product_box'
+            }).append($('<div/>',{
+                class: 'product',
+                style: 'background-color: '+ colorList[random] + ';'
+            }).append($('<img/>',{
+                class: 'picture product_img image',
+                style: 'height:80px;',
+                src: data.productImgList[i].file_path
+            })))).append($('<div/>',{
+                class: 'product_detail'
+            }).append($('<p/>',{
+                class: 'name',
+                text: data.productImgList[i].org_file_name
+            })).append($('<p/>',{
+                class: 'size'
+            }).append($('<span/>',{
+                class: 'size_text',
+                text: data.buy_historyList[i].size_type
+            }))))).append($('<div/>',{
+                class:'history_status'
+            }).append($('<div/>',{
+                class: 'status_box field_status'
+            }).append($('<span/>',{
+                class: 'status_txt text-default',
+                text: data.buy_historyList[i].status1
+            })).append($('<span/>',{
+                   class: 'status_txt text-default text-danger',
+                   text: data.buy_historyList[i].status2
+               })))).appendTo('.buy_list');
+			//상품 3개까지 보이게하기
+			if( i > 1){
+			   break;
+			}
+         } 
+      },error:function(err){
+         console.log(err);
+      }      
+   });
+});
 
+$(document).ready(function(){
+   $.ajax({
+      type:'post',
+      url:'/TeamProject/user/getSellHistory',
+      data:'user_id='+$('#user_id').val(),
+      dataType:'json',
+      success: function(data){
+		//배경 색
+		var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+		//거래내역 없을때
+		if(data.sell_historyList.length == 0){
+            $('.sell_empty_area').show();
+		}
+		//구매거래내역 카운트
+		var sell_status1_count = 0;
+		var sell_status2_count = 0;
+		
+       	for(var i = 0; i < data.sell_historyList.length; i++){
+       		if(data.sell_historyList[i].status1 != null){
+       			sell_status1_count = sell_status1_count + 1;
+       		}
+       		if(data.sell_historyList[i].status2 != null){
+       			sell_status2_count = sell_status2_count + 1;
+       		}
+       	}
+       	
+   		$('.sell_status1').text(sell_status1_count);
+   		$('.sell_status2').text(sell_status2_count);
+   		$('.sell_countAll').text(sell_status1_count + sell_status2_count);
+          
+         for(var i = 0; i< data.sell_historyList.length ; i++){
+            var random = Math.floor( Math.random() * 4 ); 
+            
+               $('<div/>',{
+                class: 'purchase_item sell_purchase_item'
+            }).append($('<div/>',{
+                class: 'history_product'
+            }).append($('<div/>',{
+                class: 'product_box'
+            }).append($('<div/>',{
+                class: 'product',
+                style: 'background-color: '+ colorList[random] + ';'
+            }).append($('<img/>',{
+                class: 'picture product_img image',
+                style: 'height:80px;',
+                src: data.productImgList[i].file_path
+            })))).append($('<div/>',{
+                class: 'product_detail'
+            }).append($('<p/>',{
+                class: 'name',
+                text: data.productImgList[i].org_file_name
+            })).append($('<p/>',{
+                class: 'size'
+            }).append($('<span/>',{
+                class: 'size_text',
+                text: data.sell_historyList[i].size_type
+            }))))).append($('<div/>',{
+                class:'history_status'
+            }).append($('<div/>',{
+                class: 'status_box field_status'
+            }).append($('<span/>',{
+                class: 'status_txt text-default',
+                text: data.sell_historyList[i].status1
+            })).append($('<span/>',{
+                    class: 'status_txt text-default text-danger',
+                    text: data.sell_historyList[i].status2
+                })))).appendTo('.sell_list');
+			 //상품 3개까지 보이게하기
+			if( i > 1){
+			   break;
+			}
+         } 
+      },error:function(err){
+         console.log(err);
+      }      
+   });
+});
 </script>

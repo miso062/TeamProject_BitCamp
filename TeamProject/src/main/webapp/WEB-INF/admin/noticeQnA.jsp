@@ -183,7 +183,7 @@ text-align:center;
 	<input class="category_list" type="button" value="공통">
 	<input class="category_list" type="button" value="구매">
 	<input class="category_list" type="button" value="판매">
-	<input class="category_list" type="button" value="QnA작성" onclick="location.href='/TeamProject/admin/noticeQnAwrite'">
+	<input class="category_list onlyadmin" type="button" value="QnA작성" onclick="location.href='/TeamProject/admin/noticeQnAwrite'">
 </div>
 <ul id="ListTable">
 	<!-- 동적처리 -->
@@ -195,6 +195,12 @@ text-align:center;
 
 <script type="text/javascript">
 $(document).ready(function(){
+	if('${sessionScope.memAuthority}'!= 10){
+		$('.onlyadmin').hide();
+	}else{
+		$('.onlyadmin').show();
+	}
+	
 	$('#sub_area > ul > li:eq(1)').addClass('bold');
 	$('#sub_area > ul > li:eq(2)').removeClass('bold');
 	$('#sub_area > ul > li:eq(0)').removeClass('bold');
@@ -241,13 +247,13 @@ $(document).ready(function(){
 					})).append($('<div/>',{
 						
 					}).append($('<input/>',{
-						class:"updel",
+						class:"updel onlyadmin",
 						type:"button",
 						value:"글삭제",
 						style:"margin:5px;",
 						id:"noticeDeletebtn"
 					})).append($('<input/>',{
-						class:"updel",
+						class:"updel onlyadmin",
 						type:"button",
 						value:"글수정",
 						style:"margin:5px;",
@@ -266,7 +272,11 @@ $(document).ready(function(){
 					  name:'pg',
 					  value: $('#pg').val()
 				  }))).appendTo($('#ListTable'));
-				
+					if('${sessionScope.memAuthority}'!= 10){
+						$('.onlyadmin').hide();
+					}else{
+						$('.onlyadmin').show();
+					}
 			});
 			$('#PagingDiv').html(data.adminPaging.pagingHTML);
 		},

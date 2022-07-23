@@ -1,6 +1,5 @@
 package shop.service;
 
-import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,12 +16,17 @@ import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import shop.dao.ShopDAO;
 import user.bean.AddressDTO;
+import user.bean.UserDTO;
+import user.dao.UserDAO;
 
 @Service
 public class ShopServiceImpl implements ShopService {
 	
 	@Autowired
 	public ShopDAO shopDAO;
+	
+	@Autowired
+	public UserDAO userDAO;
 	
 	@Autowired
 	HttpSession session;
@@ -52,7 +56,6 @@ public class ShopServiceImpl implements ShopService {
 		map.put("signingdateprice", getsigningdateprice(product_id));
 		map.put("likeproduct", getlikeproduct(product_id));
 		
-		
 		return map;
 	}
 	
@@ -62,17 +65,14 @@ public class ShopServiceImpl implements ShopService {
 
 	private Market_priceDTO getsigningdateprice(int product_id) {
 		return shopDAO.getsigningdateprice(product_id);
-		
 	}
 
 	private Integer getbuyhistory(int product_id) {
 		return shopDAO.getbuyhistory(product_id);
-		
 	}
 
 	private Integer getsellhistory(int product_id) {
 		return  shopDAO.getsellhistory(product_id);
-		
 	}
 
 	public ProductDTO getProduct(int product_id) { 
@@ -90,11 +90,21 @@ public class ShopServiceImpl implements ShopService {
 	}
 
 	@Override
+	public List<Buy_historyDTO> getBuyList(int product_id) {
+		return shopDAO.getBuyList(product_id);
+	}
+
+	@Override
 	public Sell_historyDTO getSellDTO(int product_id, int size) {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("product_id", product_id);
 		map.put("size", size);
 		return shopDAO.getSellDTO(map);
+	}
+	
+	@Override
+	public Sell_historyDTO getSellDTO(int sell) {
+		return shopDAO.getSellDTO(sell);
 	}
 
 	@Override
@@ -121,9 +131,40 @@ public class ShopServiceImpl implements ShopService {
 	}
 
 	@Override
+	public AddressDTO getAddress(int addr_id) {		
+		return shopDAO.getAddress(addr_id);
+	}
+	
+	@Override
+	public UserDTO getUserInfo() {
+		return userDAO.getUserInfo((String) session.getAttribute("memId"));
+	}
+	
+	@Override
 	public List<Market_priceDTO> getchart(int product_id) {
 		return shopDAO.getchart(product_id);
 	}
 
+	@Override
+	public List<Market_priceDTO> getshopDetaillist(int product_id) {
+		return shopDAO.getshopDetaillist(product_id);
+  }
+ 
+	@Override
+	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO) {
+		return shopDAO.insertBuyPay(buy_historyDTO);		
+	}
 
+	@Override
+	public Buy_historyDTO insertBuyPayBySellId(Buy_historyDTO buy_historyDTO, int sell) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("buy_historyDTO", buy_historyDTO);
+		map.put("sell", sell);
+		return shopDAO.insertBuyPayBySellId(map);
+	}
+
+	@Override
+	public Buy_historyDTO getBuyDTOById(int bid) {
+		return shopDAO.getBuyDTOById(bid);
+	}
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import product.bean.Buy_historyDTO;
+import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
 import user.bean.LikeProDTO;
@@ -66,14 +67,12 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public void bookMarkDelete(Map<String, Object> map) {
-		System.out.println("너 여기까지 오냐?");
 		sqlSession.delete("userSQL.bookMarkDelete", map);
-		System.out.println("여기까지오냐고");
 	}
 	
 	@Override
-	public List<LikeProDTO> bookMarkGet(Map<String, Object> map) {
-		return sqlSession.selectList("userSQL.bookMarkGet", map);
+	public List<LikeProDTO> bookMarkGet(String id) {
+		return sqlSession.selectList("userSQL.bookMarkGet", id);
 	}
   
 	public int checkNick(String nickname) {
@@ -141,6 +140,11 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	public ProductImgDTO getProductImg(int product_id) {
+		return sqlSession.selectOne("userSQL.getProductImg", product_id);
+	}
+	
+	@Override
 	public int checkIdKakao(String user_id) {
 
 		return sqlSession.selectOne("userSQL.checkIdKakao", user_id);
@@ -150,5 +154,6 @@ public class UserDAOImpl implements UserDAO {
 	public void writeKakao(String user_id) {
 		sqlSession.insert("userSQL.writeKakao", user_id);
 	}
+
 }
 	

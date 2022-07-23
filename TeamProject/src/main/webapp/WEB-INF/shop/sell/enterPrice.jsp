@@ -27,15 +27,15 @@
 	color: #31b46e
 }
 
-.notice.buyer_notice[data-v-2ab7e5d3] {
+.notice.seller_notice[data-v-2ab7e5d3] {
 	background-color: #fef7f6
 }
 
-.notice.buyer_notice .tag[data-v-2ab7e5d3] {
-	background-color: #ef6253
+.notice.seller_notice .tag[data-v-2ab7e5d3] {
+	background-color: #41b979
 }
 
-.notice.buyer_notice .benefit[data-v-2ab7e5d3] {
+.notice.seller_notice .benefit[data-v-2ab7e5d3] {
 	color: #f15746
 }
 
@@ -79,7 +79,7 @@
 	padding-right: 10px
 }
 
-.sm .buy_product[data-v-2ab7e5d3] {
+.sm .sell_product[data-v-2ab7e5d3] {
 	padding-left: 16px;
 	padding-right: 16px
 }
@@ -127,21 +127,21 @@
 	height: auto
 }
 
-.buy_complete .product[data-v-75e33658] {
+.sell_complete .product[data-v-75e33658] {
 	border-radius: 0;
 	padding-top: 0;
 	height: 200px
 }
 
-.buy_complete .product_img[data-v-75e33658] {
+.sell_complete .product_img[data-v-75e33658] {
 	width: 200px
 }
 
-.buy_complete.mo .product[data-v-75e33658] {
+.sell_complete.mo .product[data-v-75e33658] {
 	height: 410px
 }
 
-.buy_complete.mo .product_img[data-v-75e33658] {
+.sell_complete.mo .product_img[data-v-75e33658] {
 	width: 410px
 }
 .stocked_status_mark[data-v-75e33658] {
@@ -493,18 +493,18 @@ section[data-v-4963821f]:first-of-type {
 	margin-top: 0
 }
 
-.buy_total_price .price_title[data-v-679d7250] {
+.sell_total_price .price_title[data-v-679d7250] {
 	font-size: 13px;
 	letter-spacing: -.07px
 }
 
-.buy_total_confirm[data-v-65a8cedc] {
+.sell_total_confirm[data-v-65a8cedc] {
 	padding: 0 32px 32px;
 	border-top: 1px solid #ebebeb;
 	background-color: #fff
 }
 
-.step-2 .buy_total_confirm[data-v-65a8cedc] {
+.step-2 .sell_total_confirm[data-v-65a8cedc] {
 	border-top: 0
 }
 
@@ -512,18 +512,18 @@ section[data-v-4963821f]:first-of-type {
 	font-weight: 600
 }
 
-.buy_total_price[data-v-65a8cedc] {
+.sell_total_price[data-v-65a8cedc] {
 	padding: 14px 24px 12px;
 	background-color: #fff;
 	border-top: 1px solid #ebebeb;
 	z-index: 1
 }
 
-.step-2 .buy_total_price[data-v-65a8cedc] {
+.step-2 .sell_total_price[data-v-65a8cedc] {
 	margin-top: 20px
 }
 
-.mo .buy_total_price[data-v-65a8cedc], .sm .buy_total_price[data-v-65a8cedc]
+.mo .sell_total_price[data-v-65a8cedc], .sm .sell_total_price[data-v-65a8cedc]
 	{
 	padding: 0 16px 32px
 }
@@ -631,40 +631,40 @@ section[data-v-4963821f]:first-of-type {
 	pointer-events: none
 }
 
-.tab_area.buy_tab .tab_list[data-v-b6b2883e] {
+.tab_area.sell_tab .tab_list[data-v-b6b2883e] {
 	border-radius: 80px;
 	border: 1px solid #ebebeb;
 	margin-bottom: 27px
 }
 
-.mo .tab_area.buy_tab .tab_list[data-v-b6b2883e], .sm .tab_area.buy_tab .tab_list[data-v-b6b2883e]
+.mo .tab_area.sell_tab .tab_list[data-v-b6b2883e], .sm .tab_area.sell_tab .tab_list[data-v-b6b2883e]
 	{
 	margin-bottom: 28px
 }
 
-.tab_area.buy_tab .item[data-v-b6b2883e] {
+.tab_area.sell_tab .item[data-v-b6b2883e] {
 	margin: 3px 0
 }
 
-.tab_area.buy_tab .item[data-v-b6b2883e]:first-child {
+.tab_area.sell_tab .item[data-v-b6b2883e]:first-child {
 	margin-left: 3px
 }
 
-.tab_area.buy_tab .item[data-v-b6b2883e]:last-child {
+.tab_area.sell_tab .item[data-v-b6b2883e]:last-child {
 	margin-right: 3px
 }
 
-.tab_area.buy_tab .item.on .item_link[data-v-b6b2883e] {
+.tab_area.sell_tab .item.on .item_link[data-v-b6b2883e] {
 	color: #fff;
 	font-weight: 700;
-	background-color: #ef6253
-}
-
-.container.sell .tab_area.buy_tab .item.on .item_link[data-v-b6b2883e] {
 	background-color: #41b979
 }
 
-.tab_area.buy_tab .item .item_link[data-v-b6b2883e] {
+.container.sell .tab_area.sell_tab .item.on .item_link[data-v-b6b2883e] {
+	background-color: #41b979
+}
+
+.tab_area.sell_tab .item .item_link[data-v-b6b2883e] {
 	border-radius: 80px;
 	padding: 14px 0;
 	font-size: 14px;
@@ -794,7 +794,7 @@ input {
 	margin-top: 2px
 }
 
-.price_addition.buy_point .price_title[data-v-3a2a7b6b] {
+.price_addition.sell_point .price_title[data-v-3a2a7b6b] {
 	color: rgba(34, 34, 34, .8)
 }
 
@@ -810,7 +810,7 @@ input {
 	color: #222
 }
 
-.price_title.buy[data-v-3a2a7b6b] {
+.price_title.sell[data-v-3a2a7b6b] {
 	color: #f15746
 }
 
@@ -847,7 +847,7 @@ input {
 	font-weight: 600
 }
 
-.price_text[data-v-3a2a7b6b].buy {
+.price_text[data-v-3a2a7b6b].sell {
 	color: #f15746
 }
 
@@ -886,8 +886,7 @@ input {
 	padding-right: 60px
 }
 
-.buy_immediate[data-v-1e6a25e8], .price_descision_box[data-v-1e6a25e8] {
-	box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+.sell_immediate[data-v-1e6a25e8], .price_descision_box[data-v-1e6a25e8] {
 	background-color: #fff
 }
 
@@ -914,22 +913,22 @@ input {
 	padding: 16px 16px 20px
 }
  */
-.buy_check[data-v-1e6a25e8], .sm .deadline_info_area[data-v-1e6a25e8] .deadline_tab .btn
+.sell_check[data-v-1e6a25e8], .sm .deadline_info_area[data-v-1e6a25e8] .deadline_tab .btn
 	{
 	padding: 0
 }
 
-.buy_check[data-v-1e6a25e8] .check_list {
+.sell_check[data-v-1e6a25e8] .check_list {
 	padding-top: 32px;
 	padding-left: 32px;
 	padding-right: 32px
 }
 
-.buy_check .buy_total_confirm[data-v-1e6a25e8] {
+.sell_check .sell_total_confirm[data-v-1e6a25e8] {
 	padding: 0 32px 32px
 }
 
-.buy_check .buy_total_confirm[data-v-1e6a25e8] .price_total .price_title
+.sell_check .sell_total_confirm[data-v-1e6a25e8] .price_total .price_title
 	{
 	line-height: 18px;
 	font-size: 15px;
@@ -1400,12 +1399,12 @@ input {
 	padding: 0 17px
 }
 
-.container.buy[data-v-6657f7cc] {
+.container.sell[data-v-6657f7cc] {
 	background-color: #fafafa
 }
 
-.container.buy.lg .is_absolute .spread[data-v-6657f7cc], .container.buy.lg .is_fixed .spread[data-v-6657f7cc],
-	.container.buy.md .is_absolute .spread[data-v-6657f7cc], .container.buy.md .is_fixed .spread[data-v-6657f7cc]
+.container.sell.lg .is_absolute .spread[data-v-6657f7cc], .container.sell.lg .is_fixed .spread[data-v-6657f7cc],
+	.container.sell.md .is_absolute .spread[data-v-6657f7cc], .container.sell.md .is_fixed .spread[data-v-6657f7cc]
 	{
 	position: static;
 	display: block;
@@ -1413,59 +1412,59 @@ input {
 	background-color: rgba(0, 0, 0, 0)
 }
 
-.container.buy.lg .is_fixed .column_box[data-v-6657f7cc], .container.buy.md .is_fixed .column_box[data-v-6657f7cc]
+.container.sell.lg .is_fixed .column_box[data-v-6657f7cc], .container.sell.md .is_fixed .column_box[data-v-6657f7cc]
 	{
 	position: fixed;
 	top: 130px
 }
 
-.container.buy.lg .is_absolute .column_box[data-v-6657f7cc], .container.buy.md .is_absolute .column_box[data-v-6657f7cc]
+.container.sell.lg .is_absolute .column_box[data-v-6657f7cc], .container.sell.md .is_absolute .column_box[data-v-6657f7cc]
 	{
 	position: absolute;
 	bottom: 100px
 }
 
-.container.buy.mo[data-v-6657f7cc], .container.buy.sm[data-v-6657f7cc] {
+.container.sell.mo[data-v-6657f7cc], .container.sell.sm[data-v-6657f7cc] {
 	background-color: #fff
 }
 
-.container.buy.mo .content[data-v-6657f7cc], .container.buy.sm .content[data-v-6657f7cc]
+.container.sell.mo .content[data-v-6657f7cc], .container.sell.sm .content[data-v-6657f7cc]
 	{
 	padding: 0
 }
 
-.container.buy.mo .column[data-v-6657f7cc], .container.buy.sm .column[data-v-6657f7cc]
+.container.sell.mo .column[data-v-6657f7cc], .container.sell.sm .column[data-v-6657f7cc]
 	{
 	float: none;
 	margin-left: 0;
 	width: 100%
 }
 
-.container.buy.mo .column:first-child .column_box[data-v-6657f7cc],
-	.container.buy.sm .column:first-child .column_box[data-v-6657f7cc] {
+.container.sell.mo .column:first-child .column_box[data-v-6657f7cc],
+	.container.sell.sm .column:first-child .column_box[data-v-6657f7cc] {
 	border-bottom: 8px solid #f4f4f4
 }
 
-.container.buy.mo .column_box[data-v-6657f7cc], .container.buy.sm .column_box[data-v-6657f7cc]
+.container.sell.mo .column_box[data-v-6657f7cc], .container.sell.sm .column_box[data-v-6657f7cc]
 	{
 	width: 100% !important
 }
 
-.container.buy.mo .buy_product[data-v-6657f7cc], .container.buy.sm .buy_product[data-v-6657f7cc]
+.container.sell.mo .sell_product[data-v-6657f7cc], .container.sell.sm .sell_product[data-v-6657f7cc]
 	{
 	padding: 8px 24px 20px;
 	-webkit-box-shadow: none;
 	box-shadow: none
 }
 
-.container.buy.mo .buy_product[data-v-6657f7cc]:after, .container.buy.sm .buy_product[data-v-6657f7cc]:after
+.container.sell.mo .sell_product[data-v-6657f7cc]:after, .container.sell.sm .sell_product[data-v-6657f7cc]:after
 	{
 	content: "";
 	display: block;
 	clear: both
 }
 
-.container.buy.mo .buy_product .product[data-v-6657f7cc], .container.buy.sm .buy_product .product[data-v-6657f7cc]
+.container.sell.mo .sell_product .product[data-v-6657f7cc], .container.sell.sm .sell_product .product[data-v-6657f7cc]
 	{
 	float: left;
 	width: 100px;
@@ -1474,7 +1473,7 @@ input {
 	margin-right: 16px
 }
 
-.container.buy.mo .buy_product .buy_info[data-v-6657f7cc], .container.buy.sm .buy_product .buy_info[data-v-6657f7cc]
+.container.sell.mo .sell_product .sell_info[data-v-6657f7cc], .container.sell.sm .sell_product .sell_info[data-v-6657f7cc]
 	{
 	overflow: hidden
 }
@@ -1485,7 +1484,7 @@ input {
 	max-width: 780px
 }
 
-.buy_product[data-v-6657f7cc] {
+.sell_product[data-v-6657f7cc] {
 	padding: 32px;
 	background-color: #fff;
 	-webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .1);
@@ -1536,13 +1535,12 @@ input {
 .change{
 	color: #fff;
     font-weight: 700;
-    background-color: #ef6253;
+    background-color: #41b979;
 }
 </style>
 
-<form id="enterPriceForm" method="post" action="/TeamProject/shop/buyPay">
+<form id="enterPriceForm" method="post" action="/TeamProject/shop/sellPay">
 	<input type="hidden" name="product_id" id="product_id"value=${productDTO.product_id}>
-	<input type="hidden" name="sell" id="sell" value=${sellDTO.sell_id}>
 	<input type="hidden" name="size" id="size" value=${size}>
 	<input type="hidden" name="peroid" id="peroid" value="">
 	<input type="hidden" name="payment_method" id="payment_method" value="">
@@ -1550,9 +1548,9 @@ input {
 	<input type="hidden" name="deadline" id="deadline" value="">
 </form>
 <div id="content1">
-	<div data-v-6657f7cc="" data-v-7ab136e9="" class="container buy md">
+	<div data-v-6657f7cc="" data-v-7ab136e9="" class="container sell md">
 		<div data-v-6657f7cc="" class="content">
-			<div data-v-1e6a25e8="" data-v-6657f7cc="" class="buy_immediate">
+			<div data-v-1e6a25e8="" data-v-6657f7cc="" class="sell_immediate">
 				<div data-v-1643775e="" data-v-1e6a25e8="" class="product_info_area">
 					<div data-v-1643775e="" class="product_info">
 						<div data-v-75e33658="" data-v-1643775e="" class="product" style="background-color: rgb(246, 238, 237);">
@@ -1567,7 +1565,7 @@ input {
 							<p data-v-1643775e="" class="model_title">${productDTO.eng_name }</p>
 							<p data-v-1643775e="" class="model_ko">${productDTO.kor_name }</p>
 							<div data-v-1643775e="" class="model_desc">
-								<p data-v-1643775e="" class="size_txt">${size}</p>
+								<p data-v-1643775e="" class="size_txt">${size }</p>
 							</div>
 						</div>
 					</div>
@@ -1584,20 +1582,20 @@ input {
 						</li>
 					</ul>
 					<div data-v-158ed304="" class="instant_group">
-						<div data-v-b6b2883e="" data-v-158ed304="" class="tab_area buy_tab">
+						<div data-v-b6b2883e="" data-v-158ed304="" class="tab_area sell_tab">
 							<ul data-v-b6b2883e="" role="tablist" class="tab_list">
 								<li data-v-b6b2883e="" role="tab" aria-selected="true" aria-controls="panel1" class="item">
-									<a data-v-b6b2883e="" href="#" class="item_link" id="hide_Btn1">구매 입찰</a>
+									<a data-v-b6b2883e="" href="#" class="item_link" id="hide_Btn1">판매 입찰</a>
 								</li>
 								<li data-v-b6b2883e="" role="tab" aria-selected="false" aria-controls="panel2" class="item on">
-									<a data-v-b6b2883e="" href="#" class="item_link" id="disabledBtn">즉시 구매</a>
+									<a data-v-b6b2883e="" href="#" class="item_link" id="disabledBtn">즉시 판매</a>
 								</li>
 							</ul>
 						</div>
 						<div class="hide_content1">
 							<div data-v-03750f89="" data-v-158ed304="" class="price_now active_input">
 								<dl data-v-03750f89="" class="price_now_box">
-									<dt data-v-03750f89="" class="price_now_title">즉시 구매가</dt>
+									<dt data-v-03750f89="" class="price_now_title">즉시 판매가</dt>
 									<dd data-v-03750f89="" class="price_warning" style="display: none;">
 										3만원 부터 천원단위로 입력하세요.
 									</dd>
@@ -1634,7 +1632,7 @@ input {
 						</div>
 					</div>
 				</div>
-				<div data-v-65a8cedc="" data-v-1e6a25e8="" class="buy_total_confirm">
+				<div data-v-65a8cedc="" data-v-1e6a25e8="" class="sell_total_confirm">
 					<div data-v-679d7250="" data-v-65a8cedc="" class="price_total">
 						<dl data-v-679d7250="" class="price_box price_empty">
 							<dt data-v-679d7250="" class="price_title">총 결제금액</dt>
@@ -1644,7 +1642,7 @@ input {
 					</div>
 					<div data-v-65a8cedc="" class="btn_confirm">
 						<a data-v-3d1bcc82="" data-v-65a8cedc="" class="btn full solid false disabled" id="btn_continue">
-							<div id="continue_btn"> 즉시 구매 계속 </div>
+							<div id="continue_btn"> 즉시 판매 계속 </div>
 						</a>
 					</div>
 				</div>
@@ -1676,12 +1674,12 @@ $(function(){
 	});
 	
 });
-//구매입찰 즉시구매 버튼 
+//판매입찰 즉시판매 버튼 
 $(function(){
 	$('.item_link').each(function(){
 		$(this).click(function(){
 			if($(this).attr('id') != 'disabledBtn'){
-				$(this).css('background-color', '#ef6253');
+				$(this).css('background-color', '#41b979');
 				$(this).css('color', '#fff');
 				$(this).css('font-weight', '700');
 				$('#payment_method').val($(this).text());
@@ -1694,7 +1692,7 @@ $(function(){
 });
 
 $(function(){
-	if($('#continue_btn').val() != "구매 입찰 계속"){
+	if($('#continue_btn').val() != "판매 입찰 계속"){
 		$('.input_amount').val($('#title_price').text());
 		$('.input_amount').attr('readonly', true);
 	}
@@ -1706,30 +1704,20 @@ $(function(){
 		$('.deadline_info_area').show();
 		$('#btn_continue').css('background-color', '#ebebeb');
 		$('#btn_continue').attr('disabled', true);
-		$('#continue_btn').html('구매 입찰 계속');
+		$('#continue_btn').html('판매 입찰 계속');
 		$('.input_amount').val('');
 		$('.input_amount').attr('readonly', false);
-		$('.price_now_title').html('구매 희망가');
+		$('.price_now_title').html('판매 희망가');
 	});
 	$(document).on('click', '#hide_Btn2', function(){
 		$('.deadline_info_area').hide();
 		$('#btn_continue').css('background-color', '#222');
 		$('#btn_continue').attr('disabled', false);
-		$('#continue_btn').html('즉시 구매 계속');
-		$('.price_now_title').html('즉시 구매가');
+		$('#continue_btn').html('즉시 판매 계속');
+		$('.price_now_title').html('즉시 판매가');
 		$('.input_amount').val($('#title_price').text());
 		$('.input_amount').attr('readonly', true);
 	});
-	// $('#hide_Btn2').click(function(){
-	// 	$('.deadline_info_area').hide();
-	// 	$('#btn_continue').css('background-color', '#222');
-	// 	$('#btn_continue').attr('disabled', false);
-	// 	$('#continue_btn').html('즉시 구매 계속');
-	// 	$('.price_now_title').html('즉시 구매가');
-	// 	$('.input_amount').val($('#title_price').text());
-	// 	$('.input_amount').attr('readonly', true);
-	// 	/* $('input').html($(this).find('#title_price'),html()); */
-	// })
 });
 
 var result;
@@ -1786,8 +1774,8 @@ $(function(){
 function check_price(price){
 	if(parseInt(price.replace(/,/g,'')) < 30000){
 		$('.price_warning').css('display', 'block');
-		$('.price_now_box').css('border-bottom', '2px solid #ef6253');
-		$('.price_now_title').css('color','#ef6253');
+		$('.price_now_box').css('border-bottom', '2px solid #41b979');
+		$('.price_now_title').css('color','#41b979');
 		$("input").focusout(function(){
 			$('#btn_continue').css('background-color', '#ebebeb');
 			$('#btn_continue').attr('disabled', true);
@@ -1837,29 +1825,27 @@ $(function(){
 		type: 'post',
 		data: {
 			'product_id' : $('#product_id').val(),
-			'size': $('#size').val(),
-			'sell': $('#sell').val()
+			'size': $('.size_txt').text()
 		},
 		dataType: 'json',
 		success: function(data){
 			// alert(JSON.stringify(data));
-			if(!data.sellDTO){
-				$('.im_buy_price').text('-');
-				$('#hide_Btn1').trigger('click');
-				$('#payment_method').val('구매 입찰');
-				$('#disabledBtn').css('cursor', 'default');
-			}
-			else{
-				$('.im_buy_price').text(data.sellDTO.sell_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
-				$('#input_price').val($('.im_buy_price').text());
-				$('#disabledBtn').attr('id', 'hide_Btn2');
-				$('#payment_method').val('즉시 구매');
-			}
 			if(!data.buyDTO){
 				$('.im_sell_price').text('-');
+				$('#hide_Btn1').trigger('click');
+				$('#payment_method').val('판매 입찰');
 			}
 			else{
 				$('.im_sell_price').text(data.buyDTO.buy_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
+				$('#disabledBtn').attr('id', 'hide_Btn2');
+				$('#payment_method').val('즉시 판매');
+				$('#input_price').val($('.im_sell_price').text());
+			}
+			if(!data.sellDTO){
+				$('.im_buy_price').text('-');			
+			}
+			else{
+				$('.im_buy_price').text(data.sellDTO.sell_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
 			}
 		},
 		error: function(err){
@@ -1871,12 +1857,9 @@ $(function(){
 $('#btn_continue').click(function(){
 	if($(this).prop('disabled') != 'disabled'){
 		$('#price').val($('#input_price').val());
-		if($('#payment_method').val() == '즉시 구매'){
+		if($('#payment_method').val() == '즉시 판매'){
 			$('#peroid').val('');
 			$('#deadline').val('');
-		}
-		else{
-			$('#sell').val('');
 		}
 		$('#enterPriceForm').submit();
 	}

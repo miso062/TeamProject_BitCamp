@@ -92,7 +92,7 @@
 	
 </table>
 <div>
-	<input id="menu2" type="button" value="공지사항 작성" class="menu1"  onclick="location.href='/TeamProject/admin/noticewrite'">
+	<input id="menu2" type="button" value="공지사항 작성" class="menu1 onlyadmin" onclick="location.href='/TeamProject/admin/noticewrite'">
 	<div id="PagingDiv"></div>
 </div>
 
@@ -101,7 +101,13 @@
 </div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
+
 $(document).ready(function(){
+	if('${sessionScope.memAuthority}'!= 10){
+		$('.onlyadmin').hide();
+	}else{
+		$('.onlyadmin').show();
+	}
 	$('#sub_area > ul > li:eq(0)').addClass('bold');
 	$('#sub_area > ul > li:eq(1)').removeClass('bold');
 	$('#sub_area > ul > li:eq(2)').removeClass('bold');
