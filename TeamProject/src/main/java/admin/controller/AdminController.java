@@ -206,21 +206,9 @@ public class AdminController {
 	public void noticeqnaDelete(@RequestParam String seq, String pg) {
 		adminService.noticeqnaDelete(seq,pg);
 	}
+	
+	@GetMapping(value="/")
+	public String admin() {
+		return "/admin/admin";
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
