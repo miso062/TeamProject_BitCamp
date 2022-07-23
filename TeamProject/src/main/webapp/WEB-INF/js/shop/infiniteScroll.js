@@ -78,12 +78,18 @@ $(document).ready(function(){
 		  });
 		};
 		
+		//observe 감지하라구 시키는zz
 		const observeLastItem = (io, items) => {
 		  const lastItem = items[items.length - 1];
 		  io.observe(lastItem);
 		};
-		
 		var io = new IntersectionObserver(ioCallback, { threshold: 0.9 });
+		
+		function randomColor(){
+			var colors = ['#f4f4f4','#f6eeed','rgb(235, 240, 245)'];
+			let pickIndex = Math.floor(Math.random() * colors.length);
+			return colors[pickIndex];
+		}
 		
 		function getList(page, callback) {
 			$.ajax({
@@ -99,21 +105,21 @@ $(document).ready(function(){
 						$('.shop-list-ul').append(
 							$('<li/>', { class:'card-list-li'})
 							.append($('<div/>', { class:'shop_search_result_item' })
-								.append($('<a/>', { class:'shop_item_inner'})
+								.append($('<a/>', { class:'shop_item_inner', style: 'background-color:'+randomColor()})
 									.append($('<div/>', { class:'shop_product'})
 										.append($('<img/>', { src:data.productImgList[i].file_path, class: 'shop_product_img'})))))
 										.append($('<div/>', { class: 'shop_product_info' }))
 										.append($('<div/>', { class: 'shop_title' }))
 										.append($('<p/>', { class: 'shop_brand', text: data.productList[i].brand }))
 										.append($('<p/>', { class: 'shop_name', text: data.productList[i].eng_name }))
-										.append($('<p/>', { class: 'shop_translated_name', text: data.productList[i].kor_name }))
+										.append($('<p/>', { class: 'shop_translated_name', style: 'color:rgba(34,34,34,.5)', text: data.productList[i].kor_name }))
 										.append($('<div/>', { class: 'shop_price' }))
 										.append($('<div/>', { class: 'shop_amount', text: data.productList[i].release_price }))
 										.append($('<div/>', { class: 'shop_desc' }).append($('<p/>', { text:'즉시구매가' })))
 										.append($('<div/>', { class:'shop_interest_figure' }))
 										.append($('<span/>', { class:'shop_wish_figure' }))
-										.append($('<img/>',{ class:'shop_bookmark', src:'/TeamProject/img/shop/bookmark.svg' }))
-										.append($('<span/>',{ class:'shop_text', text:data.productList[i].cnt }))
+										.append($('<img/>',{ class:'shop_bookmark', src:'/TeamProject/img/shop/bookmark.svg' })).append($('<p/>', {text:data.productList[i].cnt}))
+										.append($('<span/>',{ class:'shop_text' }))
 										.append($('<span/>',{ class:'shop_review_figure'}))
 										.append($('<a/>',{ class:'review_link'}))
 										.append($('<svg/>',{ class: 'bi bi-postcard', xmlns:"http://www.w3.org/2000/svg"}))
@@ -131,6 +137,7 @@ $(document).ready(function(){
 						observeLastItem(io, items);
 						//첫페이지 스크롤 감지 시작
 					}
+					
 					currentNum = data.num;
 					if (callback) {
 						callback();		
@@ -142,7 +149,7 @@ $(document).ready(function(){
 		}
 
 
-		if (_total === 0) {
+		/*if (_total === 0) {
 			$('#sentinel').hide();
 			//검색된 아이템이 없을 경우 관찰중인 요소를 숨긴다.
 		}
@@ -155,7 +162,7 @@ $(document).ready(function(){
 				 $('#sentinel').show();
 				//관찰중인 요소를 보여준다.
 			}
-		}
+		}*/
 
 		/*https://velog.io/@eunoia/%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4Infinite-scroll-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0*/
 

@@ -183,7 +183,7 @@ li, ol, ul {
     display: block;
     background-color: #fff;
     border-radius: 12px;
-    background-color: rgb(244, 244, 244);
+    
 }
 
 .shop_product {
@@ -278,6 +278,13 @@ li, ol, ul {
     font-size: 12px;
     letter-spacing: -.06px;
     color: rgba(34,34,34,.5);
+    
+}
+.shop_translate_name{
+	line-height: 14px;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    color: rgba(34,34,34,.5);
 }
 .shop_price {
     padding-top: 11px;
@@ -310,6 +317,10 @@ li, ol, ul {
     margin-left: 2px;
     font-size: 13px;
     padding-top: 12px;
+    align-items: center;
+    vertical-align: top;
+    padding: 0 8px;
+    height: 20px;
 }
 .shop_interest_figure .shop_review_figure .shop_text {
     margin-left: 2px;
@@ -403,7 +414,7 @@ li, ol, ul {
 }
 .shop_bookmark {
 	width: 20px;
-	height:20px;
+	height:14px;
 }
 .shop_text {
 	margin-left: 2px;
