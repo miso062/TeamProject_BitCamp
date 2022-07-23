@@ -181,9 +181,8 @@ li, ol, ul {
 }
 .shop_item_inner {
     display: block;
-    background-color: #fff;
+    /* background-color: #fff,  rgb(244, 244, 244); */
     border-radius: 12px;
-    background-color: rgb(244, 244, 244);
 }
 
 .shop_product {
@@ -278,6 +277,13 @@ li, ol, ul {
     font-size: 12px;
     letter-spacing: -.06px;
     color: rgba(34,34,34,.5);
+    
+}
+.shop_translate_name{
+	line-height: 14px;
+    font-size: 12px;
+    letter-spacing: -.06px;
+    color: rgba(34,34,34,.5);
 }
 .shop_price {
     padding-top: 11px;
@@ -310,6 +316,10 @@ li, ol, ul {
     margin-left: 2px;
     font-size: 13px;
     padding-top: 12px;
+    align-items: center;
+    vertical-align: top;
+    padding: 0 8px;
+    height: 20px;
 }
 .shop_interest_figure .shop_review_figure .shop_text {
     margin-left: 2px;
@@ -403,13 +413,16 @@ li, ol, ul {
 }
 .shop_bookmark {
 	width: 20px;
-	height:20px;
+	height:14px;
 }
 .shop_text {
 	margin-left: 2px;
 	margin-bottom: 2px;
 }
-
+/* .shop_bookmark{
+	cursor: pointer
+}
+ */
 </style>
 </head>
 <body>
@@ -595,7 +608,6 @@ li, ol, ul {
 		</li>
 	</ul>
 </div>
-
     <div class="list_loading" style="display: none;">
         <img src="/_nuxt/img/loading.410eb77.gif" alt="리스트 로딩중입니다." class="loading_img" />
     </div>
@@ -605,12 +617,53 @@ li, ol, ul {
 <script type="text/javascript"> 
 $.noConflict();
 /* 관심버튼 이미지 클릭시 로테이션으로 변경하기 */
-$('.shop_bookmark').on(	{'click' : function() {
+ $('.shop_bookmark').on({'click' : function() {
 		var src = ($(this).attr('src') === '/TeamProject/img/shop/bookmark.svg') ? '/TeamProject/img/shop/bookmark-fill.svg'
 				: '/TeamProject/img/shop/bookmark.svg';
 		$(this).attr('src', src);
 	}
+}); 
+
+/* //북마크 클릭시 DB연동 이미지 바꾸기
+$(document).on('click','.shop_bookmark', function() {
+	if(!'${sessionScope.memId}'){
+		$(this).attr('src', '/TeamProject/img/shop/bookmark.svg');
+		alert('로그인 먼저해주세요');
+	}else{
+		if($(this).hasClass('active')){
+			$(this).attr('src', '/TeamProject/img/shop/bookmark.svg');
+			$(this).removeClass('active');
+			
+			$.ajax({
+				type:'post',
+				url: '/TeamProject/user/bookMarkDelete',
+				data: {'product_id': $(this).parent().next('.cd2_product_id').val()},
+				success: function(){
+					alert('관심상품이 취소되었습니다');
+				},
+				error: function(e){
+					console.log(e);
+				}
+			})
+		}else{
+			$(this).addClass('active');
+			$(this).attr('src', '/TeamProject/img/shop/bookmark-fill.svg');
+			$.ajax({
+				type: 'post',
+				url: '/TeamProject/user/bookMarkInsert',
+				data: {'product_id': $(this).parent().next('.cd2_product_id').val()},
+				success: function(){
+					alert('관심상품이 추가되었습니다 ');
+				},                                                                    
+				error: function(e) {
+					console.log(e);
+				}
+			});//ajax
+		} // else
+	}
 });
+ */
+
 
 /* 필터클릭시 목록보이기 */
 $("#shop_sorting_title").click(function() {

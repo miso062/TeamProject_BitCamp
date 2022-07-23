@@ -158,6 +158,10 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public int bookMarkGetDetail(Map<String, String> map) {
 		return sqlSession.selectOne("userSQL.bookMarkGetDetail" , map);
+  }
+
+	public UserDTO checkrecheckpwd(String user_id) {
+		return sqlSession.selectOne("userSQL.checkrecheckpwd",user_id);
 	}
 
 }

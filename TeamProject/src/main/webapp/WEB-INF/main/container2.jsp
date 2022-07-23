@@ -55,9 +55,8 @@
 }
 .cd2_product_item .cd2_item_inner {
     display: block;
-/*  background-color: #fff; */
+/*  background-color: #fff; #f6eeed;*/
     border-radius: 12px;
-    background-color: #f6eeed;
     cursor:pointer;
 }
 .cd2_product {
@@ -227,8 +226,10 @@ $(document).ready(function(){
 		dataType:'json',
 		success: function(data){
 			//alert(JSON.stringify(data));
-
+			var colorList = [ 'rgb(241, 233, 252)', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
 			for(var i = 0; i < 4; i++){
+				console.log(data.num, data.productList[i].brand, data.productList[i].eng_name, data.productList[i].release_price, data.productImgList[i].file_path );
+				var random = Math.floor( Math.random() * 4 ); 
 
 				$('<div/>',{
 					class: 'cd2_product_item'
@@ -237,7 +238,8 @@ $(document).ready(function(){
 				}).append($('<div/>',{
 					class: 'cd2_thum_box'
 				}).append($('<div/>',{
-					class: 'cd2_product'
+					class: 'cd2_product',
+	                style: 'background-color: '+ colorList[random] + ';'
 				}).append($('<img/>',{
 						   src: data.productImgList[i].file_path,
 						   class: 'cd2_product_img' 
@@ -326,8 +328,11 @@ $('#cd2_btn1').on('click', function(){
 			dataType:'json',
 			success: function(data){
 				//alert(JSON.stringify(data));
-
+				var colorList = [ 'rgb(241, 233, 252)', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+			
 				for(var i = 0; i < 4; i++){
+					//console.log(data.num, data.productList[i].brand, data.productList[i].eng_name, data.productList[i].release_price, data.productImgList[i].file_path );
+					var random = Math.floor( Math.random() * 4 ); 
 
 					$('<div/>',{
 						class: 'cd2_product_item'
@@ -337,7 +342,8 @@ $('#cd2_btn1').on('click', function(){
 					}).append($('<div/>',{
 						class: 'cd2_thum_box'
 					}).append($('<div/>',{
-						class: 'cd2_product'
+						class: 'cd2_product',
+		                style: 'background-color: '+ colorList[random] + ';'
 					}).append($('<img/>',{
 							   src: data.productImgList[i].file_path,
 							   class: 'cd2_product_img' 
@@ -422,9 +428,11 @@ $('#cd2_btn1').on('click', function(){
 				dataType:'json',
 				success: function(data){
 					//alert(JSON.stringify(data));
-
+					var colorList = [ 'rgb(241, 233, 252)', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+         
 					for(var i = 0; i < 4; i++){
-
+						console.log(data.num, data.productList[i].brand, data.productList[i].eng_name, data.productList[i].release_price, data.productImgList[i].file_path );
+						var random = Math.floor( Math.random() * 4 ); 
 						$('<div/>',{
 							class: 'cd2_product_item'
 						}).append($('<a/>',{
@@ -433,7 +441,8 @@ $('#cd2_btn1').on('click', function(){
 						}).append($('<div/>',{
 							class: 'cd2_thum_box'
 						}).append($('<div/>',{
-							class: 'cd2_product'
+							class: 'cd2_product',
+			                style: 'background-color: '+ colorList[random] + ';'
 						}).append($('<img/>',{
 								   src: data.productImgList[i].file_path,
 								   class: 'cd2_product_img' 
@@ -515,9 +524,11 @@ $('#cd2_btn1').on('click', function(){
 				dataType:'json',
 				success: function(data){
 					//alert(JSON.stringify(data));
-
+					var colorList = [ 'rgb(241, 233, 252)', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+         
 					for(var i = 0; i < 4; i++){
-
+						//console.log(data.num, data.productList[i].brand, data.productList[i].eng_name, data.productList[i].release_price, data.productImgList[i].file_path );
+						var random = Math.floor( Math.random() * 4 ); 
 						$('<div/>',{
 							class: 'cd2_product_item'
 						}).append($('<a/>',{
@@ -526,7 +537,8 @@ $('#cd2_btn1').on('click', function(){
 						}).append($('<div/>',{
 							class: 'cd2_thum_box'
 						}).append($('<div/>',{
-							class: 'cd2_product'
+							class: 'cd2_product',
+			                style: 'background-color: '+ colorList[random] + ';'
 						}).append($('<img/>',{
 								   src: data.productImgList[i].file_path,
 								   class: 'cd2_product_img' 

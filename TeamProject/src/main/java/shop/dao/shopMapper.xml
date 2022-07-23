@@ -13,14 +13,25 @@
 	</select>
 	
 	<select id="getSellList" parameterType="int" resultType="sellHistory">
-		select * from sell_history where product_id=${product_id} and status1='입찰중'
+		<!-- select size_type, min(sell_price) as sell_price from sell_history where product_id=${product_id} and status1='입찰중' group by size_type -->
+		select * from sell_history
+		where product_id=${product_id} 
+		and (size_type, sell_price) in (select size_type, min(sell_price) as sell_price 
+			from sell_history where product_id=${product_id} and status1='입찰중' 
+			group by size_type)
 	</select>
 	
 	<select id="getBuyList" parameterType="int" resultType="buyHistory">
 		select * from buy_history where product_id=${product_id} and status1='입찰중'
 	</select>
 	
-	<select id="getSellDTO" parameterType="java.util.Map" resultType="sellHistory">
+	<select id="getSellDTOById" parameterType="int" resultType="sellHistory">
+		<!-- select * from (select * from sell_history order by sell_price) 
+		where product_id=${product_id} and size_type=${size} and status1='입찰중' and <![CDATA[rownum <= 1 ]]> -->
+		select * from sell_history where sell_id=#{sell}
+	</select>
+	
+	<select id="getSellDTO" parameterType="int" resultType="sellHistory">
 		select * from (select * from sell_history order by sell_price) 
 		where product_id=${product_id} and size_type=${size} and status1='입찰중' and <![CDATA[rownum <= 1 ]]>
 	</select>
@@ -83,11 +94,11 @@
 	</select>
 	
 	<select id="getBuyHistory" parameterType="Int" resultType="Int">
-		select min(buy_price) from buy_history where product_id=${product_id} and status1='입찰중'
+		select min(sell_price) from sell_history where product_id=${product_id} and status1='입찰중'
 	</select>
 	
 	<select id="getSellHistory" parameterType="Int" resultType="Int">
-		select max(sell_price) from sell_history where product_id=${product_id} and status1='입찰중'
+		select max(buy_price) from buy_history where product_id=${product_id} and status1='입찰중'
 	</select>
 	
 	<select id="getSigningDatePrice" parameterType="Int" resultType="marketPrice">
@@ -103,12 +114,39 @@
 			values(buy_history_seq.nextval, #{product_id}, #{address_id}, #{user_id}, #{buy_price}, #{period}, #{size_type}, #{cum_uid}, #{status1}, sysdate)
 	</insert>
 	
-	<select id="getLastBuyHistory" resultType="buyHistory">
-		select * from buy_history where buy_id IN (SELECT (LAST_NUMBER-1) FROM USER_SEQUENCES WHERE SEQUENCE_NAME='BUY_HISTORY_SEQ')
+	<update id="insertBuyPayBySellId" parameterType="java.util.Map">
+		{call 
+			declare
+				b_id	number(7);
+			begin
+			
+			insert into buy_history(buy_id, product_id, address_id, user_id, buy_price, period, size_type, cum_uid, status1, buy_date)
+				values(buy_history_seq.nextval, 
+						#{buy_historyDTO.product_id}, 
+						#{buy_historyDTO.address_id}, 
+						#{buy_historyDTO.user_id}, 
+						#{buy_historyDTO.buy_price}, 
+						#{buy_historyDTO.period}, 
+						#{buy_historyDTO.size_type}, 
+						#{buy_historyDTO.cum_uid}, 
+						#{buy_historyDTO.status1}, 
+						sysdate);
+			
+			update sell_history set status1='판매대기중' where sell_id=${sell};
+			end
+		}
+	</update>
+	
+	<select id="getNewBuyDTO" resultType="buyHistory">
+		select * from buy_history where buy_id=(select (LAST_NUMBER-1) from USER_SEQUENCES WHERE SEQUENCE_NAME='BUY_HISTORY_SEQ')
 	</select>
-
+	
 	<select id="getshopDetaillist" parameterType="Int" resultType="marketPrice">
 		select * from (select * from market_price where product_id=${product_id} order by signing_date desc) where <![CDATA[rownum <= 5 ]]>
+  	</select>
+  	
+  	<select id="getBuyDTOById" parameterType="Int" resultType="buyHistory">
+  		select * from buy_history where buy_id=${bid}
   	</select>
 
 </mapper>

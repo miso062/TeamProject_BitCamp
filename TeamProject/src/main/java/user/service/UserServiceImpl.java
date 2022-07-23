@@ -316,6 +316,18 @@ public class UserServiceImpl implements UserService {
 		}
 		
 		return check;
+  }
+	public String checkPwd(String pwd) {
+		String check ;
+		String user_id = (String) session.getAttribute("memId");
+		UserDTO userDTO = userDAO.checkrecheckpwd(user_id);
+		if(userDTO.getUser_pwd().equals(pwd)) {
+				check = "non_exist";
+		}else if(passwordEncoder.matches(pwd, userDTO.getUser_pwd())) {
+				check = "non_exist";
+		}else {
+				check = "exist";
+		}return check;
 	}
 
 }

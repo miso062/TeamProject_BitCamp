@@ -745,30 +745,30 @@ function general_request_pay() {
             var month = ('0' + (today.getMonth() + 1)).slice(-2);
             var day = ('0' + today.getDate()).slice(-2);
             var dateString = year + '/' + month  + '/' + day;
-			jQuery.ajax({
-				url: "/TeamProject/shop/insertBuyPay",
-				type: 'post',
-				data: {
-				    product_id : '${map.productDTO.product_id }',
+            jQuery.ajax({
+                url: "/TeamProject/shop/insertBuyPay",
+                type: 'post',
+                data: {
+                    product_id : '${map.productDTO.product_id }',
                     address_id : $('#selected_addr_id').val(),
                     user_id: buyer_email,
                     buy_price: buy_price,
                     period: dateString,
                     size_type: '${map.size }',
                     cum_uid: '0',
-                    status1: '결제완료', 
-				},
-				success: function(data){
-					alert(JSON.stringify(data));
-				},
+                    status1: '결제완료',
+                    sell: '${map.sell}'
+                },
+                success: function(data){
+                    location.href = "/TeamProject/shop/buyFinish?bid="+data.buy_id;
+                },
                 error: function(err){
                     console.log(err);
                 }
-			});
+            });
 		} else {
 			alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
 		}
-		location.href = "/TeamProject/shop/buyFinish"
 	});
 }
 
@@ -791,16 +791,12 @@ function reservation_request_pay(){
             var orig_price = '${map.price}';
             var regex = /[^0-9]/g;
             var buy_price = orig_price.replace(regex, "");
-
-            var today = new Date();
-            var year = today.getFullYear();
-            var month = ('0' + (today.getMonth() + 1)).slice(-2);
-            var day = ('0' + today.getDate()).slice(-2);
-            var dateString = year + '/' + month  + '/' + day;
+            var arr = $('.price_text:eq(5)').text().split(" ");
+            var dateString = arr[2].substring(0, arr[2].length-2);
             $.ajax({
                 url: '/TeamProject/shop/insertBuyPay',
-				type: 'post',
-				data: {
+                type: 'post',
+                data: {
                     product_id : '${map.productDTO.product_id }',
                     address_id : $('#selected_addr_id').val(),
                     user_id: buyer_email,
@@ -809,14 +805,14 @@ function reservation_request_pay(){
                     size_type: '${map.size }',
                     cum_uid: customer_uid,
                     status1: '입찰중', 
-				},
-				success: function(){
-                    alert('빌링키 발급 성공');
-				},
-				error: function(err){
-					console.log(err);
-				}
-			});
+                },
+                success: function(data){
+                    /* location.href = "/TeamProject/shop/buyFinish?bid="+data.buy_id; */
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
 		} else {
 			alert('빌링키 발급 실패' + rsp.error_msg);
 		}

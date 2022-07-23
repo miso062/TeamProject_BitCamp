@@ -356,12 +356,19 @@ public class UserController {
 		Map<String, Object> map = userService.bookMarkGet();
 		return map; 
 	}
+
 	//상품디테일페이지 찜하기 불러오기
 	@PostMapping(value="bookMarkGetDetail")
 	@ResponseBody
 	public String bookMarkGetDetail(@RequestParam String product_id) {
 		String check=userService.bookMarkGetDetail(product_id);
-		
+    return check;
+  }
+
+	@PostMapping(value="pwdcheck")
+	@ResponseBody
+	public String checkpwd(@RequestParam String pwd, HttpSession httpSession) {
+		String check = userService.checkPwd(pwd);		
 		return check;
 	}
 }

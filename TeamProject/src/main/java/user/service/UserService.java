@@ -35,4 +35,5 @@ public interface UserService {
 	public String checkKakao(String user_id);
 	public ProductImgDTO getProductImg(int product_id);
 	public String bookMarkGetDetail(String product_id);
+	public String checkPwd(String pwd);
 }

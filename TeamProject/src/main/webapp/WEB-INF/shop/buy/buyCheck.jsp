@@ -775,6 +775,7 @@ to {
 </style>
 
 <input type="hidden" id="product_id" value=${productDTO.product_id}>
+<input type="hidden" id="sell" value=${sellDTO.sell_id}>
 <div data-v-66e3a22e="" data-v-7ab136e9="" class="container buy md">
 	<div data-v-66e3a22e="" class="content">
 		<div data-v-66e3a22e="" class="buy_before">
@@ -897,7 +898,12 @@ $(function(){
 		}
 		if($('.active').length == 4){
 			$('#btn_continue').css('background-color', '#222');
-			$('#btn_continue').attr('href', '/TeamProject/shop/enterBuyPrice?product_id='+$('#product_id').val()+'&size='+$('.size_txt').text());
+			if($('#sell').val() != ''){
+				$('#btn_continue').attr('href', '/TeamProject/shop/enterBuyPrice?sell='+$('#sell').val());	
+			}
+			else{
+				$('#btn_continue').attr('href', '/TeamProject/shop/enterBuyPrice?product_id='+$('#product_id').val()+'&size=${size}');
+			}
 			
 		}
 		else{

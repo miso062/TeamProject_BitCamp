@@ -3,6 +3,94 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <style type="text/css">
+.pwdinput2{
+	text-align:center;
+	
+	
+}
+#pwdinput{
+	border:1px solid black;
+	height: 20px;
+	border-radius: 16px;
+	text-align:center;
+}
+.checkpwd {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(34,34,34,.5);
+    z-index: 1010;
+}
+.checkpwd .checkpwd_container {
+    width: 444px;
+}
+.checkpwd_container {
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    width: 448px;
+    border-radius: 16px;
+    -webkit-box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+}
+.checkpwd_header .title2 {
+    line-height: 22px;
+    padding: 18px 50px 20px;
+    min-height: 60px;
+    font-size: 18px;
+    letter-spacing: -.27px;
+    font-weight: 700;
+    letter-spacing: -.15px;
+    color: #000;
+    text-align: center;
+    background-color: #fff;
+}
+.checkpwd_btn {
+    padding: 24px 32px 32px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.checkpwd_btn .checkpwd_btn2 {
+    width: 120px;
+}
+.checkpwd_btn2 {
+    border: 1px solid #d3d3d3;
+}
+.checkpwd_btn2 {
+    padding: 0 18px;
+    height: 42px;
+    line-height: 40px;
+    border-radius: 12px;
+    font-size: 14px;
+    letter-spacing: -.14px;
+}
+.checkpwd_btn2 {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    color: rgba(34,34,34,.8);
+    background-color: #fff;
+}
+.checkpwd_btn3 {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    cursor: pointer;
+}    
+
+/* -------------------------------------------- */
  *, :after, :before {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -258,12 +346,12 @@
     }
     .text-danger {
     color: #f15746;
-	}
-	.status_txt {
-	    display: block;
-	    font-size: 14px;
-	    letter-spacing: -.21px;
-	}
+   }
+   .status_txt {
+       display: block;
+       font-size: 14px;
+       letter-spacing: -.21px;
+   }
     .product_detail {
         margin-left: 16px;
         display: -webkit-box;
@@ -656,12 +744,12 @@
     <div class="user_membership">
         <div class="user_detail">
             <div class="user_thumb">
-            	<img src="/TeamProject/img/user/profile.png" name="profile_img" alt="사용자이미지" class="thumb_img" /></div>
+               <img src="/TeamProject/img/user/profile.png" name="profile_img" alt="사용자이미지" class="thumb_img" /></div>
             <div class="user_info">
                 <div class="info_box">
                     <strong class="name">${userDTO.nickname }</strong>
                     <p class="email" id="user_id">${userDTO.user_id }</p>
-                    <a href="/TeamProject/user/myPageEdit" class="btn btn outlinegrey small" type="button"> 프로필 수정 </a>
+                    <a href="#" class="btn btn outlinegrey small" id="profileUpdate" type="button"> 프로필 수정 </a>
                     <a href="/social/users/@ein7di" class="btn btn btn_my_style outlinegrey small" type="button"> 내 스타일 </a>
                 </div>
             </div>
@@ -692,7 +780,7 @@
                 <a href="#" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">전체</dt>
-                        <dd class="count">1</dd>
+                        <dd class="count buy_countAll">1</dd>
                     </dl>
                 </a>
             </div>
@@ -713,11 +801,11 @@
                 </a>
             </div>
         </div>
-		<div class="purchase_list buy_list all bid">
+      <div class="purchase_list buy_list all bid">
                <div class="empty_area buy_empty_area" style="display: none;">
                    <p class="desc">거래 내역이 없습니다.</p>
                </div>
-		</div>
+      </div>
     </div>
     <div class="my_home_title">
         <h3 class="title">판매 내역</h3>
@@ -728,13 +816,13 @@
             </div>
         </a>
     </div>
-	<div class="recent_purchase">
+   <div class="recent_purchase">
         <div class="purchase_list_tab sell">
             <div class="tab_item total">
                 <a href="#" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">전체</dt>
-                        <dd class="count">0</dd>
+                        <dd class="count sell_countAll">0</dd>
                     </dl>
                 </a>
             </div>
@@ -756,12 +844,12 @@
             </div>
         </div>
         
-		<div class="purchase_list sell_list all ask">
+      <div class="purchase_list sell_list all ask">
                <div class="empty_area sell_empty_area" style="display: none;" >
                    <p class="desc">거래 내역이 없습니다.</p>
                </div>
-		</div>
-	</div>
+      </div>
+   </div>
     <div class="my_home_title">
         <h3 class="title">관심 상품</h3>
         <a href="/TeamProject/user/likePro" class="btn_more">
@@ -828,32 +916,84 @@
             <a href="#" class="btn_layer_close"></a>
         </div>
     </div>
-	<!---->
+   <!---->
+</div>
+<div class="checkpwd" style="display: none;">
+<div class="checkpwd_container">
+<div class="checkpwd_header"><h2 class="title2">보안을 위하여 비밀번호 확인</h2></div>
+<div class="checkpwd_list">
+<div class="pwdinput2"><input type="password" id="pwdinput" /></div>
+</div>
+<div class="checkpwd_btn"><ahref="#" class="checkpwd_btn2" > 확인 </a></div>
+            <a href="#" class="checkpwd_btn3">
+            </a>
+</div>
 </div>
 <script type="text/javascript">
-window.onload = function() {
-	alert(document.getElementsByClassName('membership_item > info').value());
-	document.getElementById('point').value() = document.getElementsByClassName('membership_item > info').value();
-}
-window.onload = function(){
-	var image = '${userDTO.profile_img}';
-	
-	if(image==null || image==''){
-        document.querySelector('.thumb_img').setAttribute('src','/TeamProject/img/user/profile.png');
-    }else{
-    	document.querySelector('.thumb_img').setAttribute('src', '/TeamProject/storage/'+image);
-    }
-}
-$('.membership_item').click(function(){
-	$('.layer_point').fadeIn();
+$('#profileUpdate').click(function(){
+	$('.checkpwd').fadeIn();
+	$('#pwdinput').focus();
     $('body').css("overflow", "hidden");
 });
 $(document).on("click",function(e){
-	if($('.layer_point').is(e.target)) {
-		$('.layer_point').fadeOut();
+	if($('.checkpwd').is(e.target)) {
+		$('.checkpwd').fadeOut();
         $('body').css("overflow-y", "scroll");
-        
 	}
+})
+ $('#pwdinput').on('keypress', function(e){
+  if(e.keyCode == '13'){
+	  $('.checkpwd_btn2').click();
+  }
+});
+$('.checkpwd_btn2').click(function(){
+		
+	$.ajax({
+		type: 'post',
+		url: '/TeamProject/user/pwdcheck',
+		data: {'pwd': $('#pwdinput').val()},
+		dataType: 'text',
+		success: function(data){
+			data = data.trim();
+			if(data == 'exist'){
+			alert('비밀번호를 틀렸습니다.')
+		}else if(data == 'non_exist'){
+			$('.checkpwd').fadeOut();
+		    $('body').css("overflow-y", "scroll");
+		 location.href='/TeamProject/user/myPageEdit';
+		 }
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+	
+});
+
+
+	/*  --------------------------------------  */
+window.onload = function() {
+   alert(document.getElementsByClassName('membership_item > info').value());
+   document.getElementById('point').value() = document.getElementsByClassName('membership_item > info').value();
+}
+window.onload = function(){
+   var image = '${userDTO.profile_img}';
+   
+   if(image==null || image==''){
+        document.querySelector('.thumb_img').setAttribute('src','/TeamProject/img/user/profile.png');
+    }else{
+       document.querySelector('.thumb_img').setAttribute('src', '/TeamProject/storage/'+image);
+    }
+}
+$('.membership_item').click(function(){
+   $('.layer_point').fadeIn();
+    $('body').css("overflow", "hidden");
+});
+$(document).on("click",function(e){
+   if($('.layer_point').is(e.target)) {
+      $('.layer_point').fadeOut();
+        $('body').css("overflow-y", "scroll");
+   }
 })
 $('.layer_btn').click(function(){
     $('.layer_point').fadeOut();
@@ -861,123 +1001,159 @@ $('.layer_btn').click(function(){
 })
 
 $(document).ready(function(){
-	$.ajax({
-		type:'post',
-		url:'/TeamProject/user/getBuyHistory',
-		data:'user_id='+$('#user_id').val(),
-		dataType:'json',
-		success: function(data){
-			
-			if(data.buy_historyList.length == 0){
-				$('.buy_empty_area').show();
+   $.ajax({
+      type:'post',
+      url:'/TeamProject/user/getBuyHistory',
+      data:'user_id='+$('#user_id').val(),
+      dataType:'json',
+      success: function(data){
+		//배경 색
+		var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+		//거래내역없을 때
+		if(data.buy_historyList.length == 0){
+			$('.buy_empty_area').show();
+		}
+		//구매거래내역 카운트
+		var buy_status1_count = 0;
+		var buy_status2_count = 0;
+		
+		
+       	for(var i = 0; i < data.buy_historyList.length; i++){
+       		if(data.buy_historyList[i].status1 != null){
+       			buy_status1_count = buy_status1_count + 1;
+       		}
+       		if(data.buy_historyList[i].status2 != null){
+       			buy_status2_count = buy_status2_count + 1;
+       		}
+       	}
+       	
+   		$('.buy_status1').text(buy_status1_count);
+   		$('.buy_status2').text(buy_status2_count);
+   		$('.buy_countAll').text(buy_status1_count + buy_status2_count);
+   		
+		for(var i = 0; i< data.buy_historyList.length ; i++){
+            //console.log(data.num, data.buy_historyList[i].user_id, data.productImgList[i].org_file_name ,data.productImgList[i].file_path);
+            var random = Math.floor( Math.random() * 4 ); 
+               $('<div/>',{
+                class: 'purchase_item buy_purchase_item'
+            }).append($('<div/>',{
+                class: 'history_product'
+            }).append($('<div/>',{
+                class: 'product_box'
+            }).append($('<div/>',{
+                class: 'product',
+                style: 'background-color: '+ colorList[random] + ';'
+            }).append($('<img/>',{
+                class: 'picture product_img image',
+                style: 'height:80px;',
+                src: data.productImgList[i].file_path
+            })))).append($('<div/>',{
+                class: 'product_detail'
+            }).append($('<p/>',{
+                class: 'name',
+                text: data.productImgList[i].org_file_name
+            })).append($('<p/>',{
+                class: 'size'
+            }).append($('<span/>',{
+                class: 'size_text',
+                text: data.buy_historyList[i].size_type
+            }))))).append($('<div/>',{
+                class:'history_status'
+            }).append($('<div/>',{
+                class: 'status_box field_status'
+            }).append($('<span/>',{
+                class: 'status_txt text-default',
+                text: data.buy_historyList[i].status1
+            })).append($('<span/>',{
+                   class: 'status_txt text-default text-danger',
+                   text: data.buy_historyList[i].status2
+               })))).appendTo('.buy_list');
+			//상품 3개까지 보이게하기
+			if( i > 1){
+			   break;
 			}
-			//alert(JSON.stringify(data));
-			for(var i = 0; i< data.buy_historyList.length ; i++){
-				//console.log(data.num, data.buy_historyList[i].user_id, data.productImgList[i].org_file_name ,data.productImgList[i].file_path);
-	            $('<div/>',{
-				    class: 'purchase_item buy_purchase_item'
-				}).append($('<div/>',{
-				    class: 'history_product'
-				}).append($('<div/>',{
-				    class: 'product_box'
-				}).append($('<div/>',{
-				    class: 'product',
-				    style: 'background-color: rgb(235, 240, 245);'
-				}).append($('<img/>',{
-				    class: 'picture product_img image',
-				    style: 'height:80px;',
-				    src: data.productImgList[i].file_path
-				})))).append($('<div/>',{
-				    class: 'product_detail'
-				}).append($('<p/>',{
-				    class: 'name',
-				    text: data.productImgList[i].org_file_name
-				})).append($('<p/>',{
-				    class: 'size'
-				}).append($('<span/>',{
-				    class: 'size_text',
-				    text: data.buy_historyList[i].size_type
-				}))))).append($('<div/>',{
-				    class:'history_status'
-				}).append($('<div/>',{
-				    class: 'status_box field_status'
-				}).append($('<span/>',{
-				    class: 'status_txt text-default buy_status1_count',
-				    text: data.buy_historyList[i].status1
-				})).append($('<span/>',{
-	                class: 'status_txt text-default text-danger buy_status2_count',
-	                text: data.buy_historyList[i].status2
-	            })))).appendTo('.buy_list');
-	            //상품 3개까지 보이게하기
-	            if( i > 1){
-	            	break;
-	            }
-			} 
-			$('.buy_status1').text($('.buy_status1_count').length);
-			//$('.buy_status2').text($('.buy_status2_count').length);
-		},error:function(err){
-			console.log(err);
-		}		
-	});
+         } 
+      },error:function(err){
+         console.log(err);
+      }      
+   });
 });
 
 $(document).ready(function(){
-	$.ajax({
-		type:'post',
-		url:'/TeamProject/user/getSellHistory',
-		data:'user_id='+$('#user_id').val(),
-		dataType:'json',
-		success: function(data){
-			//alert(JSON.stringify(data));
-			if(data.sell_historyList.length == 0){
-				$('.sell_empty_area').show();
-			}
-			 
-			for(var i = 0; i< data.sell_historyList.length ; i++){
-	            $('<div/>',{
-				    class: 'purchase_item sell_purchase_item'
-				}).append($('<div/>',{
-				    class: 'history_product'
-				}).append($('<div/>',{
-				    class: 'product_box'
-				}).append($('<div/>',{
-				    class: 'product',
-				    style: 'background-color: rgb(235, 240, 245);'
-				}).append($('<img/>',{
-				    class: 'picture product_img image',
-				    style: 'height:80px;',
-				    src: data.productImgList[i].file_path
-				})))).append($('<div/>',{
-				    class: 'product_detail'
-				}).append($('<p/>',{
-				    class: 'name',
-				    text: data.productImgList[i].org_file_name
-				})).append($('<p/>',{
-				    class: 'size'
-				}).append($('<span/>',{
-				    class: 'size_text',
-				    text: data.sell_historyList[i].size_type
-				}))))).append($('<div/>',{
-				    class:'history_status'
-				}).append($('<div/>',{
-				    class: 'status_box field_status'
-				}).append($('<span/>',{
-				    class: 'status_txt text-default sell_status1_count',
-				    text: data.sell_historyList[i].status1
-				})).append($('<span/>',{
-                    class: 'status_txt text-default text-danger sell_status2_count',
+   $.ajax({
+      type:'post',
+      url:'/TeamProject/user/getSellHistory',
+      data:'user_id='+$('#user_id').val(),
+      dataType:'json',
+      success: function(data){
+		//배경 색
+		var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+		//거래내역 없을때
+		if(data.sell_historyList.length == 0){
+            $('.sell_empty_area').show();
+		}
+		//구매거래내역 카운트
+		var sell_status1_count = 0;
+		var sell_status2_count = 0;
+		
+       	for(var i = 0; i < data.sell_historyList.length; i++){
+       		if(data.sell_historyList[i].status1 != null){
+       			sell_status1_count = sell_status1_count + 1;
+       		}
+       		if(data.sell_historyList[i].status2 != null){
+       			sell_status2_count = sell_status2_count + 1;
+       		}
+       	}
+       	
+   		$('.sell_status1').text(sell_status1_count);
+   		$('.sell_status2').text(sell_status2_count);
+   		$('.sell_countAll').text(sell_status1_count + sell_status2_count);
+          
+         for(var i = 0; i< data.sell_historyList.length ; i++){
+            var random = Math.floor( Math.random() * 4 ); 
+            
+               $('<div/>',{
+                class: 'purchase_item sell_purchase_item'
+            }).append($('<div/>',{
+                class: 'history_product'
+            }).append($('<div/>',{
+                class: 'product_box'
+            }).append($('<div/>',{
+                class: 'product',
+                style: 'background-color: '+ colorList[random] + ';'
+            }).append($('<img/>',{
+                class: 'picture product_img image',
+                style: 'height:80px;',
+                src: data.productImgList[i].file_path
+            })))).append($('<div/>',{
+                class: 'product_detail'
+            }).append($('<p/>',{
+                class: 'name',
+                text: data.productImgList[i].org_file_name
+            })).append($('<p/>',{
+                class: 'size'
+            }).append($('<span/>',{
+                class: 'size_text',
+                text: data.sell_historyList[i].size_type
+            }))))).append($('<div/>',{
+                class:'history_status'
+            }).append($('<div/>',{
+                class: 'status_box field_status'
+            }).append($('<span/>',{
+                class: 'status_txt text-default',
+                text: data.sell_historyList[i].status1
+            })).append($('<span/>',{
+                    class: 'status_txt text-default text-danger',
                     text: data.sell_historyList[i].status2
                 })))).appendTo('.sell_list');
-                //상품 3개까지 보이게하기
-	            if( i > 1){
-	            	break;
-	            }
-			} 
-				$('.sell_status1').text($('.sell_status1_count').length);
-				//$('.sell_status2').text($('.sell_status2_count').length);
-		},error:function(err){
-			console.log(err);
-		}		
-	});
+			 //상품 3개까지 보이게하기
+			if( i > 1){
+			   break;
+			}
+         } 
+      },error:function(err){
+         console.log(err);
+      }      
+   });
 });
 </script>

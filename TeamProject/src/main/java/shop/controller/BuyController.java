@@ -1,6 +1,7 @@
 package shop.controller;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,31 +56,67 @@ public class BuyController {
 	
 //	구매 시 체크사항 페이지
 	@GetMapping(value="/buyCheck")
-	public String buyCheck(Model model, @RequestParam int product_id, @RequestParam int size) {
+	public String buyCheck(Model model,
+						   @RequestParam(defaultValue = "0", required = false) int product_id,
+						   @RequestParam(defaultValue = "0", required = false) int sell, 
+						   @RequestParam(defaultValue = "0", required = false) int size) {
+		
+		model.addAttribute("size", size);
+		
+		if(sell != 0) {
+			Sell_historyDTO sellDTO = shopService.getSellDTO(sell);
+			product_id = sellDTO.getProduct_id();
+			model.addAttribute("sellDTO", sellDTO);
+			model.addAttribute("size", sellDTO.getSize_type());
+		}
+		
 		model.addAttribute("container", "/WEB-INF/shop/buy/buyCheck.jsp");
 		model.addAttribute("productDTO", shopService.getProduct(product_id));
 		model.addAttribute("productImgDTO", shopService.getImage(product_id));
-		model.addAttribute("size", size);
 		return "forward:/shop/buy";
 	}
 	
 //	구매 금액 입력 페이지
 	@GetMapping(value="/enterBuyPrice")
-	public String enterBuyPrice(Model model, @RequestParam int product_id, @RequestParam int size) {
+	public String enterBuyPrice(Model model,
+							   @RequestParam(defaultValue = "0", required = false) int product_id,
+							   @RequestParam(defaultValue = "0", required = false) int sell, 
+							   @RequestParam(defaultValue = "0", required = false) int size) {
+		
+		model.addAttribute("size", size);
+		
+		if(sell != 0) {
+			Sell_historyDTO sellDTO = shopService.getSellDTO(sell);
+			product_id = sellDTO.getProduct_id();
+			model.addAttribute("sellDTO", sellDTO);
+			model.addAttribute("size", sellDTO.getSize_type());
+		}
+		
 		model.addAttribute("container", "/WEB-INF/shop/buy/enterPrice.jsp");
 		model.addAttribute("productDTO", shopService.getProduct(product_id));
 		model.addAttribute("productImgDTO", shopService.getImage(product_id));
-		model.addAttribute("size", size);
 		return "forward:/shop/buy";
 	}
 	
 //	현재 입찰 정보 가져오기
 	@PostMapping(value="/getPrice")
 	@ResponseBody
-	public Map<String, Object> getPrice(@RequestParam int product_id, @RequestParam int size) {
+	public Map<String, Object> getPrice(
+				@RequestParam(defaultValue = "0", required = false) int product_id,
+				@RequestParam(defaultValue = "0", required = false) int sell, 
+				@RequestParam(defaultValue = "0", required = false) int size) {
+		
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("sellDTO", shopService.getSellDTO(product_id, size));
-		map.put("buyDTO", shopService.getBuyDTO(product_id, size));
+		
+		if(sell != 0) {
+			Sell_historyDTO sellDTO = shopService.getSellDTO(sell);
+			map.put("sellDTO", sellDTO);
+			map.put("buyDTO", shopService.getBuyDTO(product_id, Integer.parseInt(sellDTO.getSize_type())));
+		}
+		else {
+			map.put("sellDTO", shopService.getSellDTO(product_id, size));
+			map.put("buyDTO", shopService.getSellDTO(product_id, size));
+		}
 		return map;
 	}
 	
@@ -125,14 +162,29 @@ public class BuyController {
 //	구매 정보 입력
 	@PostMapping(value="/insertBuyPay")
 	@ResponseBody
-	public Buy_historyDTO insertBuyPay(@ModelAttribute Buy_historyDTO buy_historyDTO) {
-		return shopService.insertBuyPay(buy_historyDTO);
+	public Buy_historyDTO insertBuyPay(@ModelAttribute Buy_historyDTO buy_historyDTO,
+									   @RequestParam(defaultValue = "0", required = false) int sell) {
+		System.out.println(buy_historyDTO);
+//		즉시 구매
+		if(sell != 0) {
+			return shopService.insertBuyPayBySellId(buy_historyDTO, sell);
+		}
+//		구매 입찰
+		else {
+			return shopService.insertBuyPay(buy_historyDTO);
+		}
 	}
 	
 //	구매 완료 페이지
 	@GetMapping(value="/buyFinish")
-	public String buyFinish(Model model) {
+	public String buyFinish(Model model, @RequestParam int bid) {
+		Buy_historyDTO buyDTO = shopService.getBuyDTOById(bid);
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		
 		model.addAttribute("container", "/WEB-INF/shop/buy/buyFinish.jsp");
+		model.addAttribute("period", simpleDateFormat.format(buyDTO.getPeriod()));
+		model.addAttribute("buyDTO", buyDTO);
+		model.addAttribute("productImgDTO", shopService.getImage(buyDTO.getProduct_id()));
 		return "forward:/shop/buy";
 	}
 }
