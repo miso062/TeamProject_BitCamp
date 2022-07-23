@@ -1231,7 +1231,7 @@ tr {
                             <div class="c1_btn_area">
                                 <a href="#" class="c1_btn c1_outlinegrey c1_large c1_btn_wish" aria-label="관심상품">
                             	<img alt="" src="/TeamProject/img/shopDetail/bookmark.svg" class="c1_bookmark ico-wish-off">
-                                    <span class="c1_wish_count_c1_num" id="likepro1"></span>
+                                    <span class="c1_wish_count_num" id="likepro1"></span>
                                 </a>
                                 <div class="c1_division_btn_box lg">
                                     <a href="#" class="c1_btn_division c1_buy">
@@ -1294,13 +1294,7 @@ $(function(){
 		});
 	});
 
-/* 관심버튼 이미지 클릭시 로테이션으로 변경하기 */
-$('.c1_bookmark').on(	{'click' : function() {
-		var src = ($(this).attr('src') === '/TeamProject/img/shopDetail/bookmark.svg') ? '/TeamProject/img/shopDetail/bookmark-fill.svg'
-				: '/TeamProject/img/shopDetail/bookmark.svg';
-		$(this).attr('src', src);
-	}
-});
+
 
 $('.c1_dropdown_head').on('click',function(){
 	 let index = $(".c1_dropdown_head").index(this);	
@@ -1487,6 +1481,103 @@ $(document).ready(function(){
             console.log(err);
         }
     });
+});
+
+//찜하기 보이는 기능
+$(document).ready(function(){
+    if('${sessionScope.memId}'){	 
+        $.ajax({
+            type:'post',
+            url:'/TeamProject/user/bookMarkGetDetail',
+            data: {'product_id': $('#product_id').val()},
+            success: function(data){
+                if(data=='yes'){
+                $('.c1_bookmark').prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+                $('.c1_btn_wish').addClass('active');
+                }else {
+                $('.c1_bookmark').prop('src', '/TeamProject/img/main/container2/bookmark.svg');
+                }
+            },
+            error: function(e){
+                console.log(e);
+            }
+        }); 
+    }//if 
+})
+
+//찜하기 누르기
+$(document).on('click','.c1_btn_wish', function() {
+	if(!'${sessionScope.memId}'){
+		alert('로그인 먼저해주세요');
+	}else{
+		if($('.c1_btn_wish').hasClass('active')){
+			
+			
+			$.ajax({
+				type:'post',
+				url: '/TeamProject/user/bookMarkDelete',
+				data: {'product_id': $('#product_id').val()},
+				success: function(){
+                    $('.c1_btn_wish').children('img').attr('src', '/TeamProject/img/main/container2/bookmark.svg');
+			        $('.c1_btn_wish').removeClass('active');
+                    // 찜 카운트 수 불러오기 
+                    $.ajax({
+                        type: 'post',
+                        url : '/TeamProject/shop/getlikeproduct',
+                        data : 'product_id='+$('#product_id').val(),
+                        success : function(data){
+                            if(data =='0'){
+                            
+                              $('#likepro').text('0');	
+                              $('#likepro1').text('0');
+                            }else{
+                           	  $('#likepro').text(data);
+                              $('#likepro1').text(data);	
+                            } 
+                        },
+                        error: function(err){
+                            console.log(err)
+                        }    
+                     })   
+				},
+				error: function(e){
+					console.log(e);
+				}
+			})
+		}else{
+            $.ajax({
+                type: 'post',
+				url: '/TeamProject/user/bookMarkInsert',
+				data: {'product_id': $('#product_id').val()},
+				success: function(){
+                    $('.c1_btn_wish').addClass('active');
+                    $('.c1_btn_wish').children('img').attr('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+                        // 찜 카운트 수 불러오기 
+                    $.ajax({
+                        type: 'post',
+                        url : '/TeamProject/shop/getlikeproduct',
+                        data : 'product_id='+$('#product_id').val(),
+                        success : function(data){
+                        	if(data =='0'){
+                                $('#likepro').text('0');	
+                                $('#likepro1').text('0');	
+                            }else{
+                              $('#likepro').text(data);
+                              $('#likepro1').text(data);
+                            } 
+                        },
+                        error: function(err){
+                            console.log(err)
+                        }    
+                     }) 
+
+				},                                                                    
+				error: function(e) {
+					console.log(e);
+				}
+			});//ajax
+		} // else
+	}
 });
 </script>
 </body>

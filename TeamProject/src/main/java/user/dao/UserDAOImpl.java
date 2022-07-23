@@ -155,5 +155,10 @@ public class UserDAOImpl implements UserDAO {
 		sqlSession.insert("userSQL.writeKakao", user_id);
 	}
 
+	@Override
+	public int bookMarkGetDetail(Map<String, String> map) {
+		return sqlSession.selectOne("userSQL.bookMarkGetDetail" , map);
+	}
+
 }
 	

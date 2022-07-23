@@ -42,7 +42,7 @@ public class ShopServiceImpl implements ShopService {
 		
 		Map<String, Object> sendMap = shopDAO.scrollProduct(map);
 		sendMap.put("num", startNum + 16);
-		
+		System.out.println();
 		return sendMap;
 	}
 
@@ -58,8 +58,10 @@ public class ShopServiceImpl implements ShopService {
 		
 		return map;
 	}
-	
-	private Integer getlikeproduct(int product_id) {
+	//찜하기 카운트 수
+	@Override
+	public Integer getlikeproduct(int product_id) {
+		
 		return shopDAO.getlikeproduct(product_id);
 	}
 

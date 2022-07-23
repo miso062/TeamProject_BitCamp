@@ -72,6 +72,14 @@ public class ShopController {
 		List<Market_priceDTO> list = shopService.getshopDetaillist(product_id);
 		return list;
 	}
+	@PostMapping(value="getlikeproduct")
+	@ResponseBody
+	public String getlikeproduct(@RequestParam int product_id) {
+		 int count = shopService.getlikeproduct(product_id);
+		 System.out.println("여기는?");
+		 String count1 = count+"";
+		return count1;
+	}
 }
 
 

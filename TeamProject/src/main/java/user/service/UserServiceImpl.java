@@ -301,5 +301,21 @@ public class UserServiceImpl implements UserService {
 		}
 		return check;
 	}
+	@Override
+	public String bookMarkGetDetail(String product_id) {
+		String user_id = (String) session.getAttribute("memId");
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id",user_id);
+		map.put("product_id", product_id);
+		int a = userDAO.bookMarkGetDetail(map);
+		String check ;
+		if(a==0) {
+			check = "no";
+		}else {
+			check= "yes";
+		}
+		
+		return check;
+	}
 
 }

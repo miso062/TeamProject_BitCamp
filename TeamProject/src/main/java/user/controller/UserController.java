@@ -349,11 +349,19 @@ public class UserController {
 		System.out.println("delete ="+product_id);
 		userService.bookMarkDelete(product_id);
 	}
-
+	//메인 화면 찜하기 불러오기
 	@PostMapping(value="bookMarkGet")
 	@ResponseBody
 	public Map<String, Object> bookMarkGet(){
 		Map<String, Object> map = userService.bookMarkGet();
 		return map; 
+	}
+	//상품디테일페이지 찜하기 불러오기
+	@PostMapping(value="bookMarkGetDetail")
+	@ResponseBody
+	public String bookMarkGetDetail(@RequestParam String product_id) {
+		String check=userService.bookMarkGetDetail(product_id);
+		
+		return check;
 	}
 }
