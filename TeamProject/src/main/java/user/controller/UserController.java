@@ -98,7 +98,8 @@ public class UserController {
 	
 	@PostMapping(value="getBuyHistory")
 	@ResponseBody
-	public Map<String, Object> getBuyHistory(@RequestParam String user_id){
+	public Map<String, Object> getBuyHistory(HttpSession session /* @RequestParam String user_id */){
+		String user_id = (String) session.getAttribute("memId");
 		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
 		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory("jijiya@hotmail.net");
 		//System.out.println(buy_historyList);
@@ -118,7 +119,8 @@ public class UserController {
 	
 	@PostMapping(value="getSellHistory")
 	@ResponseBody
-	public Map<String, Object> getSellHistory(@RequestParam String user_id){
+	public Map<String, Object> getSellHistory(HttpSession session) { /* @RequestParam String user_id */
+		String user_id = (String) session.getAttribute("memId");
 		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
 		List<Sell_historyDTO> sell_historyList =  userService.getSellHistory("jijiya@hotmail.net");
 		//System.out.println(sell_historyList);
