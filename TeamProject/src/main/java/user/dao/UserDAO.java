@@ -36,4 +36,5 @@ public interface UserDAO {
 	public int checkIdKakao(String user_id);
 	public void writeKakao(String user_id);
 	public ProductImgDTO getProductImg(int product_id);
+	public UserDTO checkrecheckpwd(String user_id);
 }

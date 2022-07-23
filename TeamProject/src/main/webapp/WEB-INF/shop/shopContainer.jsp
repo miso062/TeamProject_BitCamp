@@ -605,7 +605,6 @@ li, ol, ul {
 		</li>
 	</ul>
 </div>
-
     <div class="list_loading" style="display: none;">
         <img src="/_nuxt/img/loading.410eb77.gif" alt="리스트 로딩중입니다." class="loading_img" />
     </div>

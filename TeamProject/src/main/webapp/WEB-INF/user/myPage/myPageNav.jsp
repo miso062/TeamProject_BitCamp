@@ -81,7 +81,7 @@
             <div data-v-7bcac446="" class="snb_list">
                 <strong data-v-7bcac446="" class="snb_title">내 정보</strong>
                 <ul data-v-4d11470e="" data-v-7bcac446="" class="snb_menu">
-                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="/TeamProject/user/myPageEdit" class="menu_link unbold"> 프로필 정보 </a></li>
+                    <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link unbold" id="profileUpdate"> 프로필 정보 </a></li>
                     <li data-v-4d11470e="" class="menu_item"><a data-v-4d11470e="" href="#" class="menu_link unbold"> 주소록 </a></li>
                 </ul>
             </div>
@@ -93,5 +93,44 @@ $('.menu_link').click(function(){
 	$(this).removeClass('unbold');
 	$('.menu_link').not(this).addClass("unbold");
 	$('.menu_link').not(this).removeClass('bold');
+});
+$('#profileUpdate').click(function(){
+	$('.checkpwd').fadeIn();
+	$('#pwdinput').focus();
+    $('body').css("overflow", "hidden");
+});
+$(document).on("click",function(e){
+	if($('.checkpwd').is(e.target)) {
+		$('.checkpwd').fadeOut();
+        $('body').css("overflow-y", "scroll");
+	}
+})
+ $('#pwdinput').on('keypress', function(e){
+  if(e.keyCode == '13'){
+	  $('.checkpwd_btn2').click();
+  }
+});
+$('.checkpwd_btn2').click(function(){
+		
+	$.ajax({
+		type: 'post',
+		url: '/TeamProject/user/pwdcheck',
+		data: {'pwd': $('#pwdinput').val()},
+		dataType: 'text',
+		success: function(data){
+			data = data.trim();
+			if(data == 'exist'){
+			alert('비밀번호를 틀렸습니다.')
+		}else if(data == 'non_exist'){
+			$('.checkpwd').fadeOut();
+		    $('body').css("overflow-y", "scroll");
+		 location.href='/TeamProject/user/myPageEdit';
+		 }
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+	
 });
 </script>
