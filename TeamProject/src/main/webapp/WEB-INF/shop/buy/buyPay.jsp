@@ -791,12 +791,8 @@ function reservation_request_pay(){
             var orig_price = '${map.price}';
             var regex = /[^0-9]/g;
             var buy_price = orig_price.replace(regex, "");
-
-            var today = new Date();
-            var year = today.getFullYear();
-            var month = ('0' + (today.getMonth() + 1)).slice(-2);
-            var day = ('0' + today.getDate()).slice(-2);
-            var dateString = year + '/' + month  + '/' + day;
+            var arr = $('.price_text:eq(5)').text().split(" ");
+            var dateString = arr[2].substring(0, arr[2].length-2);
             $.ajax({
                 url: '/TeamProject/shop/insertBuyPay',
                 type: 'post',
@@ -811,7 +807,7 @@ function reservation_request_pay(){
                     status1: '입찰중', 
                 },
                 success: function(data){
-                    location.href = "/TeamProject/shop/buyFinish?bid="+data.buy_id;
+                    /* location.href = "/TeamProject/shop/buyFinish?bid="+data.buy_id; */
                 },
                 error: function(err){
                     console.log(err);

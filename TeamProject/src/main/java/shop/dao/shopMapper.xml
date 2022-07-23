@@ -144,5 +144,9 @@
 	<select id="getshopDetaillist" parameterType="Int" resultType="marketPrice">
 		select * from (select * from market_price where product_id=${product_id} order by signing_date desc) where <![CDATA[rownum <= 5 ]]>
   	</select>
+  	
+  	<select id="getBuyDTOById" parameterType="Int" resultType="buyHistory">
+  		select * from buy_history where buy_id=${bid}
+  	</select>
 
 </mapper>

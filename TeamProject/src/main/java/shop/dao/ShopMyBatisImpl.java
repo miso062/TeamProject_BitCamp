@@ -149,4 +149,9 @@ public class ShopMyBatisImpl implements ShopDAO {
 		sqlSession.update("shopSQL.insertBuyPayBySellId", map);
 		return sqlSession.selectOne("shopSQL.getNewBuyDTO");
 	}
+
+	@Override
+	public Buy_historyDTO getBuyDTOById(int bid) {
+		return sqlSession.selectOne("shopSQL.getBuyDTOById", bid);
+	}
 }

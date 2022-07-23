@@ -162,4 +162,9 @@ public class ShopServiceImpl implements ShopService {
 		map.put("sell", sell);
 		return shopDAO.insertBuyPayBySellId(map);
 	}
+
+	@Override
+	public Buy_historyDTO getBuyDTOById(int bid) {
+		return shopDAO.getBuyDTOById(bid);
+	}
 }

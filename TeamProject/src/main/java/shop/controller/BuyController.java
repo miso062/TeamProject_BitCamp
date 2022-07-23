@@ -1,6 +1,7 @@
 package shop.controller;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -163,6 +164,7 @@ public class BuyController {
 	@ResponseBody
 	public Buy_historyDTO insertBuyPay(@ModelAttribute Buy_historyDTO buy_historyDTO,
 									   @RequestParam(defaultValue = "0", required = false) int sell) {
+		System.out.println(buy_historyDTO);
 //		즉시 구매
 		if(sell != 0) {
 			return shopService.insertBuyPayBySellId(buy_historyDTO, sell);
@@ -175,8 +177,14 @@ public class BuyController {
 	
 //	구매 완료 페이지
 	@GetMapping(value="/buyFinish")
-	public String buyFinish(Model model) {
+	public String buyFinish(Model model, @RequestParam int bid) {
+		Buy_historyDTO buyDTO = shopService.getBuyDTOById(bid);
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		
 		model.addAttribute("container", "/WEB-INF/shop/buy/buyFinish.jsp");
+		model.addAttribute("period", simpleDateFormat.format(buyDTO.getPeriod()));
+		model.addAttribute("buyDTO", buyDTO);
+		model.addAttribute("productImgDTO", shopService.getImage(buyDTO.getProduct_id()));
 		return "forward:/shop/buy";
 	}
 }

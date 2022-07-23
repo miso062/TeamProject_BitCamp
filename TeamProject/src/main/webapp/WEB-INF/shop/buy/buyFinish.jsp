@@ -13,7 +13,7 @@
 .buy_complete {
     margin: 0 auto;
     width: 440px;
-    padding-top: 60px;
+    padding-top: 30px;
 }
 .complete_box {
     background-color: #fff;
@@ -22,15 +22,15 @@
 .buy_complete .product {
     border-radius: 0;
     padding-top: 0;
-    height: 260px;
+    height: 200px;
+    text-align: center;
 }
 .buy_complete .product_img {
     width: 200px;
 }
 .image {
     object-fit: cover;
-    width: 100%;
-    height: 100%;
+    width: 200px;
     image-rendering: -webkit-optimize-contrast;
 }
 .product:after {
@@ -61,9 +61,38 @@
     color: rgba(34,34,34,.8);
 }
 .complete_btn_box {
-    margin-top: 21px;
+    margin-top: 10px;
     font-size: 0;
     display: flex;
+}
+.complete_btn_box .btn {
+    width: 100%;
+    border-radius: 10px;
+    white-space: nowrap;
+    margin: 5px 5px;
+}
+
+.outlinegrey {
+    border: 1px solid #d3d3d3;
+    color: rgba(34,34,34,.8);
+}
+
+.medium {
+    padding: 0 18px;
+    height: 42px;
+    line-height: 40px;
+    border-radius: 12px;
+    font-size: 14px;
+    letter-spacing: -.14px;
+}
+
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    color: rgba(34,34,34,.8);
+    background-color: #fff;
 }
 complete_desc {
     padding-top: 8px;
@@ -79,9 +108,11 @@ complete_desc {
 .complete_price .price_total {
     padding-bottom: 14px;
     border-width: 1px;
+    border-bottom: 2px solid #ebebeb;
 }
 .order_info .price_box {
     display: block;
+    color: #f15746;
 }
 .price_box {
     display: flex;
@@ -89,12 +120,16 @@ complete_desc {
     justify-content: space-between;
     -webkit-box-align: center;
     align-items: center;
+    font-weight: 700;
 }
-.complete_price .price_total .price_title {
+.complete_price .price_total .price_title_total {
     line-height: 18px;
     font-size: 15px;
     letter-spacing: -.15px;
     color: #222;
+}
+.price_title_gray {
+	color: rgba(34,34,34,.5);
 }
 .container.buy .price_box .price {
     color: #31b46e;
@@ -113,6 +148,13 @@ complete_desc {
     letter-spacing: -.3px;
     font-weight: 700;
     letter-spacing: -.15px;
+}
+.price_box .amount {
+    line-height: 26px;
+    font-size: 20px;
+    letter-spacing: -.1px;
+    font-weight: 700;
+    letter-spacing: normal;
 }
 address, em {
     font-style: normal;
@@ -243,116 +285,92 @@ address, em {
     width: 24px;
     height: 24px;
 }
+#container {
+	background-color: #fafafa;
+}
+
 </style>
 
-<div class="container buy lg">
-    <div class="content">
-        <div class="buy_complete lg">
-            <div class="complete_box">
-                <div class="product" style="background-color: rgb(235, 240, 245);">
-                    <picture class="picture product_img">
-                        <img
-                            alt="상품 이미지"
-                            src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                            class="image"
-                        />
-                    </picture>
-                </div>
-                <div class="complete_detail">
-                    <div class="complete_info">
-                        <div class="complete_title">
-                            <p class="main_title">구매 입찰이 완료되었습니다.</p>
-                            <p class="sub_title">
-                                거래가 체결되고 상품이 검수에 합격한 후,<br />
-                                등록한 계좌로 정산이 진행됩니다.
-                            </p>
-                        </div>
-                        <div class="complete_btn_box">
-                            <a href="#" class="btn outlinegrey medium"> 내역 상세보기 </a><a href="#" class="btn outlinegrey medium"> SHOP 바로가기 </a>
-                        </div>
-                        <p class="complete_desc">'구매내역 &gt; 입찰 중' 상태일 때는 입찰 지우기가 가능합니다.</p>
-                    </div>
-                    <div class="complete_price">
-                        <div class="">
-                            <div class="price_total order_info">
-                                <dl class="price_box">
-                                    <dt class="price_title">정산금액</dt>
-                                    <dd class="price"><span class="amount">210,000</span><span class="unit">원</span></dd>
-                                </dl>
-                                <span class="price_warning" style="display: none;"><em>주의! </em></span>
-                            </div>
-                            <div class="price_bind">
-                                <dl class="price_addition is_dark">
-                                    <dt class="price_title">
-                                        <span data-v-3a2a7b6b="">구매 희망가</span>
-                                    </dt>
-                                    <dd class="price_text">210,000원</dd>
-                                </dl>
-                                <dl class="price_addition">
-                                    <dt class="price_title">
-                                        <span data-v-3a2a7b6b="">검수비</span>
-                                    </dt>
-                                    <dd class="price_text">무료</dd>
-                                </dl>
-                                <dl class="price_addition">
-                                    <dt class="price_title">
-                                        <span>수수료</span>
-                                        <button class="btn_title">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon sprite-icons info-circle-white">
-                                                <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-info-circle-white" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-info-circle-white"></use>
-                                            </svg>
-                                        </button>
-                                    </dt>
-                                    <dd class="price_text">무료</dd>
-                                </dl>
-                                <dl class="price_addition">
-                                    <dt class="price_title">
-                                        <span>배송비</span>
-                                    </dt>
-                                    <dd class="price_text">선불 ・ 구매자 부담</dd>
-                                </dl>
-                            </div>
-                            <div class="price_bind">
-                                <dl class="price_addition">
-                                    <dt class="price_title dark">
-                                        <span>입찰 마감 기한</span>
-                                    </dt>
-                                    <dd class="price_text">3일 - 2022/07/17까지</dd>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="layer_point layer lg" style="display: none;">
-                <div class="layer_container">
-                    <div class="layer_header"><h2 class="title">이용안내</h2></div>
-                    <div class="layer_content">
-                        <div class="usable_wrap">
-                            <div class="usable_point">
-                                <h3 class="title">사용 가능한 포인트</h3>
-                                <p class="point_box"><span class="point">0</span><span class="unit">P</span></p>
-                                <div class="point_info">
-                                    <p class="info_item">이번달 소멸 예정 포인트 0P</p>
-                                    <p class="info_item">포인트 유효기간은 적립일로부터 최대 1년까지이며, 유형에 따라 달라질 수 있습니다.</p>
-                                </div>
-                            </div>
-                            <ul class="usable_list">
-                                <li class="usable_item">1,000P 이상부터 구매금액 제한 없이 사용하실 수 있습니다.</li>
-                                <li class="usable_item">입찰 삭제, 거래 취소 시 사용한 포인트는 환불됩니다.</li>
-                                <li class="usable_item">먼저 적립된 포인트부터 순서대로 사용되며, 사용하지 않으실 경우 유효기간이 지나면 자동 소멸됩니다.</li>
-                                <li class="usable_item">유효기간이 지난 후 환불받은 포인트는 다시 사용하실 수 없습니다.</li>
-                            </ul>
-                        </div>
-                        <div class="layer_btn"><a href="#" class="btn outline medium"> 확인 </a></div>
-                    </div>
-                    <a href="#" class="btn_layer_close">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="ico-close icon sprite-icons">
-                            <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-ico-close"></use>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
+<div class="content">
+	<div class="buy_complete lg">
+		<div class="complete_box">
+			<div class="product" style="background-color: rgb(235, 240, 245);">
+				<picture class="picture product_img">
+					<img alt="상품 이미지" class="image"
+					    src=${productImgDTO.file_path}/>
+				</picture>
+			</div>
+			<div class="complete_detail">
+				<div class="complete_info">
+					<div class="complete_title">
+						<p class="main_title">구매 입찰이 완료되었습니다.</p>
+						<p class="sub_title">
+						    결제는 거래가 성사되는 시점에<br />
+						    등록하신 결제 정보로 자동 처리 됩니다.
+						</p>
+					</div>
+					<div class="complete_btn_box">
+						<a href="/TeamProject/user/myPage" class="btn outlinegrey medium" style="cursor: pointer; z-index: 999;"> 내역 상세보기 </a>
+						<a href="/TeamProject/shop" class="btn outlinegrey medium" style="cursor: pointer; z-index: 999;"> SHOP 바로가기 </a>
+					</div>
+					<p class="complete_desc">‘구매내역 &gt; 입찰 중’ 상태일 때는 입찰 지우기가 가능합니다.</p>
+				</div>
+				<div class="complete_price">
+					<div class="">
+						<div class="price_total order_info">
+							<dl class="price_box">
+								<dt class="price_title_total">총 결제금액</dt>
+								<dd class="price"><span class="amount">${buyDTO.buy_price +3600}</span><span class="unit">원</span></dd>
+							</dl>
+							<span class="price_warning" style="display: none;"><em>주의! </em></span>
+						</div>
+						<div class="price_bind">
+						    <dl class="price_addition is_dark">
+						        <dt class="price_title_black">
+						            <span>구매 희망가</span>
+						        </dt>
+						        <dd class="price_text" id="hope_price">${buyDTO.buy_price }원</dd>
+						    </dl>
+						    <dl class="price_addition">
+						        <dt class="price_title_gray">
+						            <span>검수비</span>
+						        </dt>
+						        <dd class="price_text">무료</dd>
+						    </dl>
+						    <dl class="price_addition">
+						        <dt class="price_title_gray">
+						            <span>수수료</span>
+						        </dt>
+						        <dd class="price_text">600</dd>
+						    </dl>
+						    <dl class="price_addition">
+						        <dt class="price_title_gray">
+						            <span>배송비</span>
+						        </dt>
+						        <dd class="price_text">3,000원</dd>
+						    </dl>
+						</div>
+			            <div class="price_bind" style="border-top: 1px solid #ebebeb;">
+			                <dl class="price_addition">
+			                    <dt class="price_title_dark">
+			                        <span>입찰 마감 기한</span>
+			                    </dt>
+			                    <dd class="price_text">${period }까지</dd>
+			                </dl>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+		</div>
     </div>
 </div>
+
+<script>
+$(function(){
+	var hope_price = $('#hope_price').text();
+	$('#hope_price').text(hope_price.substring(0, hope_price.length-1).replace(/\B(?=(\d{3})+(?!\d))/g, ',')+'원');
+	
+	var total_price = $('.amount').text();
+	$('.amount').text(total_price.replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+})
+</script>

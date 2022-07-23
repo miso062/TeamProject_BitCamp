@@ -27,6 +27,7 @@ public interface ShopService {
 	public Sell_historyDTO getSellDTO(int sell);
 	public Sell_historyDTO getSellDTO(int product_id, int size);
 	public Buy_historyDTO getBuyDTO(int product_id, int size);
+	public Buy_historyDTO getBuyDTOById(int bid);
 	public AddressDTO getDefalutAddress();
 	
 	public List<AddressDTO> getAddrList();
