@@ -76,7 +76,6 @@ public class ShopController {
 	@ResponseBody
 	public String getlikeproduct(@RequestParam int product_id) {
 		 int count = shopService.getlikeproduct(product_id);
-		 System.out.println("여기는?");
 		 String count1 = count+"";
 		return count1;
 	}
