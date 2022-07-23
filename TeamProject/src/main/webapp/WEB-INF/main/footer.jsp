@@ -155,8 +155,9 @@ a.banner_box2{
 #footer_cs_center{
    float: right;
    position: relative;
-   margin-top: -170px;
-   margin-right:5px
+   /* margin-top: -170px;
+   margin-right:5px */
+   display:inline-block;
 }
 #footer_cs_time1{
    font-size: 13px;
@@ -207,12 +208,15 @@ padding-bottom: 50px;
 	width:19px
 }
 .footer_menu_box1{
-	width: 160px
+	width: 160px;
+	display:inline-block;
+	margin-right: 90px;
 }
 .footer_menu_box2{
 	width: 160px;
-	margin-left: 270px;
-	margin-top: -173px;
+	/* margin-left: 270px;
+	margin-top: -173px; */
+	display:inline-block;
 }
 #footer_a{
 	font-size: 14px;
@@ -255,8 +259,8 @@ padding-bottom: 50px;
          <b>이용안내</b>
          <ul>
          <br>
-         <li ><a class="footer_a" id="footer_a" href="">검수기준</a></li><br>
-         <li><a class="footer_a" id="footer_a" href="">이용정책<a></li><br>
+         <li ><a class="footer_a" id="footer_a" href="/TeamProject/admin/noticeStandard">검수기준</a></li><br>
+         <li><a class="footer_a" id="footer_a" class="footer_aa" href="/TeamProject/admin/noticeQnA">이용정책<a></li><br>
          <li><a class="footer_a" id="footer_a" href="">패널티 정책</a></li><br>
          <li><a class="footer_a" id="footer_a" href="">커뮤니티 가이드라인</a></li>
          </ul>
@@ -266,7 +270,7 @@ padding-bottom: 50px;
          <b>고객지원</b>
          <ul>
          <br>
-          <li ><a class="footer_a" id="footer_a" href="">공지사항</a></li><br>
+          <li ><a class="footer_a" id="footer_a" href="/TeamProject/admin/notice">공지사항</a></li><br>
           <li><a class="footer_a" id="footer_a" href="">서비스소개<a></li><br>
           <li><a class="footer_a" id="footer_a" href="">쇼룸 안내</a></li><br>
           <li><a class="footer_a" id="footer_a" href="">판매자 방문접수</a></li>
@@ -305,4 +309,8 @@ padding-bottom: 50px;
    </ul>
   
 </div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+//풋터 링크미완성
+</script>
 </div>

@@ -431,6 +431,14 @@ window.onload = function() {
 	$('.snb_menu').eq(0).find('.menu_link').eq(2).addClass('bold');
 	
 }
+$(document).ready(function(){
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/user/getLikePro',
+		dataType:'json',
+	})
+});
+
 
 </script>
 
