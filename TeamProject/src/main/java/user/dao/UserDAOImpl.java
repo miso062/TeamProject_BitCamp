@@ -155,5 +155,10 @@ public class UserDAOImpl implements UserDAO {
 		sqlSession.insert("userSQL.writeKakao", user_id);
 	}
 
+	@Override
+	public UserDTO checkrecheckpwd(String user_id) {
+		return sqlSession.selectOne("userSQL.checkrecheckpwd",user_id);
+	}
+
 }
 	

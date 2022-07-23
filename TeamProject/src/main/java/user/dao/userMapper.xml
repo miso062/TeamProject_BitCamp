@@ -119,5 +119,8 @@
 	<update id="deleteImg" parameterType="java.util.Map">
 		update user_table set profile_img = null where user_id=#{user_id}
 	</update>
-
+	
+	<select id="checkrecheckpwd" parameterType="String" resultType="user">
+		select * from user_table where user_id=#{user_id}
+	</select>
 </mapper>

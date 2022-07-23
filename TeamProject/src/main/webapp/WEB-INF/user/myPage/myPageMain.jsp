@@ -3,6 +3,94 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <style type="text/css">
+.pwdinput2{
+	text-align:center;
+	
+	
+}
+#pwdinput{
+	border:1px solid black;
+	height: 20px;
+	border-radius: 16px;
+	text-align:center;
+}
+.checkpwd {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(34,34,34,.5);
+    z-index: 1010;
+}
+.checkpwd .checkpwd_container {
+    width: 444px;
+}
+.checkpwd_container {
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    width: 448px;
+    border-radius: 16px;
+    -webkit-box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+}
+.checkpwd_header .title2 {
+    line-height: 22px;
+    padding: 18px 50px 20px;
+    min-height: 60px;
+    font-size: 18px;
+    letter-spacing: -.27px;
+    font-weight: 700;
+    letter-spacing: -.15px;
+    color: #000;
+    text-align: center;
+    background-color: #fff;
+}
+.checkpwd_btn {
+    padding: 24px 32px 32px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.checkpwd_btn .checkpwd_btn2 {
+    width: 120px;
+}
+.checkpwd_btn2 {
+    border: 1px solid #d3d3d3;
+}
+.checkpwd_btn2 {
+    padding: 0 18px;
+    height: 42px;
+    line-height: 40px;
+    border-radius: 12px;
+    font-size: 14px;
+    letter-spacing: -.14px;
+}
+.checkpwd_btn2 {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    color: rgba(34,34,34,.8);
+    background-color: #fff;
+}
+.checkpwd_btn3 {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    cursor: pointer;
+}    
+
+/* -------------------------------------------- */
  *, :after, :before {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -661,7 +749,7 @@
                 <div class="info_box">
                     <strong class="name">${userDTO.nickname }</strong>
                     <p class="email" id="user_id">${userDTO.user_id }</p>
-                    <a href="/TeamProject/user/myPageEdit" class="btn btn outlinegrey small" type="button"> 프로필 수정 </a>
+                    <a href="#" class="btn btn outlinegrey small" id="profileUpdate" type="button"> 프로필 수정 </a>
                     <a href="/social/users/@ein7di" class="btn btn btn_my_style outlinegrey small" type="button"> 내 스타일 </a>
                 </div>
             </div>
@@ -830,7 +918,60 @@
     </div>
 	<!---->
 </div>
+<div class="checkpwd" style="display: none;">
+<div class="checkpwd_container">
+<div class="checkpwd_header"><h2 class="title2">보안을 위하여 비밀번호 확인</h2></div>
+<div class="checkpwd_list">
+<div class="pwdinput2"><input type="password" id="pwdinput" /></div>
+</div>
+<div class="checkpwd_btn"><ahref="#" class="checkpwd_btn2" > 확인 </a></div>
+            <a href="#" class="checkpwd_btn3">
+            </a>
+</div>
+</div>
 <script type="text/javascript">
+$('#profileUpdate').click(function(){
+	$('.checkpwd').fadeIn();
+	$('#pwdinput').focus();
+    $('body').css("overflow", "hidden");
+});
+$(document).on("click",function(e){
+	if($('.checkpwd').is(e.target)) {
+		$('.checkpwd').fadeOut();
+        $('body').css("overflow-y", "scroll");
+	}
+})
+ $('#pwdinput').on('keypress', function(e){
+  if(e.keyCode == '13'){
+	  $('.checkpwd_btn2').click();
+  }
+});
+$('.checkpwd_btn2').click(function(){
+		
+	$.ajax({
+		type: 'post',
+		url: '/TeamProject/user/pwdcheck',
+		data: {'pwd': $('#pwdinput').val()},
+		dataType: 'text',
+		success: function(data){
+			data = data.trim();
+			if(data == 'exist'){
+			alert('비밀번호를 틀렸습니다.')
+		}else if(data == 'non_exist'){
+			$('.checkpwd').fadeOut();
+		    $('body').css("overflow-y", "scroll");
+		 location.href='/TeamProject/user/myPageEdit';
+		 }
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+	
+});
+
+
+	/*  --------------------------------------  */
 window.onload = function() {
 	alert(document.getElementsByClassName('membership_item > info').value());
 	document.getElementById('point').value() = document.getElementsByClassName('membership_item > info').value();

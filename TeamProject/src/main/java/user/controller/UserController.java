@@ -356,4 +356,10 @@ public class UserController {
 		Map<String, Object> map = userService.bookMarkGet();
 		return map; 
 	}
+	@PostMapping(value="pwdcheck")
+	@ResponseBody
+	public String checkpwd(@RequestParam String pwd, HttpSession httpSession) {
+		String check = userService.checkPwd(pwd);		
+		return check;
+	}
 }
