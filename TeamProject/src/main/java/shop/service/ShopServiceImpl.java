@@ -152,14 +152,6 @@ public class ShopServiceImpl implements ShopService {
 	public List<Market_priceDTO> getshopDetaillist(int product_id) {
 		return shopDAO.getshopDetaillist(product_id);
   }
- 
-	@Override
-	public Buy_historyDTO insertBuyPayBySellId(Buy_historyDTO buy_historyDTO, int sell) {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("buy_historyDTO", buy_historyDTO);
-		map.put("sell", sell);
-		return shopDAO.insertBuyPayBySellId(map);
-	}
 
 	@Override
 	public Buy_historyDTO insertBuyPayBySellId(Buy_historyDTO buy_historyDTO, int sell) {
@@ -172,5 +164,13 @@ public class ShopServiceImpl implements ShopService {
 	@Override
 	public Buy_historyDTO getBuyDTOById(int bid) {
 		return shopDAO.getBuyDTOById(bid);
+	}
+
+	@Override
+	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO) {
+		buy_historyDTO.setUser_id((String) session.getAttribute("memId"));
+		buy_historyDTO = shopDAO.insertBuyPay(buy_historyDTO);
+		System.out.println(buy_historyDTO);
+		return buy_historyDTO;
 	}
 }

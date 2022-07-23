@@ -37,4 +37,5 @@ public interface ShopService {
 	
 	public UserDTO getUserInfo();
 	public List<Market_priceDTO> getshopDetaillist(int product_id);
+	public Integer getlikeproduct(int product_id);
 }
