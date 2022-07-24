@@ -244,6 +244,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public Buy_historyDTO getBuyItem(String buy_id) {
+		return userDAO.getBuyItem(buy_id);
+	}
+	@Override
+	public Sell_historyDTO getSellItem(String sell_id) {
+		return userDAO.getSellItem(sell_id);
+	}
+	
+	@Override
 	public String signUpCheckNaver(UserDTO userDTO) {
 		String check;
 		//휴대전화로 동일가입여부 조회
@@ -337,6 +346,10 @@ public class UserServiceImpl implements UserService {
 		}else {
 				check = "exist";
 		}return check;
+	}
+	@Override
+	public List<AddressDTO> getAddress(String user_id) {
+		return userDAO.getAddress(user_id);
 	}
 
 }

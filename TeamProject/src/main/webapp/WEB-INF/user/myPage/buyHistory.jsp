@@ -458,7 +458,9 @@
 		<div class="empty_area buy_empty_area" style="display: none">
 			<p  class="desc">거래 내역이 없습니다.</p>
 		</div>
-
+		<!--상품 리스트-->
+		<div class="purchase_item_wrap">
+		    <!--상품-->
         <div class="purchase_item bid">
             <div class="history_product">
                 <div class="product_box">
@@ -487,6 +489,7 @@
                 </div>
             </div>
         </div>
+		</div>
         <!----><!----><!----><!----><!---->
     </div>
     <div class="pagination">
@@ -512,67 +515,83 @@ window.onload = function() {
 	$('.snb_menu').eq(0).find('.menu_link').eq(0).removeClass('unbold');
 	$('.snb_menu').eq(0).find('.menu_link').eq(0).addClass('bold');
 }
-$(document).ready(function(){
-   $.ajax({
-      type:'post',
-      url:'/TeamProject/user/getBuyHistoryList',
-      dataType:'json',
-      success: function(data){
-		//배경 색
-		var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
-        //거래내역없을 때
-		if(data.buy_historyList.length == 0){
-			$('.buy_empty_area').show();
-		}
-		for(var i = 0; i< data.buy_historyList.length ; i++){
-	        var user_id = data.buy_historyList[i].user_id;
-	        var product_id = data.buy_historyList[i].product_id;
-	        var product_name = data.productImgList[i].org_file_name;
-	        var img = data.productImgList[i].file_path;
-	        var status1 = data.buy_historyList[i].status1;   
-	        var status2 = data.buy_historyList[i].status2;   
-	        var size_type = data.buy_historyList[i].size_type;
-	        if(size_type == 'null'){
-	            size_type = ' - ';
-	        } 
-	        var buy_price = data.buy_historyList[i].buy_price;
-            if ( buy_price == 'null') {
-            	buy_price = ' - ';
-            } else {
-            	buy_price = buy_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-            }
-	        var buy_date = new Date(data.buy_historyList[i].buy_date); //구매일자
-	       	var period = new Date(data.buy_historyList[i].period);
-	       	var random = Math.floor( Math.random() * 4 ); 
-	       	
-	   		let buylist = '<div class="purchase_item">' +
-	                '<div class="history_product">' +
-	                '<div class="product_box">' +
-	                '<div class="product" style="background-color:' + colorList[random] + ';">' +
-	                '<img src="' + img + '" alt="' + product_name + '" class="image picture product_img">' +
-	                '</div></div>' +
-	                '<div class="product_detail">' +
-	                '<p class="name">' + product_name + '</p><span class="size">' + size_type + '</span>' +
-	                '</div></div><div class="history_status">' +
-	                '<div class="status_box field_price"><div class="price">' +
-	                '<span class="amount">' + buy_price + '</span>' +
-	                '<span class="unit">원</span>' +
-	                '</div></div>' +
-	                '<div class="status_box field_date_purchased" style="display: none">' +
-	                '<span class="date">' + buy_date.toLocaleDateString() + '</span>' +
-	                '</div>' +
-	                '<div class="status_box field_date_paid" style="display: none">' +
-	                '<span class="date">' + buy_date.toLocaleDateString() + '</span>' +
-	                '</div>' +
-	                '<div class="status_box field_expires_at">' +
-	                '<span class="date text-default">' + period.toLocaleDateString() + '</span>' +
-	                '</div>' +
-	                '<div class="status_box field_status" style="display: none">' +
-	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
-	                '<span class="status_txt text-default status2_text">' + status2 + '</span>' +
-	                '</div></div></div>'
-				$('.purchase_list').append(buylist);
+
+//입찰, 종료 카테고리
+$(document).on('click', '.tab_item', function(){
+	if($(this).index() == 1){ //입찰중
+		$(this).addClass('tab_on');
+		$('.tab_item').not(this).removeClass('tab_on');
+		$('.status_box').css('display','none');
+		//구매희망가 만료일 상태
+		$('.field_price').css('display','block');
+		$('.field_expires_at').css('display', 'block');
+		$('.field_status').css('display', 'block');
+
+        $.ajax({
+	      type:'post',
+	      url:'/TeamProject/user/getBuyHistoryList',
+	      dataType:'json',
+	      success: function(data){
+			//배경 색
+			var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+	        //거래내역없을 때
+			if(data.buy_historyList.length == 0){
+				$('.buy_empty_area').show();
 			}
+			$('.purchase_item_wrap').html('');
+			
+			for(var i = 0; i< data.buy_historyList.length ; i++){
+		        var user_id = data.buy_historyList[i].user_id;
+		        var buy_id = data.buy_historyList[i].buy_id;
+		        var product_id = data.buy_historyList[i].product_id;
+		        var product_name = data.productImgList[i].org_file_name;
+		        var img = data.productImgList[i].file_path;
+		        var status1 = data.buy_historyList[i].status1;   
+		        var status2 = data.buy_historyList[i].status2;   
+		        var size_type = data.buy_historyList[i].size_type;
+		        if(size_type == 'null'){
+		            size_type = ' - ';
+		        } 
+		        var buy_price = data.buy_historyList[i].buy_price;
+	            if ( buy_price == 'null') {
+	            	buy_price = ' - ';
+	            } else {
+	            	buy_price = buy_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	            }
+		        var buy_date = new Date(data.buy_historyList[i].buy_date); //구매일자
+		       	var period = new Date(data.buy_historyList[i].period);
+		       	var random = Math.floor( Math.random() * 4 ); 
+
+		       	if(status1 == '입찰중' || status1 == '배송중' || status1 == '결제완료'){
+  		       		let buylist = $('<div class="purchase_item" onclick="location.href=\'/TeamProject/user/buyHistoryDetail?buy_id='+ buy_id + '\'">').append(
+  	                '<div class="history_product">' +
+  	                '<div class="product_box">' +
+  	                '<div class="product" style="background-color:' + colorList[random] + ';">' +
+  	                '<img src="' + img + '" alt="' + product_name + '" class="image picture product_img">' +
+  	                '</div></div>' +
+  	                '<div class="product_detail">' +
+  	                '<p class="name">' + product_name + '</p><span class="size">' + size_type + '</span>' +
+  	                '</div></div><div class="history_status">' +
+  	                '<div class="status_box field_price"><div class="price">' +
+  	                '<span class="amount">' + buy_price + '</span>' +
+  	                '<span class="unit">원</span>' +
+  	                '</div></div>' +
+  	                '<div class="status_box field_date_purchased" style="display: none">' +
+  	                '<span class="date">' + buy_date.toLocaleDateString() + '</span>' +
+  	                '</div>' +
+  	                '<div class="status_box field_date_paid" style="display: none">' +
+  	                '<span class="date">' + buy_date.toLocaleDateString() + '</span>' +
+  	                '</div>' +
+  	                '<div class="status_box field_expires_at">' +
+  	                '<span class="date text-default">' + period.toLocaleDateString() + '</span>' +
+  	                '</div>' +
+  	                '<div class="status_box field_status" style="display: none">' +
+  	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
+  	                '</div></div></div>'
+  	                );
+  					$('.purchase_item_wrap').append(buylist);
+  		       		}
+				} // 확장형 for문
 			//구매거래내역 카운트
 			var buy_status1_count = 0;
 			var buy_status2_count = 0;
@@ -588,35 +607,108 @@ $(document).ready(function(){
 	   		$('.buy_status1').text(buy_status1_count);
 	   		$('.buy_status2').text(buy_status2_count);
 	   		$('.buy_countAll').text(buy_status1_count + buy_status2_count);
-	   		$('.tab_item').eq(1).click();
-      },error:function(err){
+      
+      	},error:function(err){
          console.log(err);
-      }      
-   });
-});
-//입찰, 종료 카테고리
-$(document).on('click', '.tab_item', function(){
-	if($(this).index() == 1){ //입찰중
-		$(this).addClass('tab_on');
-		$('.tab_item').not(this).removeClass('tab_on');
-		$('.status_box').css('display','none');
-		//구매희망가 만료일 상태
-		$('.field_price').css('display','block');
-		$('.field_expires_at').css('display', 'block');
-		$('.field_status').css('display', 'block');
-		$('.status2_text').hide();
-		$('.status1_text').show();
-	}else{ //종료
+		}      
+	});
+
+	}else if($(this).index() == 2){ //종료
 		$(this).addClass('tab_on');
 		$('.tab_item').not(this).removeClass('tab_on');
 		$('.status_box').css('display','none');
 		//정산일 상태
 		$('.field_date_paid').css('display', 'block');
 		$('.field_status').css('display', 'block');
-		$('.status1_text').hide();
-		$('.status2_text').show();
+
+        $.ajax({
+  	      type:'post',
+  	      url:'/TeamProject/user/getBuyHistoryList',
+  	      dataType:'json',
+  	      success: function(data){
+  			//배경 색
+  			var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+  	        //거래내역없을 때
+  			if(data.buy_historyList.length == 0){
+  				$('.buy_empty_area').show();
+  			}
+  			$('.purchase_item_wrap').html('');
+  			
+  			for(var i = 0; i< data.buy_historyList.length ; i++){
+  		        var user_id = data.buy_historyList[i].user_id;
+  		        var product_id = data.buy_historyList[i].product_id;
+  		        var buy_id = data.buy_historyList[i].buy_id;
+  		        var product_name = data.productImgList[i].org_file_name;
+  		        var img = data.productImgList[i].file_path;
+  		        var status1 = data.buy_historyList[i].status1;   
+  		        var status2 = data.buy_historyList[i].status2;   
+  		        var size_type = data.buy_historyList[i].size_type;
+  		        if(size_type == 'null'){
+  		            size_type = ' - ';
+  		        } 
+  		        var buy_price = data.buy_historyList[i].buy_price;
+  	            if ( buy_price == 'null') {
+  	            	buy_price = ' - ';
+  	            } else {
+  	            	buy_price = buy_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  	            }
+  		        var buy_date = new Date(data.buy_historyList[i].buy_date); //구매일자
+  		       	var period = new Date(data.buy_historyList[i].period);
+  		       	var random = Math.floor( Math.random() * 4 ); 
+
+  		       	if(status2 == '배송완료' || status2 == '입찰종료'){
+  		       		let buylist = $('<div class="purchase_item" onclick="location.href=\'/TeamProject/user/buyHistoryDetail?buy_id='+ buy_id + '\'">').append(
+  	                '<div class="history_product">' +
+  	                '<div class="product_box">' +
+  	                '<div class="product" style="background-color:' + colorList[random] + ';">' +
+  	                '<img src="' + img + '" alt="' + product_name + '" class="image picture product_img">' +
+  	                '</div></div>' +
+  	                '<div class="product_detail">' +
+  	                '<p class="name">' + product_name + '</p><span class="size">' + size_type + '</span>' +
+  	                '</div></div><div class="history_status">' +
+  	                '<div class="status_box field_price"><div class="price">' +
+  	                '<span class="amount">' + buy_price + '</span>' +
+  	                '<span class="unit">원</span>' +
+  	                '</div></div>' +
+  	                '<div class="status_box field_date_purchased" style="display: none">' +
+  	                '<span class="date">' + buy_date.toLocaleDateString() + '</span>' +
+  	                '</div>' +
+  	                '<div class="status_box field_date_paid" style="display: none">' +
+  	                '<span class="date">' + buy_date.toLocaleDateString() + '</span>' +
+  	                '</div>' +
+  	                '<div class="status_box field_expires_at">' +
+  	                '<span class="date text-default">' + period.toLocaleDateString() + '</span>' +
+  	                '</div>' +
+  	                '<div class="status_box field_status" style="display: none">' +
+  	                '<span class="status_txt text-default status2_text">' + status2 + '</span>' +
+  	                '</div></div></div>'
+  	                );
+  					$('.purchase_item_wrap').append(buylist);
+  		       		}
+  				} // 확장형 for문
+  			//구매거래내역 카운트
+			var buy_status1_count = 0;
+			var buy_status2_count = 0;
+			
+	       	for(var i = 0; i < data.buy_historyList.length; i++){
+	       		if(status1 != null){
+	       			buy_status1_count = buy_status1_count + 1;
+	       		}
+	       		if(status2 != null){
+	       			buy_status2_count = buy_status2_count + 1;
+	       		}
+	       	}
+	   		$('.buy_status1').text(buy_status1_count);
+	   		$('.buy_status2').text(buy_status2_count);
+	   		$('.buy_countAll').text(buy_status1_count + buy_status2_count);
+      
+        	},error:function(err){
+           console.log(err);
+  		}      
+  	});
 	}
 });
+
 </script>
 </body>
 </html>

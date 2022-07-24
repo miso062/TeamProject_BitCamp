@@ -1017,7 +1017,6 @@ $(document).ready(function(){
 		var buy_status1_count = 0;
 		var buy_status2_count = 0;
 		
-		
        	for(var i = 0; i < data.buy_historyList.length; i++){
        		if(data.buy_historyList[i].status1 != null){
        			buy_status1_count = buy_status1_count + 1;
@@ -1026,48 +1025,49 @@ $(document).ready(function(){
        			buy_status2_count = buy_status2_count + 1;
        		}
        	}
-       	
    		$('.buy_status1').text(buy_status1_count);
    		$('.buy_status2').text(buy_status2_count);
    		$('.buy_countAll').text(buy_status1_count + buy_status2_count);
-   		
-		for(var i = 0; i< data.buy_historyList.length ; i++){
-            //console.log(data.num, data.buy_historyList[i].user_id, data.productImgList[i].org_file_name ,data.productImgList[i].file_path);
-            var random = Math.floor( Math.random() * 4 ); 
-               $('<div/>',{
-                class: 'purchase_item buy_purchase_item'
-            }).append($('<div/>',{
-                class: 'history_product'
-            }).append($('<div/>',{
-                class: 'product_box'
-            }).append($('<div/>',{
-                class: 'product',
-                style: 'background-color: '+ colorList[random] + ';'
-            }).append($('<img/>',{
-                class: 'picture product_img image',
-                style: 'height:80px;',
-                src: data.productImgList[i].file_path
-            })))).append($('<div/>',{
-                class: 'product_detail'
-            }).append($('<p/>',{
-                class: 'name',
-                text: data.productImgList[i].org_file_name
-            })).append($('<p/>',{
-                class: 'size'
-            }).append($('<span/>',{
-                class: 'size_text',
-                text: data.buy_historyList[i].size_type
-            }))))).append($('<div/>',{
-                class:'history_status'
-            }).append($('<div/>',{
-                class: 'status_box field_status'
-            }).append($('<span/>',{
-                class: 'status_txt text-default',
-                text: data.buy_historyList[i].status1
-            })).append($('<span/>',{
-                   class: 'status_txt text-default text-danger',
-                   text: data.buy_historyList[i].status2
-               })))).appendTo('.buy_list');
+      	
+        for(var i = 0; i< data.buy_historyList.length ; i++){
+	        var user_id = data.buy_historyList[i].user_id;
+	        var buy_id = data.buy_historyList[i].buy_id;
+	        var product_id = data.buy_historyList[i].product_id;
+	        var product_name = data.productImgList[i].org_file_name;
+	        var img = data.productImgList[i].file_path;
+	        var status1 = data.buy_historyList[i].status1;   
+	        var status2 = data.buy_historyList[i].status2;   
+	        var size_type = data.buy_historyList[i].size_type;
+	        if(size_type == 'null'){
+	            size_type = ' - ';
+	        } 
+	        var buy_price = data.buy_historyList[i].buy_price;
+            if ( buy_price == 'null') {
+            	buy_price = ' - ';
+            } else {
+            	buy_price = buy_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+	       	var random = Math.floor( Math.random() * 4 ); 
+	       	
+            let buylist = $('<div class="purchase_item" onclick="location.href=\'/TeamProject/user/buyHistoryDetail?buy_id='+ buy_id + '\'">').append(
+  	                '<div class="history_product">' +
+  	                '<div class="product_box">' +
+  	                '<div class="product" style="background-color:' + colorList[random] + ';">' +
+  	                '<img src="' + img + '" alt="' + product_name + '" class="image picture product_img">' +
+  	                '</div></div>' +
+  	                '<div class="product_detail">' +
+  	                '<p class="name">' + product_name + '</p><span class="size">' + size_type + '</span>' +
+  	                '</div></div><div class="history_status">' +
+  	                '<div class="status_box field_price"><div class="price">' +
+  	                '<span class="amount">' + buy_price + '</span>' +
+  	                '<span class="unit">원</span>' +
+  	                '</div></div>' +
+  	                '<div class="status_box field_status">' +
+  	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
+  	              	//'<span class="status_txt text-default status1_text">' + status2 + '</span>' +
+  	                '</div></div></div>'
+  	                );
+            $('.buy_list').append(buylist);
 			//상품 3개까지 보이게하기
 			if( i > 1){
 			   break;
@@ -1110,45 +1110,45 @@ $(document).ready(function(){
    		$('.sell_countAll').text(sell_status1_count + sell_status2_count);
           
          for(var i = 0; i< data.sell_historyList.length ; i++){
-            var random = Math.floor( Math.random() * 4 ); 
-            var size_type = data.sell_historyList[i].size_type;
-            if(size_type == 'null'){
-                size_type = ' - '
-            } 
-               $('<div/>',{
-                class: 'purchase_item sell_purchase_item'
-            }).append($('<div/>',{
-                class: 'history_product'
-            }).append($('<div/>',{
-                class: 'product_box'
-            }).append($('<div/>',{
-                class: 'product',
-                style: 'background-color: '+ colorList[random] + ';'
-            }).append($('<img/>',{
-                class: 'picture product_img image',
-                style: 'height:80px;',
-                src: data.productImgList[i].file_path
-            })))).append($('<div/>',{
-                class: 'product_detail'
-            }).append($('<p/>',{
-                class: 'name',
-                text: data.productImgList[i].org_file_name
-            })).append($('<p/>',{
-                class: 'size'
-            }).append($('<span/>',{
-                class: 'size_text',
-                text: size_type
-            }))))).append($('<div/>',{
-                class:'history_status'
-            }).append($('<div/>',{
-                class: 'status_box field_status'
-            }).append($('<span/>',{
-                class: 'status_txt text-default',
-                text: data.sell_historyList[i].status1
-            })).append($('<span/>',{
-                    class: 'status_txt text-default text-danger',
-                    text: data.sell_historyList[i].status2
-                })))).appendTo('.sell_list');
+	        var user_id = data.sell_historyList[i].user_id;
+	        var sell_id = data.sell_historyList[i].sell_id;
+	        var product_id = data.sell_historyList[i].product_id;
+	        var product_name = data.productImgList[i].org_file_name;
+	        var img = data.productImgList[i].file_path;
+	        var status1 = data.sell_historyList[i].status1;   
+	        var status2 = data.sell_historyList[i].status2;   
+	        var size_type = data.sell_historyList[i].size_type;
+	        if(size_type == 'null'){
+	            size_type = ' - ';
+	        } 
+	        var sell_price = data.sell_historyList[i].sell_price;
+            if ( sell_price == 'null') {
+            	sell_price = ' - ';
+            } else {
+            	sell_price = sell_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+	       	var random = Math.floor( Math.random() * 4 ); 
+	       	
+            let selllist = $('<div class="purchase_item" onclick="location.href=\'/TeamProject/user/sellHistoryDetail?sell_id='+ sell_id + '\'">').append(
+  	                '<div class="history_product">' +
+  	                '<div class="product_box">' +
+  	                '<div class="product" style="background-color:' + colorList[random] + ';">' +
+  	                '<img src="' + img + '" alt="' + product_name + '" class="image picture product_img">' +
+  	                '</div></div>' +
+  	                '<div class="product_detail">' +
+  	                '<p class="name">' + product_name + '</p><span class="size">' + size_type + '</span>' +
+  	                '</div></div><div class="history_status">' +
+  	                '<div class="status_box field_price"><div class="price">' +
+  	                '<span class="amount">' + sell_price + '</span>' +
+  	                '<span class="unit">원</span>' +
+  	                '</div></div>' +
+  	                '<div class="status_box field_status">' +
+  	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
+  	              	//'<span class="status_txt text-default status1_text">' + status2 + '</span>' +
+  	                '</div></div></div>'
+  	                );
+            $('.sell_list').append(selllist);
+            
 			 //상품 3개까지 보이게하기
 			if( i > 1){
 			   break;
