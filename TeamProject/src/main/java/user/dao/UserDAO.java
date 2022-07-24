@@ -31,6 +31,8 @@ public interface UserDAO {
 	public void deleteImg(String user_id);
 	public List<Buy_historyDTO> getBuyHistory(String user_id);
 	public List<Sell_historyDTO> getSellHistory(String user_id);
+	public List<Buy_historyDTO> getBuyHistoryList(String user_id);
+	public List<Sell_historyDTO> getSellHistoryList(String user_id);
 	public void SignUpNaver(UserDTO userDTO);
 	public UserDTO loginNaver(String user_id);
 	public int checkIdKakao(String user_id);

@@ -140,6 +140,16 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	public List<Buy_historyDTO> getBuyHistoryList(String user_id) {
+		return sqlSession.selectList("userSQL.getBuyHistoryList", user_id);
+	}
+
+	@Override
+	public List<Sell_historyDTO> getSellHistoryList(String user_id) {
+		return sqlSession.selectList("userSQL.getSellHistoryList", user_id);
+	}
+	
+	@Override
 	public ProductImgDTO getProductImg(int product_id) {
 		return sqlSession.selectOne("userSQL.getProductImg", product_id);
 	}

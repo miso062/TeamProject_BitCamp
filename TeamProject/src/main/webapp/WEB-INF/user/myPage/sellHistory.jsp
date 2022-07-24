@@ -546,7 +546,6 @@
 window.onload = function() {
 	$('.snb_menu').eq(0).find('.menu_link').eq(1).removeClass('unbold');
 	$('.snb_menu').eq(0).find('.menu_link').eq(1).addClass('bold');
-	$('.tab_item').eq(1).click();
 }
 
 //입찰, 종료 카테고리
@@ -576,7 +575,7 @@ $(document).on('click', '.tab_item', function(){
 $(document).ready(function(){
    $.ajax({
       type:'post',
-      url:'/TeamProject/user/getSellHistory',
+      url:'/TeamProject/user/getSellHistoryList',
       dataType:'json',
       success: function(data){
 		//배경 색
@@ -649,6 +648,7 @@ $(document).ready(function(){
 	   		$('.sell_status1').text(sell_status1_count);
 	   		$('.sell_status2').text(sell_status2_count);
 	   		$('.sell_countAll').text(sell_status1_count + sell_status2_count);
+	   		$('.tab_item').eq(1).click();
       },error:function(err){
          console.log(err);
       }      

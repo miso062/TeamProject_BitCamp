@@ -229,6 +229,15 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getSellHistory(user_id);
 	}
 
+	public List<Buy_historyDTO> getBuyHistoryList(String user_id) {
+	  	return userDAO.getBuyHistoryList(user_id);
+	}
+  
+	@Override
+	public List<Sell_historyDTO> getSellHistoryList(String user_id) {
+		return userDAO.getSellHistoryList(user_id);
+	}
+	
 	@Override
 	public ProductImgDTO getProductImg(int product_id) {
 		return userDAO.getProductImg(product_id);

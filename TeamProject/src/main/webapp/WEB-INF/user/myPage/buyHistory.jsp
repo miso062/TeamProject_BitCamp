@@ -493,27 +493,15 @@
         <div class="pagination_box first last">
             <div class="prev_btn_box">
                 <a href="#" class="btn_arr">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-first icon sprite-icons">
-                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-first" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-first"></use>
-                    </svg>
                 </a>
                 <a href="#" class="btn_arr">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-prev icon sprite-icons">
-                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-prev" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-prev"></use>
-                    </svg>
                 </a>
             </div>
             <div class="page_bind"><a href="#" class="btn_page active"> 1 </a></div>
             <div class="next_btn_box">
                 <a href="#" class="btn_arr">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-next icon sprite-icons">
-                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-next" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-next"></use>
-                    </svg>
                 </a>
                 <a href="#" class="btn_arr">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-last icon sprite-icons">
-                        <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-last" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-last"></use>
-                    </svg>
                 </a>
             </div>
         </div>
@@ -523,37 +511,11 @@
 window.onload = function() {
 	$('.snb_menu').eq(0).find('.menu_link').eq(0).removeClass('unbold');
 	$('.snb_menu').eq(0).find('.menu_link').eq(0).addClass('bold');
-	$('.tab_item').eq(1).click();
 }
-
-//입찰, 종료 카테고리
-$(document).on('click', '.tab_item', function(){
-	if($(this).index() == 1){ //입찰중
-		$(this).addClass('tab_on');
-		$('.tab_item').not(this).removeClass('tab_on');
-		$('.status_box').css('display','none');
-		//구매희망가 만료일 상태
-		$('.field_price').css('display','block');
-		$('.field_expires_at').css('display', 'block');
-		$('.field_status').css('display', 'block');
-		$('.status2_text').hide();
-		$('.status1_text').show();
-	}else{ //종료
-		$(this).addClass('tab_on');
-		$('.tab_item').not(this).removeClass('tab_on');
-		$('.status_box').css('display','none');
-		//정산일 상태
-		$('.field_date_paid').css('display', 'block');
-		$('.field_status').css('display', 'block');
-		$('.status1_text').hide();
-		$('.status2_text').show();
-	}
-});
-
 $(document).ready(function(){
    $.ajax({
       type:'post',
-      url:'/TeamProject/user/getBuyHistory',
+      url:'/TeamProject/user/getBuyHistoryList',
       dataType:'json',
       success: function(data){
 		//배경 색
@@ -626,12 +588,35 @@ $(document).ready(function(){
 	   		$('.buy_status1').text(buy_status1_count);
 	   		$('.buy_status2').text(buy_status2_count);
 	   		$('.buy_countAll').text(buy_status1_count + buy_status2_count);
+	   		$('.tab_item').eq(1).click();
       },error:function(err){
          console.log(err);
       }      
    });
 });
-
+//입찰, 종료 카테고리
+$(document).on('click', '.tab_item', function(){
+	if($(this).index() == 1){ //입찰중
+		$(this).addClass('tab_on');
+		$('.tab_item').not(this).removeClass('tab_on');
+		$('.status_box').css('display','none');
+		//구매희망가 만료일 상태
+		$('.field_price').css('display','block');
+		$('.field_expires_at').css('display', 'block');
+		$('.field_status').css('display', 'block');
+		$('.status2_text').hide();
+		$('.status1_text').show();
+	}else{ //종료
+		$(this).addClass('tab_on');
+		$('.tab_item').not(this).removeClass('tab_on');
+		$('.status_box').css('display','none');
+		//정산일 상태
+		$('.field_date_paid').css('display', 'block');
+		$('.field_status').css('display', 'block');
+		$('.status1_text').hide();
+		$('.status2_text').show();
+	}
+});
 </script>
 </body>
 </html>

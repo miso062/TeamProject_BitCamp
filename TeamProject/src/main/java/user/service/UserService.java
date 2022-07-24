@@ -32,6 +32,8 @@ public interface UserService {
 	public void updateImg(String fileName);
 	public List<Buy_historyDTO> getBuyHistory(String user_id);
 	public List<Sell_historyDTO> getSellHistory(String user_id);
+	public List<Buy_historyDTO> getBuyHistoryList(String string);
+	public List<Sell_historyDTO> getSellHistoryList(String string);
 	public String checkKakao(String user_id);
 	public ProductImgDTO getProductImg(int product_id);
 	public String bookMarkGetDetail(String product_id);
