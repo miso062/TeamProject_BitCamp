@@ -461,37 +461,9 @@
 		<!--상품 리스트-->
 		<div class="purchase_item_wrap">
 		    <!--상품-->
-        <div class="purchase_item bid">
-            <div class="history_product">
-                <div class="product_box">
-                    <div class="product" style="background-color: rgb(242, 242, 242);">
-	                    <img
-	                        alt="Malbon Golf Stand Bag + Jordan 1 Low Golf Chicago"
-	                        src="https://kream-phinf.pstatic.net/MjAyMjA2MjhfODcg/MDAxNjU2NDI3MjYyNTg3.IxUjfB7QVgwfi0q7hKsszseQHvBYQM5kE4w5bAo8qhYg.k4Mvf8zAAIF5Yj9FUFDypOLJzLJwT-xFvEJ28mtEBr4g.JPEG/a_88bd913f34504b11bcbcc85750dab83b.jpg?type=m"
-	                        class="image picture product_img"
-	                    />
-                    </div>
-                </div>
-                <div class="product_detail">
-                    <p class="name">Malbon Golf Stand Bag + Jordan 1 Low Golf Chicago</p>
-                    <p class="size"><span class="size_text">-</span></p>
-                </div>
-            </div>
-            <div class="history_status">
-                <div class="status_box field_price">
-                    <div class="price"><span class="amount">100</span><span class="unit">원</span></div>
-                </div>
-                <div class="status_box field_date_purchased"><span class="date"> -</span></div>
-                <div class="status_box field_date_paid"><span class="date"> </span></div>
-                <div class="status_box field_expires_at"><span class="date text-danger">기한만료</span></div>
-                <div class="status_box field_status">
-                    <span class="status_txt text-danger">기한만료</span>
-                </div>
-            </div>
-        </div>
 		</div>
-        <!----><!----><!----><!----><!---->
     </div>
+        <!--페이징처리-->
     <div class="pagination">
         <div class="pagination_box first last">
             <div class="prev_btn_box">
@@ -509,11 +481,13 @@
             </div>
         </div>
     </div>
+    <!----><!----><!----><!----><!---->
 </div>
 <script type="text/javascript">
 window.onload = function() {
 	$('.snb_menu').eq(0).find('.menu_link').eq(0).removeClass('unbold');
 	$('.snb_menu').eq(0).find('.menu_link').eq(0).addClass('bold');
+	$('.tab_item').eq(1).click();
 }
 
 //입찰, 종료 카테고리
@@ -521,11 +495,6 @@ $(document).on('click', '.tab_item', function(){
 	if($(this).index() == 1){ //입찰중
 		$(this).addClass('tab_on');
 		$('.tab_item').not(this).removeClass('tab_on');
-		$('.status_box').css('display','none');
-		//구매희망가 만료일 상태
-		$('.field_price').css('display','block');
-		$('.field_expires_at').css('display', 'block');
-		$('.field_status').css('display', 'block');
 
         $.ajax({
 	      type:'post',
@@ -538,8 +507,24 @@ $(document).on('click', '.tab_item', function(){
 			if(data.buy_historyList.length == 0){
 				$('.buy_empty_area').show();
 			}
-			$('.purchase_item_wrap').html('');
+
+			//구매거래내역 카운트
+			var buy_status1_count = 0;
+			var buy_status2_count = 0;
 			
+	       	for(var i = 0; i < data.buy_historyList.length; i++){
+	       		if(data.buy_historyList[i].status1 != null){
+	       			buy_status1_count = buy_status1_count + 1;
+	       		}
+	       		if(data.buy_historyList[i].status2 != null){
+	       			buy_status2_count = buy_status2_count + 1;
+	       		}
+	       	}
+	   		$('.buy_status1').text(buy_status1_count);
+	   		$('.buy_status2').text(buy_status2_count);
+	   		$('.buy_countAll').text(buy_status1_count + buy_status2_count);
+	   		
+			$('.purchase_item_wrap').html('');
 			for(var i = 0; i< data.buy_historyList.length ; i++){
 		        var user_id = data.buy_historyList[i].user_id;
 		        var buy_id = data.buy_historyList[i].buy_id;
@@ -585,28 +570,18 @@ $(document).on('click', '.tab_item', function(){
   	                '<div class="status_box field_expires_at">' +
   	                '<span class="date text-default">' + period.toLocaleDateString() + '</span>' +
   	                '</div>' +
-  	                '<div class="status_box field_status" style="display: none">' +
+  	                '<div class="status_box field_status">' +
   	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
   	                '</div></div></div>'
   	                );
   					$('.purchase_item_wrap').append(buylist);
   		       		}
 				} // 확장형 for문
-			//구매거래내역 카운트
-			var buy_status1_count = 0;
-			var buy_status2_count = 0;
-			
-	       	for(var i = 0; i < data.buy_historyList.length; i++){
-	       		if(status1 != null){
-	       			buy_status1_count = buy_status1_count + 1;
-	       		}
-	       		if(status2 != null){
-	       			buy_status2_count = buy_status2_count + 1;
-	       		}
-	       	}
-	   		$('.buy_status1').text(buy_status1_count);
-	   		$('.buy_status2').text(buy_status2_count);
-	   		$('.buy_countAll').text(buy_status1_count + buy_status2_count);
+			$('.status_box').css('display','none');
+			//구매희망가 만료일 상태
+			$('.field_price').css('display','block');
+			$('.field_expires_at').css('display', 'block');
+			$('.field_status').css('display', 'block');
       
       	},error:function(err){
          console.log(err);
@@ -616,10 +591,6 @@ $(document).on('click', '.tab_item', function(){
 	}else if($(this).index() == 2){ //종료
 		$(this).addClass('tab_on');
 		$('.tab_item').not(this).removeClass('tab_on');
-		$('.status_box').css('display','none');
-		//정산일 상태
-		$('.field_date_paid').css('display', 'block');
-		$('.field_status').css('display', 'block');
 
         $.ajax({
   	      type:'post',
@@ -633,7 +604,22 @@ $(document).on('click', '.tab_item', function(){
   				$('.buy_empty_area').show();
   			}
   			$('.purchase_item_wrap').html('');
+  			//구매거래내역 카운트
+  			var buy_status1_count = 0;
+  			var buy_status2_count = 0;
   			
+  	       	for(var i = 0; i < data.buy_historyList.length; i++){
+  	       		if(data.buy_historyList[i].status1 != null){
+  	       			buy_status1_count = buy_status1_count + 1;
+  	       		}
+  	       		if(data.buy_historyList[i].status2 != null){
+  	       			buy_status2_count = buy_status2_count + 1;
+  	       		}
+  	       	}
+  	   		$('.buy_status1').text(buy_status1_count);
+  	   		$('.buy_status2').text(buy_status2_count);
+  	   		$('.buy_countAll').text(buy_status1_count + buy_status2_count);
+  	   		
   			for(var i = 0; i< data.buy_historyList.length ; i++){
   		        var user_id = data.buy_historyList[i].user_id;
   		        var product_id = data.buy_historyList[i].product_id;
@@ -673,36 +659,24 @@ $(document).on('click', '.tab_item', function(){
   	                '<div class="status_box field_date_purchased" style="display: none">' +
   	                '<span class="date">' + buy_date.toLocaleDateString() + '</span>' +
   	                '</div>' +
-  	                '<div class="status_box field_date_paid" style="display: none">' +
+  	                '<div class="status_box field_date_paid">' +
   	                '<span class="date">' + buy_date.toLocaleDateString() + '</span>' +
   	                '</div>' +
-  	                '<div class="status_box field_expires_at">' +
+  	                '<div class="status_box field_expires_at" style="display: none">' +
   	                '<span class="date text-default">' + period.toLocaleDateString() + '</span>' +
   	                '</div>' +
-  	                '<div class="status_box field_status" style="display: none">' +
-  	                '<span class="status_txt text-default status2_text">' + status2 + '</span>' +
+  	                '<div class="status_box field_status">' +
+  	                '<span class="status_txt text-default status2_text text-danger">' + status2 + '</span>' +
   	                '</div></div></div>'
   	                );
   					$('.purchase_item_wrap').append(buylist);
   		       		}
   				} // 확장형 for문
-  			//구매거래내역 카운트
-			var buy_status1_count = 0;
-			var buy_status2_count = 0;
-			
-	       	for(var i = 0; i < data.buy_historyList.length; i++){
-	       		if(status1 != null){
-	       			buy_status1_count = buy_status1_count + 1;
-	       		}
-	       		if(status2 != null){
-	       			buy_status2_count = buy_status2_count + 1;
-	       		}
-	       	}
-	   		$('.buy_status1').text(buy_status1_count);
-	   		$('.buy_status2').text(buy_status2_count);
-	   		$('.buy_countAll').text(buy_status1_count + buy_status2_count);
-      
-        	},error:function(err){
+			$('.status_box').css('display','none');
+			//정산일 상태
+			$('.field_date_paid').css('display', 'block');
+			$('.field_status').css('display', 'block');
+        },error:function(err){
            console.log(err);
   		}      
   	});
