@@ -348,7 +348,13 @@ public class UserServiceImpl implements UserService {
 		}return check;
 	}
 	@Override
-	public List<AddressDTO> getAddress(String user_id) {
+	public void userdelete(HttpSession httpsession) {
+		String user_id = (String) session.getAttribute("memId");
+		userDAO.userdelete(user_id);
+  }
+
+  @Override
+  public List<AddressDTO> getAddress(String user_id) {
 		return userDAO.getAddress(user_id);
 	}
 

@@ -185,10 +185,12 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	public void userdelete(String user_id) {
+		sqlSession.delete("userSQL.userdelete",user_id);
+	}
+
 	public List<AddressDTO> getAddress(String user_id) {
 		return sqlSession.selectList("userSQL.getAddress", user_id);
 	}
-
-
 }
 	

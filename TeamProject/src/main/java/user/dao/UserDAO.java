@@ -40,6 +40,7 @@ public interface UserDAO {
 	public ProductImgDTO getProductImg(int product_id);
 	public int bookMarkGetDetail(Map<String, String> map);
 	public UserDTO checkrecheckpwd(String user_id);
+	public void userdelete(String user_id);
 	public Buy_historyDTO getBuyItem(String buy_id);
 	public Sell_historyDTO getSellItem(String sell_id);
 	public List<AddressDTO> getAddress(String user_id);

@@ -40,6 +40,6 @@ public interface UserService {
 	public ProductImgDTO getProductImg(int product_id);
 	public String bookMarkGetDetail(String product_id);
 	public String checkPwd(String pwd);
+	public void userdelete(HttpSession httpsession);
 	public List<AddressDTO> getAddress(String user_id);
-	
 }
