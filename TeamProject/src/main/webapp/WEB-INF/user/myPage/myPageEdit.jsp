@@ -6,6 +6,98 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+#recheckpwd{
+	text-align:center;
+	color:rgba(34,34,34,.5);
+	font-weight: bold ;
+}
+.pwdinput2{
+	margin-bottom:20px;
+	text-align:center;
+	
+	
+}
+#pwdinput2{
+	border:1px solid black;
+	height: 20px;
+	border-radius: 16px;
+	text-align:center;
+}
+.checkpwd2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(34,34,34,.5);
+    z-index: 1010;
+}
+.checkpwd2 .checkpwd_container {
+    width: 444px;
+}
+.checkpwd_container {
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    width: 448px;
+    border-radius: 16px;
+    -webkit-box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+}
+.checkpwd_header .title2 {
+    line-height: 22px;
+    padding: 18px 50px 20px;
+    min-height: 60px;
+    font-size: 18px;
+    letter-spacing: -.27px;
+    font-weight: 700;
+    letter-spacing: -.15px;
+    color: #000;
+    text-align: center;
+    background-color: #fff;
+}
+.checkpwd_btn {
+    padding: 24px 32px 32px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.checkpwd_btn .checkpwd_btn6 {
+    width: 120px;
+}
+.checkpwd_btn6 {
+    border: 1px solid #d3d3d3;
+}
+.checkpwd_btn6 {
+    padding: 0 18px;
+    height: 42px;
+    line-height: 40px;
+    border-radius: 12px;
+    font-size: 14px;
+    letter-spacing: -.14px;
+}
+.checkpwd_btn6 {
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+    color: rgba(34,34,34,.8);
+    background-color: #fff;
+}
+.checkpwd_btn7 {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    cursor: pointer;
+}    
 .content_title {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -902,10 +994,76 @@ svg:not(:root) {
          <button type="button" class="btn outlinegrey small" onclick="location.reload()" >다시 작성</button>
          <button type="button" class="btn outlinegrey small updateBtn" >변경</button>
       </div>
-        <a href="/my/withdrawal" class="btn_withdrawal">회원 탈퇴</a>
+        <div class="btn_withdrawal">회원 탈퇴</div>
     </div>
+    <div class="checkpwd2" style="display: none;">
+<div class="checkpwd_container">
+<div class="checkpwd_header"><h2 class="title2">비밀번호 재확인</h2></div>
+<div class="checkpwd_list">
+<div class="pwdinput2"><input type="password" id="pwdinput2" /></div>
+<div id="recheckpwd">본인확인을 위해 비밀번호를 다시 한번 확인합니다.</div>
+<div id="recheckpwd">본인확인 후 최종 회원탈퇴가 가능합니다.</div>
+</div>
+<div class="checkpwd_btn"><ahref="#" class="checkpwd_btn6" > 확인 </a></div>
+            <a href="#" class="checkpwd_btn7">
+            </a>
+</div>
+</div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
+$('.btn_withdrawal').click(function(){
+	$('.checkpwd2').fadeIn();
+	$('#pwdinput2').focus();
+    $('body').css("overflow", "hidden");
+});
+$(document).on("click",function(e){
+	if($('.checkpwd2').is(e.target)) {
+		$('.checkpwd2').fadeOut();
+        $('body').css("overflow-y", "scroll");
+	}
+})
+ $('#pwdinput2').on('keypress', function(e){
+  if(e.keyCode == '13'){
+	  $('.checkpwd_btn6').click();
+  }
+});
+$('.checkpwd_btn6').click(function(){
+	if(confirm('정말 탈퇴 하시겠습니까?')){
+		$.ajax({
+			type: 'post',
+			url: '/TeamProject/user/pwdcheck',
+			data: {'pwd': $('#pwdinput2').val()},
+			dataType: 'text',
+			success: function(data){
+				data = data.trim();
+				if(data == 'exist'){
+				alert('비밀번호를 틀렸습니다.')
+			}else if(data == 'non_exist'){
+				$.ajax({
+					type: 'post',
+					url: '/TeamProject/user/userdelete',
+					success: function(data){
+						$('.checkpwd').fadeOut();
+					    $('body').css("overflow-y", "scroll");
+					    alert('이용해주셔서 감사합니다.');
+					    location.href='/TeamProject/';
+					},
+					error: function(err){
+					console.log(err);
+					}
+				});
+				
+			 }
+			},
+			error: function(err){
+				console.log(err);
+			}
+		});
+	}else{
+			$('.checkpwd2').fadeOut();
+	        $('body').css("overflow-y", "scroll");
+	}
+});
 $(document).ready(function(){ /* 광고성 정보 수신 동의 */
       var image = '${userDTO.profile_img}';
       var sms_allow ='${userDTO.sms_allow}';
