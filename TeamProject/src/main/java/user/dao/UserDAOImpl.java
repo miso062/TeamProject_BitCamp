@@ -165,6 +165,11 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
+	public AddressDTO getAddress(Integer address_id) {
+		return sqlSession.selectOne("userSQL.getAddress", address_id);
+	}
+	
+	@Override
 	public int checkIdKakao(String user_id) {
 
 		return sqlSession.selectOne("userSQL.checkIdKakao", user_id);
@@ -182,11 +187,6 @@ public class UserDAOImpl implements UserDAO {
 
 	public UserDTO checkrecheckpwd(String user_id) {
 		return sqlSession.selectOne("userSQL.checkrecheckpwd",user_id);
-	}
-
-	@Override
-	public List<AddressDTO> getAddress(String user_id) {
-		return sqlSession.selectList("userSQL.getAddress", user_id);
 	}
 
 

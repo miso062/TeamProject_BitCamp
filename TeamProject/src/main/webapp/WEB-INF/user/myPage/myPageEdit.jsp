@@ -716,7 +716,7 @@ svg:not(:root) {
                       <a href="#" id="delImage" class="btn outlinegrey small reset"> 삭제 </a>
                     </div>
                 </div>
-                <input type="file" accept="image/jpeg,image/png" id="imageFileInput" class="profileImgUrl" name="img" style="visibility : hidden;" >
+                <input type="file" accept="image/jpeg,image/png" id="imageFileInput" class="profileImgUrl" name="file" style="visibility : hidden;" >
             </div>
         </form>
         
@@ -907,27 +907,29 @@ svg:not(:root) {
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){ /* 광고성 정보 수신 동의 */
-      var image = '${userDTO.profile_img}';
-      var sms_allow ='${userDTO.sms_allow}';
-      var email_allow = '${userDTO.email_allow}';
-      if(image==null || image==''){
+	var date = new Date();
+	var image = '${userDTO.profile_img}';
+	var sms_allow ='${userDTO.sms_allow}';
+	var email_allow = '${userDTO.email_allow}';
+	
+	if(image==null || image==''){
             document.querySelector('.profile_img').setAttribute('src','/TeamProject/img/user/profile.png');
-        }else{
-            document.querySelector('.profile_img').setAttribute('src', '/TeamProject/storage/'+image);
-        }
+	}else{
+            document.querySelector('.profile_img').setAttribute('src', 'https://storage.googleapis.com/gese-t.appspot.com/'+ image + '?'+ date.getTime() );
+	}
         
-        if(sms_allow==1){
+	if(sms_allow==1){
             document.getElementById('sms_agree').checked = true;
-        }else{
+	}else{
             document.getElementById('sms_disagree').checked = true;
-        }
+	}
         
-         if(email_allow==1){
+	if(email_allow==1){
             document.getElementById('email_agree').checked = true;
-        }else{
+	}else{
             document.getElementById('email_disagree').checked = true;
-        }
-})
+	}
+});
 window.onload = function() {
     $('.snb_menu').eq(1).find('.menu_link').eq(0).removeClass('unbold');
     $('.snb_menu').eq(1).find('.menu_link').eq(0).addClass('bold');
@@ -1132,11 +1134,8 @@ $('#upImage').on('click', function(){
           var reader = new FileReader();
           reader.onload = function(e){
              $('.thumb_img').attr('src', e.target.result);
-             
-			//ajax
              var formData = new FormData($('#updateImgForm')[0]);
-             alert(formData);
-             
+             //alert(formData);
              $.ajax({
                 type: 'post',
                 url: '/TeamProject/user/updateImg',

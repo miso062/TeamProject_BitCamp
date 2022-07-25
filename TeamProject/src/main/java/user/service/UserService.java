@@ -28,7 +28,7 @@ public interface UserService {
 	public void update(UserDTO userDTO, HttpSession session);
 	public String checkId(String user_id);
 	public String signUpCheckNaver(UserDTO userDTO);
-	public void deleteImg();
+	public void deleteImg(String user_id);
 	public void updateImg(String fileName);
 	public List<Buy_historyDTO> getBuyHistory(String user_id);
 	public List<Sell_historyDTO> getSellHistory(String user_id);
@@ -40,6 +40,7 @@ public interface UserService {
 	public ProductImgDTO getProductImg(int product_id);
 	public String bookMarkGetDetail(String product_id);
 	public String checkPwd(String pwd);
-	public List<AddressDTO> getAddress(String user_id);
+	public AddressDTO getAddress(Integer address_id);
+
 	
 }

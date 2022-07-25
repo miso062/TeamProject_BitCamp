@@ -42,5 +42,5 @@ public interface UserDAO {
 	public UserDTO checkrecheckpwd(String user_id);
 	public Buy_historyDTO getBuyItem(String buy_id);
 	public Sell_historyDTO getSellItem(String sell_id);
-	public List<AddressDTO> getAddress(String user_id);
+	public AddressDTO getAddress(Integer address_id);
 }
