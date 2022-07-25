@@ -42,13 +42,33 @@
 		select * from sell_history where user_id=#{user_id}
 	</select>
 	
+	<select id="getBuyHistoryList" parameterType="String" resultType="buyHistory" >
+		select * from buy_history where user_id=#{user_id} order by buy_date desc
+	</select>
+	
+	<select id="getSellHistoryList" parameterType="String" resultType="sellHistory" >
+		select * from sell_history where user_id=#{user_id} order by sell_date desc
+	</select>
+	
+	<select id="getBuyItem" parameterType="String" resultType="buyHistory" >
+		select * from buy_history where buy_id=#{buy_id} 
+	</select>
+	
+	<select id="getSellItem" parameterType="String" resultType="sellHistory" >
+		select * from sell_history where sell_id=#{sell_id} 
+	</select>
+	
 	<select id="getProductImg" parameterType="Integer" resultType="productImg">
 		select * from pro_image where product_id = #{product_id}
 	</select>
 	
+	<select id="getAddress" parameterType="String" resultType="userAddress">
+		select * from address where user_id = #{user_id}
+	</select>
+	
 	<insert id="bookMarkInsert" parameterType="java.util.Map">
 		insert into	like_pro(like_pro_id,user_id,product_id,like_pro_date)
-		values(like_pro_seq.nextval,#{id},#{product_id},sysdate)
+		values(like_pro_seq.nextval,#{id},#{product_id}, sysdate)
 	</insert>
 	
 	<delete id="bookMarkDelete" parameterType="java.util.Map">

@@ -98,11 +98,9 @@ public class UserController {
 	
 	@PostMapping(value="getBuyHistory")
 	@ResponseBody
-	public Map<String, Object> getBuyHistory(HttpSession session /* @RequestParam String user_id */){
-		String user_id = (String) session.getAttribute("memId");
+	public Map<String, Object> getBuyHistory(@RequestParam String user_id){
 		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
 		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory("jijiya@hotmail.net");
-		//System.out.println(buy_historyList);
 		Map<String, Object> buy_map = new HashMap<String, Object>();
 		buy_map.put("buy_historyList", buy_historyList);
 
@@ -119,11 +117,47 @@ public class UserController {
 	
 	@PostMapping(value="getSellHistory")
 	@ResponseBody
-	public Map<String, Object> getSellHistory(HttpSession session) { /* @RequestParam String user_id */
-		String user_id = (String) session.getAttribute("memId");
+	public Map<String, Object> getSellHistory(@RequestParam String user_id) { 
 		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
 		List<Sell_historyDTO> sell_historyList =  userService.getSellHistory("jijiya@hotmail.net");
-		//System.out.println(sell_historyList);
+		Map<String, Object> sell_map = new HashMap<String, Object>();
+		sell_map.put("sell_historyList", sell_historyList);
+
+		List<ProductImgDTO> productImgList = new ArrayList<ProductImgDTO>();
+
+		for(int i=0; i< sell_historyList.size(); i++) {//1 2 3 4 5 7 8 9
+		   ProductImgDTO productImgDTO = userService.getProductImg(sell_historyList.get(i).getProduct_id());
+		   productImgList.add(productImgDTO);
+		}
+		sell_map.put("productImgList", productImgList);
+		//System.out.println(sell_map);
+		return sell_map;
+	}
+	
+	@PostMapping(value="getBuyHistoryList")
+	@ResponseBody
+	public Map<String, Object> getBuyHistoryList(HttpSession session){
+		String user_id = (String) session.getAttribute("memId");
+		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistoryList(user_id);
+		Map<String, Object> buy_map = new HashMap<String, Object>();
+		buy_map.put("buy_historyList", buy_historyList);
+
+		List<ProductImgDTO> productImgList = new ArrayList<ProductImgDTO>();
+
+		for(int i=0; i< buy_historyList.size(); i++) {//1 2 3 4 5 7 8 9
+		   ProductImgDTO productImgDTO = userService.getProductImg(buy_historyList.get(i).getProduct_id());
+		   productImgList.add(productImgDTO);
+		}
+		buy_map.put("productImgList", productImgList);
+		//System.out.println(buy_map);
+		return buy_map;
+	}
+	
+	@PostMapping(value="getSellHistoryList")
+	@ResponseBody
+	public Map<String, Object> getSellHistoryList(HttpSession session) { 
+		String user_id = (String) session.getAttribute("memId");
+		List<Sell_historyDTO> sell_historyList =  userService.getSellHistoryList(user_id);
 		Map<String, Object> sell_map = new HashMap<String, Object>();
 		sell_map.put("sell_historyList", sell_historyList);
 
@@ -191,9 +225,33 @@ public class UserController {
 		return "forward:/user/my";
 	}
 	
-	@GetMapping(value="buyHistory11")
-	public String buyHistory11(Model model) {
-		model.addAttribute("container", "/WEB-INF/user/myPage/buyHistory_11.jsp");
+	@GetMapping(value="buyHistoryDetail")
+	public String buyHistoryDetail(Model model, @RequestParam String buy_id) {
+		Buy_historyDTO buy_historyDTO = userService.getBuyItem(buy_id);
+		String user_id = buy_historyDTO.getUser_id();
+		Integer product_id = buy_historyDTO.getProduct_id();
+		
+		ProductImgDTO productImgDTO = userService.getProductImg(product_id);
+		List<AddressDTO> address = userService.getAddress(user_id);
+		model.addAttribute("buy_historyDTO",buy_historyDTO);
+		model.addAttribute("productImgDTO",productImgDTO);
+		model.addAttribute("address", address);
+		model.addAttribute("container", "/WEB-INF/user/myPage/buyHistory_detail.jsp");
+		return "forward:/user/my";
+	}
+	
+	@GetMapping(value="sellHistoryDetail")
+	public String sellHistoryDetail(Model model, @RequestParam String sell_id) {
+		Sell_historyDTO sell_historyDTO = userService.getSellItem(sell_id);
+		String user_id = sell_historyDTO.getUser_id();
+		Integer product_id = sell_historyDTO.getProduct_id();
+		
+		ProductImgDTO productImgDTO = userService.getProductImg(product_id);
+		List<AddressDTO> address = userService.getAddress(user_id);
+		model.addAttribute("productImgDTO",productImgDTO);
+		model.addAttribute("address", address);
+		model.addAttribute("sell_historyDTO", sell_historyDTO);
+		model.addAttribute("container", "/WEB-INF/user/myPage/sellHistory_detail.jsp");
 		return "forward:/user/my";
 	}
 	

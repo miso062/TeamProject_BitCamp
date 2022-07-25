@@ -164,9 +164,7 @@
     display: none;
     width: 140px;
 }
-.status_box{
-	display: none;
-}
+
 .head_status .status_box {
     margin-left: 10px;
     width: 134px;
@@ -304,6 +302,9 @@
     margin-left: 10px;
     width: 134px;
 }
+.status_box{
+	display: none;
+}
 .price {
     margin-top: 2px;
     font-size: 0;
@@ -391,49 +392,49 @@
 </style>
 </head>
 <body>
+
 <div class="my_purchase">
     <div class="content_title">
         <div class="title">
             <h3>판매 내역</h3>
         </div>
     </div>
-    <div class="purchase_list_tab sell detail_tab">
+    <div class="purchase_list_tab detail_tab">
         <div class="tab_item total">
-            <div class="tab_link">
-                <dl class="tab_box">
-                    <dt class="title">전체</dt>
-                    <dd class="count sell_countAll">6</dd>
+			<a href="#" class="tab_link">
+				<dl class="tab_box">
+					<dt class="title">전체</dt>
+					<dd class="count sell_countAll">1</dd>
+				</dl>
+			</a>
+		</div>
+		<div class="tab_item tab_on">
+			<a href="#" class="tab_link">
+				<dl class="tab_box">
+					<dt class="title">판매 입찰</dt>
+                    <dd class="count sell_status1">1</dd>
                 </dl>
-            </div>
+			</a>
         </div>
-        <div class="tab_item tab_on">
-            <div class="tab_link">
-                <dl class="tab_box">
-                    <dt class="title">판매 입찰</dt>
-                    <dd class="count sell_status1">4</dd>
-                </dl>
-            </div>
-        </div>
-
         <div class="tab_item">
-            <div class="tab_link">
-                <dl class="tab_box">
+            <a href="#" class="tab_link">
+                <dl class="tab_box ">
                     <dt class="title">종료</dt>
-                    <dd class="count sell_status1">2</dd>
+                    <dd class="count sell_status2">0</dd>
                 </dl>
-            </div>
+            </a>
         </div>
     </div>
-    
+
     <ul class="search_info">
         <li class="info_item"><p>한 번에 조회 가능한 기간은 최대 6개월입니다.</p></li>
         <li class="info_item"><p>기간별 조회 결과는 입찰일 기준으로 노출됩니다.</p></li>
     </ul>
     
-    <div class="purchase_list bidding ask">
+    <div class="purchase_list bidding bid">
         <div class="purchase_head">
             <div class="head_product">
-                <a href="#" class="btn_filter"> 전체  </a>
+                <a href="#" class="btn_filter"> 전체</a>
             </div>
             <div class="head_status">
                 <div class="status_box field_price">
@@ -451,83 +452,24 @@
                 <div class="status_box field_status ascending">
                     <a href="#" class="status_link"><span class="status_txt">상태</span></a>
                 </div>
-            </div>
+			</div>
         </div>
-        
-        <div class="empty_area sell_empty_area" style="display: none">
+
+		<div class="empty_area sell_empty_area" style="display: none">
 			<p  class="desc">거래 내역이 없습니다.</p>
 		</div>
-        
-        <div class="purchase_item">
-            <div class="history_product">
-                <div class="product_box">
-                    <div class="product" style="background-color: rgb(235, 240, 245);">
-                       <img
-                           alt="Nike Dunk Low Retro Black"
-                           src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                           class="picture product_img"
-                       />
-                    </div>
-                </div>
-                <div class="product_detail">
-                    <p class="name">Nike Dunk Low Retro Black</p>
-                    <p class="size"><span class="size_text">280</span></p>
-                </div>
-            </div>
-            <div class="history_status">
-                <div class="status_box field_price">
-                    <div class="price"><span class="amount">200,000</span><span class="unit">원</span></div>
-                </div>
-                <div class="status_box field_date_purchased"><span class="date"> 22/07/11</span></div>
-                <div class="status_box field_date_paid"><span class="date"> 22/07/11</span></div>
-                <div class="status_box field_expires_at"><span class="date text-default">22/08/10</span></div>
-                <div class="status_box field_status">
-                    <span class="status_txt text-default">입찰 중</span>
-                </div>
-            </div>
-        </div>
-        <div class="purchase_item">
-            <div class="history_product">
-                <div class="product_box">
-                    <div class="product" style="background-color: rgb(235, 240, 245);">
-                        <picture class="picture product_img">
-                            <img
-                            
-                                alt="Nike x Kasina Air Max 1 SP Won-Ang Particle Grey"
-                                src="https://kream-phinf.pstatic.net/MjAyMjA1MjNfMjQz/MDAxNjUzMjY5Njk1MzM5.zUu3YGORkzYnLYWUgT22Veyu7-No-8UqzzB0FVW9aDQg.gPNypsbXuY4VRE79VvEU3c-JhxnSyDs99wC8r7CsWK4g.PNG/a_6b45dc7b4f754409bb1bc3b9caa569dd.png?type=m"
-                                class="image"
-                            />
-                        </picture>
-                    </div>
-                </div>
-                <div class="product_detail">
-                    <p class="name">Nike x Kasina Air Max 1 SP Won-Ang Particle Grey</p>
-                    <p class="size"><span class="size_text">240(US 6)</span></p>
-                </div>
-            </div>
-            <div class="history_status">
-                <div class="status_box field_price">
-                    <div class="price"><span class="amount">250,000</span><span class="unit">원</span></div>
-                </div>
-                <div class="status_box field_date_purchased"><span class="date"> 22/07/16</span></div>
-                <div class="status_box field_date_paid"><span class="date"> 22/07/16</span></div>
-                <div class="status_box field_expires_at"><span class="date text-danger">기한만료</span></div> <!-- 만료일 -->
-                <div class="status_box field_status"> <!-- 상태 -->
-                    <span class="status_txt text-danger">기한만료</span>
-                </div>
-            </div>
-        </div>
-        
+		<!--상품 리스트-->
+		<div class="purchase_item_wrap">
+		    <!--상품-->
+		</div>
     </div>
-
+            <!--페이징처리-->
     <div class="pagination">
         <div class="pagination_box first last">
             <div class="prev_btn_box">
                 <a href="#" class="btn_arr">
-
                 </a>
                 <a href="#" class="btn_arr">
-
                 </a>
             </div>
             <div class="page_bind"><a href="#" class="btn_page active"> 1 </a></div>
@@ -535,13 +477,12 @@
                 <a href="#" class="btn_arr">
                 </a>
                 <a href="#" class="btn_arr">
-
                 </a>
             </div>
         </div>
     </div>
+	<!----><!----><!----><!----><!---->
 </div>
-
 <script type="text/javascript">
 window.onload = function() {
 	$('.snb_menu').eq(0).find('.menu_link').eq(1).removeClass('unbold');
@@ -554,105 +495,192 @@ $(document).on('click', '.tab_item', function(){
 	if($(this).index() == 1){ //입찰중
 		$(this).addClass('tab_on');
 		$('.tab_item').not(this).removeClass('tab_on');
-		$('.status_box').css('display','none');
-		//판매희망가 만료일 상태
-		$('.field_price').css('display','block');
-		$('.field_expires_at').css('display', 'block');
-		$('.field_status').css('display', 'block');
-		$('.status2_text').hide();
-		$('.status1_text').show();
-	}else{ //종료
-		$(this).addClass('tab_on');
-		$('.tab_item').not(this).removeClass('tab_on');
-		$('.status_box').css('display','none');
-		//정산일 상태
-		$('.field_date_paid').css('display', 'block');
-		$('.field_status').css('display', 'block');
-		$('.status1_text').hide();
-		$('.status2_text').show();
-	}
-});
 
-$(document).ready(function(){
-   $.ajax({
-      type:'post',
-      url:'/TeamProject/user/getSellHistory',
-      dataType:'json',
-      success: function(data){
-		//배경 색
-		var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
-		//거래내역없을 때
-		if(data.sell_historyList.length == 0){
-			$('.sell_empty_area').show();
-		}
-		for(var i = 0; i< data.sell_historyList.length ; i++){
-	        var user_id = data.sell_historyList[i].user_id;
-	        var product_id = data.sell_historyList[i].product_id;
-	        var product_name = data.productImgList[i].org_file_name;
-	        var img = data.productImgList[i].file_path;
-	        var status1 = data.sell_historyList[i].status1;   
-	        var status2 = data.sell_historyList[i].status2;   
-	        var size_type = data.sell_historyList[i].size_type;
-	        if(size_type == 'null'){
-	            size_type = ' - ';
-	        } 
-	        var sell_price = data.sell_historyList[i].sell_price;
-            if ( sell_price == 'null') {
-            	sell_price = ' - ';
-            } else {
-            	sell_price = sell_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-            }
-	        var sell_date = new Date(data.sell_historyList[i].sell_date); //판매일자
-	       	var period = new Date(data.sell_historyList[i].period);
-	       	var random = Math.floor( Math.random() * 4 ); 
-			
-	   		let selllist = '<div class="purchase_item">' +
-	                '<div class="history_product">' +
-	                '<div class="product_box">' +
-	                '<div class="product" style="background-color:' + colorList[random] + ';">' +
-	                '<img src="' + img + '" alt="' + product_name + '" class="image picture product_img">' +
-	                '</div></div>' +
-	                '<div class="product_detail">' +
-	                '<p class="name">' + product_name + '</p><span class="size">' + size_type + '</span>' +
-	                '</div></div><div class="history_status">' +
-	                '<div class="status_box field_price"><div class="price">' +
-	                '<span class="amount">' + sell_price + '</span>' +
-	                '<span class="unit">원</span>' +
-	                '</div></div>' +
-	                '<div class="status_box field_date_purchased" style="display: none">' +
-	                '<span class="date">' + sell_date.toLocaleDateString() + '</span>' +
-	                '</div>' +
-	                '<div class="status_box field_date_paid" style="display: none">' +
-	                '<span class="date">' + sell_date.toLocaleDateString() + '</span>' +
-	                '</div>' +
-	                '<div class="status_box field_expires_at">' +
-	                '<span class="date text-default">' + period.toLocaleDateString() + '</span>' +
-	                '</div>' +
-	                '<div class="status_box field_status" style="display: none">' +
-	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
-	                '<span class="status_txt text-default status2_text">' + status2 + '</span>' +
-	                '</div></div></div>'
-				$('.purchase_list').append(selllist);
+        $.ajax({
+	      type:'post',
+	      url:'/TeamProject/user/getSellHistoryList',
+	      dataType:'json',
+	      success: function(data){
+			//배경 색
+			var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+	        //거래내역없을 때
+			if(data.sell_historyList.length == 0){
+				$('.sell_empty_area').show();
 			}
+
 			//판매거래내역 카운트
 			var sell_status1_count = 0;
 			var sell_status2_count = 0;
 			
 	       	for(var i = 0; i < data.sell_historyList.length; i++){
-	       		if(status1 != null){
+	       		if(data.sell_historyList[i].status1 != null){
 	       			sell_status1_count = sell_status1_count + 1;
 	       		}
-	       		if(status2 != null){
+	       		if(data.sell_historyList[i].status2 != null){
 	       			sell_status2_count = sell_status2_count + 1;
 	       		}
 	       	}
 	   		$('.sell_status1').text(sell_status1_count);
 	   		$('.sell_status2').text(sell_status2_count);
 	   		$('.sell_countAll').text(sell_status1_count + sell_status2_count);
-      },error:function(err){
+	   		
+			$('.purchase_item_wrap').html('');
+			for(var i = 0; i< data.sell_historyList.length ; i++){
+		        var user_id = data.sell_historyList[i].user_id;
+		        var sell_id = data.sell_historyList[i].sell_id;
+		        var product_id = data.sell_historyList[i].product_id;
+		        var product_name = data.productImgList[i].org_file_name;
+		        var img = data.productImgList[i].file_path;
+		        var status1 = data.sell_historyList[i].status1;   
+		        var status2 = data.sell_historyList[i].status2;   
+		        var size_type = data.sell_historyList[i].size_type;
+		        if(size_type == 'null'){
+		            size_type = ' - ';
+		        } 
+		        var sell_price = data.sell_historyList[i].sell_price;
+	            if ( sell_price == 'null') {
+	            	sell_price = ' - ';
+	            } else {
+	            	sell_price = sell_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	            }
+		        var sell_date = new Date(data.sell_historyList[i].sell_date); //판매일자
+		       	var period = new Date(data.sell_historyList[i].period);
+		       	var random = Math.floor( Math.random() * 4 ); 
+
+		       	if(status1 == '입찰중' || status1 == '배송중' || status1 == '결제완료'){
+  		       		let selllist = $('<div class="purchase_item" onclick="location.href=\'/TeamProject/user/sellHistoryDetail?sell_id='+ sell_id + '\'">').append(
+  	                '<div class="history_product">' +
+  	                '<div class="product_box">' +
+  	                '<div class="product" style="background-color:' + colorList[random] + ';">' +
+  	                '<img src="' + img + '" alt="' + product_name + '" class="image picture product_img">' +
+  	                '</div></div>' +
+  	                '<div class="product_detail">' +
+  	                '<p class="name">' + product_name + '</p><span class="size">' + size_type + '</span>' +
+  	                '</div></div><div class="history_status">' +
+  	                '<div class="status_box field_price"><div class="price">' +
+  	                '<span class="amount">' + sell_price + '</span>' +
+  	                '<span class="unit">원</span>' +
+  	                '</div></div>' +
+  	                '<div class="status_box field_date_purchased" style="display: none">' +
+  	                '<span class="date">' + sell_date.toLocaleDateString() + '</span>' +
+  	                '</div>' +
+  	                '<div class="status_box field_date_paid" style="display: none">' +
+  	                '<span class="date">' + sell_date.toLocaleDateString() + '</span>' +
+  	                '</div>' +
+  	                '<div class="status_box field_expires_at">' +
+  	                '<span class="date text-default">' + period.toLocaleDateString() + '</span>' +
+  	                '</div>' +
+  	                '<div class="status_box field_status">' +
+  	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
+  	                '</div></div></div>'
+  	                );
+  					$('.purchase_item_wrap').append(selllist);
+  		       		}
+				} // 확장형 for문
+			$('.status_box').css('display','none');
+			//판매희망가 만료일 상태
+			$('.field_price').css('display','block');
+			$('.field_expires_at').css('display', 'block');
+			$('.field_status').css('display', 'block');
+      
+      	},error:function(err){
          console.log(err);
-      }      
-   });
+		}      
+	});
+
+	}else if($(this).index() == 2){ //종료
+		$(this).addClass('tab_on');
+		$('.tab_item').not(this).removeClass('tab_on');
+
+        $.ajax({
+  	      type:'post',
+  	      url:'/TeamProject/user/getSellHistoryList',
+  	      dataType:'json',
+  	      success: function(data){
+  			//배경 색
+  			var colorList = [ '#ebf0f5', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+  	        //거래내역없을 때
+  			if(data.sell_historyList.length == 0){
+  				$('.sell_empty_area').show();
+  			}
+  			$('.purchase_item_wrap').html('');
+  			//판매거래내역 카운트
+  			var sell_status1_count = 0;
+  			var sell_status2_count = 0;
+  			
+  	       	for(var i = 0; i < data.sell_historyList.length; i++){
+  	       		if(data.sell_historyList[i].status1 != null){
+  	       			sell_status1_count = sell_status1_count + 1;
+  	       		}
+  	       		if(data.sell_historyList[i].status2 != null){
+  	       			sell_status2_count = sell_status2_count + 1;
+  	       		}
+  	       	}
+  	   		$('.sell_status1').text(sell_status1_count);
+  	   		$('.sell_status2').text(sell_status2_count);
+  	   		$('.sell_countAll').text(sell_status1_count + sell_status2_count);
+  	   		
+  			for(var i = 0; i< data.sell_historyList.length ; i++){
+  		        var user_id = data.sell_historyList[i].user_id;
+  		        var product_id = data.sell_historyList[i].product_id;
+  		        var sell_id = data.sell_historyList[i].sell_id;
+  		        var product_name = data.productImgList[i].org_file_name;
+  		        var img = data.productImgList[i].file_path;
+  		        var status1 = data.sell_historyList[i].status1;   
+  		        var status2 = data.sell_historyList[i].status2;   
+  		        var size_type = data.sell_historyList[i].size_type;
+  		        if(size_type == 'null'){
+  		            size_type = ' - ';
+  		        } 
+  		        var sell_price = data.sell_historyList[i].sell_price;
+  	            if ( sell_price == 'null') {
+  	            	sell_price = ' - ';
+  	            } else {
+  	            	sell_price = sell_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  	            }
+  		        var sell_date = new Date(data.sell_historyList[i].sell_date); //판매일자
+  		       	var period = new Date(data.sell_historyList[i].period);
+  		       	var random = Math.floor( Math.random() * 4 ); 
+
+  		       	if(status2 == '배송완료' || status2 == '입찰종료'){
+  		       		let selllist = $('<div class="purchase_item" onclick="location.href=\'/TeamProject/user/sellHistoryDetail?sell_id='+ sell_id + '\'">').append(
+  	                '<div class="history_product">' +
+  	                '<div class="product_box">' +
+  	                '<div class="product" style="background-color:' + colorList[random] + ';">' +
+  	                '<img src="' + img + '" alt="' + product_name + '" class="image picture product_img">' +
+  	                '</div></div>' +
+  	                '<div class="product_detail">' +
+  	                '<p class="name">' + product_name + '</p><span class="size">' + size_type + '</span>' +
+  	                '</div></div><div class="history_status">' +
+  	                '<div class="status_box field_price"><div class="price">' +
+  	                '<span class="amount">' + sell_price + '</span>' +
+  	                '<span class="unit">원</span>' +
+  	                '</div></div>' +
+  	                '<div class="status_box field_date_purchased" style="display: none">' +
+  	                '<span class="date">' + sell_date.toLocaleDateString() + '</span>' +
+  	                '</div>' +
+  	                '<div class="status_box field_date_paid">' +
+  	                '<span class="date">' + sell_date.toLocaleDateString() + '</span>' +
+  	                '</div>' +
+  	                '<div class="status_box field_expires_at" style="display: none">' +
+  	                '<span class="date text-default">' + period.toLocaleDateString() + '</span>' +
+  	                '</div>' +
+  	                '<div class="status_box field_status">' +
+  	                '<span class="status_txt text-default status2_text text-danger">' + status2 + '</span>' +
+  	                '</div></div></div>'
+  	                );
+  					$('.purchase_item_wrap').append(selllist);
+  		       		}
+  				} // 확장형 for문
+			$('.status_box').css('display','none');
+			//정산일 상태
+			$('.field_date_paid').css('display', 'block');
+			$('.field_status').css('display', 'block');
+        },error:function(err){
+           console.log(err);
+  		}      
+  	});
+	}
 });
 
 </script>

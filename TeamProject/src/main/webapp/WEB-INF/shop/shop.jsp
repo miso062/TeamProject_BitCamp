@@ -46,7 +46,6 @@
 	<div style="position:fixed; bottom:30px; right:30px; width:50px; height:50px;" class="index_top_div">
 		<img src="/TeamProject/img/up-arrow.png" alt =" 화살표" id="index_top" style="width:24px; height:24px; margin-top:10px;">
 	</div>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
 		window.onload = function(){
 			setTimeout(function(){
