@@ -83,9 +83,7 @@ public class UserDAOImpl implements UserDAO {
 	//휴대전화로 가입 여부 조회
 	@Override
 	public int signUpCheck(String hp) {
-
 		return sqlSession.selectOne("userSQL.signUpCheck", hp);
-		
 	}
 
 	@Override
@@ -117,7 +115,6 @@ public class UserDAOImpl implements UserDAO {
 	public int checkNaver(String hp) {
 		return sqlSession.selectOne("userSQL.checkNaver", hp);
 	}
-
 
 	@Override
 	public void SignUpNaver(UserDTO userDTO) {
@@ -171,7 +168,6 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public int checkIdKakao(String user_id) {
-
 		return sqlSession.selectOne("userSQL.checkIdKakao", user_id);
 	}
 
@@ -185,10 +181,15 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("userSQL.bookMarkGetDetail" , map);
   }
 
+  @Override
 	public UserDTO checkrecheckpwd(String user_id) {
 		return sqlSession.selectOne("userSQL.checkrecheckpwd",user_id);
 	}
 
+  @Override
+	public void userdelete(String user_id) {
+		sqlSession.delete("userSQL.userdelete",user_id);
+	}
 
 }
 	

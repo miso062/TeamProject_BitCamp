@@ -103,7 +103,7 @@
         background-color: #fff;
     }
     .user_detail,
-    .user_membership {
+    .user_membership {d
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;

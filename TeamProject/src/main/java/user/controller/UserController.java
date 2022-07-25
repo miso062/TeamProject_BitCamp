@@ -421,4 +421,10 @@ public class UserController {
 		String check = userService.checkPwd(pwd);		
 		return check;
 	}
+	@PostMapping(value="userdelete")
+	@ResponseBody
+	public void userdelete(HttpSession httpsession) {
+		userService.userdelete(httpsession);
+		httpsession.invalidate();
+	}
 }

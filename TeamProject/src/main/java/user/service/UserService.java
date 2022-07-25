@@ -41,6 +41,5 @@ public interface UserService {
 	public String bookMarkGetDetail(String product_id);
 	public String checkPwd(String pwd);
 	public AddressDTO getAddress(Integer address_id);
-
-	
+	public void userdelete(HttpSession httpsession);
 }
