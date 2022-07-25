@@ -13,23 +13,16 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.google.api.client.util.IOUtils;
-import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.WriteResult;
 import com.google.cloud.storage.Blob;
 import com.google.cloud.storage.Bucket;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.cloud.FirestoreClient;
 import com.google.firebase.cloud.StorageClient;
 
 public class FireStorage {
 	
-	public static final String COLLECTION_NAME="profile_img";
 	public static final String firebaseBucket = "gese-t.appspot.com";
 	
 	public static void main(String[] args) throws IOException, FirebaseAuthException {
@@ -49,7 +42,7 @@ public class FireStorage {
 		IOUtils.copy(input, os);
 		
 		MultipartFile multipartFile = new CommonsMultipartFile(fileItem);
-		uploadFiles(multipartFile, "김미소");
+		uploadFiles(multipartFile, "memId");
 //		https://storage.googleapis.com/gese-t.appspot.com/
 	}
 	
