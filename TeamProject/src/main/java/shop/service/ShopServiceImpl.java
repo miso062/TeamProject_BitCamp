@@ -32,7 +32,7 @@ public class ShopServiceImpl implements ShopService {
 	HttpSession session;
 	
 	@Override
-	public Map<String, Object> scrollProduct(String num) {
+	public Map<String, Object> scrollProduct(String num, String filter) {
 		int startNum = Integer.parseInt(num);
 		int endNum = startNum+15;
 		
@@ -40,7 +40,7 @@ public class ShopServiceImpl implements ShopService {
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);
 		
-		Map<String, Object> sendMap = shopDAO.scrollProduct(map);
+		Map<String, Object> sendMap = shopDAO.scrollProduct(map, filter);
 		sendMap.put("num", startNum + 16);
 		System.out.println();
 		// sendMap.put("num", startNum + 1);
