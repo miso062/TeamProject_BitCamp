@@ -164,5 +164,10 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("userSQL.checkrecheckpwd",user_id);
 	}
 
+	@Override
+	public void userdelete(String user_id) {
+		sqlSession.delete("userSQL.userdelete",user_id);
+	}
+
 }
 	

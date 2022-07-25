@@ -128,4 +128,8 @@
 	<select id="checkrecheckpwd" parameterType="String" resultType="user">
 		select * from user_table where user_id=#{user_id}
 	</select>
+	
+	<delete id="userdelete" parameterType="String">
+		delete user_table where user_id=#{user_id}
+	</delete>
 </mapper>

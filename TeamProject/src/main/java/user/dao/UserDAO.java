@@ -38,4 +38,5 @@ public interface UserDAO {
 	public ProductImgDTO getProductImg(int product_id);
 	public int bookMarkGetDetail(Map<String, String> map);
 	public UserDTO checkrecheckpwd(String user_id);
+	public void userdelete(String user_id);
 }
