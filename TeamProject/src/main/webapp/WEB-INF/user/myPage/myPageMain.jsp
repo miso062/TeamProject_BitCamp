@@ -977,12 +977,13 @@ window.onload = function() {
    document.getElementById('point').value() = document.getElementsByClassName('membership_item > info').value();
 }
 window.onload = function(){
-   var image = '${userDTO.profile_img}';
+	var date = new Date();	
+	var image = '${userDTO.profile_img}';
    
-   if(image==null || image==''){
+	if(image==null || image==''){
         document.querySelector('.thumb_img').setAttribute('src','/TeamProject/img/user/profile.png');
-    }else{
-       document.querySelector('.thumb_img').setAttribute('src', '/TeamProject/storage/'+image);
+	}else{
+       document.querySelector('.thumb_img').setAttribute('src', 'https://storage.googleapis.com/gese-t.appspot.com/'+ image + '?' + date.getTime());
     }
 }
 $('.membership_item').click(function(){
@@ -1035,8 +1036,15 @@ $(document).ready(function(){
 	        var product_id = data.buy_historyList[i].product_id;
 	        var product_name = data.productImgList[i].org_file_name;
 	        var img = data.productImgList[i].file_path;
-	        var status1 = data.buy_historyList[i].status1;   
-	        var status2 = data.buy_historyList[i].status2;   
+	        var status1 = data.buy_historyList[i].status1; 
+	        var status2 = data.buy_historyList[i].status2; 
+	       	if( status1 == 'null'){
+	       		status1 == '';
+	       	}
+	       	if(status2 == 'null'){
+	       		alert(status2);
+	       		status2 == '';
+	       	}
 	        var size_type = data.buy_historyList[i].size_type;
 	        if(size_type == 'null'){
 	            size_type = ' - ';
@@ -1064,7 +1072,7 @@ $(document).ready(function(){
   	                '</div></div>' +
   	                '<div class="status_box field_status">' +
   	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
-  	              	//'<span class="status_txt text-default status1_text">' + status2 + '</span>' +
+  	              	'<span class="status_txt text-default status2_text">' + status2 + '</span>' +
   	                '</div></div></div>'
   	                );
             $('.buy_list').append(buylist);
@@ -1072,7 +1080,13 @@ $(document).ready(function(){
 			if( i > 1){
 			   break;
 			}
-         } 
+         }
+        if($('.status1_text') == 'null'){
+     	   (this).hide();
+        }
+        if($('.status2_text') == 'null'){
+     	   (this).hide();
+        }
       },error:function(err){
          console.log(err);
       }      
@@ -1128,6 +1142,11 @@ $(document).ready(function(){
             	sell_price = sell_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             }
 	       	var random = Math.floor( Math.random() * 4 ); 
+	       	if( status1 == 'null'){
+	       		status1 == '';
+	       	}else if(status2 == 'null'){
+	       		status2 == '';
+	       	}
 	       	
             let selllist = $('<div class="purchase_item" onclick="location.href=\'/TeamProject/user/sellHistoryDetail?sell_id='+ sell_id + '\'">').append(
   	                '<div class="history_product">' +
@@ -1144,16 +1163,15 @@ $(document).ready(function(){
   	                '</div></div>' +
   	                '<div class="status_box field_status">' +
   	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
-  	              	//'<span class="status_txt text-default status1_text">' + status2 + '</span>' +
+  	              	'<span class="status_txt text-default status2_text">' + status2 + '</span>' +
   	                '</div></div></div>'
   	                );
             $('.sell_list').append(selllist);
-            
 			 //상품 3개까지 보이게하기
 			if( i > 1){
 			   break;
 			}
-         } 
+         }
       },error:function(err){
          console.log(err);
       }      

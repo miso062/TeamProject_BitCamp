@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 
 import org.apache.commons.fileupload.disk.DiskFileItem;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
@@ -21,6 +22,7 @@ import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.cloud.StorageClient;
 
+@Service
 public class FireStorage {
 	
 	public static final String firebaseBucket = "gese-t.appspot.com";
