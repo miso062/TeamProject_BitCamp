@@ -1,6 +1,5 @@
 package user.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +23,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.FirebaseAuthException;
 
 import product.bean.Buy_historyDTO;
 import product.bean.ProductImgDTO;
@@ -94,16 +92,17 @@ public class UserController {
 		String user_id = (String) session.getAttribute("memId");
 		UserDTO userDTO = userService.getUserInfo(user_id);
 		model.addAttribute("userDTO", userDTO);
-		//System.out.println(model);
+		System.out.println(model);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageMain.jsp");
 		return "forward:/user/my";
 	}
 	
 	@PostMapping(value="getBuyHistory")
 	@ResponseBody
-	public Map<String, Object> getBuyHistory(@RequestParam String user_id){
-		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
-		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory("jijiya@hotmail.net");
+	public Map<String, Object> getBuyHistory(HttpSession session){
+		String user_id = (String) session.getAttribute("memId");
+		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
+		System.out.println(buy_historyList);
 		Map<String, Object> buy_map = new HashMap<String, Object>();
 		buy_map.put("buy_historyList", buy_historyList);
 
@@ -120,9 +119,9 @@ public class UserController {
 	
 	@PostMapping(value="getSellHistory")
 	@ResponseBody
-	public Map<String, Object> getSellHistory(@RequestParam String user_id) { 
-		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
-		List<Sell_historyDTO> sell_historyList =  userService.getSellHistory("jijiya@hotmail.net");
+	public Map<String, Object> getSellHistory(HttpSession session) { 
+		String user_id = (String) session.getAttribute("memId");
+		List<Sell_historyDTO> sell_historyList =  userService.getSellHistory(user_id);
 		Map<String, Object> sell_map = new HashMap<String, Object>();
 		sell_map.put("sell_historyList", sell_historyList);
 
