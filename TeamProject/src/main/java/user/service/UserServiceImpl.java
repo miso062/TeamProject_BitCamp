@@ -229,11 +229,29 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getSellHistory(user_id);
 	}
 
+	public List<Buy_historyDTO> getBuyHistoryList(String user_id) {
+	  	return userDAO.getBuyHistoryList(user_id);
+	}
+  
+	@Override
+	public List<Sell_historyDTO> getSellHistoryList(String user_id) {
+		return userDAO.getSellHistoryList(user_id);
+	}
+	
 	@Override
 	public ProductImgDTO getProductImg(int product_id) {
 		return userDAO.getProductImg(product_id);
 	}
 
+	@Override
+	public Buy_historyDTO getBuyItem(String buy_id) {
+		return userDAO.getBuyItem(buy_id);
+	}
+	@Override
+	public Sell_historyDTO getSellItem(String sell_id) {
+		return userDAO.getSellItem(sell_id);
+	}
+	
 	@Override
 	public String signUpCheckNaver(UserDTO userDTO) {
 		String check;
@@ -328,6 +346,16 @@ public class UserServiceImpl implements UserService {
 		}else {
 				check = "exist";
 		}return check;
+	}
+	@Override
+	public void userdelete(HttpSession httpsession) {
+		String user_id = (String) session.getAttribute("memId");
+		userDAO.userdelete(user_id);
+  }
+
+  @Override
+  public List<AddressDTO> getAddress(String user_id) {
+		return userDAO.getAddress(user_id);
 	}
 
 }

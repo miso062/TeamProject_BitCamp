@@ -435,7 +435,7 @@ cursor: pointer;
 						<a href="#"  class="gnb_link">STYLE</a>
 					</li>
 					<li class="h_gnb_item">
-						<a href="/TeamProject/shop/"  class="gnb_link">SHOP</a>
+						<a href="/TeamProject/shop?filter=popular"  class="gnb_link">SHOP</a>
 					</li>
 				</ul>
 				

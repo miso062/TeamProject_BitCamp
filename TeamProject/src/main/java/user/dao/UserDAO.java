@@ -31,6 +31,8 @@ public interface UserDAO {
 	public void deleteImg(String user_id);
 	public List<Buy_historyDTO> getBuyHistory(String user_id);
 	public List<Sell_historyDTO> getSellHistory(String user_id);
+	public List<Buy_historyDTO> getBuyHistoryList(String user_id);
+	public List<Sell_historyDTO> getSellHistoryList(String user_id);
 	public void SignUpNaver(UserDTO userDTO);
 	public UserDTO loginNaver(String user_id);
 	public int checkIdKakao(String user_id);
@@ -38,4 +40,8 @@ public interface UserDAO {
 	public ProductImgDTO getProductImg(int product_id);
 	public int bookMarkGetDetail(Map<String, String> map);
 	public UserDTO checkrecheckpwd(String user_id);
+	public void userdelete(String user_id);
+	public Buy_historyDTO getBuyItem(String buy_id);
+	public Sell_historyDTO getSellItem(String sell_id);
+	public List<AddressDTO> getAddress(String user_id);
 }

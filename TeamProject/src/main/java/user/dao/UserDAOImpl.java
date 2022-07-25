@@ -140,6 +140,26 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
+	public List<Buy_historyDTO> getBuyHistoryList(String user_id) {
+		return sqlSession.selectList("userSQL.getBuyHistoryList", user_id);
+	}
+
+	@Override
+	public List<Sell_historyDTO> getSellHistoryList(String user_id) {
+		return sqlSession.selectList("userSQL.getSellHistoryList", user_id);
+	}
+	
+	@Override
+	public Buy_historyDTO getBuyItem(String buy_id) {
+		return sqlSession.selectOne("userSQL.getBuyItem", buy_id);
+	}
+	
+	@Override
+	public Sell_historyDTO getSellItem(String sell_id) {
+		return sqlSession.selectOne("userSQL.getBuyItem", sell_id);
+	}
+	
+	@Override
 	public ProductImgDTO getProductImg(int product_id) {
 		return sqlSession.selectOne("userSQL.getProductImg", product_id);
 	}
@@ -164,5 +184,13 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("userSQL.checkrecheckpwd",user_id);
 	}
 
+	@Override
+	public void userdelete(String user_id) {
+		sqlSession.delete("userSQL.userdelete",user_id);
+	}
+
+	public List<AddressDTO> getAddress(String user_id) {
+		return sqlSession.selectList("userSQL.getAddress", user_id);
+	}
 }
 	

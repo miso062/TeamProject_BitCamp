@@ -3,6 +3,7 @@
 pom.properties
 MANIFEST.MF
 db.properties
+serviceAccountKey.json
 
 ### Eclipse ###
 .metadata
