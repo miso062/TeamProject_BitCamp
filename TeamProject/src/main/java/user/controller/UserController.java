@@ -92,7 +92,6 @@ public class UserController {
 		String user_id = (String) session.getAttribute("memId");
 		UserDTO userDTO = userService.getUserInfo(user_id);
 		model.addAttribute("userDTO", userDTO);
-		System.out.println(model);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageMain.jsp");
 		return "forward:/user/my";
 	}
@@ -102,7 +101,6 @@ public class UserController {
 	public Map<String, Object> getBuyHistory(HttpSession session){
 		String user_id = (String) session.getAttribute("memId");
 		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
-		System.out.println(buy_historyList);
 		Map<String, Object> buy_map = new HashMap<String, Object>();
 		buy_map.put("buy_historyList", buy_historyList);
 
@@ -113,7 +111,6 @@ public class UserController {
 		   productImgList.add(productImgDTO);
 		}
 		buy_map.put("productImgList", productImgList);
-		//System.out.println(buy_map);
 		return buy_map;
 	}
 	
