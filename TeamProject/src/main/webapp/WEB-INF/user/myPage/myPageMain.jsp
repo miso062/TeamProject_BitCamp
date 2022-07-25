@@ -785,7 +785,7 @@
                 </a>
             </div>
             <div class="tab_item tab_on">
-                <a href="#" class="tab_link">
+                <a href="/TeamProject/user/buyHistory" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">입찰 중</dt>
                         <dd class="count buy_status1">0</dd>
@@ -793,7 +793,7 @@
                 </a>
             </div>
             <div class="tab_item">
-                <a href="#" class="tab_link">
+                <a href="/TeamProject/user/buyHistory" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">종료</dt>
                         <dd class="count buy_status2">1</dd>
@@ -819,7 +819,7 @@
    <div class="recent_purchase">
         <div class="purchase_list_tab sell">
             <div class="tab_item total">
-                <a href="#" class="tab_link">
+                <a href="/TeamProject/user/sellHistory" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">전체</dt>
                         <dd class="count sell_countAll">0</dd>
@@ -827,7 +827,7 @@
                 </a>
             </div>
             <div class="tab_item tab_on">
-                <a href="#" class="tab_link">
+                <a href="/TeamProject/user/sellHistory" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">입찰 중</dt>
                         <dd class="count sell_status1">0</dd>
@@ -835,7 +835,7 @@
                 </a>
             </div>
             <div class="tab_item">
-                <a href="#" class="tab_link">
+                <a href="/TeamProject/user/sellHistory" class="tab_link">
                     <dl class="tab_box ">
                         <dt class="title">종료</dt>
                         <dd class="count sell_status2">0</dd>
@@ -1005,7 +1005,6 @@ $(document).ready(function(){
    $.ajax({
       type:'post',
       url:'/TeamProject/user/getBuyHistory',
-      data:'user_id='+$('#user_id').val(),
       dataType:'json',
       success: function(data){
 		//배경 색
@@ -1038,13 +1037,6 @@ $(document).ready(function(){
 	        var img = data.productImgList[i].file_path;
 	        var status1 = data.buy_historyList[i].status1; 
 	        var status2 = data.buy_historyList[i].status2; 
-	       	if( status1 == 'null'){
-	       		status1 == '';
-	       	}
-	       	if(status2 == 'null'){
-	       		alert(status2);
-	       		status2 == '';
-	       	}
 	        var size_type = data.buy_historyList[i].size_type;
 	        if(size_type == 'null'){
 	            size_type = ' - ';
@@ -1080,13 +1072,13 @@ $(document).ready(function(){
 			if( i > 1){
 			   break;
 			}
+            if( status1 == null){
+            	$(this).text('');
+            }
+            if(status2 == null){
+            	$(this).text('');
+            }
          }
-        if($('.status1_text') == 'null'){
-     	   (this).hide();
-        }
-        if($('.status2_text') == 'null'){
-     	   (this).hide();
-        }
       },error:function(err){
          console.log(err);
       }      
@@ -1097,7 +1089,6 @@ $(document).ready(function(){
    $.ajax({
       type:'post',
       url:'/TeamProject/user/getSellHistory',
-      data:'user_id='+$('#user_id').val(),
       dataType:'json',
       success: function(data){
 		//배경 색
@@ -1142,11 +1133,6 @@ $(document).ready(function(){
             	sell_price = sell_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             }
 	       	var random = Math.floor( Math.random() * 4 ); 
-	       	if( status1 == 'null'){
-	       		status1 == '';
-	       	}else if(status2 == 'null'){
-	       		status2 == '';
-	       	}
 	       	
             let selllist = $('<div class="purchase_item" onclick="location.href=\'/TeamProject/user/sellHistoryDetail?sell_id='+ sell_id + '\'">').append(
   	                '<div class="history_product">' +
@@ -1177,4 +1163,5 @@ $(document).ready(function(){
       }      
    });
 });
+
 </script>
