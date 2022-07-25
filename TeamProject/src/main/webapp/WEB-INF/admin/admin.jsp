@@ -43,7 +43,7 @@
         <div id="content" class="dashboard_main">
             <section>
                 <div class="clearfix area_wrap">
-                    <div class="section-body float_l" style="width: 80%;">
+                    <div class="section-body float_l" style="width: 100%;">
                         <div class="row">
                             <div class="ma-item col-md-12 col-sm-12">
                                 <div class="card">
@@ -465,7 +465,7 @@
                         	</div>
                         </div>
                     </div>
-                    <div class="right-menu-fixed float_l">
+                    <!-- <div class="right-menu-fixed float_l">
                         <div class="card card-black">
                             <div class="card-body text-center" style="text-align: center;">
                                 <a href="#" class="dropdown-toggle block" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
@@ -523,7 +523,7 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </section>
         </div>
@@ -555,17 +555,17 @@
                                 </a>
                             </li>
                             <li class="gui-folder" data-title="contents">
-                                <a href="/admin/contents" class="sidebar-nav-menu" style="padding: 10px 0px;">
+                                <a href="#" class="sidebar-nav-menu" style="padding: 10px 0px;">
                                     <div class="gui-icon"><img class="db-pencil" src="/TeamProject/img/admin/edit.png"></div>
                                     <span class="title title_controls">컨텐츠 관리</span>
                                 </a>
                             </li>
-                            <li class="gui-folder" data-title="stat">
+                            <!-- <li class="gui-folder" data-title="stat">
                                 <a href="/admin/stat" class="sidebar-nav-menu" style="padding: 10px 0px;">
                                     <div class="gui-icon"><img class="db-status-up" src="/TeamProject/img/admin/infographic.png"></div>
                                     <span class="title title_controls">통계</span>
                                 </a>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
