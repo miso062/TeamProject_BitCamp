@@ -86,22 +86,21 @@ public class ShopMyBatisImpl implements ShopDAO {
 	}
   
 	@Override
-	public Map<String, Object> scrollProduct(Map<String, Integer> map) {
-		List<ProductDTO> productList = sqlSession.selectList("shopSQL.scrollProductList", map);
-		List<ProductImgDTO> productImgList = sqlSession.selectList("shopSQL.scrollProductImg", map);
+	public Map<String, Object> scrollProduct(Map<String, Integer> map, String filter) {
+		List<ProductDTO> productList = null;
+		List<ProductImgDTO> productImgList = null;
 		
-//		for(ProductDTO DTO : productList) {
-//			System.out.println("-------------------------------------------------");
-//			System.out.println(DTO);
-//			System.out.println("-------------------------------------------------");
-//		}
-//		
-//		for(ProductImgDTO DTO: productImgList) {
-//			System.out.println("=================================================");
-//			System.out.println(DTO);
-//			System.out.println("=================================================");
-//		}
-  
+		if(filter.equals("popular")) {
+			productList = sqlSession.selectList("shopSQL.scrollProductList", map);
+			productImgList = sqlSession.selectList("shopSQL.scrollProductImg", map);	
+		} else if (filter.equals("buy")) {
+			productList = sqlSession.selectList("shopSQL.scrollBuyProductList", map);
+			productImgList = sqlSession.selectList("shopSQL.scrollBuyProductImg", map);
+		} else if (filter.equals("sell")) {
+			productList = sqlSession.selectList("shopSQL.scrollSellProductList", map);
+			productImgList = sqlSession.selectList("shopSQL.scrollSellProductImg", map);
+		}
+			
 		Map<String, Object> sendMap = new HashMap<String, Object>();
 		sendMap.put("productList", productList);
 		sendMap.put("productImgList", productImgList);

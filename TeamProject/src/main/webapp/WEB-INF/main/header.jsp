@@ -435,7 +435,7 @@ cursor: pointer;
 						<a href="#"  class="gnb_link">STYLE</a>
 					</li>
 					<li class="h_gnb_item">
-						<a href="/TeamProject/shop/"  class="gnb_link">SHOP</a>
+						<a href="/TeamProject/shop?filter=popular"  class="gnb_link">SHOP</a>
 					</li>
 				</ul>
 				
@@ -617,7 +617,7 @@ $(document).on("click",function(e){
 	}
 })
 //로그인시 모달창
-$('#h_login').click(function(){
+$(document).on('click' ,'#h_login' ,function(){
 	$('.content_login').fadeIn();
     $('body').css("overflow", "hidden");
     $('.content_login').css('overflow-y', 'scroll')
@@ -734,11 +734,17 @@ function naverLogout() {
 		closePopUp();
 		}, 1000);
 }
+//로그인창 띄우기 trigger가 안되어서
+function click() {
+	$('.content_login').fadeIn();
+    $('body').css("overflow", "hidden");
+    $('.content_login').css('overflow-y', 'scroll')
+}
 
 //로그인 여부에 따른 마이페이지 이동
 $('#h_myPage').click(function(){
     if(!'${sessionScope.memId}') {
-        $('#h_login').trigger('click');
+		click();      
     }
     else {
     	location.href="/TeamProject/user/myPage"
@@ -748,10 +754,9 @@ $('#h_myPage').click(function(){
 //비로그인시 관심상품 x
 $('#h_likePro').click(function(){
  if(!'${sessionScope.memId}') {
-        $('#h_login').trigger('click');
-    }
-    else {
-    	location.href="/TeamProject/user/likePro"
+	$('#h_login').trigger('click');
+ }else {
+   	location.href="/TeamProject/user/likePro"
     	
     }
 })

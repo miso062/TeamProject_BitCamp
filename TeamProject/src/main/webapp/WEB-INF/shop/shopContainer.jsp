@@ -181,8 +181,9 @@ li, ol, ul {
 }
 .shop_item_inner {
     display: block;
-    /* background-color: #fff,  rgb(244, 244, 244); */
+    background-color: #fff;
     border-radius: 12px;
+    background-color: rgb(244, 244, 244);
 }
 
 .shop_product {
@@ -262,7 +263,7 @@ li, ol, ul {
 	font-weight: bold;
 }
 
-.shop_title, .shop_name, .shop_title, .shop_translated_name { /* 2줄 말줄임표 */ 
+.shop_title, .shop_name, .shop_title { // 2줄 말줄임표
     margin-top: 2px;
     overflow: hidden;
  	text-overflow: ellipsis;
@@ -272,18 +273,12 @@ li, ol, ul {
  	font-size: 13px;
  	line-height: 16px;
 }
-.shop_title  .shop_translated_name {
+.shop_title .shop_translated_name {
     line-height: 14px;
     font-size: 12px;
     letter-spacing: -.06px;
     color: rgba(34,34,34,.5);
-    
-}
-.shop_translate_name{
-	line-height: 14px;
-    font-size: 12px;
-    letter-spacing: -.06px;
-    color: rgba(34,34,34,.5);
+    height: 32px;
 }
 .shop_price {
     padding-top: 11px;
@@ -309,8 +304,11 @@ li, ol, ul {
     -ms-flex-align: center;
     align-items: center;
     vertical-align: top;
-    padding: 0 8px;
+    padding: 0 4px;
     height: 20px;
+}
+.shop_wish_figure {
+
 }
 .shop_interest_figure .shop_wish_figure .shop_text {
     margin-left: 2px;
@@ -318,16 +316,22 @@ li, ol, ul {
     padding-top: 12px;
     align-items: center;
     vertical-align: top;
-    padding: 0 8px;
+    padding: 0 0px;
     height: 20px;
+    
 }
 .shop_interest_figure .shop_review_figure .shop_text {
     margin-left: 2px;
     font-size: 13px;
+    
 }
-.shop_interest_figure svg {
+.shop_interest_figure {
     width: 16px;
     height: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
 }
 .banner_main {
   font-family:Arial;
@@ -338,7 +342,7 @@ li, ol, ul {
 }
 
 .banner_img {
-	line-height: 100px;
+	line-height: 100px;/
     position: relative;
     text-align: center;
     height: 100%;
@@ -419,10 +423,28 @@ li, ol, ul {
 	margin-left: 2px;
 	margin-bottom: 2px;
 }
- .shop_bookmark{
-	cursor: pointer
+
+.shop_translated_name{
+	height:32px;
+	margin-top: 2px;
+    overflow: hidden;
+ 	text-overflow: ellipsis;
+ 	display: -webkit-box;
+ 	-webkit-line-clamp: 2;
+ 	-webkit-box-orient: vertical;
+ 	font-size: 12px;
+ 	line-height: 16px;
 }
- 
+.shop_text{
+	ont-family: -apple-system,BlinkMacSystemFont,Roboto,AppleSDGothicNeo-Regular,NanumBarunGothic,NanumGothic,나눔고딕,Segoe UI,Helveica,Arial,Malgun Gothic,Dotum,sans-serif;
+    color: #222;
+    font-size: 12px;
+}
+.bi_postcard{
+	width: 16px;
+    height: 16px;
+}
+
 </style>
 </head>
 <body>
@@ -523,14 +545,15 @@ li, ol, ul {
 <div class="shop_search_content">
     <div class="shop_search_option" >
 		<div class="shop_filter_sorting" >
-			<button type="button" class="shop_sorting_title" id="shop_sorting_title" >인기순
+			<button type="button" class="shop_sorting_title" >
+				<span id="shop_sorting_title">인기순</span>
 				<svg xmlns="http://www.w3.org/2000/svg" width="15px" height="13px" fill="currentColor" viewBox="0 0 16 16">
 					<path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/>
 				</svg>
 			</button>
 				<ul class="shop_sorting_list" style="display:none" >
-					<li class="shop_sorting_item item_on">
-						<a href="#" class="shop_sorting_link" >
+					<li id="popular" class="shop_sorting_item item_on">
+						<a href="/TeamProject/shop?filter=popular" class="shop_sorting_link" >
 							<div class="shop_sorting_desc" >
 								<p class="shop_main_desc" >인기순</p>
 								<p class="shop_sub_desc" >많이 판매된 순서대로 정렬합니다.</p>
@@ -538,8 +561,8 @@ li, ol, ul {
 							<img class="shop_check" alt="" src="/TeamProject/img/shop/check-lg.svg">
 						</a>
 					</li>
-					<li class="shop_sorting_item" >
-						<a href="#" class="shop_sorting_link" >
+					<li id="buy" class="shop_sorting_item" >
+						<a href="/TeamProject/shop?filter=buy" class="shop_sorting_link" >
 							<div class="shop_sorting_desc" >
 								<p class="shop_main_desc" >즉시 구매가순</p>
 								<p class="shop_sub_desc" >즉시 구매가가 낮은 순서대로 정렬합니다.</p>
@@ -547,8 +570,8 @@ li, ol, ul {
 							<img class="shop_check" alt="" src="/TeamProject/img/shop/check-lg.svg">
 						</a>
 					</li>
-					<li class="shop_sorting_item" >
-						<a href="#" class="shop_sorting_link" >
+					<li id="sell" class="shop_sorting_item" >
+						<a href="/TeamProject/shop?filter=sell" class="shop_sorting_link" >
 							<div class="shop_sorting_desc" >
 								<p class="shop_main_desc" >즉시 판매가순</p>
 								<p class="shop_sub_desc" >즉시 판매가가 높은 순서대로 정렬합니다.</p>
@@ -567,57 +590,19 @@ li, ol, ul {
 
     <ul class="shop-list-ul">
     	
-		<li class="card-list-li" style="display: none;">
-			<div class="shop_search_result_item">
-                <a href="#" class="shop_item_inner">
-                    <div class="shop_product" style="background-color: rgb(235, 240, 245);">
-                            <img
-                                data-v-dddd5b16=""
-                                alt="나이키 덩크 로우 레트로 블랙"
-                                src="https://kream-phinf.pstatic.net/MjAyMTA3MjhfMjIg/MDAxNjI3NDQxMDA1NjE5.HOgIYywGZaaBJDqUzx2OnX9HAxoOWPvuWHqUn_LZGcgg.VYIuOfA5_GgjBGRowv6dmQuAOPtUvmAxbGpOyUCOCtYg.PNG/p_9d8ed1a74d2540ab9842e63363607bf4.png?type=m"
-                                class="shop_product_img"
-                            />
-                    </div>
-                    <div class="shop_product_info">
-                        <div class="shop_title">
-                            <p class="shop_brand">Nike</p>
-                            <p class="shop_name">Nike Dunk Low Retro Black</p>
-                            <p class="shop_translated_name">나이키 덩크 로우 레트로 블랙</p>
-                        </div>
-                        <div class="shop_price">
-                            <div class="shop_amount">174,000원</div>
-                            <div class="shop_desc"><p>즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="shop_interest_figure">
-                    <span class="shop_wish_figure">
-                           <img alt="" src="/TeamProject/img/shop/bookmark.svg" class="shop_bookmark">
-                        <span class="shop_text">10.2만</span>
-                    </span>
-                    <span class="shop_review_figure">
-                        <a data-v-1c683be8="" href="/social/shop_products/28029" class="review_link" aria-label="나이키 덩크 로우 레트로 블랙 리뷰">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
-                            </svg>
-                        </a>
-                        <span class="shop_text">1.1만</span>
-                    </span>
-                </div>
-            </div>
-		</li>
 	</ul>
 </div>
+
     <div class="list_loading" style="display: none;">
         <img src="/_nuxt/img/loading.410eb77.gif" alt="리스트 로딩중입니다." class="loading_img" />
     </div>
 </div>
-
 <script src="/TeamProject/js/shop/infiniteScroll.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript"> 
-$.noConflict();
 /* 관심버튼 이미지 클릭시 로테이션으로 변경하기 */
- $('.shop_bookmark').on({'click' : function() {
+$('.shop_bookmark').on(	{'click' : function() {
 		var src = ($(this).attr('src') === '/TeamProject/img/shop/bookmark.svg') ? '/TeamProject/img/shop/bookmark-fill.svg'
 				: '/TeamProject/img/shop/bookmark.svg';
 		$(this).attr('src', src);
@@ -644,8 +629,6 @@ $.noConflict();
 		} // else
 	}
 }); */
- 
-
 
 /* 필터클릭시 목록보이기 */
 $("#shop_sorting_title").click(function() {
@@ -660,21 +643,50 @@ $("#shop_sorting_title").click(function() {
 	}
 });
 
-$(function() {
-	/* 필터목록클릭시 체크 */
-	$(".shop_sorting_list .shop_sorting_item").on('click', function() {
-		$(this).addClass("item_on");
-		$(".shop_sorting_list .shop_sorting_item").not(this).removeClass("item_on");
+/* 필터목록클릭시 체크 */
 
-		var text = $(this).find('.shop_main_desc').html();
-		var icon = '<svg xmlns="http://www.w3.org/2000/svg" width="15px" height="13px" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/></svg>'
+/* function filterItemOn() {
+	$(this).addClass("item_on");
+	$(".shop_sorting_list .shop_sorting_item").not(this).removeClass("item_on");
 
-		$('.shop_sorting_list').css({
-			'display' : 'none'
-		});
+	var text = $(this).find('.shop_main_desc').html();
+	var icon = '<svg xmlns="http://www.w3.org/2000/svg" width="15px" height="13px" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/></svg>'
 
-		$('.shop_sorting_title').html(text + " " + icon);
+	$('.shop_sorting_list').css({
+		'display' : 'none'
 	});
+
+	$('.shop_sorting_title').html(text + " " + icon);
+}
+
+$(".shop_sorting_list .shop_sorting_item").on('click', filterItemOn); */
+
+var params = new URLSearchParams(document.location.search);
+var filter = params.get("filter");
+
+switch (filter) {
+	case 'popular':
+		$('#popular').addClass("item_on");
+		$('#buy').removeClass("item_on");
+		$('#sell').removeClass("item_on");
+		$('#shop_sorting_title').html('인기순');
+		break;
+	case 'buy':
+		$('#buy').addClass("item_on");
+		$('#sell').removeClass("item_on");
+		$('#popular').removeClass("item_on");
+		$('#shop_sorting_title').html('즉시 구매가순');
+		break;
+	case 'sell':
+		$('#sell').addClass("item_on");
+		$('#buy').removeClass("item_on");
+		$('#popular').removeClass("item_on");
+		$('#shop_sorting_title').html('즉시 판매가순');
+		break;
+}
+
+
+$(function() {
 
 	$.noConflict();
 	/* 슬라이더 생성 */
@@ -691,6 +703,7 @@ $(function() {
 	/* 슬라이드 페이지 */
 	$('.slider-for').on('beforeChange',
 			function(event, slick, currentSlide, nextSlide) {
+				console.log(nextSlide);
 				$('.current').text(nextSlide + 1);
 			});
 });
