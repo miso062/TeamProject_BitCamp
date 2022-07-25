@@ -1158,7 +1158,6 @@ $('#upImage').on('click', function(){
 /* 이미지 제거 */
 $('#delImage').on('click', function(){
    var formData = new FormData($('#updateImgForm')[0]);
-
    $.ajax({
       type: 'post',
       url: '/TeamProject/user/deleteImg',

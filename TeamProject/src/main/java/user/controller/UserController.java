@@ -205,7 +205,7 @@ public class UserController {
 	
 	@PostMapping(value="deleteImg")
 	@ResponseBody
-	public void deleteImg(@RequestParam MultipartFile img, HttpSession session) {
+	public void deleteImg(@RequestParam MultipartFile file, HttpSession session) {
 		String user_id = (String) session.getAttribute("memId");
 		userService.deleteImg(user_id);
 	}
