@@ -47,8 +47,9 @@ public class ShopController {
 	
 	@PostMapping(value="scrollProduct")
 	@ResponseBody
-	public Map<String, Object> scrollProduct(@RequestParam String num){
-		Map<String, Object> map = shopService.scrollProduct(num);
+	public Map<String, Object> scrollProduct(@RequestParam String num, String filter){
+		System.out.println(filter);
+		Map<String, Object> map = shopService.scrollProduct(num, filter);
     return map;
   }
 	

@@ -17,7 +17,7 @@ import user.bean.UserDTO;
 public interface ShopService {
 
 	public Map<String, Object> getShopDetail(int product_id);
-	public Map<String, Object> scrollProduct(String num);
+	public Map<String, Object> scrollProduct(String num, String filter);
 	public ProductDTO getProduct(int product_id);
 	public ProductImgDTO getImage(int product_id);
 	public List<Market_priceDTO> getchart(int product_id);
