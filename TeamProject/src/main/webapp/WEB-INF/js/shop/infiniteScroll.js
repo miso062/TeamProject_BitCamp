@@ -11,7 +11,7 @@ $(document).ready(function(){
 		  spinner.appendChild(spinnerImage);
 		  return spinner;
 		};
-
+		
 		const makeSkeleton = () => {
 		  const skeleton = document.createElement('li');
 		  const skeletonImage = document.createElement('div');

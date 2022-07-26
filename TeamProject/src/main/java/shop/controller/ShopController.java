@@ -53,7 +53,7 @@ public class ShopController {
 		System.out.println(num + " | " + sort);
 		List<ShopDTO> list = shopService.scrollProductList(num, sort);
 		list.get(0).setPage(num);
-
+		
 		return list;
 	}
   
