@@ -1625,6 +1625,11 @@ img.shadow {
 		padding-left: 230px;
 	}
 }
+@media (min-width: 992px) {
+	.menubar-pin1 #base1 {
+		padding-left: 120px;
+	}
+}
 @media (min-width: 769px) {
 	.full-content #base,
 	.full-content #content {

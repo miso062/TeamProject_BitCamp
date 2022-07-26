@@ -11,8 +11,8 @@
 </style>
 </head>
 <body>
-<body class="menubar-hoverable header-fixed menubar-pin">
-    <div id="base">
+<body class="menubar-hoverable header-fixed menubar-pin1">
+    <div id="base1">
         <header class="top_header">
             <div class="headerbar">
                 <div class="headerbar-left">
@@ -147,7 +147,7 @@
 										    </div>
 										    <div class="card-head" id="card-head" style="">
 										        <header class="small">전체 사용자 <span class="text-primary" id="total-member-count">3</span>명</header>
-										        <header class="small" style="float:right;"><span style="cursor:pointer;">더보기</span></header>
+										        <header class="small" style="float:right;"><span style="cursor:pointer;" id="moreView">더보기</span></header>
 										    </div>
 										
 										    <div class="card-body no-padding">
@@ -157,7 +157,7 @@
 										                <li class="nick" style="width:170px;">이름</li>
 										                <li class="nick" style="width:170px;">닉네임</li>
 										                <li class="account" style="width:250px;">계정</li>
-										                <li class="date_mileage" style="width:200px;">연락처</li>
+										                <li class="date_mileage" style="width:250px;">연락처</li>
 										                <li class="date_join">가입일</li>
 										            </ul>
 												 </div>
@@ -560,7 +560,7 @@ $(document).ready(function(){
 			var addr;
 			$.each(data,function(index,items){
 				if(items.authority > 2){
-					items.authority = '관리자'
+					items.authority ='관리자 <span class="badge">매니저</span>'
 				}else{
 					items.authority = '일반회원'
 				}
@@ -569,7 +569,7 @@ $(document).ready(function(){
                 '<li class="nick" style="width:170px;">'+items.user_name+'</li>'+
                 '<li class="nick" style="width:170px;">'+items.nickname+'</li>'+
                 '<li class="account" style="width:250px;">'+items.user_id+'</li>'+
-                '<li class="date_mileage" style="width:200px;">'+phoneFormatter(items.hp)+'</li>'+
+                '<li class="date_mileage" style="width:250px;">'+phoneFormatter(items.hp)+'</li>'+
                 '<li class="date_join">'+items.sign_up_date+'</li>'+
             	'</ul>';
             	$('#UI_TABLE2').append(addr)
@@ -596,7 +596,10 @@ $(document).ready(function(){
 		
 	})
 });
- 
+$('#moreView').click(function(){
+	location.href='/TeamProject/admin/userManage'
+});
+
 </script>
 </body>
 </html>
