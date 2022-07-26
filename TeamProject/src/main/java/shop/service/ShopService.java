@@ -35,6 +35,8 @@ public interface ShopService {
 	public AddressDTO getAddress(int addr_id);
 	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO);
 	public Buy_historyDTO insertBuyPayBySellId(Buy_historyDTO buy_historyDTO, int sell);
+	public Sell_historyDTO insertSellPayBySellId(Sell_historyDTO sell_historyDTO, int buy);
+	public Sell_historyDTO insertSellPay(Sell_historyDTO sell_historyDTO);
 	
 	public UserDTO getUserInfo();
 	public List<Market_priceDTO> getshopDetaillist(int product_id);

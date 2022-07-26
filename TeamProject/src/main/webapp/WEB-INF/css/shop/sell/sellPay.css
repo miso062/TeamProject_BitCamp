@@ -4,22 +4,23 @@ body, button, input, select, table, textarea {
     font-family: -apple-system,BlinkMacSystemFont,Roboto,AppleSDGothicNeo-Regular,NanumBarunGothic,NanumGothic,나눔고딕,Segoe UI,Helveica,Arial,Malgun Gothic,Dotum,sans-serif;
     color: #222;
 }
-.container.buy {
+.container.sell {
     background-color: #fafafa;
     padding: 40px 40px 0px;
     border-bottom: 1px solid #ebebeb;
 }
 .content {
     margin: 0 auto;
-    padding: 20px 40px 160px;
+    padding: 40px 40px 160px;
     max-width: 780px;
 }
-.buy_immediate,
+.sell_immediate,
 .price_descision_box {
     background-color: #fff;
 }
 .product_info_area {
     padding: 32px;
+    background: #fff;
 }
 .product_info {
     display: flex;
@@ -254,6 +255,10 @@ section .section_unit + .section_unit {
 .section_content{
 	margin-top: 14px;
 }
+.account_content {
+    display: flex;
+    justify-content: space-between;
+}
 .section_input {
     margin-top: 12px;
 }
@@ -480,7 +485,7 @@ section .section_unit + .section_unit {
 .method_desc {
     padding-top: 16px;
 }
-.buy_check,
+.sell_check,
 .sm .deadline_info_area .deadline_tab .btn {
     padding: 0;
 }
@@ -502,14 +507,14 @@ section .section_unit + .section_unit {
     cursor: pointer;
     display: inline-block;
 }
-.buy_check .buy_total_confirm {
+.sell_check .sell_total_confirm {
     padding: 0 32px 32px;
 }
-.buy_total_confirm {
+.sell_total_confirm {
     border-top: 1px solid #ebebeb;
     background-color: #fff;
 }
-.buy_check .buy_total_confirm .price_total_confirm .price_title {
+.sell_check .sell_total_confirm .price_total_confirm .price_title {
     line-height: 18px;
     font-size: 15px;
     letter-spacing: -0.01px;
@@ -525,15 +530,15 @@ section .section_unit + .section_unit {
 .solid {
     color: #fff;
 }
-.solid.buy {
+.solid.sell {
     background-color: #ef6253;
 }
 .price_title .btn_title svg {
     width: 15px;
     height: 15px;
 }
-.buy_check:before,
-.buy_check:after{
+.sell_check:before,
+.sell_check:after{
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }
@@ -576,7 +581,7 @@ section .section_unit + .section_unit {
 	border-top: 0;
 	color: #222;
 }
-.buy_btn {
+.sell_btn {
     height: 60px;
     line-height: 60px;
     border-radius: 12px;
@@ -1005,4 +1010,100 @@ input::placeholder{
     text-align: center;
     background-color: #ef6253;
     color: #fff;
+}
+.layer_account_container {
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    width: 448px;
+    border-radius: 16px;
+    -webkit-box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
+}
+.layer_account_container .title {
+    line-height: 22px;
+    width: 100%;
+    padding: 18px 50px 20px;
+    min-height: 60px;
+    font-size: 18px;
+    letter-spacing: -.27px;
+    font-weight: 700;
+    letter-spacing: -.15px;
+    color: #000;
+    text-align: center;
+    background-color: #fff;
+}
+.btn_dropdown{
+	position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -12px;
+    line-height: 0;
+    cursor: pointer;
+}
+.lg .account_registration .layer_dropdown, .md .account_registration .layer_dropdown {
+    top: 35px;
+}
+.layer_dropdown {
+    position: absolute;
+    top: 37px;
+    bottom: auto;
+    background-color: rgba(0,0,0,0);
+    border: 1px solid #ebebeb;
+}
+.layer_dropdown_header {
+    display: none;
+}
+.layer_dropdown .layer_container {
+    position: relative;
+    top: auto;
+    left: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    width: 100%;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.layer_header .title {
+    line-height: 22px;
+    padding: 18px 50px 20px;
+    min-height: 60px;
+    font-size: 18px;
+    letter-spacing: -.27px;
+    font-weight: 700;
+    letter-spacing: -.15px;
+    color: #000;
+    text-align: center;
+    background-color: #fff;
+}
+.layer_dropdown .drop_list {
+    overflow-y: auto;
+    max-height: 240px;
+}
+.layer_dropdown .drop_link {
+    position: relative;
+    display: block;
+    padding: 11px 50px 10px 16px;
+    font-size: 13px;
+    letter-spacing: -.07px;
+    color: rgba(34,34,34,.8);
+}
+li, ol, ul {
+    list-style: none;
+}
+.registration_btn_box{
+    height: 50px;
+}
+#regist_account {
+    position: absolute;
+    left: 180px;
+    background: #222;
+    cursor: pointer;
 }
