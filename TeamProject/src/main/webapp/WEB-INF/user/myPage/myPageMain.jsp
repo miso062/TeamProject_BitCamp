@@ -1171,4 +1171,19 @@ $(document).ready(function(){
    });
 });
 
+//마이페이지 관심상품 뿌리기
+$(document).ready(function(){
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/user/getLikeProductList',
+		dataType:'json',
+		success:function(data){
+			//alert(JSON.stringify(data))
+			
+		},error: function(e){
+			 console.log(e);
+		 }
+	})
+})
+
 </script>

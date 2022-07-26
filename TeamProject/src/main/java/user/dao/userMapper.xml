@@ -20,6 +20,15 @@
 	<select id="isExistUser" parameterType="java.util.Map" resultType="int">
 		select count(*) from user_table where hp=#{hp} and user_id=#{user_id}
 	</select>
+
+	<!--주소록 기본주소아닌 DB 호출-->
+	<select id="comeAddress" parameterType="String" resultType="userAddress">
+	select * from address where user_id=#{user_id} and flag=0
+	</select>
+	<!--주소록 기본주소 DB 호출-->
+	<select id="comeAddress1" parameterType="String" resultType="userAddress">
+	select * from address where user_id=#{user_id} and flag=1
+	</select>
 	
 	<insert id="addAddress" parameterType="userAddress">
 		insert into address(address_id,user_id,name,hp,zipcode,addr,addr_detail,flag)
@@ -165,4 +174,16 @@
 	<delete id="userdelete" parameterType="String">
 		delete user_table where user_id=#{user_id}
 	</delete>
+	
+	<select id="getLikeProductList" parameterType="java.util.Map" resultType="likepro">
+		select * from like_pro where user_id=#{id}
+	</select>
+	
+	<select id="getLikeProducts" parameterType="int" resultType="product">
+		select * from product where product_id=#{product_id}
+	</select>
+	
+	<select id="getProductAll" parameterType="int" resultType="productImg">
+		select * from pro_image where product_id=#{product_id}
+	</select>
 </mapper>

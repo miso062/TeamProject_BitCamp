@@ -426,9 +426,9 @@ input::placeholder{
                 <div class="info_bind">
                     <!---->
                     <div class="address_info">
-                        <div class="name_box"><span class="name">김**</span><span class="mark">기본 배송지</span></div>
-                        <p class="phone">010<span class="hyphen"></span>7<span class="dot"></span><span class="dot"></span><span class="hyphen"></span><span class="dot"></span>333</p>
-                        <div class="address_box"><span class="zipcode">(06296)</span><span class="address">서울 강남구 논현로32길 5 (도곡동) ㄹㄴㅇㄴㄹㄴ</span></div>
+                        <div class="name_box"><span class="name"></span><span class="mark"></span></div>
+                        <p class="phone"><span class="hyphen"></span>7<span class="dot"></span><span class="dot"></span><span class="hyphen"></span><span class="dot"></span></p>
+                        <div class="address_box"><span class="zipcode"></span><span class="address"></span></div>
                     </div>
                 </div>
                 <div class="btn_bind">
@@ -547,13 +547,13 @@ input::placeholder{
             <div class="pagination_box first last">
                 <div class="prev_btn_box">
                     <a href="/my/address?page=1" class="btn_arr" aria-label="첫 페이지">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-first icon sprite-icons">
-                            <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-first" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-first"></use>
+                        <svg  class="arr-page-first icon sprite-icons">
+                            <use ></use>
                         </svg>
                     </a>
                     <a href="/my/address?page=0" class="btn_arr" aria-label="이전 페이지">
                         <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-prev icon sprite-icons">
-                            <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-prev" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-prev"></use>
+                            <use  ></use>
                         </svg>
                     </a>
                 </div>
@@ -561,12 +561,12 @@ input::placeholder{
                 <div class="next_btn_box">
                     <a href="/my/address?page=2" class="btn_arr" aria-label="다음 페이지">
                         <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-next icon sprite-icons">
-                            <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-next" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-next"></use>
+                            <use ></use>
                         </svg>
                     </a>
                     <a href="/my/address?page=1" class="btn_arr" aria-label="마지막 페이지">
                         <svg xmlns="http://www.w3.org/2000/svg" class="arr-page-last icon sprite-icons">
-                            <use href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-last" xlink:href="/_nuxt/a7a7eb5a7757da9bd1f7f0de66705692.svg#i-arr-page-last"></use>
+                            <use ></use>
                         </svg>
                     </a>
                 </div>
@@ -637,6 +637,63 @@ input::placeholder{
     </div>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
+window.onload = function() {
+	$('.snb_menu').eq(1).find('.menu_link').eq(1).removeClass('unbold');
+	$('.snb_menu').eq(1).find('.menu_link').eq(1).addClass('bold');
+    //DB에서 기본주소가 아닌  정보 가져와서 뿌려주기
+    comeAddress1()
+    comeAddress()
+}
+
+
+//기본주소 아닌 것들 불러오기
+function comeAddress() {
+    $.ajax({
+        type: 'post',
+        url : '/TeamProject/user/comeAddress',
+        success: function(data){
+        	var addr;
+        	if(data.list != null) {
+            $.each(data.list, function(index, items){
+            	 addr = '<div class="my_item select">'+
+                 '<div class="info_bind">'+
+                 '<div class="address_info"><div class="name_box">'+
+                 '<span class="name">'+items.name+'</span>'+
+                 '<p class="phone">'+hp+'</p>'+
+                 '<div class="address_box">'+
+                 '<span class="zipcode">('+items.zipcode+') </span>'+
+                 '<span class="address">'+items.addr+' '+items.addr_detail+'</span>'+
+                 '</div></div></div></div><div class="btn_bind"></div>'+
+                 '<input type="hidden" class="address_id" value='+items.address_id+'></div>';
+        	}//
+        },//sccuess
+        error : function(err){
+            console.log(err)
+        }
+    })
+}
+//기본주소 불러오기
+function comeAddress1() {
+    $.ajax({
+        type: 'post',
+        url : '/TeamProject/user/comeAddress1',
+        success: function(data){
+        	
+			if(data !="") {
+				var hp = data.hp.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+            $('.basic .name').text(data.name)
+            $('.basic .phone').text(hp)
+            $('.basic .zipcode').text('('+data.zipcode+')')
+            $('.basic .address').text(data.addr + " " + data.addr_detail)
+			}
+
+        },
+        error : function(err){
+            console.log(err)
+        }
+    })
+}
+
 
 // open add address modal
 function addr_initialization(){
@@ -649,7 +706,7 @@ function addr_initialization(){
     $('#addr1').val('');
     $('#addr2').val('');
 }
-
+//켰을  addr_initialization() 초기화
 $('.btn_txt').click(function(){
     $('.layer_delivery').fadeIn();
     $('body').css("overflow", "hidden");
@@ -697,7 +754,7 @@ function oninputPhone(value){
 	saveOkCheck();
 }
 
-//로그인 버튼 활성 비활성
+//저장하기 버튼 비활성화
 function saveOkCheck(){ 
 	if((resultName == true) && (resultPhone == true ) && (resultzipcode == true ) && (resultaddr1 == true ) && (resultaddr2 == true )){
 		document.getElementById('saveBtn').className = 'bTn bTn_save solid medium passadd';
@@ -706,21 +763,21 @@ function saveOkCheck(){
 	}
 }
 
-function checkzipcode(value) { //이름 유효성 검사
+function checkzipcode(value) { //우편주소 유효성 검사
 	if(document.getElementById('zipcode').value==''){
 		return false;
 	} else {
 		return true;
 	}
 }
-function checkaddr1(value) { //이름 유효성 검사
+function checkaddr1(value) { //기본주소  유효성 검사
 	if(document.getElementById('zipcode').value==''){
 		return false;
 	} else {
 		return true;
 	}
 }
-function checkaddr2(value) { //이름 유효성 검사
+function checkaddr2(value) { //상세주소 유효성 검사
 	var reg_required = /.{1,}/;
 	
 	if (reg_required.test(value) == true) {
@@ -794,7 +851,7 @@ $(document).on('click','.check_label',function(){
 			$(this).children('img').attr('src', '/TeamProject/img/shop/checkbox-active.png');
 			$(this).children('img').addClass('ico-check-active');
 			$(this).children('img').removeClass('ico-check-inactive');
-			$(this).prev().val('1');
+			$(this).prev().val('1'); //기본주소로 설정
 		}
 		else{
 			$(this).children('img').attr('src', '/TeamProject/img/shop/checkbox-inactive.png');
@@ -805,7 +862,7 @@ $(document).on('click','.check_label',function(){
 });
 $(document).on('click','.bTn.bTn_save.solid.medium.passadd',function(){
 	$.ajax({
-		url:'/TeamProject/user/addaddressbook',
+		url:'/TeamProject/user/addAddressBook',
 		type: 'post',
 		data: {
 			'name': $('#name_input').val(),

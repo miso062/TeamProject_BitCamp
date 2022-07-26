@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import product.bean.Buy_historyDTO;
+import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
@@ -45,4 +46,13 @@ public interface UserDAO {
 	public int bookMarkGetDetail(Map<String, String> map);
 	public UserDTO checkrecheckpwd(String user_id);
 	public void userdelete(String user_id);
+	public Buy_historyDTO getBuyItem(String buy_id);
+	public Sell_historyDTO getSellItem(String sell_id);
+	public List<AddressDTO> getAddress(String user_id);
+	public List<LikeProDTO> getLikeProductList(String id);
+	public List<ProductDTO> getLikeProducts(int product_id);
+	public List<ProductImgDTO> getProductAll(int product_id);
+  public List<AddressDTO> comeAddress(String user_id);
+  public AddressDTO comeAddress1(String user_id);
+	public AddressDTO getAddress(Integer address_id);
 }

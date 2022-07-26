@@ -82,7 +82,7 @@
 	color: #41b979
 }
 
-.select_link.sell .price {
+.select_link.buy .price {
 	color: #31b46e
 }
 
@@ -925,20 +925,20 @@ $(function(){
 	});
 
 	$.ajax({
-		url : "/TeamProject/shop/getSelectBuySizeInfo",
+		url : "/TeamProject/shop/getSelectSellSizeInfo",
 		type: "post",
 		data: { "product_id": $('#product_id').val() },
 		dataType: 'json',
 		success: function(data){
-			$.each(data, function(index, items){
-				var id = "#price_size_" + items.size_type;
+			$.each(data, function(index, item){
+				var id = "#price_size_" + item.size_type;
 				var dto_id = '#buy_dto_size_' +  item.size_type;
-				var price = items.buy_price.toString();
+				var price = item.buy_price.toString();
 				price = price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 				if(price != ''){
 					$(id).text(price);
 					$(dto_id).val(item.buy_id);
-					$(id).parent().parent().removeClass('sid');
+					$(id).parent().parent().removeClass('bid');
 				}
 			});
 		},
@@ -950,7 +950,7 @@ $(function(){
 
 $('#goNextBtn').click(function(){
 	if($('#selected_id').val() != ''){
-		location.href="/TeamProject/shop/sellCheck?sell="+$('#selected_id').val();
+		location.href="/TeamProject/shop/sellCheck?buy="+$('#selected_id').val();
 	}
 	else {
 		location.href="/TeamProject/shop/sellCheck?product_id="+$('#product_id').val()+"&size="+$('#selected_size').val();

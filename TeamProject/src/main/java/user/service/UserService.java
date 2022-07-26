@@ -43,4 +43,8 @@ public interface UserService {
 	public String bookMarkGetDetail(String product_id);
 	public String checkPwd(String pwd);
 	public void userdelete(HttpSession httpsession);
+	public List<AddressDTO> getAddress(String user_id);
+	public Map<String, Object> getLikeProductList();
+  public List<AddressDTO> comeAddress();
+	public AddressDTO comeAddress1();
 }

@@ -345,8 +345,8 @@
 
 
 		});
-
-		function checkEmail1(value) { //이메일 유효성 검사
+		//이메일 유효성 검사
+		function checkEmail1(value) { 
 			var regEmail1 = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 			
 			if(regEmail1.test(value) ==true) {
@@ -356,6 +356,7 @@
 					data : {'user_id' : $('.log_email_input').val()},
 					success : function (data){
 						document.getElementsByClassName("log_email_label")[0].style.color = "black";
+						document.getElementsByClassName("log_email_error")[0].style.display = "block";
 						document.getElementsByClassName("log_email_input")[0].style.borderColor = "black";
 						if(data == "0") {
 							document.getElementsByClassName("log_email_error")[0].innerHTML='사용 가능한 아이디입니다.';

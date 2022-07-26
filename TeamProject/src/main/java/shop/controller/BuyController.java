@@ -17,11 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import product.bean.Buy_historyDTO;
-import product.bean.ProductDTO;
 import product.bean.Sell_historyDTO;
 import shop.service.ShopService;
 import user.bean.AddressDTO;
-import user.service.UserServiceImpl;
 
 @Controller
 @RequestMapping(value="/shop")
@@ -99,9 +97,9 @@ public class BuyController {
 	}
 	
 //	현재 입찰 정보 가져오기
-	@PostMapping(value="/getPrice")
+	@PostMapping(value="/getBuyPrice")
 	@ResponseBody
-	public Map<String, Object> getPrice(
+	public Map<String, Object> getBuyPrice(
 				@RequestParam(defaultValue = "0", required = false) int product_id,
 				@RequestParam(defaultValue = "0", required = false) int sell, 
 				@RequestParam(defaultValue = "0", required = false) int size) {
@@ -115,7 +113,7 @@ public class BuyController {
 		}
 		else {
 			map.put("sellDTO", shopService.getSellDTO(product_id, size));
-			map.put("buyDTO", shopService.getSellDTO(product_id, size));
+			map.put("buyDTO", shopService.getBuyDTO(product_id, size));
 		}
 		return map;
 	}
