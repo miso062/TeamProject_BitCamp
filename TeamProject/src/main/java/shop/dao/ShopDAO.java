@@ -8,6 +8,7 @@ import product.bean.Market_priceDTO;
 import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
+import product.bean.ShopDTO;
 import user.bean.AddressDTO;
 import user.bean.LikeProDTO;
 
@@ -28,7 +29,7 @@ public interface ShopDAO {
 	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO);
 	public Buy_historyDTO insertBuyPayBySellId(Map<String, Object> map);
 	
-	public Map<String, Object> scrollProduct(Map<String, Integer> map, String filter);
+	public List<ShopDTO> scrollProductList(Map<String, Integer> map, String filter);
 	public List<Market_priceDTO> getchart(int product_id);
 	public Integer getbuyhistory(int product_id);
 	public Integer getsellhistory(int product_id);

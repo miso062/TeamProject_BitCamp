@@ -681,7 +681,7 @@ $(function() {
 	/* 슬라이드 페이지 */
 	$('.slider-for').on('beforeChange',
 			function(event, slick, currentSlide, nextSlide) {
-				console.log(nextSlide);
+				//console.log(nextSlide);
 				$('.current').text(nextSlide + 1);
 			});
 });
