@@ -423,4 +423,5 @@ public class UserController {
 		userService.userdelete(httpsession);
 		httpsession.invalidate();
 	}
+	
 }

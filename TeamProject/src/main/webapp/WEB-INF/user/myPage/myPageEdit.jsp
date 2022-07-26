@@ -399,6 +399,7 @@ svg:not(:root) {
 }
 .btn_withdrawal, .btn_withdrawal:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 .btn_withdrawal {
     margin-top: 55px;

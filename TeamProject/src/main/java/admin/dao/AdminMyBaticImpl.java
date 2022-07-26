@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import admin.bean.AdminDTO;
 import admin.bean.AdminQnADTO;
+import user.bean.UserDTO;
 
 @Repository
 @Transactional
@@ -119,6 +120,18 @@ public class AdminMyBaticImpl implements AdminDAO {
 	public void noticeqnaDelete(String seq, String pg) {
 		sqlSession.delete("adminSQL.noticeqnaDelete",seq);
 		
+	}
+
+
+	@Override
+	public List<UserDTO> getAllUserList() {
+		return sqlSession.selectList("adminSQL.getAllUserList");
+	}
+
+
+	@Override
+	public Integer getUserCount() {
+		return sqlSession.selectOne("adminSQL.getUserCount");
 	}
 
 }

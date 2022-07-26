@@ -358,4 +358,9 @@ public class UserServiceImpl implements UserService {
 		userDAO.userdelete(user_id);
   }
 
+  @Override
+  public List<AddressDTO> getAddress(String user_id) {
+		return userDAO.getAddress(user_id);
+	}
+
 }
