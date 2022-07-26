@@ -266,18 +266,36 @@ public class UserController {
 		model.addAttribute("container", "/WEB-INF/user/myPage/likePro.jsp");
 		return "forward:/user/my";
 	}
-	
-	@GetMapping(value="addressbook")
+	//주소록 jsp
+	@GetMapping(value="addressBook")
 	public String addressbook(Model model)  {
 		model.addAttribute("container","/WEB-INF/user/myPage/addressbook.jsp");
 		return "forward:/user/my";
 	}
-  
+
+	//주소 DB에서 가져와서 뿌려주기
+	@PostMapping(value="comeAddress")
+	@ResponseBody
+	public Map<String , Object> comeAddress() {
+		List<AddressDTO> list = userService.comeAddress();
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("list", list);
+		return map;
+	}
+	//기본주소 가져와 뿌려오기
+	@PostMapping(value="comeAddress1")
+	@ResponseBody
+	public AddressDTO comeAddress1() {
+		AddressDTO addressDTO = userService.comeAddress1();
+		return addressDTO;
+	}
+
+	//주소DB에 등록
 	@PostMapping(value="addAddressBook")
 	@ResponseBody
 	public void addAddressBook(@ModelAttribute AddressDTO addressDTO) {
 		userService.addAddressBook(addressDTO);
-  }
+ 	}	
 
 	@GetMapping(value="findEmailMain")
 	public String findEmailMain(Model model) {

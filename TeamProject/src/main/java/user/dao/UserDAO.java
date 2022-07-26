@@ -44,4 +44,6 @@ public interface UserDAO {
 	public Buy_historyDTO getBuyItem(String buy_id);
 	public Sell_historyDTO getSellItem(String sell_id);
 	public List<AddressDTO> getAddress(String user_id);
+    public List<AddressDTO> comeAddress(String user_id);
+    public AddressDTO comeAddress1(String user_id);
 }
