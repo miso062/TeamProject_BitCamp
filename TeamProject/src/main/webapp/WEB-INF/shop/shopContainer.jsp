@@ -423,6 +423,7 @@ li, ol, ul {
 	margin-left: 2px;
 	margin-bottom: 2px;
 }
+
 .shop_translated_name{
 	height:32px;
 	margin-top: 2px;
@@ -606,7 +607,28 @@ $('.shop_bookmark').on(	{'click' : function() {
 				: '/TeamProject/img/shop/bookmark.svg';
 		$(this).attr('src', src);
 	}
-});
+}); 
+
+ //북마크 클릭시 DB연동 이미지 바꾸기
+/* $(document).on('click','.shop_bookmark', function() {
+	if(!'${sessionScope.memId}'){
+		$(this).attr('src', '/TeamProject/img/shop/bookmark.svg');
+		alert('로그인 먼저해주세요');
+	}else{
+		if($(this).hasClass('active')){
+			$(this).attr('src', '/TeamProject/img/shop/bookmark.svg');
+			$(this).removeClass('active');
+			$.ajax({
+				type:'post',
+				url:'/TeamProject/shop/shopbookMarkDelete',
+				data:'',
+			})
+		}else{
+			$(this).addClass('active');
+			$(this).attr('src', '/TeamProject/img/shop/bookmark-fill.svg');
+		} // else
+	}
+}); */
 
 /* 필터클릭시 목록보이기 */
 $("#shop_sorting_title").click(function() {

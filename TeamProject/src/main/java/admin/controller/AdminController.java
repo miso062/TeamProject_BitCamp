@@ -209,8 +209,21 @@ public class AdminController {
 	}
 	
 	@GetMapping(value="/")
-	public String admin() {
-		return "/admin/admin";
+	public String admin(Model model) {
+		model.addAttribute("content", "/WEB-INF/admin/admin.jsp");
+		return "/admin/adminMain";
+	}
+	
+	@GetMapping(value="/userManage")
+	public String userManage(Model model) {
+		model.addAttribute("content", "/WEB-INF/admin/userManage.jsp");
+		return "/admin/adminMain";
+	}
+	
+	@GetMapping(value="/proManage")
+	public String proManage(Model model) {
+		model.addAttribute("content", "/WEB-INF/admin/proManage.jsp");
+		return "/admin/adminMain";
 	}
 	@PostMapping(value="getAllUserList")
 	@ResponseBody

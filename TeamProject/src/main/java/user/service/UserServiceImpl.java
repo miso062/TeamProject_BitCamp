@@ -213,8 +213,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void deleteImg() {
-		String user_id = (String) session.getAttribute("memId");
+	public void deleteImg(String user_id) {
 		userDAO.deleteImg(user_id);
 	}
 
@@ -250,6 +249,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Sell_historyDTO getSellItem(String sell_id) {
 		return userDAO.getSellItem(sell_id);
+	}
+	
+	@Override
+	public AddressDTO getAddress(Integer address_id) {
+		return userDAO.getAddress(address_id);
 	}
 	
 	@Override
@@ -347,6 +351,7 @@ public class UserServiceImpl implements UserService {
 				check = "exist";
 		}return check;
 	}
+
 	@Override
 	public void userdelete(HttpSession httpsession) {
 		String user_id = (String) session.getAttribute("memId");
@@ -357,6 +362,5 @@ public class UserServiceImpl implements UserService {
   public List<AddressDTO> getAddress(String user_id) {
 		return userDAO.getAddress(user_id);
 	}
-
 
 }
