@@ -986,20 +986,20 @@ window.onload = function(){
        document.querySelector('.thumb_img').setAttribute('src', 'https://storage.googleapis.com/gese-t.appspot.com/'+ image + '?' + date.getTime());
     }
 }
-$('.membership_item').click(function(){
-   $('.layer_point').fadeIn();
-    $('body').css("overflow", "hidden");
-});
-$(document).on("click",function(e){
-   if($('.layer_point').is(e.target)) {
-      $('.layer_point').fadeOut();
-        $('body').css("overflow-y", "scroll");
-   }
-})
-$('.layer_btn').click(function(){
-    $('.layer_point').fadeOut();
-    $('body').css("overflow", "scroll");
-})
+	$('.membership_item').click(function(){
+	   $('.layer_point').fadeIn();
+	    $('body').css("overflow", "hidden");
+	});
+	$(document).on("click",function(e){
+	   if($('.layer_point').is(e.target)) {
+	      $('.layer_point').fadeOut();
+	        $('body').css("overflow-y", "scroll");
+	   }
+	})
+	$('.layer_btn').click(function(){
+	    $('.layer_point').fadeOut();
+	    $('body').css("overflow", "scroll");
+	})
 
 $(document).ready(function(){
    $.ajax({
@@ -1160,7 +1160,7 @@ $(document).ready(function(){
   	                '</div></div></div>'
   	                );
             $('.sell_list').append(selllist);
-			 //상품 3개까지 보이게하기
+            //상품 3개까지 보이게하기
 			if( i > 1){
 			   break;
 			}
