@@ -223,8 +223,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public void deleteImg() {
-		String user_id = (String) session.getAttribute("memId");
+	public void deleteImg(String user_id) {
 		userDAO.deleteImg(user_id);
 	}
 
@@ -267,6 +266,11 @@ public class UserServiceImpl implements UserService {
 	
 	
 	//네이버 회원 조회
+	@Override
+	public AddressDTO getAddress(Integer address_id) {
+		return userDAO.getAddress(address_id);
+	}
+	
 	@Override
 	public String signUpCheckNaver(UserDTO userDTO) {
 		String check;
@@ -367,16 +371,10 @@ public class UserServiceImpl implements UserService {
 				check = "exist";
 		}return check;
 	}
-	
+
 	@Override
 	public void userdelete(HttpSession httpsession) {
 		String user_id = (String) session.getAttribute("memId");
 		userDAO.userdelete(user_id);
   }
-
-  @Override
-  public List<AddressDTO> getAddress(String user_id) {
-		return userDAO.getAddress(user_id);
-	}
-
 }

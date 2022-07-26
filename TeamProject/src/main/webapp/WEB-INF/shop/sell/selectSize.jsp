@@ -708,6 +708,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">225</span>
 											<span data-v-02c63ee6="" class="price" id="price_size_225">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_225">
 										</div>
 									</button>
 								</li>
@@ -716,6 +717,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">230</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_230">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_230">
 										</div>
 									</button>
 								</li>
@@ -724,6 +726,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">235</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_235">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_235">
 										</div>
 									</button>
 								</li>
@@ -732,6 +735,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">240</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_240">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_240">
 										</div>
 									</button>
 								</li>
@@ -740,6 +744,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">245</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_245">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_245">
 										</div>
 									</button>
 								</li>
@@ -748,6 +753,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">250</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_250">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_250">
 										</div>
 									</button>
 								</li>
@@ -756,6 +762,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">255</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_255">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_255">
 										</div>
 									</button>
 								</li>
@@ -764,6 +771,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">260</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_260">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_260">
 										</div>
 									</button>
 								</li>
@@ -772,6 +780,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">265</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_265">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_265">
 										</div>
 									</button>
 								</li>
@@ -780,6 +789,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">270</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_270">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_270">
 										</div>
 									</button>
 								</li>
@@ -788,6 +798,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">275</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_275">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_275">
 										</div>
 									</button>
 								</li>
@@ -796,6 +807,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">280</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_280">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_280">
 										</div>
 									</button>
 								</li>
@@ -804,6 +816,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">285</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_285">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_285">
 										</div>
 									</button>
 								</li>
@@ -812,6 +825,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">290</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_290">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_290">
 										</div>
 									</button>
 								</li>
@@ -820,6 +834,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">295</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_295">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_295">
 										</div>
 									</button>
 								</li>
@@ -828,6 +843,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">300</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_300">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_300">
 										</div>
 									</button>
 								</li>
@@ -836,6 +852,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">305</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_305">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_305">
 										</div>
 									</button>
 								</li>
@@ -844,6 +861,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">310</span> 
 											<span data-v-02c63ee6="" class="price" id="price_size_310">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_310">
 										</div>
 									</button>
 								</li>
@@ -852,6 +870,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">315</span>
 											<span data-v-02c63ee6="" class="price" id="price_size_315">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_315">
 										</div>
 									</button>
 								</li>
@@ -860,6 +879,7 @@ body{
 										<div data-v-02c63ee6="" class="link_inner">
 											<span data-v-02c63ee6="" class="size">320</span>
 											<span data-v-02c63ee6="" class="price" id="price_size_320">판매입찰</span>
+											<input type="hidden" class="buy_dto" id="buy_dto_size_320">
 										</div>
 									</button>
 								</li>
@@ -869,6 +889,7 @@ body{
 							<hr>
 							<a id="goNextBtn">
 								<input type="hidden" id="selected_size" value="">
+								<input type="hidden" id="selected_id" value="">
 								<div id="black_box">
 									<div id="font1"></div>
 									<div id="font2">일반배송(5-7일소요)</div>
@@ -891,6 +912,7 @@ $(function(){
 		$('#black_button').show();
 		$('#font1').html($(this).find('.price').html());
 		$('#selected_size').val($(this).find('.size').text());
+		$('#selected_id').val($(this).find('.buy_dto').val());
 	});
 
 	$('.select_item').each(function(){
@@ -903,18 +925,20 @@ $(function(){
 	});
 
 	$.ajax({
-		url : "/TeamProject/shop/getSelectSellSizeInfo",
+		url : "/TeamProject/shop/getSelectBuySizeInfo",
 		type: "post",
 		data: { "product_id": $('#product_id').val() },
 		dataType: 'json',
 		success: function(data){
 			$.each(data, function(index, items){
 				var id = "#price_size_" + items.size_type;
+				var dto_id = '#buy_dto_size_' +  item.size_type;
 				var price = items.buy_price.toString();
 				price = price.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 				if(price != ''){
 					$(id).text(price);
-					$(id).parent().parent().removeClass('bid');
+					$(dto_id).val(item.buy_id);
+					$(id).parent().parent().removeClass('sid');
 				}
 			});
 		},
@@ -925,6 +949,11 @@ $(function(){
 });
 
 $('#goNextBtn').click(function(){
-	location.href="/TeamProject/shop/sellCheck?product_id="+$('#product_id').val()+"&size="+$('#selected_size').val();
+	if($('#selected_id').val() != ''){
+		location.href="/TeamProject/shop/sellCheck?sell="+$('#selected_id').val();
+	}
+	else {
+		location.href="/TeamProject/shop/sellCheck?product_id="+$('#product_id').val()+"&size="+$('#selected_size').val();
+	}
 });
 </script>

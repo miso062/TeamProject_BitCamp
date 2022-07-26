@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <style type="text/css">
-.pwdinput1{
+.pwdinput0{
 	text-align:center;
 	
 	
 }
-#pwdinput1{
+#pwdinput9{
 	border:1px solid black;
 	height: 20px;
 	border-radius: 16px;
@@ -177,7 +177,7 @@
 <div class="checkpwd_container">
 <div class="checkpwd_header"><h2 class="title2">보안을 위하여 비밀번호 확인</h2></div>
 <div class="checkpwd_list">
-<div class="pwdinput2"><input type="password" id="pwdinput1" /></div>
+<div class="pwdinput0"><input type="password" id="pwdinput9" /></div>
 </div>
 <div class="checkpwd_btn"><ahref="#" class="checkpwd_btn4" > 확인 </a></div>
             <a href="#" class="checkpwd_btn5">
@@ -193,7 +193,7 @@ $('.menu_link').click(function(){
 });
 $('#profileUpdate2').click(function(){
 	$('.checkpwd1').fadeIn();
-	$('#pwdinput1').focus();
+	$('#pwdinput9').focus();
     $('body').css("overflow", "hidden");
 });
 $(document).on("click",function(e){
@@ -202,7 +202,7 @@ $(document).on("click",function(e){
         $('body').css("overflow-y", "scroll");
 	}
 })
- $('#pwdinput1').on('keypress', function(e){
+ $('#pwdinput9').on('keypress', function(e){
   if(e.keyCode == '13'){
 	  $('.checkpwd_btn4').click();
   }
@@ -212,7 +212,7 @@ $('.checkpwd_btn4').click(function(){
 	$.ajax({
 		type: 'post',
 		url: '/TeamProject/user/pwdcheck',
-		data: {'pwd': $('#pwdinput1').val()},
+		data: {'pwd': $('#pwdinput9').val()},
 		dataType: 'text',
 		success: function(data){
 			data = data.trim();

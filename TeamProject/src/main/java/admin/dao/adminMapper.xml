@@ -78,6 +78,12 @@
   	<delete id="noticeqnaDelete" parameterType="String">
   		delete qna where qna_id = #{seq}
   	</delete>
+  	<select id="getAllUserList" resultType="user">
+  		select * from (select * from user_table order by sign_up_date desc) where <![CDATA[rownum <= 5 ]]>
+  	</select>
+  	<select id="getUserCount" resultType="Integer">
+  		select count(*) from user_table
+  	</select>
 </mapper>
 
 
