@@ -102,11 +102,11 @@ $(document).ready(function(){
 		
 		function getList(page, callback) {
 			var params = new URLSearchParams(document.location.search);
-			var filter = params.get("filter");
+			var sort = params.get("sort");
 			$.ajax({
 				type:'post',
 				url:'/TeamProject/shop/scrollProduct',
-				data:'num=' + page + '&filter=' + filter , 
+				data:'num=' + page + '&sort=' + sort , 
 				dataType:'json',
 				success: function(data){
 //					console.log(data)
