@@ -668,7 +668,6 @@ $(document).on('click','.cd2_bookmark', function() {
 				url: '/TeamProject/user/bookMarkDelete',
 				data: {'product_id': $(this).parent().next('.cd2_product_id').val()},
 				success: function(){
-					alert('관심상품이 취소되었습니다');
 				},
 				error: function(e){
 					console.log(e);
@@ -682,7 +681,6 @@ $(document).on('click','.cd2_bookmark', function() {
 				url: '/TeamProject/user/bookMarkInsert',
 				data: {'product_id': $(this).parent().next('.cd2_product_id').val()},
 				success: function(){
-					alert('관심상품이 추가되었습니다 ');
 				},                                                                    
 				error: function(e) {
 					console.log(e);

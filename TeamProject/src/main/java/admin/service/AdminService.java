@@ -1,10 +1,12 @@
 package admin.service;
 
 import java.util.List;
+import java.util.Map;
 
 import admin.bean.AdminDTO;
 import admin.bean.AdminPaging;
 import admin.bean.AdminQnADTO;
+import user.bean.UserDTO;
 
 public interface AdminService {
 
@@ -37,5 +39,10 @@ public interface AdminService {
 	public void addnoticeQnAUpdate(AdminQnADTO adminQnADTO);
 
 	public void noticeqnaDelete(String seq, String pg);
+
+	public List<UserDTO> getAllUserList();
+
+	public Map<String, Object> getAllAdmin();
+
 
 }

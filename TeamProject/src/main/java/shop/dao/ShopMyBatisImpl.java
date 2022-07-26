@@ -24,6 +24,7 @@ import product.bean.Market_priceDTO;
 import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
+import product.bean.ShopDTO;
 import user.bean.AddressDTO;
 import user.bean.LikeProDTO;
 
@@ -86,26 +87,16 @@ public class ShopMyBatisImpl implements ShopDAO {
 	}
   
 	@Override
-	public Map<String, Object> scrollProduct(Map<String, Integer> map, String filter) {
-		List<ProductDTO> productList = null;
-		List<ProductImgDTO> productImgList = null;
-		
-		if(filter.equals("popular")) {
-			productList = sqlSession.selectList("shopSQL.scrollProductList", map);
-			productImgList = sqlSession.selectList("shopSQL.scrollProductImg", map);	
-		} else if (filter.equals("buy")) {
-			productList = sqlSession.selectList("shopSQL.scrollBuyProductList", map);
-			productImgList = sqlSession.selectList("shopSQL.scrollBuyProductImg", map);
-		} else if (filter.equals("sell")) {
-			productList = sqlSession.selectList("shopSQL.scrollSellProductList", map);
-			productImgList = sqlSession.selectList("shopSQL.scrollSellProductImg", map);
+	public List<ShopDTO> scrollProductList(Map<String, Integer> map, String sort) {
+		List<ShopDTO> list = null;
+		if(sort.equals("popular")) {
+			list = sqlSession.selectList("shopSQL.scrollProductList", map);
+		} else if (sort.equals("buy")) {
+			list = sqlSession.selectList("shopSQL.scrollBuyProductList", map);
+		} else if (sort.equals("sell")) {
+			 sqlSession.selectList("shopSQL.scrollSellProductList", map);
 		}
-			
-		Map<String, Object> sendMap = new HashMap<String, Object>();
-		sendMap.put("productList", productList);
-		sendMap.put("productImgList", productImgList);
-
-		return sendMap;
+		return list;
 	}
 
 	@Override

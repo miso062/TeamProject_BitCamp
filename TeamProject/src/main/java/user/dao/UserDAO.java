@@ -48,5 +48,7 @@ public interface UserDAO {
 	public List<LikeProDTO> getLikeProductList(String id);
 	public List<ProductDTO> getLikeProducts(int product_id);
 	public List<ProductImgDTO> getProductAll(int product_id);
-	
+  public List<AddressDTO> comeAddress(String user_id);
+  public AddressDTO comeAddress1(String user_id);
+	public AddressDTO getAddress(Integer address_id);
 }

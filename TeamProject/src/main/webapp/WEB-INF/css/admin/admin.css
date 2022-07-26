@@ -721,7 +721,7 @@ hr.ruler-xxl {
 	}
 
 	.col-xl-10 {
-		width : 83.33333333%;
+		width : 98%;
 	}
 
 	.col-xl-9 {
@@ -1623,6 +1623,11 @@ img.shadow {
 @media (min-width: 992px) {
 	.menubar-pin #base {
 		padding-left: 230px;
+	}
+}
+@media (min-width: 992px) {
+	.menubar-pin1 #base1 {
+		padding-left: 120px;
 	}
 }
 @media (min-width: 769px) {
@@ -4046,16 +4051,10 @@ label {
 }
 .form-control, .phonenumber_wrap .chosen-container-single .chosen-single {
 	padding: 0;
-	height: 29px;
 	line-height: 29px;
-	border-left: none;
-	border-right: none;
-	border-top: none;
-	border-bottom-color: rgba(12, 12, 12, 0.12);
 	background: transparent;
 	color: #0c0c0c;
 	font-size: 14px;
-	-webkit-box-shadow: none;
 	box-shadow: none;
 	border-radius: 0 !important;
 }
@@ -7141,6 +7140,7 @@ abbr.livetimestamp {
 	border-radius: 2px;
 	-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10);
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10);
+	margin: 10px;
 }
 .card.bg-transparent {
 	background-color: transparent;
@@ -9796,9 +9796,7 @@ body .list .tile .tile-icon [class*=" zmdi-"],
 .user-search .form-group .form-control {
 	border:none;
 	height:48px;
-	padding-left:64px;
-	padding-right:50px;
-	width: 100%;
+	width: 95%;
 }
 .form-group .inside-form-group {
 	margin: 20px -15px 0;
@@ -19917,6 +19915,23 @@ input.dropdown-styled[readonly] {
 	border-right: 38px solid #585858;
 	right: auto;
 	left: -60px;
+}
+.badge {
+    font-size: 13px;
+}
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #777777;
+    border-radius: 10px;
 }
 .alert-purple {
 	padding: 8px 10px;

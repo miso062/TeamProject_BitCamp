@@ -785,7 +785,7 @@
                 </a>
             </div>
             <div class="tab_item tab_on">
-                <a href="#" class="tab_link">
+                <a href="/TeamProject/user/buyHistory" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">입찰 중</dt>
                         <dd class="count buy_status1">0</dd>
@@ -793,7 +793,7 @@
                 </a>
             </div>
             <div class="tab_item">
-                <a href="#" class="tab_link">
+                <a href="/TeamProject/user/buyHistory" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">종료</dt>
                         <dd class="count buy_status2">1</dd>
@@ -819,7 +819,7 @@
    <div class="recent_purchase">
         <div class="purchase_list_tab sell">
             <div class="tab_item total">
-                <a href="#" class="tab_link">
+                <a href="/TeamProject/user/sellHistory" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">전체</dt>
                         <dd class="count sell_countAll">0</dd>
@@ -827,7 +827,7 @@
                 </a>
             </div>
             <div class="tab_item tab_on">
-                <a href="#" class="tab_link">
+                <a href="/TeamProject/user/sellHistory" class="tab_link">
                     <dl class="tab_box">
                         <dt class="title">입찰 중</dt>
                         <dd class="count sell_status1">0</dd>
@@ -835,7 +835,7 @@
                 </a>
             </div>
             <div class="tab_item">
-                <a href="#" class="tab_link">
+                <a href="/TeamProject/user/sellHistory" class="tab_link">
                     <dl class="tab_box ">
                         <dt class="title">종료</dt>
                         <dd class="count sell_status2">0</dd>
@@ -977,12 +977,13 @@ window.onload = function() {
    document.getElementById('point').value() = document.getElementsByClassName('membership_item > info').value();
 }
 window.onload = function(){
-   var image = '${userDTO.profile_img}';
+	var date = new Date();	
+	var image = '${userDTO.profile_img}';
    
-   if(image==null || image==''){
+	if(image==null || image==''){
         document.querySelector('.thumb_img').setAttribute('src','/TeamProject/img/user/profile.png');
-    }else{
-       document.querySelector('.thumb_img').setAttribute('src', '/TeamProject/storage/'+image);
+	}else{
+       document.querySelector('.thumb_img').setAttribute('src', 'https://storage.googleapis.com/gese-t.appspot.com/'+ image + '?' + date.getTime());
     }
 }
 $('.membership_item').click(function(){
@@ -1004,7 +1005,6 @@ $(document).ready(function(){
    $.ajax({
       type:'post',
       url:'/TeamProject/user/getBuyHistory',
-      data:'user_id='+$('#user_id').val(),
       dataType:'json',
       success: function(data){
 		//배경 색
@@ -1035,8 +1035,8 @@ $(document).ready(function(){
 	        var product_id = data.buy_historyList[i].product_id;
 	        var product_name = data.productImgList[i].org_file_name;
 	        var img = data.productImgList[i].file_path;
-	        var status1 = data.buy_historyList[i].status1;   
-	        var status2 = data.buy_historyList[i].status2;   
+	        var status1 = data.buy_historyList[i].status1; 
+	        var status2 = data.buy_historyList[i].status2; 
 	        var size_type = data.buy_historyList[i].size_type;
 	        if(size_type == 'null'){
 	            size_type = ' - ';
@@ -1064,7 +1064,7 @@ $(document).ready(function(){
   	                '</div></div>' +
   	                '<div class="status_box field_status">' +
   	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
-  	              	//'<span class="status_txt text-default status1_text">' + status2 + '</span>' +
+  	              	'<span class="status_txt text-default status2_text">' + status2 + '</span>' +
   	                '</div></div></div>'
   	                );
             $('.buy_list').append(buylist);
@@ -1072,7 +1072,13 @@ $(document).ready(function(){
 			if( i > 1){
 			   break;
 			}
-         } 
+            if( status1 == null){
+            	$(this).text('');
+            }
+            if(status2 == null){
+            	$(this).text('');
+            }
+         }
       },error:function(err){
          console.log(err);
       }      
@@ -1083,7 +1089,6 @@ $(document).ready(function(){
    $.ajax({
       type:'post',
       url:'/TeamProject/user/getSellHistory',
-      data:'user_id='+$('#user_id').val(),
       dataType:'json',
       success: function(data){
 		//배경 색
@@ -1144,21 +1149,21 @@ $(document).ready(function(){
   	                '</div></div>' +
   	                '<div class="status_box field_status">' +
   	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
-  	              	//'<span class="status_txt text-default status1_text">' + status2 + '</span>' +
+  	              	'<span class="status_txt text-default status2_text">' + status2 + '</span>' +
   	                '</div></div></div>'
   	                );
             $('.sell_list').append(selllist);
-            
 			 //상품 3개까지 보이게하기
 			if( i > 1){
 			   break;
 			}
-         } 
+         }
       },error:function(err){
          console.log(err);
       }      
    });
 });
+
 //마이페이지 관심상품 뿌리기
 $(document).ready(function(){
 	$.ajax({
@@ -1173,4 +1178,5 @@ $(document).ready(function(){
 		 }
 	})
 })
+
 </script>

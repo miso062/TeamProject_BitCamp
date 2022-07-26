@@ -11,8 +11,8 @@
 </style>
 </head>
 <body>
-<body class="menubar-hoverable header-fixed menubar-pin">
-    <div id="base">
+<body class="menubar-hoverable header-fixed menubar-pin1">
+    <div id="base1">
         <header class="top_header">
             <div class="headerbar">
                 <div class="headerbar-left">
@@ -147,112 +147,38 @@
 										    </div>
 										    <div class="card-head" id="card-head" style="">
 										        <header class="small">전체 사용자 <span class="text-primary" id="total-member-count">3</span>명</header>
+										        <header class="small" style="float:right;"><span style="cursor:pointer;" id="moreView">더보기</span></header>
 										    </div>
 										
 										    <div class="card-body no-padding">
 										        <div class="li_table" id="UI_TABLE">
-										            <ul class="subject _thead" id="table-header" style="">
-										                <li class="check">
-										                    <div class="checkbox checkbox-styled no-margin">
-										                        <label> <input type="checkbox" value="" class="_all_check" onclick="TABLE_LIST.allCheckToggle(function(idxs){MEMBER_GROUP.checkMember(idxs);})" /><span></span> </label>
-										                    </div>
-										                </li>
-										                <li class="nick"><a href="#">닉네임</a></li>
-										                <li class="account">계정</li>
-										                <li class="account">회원 유형</li>
-										                <li class="date_join">
-										                    <a href="/admin/member/list/?q=YToxOntzOjEwOiJqb2luX29yZGVyIjtzOjQ6ImRlc2MiO30%3D&amp;join_order=asc">
-										                        가입일 <i class="md md-expand-less"></i>
-										                    </a>
-										                </li>
-										                <li class="date_mileage text-right">적립금</li>
-										                <li class="count_post">구매/판매/스타일</li>
-										                <li class="purchase text-right hidden-xs hidden-sm">누적 구매금액</li>
-										                <li class="memo text-center">메모</li>
-										                <li class="app_android"></li>
-										                <li class="app_ios"></li>
-										                <li class="action"></li>
+										            <ul class="subject _thead" id="table-header">
+										                <li class="nick" style="width:170px;" >회원 유형</li>
+										                <li class="nick" style="width:170px;">이름</li>
+										                <li class="nick" style="width:170px;">닉네임</li>
+										                <li class="account" style="width:250px;">계정</li>
+										                <li class="date_mileage" style="width:250px;">연락처</li>
+										                <li class="date_join">가입일</li>
 										            </ul>
-										
-										            <ul class="content _tbody" id="member_item_m202204262e9a3531e0ad5" data-nick="관리자" data-app="">
-										                <li class="check">
-										                    <div class="checkbox checkbox-styled no-margin">
-										                        <label>
-										                            <input type="checkbox" value="m202204262e9a3531e0ad5" data-idx="17146619" data-code="m202204262e9a3531e0ad5" onclick="TABLE_LIST.checkItem(function(idxs){MEMBER_GROUP.checkMember(idxs);});" /><span></span>
-										                        </label>
-										                    </div>
-										                </li>
-										                <li class="nick">
-										                    <a href="/admin/member/list/?q=YToxOntzOjEwOiJqb2luX29yZGVyIjtzOjQ6ImRlc2MiO30%3D&amp;mode=add&amp;idx=17146619" onclick="">관리자</a>
-										                </li>
-										                <li class="account"><a href="/admin/member/list/?q=YToxOntzOjEwOiJqb2luX29yZGVyIjtzOjQ6ImRlc2MiO30%3D&amp;mode=add&amp;idx=17146619" onclick="">miso97410@gmail.com</a></li>
-										                <li class="account">관리자</li>
-										                <li class="date_join">2022-04-26</li>
-										                <li class="date_mileage text-right"></li>
-										                <li class="count_post hidden-xs hidden-sm">0/ 0/ 0</li>
-										                <li class="purchase text-right hidden-xs hidden-sm"></li>
-										                <li class="memo">
-										                    <a href="javascript:;" onclick="adminMember.openAdminMemoForm('m202204262e9a3531e0ad5')" class="btn btn-flat text-gray-bright"><i class="icon-note"></i></a>
-										                </li>
-										                <li class="app_android hidden-xs hidden-sm"></li>
-										                <li class="app_ios hidden-xs hidden-sm"></li>
-										                <!-- <li class="action">
-										                    <div class="dropdown">
-										                        <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-flat"><i class="zmdi zmdi-more"></i></button>
-										                        <ul class="dropdown-menu animation-dock right" role="menu" aria-labelledby="dLabel">
-										                            <li><a href="javascript:;" onclick='adminMember.openDeleteMember("[{\"member_code\":\"m202204262e9a3531e0ad5\",\"delete_old_auth_log\":false}]")'>삭제</a></li>
-										                            <li><a href="javascript:;" onclick="adminMember.openMemberPushForm(['m202204262e9a3531e0ad5']);">알림</a></li>
-										                            <li><a href="javascript:;" onclick="adminMember.openMemberSmsForm(['m202204262e9a3531e0ad5']);">SMS</a></li>
-										                            <li><a href="javascript:;" onclick="adminMember.openManageMemberPoint('m202204262e9a3531e0ad5');">적립금 지급/차감</a></li>
-										                        </ul>
-										                    </div>
-										                </li> -->
-										            </ul>
-										            <ul class="content _tbody" id="member_item_m202107045663db8ca8629" data-nick="김미소" data-app="">
-										                <li class="check">
-										                    <div class="checkbox checkbox-styled no-margin">
-										                        <label>
-										                            <input type="checkbox" value="m202107045663db8ca8629" data-idx="11336058" data-code="m202107045663db8ca8629" onclick="TABLE_LIST.checkItem(function(idxs){MEMBER_GROUP.checkMember(idxs);});" /><span></span>
-										                        </label>
-										                    </div>
-										                </li>
-										                <li class="nick"><a href="/admin/member/list/?q=YToxOntzOjEwOiJqb2luX29yZGVyIjtzOjQ6ImRlc2MiO30%3D&amp;mode=add&amp;idx=11336058" onclick="">김미소</a></li>
-										                <li class="account"><a href="/admin/member/list/?q=YToxOntzOjEwOiJqb2luX29yZGVyIjtzOjQ6ImRlc2MiO30%3D&amp;mode=add&amp;idx=11336058" onclick="">smile974@naver.com</a></li>
-										                <li class="account">일반회원</li>
-										                <li class="date_join">2021-07-04</li>
-										                <li class="date_mileage text-right"></li>
-										                <li class="count_post hidden-xs hidden-sm">0/ 0/ 0</li>
-										                <li class="purchase text-right hidden-xs hidden-sm"></li>
-										                <li class="memo">
-										                    <a href="javascript:;" onclick="adminMember.openAdminMemoForm('m202107045663db8ca8629')" class="btn btn-flat text-gray-bright"><i class="icon-note"></i></a>
-										                </li>
-										                <li class="app_android hidden-xs hidden-sm"></li>
-										                <li class="app_ios hidden-xs hidden-sm"></li>
-										            </ul>
-										            <ul class="content _tbody" id="member_item_m20210521ba5cf1259d992" data-nick="관리자" data-app="">
-										                <li class="check">
-										                    <div class="checkbox checkbox-styled no-margin">
-										                        <label>
-										                            <input type="checkbox" value="m20210521ba5cf1259d992" data-idx="10630452" data-code="m20210521ba5cf1259d992" onclick="TABLE_LIST.checkItem(function(idxs){MEMBER_GROUP.checkMember(idxs);});" /><span></span>
-										                        </label>
-										                    </div>
-										                </li>
-										                <li class="nick"><a href="/admin/member/list/?q=YToxOntzOjEwOiJqb2luX29yZGVyIjtzOjQ6ImRlc2MiO30%3D&amp;mode=add&amp;idx=10630452" onclick="">관리자</a></li>
-										                <li class="account"><a href="/admin/member/list/?q=YToxOntzOjEwOiJqb2luX29yZGVyIjtzOjQ6ImRlc2MiO30%3D&amp;mode=add&amp;idx=10630452" onclick="">yy1004@gmail.com</a></li>
-										                <li class="account">일반회원</li>
-										                <li class="date_join">2021-05-21</li>
-										                <li class="date_mileage text-right"></li>
-										                <li class="count_post hidden-xs hidden-sm">0/ 0/ 0</li>
-										                <li class="purchase text-right hidden-xs hidden-sm"></li>
-										                <li class="memo">
-										                    <a href="javascript:;" onclick="adminMember.openAdminMemoForm('m20210521ba5cf1259d992')" class="btn btn-flat text-gray-bright"><i class="icon-note"></i></a>
-										                </li>
-										                <li class="app_android hidden-xs hidden-sm"></li>
-										                <li class="app_ios hidden-xs hidden-sm"></li>
-										            </ul>
-										        </div>
+												 </div>
 										        <nav class="text-center" id="paginate"></nav>
 										    </div>
+										    <div class="card-body no-padding">
+										        <div class="li_table" id="UI_TABLE2">
+										            <!-- <ul class="content _tbody" id="member_item" data-nick="" data-app="">
+										                <li class="nick">관리자</li>
+										                <li class="account">박상연</li>
+										                <li class="account">쯔아</li>
+										                <li class="account">admin@gese.com</li>
+										                <li class="date_mileage">010-2524-5816</li>
+										                <li class="date_join">2022-04-26</li>
+										            </ul> -->
+												 </div>
+										        <nav class="text-center" id="paginate"></nav>
+										    </div>
+										            
+										            
+										       
 										</div>
 
                                     </div>
@@ -555,10 +481,12 @@
                                 </a>
                             </li>
                             <li class="gui-folder" data-title="contents">
+                                <a href="/admin/cont  ents" class="sidebar-nav-menu" style="padding: 10px 0px;">
                                 <a href="#" class="sidebar-nav-menu" style="padding: 10px 0px;">
                                     <div class="gui-icon"><img class="db-pencil" src="/TeamProject/img/admin/edit.png"></div>
                                     <span class="title title_controls">컨텐츠 관리</span>
                                 </a>
+                                
                             </li>
                             <!-- <li class="gui-folder" data-title="stat">
                                 <a href="/admin/stat" class="sidebar-nav-menu" style="padding: 10px 0px;">
@@ -588,5 +516,90 @@
             </a>
         </div>
     </div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+function phoneFormatter(num, type) {
+   var formatNum = '';
+   try{
+	if (num.length == 11) {
+		if (type == 0) {            
+			formatNum = num.replace(/(\d{3})(\d{4})(\d{4})/, '$1-****-$3');         
+		} else {            
+			formatNum = num.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');         
+		}      
+		} else if (num.length == 8) {         
+			formatNum = num.replace(/(\d{4})(\d{4})/, '$1-$2');      
+		} else {         
+			if (num.indexOf('02') == 0) {            
+			if (type == 0) {               
+				formatNum = num.replace(/(\d{2})(\d{4})(\d{4})/, '$1-****-$3');            
+			} else {               
+				formatNum = num.replace(/(\d{2})(\d{4})(\d{4})/, '$1-$2-$3');            
+			}         
+			} else {            
+				if (type == 0) {               
+					formatNum = num.replace(/(\d{3})(\d{3})(\d{4})/, '$1-***-$3');            
+				} else {               
+					formatNum = num.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');            
+				}         
+			}      
+		}   
+	} catch(e) {      
+		formatNum = num;      
+		console.log(e);   
+}   
+return formatNum;
+}
+$(document).ready(function(){
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/admin/getAllUserList',
+		dataType:'json',
+		success:function(data){
+			$('#UI_TABLE2').html('');
+			var addr;
+			$.each(data,function(index,items){
+				if(items.authority > 2){
+					items.authority ='관리자 <span class="badge">매니저</span>'
+				}else{
+					items.authority = '일반회원'
+				}
+				addr = '<ul class="content _tbody" id="member_item">'+
+                '<li class="nick" style="width:170px;">'+items.authority+'</li>'+
+                '<li class="nick" style="width:170px;">'+items.user_name+'</li>'+
+                '<li class="nick" style="width:170px;">'+items.nickname+'</li>'+
+                '<li class="account" style="width:250px;">'+items.user_id+'</li>'+
+                '<li class="date_mileage" style="width:250px;">'+phoneFormatter(items.hp)+'</li>'+
+                '<li class="date_join">'+items.sign_up_date+'</li>'+
+            	'</ul>';
+            	$('#UI_TABLE2').append(addr)
+				
+			})
+		},
+		error:function(e){
+			console.log(e);
+		}
+		
+	})
+});
+$(document).ready(function(){
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/admin/getAllAdmin',
+		dataType:'json',
+		success:function(data){
+			$('#total-member-count').text(data.user_count);
+		},
+		error:function(e){
+			console.log(e);
+		}
+		
+	})
+});
+$('#moreView').click(function(){
+	location.href='/TeamProject/admin/userManage'
+});
+
+</script>
 </body>
 </html>

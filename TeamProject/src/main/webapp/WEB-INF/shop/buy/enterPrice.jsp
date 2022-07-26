@@ -913,7 +913,7 @@ input {
 	{
 	padding: 16px 16px 20px
 }
- */
+ 
 .buy_check[data-v-1e6a25e8], .sm .deadline_info_area[data-v-1e6a25e8] .deadline_tab .btn
 	{
 	padding: 0
@@ -1720,16 +1720,6 @@ $(function(){
 		$('.input_amount').val($('#title_price').text());
 		$('.input_amount').attr('readonly', true);
 	});
-	// $('#hide_Btn2').click(function(){
-	// 	$('.deadline_info_area').hide();
-	// 	$('#btn_continue').css('background-color', '#222');
-	// 	$('#btn_continue').attr('disabled', false);
-	// 	$('#continue_btn').html('즉시 구매 계속');
-	// 	$('.price_now_title').html('즉시 구매가');
-	// 	$('.input_amount').val($('#title_price').text());
-	// 	$('.input_amount').attr('readonly', true);
-	// 	/* $('input').html($(this).find('#title_price'),html()); */
-	// })
 });
 
 var result;
@@ -1833,7 +1823,7 @@ $('#input_price').focusout(function(){
 
 $(function(){
 	$.ajax({
-		url: '/TeamProject/shop/getPrice',
+		url: '/TeamProject/shop/getBuyPrice',
 		type: 'post',
 		data: {
 			'product_id' : $('#product_id').val(),

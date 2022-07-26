@@ -55,83 +55,59 @@
 		select * from address where address_id=${addr_id}
 	</select>
   
-	<select id="scrollProductList" parameterType="java.util.Map" resultType="product">
+	<select id="scrollProductList" parameterType="java.util.Map" resultType="shop">
 		<!-- - 상품 4개씩 -->
 		<!-- select * from (
 			select rownum rn, tt.* from (
 				select * from product where release_date is not null order by release_date desc)tt)
 				where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]> order by product_id -->
-		
-		
-		<!-- select aa.rn, aa.product_id, aa.brand, aa.collection, aa.category,
-		aa.eng_name, aa.kor_name, aa.gender, aa.release_date, aa.release_price,
-		aa.model_number, aa.color, aa.post_status, aa.regdate, 
-		count(lp.product_id) as cnt
-		from (
-		    select rownum rn, tt.* from (
-		        select * from product where release_date is not null order by release_date desc
-		    ) tt
-		) aa
-		left join like_pro lp on lp.product_id like aa.product_id
-		where <![CDATA[aa.rn>=${startNum} and aa.rn<=${endNum} ]]>
-		group by aa.rn, aa.product_id, aa.brand, aa.collection, aa.category,
-		aa.eng_name, aa.kor_name, aa.gender, aa.release_date, aa.release_price,
-		aa.model_number, aa.color, aa.post_status, aa.regdate
-		order by aa.product_id -->
-		
-		<!-- product테이블, buy_history테이블을 product_id 기준으로 join
-				like_pro테이, product테이블을 product_id기준으로 join해서
-				필요한 값을 grop by  -->
 		select * from (
 		    select rownum rn, tt.* from (
-		        select count(bh.product_id) as product_id_cnt,
-		        p.product_id, p.brand, p.collection, p.category,
-		        p.eng_name, p.kor_name, p.gender, p.release_date, p.release_price,
-		        p.model_number, p.color, p.post_status, p.regdate,
-		        count(lp.product_id) cnt
-		        from buy_history bh
-		        left join product p on bh.product_id like p.product_id
-		        left join like_pro lp on lp.product_id like p.product_id
-		        group by bh.product_id, p.product_id, p.brand, p.collection, p.category,
-		        p.eng_name, p.kor_name, p.gender, p.release_date, p.release_price,
-		        p.model_number, p.color, p.post_status, p.regdate
-		        order by product_id_cnt desc
+		        select product_id, sell_cnt, like_cnt, price, brand, collection, category, eng_name, kor_name, gender, file_path from 
+		        (select product_id as mp_pi, count(*) as sell_cnt from market_price group by product_id) mp 
+		        right join product p on mp_pi like p.product_id
+		        left join (select product_id as lp_pi, count(*) as like_cnt from like_pro group by product_id) lp on lp_pi like p.product_id
+		        left join (select product_id as sh_pi, min(sell_price) as price from sell_history group by product_id) sh on sh_pi like p.product_id
+		        left join (select product_id as pi_pi, file_path from pro_image) pi on pi_pi like p.product_id
+		        where post_status='판매중' 
+		        order by sell_cnt desc nulls last
 		    ) tt
-		) aa
-		where <![CDATA[aa.rn>=${startNum} and aa.rn<=${endNum} ]]>
+		) aa where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>
+				
+				 
+		
 	</select>
 	
-	<select id="scrollProductImg" parameterType="java.util.Map" resultType="productImg">
-  		<!-- 이미지 -->
-  		<!-- select * from pro_image where product_id in (select product_id from (
-         select ROWNUM rn, tt.* from (
-            select * from product where release_date is not null order by release_date desc)tt)
-          where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>) order by product_id -->
-          select * from (
+
+	<select id="scrollBuyProductList" parameterType="java.util.Map" resultType="shop">
+		select * from (
 		    select rownum rn, tt.* from (
-		        select count(bh.product_id) as product_id_cnt,
-		        pi.pro_image_id, pi.product_id, pi.org_file_name,
-		        pi.file_path
-		        from buy_history bh
-		        left join pro_image pi on bh.product_id like pi.product_id
-		        group by bh.product_id, pi.pro_image_id, pi.product_id, pi.org_file_name,
-		        pi.file_path
-		        order by product_id_cnt desc
+		        select product_id, sell_cnt, like_cnt, price, brand, collection, category, eng_name, kor_name, gender, file_path from 
+		        (select product_id as mp_pi, count(*) as sell_cnt from market_price group by product_id) mp 
+		        right join product p on mp_pi like p.product_id
+		        left join (select product_id as lp_pi, count(*) as like_cnt from like_pro group by product_id) lp on lp_pi like p.product_id
+		        left join (select product_id as sh_pi, min(sell_price) as price from sell_history group by product_id) sh on sh_pi like p.product_id
+		        left join (select product_id as pi_pi, file_path from pro_image) pi on pi_pi like p.product_id
+		        where post_status='판매중' 
+		        order by price nulls last
 		    ) tt
-		) aa
-		where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>
-  </select>
-
-
-	<select id="scrollBuyProductList" parameterType="java.util.Map" resultType="product">
+		) aa where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>
 	</select>
-  	<select id="scrollBuyProductImg" parameterType="java.util.Map" resultType="productImg">
-    </select>
     
-    <select id="scrollSellProductList" parameterType="java.util.Map" resultType="product">
+    <select id="scrollSellProductList" parameterType="java.util.Map" resultType="shop">
+		select * from (
+		    select rownum rn, tt.* from (
+		        select product_id, sell_cnt, like_cnt, price, brand, collection, category, eng_name, kor_name, gender, file_path from 
+		        (select product_id as mp_pi, count(*) as sell_cnt from market_price group by product_id) mp 
+		        right join product p on mp_pi like p.product_id
+		        left join (select product_id as lp_pi, count(*) as like_cnt from like_pro group by product_id) lp on lp_pi like p.product_id
+		        left join (select product_id as bh_pi, max(buy_price) as price from buy_history group by product_id) bh on bh_pi like p.product_id
+		        left join (select product_id as pi_pi, file_path from pro_image) pi on pi_pi like p.product_id
+		        where post_status='판매중' 
+		        order by price desc nulls last
+		    ) tt
+		) aa where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>
 	</select>
-  	<select id="scrollSellProductImg" parameterType="java.util.Map" resultType="productImg">
-    </select>
   
 	<select id="getChart" parameterType="int" resultType="marketPrice">
 		select * from market_price where product_id=${product_id} order by signing_date
