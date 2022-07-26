@@ -48,11 +48,12 @@ public class ShopController {
 	
 	@PostMapping(value="scrollProduct")
 	@ResponseBody
-	public List<ShopDTO> scrollProduct(@RequestParam String num, String filter){
-//		System.out.println(num +" | " + filter);
-		List<ShopDTO> list = shopService.scrollProductList(num, filter);
+	public List<ShopDTO> scrollProduct(@RequestParam String num,
+									@RequestParam String sort){
+		System.out.println(num + " | " + sort);
+		List<ShopDTO> list = shopService.scrollProductList(num, sort);
 		list.get(0).setPage(num);
-
+		
 		return list;
 	}
   

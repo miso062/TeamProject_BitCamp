@@ -87,13 +87,13 @@ public class ShopMyBatisImpl implements ShopDAO {
 	}
   
 	@Override
-	public List<ShopDTO> scrollProductList(Map<String, Integer> map, String filter) {
+	public List<ShopDTO> scrollProductList(Map<String, Integer> map, String sort) {
 		List<ShopDTO> list = null;
-		if(filter.equals("popular")) {
+		if(sort.equals("popular")) {
 			list = sqlSession.selectList("shopSQL.scrollProductList", map);
-		} else if (filter.equals("buy")) {
+		} else if (sort.equals("buy")) {
 			list = sqlSession.selectList("shopSQL.scrollBuyProductList", map);
-		} else if (filter.equals("sell")) {
+		} else if (sort.equals("sell")) {
 			 sqlSession.selectList("shopSQL.scrollSellProductList", map);
 		}
 		return list;

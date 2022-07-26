@@ -11,7 +11,7 @@ $(document).ready(function(){
 		  spinner.appendChild(spinnerImage);
 		  return spinner;
 		};
-
+		
 		const makeSkeleton = () => {
 		  const skeleton = document.createElement('li');
 		  const skeletonImage = document.createElement('div');
@@ -95,17 +95,18 @@ $(document).ready(function(){
 			if (price === 0) {
 				return '-'
 			} else {
-				return price
+				price = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+				return price+'원'
 			}
 		}
 		
 		function getList(page, callback) {
 			var params = new URLSearchParams(document.location.search);
-			var filter = params.get("filter");
+			var sort = params.get("sort");
 			$.ajax({
 				type:'post',
 				url:'/TeamProject/shop/scrollProduct',
-				data:'num=' + page + '&filter=' + filter , 
+				data:'num=' + page + '&sort=' + sort , 
 				dataType:'json',
 				success: function(data){
 //					console.log(data)
@@ -132,7 +133,7 @@ $(document).ready(function(){
 									.append($('<div/>', { class:'shop_interest_figure' })
 									.append($('<span/>', { class:'shop_wish_figure'  }))
 									.append($('<img/>',{ class:'shop_bookmark', src: '/TeamProject/img/shop/bookmark.svg' }))
-									.append($('<span/>',{ class:'shop_text', text: data[i].cnt }))
+									.append($('<span/>',{ class:'shop_text', text: data[i].like_cnt }))
 									.append($('<span/>',{ class:'shop_review_figure'}))
 									.append($('<a/>',{ class:'review_link'}))
 									.append($('<img/>',{ class: 'bi_postcard', src:'/TeamProject/img/shop/reply_icon.png'})))

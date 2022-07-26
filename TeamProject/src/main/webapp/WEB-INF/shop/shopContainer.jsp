@@ -553,7 +553,7 @@ li, ol, ul {
 			</button>
 				<ul class="shop_sorting_list" style="display:none" >
 					<li id="popular" class="shop_sorting_item item_on">
-						<a href="/TeamProject/shop?filter=popular" class="shop_sorting_link" >
+						<a href="/TeamProject/shop?sort=popular" class="shop_sorting_link" >
 							<div class="shop_sorting_desc" >
 								<p class="shop_main_desc" >인기순</p>
 								<p class="shop_sub_desc" >많이 판매된 순서대로 정렬합니다.</p>
@@ -562,7 +562,7 @@ li, ol, ul {
 						</a>
 					</li>
 					<li id="buy" class="shop_sorting_item" >
-						<a href="/TeamProject/shop?filter=buy" class="shop_sorting_link" >
+						<a href="/TeamProject/shop?sort=buy" class="shop_sorting_link" >
 							<div class="shop_sorting_desc" >
 								<p class="shop_main_desc" >즉시 구매가순</p>
 								<p class="shop_sub_desc" >즉시 구매가가 낮은 순서대로 정렬합니다.</p>
@@ -571,7 +571,7 @@ li, ol, ul {
 						</a>
 					</li>
 					<li id="sell" class="shop_sorting_item" >
-						<a href="/TeamProject/shop?filter=sell" class="shop_sorting_link" >
+						<a href="/TeamProject/shop?sort=sell" class="shop_sorting_link" >
 							<div class="shop_sorting_desc" >
 								<p class="shop_main_desc" >즉시 판매가순</p>
 								<p class="shop_sub_desc" >즉시 판매가가 높은 순서대로 정렬합니다.</p>
@@ -662,9 +662,10 @@ $("#shop_sorting_title").click(function() {
 $(".shop_sorting_list .shop_sorting_item").on('click', filterItemOn); */
 
 var params = new URLSearchParams(document.location.search);
-var filter = params.get("filter");
+console.log(params);
+var sort = params.get("sort");
 
-switch (filter) {
+switch (sort) {
 	case 'popular':
 		$('#popular').addClass("item_on");
 		$('#buy').removeClass("item_on");
