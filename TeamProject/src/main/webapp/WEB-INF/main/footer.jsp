@@ -87,20 +87,22 @@
 }
 
 .container.detail .banner_bottom[data-v-d772dcbe] {
-   margin-top: 80px .main[data-v-78eb397a], .wrap[data-v-78eb397a]{width:100%;
-   height: 100%
+   margin-top: 80px  
 }
-
-       font-size: 13px;
-      font-weight: 300;
-      color: rgba(34, 34, 34, .6);
-      margin-top: 4px
-   }
+.main[data-v-78eb397a],
+.wrap[data-v-78eb397a] { 
+	width:100%;
+	height: 100%;
+	font-size: 13px;
+	font-weight: 300;
+	color: rgba(34, 34, 34, .6);
+	margin-top: 4px
+}
 div > ul > li > a{
- text-decoration: none;
- color: black;
+	text-decoration: none;
+	color: black;
 }
-.footer_corporation > ul > li{
+.footer_corporation > ul > li {
    list-style:none;
    float: left;
 }
@@ -118,7 +120,7 @@ div > ul > li > a{
    color: #808080;
 }
 .banner_box{
- background: url("/TeamProejct/img/main/kream1.png") no-reapt;
+	background: url("/TeamProejct/img/main/kream1.png") no-reapt;
 }
 
 #footer_service_info{
@@ -167,18 +169,18 @@ a.banner_box2{
    font-size: 13px;
 }
 a.footer_btn{
-font-size:13px;
- display: block;
- background: black;
- color: white;
- width:105px;
- height:30px;
- text-align: center;
- line-height: 30px;
+	font-size:13px;
+	 display: block;
+	 background: black;
+	 color: white;
+	 width:105px;
+	 height:30px;
+	 text-align: center;
+	 line-height: 30px;
 }
 #footer_exe{
-font-size:12px;
-padding-bottom: 50px;
+	font-size:12px;
+	padding-bottom: 50px;
 }
  #footer_instagram{
    float: right;
@@ -226,7 +228,6 @@ padding-bottom: 50px;
 	margin-right: 18px;
     font-size: 14px;
 }
-
 
 </style>
 <div class="footer">
