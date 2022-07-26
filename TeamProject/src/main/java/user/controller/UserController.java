@@ -212,6 +212,13 @@ public class UserController {
 		return "forward:/user/my";
 	}
 	
+	@GetMapping(value="sellHistory")
+	public String sellHistory(Model model) {
+		model.addAttribute("container", "/WEB-INF/user/myPage/sellHistory.jsp");
+		return "forward:/user/my";
+	}
+	
+	
 	@GetMapping(value="buyHistoryDetail")
 	public String buyHistoryDetail(Model model, @RequestParam String buy_id) {
 		Buy_historyDTO buy_historyDTO = userService.getBuyItem(buy_id);
@@ -241,10 +248,12 @@ public class UserController {
 		return "forward:/user/my";
 	}
 	
-	@GetMapping(value="sellHistory")
-	public String sellHistory(Model model) {
-		model.addAttribute("container", "/WEB-INF/user/myPage/sellHistory.jsp");
-		return "forward:/user/my";
+	//구매판매디테일 모델번호 즉시판매구매가 얻어오기
+	@PostMapping(value="getProductInfo")
+	@ResponseBody
+	public Map<String, Object> getProductInfo(@RequestParam int product_id){
+		System.out.println(product_id);
+		return userService.getProductInfo(product_id);
 	}
 	
 	@GetMapping(value="likePro")

@@ -75,6 +75,19 @@
 		select * from address where address_id = #{address_id}
 	</select>
 	
+	<select id="getMinSellPrice" parameterType="Int" resultType="Integer">
+		select min(sell_price) from sell_history where product_id=${product_id} and status1='입찰중'
+	</select>
+   
+	<select id="getMaxBuyPrice" parameterType="Int" resultType="Integer">
+		select max(buy_price) from buy_history where product_id=${product_id} and status1='입찰중'
+	</select>
+	
+	<select id="getModelNum" parameterType="Int" resultType="String">
+		select model_number from product where product_id=${product_id}
+	</select>
+	
+	
 	<insert id="bookMarkInsert" parameterType="java.util.Map">
 		insert into	like_pro(like_pro_id,user_id,product_id,like_pro_date)
 		values(like_pro_seq.nextval,#{id},#{product_id}, sysdate)

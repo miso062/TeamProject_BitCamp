@@ -349,6 +349,11 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
+	public Map<String, Object> getProductInfo(int product_id) {
+		return userDAO.getProductInfo(product_id);
+	}
+	
+	@Override
 	public String signUpCheckNaver(UserDTO userDTO) {
 		String check;
 		//휴대전화로 동일가입여부 조회

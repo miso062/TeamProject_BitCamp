@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <style>
     .my_buying_detail .content_title {
@@ -176,6 +178,12 @@
         bottom: 0;
         width: 1px;
         background-color: #ebebeb;
+    }
+    .product_img {
+        width: 100%;
+		position: absolute;
+		height: 100%;
+		top: -5%;
     }
     .price_item .item_inner {
         position: relative;
@@ -445,32 +453,27 @@
     .layer_btn .btn {
         width: 120px;
     } 
-    
-    
 </style>
+
 <div class="my_buying_detail bidding">
     <div class="content_title">
         <div class="title_1">
             <h3>구매내역 &gt; 입찰 중</h3>
-            <!---->
         </div>
         <div class="btn_box">
-            <!---->
             <a href="#" class="btn">
                 <img src="/TeamProject/img/user/myPage/buyHistory_11/can_trash.png" alt="쓰레기통" class="ico-delete icon sprite-icons">
                 
                 <span class="btn_txt">삭제하기</span>
             </a>
         </div>
-        <!---->
     </div>
     <!---->
     <div class="order_info_wrap">
         <div class="section_title order_title">
             <div class="title_box">
-                <h4 class="title">주문번호 <em class="order_number"> B-SN27998458 </em></h4>
+                <h4 class="title">주문번호 <em class="order_number">${ buy_historyDTO.buy_id }</em></h4>
             </div>
-            <!---->
         </div>
         <div class="order_info">
             <div class="order_product">
@@ -478,18 +481,16 @@
                     <div class="product" style="background-color: #ebf0f5;">
                             <img
                                 alt="Nike Air Force 1 '07 Low White"
-                                src="https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=m"
+                                src=${productImgDTO.file_path }
                                 class="image picture product_img"
                             
                             />
-                        <!----><!----><!---->
                     </div>
                 </div>
                 <div class="product_detail">
-                    <!---->
-                    <strong class="number">새상품 · 315122-111/CW2288-111</strong>
-                    <p class="name">Nike Air Force 1 '07 Low White</p>
-                    <p class="size"><span class="size_text">270</span></p>
+                    <strong class="number"></strong>
+                    <p class="name">${productImgDTO.org_file_name }</p>
+                    <p class="size"><span class="size_text">${ buy_historyDTO.size_type}</span></p>
                 </div>
             </div>
             <div class="order_price">
@@ -497,88 +498,86 @@
                     <li class="price_item">
                         <div class="item_inner">
                             <span class="price_title">즉시 구매가</span>
-                            <p class="price"><span class="amount">149,000</span><span class="unit">원</span></p>
+                            <p class="price"><span class="amount" id="max_buyprice"></span><span class="unit">원</span></p>
                         </div>
                     </li>
                     <li class="price_item">
                         <div class="item_inner">
                             <span class="price_title">즉시 판매가</span>
-                            <p class="price"><span class="amount">141,000</span><span class="unit">원</span></p>
+                            <p class="price"><span class="amount" id="min_sellPrice"></span><span class="unit">원</span></p>
                         </div>
                     </li>
                 </ul>
             </div>
-            <div class="order_btn"><a href="#" class="btn outlinegrey small"> 상품 상세보기 </a></div>
-            <!---->
+            <div class="order_btn">
+            	<a href="/TeamProject/shop/shopDetail?product_id=${buy_historyDTO.product_id }" class="btn outlinegrey small"> 상품 상세보기 </a>
+            </div>
         </div>
     </div>
     <!---->
     <div class="purchase_history_wrap">
         <div class="section_title">
             <div class="title_box"><h4 class="title">구매 입찰 내역</h4></div>
-            <!---->
         </div>
         <div class="purchase_history bidding buy">
             <div class="history_detail">
                 <div class="main_box">
                     <dl class="main_item">
                         <dt class="title">구매 희망가</dt>
-                        <dd class="price"><span class="amount">30,000</span><span class="unit">원</span></dd>
+                        <dd class="price"><span class="amount">
+                        <fmt:formatNumber value="${buy_historyDTO.buy_price }" type="number" /></span><span class="unit">원</span>
+                        </dd>
                     </dl>
                 </div>
-                <div item="[object Object],[object Object],[object Object],[object Object]" class="detail_box">
+                <div class="detail_box">
                     <dl class="price_addition">
                         <dt class="price_title">
                             <span>검수비</span>
-                            <!---->
                         </dt>
                         <dd class="price_text">무료</dd>
                     </dl>
                     <dl class="price_addition">
                         <dt class="price_title">
                             <span>수수료</span>
-                            <!---->
                         </dt>
                         <dd class="price_text">600원</dd>
                     </dl>
                     <dl class="price_addition">
                         <dt class="price_title">
                             <span>배송비</span>
-                            <!---->
                         </dt>
                         <dd class="price_text">3,000원</dd>
                     </dl>
                     <dl class="price_addition">
                         <dt class="price_title dark">
                             <span>총 결제금액</span>
-                            <!---->
                         </dt>
                         <dd class="price_text bold buy">33,600원</dd>
                     </dl>
                 </div>
-                <div item="[object Object],[object Object]" class="detail_box">
+                <div class="detail_box">
                     <dl class="price_addition">
                         <dt class="price_title dark">
                             <span>입찰일</span>
-                            <!---->
                         </dt>
-                        <dd class="price_text" style="font-weight: 500;">22/07/20</dd>
+                        <dd class="price_text" style="font-weight: 500;">
+                        	<fmt:formatDate value="${buy_historyDTO.buy_date }" pattern="yyyy/MM/dd(E)" />
+                        </dd>
                     </dl>
                     <dl class="price_addition">
                         <dt class="price_title dark">
                             <span >입찰 마감기한</span>
-                            <!---->
                         </dt>
-                        <dd class="price_text" style="font-weight: 500;">1일 - 22/07/21까지</dd>
+                        <dd class="price_text" style="font-weight: 500;"> 
+                        	<fmt:formatDate value="${buy_historyDTO.period }" pattern="yyyy/MM/dd(E)" />
+                        </dd>
                     </dl>
                 </div>
             </div>
-            <div class="history_btn">
-                <a href="#" class="btn outline medium"> 입찰 변경하기 </a>
-                <!---->
+			<div class="history_btn">
+                <a href="/TeamProject/shop/enterBuyPrice?product_id=${buy_historyDTO.product_id }&size=${ buy_historyDTO.size_type}" class="btn outline medium"> 입찰 변경하기 </a>
                 <a href="#" class="btn buy outline medium"> 즉시 구매하기 </a>
-                <!---->
-            </div>
+			</div>
         </div>
     </div>
     <!---->
@@ -590,24 +589,24 @@
         <div class="shipping_address">
             <dl class="address_item">
                 <dt class="address_title">받는 사람</dt>
-                <dd class="address_txt">김**</dd>
+                <dd class="address_txt">${addressDTO.name }</dd>
             </dl>
             <dl class="address_item">
                 <dt class="address_title">휴대폰 번호</dt>
-                <dd class="address_txt">010-7**-*333</dd>
+                <dd class="address_txt address_hp" >
+                	<input type="hidden" id="hidden_hp" value="${addressDTO.hp }" >
+                </dd>
             </dl>
             <dl class="address_item">
                 <dt class="address_title">주소</dt>
-                <dd class="address_txt">(06296) 서울 강남구 논현로32길 5 (도곡동) ㄹㄴㅇㄴㄹㄴ</dd>
+                <dd class="address_txt">(${addressDTO.addr_detail }) ${addressDTO.addr }</dd>
             </dl>
         </div>
-        <!----><!---->
     </div>
    
-    <div></div>
     <div class="detail_btn_box"><a href="#" class="btn btn_view_list outlinegrey medium" style="padding: 10px 28px;"> 목록보기 </a></div>
     <!----><!----><!----><!----><!---->
-        <div class="layer lg layer_alert" style="display: none;">
+	<div class="layer lg layer_alert" style="display: none;">
         <div class="layer_container">
             <div class="layer_header"><h2 class="title">입찰 지우기</h2></div>
             <div class="layer_content">
@@ -621,8 +620,41 @@
     <!----><!---->
 </div>
 <script type="text/javascript">
-	window.onload = function() {
-		$('.snb_menu').eq(0).find('.menu_link').eq(0).removeClass('unbold');
-		$('.snb_menu').eq(0).find('.menu_link').eq(0).addClass('bold');
-	}
+window.onload = function() {
+	$('.snb_menu').eq(0).find('.menu_link').eq(0).removeClass('unbold');
+	$('.snb_menu').eq(0).find('.menu_link').eq(0).addClass('bold');
+}
+//번호 형식 맞추기
+$(document).ready(function() {
+	var hp = "${addressDTO.hp }";
+	var testHp = hp.replace(/(\d{3})(\d{4})(\d{4})/, '$1-****-$3');
+	$(".address_hp").text(testHp);
+  
+	//즉시 판매, 구매가 , 모델번호 
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/user/getProductInfo',
+		data:'product_id=${buy_historyDTO.product_id }',
+		dataType:'json',
+		success: function(data){
+			alert(JSON.stringify(data));
+			if(data.max_buyPrice == null){
+				$('#max_buyPrice').text('-');	
+			}else{
+				$('#max_buyPrice').text(data.max_buyPrice);
+			}
+			if(data.min_sellPrice == null){
+				$('#min_sellPrice').text('-');	
+			}else{
+				$('#min_sellPrice').text(data.min_sellPrice);
+			}
+			$('.number').text(data.model_number);
+		},
+		error:function(err){
+			console.log(err);
+		}		
+	});
+	
+});
+
 </script>

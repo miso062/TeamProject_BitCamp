@@ -168,6 +168,18 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
+	public Map<String, Object> getProductInfo(int product_id) {
+		Integer Max_buyPrice = sqlSession.selectOne("userSQL.getMaxBuyPrice", product_id);
+		Integer Min_sellPrice = sqlSession.selectOne("userSQL.getMinSellPrice", product_id);
+		String model_number = sqlSession.selectOne("userSQL.getModelNum", product_id);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("model_number", model_number);
+		map.put("min_sellPrice", Min_sellPrice);
+		map.put("max_buyPrice", Max_buyPrice);
+		return map;
+	}
+	
+	@Override
 	public int checkIdKakao(String user_id) {
 		return sqlSession.selectOne("userSQL.checkIdKakao", user_id);
 	}
@@ -191,6 +203,7 @@ public class UserDAOImpl implements UserDAO {
 	public void userdelete(String user_id) {
 		sqlSession.delete("userSQL.userdelete",user_id);
 	}
+
 
 	public List<AddressDTO> getAddress(String user_id) {
 		return sqlSession.selectList("userSQL.getAddress", user_id);
