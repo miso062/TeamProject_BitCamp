@@ -33,7 +33,7 @@ public class ShopServiceImpl implements ShopService {
 	HttpSession session;
 	
 	@Override
-	public List<ShopDTO> scrollProductList(String num, String filter) {
+	public List<ShopDTO> scrollProductList(String num, String sort) {
 		int startNum = Integer.parseInt(num);
 		int endNum = startNum + 15; 
 		
@@ -41,7 +41,7 @@ public class ShopServiceImpl implements ShopService {
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);
 		
-		List<ShopDTO> list = shopDAO.scrollProductList(map, filter);
+		List<ShopDTO> list = shopDAO.scrollProductList(map, sort);
 //		sendMap.put("num", startNum + 16);
 //		System.out.println();
 		// sendMap.put("num", startNum + 1);
