@@ -887,6 +887,7 @@ input {
 }
 
 .sell_immediate[data-v-1e6a25e8], .price_descision_box[data-v-1e6a25e8] {
+	box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
 	background-color: #fff
 }
 
@@ -912,7 +913,7 @@ input {
 	{
 	padding: 16px 16px 20px
 }
- */
+
 .sell_check[data-v-1e6a25e8], .sm .deadline_info_area[data-v-1e6a25e8] .deadline_tab .btn
 	{
 	padding: 0
@@ -1541,6 +1542,7 @@ input {
 
 <form id="enterPriceForm" method="post" action="/TeamProject/shop/sellPay">
 	<input type="hidden" name="product_id" id="product_id"value=${productDTO.product_id}>
+	<input type="hidden" name="buy" id="buy" value=${buyDTO.buy_id}>
 	<input type="hidden" name="size" id="size" value=${size}>
 	<input type="hidden" name="peroid" id="peroid" value="">
 	<input type="hidden" name="payment_method" id="payment_method" value="">
@@ -1574,11 +1576,11 @@ input {
 					<ul data-v-638c1354="" data-v-158ed304="" class="price_list">
 						<li data-v-638c1354="" class="list_item">
 							<p data-v-638c1354="" class="title">즉시 구매가</p> 
-							<span data-v-638c1354="" class="price im_buy_price" id="title_price"></span><span data-v-638c1354="" class="unit">원</span>
+							<span data-v-638c1354="" class="price im_buy_price"></span><span data-v-638c1354="" class="unit">원</span>
 						</li>
 						<li data-v-638c1354="" class="list_item">
 							<p data-v-638c1354="" class="title">즉시 판매가</p> 
-							<span data-v-638c1354="" class="price im_sell_price"></span><span data-v-638c1354="" class="unit">원</span>
+							<span data-v-638c1354="" class="price im_sell_price" id="title_price"></span><span data-v-638c1354="" class="unit">원</span>
 						</li>
 					</ul>
 					<div data-v-158ed304="" class="instant_group">
@@ -1807,7 +1809,7 @@ function check_price(price){
 $('#input_price').on('focusout', function(){
 	var input_price = $('#input_price').val().replace(/,/g,'');
 	var title_price = $('#title_price').text().replace(/,/g,'');
-	if(parseInt(input_price) >= parseInt(title_price)){
+	if(parseInt(input_price) <= parseInt(title_price)){
 		$('#hide_Btn2').trigger('click');
 	}
 });
@@ -1821,11 +1823,12 @@ $('#input_price').focusout(function(){
 
 $(function(){
 	$.ajax({
-		url: '/TeamProject/shop/getPrice',
+		url: '/TeamProject/shop/getSellPrice',
 		type: 'post',
 		data: {
 			'product_id' : $('#product_id').val(),
-			'size': $('.size_txt').text()
+			'size': $('.size_txt').text(),
+			'buy': $('#buy').val()
 		},
 		dataType: 'json',
 		success: function(data){
@@ -1834,6 +1837,7 @@ $(function(){
 				$('.im_sell_price').text('-');
 				$('#hide_Btn1').trigger('click');
 				$('#payment_method').val('판매 입찰');
+				$('#disabledBtn').css('cursor', 'default');
 			}
 			else{
 				$('.im_sell_price').text(data.buyDTO.buy_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
@@ -1860,6 +1864,9 @@ $('#btn_continue').click(function(){
 		if($('#payment_method').val() == '즉시 판매'){
 			$('#peroid').val('');
 			$('#deadline').val('');
+		}
+		else{
+			$('#buy').val('');
 		}
 		$('#enterPriceForm').submit();
 	}
