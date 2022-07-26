@@ -51,4 +51,8 @@ public interface UserDAO {
   public List<AddressDTO> comeAddress(String user_id);
   public AddressDTO comeAddress1(String user_id);
 	public AddressDTO getAddress(Integer address_id);
+    public void myAddressDelete(String address_id);
+    public void addAddressModify(AddressDTO addressDTO);
+    public void changeFlag(String address_id);
+    public void changeFlag1(String user_id);
 }

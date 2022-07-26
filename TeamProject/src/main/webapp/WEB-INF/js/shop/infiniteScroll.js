@@ -152,7 +152,7 @@ $(document).ready(function(){
 								//첫페이지 스크롤 감지 시작
 							}
 							
-							currentNum = Number(data[0].page)+1;
+							currentNum = Number(data[0].page)+16;
 							if (callback) {
 								callback();		
 							}

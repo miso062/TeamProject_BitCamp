@@ -754,7 +754,7 @@ $('#h_myPage').click(function(){
 //비로그인시 관심상품 x
 $('#h_likePro').click(function(){
  if(!'${sessionScope.memId}') {
-	$('#h_login').trigger('click');
+	 click();
  }else {
    	location.href="/TeamProject/user/likePro"
     	

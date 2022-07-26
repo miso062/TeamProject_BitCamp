@@ -222,5 +222,27 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectOne("userSQL.comeAddress1" , user_id);
 	}
 
+	@Override
+	public void myAddressDelete(String address_id) {
+		sqlSession.delete("userSQL.myAddressDelete", address_id);		
+	}
+
+	@Override
+	public void addAddressModify(AddressDTO addressDTO) {
+		sqlSession.update("userSQL.addAddressModify" , addressDTO);
+	}
+
+	@Override
+	public void changeFlag(String address_id) {
+		int addr_id = Integer.parseInt(address_id);
+		sqlSession.update("userSQL.changeFlag" ,addr_id);		
+	}
+	//기본배송지 내리기
+	@Override
+	public void changeFlag1(String user_id) {
+		sqlSession.update("userSQL.changeFlag1" ,user_id);		
+		
+	}
+
 }
 	
