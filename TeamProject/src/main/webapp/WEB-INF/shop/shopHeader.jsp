@@ -504,7 +504,7 @@ height:80px;
 						<a href="#"  class="gnb_link">STYLE</a>
 					</li>
 					<li class="h_gnb_item">
-						<a href="/TeamProject/shop?filter=popular"  class="gnb_link">SHOP</a>
+						<a href="/TeamProject/shop?sort=popular"  class="gnb_link">SHOP</a>
 					</li>
 				</ul>
 			</nav>
@@ -513,7 +513,7 @@ height:80px;
 			<nav class="h_gnb_middle">
 				<div>
 					<div class="search_title">
-						<a href="/TeamProject/shop?filter=popular"><h2 class="title_txt" style="text-align: center; "> SHOP </h2></a>
+						<a href="/TeamProject/shop?sort=popular"><h2 class="title_txt" style="text-align: center; "> SHOP </h2></a>
 						<div class="h_search_btn_box" style="float: right; display: flex; -webkit-box-align: center; margin-right: 50px; align-items: center; padding: 0 0 28px;">
 							<img src="/TeamProject/img/shop/search_real.png" class="h_searchBtn" alt="돋보기"  style="width:24px; margin-left:850px; margin-right:7px; height:24px;  cursor:pointer;">
 							<img src="/TeamProject/img/shop/kream_plus.png" class="h_plusBtn" alt="플러스" style="width:26px; height:26px; margin-right:9px; cursor:pointer;">

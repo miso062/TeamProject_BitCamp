@@ -1,6 +1,5 @@
 package user.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,11 +22,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.google.firebase.FirebaseException;
+
 import product.bean.Buy_historyDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
+import test.firebase.FireStorage;
 import user.bean.AddressDTO;
-import user.bean.LikeProDTO;
 import user.bean.UserDTO;
 import user.send.Request;
 import user.send.SmsResponse;
@@ -91,16 +92,15 @@ public class UserController {
 		String user_id = (String) session.getAttribute("memId");
 		UserDTO userDTO = userService.getUserInfo(user_id);
 		model.addAttribute("userDTO", userDTO);
-		//System.out.println(model);
 		model.addAttribute("container", "/WEB-INF/user/myPage/myPageMain.jsp");
 		return "forward:/user/my";
 	}
 	
 	@PostMapping(value="getBuyHistory")
 	@ResponseBody
-	public Map<String, Object> getBuyHistory(@RequestParam String user_id){
-		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
-		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory("jijiya@hotmail.net");
+	public Map<String, Object> getBuyHistory(HttpSession session){
+		String user_id = (String) session.getAttribute("memId");
+		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
 		Map<String, Object> buy_map = new HashMap<String, Object>();
 		buy_map.put("buy_historyList", buy_historyList);
 
@@ -111,15 +111,14 @@ public class UserController {
 		   productImgList.add(productImgDTO);
 		}
 		buy_map.put("productImgList", productImgList);
-		//System.out.println(buy_map);
 		return buy_map;
 	}
 	
 	@PostMapping(value="getSellHistory")
 	@ResponseBody
-	public Map<String, Object> getSellHistory(@RequestParam String user_id) { 
-		//List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
-		List<Sell_historyDTO> sell_historyList =  userService.getSellHistory("jijiya@hotmail.net");
+	public Map<String, Object> getSellHistory(HttpSession session) { 
+		String user_id = (String) session.getAttribute("memId");
+		List<Sell_historyDTO> sell_historyList =  userService.getSellHistory(user_id);
 		Map<String, Object> sell_map = new HashMap<String, Object>();
 		sell_map.put("sell_historyList", sell_historyList);
 
@@ -192,31 +191,19 @@ public class UserController {
 	
 	@PostMapping(value="updateImg")
 	@ResponseBody
-	public void updateImg(@RequestParam MultipartFile img, HttpSession session) {
-		System.out.println(img);
-		String filePath = session.getServletContext().getRealPath("/WEB-INF/storage");
-		String fileName = img.getOriginalFilename();
-		File file = new File(filePath, fileName);
-		try {
-			img.transferTo(file);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		userService.updateImg(fileName);
+	public void updateImg(@RequestParam MultipartFile file, HttpSession session) throws FirebaseException, IOException {
+		System.out.println(file);
+		String user_id = (String) session.getAttribute("memId");
+		FireStorage.initialize();
+		FireStorage.uploadFiles(file, user_id);
+		userService.updateImg(user_id);
 	}
 	
 	@PostMapping(value="deleteImg")
 	@ResponseBody
-	public void deleteImg(@RequestParam MultipartFile img, HttpSession session) {
-		
-		String filePath = session.getServletContext().getRealPath("/WEB-INF/storage");
-		String fileName = img.getOriginalFilename();
-		
-		File file = new File(filePath, fileName);
-		if(file.exists()) { 
-			file.delete(); 
-		}
-		userService.deleteImg();
+	public void deleteImg(@RequestParam MultipartFile file, HttpSession session) {
+		String user_id = (String) session.getAttribute("memId");
+		userService.deleteImg(user_id);
 	}
 	
 	@GetMapping(value="buyHistory")
@@ -228,14 +215,13 @@ public class UserController {
 	@GetMapping(value="buyHistoryDetail")
 	public String buyHistoryDetail(Model model, @RequestParam String buy_id) {
 		Buy_historyDTO buy_historyDTO = userService.getBuyItem(buy_id);
-		String user_id = buy_historyDTO.getUser_id();
 		Integer product_id = buy_historyDTO.getProduct_id();
-		
+		Integer address_id = buy_historyDTO.getAddress_id();
 		ProductImgDTO productImgDTO = userService.getProductImg(product_id);
-		List<AddressDTO> address = userService.getAddress(user_id);
+		AddressDTO addressDTO = userService.getAddress(address_id);
 		model.addAttribute("buy_historyDTO",buy_historyDTO);
 		model.addAttribute("productImgDTO",productImgDTO);
-		model.addAttribute("address", address);
+		model.addAttribute("addressDTO", addressDTO);
 		model.addAttribute("container", "/WEB-INF/user/myPage/buyHistory_detail.jsp");
 		return "forward:/user/my";
 	}
@@ -243,13 +229,13 @@ public class UserController {
 	@GetMapping(value="sellHistoryDetail")
 	public String sellHistoryDetail(Model model, @RequestParam String sell_id) {
 		Sell_historyDTO sell_historyDTO = userService.getSellItem(sell_id);
-		String user_id = sell_historyDTO.getUser_id();
+		Integer address_id = sell_historyDTO.getAddress_id();
 		Integer product_id = sell_historyDTO.getProduct_id();
 		
 		ProductImgDTO productImgDTO = userService.getProductImg(product_id);
-		List<AddressDTO> address = userService.getAddress(user_id);
+		AddressDTO addressDTO = userService.getAddress(address_id);
 		model.addAttribute("productImgDTO",productImgDTO);
-		model.addAttribute("address", address);
+		model.addAttribute("addressDTO", addressDTO);
 		model.addAttribute("sell_historyDTO", sell_historyDTO);
 		model.addAttribute("container", "/WEB-INF/user/myPage/sellHistory_detail.jsp");
 		return "forward:/user/my";
@@ -455,4 +441,5 @@ public class UserController {
 		userService.userdelete(httpsession);
 		httpsession.invalidate();
 	}
+	
 }

@@ -11,6 +11,7 @@ import admin.bean.AdminDTO;
 import admin.bean.AdminPaging;
 import admin.bean.AdminQnADTO;
 import admin.dao.AdminDAO;
+import user.bean.UserDTO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -156,6 +157,24 @@ public class AdminServiceImpl implements AdminService {
 		adminDAO.noticeqnaDelete(seq,pg);
 		
 	}
+
+	@Override
+	public List<UserDTO> getAllUserList() {
+		return adminDAO.getAllUserList();
+	}
+
+	@Override
+	public Map<String, Object> getAllAdmin() {
+		Map<String,Object>map = new HashMap<String,Object>();
+		map.put("user_count",getUserCount());
+		return map;
+	}
+
+	private Integer getUserCount() {
+		return adminDAO.getUserCount();
+	}
+
+	
 	
 
 }

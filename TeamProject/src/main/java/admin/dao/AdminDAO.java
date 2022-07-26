@@ -5,6 +5,7 @@ import java.util.Map;
 
 import admin.bean.AdminDTO;
 import admin.bean.AdminQnADTO;
+import user.bean.UserDTO;
 
 public interface AdminDAO {
 	public List<AdminDTO> getBoardList(Map<String, Integer> map);
@@ -36,4 +37,8 @@ public interface AdminDAO {
 	public void addnoticeQnAUpdate(AdminQnADTO adminQnADTO);
 
 	public void noticeqnaDelete(String seq, String pg);
+
+	public List<UserDTO> getAllUserList();
+
+	public Integer getUserCount();
 }

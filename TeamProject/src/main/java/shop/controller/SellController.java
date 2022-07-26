@@ -51,22 +51,68 @@ public class SellController {
 	
 //	판매 시 체크사항 페이지
 	@GetMapping(value="/sellCheck")
-	public String sellCheck(Model model, @RequestParam int product_id, @RequestParam int size) {
+	public String sellCheck(Model model,
+						   @RequestParam(defaultValue = "0", required = false) int product_id,
+						   @RequestParam(defaultValue = "0", required = false) int buy, 
+						   @RequestParam(defaultValue = "0", required = false) int size) {
+		
+		model.addAttribute("size", size);
+		
+		if(buy != 0) {
+			Buy_historyDTO buyDTO = shopService.getBuyDTOById(buy);
+			product_id = buyDTO.getProduct_id();
+			model.addAttribute("buyDTO", buyDTO);
+			model.addAttribute("size", buyDTO.getSize_type());
+		}
+		
 		model.addAttribute("container", "/WEB-INF/shop/sell/sellCheck.jsp");
 		model.addAttribute("productDTO", shopService.getProduct(product_id));
 		model.addAttribute("productImgDTO", shopService.getImage(product_id));
-		model.addAttribute("size", size);
 		return "forward:/shop/sell";
 	}
 	
 //	판매 금액 입력 페이지
 	@GetMapping(value="/enterSellPrice")
-	public String enterBuyPrice(Model model, @RequestParam int product_id, @RequestParam int size) {
+	public String enterBuyPrice(Model model,
+							   @RequestParam(defaultValue = "0", required = false) int product_id,
+							   @RequestParam(defaultValue = "0", required = false) int buy, 
+							   @RequestParam(defaultValue = "0", required = false) int size) {
+		
+		model.addAttribute("size", size);
+		
+		if(buy != 0) {
+			Buy_historyDTO buyDTO = shopService.getBuyDTOById(buy);
+			product_id = buyDTO.getProduct_id();
+			model.addAttribute("buyDTO", buyDTO);
+			model.addAttribute("size", buyDTO.getSize_type());
+		}
+		
 		model.addAttribute("container", "/WEB-INF/shop/sell/enterPrice.jsp");
 		model.addAttribute("productDTO", shopService.getProduct(product_id));
 		model.addAttribute("productImgDTO", shopService.getImage(product_id));
-		model.addAttribute("size", size);
 		return "forward:/shop/sell";
+	}
+	
+//	현재 입찰 정보 가져오기
+	@PostMapping(value="/getSellPrice")
+	@ResponseBody
+	public Map<String, Object> getSellPrice(
+				@RequestParam(defaultValue = "0", required = false) int product_id,
+				@RequestParam(defaultValue = "0", required = false) int buy, 
+				@RequestParam(defaultValue = "0", required = false) int size) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		if(buy != 0) {
+			Buy_historyDTO buyDTO = shopService.getBuyDTOById(buy);
+			map.put("buyDTO", buyDTO);
+			map.put("sellDTO", shopService.getSellDTO(product_id, Integer.parseInt(buyDTO.getSize_type())));
+		}
+		else {
+			map.put("sellDTO", shopService.getSellDTO(product_id, size));
+			map.put("buyDTO", shopService.getSellDTO(product_id, size));
+		}
+		return map;
 	}
 	
 //	판매 결제 페이지

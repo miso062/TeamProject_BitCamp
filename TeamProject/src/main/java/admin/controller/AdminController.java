@@ -20,6 +20,7 @@ import admin.bean.AdminDTO;
 import admin.bean.AdminPaging;
 import admin.bean.AdminQnADTO;
 import admin.service.AdminService;
+import user.bean.UserDTO;
 
 @Controller
 @RequestMapping(value="/admin")
@@ -208,7 +209,32 @@ public class AdminController {
 	}
 	
 	@GetMapping(value="/")
-	public String admin() {
-		return "/admin/admin";
+	public String admin(Model model) {
+		model.addAttribute("content", "/WEB-INF/admin/admin.jsp");
+		return "/admin/adminMain";
+	}
+	
+	@GetMapping(value="/userManage")
+	public String userManage(Model model) {
+		model.addAttribute("content", "/WEB-INF/admin/userManage.jsp");
+		return "/admin/adminMain";
+	}
+	
+	@GetMapping(value="/proManage")
+	public String proManage(Model model) {
+		model.addAttribute("content", "/WEB-INF/admin/proManage.jsp");
+		return "/admin/adminMain";
+	}
+	@PostMapping(value="getAllUserList")
+	@ResponseBody
+	public List<UserDTO> getAllUserList(){
+		List<UserDTO> list = adminService.getAllUserList();
+		return list;
+	}
+	@PostMapping(value="getAllAdmin")
+	@ResponseBody
+	public Map<String,Object> getAllAdmin(){
+		Map<String,Object>map=adminService.getAllAdmin();
+		return map;
 	}
 }

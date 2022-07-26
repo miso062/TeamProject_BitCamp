@@ -34,7 +34,8 @@ public class UserServiceImpl implements UserService {
 
 	@Value("${profileImgFolder")
 	private String uploadFolder;
-
+	
+	//로그인페이지
 	@Override
 	public String checkLogin(String log_email_input, String log_pwd_input) {
 		String check ;
@@ -60,6 +61,7 @@ public class UserServiceImpl implements UserService {
 		}
 			return check;
 	}
+	
 	//아이디 찾기
 	@Override
 	public Map<String, String> findEmailAddress(String phone) {
@@ -75,6 +77,7 @@ public class UserServiceImpl implements UserService {
 		}
 		return map;
 	}
+	
 	//비밀번호 찾기
 	@Override
 	public Map<String, Object> findPwCheck(String hp, String user_id) {
@@ -89,6 +92,8 @@ public class UserServiceImpl implements UserService {
 		return map;
 	}
 	
+	
+	//비밀번호 찾기시 랜덤 비밀번호
 	public String randomPassword (int length) {
 		int index = 0;
 		char[] charSet = new char[] {
@@ -104,6 +109,7 @@ public class UserServiceImpl implements UserService {
 		
 		return sb.toString()+"a"+"!^";
 	}
+
 	//DB에서 기본주소 아닌 것들 호출
 	@Override
 	public List<AddressDTO> comeAddress() {
@@ -175,7 +181,8 @@ public class UserServiceImpl implements UserService {
 		
 		return addressDTO;
 	}
-	//DB에 등록
+	
+	//주소록
 	@Override
 	public void addAddressBook(AddressDTO addressDTO) {
 		String user_id = (String) session.getAttribute("memId");
@@ -192,7 +199,8 @@ public class UserServiceImpl implements UserService {
 		}
 		userDAO.addAddressBook(addressDTO);
 	}
-  
+	
+	//내 관심상품
 	@Override
 	public void bookMarkInsert(Map<String, String> map) {
 		String id = (String) session.getAttribute("memId");
@@ -201,7 +209,8 @@ public class UserServiceImpl implements UserService {
 		
 		userDAO.bookMarkInsert(map);
 	}
-  
+	
+	//관심상품 삭제
 	@Override
 	public void bookMarkDelete(int product_id) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -211,7 +220,8 @@ public class UserServiceImpl implements UserService {
 
 		userDAO.bookMarkDelete(map);
 	}
-  
+	
+	//관심상품 가져오기
 	@Override
 	public Map<String, Object> bookMarkGet() {
 		String id = (String) session.getAttribute("memId");
@@ -221,7 +231,8 @@ public class UserServiceImpl implements UserService {
 	 	
 		return map; 
 	}
-  
+	
+	//닉네임 중복체크
 	@Override
 	public String checkNick(String nickname) {
 		int a= userDAO.checkNick(nickname);
@@ -283,10 +294,9 @@ public class UserServiceImpl implements UserService {
 		map.put("profile_img", fileName);
 		userDAO.updateImg(map);
 	}
-
+	
 	@Override
-	public void deleteImg() {
-		String user_id = (String) session.getAttribute("memId");
+	public void deleteImg(String user_id) {
 		userDAO.deleteImg(user_id);
 	}
 
@@ -322,6 +332,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Sell_historyDTO getSellItem(String sell_id) {
 		return userDAO.getSellItem(sell_id);
+	}
+	
+	//마이페이지
+	//-----------------------------------------------------------
+	
+	
+	//네이버 회원 조회
+	@Override
+	public AddressDTO getAddress(Integer address_id) {
+		return userDAO.getAddress(address_id);
 	}
 	
 	@Override
@@ -362,6 +382,7 @@ public class UserServiceImpl implements UserService {
 		}
 		return check;
   }	
+	
 	//카카오 회원 조회
 	@Override
 	public String checkKakao(String user_id) {
@@ -391,6 +412,8 @@ public class UserServiceImpl implements UserService {
 		}
 		return check;
 	}
+	
+	//주소록 Detail
 	@Override
 	public String bookMarkGetDetail(String product_id) {
 		String user_id = (String) session.getAttribute("memId");
@@ -407,6 +430,8 @@ public class UserServiceImpl implements UserService {
 		
 		return check;
   }
+	
+	
 	public String checkPwd(String pwd) {
 		String check ;
 		String user_id = (String) session.getAttribute("memId");
@@ -419,6 +444,7 @@ public class UserServiceImpl implements UserService {
 				check = "exist";
 		}return check;
 	}
+
 	@Override
 	public void userdelete(HttpSession httpsession) {
 		String user_id = (String) session.getAttribute("memId");
@@ -429,7 +455,5 @@ public class UserServiceImpl implements UserService {
   public List<AddressDTO> getAddress(String user_id) {
 		return userDAO.getAddress(user_id);
 	}
-
-
 
 }

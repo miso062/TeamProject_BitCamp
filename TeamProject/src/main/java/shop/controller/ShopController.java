@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import product.bean.Market_priceDTO;
 import product.bean.ProductImgDTO;
+import product.bean.ShopDTO;
 import shop.service.ShopService;
 
 @Controller
@@ -47,12 +48,14 @@ public class ShopController {
 	
 	@PostMapping(value="scrollProduct")
 	@ResponseBody
-	public Map<String, Object> scrollProduct(@RequestParam String num, String filter){
-		System.out.println(filter);
-		Map<String, Object> map = shopService.scrollProduct(num, filter);
-    return map;
-  }
-	
+	public List<ShopDTO> scrollProduct(@RequestParam String num,
+									@RequestParam String sort){
+		System.out.println(num + " | " + sort);
+		List<ShopDTO> list = shopService.scrollProductList(num, sort);
+		list.get(0).setPage(num);
+		
+		return list;
+	}
   
 	@PostMapping(value="getshopDetail")
 	@ResponseBody

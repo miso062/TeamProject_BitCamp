@@ -71,8 +71,8 @@
 		select * from pro_image where product_id = #{product_id}
 	</select>
 	
-	<select id="getAddress" parameterType="String" resultType="userAddress">
-		select * from address where user_id = #{user_id}
+	<select id="getAddress" parameterType="Integer" resultType="userAddress">
+		select * from address where address_id = #{address_id}
 	</select>
 	
 	<insert id="bookMarkInsert" parameterType="java.util.Map">
