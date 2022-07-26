@@ -435,6 +435,7 @@ public class UserController {
 	@ResponseBody
 	public void userdelete(HttpSession httpsession) {
 		userService.userdelete(httpsession);
+		httpsession.invalidate();
 	}
 	
 }
