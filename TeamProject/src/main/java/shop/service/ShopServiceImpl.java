@@ -14,6 +14,7 @@ import product.bean.Market_priceDTO;
 import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
+import product.bean.ShopDTO;
 import shop.dao.ShopDAO;
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
@@ -32,20 +33,20 @@ public class ShopServiceImpl implements ShopService {
 	HttpSession session;
 	
 	@Override
-//	무한 스크롤 시 상품 로드
-	public Map<String, Object> scrollProduct(String num, String filter) {
+	public List<ShopDTO> scrollProductList(String num, String filter) {
 		int startNum = Integer.parseInt(num);
-		int endNum = startNum+15;
+		int endNum = startNum + 15; 
 		
 		Map<String, Integer>map = new HashMap<String, Integer>();
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);
 		
-		Map<String, Object> sendMap = shopDAO.scrollProduct(map, filter);
-		sendMap.put("num", startNum + 16);
-		System.out.println();
+		List<ShopDTO> list = shopDAO.scrollProductList(map, filter);
+//		sendMap.put("num", startNum + 16);
+//		System.out.println();
 		// sendMap.put("num", startNum + 1);
-		return sendMap;
+		
+		return list;
 	}
 
 	@Override

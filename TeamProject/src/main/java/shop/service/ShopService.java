@@ -10,6 +10,7 @@ import product.bean.Market_priceDTO;
 import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
+import product.bean.ShopDTO;
 import shop.dao.ShopDAO;
 import user.bean.AddressDTO;
 import user.bean.UserDTO;
@@ -17,7 +18,7 @@ import user.bean.UserDTO;
 public interface ShopService {
 
 	public Map<String, Object> getShopDetail(int product_id);
-	public Map<String, Object> scrollProduct(String num, String filter);
+	public List<ShopDTO> scrollProductList(String num, String filter);
 	public ProductDTO getProduct(int product_id);
 	public ProductImgDTO getImage(int product_id);
 	public List<Market_priceDTO> getchart(int product_id);
