@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import product.bean.Buy_historyDTO;
+import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
@@ -194,6 +195,22 @@ public class UserDAOImpl implements UserDAO {
 	public List<AddressDTO> getAddress(String user_id) {
 		return sqlSession.selectList("userSQL.getAddress", user_id);
 	}
+
+	@Override
+	public List<LikeProDTO> getLikeProductList(String id) {
+		return sqlSession.selectList("userSQL.getLikeProductList", id);
+	}
+
+	@Override
+	public List<ProductDTO> getLikeProducts(int product_id) {
+		return sqlSession.selectList("userSQL.getLikeProducts", product_id);
+	}
+
+	@Override
+	public List<ProductImgDTO> getProductAll(int product_id) {
+		return sqlSession.selectList("userSQL.getProductAll", product_id);
+	}
+	
 
 	@Override
 	public List<AddressDTO> comeAddress(String user_id) {

@@ -43,6 +43,7 @@ public interface UserService {
 	public AddressDTO getAddress(Integer address_id);
 	public void userdelete(HttpSession httpsession);
 	public List<AddressDTO> getAddress(String user_id);
+	public Map<String, Object> getLikeProductList();
   public List<AddressDTO> comeAddress();
 	public AddressDTO comeAddress1();
 }
