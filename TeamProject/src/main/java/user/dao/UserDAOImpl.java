@@ -191,5 +191,19 @@ public class UserDAOImpl implements UserDAO {
 		sqlSession.delete("userSQL.userdelete",user_id);
 	}
 
+	public List<AddressDTO> getAddress(String user_id) {
+		return sqlSession.selectList("userSQL.getAddress", user_id);
+	}
+
+	@Override
+	public List<AddressDTO> comeAddress(String user_id) {
+		return sqlSession.selectList("userSQL.comeAddress" , user_id);
+	}
+
+	@Override
+	public AddressDTO comeAddress1(String user_id) {
+		return sqlSession.selectOne("userSQL.comeAddress1" , user_id);
+	}
+
 }
 	

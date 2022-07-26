@@ -1485,7 +1485,8 @@ $(document).ready(function(){
 
 //찜하기 보이는 기능
 $(document).ready(function(){
-    if('${sessionScope.memId}'){	 
+    if('${sessionScope.memId}'){
+    	
         $.ajax({
             type:'post',
             url:'/TeamProject/user/bookMarkGetDetail',

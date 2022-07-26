@@ -42,4 +42,7 @@ public interface UserService {
 	public String checkPwd(String pwd);
 	public AddressDTO getAddress(Integer address_id);
 	public void userdelete(HttpSession httpsession);
+	public List<AddressDTO> getAddress(String user_id);
+  public List<AddressDTO> comeAddress();
+	public AddressDTO comeAddress1();
 }

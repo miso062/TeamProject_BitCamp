@@ -109,6 +109,78 @@ public class UserServiceImpl implements UserService {
 		
 		return sb.toString()+"a"+"!^";
 	}
+
+	//DB에서 기본주소 아닌 것들 호출
+	@Override
+	public List<AddressDTO> comeAddress() {
+		String user_id = (String) session.getAttribute("memId");
+		List<AddressDTO> list = userDAO.comeAddress(user_id);
+		if(list != null) {
+			for(AddressDTO addressDTO : list) {
+				StringBuffer hp = new StringBuffer();
+				hp.append(addressDTO.getHp());
+				if(hp.length()==11) {
+					hp.replace(4,5 ,"#");
+					hp.replace(5,6 ,"#");
+					hp.replace(6,7 ,"#");
+					hp.replace(7,8 ,"#");
+					hp.insert(3, "-");
+					hp.insert(8, "-");
+					addressDTO.setHp(hp.toString());
+				}else {
+					hp.replace(4,5 ,"#");
+					hp.replace(5,6 ,"#");
+					hp.replace(6,7 ,"#");
+					hp.insert(3, "-");
+					hp.insert(7, "-");
+					
+					addressDTO.setHp(hp.toString());
+				}
+				StringBuffer name = new StringBuffer();
+				 name.append(addressDTO.getName());
+				for(int i=1 ; i<addressDTO.getName().length() ; i++) {
+					name.replace(i, i+1, "*");
+				}
+				addressDTO.setName(name.toString());
+			}
+		}
+		return list;
+	}
+	//기본주소 호출
+	@Override
+	public AddressDTO comeAddress1() {
+		String user_id = (String) session.getAttribute("memId");
+		StringBuffer hp = new StringBuffer();
+		AddressDTO addressDTO = userDAO.comeAddress1(user_id);
+		if(addressDTO !=null) {
+			hp.append(addressDTO.getHp());
+			if(hp.length()==11) {
+				hp.replace(4,5 ,"#");
+				hp.replace(5,6 ,"#");
+				hp.replace(6,7 ,"#");
+				hp.replace(7,8 ,"#");
+				hp.insert(3, "-");
+				hp.insert(8, "-");
+				addressDTO.setHp(hp.toString());
+			}else {
+				hp.replace(4,5 ,"#");
+				hp.replace(5,6 ,"#");
+				hp.replace(6,7 ,"#");
+				hp.insert(3, "-");
+				hp.insert(7, "-");
+				
+				addressDTO.setHp(hp.toString());
+			}
+			StringBuffer name = new StringBuffer();
+			 name.append(addressDTO.getName());
+			for(int i=1 ; i<addressDTO.getName().length() ; i++) {
+				name.replace(i, i+1, "*");
+			}
+			addressDTO.setName(name.toString());
+		}
+		
+		return addressDTO;
+	}
 	
 	//주소록
 	@Override
@@ -116,10 +188,11 @@ public class UserServiceImpl implements UserService {
 		String user_id = (String) session.getAttribute("memId");
 		addressDTO.setUser_id(user_id);
 		AddressDTO defalutAddress = shopDAO.getDefalutAddress(user_id);
-		
+		//주소등록을 할 때 기본 주소로 헀을 때
 		if(addressDTO.getFlag() == 1) {
 			userDAO.updateflag(addressDTO);
 		}
+		//  기본 배송지가 없다면 
 		else if(defalutAddress == null) {
 			userDAO.updateflag(addressDTO);
 			addressDTO.setFlag(1);
@@ -377,4 +450,10 @@ public class UserServiceImpl implements UserService {
 		String user_id = (String) session.getAttribute("memId");
 		userDAO.userdelete(user_id);
   }
+
+  @Override
+  public List<AddressDTO> getAddress(String user_id) {
+		return userDAO.getAddress(user_id);
+	}
+
 }
