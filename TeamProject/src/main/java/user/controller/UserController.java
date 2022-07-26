@@ -436,4 +436,5 @@ public class UserController {
 	public void userdelete(HttpSession httpsession) {
 		userService.userdelete(httpsession);
 	}
+	
 }

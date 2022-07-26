@@ -20,6 +20,7 @@ import admin.bean.AdminDTO;
 import admin.bean.AdminPaging;
 import admin.bean.AdminQnADTO;
 import admin.service.AdminService;
+import user.bean.UserDTO;
 
 @Controller
 @RequestMapping(value="/admin")
@@ -210,5 +211,17 @@ public class AdminController {
 	@GetMapping(value="/")
 	public String admin() {
 		return "/admin/admin";
+	}
+	@PostMapping(value="getAllUserList")
+	@ResponseBody
+	public List<UserDTO> getAllUserList(){
+		List<UserDTO> list = adminService.getAllUserList();
+		return list;
+	}
+	@PostMapping(value="getAllAdmin")
+	@ResponseBody
+	public Map<String,Object> getAllAdmin(){
+		Map<String,Object>map=adminService.getAllAdmin();
+		return map;
 	}
 }
