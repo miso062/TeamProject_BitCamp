@@ -911,7 +911,7 @@
                         <li class="usable_item">유효기간이 지난 후 환불받은 포인트는 다시 사용하실 수 없습니다.</li>
                     </ul>
                 </div>
-                <div class="layer_btn"><a data-v-28cabbb5="" href="#" class="btn outline medium" > 확인 </a></div>
+                <div class="layer_btn"><a href="#" class="btn outline medium" > 확인 </a></div>
             </div>
             <a href="#" class="btn_layer_close"></a>
         </div>
@@ -1047,6 +1047,12 @@ $(document).ready(function(){
             } else {
             	buy_price = buy_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             }
+            if(status1 == null){
+            	status1 = '';
+            }
+            if(status2 == null){
+            	status2 = '';
+            }
 	       	var random = Math.floor( Math.random() * 4 ); 
 	       	
             let buylist = $('<div class="purchase_item" onclick="location.href=\'/TeamProject/user/buyHistoryDetail?buy_id='+ buy_id + '\'">').append(
@@ -1064,20 +1070,15 @@ $(document).ready(function(){
   	                '</div></div>' +
   	                '<div class="status_box field_status">' +
   	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
-  	              	'<span class="status_txt text-default status2_text">' + status2 + '</span>' +
+  	              	'<span class="status_txt text-default status2_text text-danger">' + status2 + '</span>' +
   	                '</div></div></div>'
   	                );
             $('.buy_list').append(buylist);
+            
 			//상품 3개까지 보이게하기
 			if( i > 1){
 			   break;
 			}
-            if( status1 == null){
-            	$(this).text('');
-            }
-            if(status2 == null){
-            	$(this).text('');
-            }
          }
       },error:function(err){
          console.log(err);
@@ -1132,6 +1133,12 @@ $(document).ready(function(){
             } else {
             	sell_price = sell_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             }
+            if(status1 == null){
+            	status1 = '';
+            }
+            if(status2 == null){
+            	status2 = '';
+            }
 	       	var random = Math.floor( Math.random() * 4 ); 
 	       	
             let selllist = $('<div class="purchase_item" onclick="location.href=\'/TeamProject/user/sellHistoryDetail?sell_id='+ sell_id + '\'">').append(
@@ -1149,7 +1156,7 @@ $(document).ready(function(){
   	                '</div></div>' +
   	                '<div class="status_box field_status">' +
   	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
-  	              	'<span class="status_txt text-default status2_text">' + status2 + '</span>' +
+  	              	'<span class="status_txt text-default status2_text text-danger">' + status2 + '</span>' +
   	                '</div></div></div>'
   	                );
             $('.sell_list').append(selllist);
