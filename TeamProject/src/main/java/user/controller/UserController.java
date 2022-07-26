@@ -437,4 +437,12 @@ public class UserController {
 		userService.userdelete(httpsession);
 		httpsession.invalidate();
 	}
+	//마이페이지 관심상품 뿌리기
+	@PostMapping(value="getLikeProductList")
+	@ResponseBody
+	public Map<String, Object> getLikeProductList(){		
+		Map<String, Object> map = userService.getLikeProductList();
+		return map;
+	}
+	
 }

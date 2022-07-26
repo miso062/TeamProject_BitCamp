@@ -152,4 +152,16 @@
 	<delete id="userdelete" parameterType="String">
 		delete user_table where user_id=#{user_id}
 	</delete>
+	
+	<select id="getLikeProductList" parameterType="java.util.Map" resultType="likepro">
+		select * from like_pro where user_id=#{id}
+	</select>
+	
+	<select id="getLikeProducts" parameterType="int" resultType="product">
+		select * from product where product_id=#{product_id}
+	</select>
+	
+	<select id="getProductAll" parameterType="int" resultType="productImg">
+		select * from pro_image where product_id=#{product_id}
+	</select>
 </mapper>

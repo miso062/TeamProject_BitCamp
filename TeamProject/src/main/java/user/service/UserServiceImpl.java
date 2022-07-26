@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import product.bean.Buy_historyDTO;
+import product.bean.ProductDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import shop.dao.ShopDAO;
@@ -31,7 +32,10 @@ public class UserServiceImpl implements UserService {
 	private HttpSession session;
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-
+	@Autowired
+	private ProductDTO productDTO;
+	@Autowired
+	private ProductImgDTO productImgDTO;	
 	@Value("${profileImgFolder")
 	private String uploadFolder;
 
@@ -357,5 +361,26 @@ public class UserServiceImpl implements UserService {
   public List<AddressDTO> getAddress(String user_id) {
 		return userDAO.getAddress(user_id);
 	}
-
-}
+  
+  //메인 마이페이지 관심상품 보여주기
+	@Override
+	public Map<String, Object> getLikeProductList() {
+		String id = (String) session.getAttribute("memId"); //({1104},{1204},{1504})
+		//여기서 내가 좋아효한 product_id 를 가져온다
+	 	List<LikeProDTO> list= userDAO.getLikeProductList(id);
+	 	List<ProductDTO> list2 = null;
+	 	List<ProductImgDTO> list3 = null;
+	 	for(LikeProDTO likeProDTO : list) {
+	 		likeProDTO.getProduct_id();//product_id값을 가지고온거
+	 		list2 = userDAO.getLikeProducts(likeProDTO.getProduct_id());
+	 		list3 = userDAO.getProductAll(likeProDTO.getProduct_id());
+	 		System.out.println(list2);
+	 		System.out.println(list3);
+	 	}
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list2",list2);
+		map.put("list3",list3);
+		return map;
+		}
+	
+	}
