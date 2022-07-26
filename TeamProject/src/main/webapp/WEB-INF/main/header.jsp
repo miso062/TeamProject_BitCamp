@@ -409,15 +409,20 @@ cursor: pointer;
 				<li class="h_top_item">
 					<a id="h_myPage" class="h_top_link">마이페이지</a>
 				</li>
-        <li class="h_top_item">
-        <%-- ${sessionScope.memId } --%>
-        <c:if test="${sessionScope.memId == null}">
-          <a id="h_login" class="h_top_link">로그인</a>
-        </c:if>
-        <c:if test="${sessionScope.memId != null}">
-          <a id="h_logout" class="h_top_link">로그아웃</a>
-        </c:if>
-        </li>
+		        <li class="h_top_item">
+		        	<%-- ${sessionScope.memId } --%>
+			        <c:if test="${sessionScope.memId == null}">
+			          	<a id="h_login" class="h_top_link">로그인</a>
+			        </c:if>
+			        <c:if test="${sessionScope.memId != null}">
+			          	<a id="h_logout" class="h_top_link">로그아웃</a>
+			        </c:if>
+		        </li>
+		        <li class="h_top_item">
+					<c:if test="${sessionScope.memAuthority == 10 }">
+						<a href="/TeamProject/admin/" id="h_admin" class="h_top_link" style="color: red; font-weight: bold;">관리자페이지</a>
+					</c:if>
+				<li>
 			</ul>
 		</div>
 	</div>
@@ -648,7 +653,7 @@ $('.h_brand_box').click(function(){
 //엔터로 검색하기 submit 미구현
 $(document).on('keyup','.h_input_search' ,function(key){
 	if(key.keyCode ==13) {
-		alert($('.h_input_search').val())
+		location.href='/TeamProject/shop?sort=popular&command='+$('.h_input_search').val()
 	}
 })
 // 스크롤 최상단일 때 .h_main_inner css 지우기
@@ -760,5 +765,7 @@ $('#h_likePro').click(function(){
     	
     }
 })
+
+
 
 </script>
