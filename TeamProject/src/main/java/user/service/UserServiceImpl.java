@@ -338,6 +338,15 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getSellItem(sell_id);
 	}
 	
+	@Override
+	public void delBuyHistory(int buy_id) {
+		userDAO.delBuyHistory(buy_id);
+	}
+
+	@Override
+	public void delSellHistory(int sell_id) {
+		userDAO.delSellHistory(sell_id);
+	}
 	//마이페이지
 	//-----------------------------------------------------------
 	

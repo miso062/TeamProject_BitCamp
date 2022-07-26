@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <style>
     .my_selling_detail .content_title {
@@ -18,32 +20,32 @@
         font-size: inherit;
     }
     .btn_box {
- 	 	margin-left: auto;
-    	padding-left: 30px;
-	    flex-shrink: 0;
-	}
+        margin-left: auto;
+       padding-left: 30px;
+       flex-shrink: 0;
+   }
     .btn_box .btn {
-	    margin-right: -6px;
-	    padding: 0 6px;
-	    -webkit-box-align: center;
-	    -ms-flex-align: center;
-	    align-items: center;
-	    font-size: 14px;
-	    letter-spacing: -.21px;
-	    display : flex ;
-	}
-	.btn {
-	    cursor: pointer;
-	    vertical-align: middle;
-	    text-align: center;
-	    color: rgba(34,34,34,.8);
-	    background-color: #fff;
-	}
+       margin-right: -6px;
+       padding: 0 6px;
+       -webkit-box-align: center;
+       -ms-flex-align: center;
+       align-items: center;
+       font-size: 14px;
+       letter-spacing: -.21px;
+       display : flex ;
+   }
+   .btn {
+       cursor: pointer;
+       vertical-align: middle;
+       text-align: center;
+       color: rgba(34,34,34,.8);
+       background-color: #fff;
+   }
     .btn_box .icon {
-	    margin-right: 4px;
-	    width: 20px;
-	    height: 20px;
-	}
+       margin-right: 4px;
+       width: 20px;
+       height: 20px;
+   }
     .section_title.order_title {
         margin-top: 0;
     }
@@ -177,6 +179,12 @@
         width: 1px;
         background-color: #ebebeb;
     }
+    .product_img {
+        width: 100%;
+      position: absolute;
+      height: 100%;
+      top: -5%;
+    }
     .price_item .item_inner {
         position: relative;
     }
@@ -300,10 +308,13 @@
         white-space: nowrap;
         color: #222;
     }
-    .price_textuy {
-        color: #f15746;
-    }
-    .price_textfter {
+    .price_text.sell {
+	    color: #31b46e;
+	}
+	.price_text.bold {
+    	font-weight: 700;
+	}
+    .price_text:after {
         content: "";
         display: block;
         clear: both;
@@ -444,31 +455,134 @@
     }
     .layer_btn .btn {
         width: 120px;
-    } 
-    
-    
+    }
+    .layer_btn .btn {
+ 	   margin-left: 8px;
+	}
+	.layer_alert .btn {
+	    display: inline-block;
+	    cursor: pointer;
+	    vertical-align: middle;
+	    text-align: center;
+	    color: rgba(34,34,34,.8);
+	    background-color: #fff;
+	}
+	.solid {
+    font-weight: 600;
+    color: #fff;
+    background-color: #222;
+	}
+	.layer_alert .btn_layer_close {
+	    display: none;
+	}
+	.btn_layer_close {
+	    position: absolute;
+	    top: 18px;
+	    right: 20px;
+	    cursor: pointer;
+	}
+	.payment_wrap .section_title{
+		margin-top :31px;
+	}
+	.payment_info {
+    	border-top: 2px solid #222;
+   		border-bottom: 1px solid #ebebeb;
+	}
+	.card_info {
+	    padding: 19px 0;
+	    display: flex;
+	    -webkit-box-align: center;
+	    align-items: center;
+	}
+	.card_name {
+	    font-size: 15px;
+	    letter-spacing: -.15px;
+	}
+	.card_num {
+	    margin-left: 17px;
+	    font-size: 0;
+	}
+	.card_num .num_bind {
+	    display: flex;
+	    -webkit-box-align: center;
+	    align-items: center;
+	    flex-wrap: wrap;
+	}
+	.card_num .last_num[data-v-46240f7f] {
+	    margin-left: 2px;
+	    display: inline-flex;
+	    font-size: 14px;
+	    letter-spacing: -.07px;
+	    line-height: 20px;
+	}
+	.btn.btn_blue {
+	    color: #297dcb;
+	}
+	.payment_wrap .btn, .payment_wrap .btn:hover {
+	    text-decoration: underline;
+	}
+	.payment_wrap .btn {
+	    margin-left: auto;
+	    flex-shrink: 0;
+	    padding: 6px 0 6px 6px;
+	    font-size: 14px;
+	    letter-spacing: -.14px;
+	    color: rgba(34,34,34,.8);
+	}
+	.payment_info {
+	    border-top: 2px solid #222;
+	    border-bottom: 1px solid #ebebeb;
+	}
+	.payment_info .card_info {
+	    padding: 19px 0;
+	}
+	.payment_info .card_info .card_name {
+	    line-height: 22px;
+	    left: -0.15px;
+	}
+	.card_num .dot {
+	    white-space: nowrap;
+	}
+	.card_num .hyphen, .card_num .last_num {
+	    display: inline-flex;
+	}
+	.card_num .hyphen {
+	    margin-left: 4px;
+	    margin-right: 2px;
+	    width: 4px;
+	    height: 1px;
+	    background-color: #000;
+	}
+	.payment_info .card_info .last_num {
+	    line-height: 20px;
+	}
+	
+	.card_num .last_num {
+	    margin-left: 2px;
+	    font-size: 14px;
+	    letter-spacing: -.07px;
+	}
+
 </style>
+
 <div class="my_selling_detail bidding">
     <div class="content_title">
         <div class="title_1">
             <h3>판매내역 &gt; 입찰 중</h3>
-            <!---->
         </div>
         <div class="btn_box">
-            <!---->
             <a href="#" class="btn">
                 <img src="/TeamProject/img/user/myPage/sellHistory_11/can_trash.png" alt="쓰레기통" class="ico-delete icon sprite-icons">
                 
                 <span class="btn_txt">삭제하기</span>
             </a>
         </div>
-        <!---->
     </div>
     <!---->
     <div class="order_info_wrap">
         <div class="section_title order_title">
             <div class="title_box">
-                <h4 class="title">주문번호 <em class="order_number"> B-SN27998458 </em></h4>
+                <h4 class="title">주문번호 <em class="order_number">${ sell_historyDTO.sell_id }</em></h4>
             </div>
         </div>
         <div class="order_info">
@@ -477,107 +591,147 @@
                     <div class="product" style="background-color: #ebf0f5;">
                             <img
                                 alt="Nike Air Force 1 '07 Low White"
-                                src="https://kream-phinf.pstatic.net/MjAyMjA2MTVfMjYw/MDAxNjU1MjgzNjk2Mzk3.gh8n5rs7p-pWVqzIhNh7yj_KdyjLFBeJr9QbsDumoFEg.KdvPfvgBYmjm7MKKhcbIEQIP6FGeuof_GnmcDUgrvyAg.PNG/a_baa1ccea3726495badba419dfede63f9.png?type=m"
+                                src=${productImgDTO.file_path }
                                 class="image picture product_img"
                             
                             />
                     </div>
                 </div>
                 <div class="product_detail">
-                    <strong class="number">새상품 · 315122-111/CW2288-111</strong>
-                    <p class="name">Nike Air Force 1 '07 Low White</p>
-                    <p class="size"><span class="size_text">270</span></p>
+                    <strong class="number"></strong>
+                    <p class="name">${productImgDTO.org_file_name }</p>
+                    <p class="size"><span class="size_text">${ sell_historyDTO.size_type}</span></p>
                 </div>
             </div>
             <div class="order_price">
                 <ul class="price_list">
                     <li class="price_item">
                         <div class="item_inner">
-                            <span class="price_title">즉시 판매가</span>
-                            <p class="price"><span class="amount">149,000</span><span class="unit">원</span></p>
+                            <span class="price_title">즉시 구매가</span>
+                            <p class="price"><span class="amount" id="max_buyPrice"></span><span class="unit">원</span></p>
                         </div>
                     </li>
                     <li class="price_item">
                         <div class="item_inner">
                             <span class="price_title">즉시 판매가</span>
-                            <p class="price"><span class="amount">141,000</span><span class="unit">원</span></p>
+                            <p class="price"><span class="amount" id="min_sellPrice"></span><span class="unit">원</span></p>
                         </div>
                     </li>
                 </ul>
             </div>
-            <div class="order_btn"><a href="#" class="btn outlinegrey small"> 상품 상세보기 </a></div>
-            <!---->
+            <div class="order_btn">
+               <a href="/TeamProject/shop/shopDetail?product_id=${sell_historyDTO.product_id }" class="btn outlinegrey small"> 상품 상세보기 </a>
+            </div>
         </div>
     </div>
     <!---->
     <div class="purchase_history_wrap">
         <div class="section_title">
             <div class="title_box"><h4 class="title">판매 입찰 내역</h4></div>
-            <!---->
         </div>
         <div class="purchase_history bidding sell">
             <div class="history_detail">
                 <div class="main_box">
                     <dl class="main_item">
                         <dt class="title">판매 희망가</dt>
-                        <dd class="price"><span class="amount">30,000</span><span class="unit">원</span></dd>
+                        <dd class="price"><span class="amount">
+                        <fmt:formatNumber value="${sell_historyDTO.sell_price }" type="number" /></span><span class="unit">원</span>
+                        </dd>
                     </dl>
                 </div>
-                <div item="[object Object],[object Object],[object Object],[object Object]" class="detail_box">
+                <div class="detail_box">
                     <dl class="price_addition">
                         <dt class="price_title">
                             <span>검수비</span>
-                            <!---->
                         </dt>
                         <dd class="price_text">무료</dd>
                     </dl>
                     <dl class="price_addition">
                         <dt class="price_title">
                             <span>수수료</span>
-                            <!---->
                         </dt>
                         <dd class="price_text">600원</dd>
                     </dl>
                     <dl class="price_addition">
                         <dt class="price_title">
                             <span>배송비</span>
-                            <!---->
                         </dt>
                         <dd class="price_text">3,000원</dd>
                     </dl>
                     <dl class="price_addition">
                         <dt class="price_title dark">
                             <span>총 결제금액</span>
-                            <!---->
                         </dt>
-                        <dd class="price_text bold sell">33,600원</dd>
+                        <dd class="price_text bold sell" id="priceTot"></dd>
                     </dl>
                 </div>
-                <div item="[object Object],[object Object]" class="detail_box">
+                <div class="detail_box">
                     <dl class="price_addition">
                         <dt class="price_title dark">
                             <span>입찰일</span>
-                            <!---->
                         </dt>
-                        <dd class="price_text" style="font-weight: 500;">22/07/20</dd>
+                        <dd class="price_text" style="font-weight: 500;">
+                           <fmt:formatDate value="${sell_historyDTO.sell_date }" pattern="yyyy/MM/dd(E)" />
+                        </dd>
                     </dl>
                     <dl class="price_addition">
                         <dt class="price_title dark">
                             <span >입찰 마감기한</span>
-                            <!---->
                         </dt>
-                        <dd class="price_text" style="font-weight: 500;">1일 - 22/07/21까지</dd>
+                        <dd class="price_text" style="font-weight: 500;"> 
+                           <fmt:formatDate value="${sell_historyDTO.period }" pattern="yyyy/MM/dd(E)" />
+                        </dd>
+                        <dd class="price_text buy" style="display: none">기한 만료</dd>
                     </dl>
                 </div>
             </div>
-            <div class="history_btn">
-                <a href="#" class="btn outline medium"> 입찰 변경하기 </a>
-                <!---->
+         <div class="history_btn">
+                <a href="/TeamProject/shop/entersellPrice?product_id=${sell_historyDTO.product_id }&size=${ sell_historyDTO.size_type}" class="btn outline medium"> 입찰 변경하기 </a>
                 <a href="#" class="btn sell outline medium"> 즉시 판매하기 </a>
-                <!---->
+         </div>
+         <div class="history_btn" style="display: none">
+                <a href="/TeamProject/shop/entersellPrice?product_id=${sell_historyDTO.product_id }&size=${ sell_historyDTO.size_type}" class="btn outline medium"> 다시 입찰하기  </a>
+         </div>
+        </div>
+    </div>
+	<!---->
+    <div class="payment_wrap">
+        <div class="section_title">
+            <div class="title_box"><h4 class="title">판매 정산 계좌</h4></div>
+            <!---->
+        </div>
+        <div  class="payment_info">
+            <div  class="card_info">
+                <span class="card_name">국민은행</span>
+                <div class="card_num">
+                    <span class="num_bind"><span class="last_num">**************</span></span>
+                </div>
             </div>
         </div>
     </div>
+    <div class="payment_wrap">
+        <div  class="section_title">
+            <div class="title_box">
+                <h4 class="title">페널티 결제 정보</h4>
+            </div>
+            <!---->
+        </div>
+        <div  class="payment_info">
+            <div  class="card_info">
+                <span class="card_name"> KB</span>
+                <div class="card_num">
+                    <span class="num_bind">
+                        <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
+                        <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
+                        <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
+                        <div class="last_num_box"><span class="last_num">7375</span></div>
+                    </span>
+                    <!---->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---->
     <!---->
     <div class="shipping_address_wrap">
         <div class="section_title">
@@ -587,24 +741,26 @@
         <div class="shipping_address">
             <dl class="address_item">
                 <dt class="address_title">받는 사람</dt>
-                <dd class="address_txt">김**</dd>
+                <dd class="address_txt">${addressDTO.name }</dd>
             </dl>
             <dl class="address_item">
                 <dt class="address_title">휴대폰 번호</dt>
-                <dd class="address_txt">010-7**-*333</dd>
+                <dd class="address_txt address_hp" >
+                   <input type="hidden" id="hidden_hp" value="${addressDTO.hp }" >
+                </dd>
             </dl>
             <dl class="address_item">
                 <dt class="address_title">주소</dt>
-                <dd class="address_txt">(06296) 서울 강남구 논현로32길 5 (도곡동) ㄹㄴㅇㄴㄹㄴ</dd>
+                <dd class="address_txt">(${addressDTO.addr_detail }) ${addressDTO.addr }</dd>
             </dl>
         </div>
-        <!----><!---->
     </div>
    
-    <div></div>
-    <div class="detail_btn_box"><a href="#" class="btn btn_view_list outlinegrey medium" style="padding: 10px 28px;"> 목록보기 </a></div>
+    <div class="detail_btn_box">
+    	<a href="/TeamProject/user/sellHistory" class="btn btn_view_list outlinegrey medium" style="padding: 10px 28px;"> 목록보기 </a>
+    </div>
     <!----><!----><!----><!----><!---->
-        <div class="layer lg layer_alert" style="display: none;">
+   <div class="layer lg layer_alert" style="display: none;">
         <div class="layer_container">
             <div class="layer_header"><h2 class="title">입찰 지우기</h2></div>
             <div class="layer_content">
@@ -618,8 +774,65 @@
     <!----><!---->
 </div>
 <script type="text/javascript">
-	window.onload = function() {
-		$('.snb_menu').eq(0).find('.menu_link').eq(0).removeClass('unbold');
-		$('.snb_menu').eq(0).find('.menu_link').eq(0).addClass('bold');
-	}
+window.onload = function() {
+	$('.snb_menu').eq(0).find('.menu_link').eq(0).removeClass('unbold');
+	$('.snb_menu').eq(0).find('.menu_link').eq(0).addClass('bold');
+}
+//번호 형식 맞추기
+$(document).ready(function() {
+	var hp = "${addressDTO.hp }";
+	var testHp = hp.replace(/(\d{3})(\d{4})(\d{4})/, '$1-****-$3');
+	$(".address_hp").text(testHp);
+	//검수비, 배송료 합치기
+	var priceTot = ${sell_historyDTO.sell_price } + 3600
+	$('#priceTot').text(priceTot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "원");
+	//즉시 판매, 구매가 , 모델번호 
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/user/getProductInfo',
+		data:'product_id=${sell_historyDTO.product_id }',
+		dataType:'json',
+		success: function(data){
+			if(data.max_buyPrice == null){
+				$('#max_buyPrice').text('-');   
+			}else{
+				data.max_buyPrice = data.max_buyPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+				$('#max_buyPrice').text(data.max_buyPrice);
+			}
+			if(data.min_sellPrice == null){
+				$('#min_sellPrice').text('-');   
+			}else{
+				data.min_sellPrice = data.min_sellPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+				$('#min_sellPrice').text(data.min_sellPrice);
+			}
+				$('.number').text(data.model_number);
+			}, error:function(err){
+			console.log(err);
+		}      
+	});
+});
+
+//삭제 버튼 클릭 함수
+$('.deleteBtn').on('click', function(){
+	$('.layer_alert').css('display','block');
+	//취소버튼
+	$('.layer_alert').find('button').eq(0).on('click',function(){
+		$('.layer_alert').css('display','none');
+	})
+	//입찰지우기
+	$('.layer_alert').find('button').eq(1).on('click',function(){
+		$.ajax({
+			type:'post',
+			url:'/TeamProject/user/delSellHistory',
+			data:'sell_id=${sell_historyDTO.sell_id }',
+			dataType:'json',
+			success: function(data){
+				alert('입찰내역이 삭제되었습니다.')
+				$('.layer_alert').css('display','none');
+			}, error:function(err){
+				console.log(err);
+			}		
+		});
+	})
+});
 </script>

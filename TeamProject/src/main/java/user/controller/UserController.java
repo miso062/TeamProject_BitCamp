@@ -252,10 +252,23 @@ public class UserController {
 	@PostMapping(value="getProductInfo")
 	@ResponseBody
 	public Map<String, Object> getProductInfo(@RequestParam int product_id){
-		System.out.println(product_id);
 		return userService.getProductInfo(product_id);
 	}
-	
+	//구매내역 삭제
+	@PostMapping(value="delBuyHistory")
+	@ResponseBody
+	public void delBuyHistory(@RequestParam int buy_id) {
+		System.out.println(buy_id);
+		userService.delBuyHistory(buy_id);
+	}
+	//판매내역 삭제
+	@PostMapping(value="delSellHistory")
+	@ResponseBody
+	public void delSellHistory(@RequestParam int sell_id) {
+		System.out.println(sell_id);
+		userService.delSellHistory(sell_id);
+	}
+
 	@GetMapping(value="likePro")
 	public String likePro(Model model) {
 		model.addAttribute("container", "/WEB-INF/user/myPage/likePro.jsp");

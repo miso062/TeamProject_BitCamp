@@ -39,12 +39,14 @@ public interface UserService {
 	public Sell_historyDTO getSellItem(String sell_id);
 	public ProductImgDTO getProductImg(int product_id);
 	public Map<String, Object> getProductInfo(int product_id);
+	public void delBuyHistory(int buy_id);
+	public void delSellHistory(int sell_id);
 	public String checkKakao(String user_id);
 	public String bookMarkGetDetail(String product_id);
 	public String checkPwd(String pwd);
 	public void userdelete(HttpSession httpsession);
 	public List<AddressDTO> getAddress(String user_id);
 	public Map<String, Object> getLikeProductList();
-  public List<AddressDTO> comeAddress();
+	public List<AddressDTO> comeAddress();
 	public AddressDTO comeAddress1();
 }

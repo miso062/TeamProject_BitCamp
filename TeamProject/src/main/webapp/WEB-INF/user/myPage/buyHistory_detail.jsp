@@ -205,10 +205,6 @@
         top: 49px;
         right: 0;
     }
-    .outlinegrey {
-        border: 1px solid #d3d3d3;
-        color: rgba(34,34,34,.8);
-    }
     .small {
         font-size: 12px;
         letter-spacing: -.06px;
@@ -308,10 +304,10 @@
         white-space: nowrap;
         color: #222;
     }
-    .price_textuy {
+    .price_text.buy {
         color: #f15746;
     }
-    .price_textfter {
+    .price_text:after {
         content: "";
         display: block;
         clear: both;
@@ -319,6 +315,9 @@
     .price_title.dark {
         color: #222;
     }
+    .price_text.bold {
+	    font-weight: 700;
+	}
     .history_btn {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -443,16 +442,42 @@
     }
     .layer_btn {
         padding: 24px 32px 32px;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
         -webkit-box-pack: center;
-        -ms-flex-pack: center;
         justify-content: center;
     }
     .layer_btn .btn {
         width: 120px;
     } 
+    .layer_btn .btn {
+ 	   margin-left: 8px;
+	}
+    .outlinegrey {
+		border: 1px solid #d3d3d3;
+		color: rgba(34,34,34,.8);
+	}
+	.layer_alert .btn {
+	    display: inline-block;
+	    cursor: pointer;
+	    vertical-align: middle;
+	    text-align: center;
+	    color: rgba(34,34,34,.8);
+	    background-color: #fff;
+	}
+	.solid {
+    font-weight: 600;
+    color: #fff;
+    background-color: #222;
+	}
+	.layer_alert .btn_layer_close {
+	    display: none;
+	}
+	.btn_layer_close {
+	    position: absolute;
+	    top: 18px;
+	    right: 20px;
+	    cursor: pointer;
+	}
 </style>
 
 <div class="my_buying_detail bidding">
@@ -461,11 +486,11 @@
             <h3>구매내역 &gt; 입찰 중</h3>
         </div>
         <div class="btn_box">
-            <a href="#" class="btn">
+            <div class="btn deleteBtn">
                 <img src="/TeamProject/img/user/myPage/buyHistory_11/can_trash.png" alt="쓰레기통" class="ico-delete icon sprite-icons">
                 
                 <span class="btn_txt">삭제하기</span>
-            </a>
+            </div>
         </div>
     </div>
     <!---->
@@ -498,7 +523,7 @@
                     <li class="price_item">
                         <div class="item_inner">
                             <span class="price_title">즉시 구매가</span>
-                            <p class="price"><span class="amount" id="max_buyprice"></span><span class="unit">원</span></p>
+                            <p class="price"><span class="amount" id="max_buyPrice"></span><span class="unit">원</span></p>
                         </div>
                     </li>
                     <li class="price_item">
@@ -552,7 +577,7 @@
                         <dt class="price_title dark">
                             <span>총 결제금액</span>
                         </dt>
-                        <dd class="price_text bold buy">33,600원</dd>
+                        <dd class="price_text bold buy priceTot"></dd>
                     </dl>
                 </div>
                 <div class="detail_box">
@@ -571,6 +596,7 @@
                         <dd class="price_text" style="font-weight: 500;"> 
                         	<fmt:formatDate value="${buy_historyDTO.period }" pattern="yyyy/MM/dd(E)" />
                         </dd>
+                        <dd class="price_text buy" style="display: none">기한 만료</dd>
                     </dl>
                 </div>
             </div>
@@ -578,6 +604,9 @@
                 <a href="/TeamProject/shop/enterBuyPrice?product_id=${buy_historyDTO.product_id }&size=${ buy_historyDTO.size_type}" class="btn outline medium"> 입찰 변경하기 </a>
                 <a href="#" class="btn buy outline medium"> 즉시 구매하기 </a>
 			</div>
+			<div class="history_btn" style="display: none">
+                <a href="/TeamProject/shop/entersellPrice?product_id=${sell_historyDTO.product_id }&size=${ sell_historyDTO.size_type}" class="btn outline medium"> 다시 입찰하기  </a>
+         	</div>
         </div>
     </div>
     <!---->
@@ -604,7 +633,9 @@
         </div>
     </div>
    
-    <div class="detail_btn_box"><a href="#" class="btn btn_view_list outlinegrey medium" style="padding: 10px 28px;"> 목록보기 </a></div>
+    <div class="detail_btn_box">
+    	<a href="/TeamProject/user/buyHistory" class="btn btn_view_list outlinegrey medium" style="padding: 10px 28px;"> 목록보기 </a>
+    </div>
     <!----><!----><!----><!----><!---->
 	<div class="layer lg layer_alert" style="display: none;">
         <div class="layer_container">
@@ -612,7 +643,7 @@
             <div class="layer_content">
                 <div class="alert_box"><p class="alert_desc">등록하신 입찰을 지우시면 주문이 취소됩니다.</p></div>
                 <div class="layer_btn">
-                    <button type="button" class="btn outlinegrey medium">취소</button><button type="button" class="btn outlinegrey medium">입찰 지우기</button>
+                    <button type="button" class="btn outlinegrey medium">취소</button><button type="button" class="btn outlinegrey medium solid">입찰 지우기</button>
                 </div>
             </div>
         </div>
@@ -629,7 +660,10 @@ $(document).ready(function() {
 	var hp = "${addressDTO.hp }";
 	var testHp = hp.replace(/(\d{3})(\d{4})(\d{4})/, '$1-****-$3');
 	$(".address_hp").text(testHp);
-  
+	//검수비, 배송료 합치기
+	var priceTot = ${buy_historyDTO.buy_price } + 3600
+	$('#priceTot').text(priceTot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "원");
+	
 	//즉시 판매, 구매가 , 모델번호 
 	$.ajax({
 		type:'post',
@@ -637,24 +671,49 @@ $(document).ready(function() {
 		data:'product_id=${buy_historyDTO.product_id }',
 		dataType:'json',
 		success: function(data){
-			alert(JSON.stringify(data));
+			//alert(JSON.stringify(data));
 			if(data.max_buyPrice == null){
 				$('#max_buyPrice').text('-');	
 			}else{
+				data.max_buyPrice = data.max_buyPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 				$('#max_buyPrice').text(data.max_buyPrice);
 			}
 			if(data.min_sellPrice == null){
 				$('#min_sellPrice').text('-');	
 			}else{
+				data.min_sellPrice = data.min_sellPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 				$('#min_sellPrice').text(data.min_sellPrice);
 			}
 			$('.number').text(data.model_number);
-		},
-		error:function(err){
+		},error:function(err){
 			console.log(err);
 		}		
 	});
-	
+});
+
+//삭제 버튼 클릭 함수
+$('.deleteBtn').on('click', function(){
+	$('.layer_alert').css('display','block');
+	//취소버튼
+	$('.layer_alert').find('button').eq(0).on('click',function(){
+		$('.layer_alert').css('display','none');
+	})
+	//입찰지우기
+	$('.layer_alert').find('button').eq(1).on('click',function(){
+		$.ajax({
+			type:'post',
+			url:'/TeamProject/user/delBuyHistory',
+			data:'buy_id=${buy_historyDTO.buy_id }',
+			dataType:'json',
+			success: function(data){
+				alert('입찰내역이 삭제되었습니다.')
+				$('.layer_alert').css('display','none');
+			},
+			error:function(err){
+				console.log(err);
+			}		
+		});
+	})
 });
 
 </script>
