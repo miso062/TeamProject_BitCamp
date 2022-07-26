@@ -195,4 +195,22 @@ public class ShopServiceImpl implements ShopService {
 		System.out.println(buy_historyDTO);
 		return buy_historyDTO;
 	}
+
+	@Override
+	public Sell_historyDTO insertSellPayBySellId(Sell_historyDTO sell_historyDTO, int buy) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("sell_historyDTO", sell_historyDTO);
+		map.put("buy", buy);
+//		return shopDAO.insertSellPayBySellId(map);
+		return null;
+	}
+
+	@Override
+	public Sell_historyDTO insertSellPay(Sell_historyDTO sell_historyDTO) {
+		sell_historyDTO.setUser_id((String) session.getAttribute("memId"));
+//		sell_historyDTO = shopDAO.insertBuyPay(sell_historyDTO);
+		System.out.println(sell_historyDTO);
+//		return sell_historyDTO;
+		return null;
+	}
 }

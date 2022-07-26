@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import product.bean.Buy_historyDTO;
 import product.bean.Sell_historyDTO;
 import shop.service.ShopService;
+import user.bean.AddressDTO;
 
 @Controller
 @RequestMapping(value="/shop")
@@ -121,7 +123,7 @@ public class SellController {
 		DecimalFormat decFormat = new DecimalFormat("###,###");
 		
 		int product_id = Integer.parseInt(String.valueOf(map.get("product_id")));
-		int total_price = Integer.parseInt(String.valueOf(map.get("price")).replaceAll(",", ""))+3600;
+		int total_price = Integer.parseInt(String.valueOf(map.get("price")).replaceAll(",", ""))+600;
 		
 		map.put("productDTO", shopService.getProduct(product_id));
 		map.put("productImgDTO", shopService.getImage(product_id));
@@ -131,6 +133,22 @@ public class SellController {
 		model.addAttribute("container", "/WEB-INF/shop/sell/sellPay.jsp");
 		model.addAttribute("map", map);
 		return "forward:/shop/sell";
+	}
+	
+//	구매 정보 입력
+	@PostMapping(value="/insertSellPay")
+	@ResponseBody
+	public Sell_historyDTO insertSellPay(@ModelAttribute Sell_historyDTO sell_historyDTO,
+									   @RequestParam(defaultValue = "0", required = false) int buy) {
+		System.out.println(sell_historyDTO);
+//		즉시 구매
+		if(buy != 0) {
+			return shopService.insertSellPayBySellId(sell_historyDTO, buy);
+		}
+//		구매 입찰
+		else {
+			return shopService.insertSellPay(sell_historyDTO);
+		}
 	}
 	
 	@GetMapping(value="/sellFinish")
