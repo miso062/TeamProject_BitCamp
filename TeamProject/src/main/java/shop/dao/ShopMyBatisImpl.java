@@ -94,7 +94,7 @@ public class ShopMyBatisImpl implements ShopDAO {
 		} else if (filter.equals("buy")) {
 			list = sqlSession.selectList("shopSQL.scrollBuyProductList", map);
 		} else if (filter.equals("sell")) {
-			 sqlSession.selectList("shopSQL.scrollSellProductList", map);
+			 list = sqlSession.selectList("shopSQL.scrollSellProductList", map);
 		}
 		return list;
 	}

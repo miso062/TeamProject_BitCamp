@@ -52,7 +52,7 @@ public class ShopController {
 //		System.out.println(num +" | " + filter);
 		List<ShopDTO> list = shopService.scrollProductList(num, filter);
 		list.get(0).setPage(num);
-
+		
 		return list;
 	}
   
