@@ -483,17 +483,18 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Map<String, Object> getLikeProductList() {
 		String id = (String) session.getAttribute("memId"); //({1104},{1204},{1504})
+		System.out.println(id);
 		//여기서 내가 좋아효한 product_id 를 가져온다
 	 	List<LikeProDTO> list= userDAO.getLikeProductList(id);
 	 	List<ProductDTO> list2 = null;
 	 	List<ProductImgDTO> list3 = null;
 	 	for(LikeProDTO likeProDTO : list) {
-	 		likeProDTO.getProduct_id();//product_id값을 가지고온거
-	 		list2 = userDAO.getLikeProducts(likeProDTO.getProduct_id());
-	 		list3 = userDAO.getProductAll(likeProDTO.getProduct_id());
-	 		System.out.println(list2);
-	 		System.out.println(list3);
+	 		ProductDTO productDTO =userDAO.getLikeProducts(likeProDTO.getProduct_id());
+	 		list2.add(productDTO);
+	 		System.out.println("ㅎㅇㅎㅇ");
+	 		list3.add(userDAO.getProductAll(likeProDTO.getProduct_id()));
 	 	}
+	 	System.out.println(list2);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list2",list2);
 		map.put("list3",list3);
