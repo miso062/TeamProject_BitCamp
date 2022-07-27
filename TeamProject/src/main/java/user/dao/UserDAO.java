@@ -38,6 +38,8 @@ public interface UserDAO {
 	public Buy_historyDTO getBuyItem(String buy_id);
 	public Sell_historyDTO getSellItem(String sell_id);
 	public AddressDTO getAddress(Integer address_id);
+	public void delSellHistory(int sell_id);
+	public void delBuyHistory(int buy_id);
 	public ProductImgDTO getProductImg(int product_id);
 	public void SignUpNaver(UserDTO userDTO);
 	public UserDTO loginNaver(String user_id);

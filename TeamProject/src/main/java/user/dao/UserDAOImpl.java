@@ -154,7 +154,7 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public Sell_historyDTO getSellItem(String sell_id) {
-		return sqlSession.selectOne("userSQL.getBuyItem", sell_id);
+		return sqlSession.selectOne("userSQL.getSellItem", sell_id);
 	}
 	
 	@Override
@@ -179,6 +179,16 @@ public class UserDAOImpl implements UserDAO {
 		return map;
 	}
 	
+	@Override
+	public void delSellHistory(int sell_id) {
+		sqlSession.delete("userSQL.delSellHistory", sell_id);		
+	}
+	
+	@Override
+	public void delBuyHistory(int buy_id) {
+		sqlSession.delete("userSQL.delBuyHistory", buy_id);
+	}
+
 	@Override
 	public int checkIdKakao(String user_id) {
 		return sqlSession.selectOne("userSQL.checkIdKakao", user_id);
