@@ -620,7 +620,7 @@ $(document).on('click','.check_default_address_label',function(){ // 기본 배�
 
 $(document).on('click','.bTn.bTn_save.solid.medium.passadd',function(){ // 배송지 저장
 	$.ajax({
-		url:'/TeamProject/user/addAddressBook',
+		url:'/TeamProject/user/addAddressBook1',
 		type: 'post',
 		data: {
 			'name': $('#name_input').val(),

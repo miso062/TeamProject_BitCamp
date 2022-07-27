@@ -71,8 +71,12 @@
 		        left join (select product_id as pi_pi, file_path from pro_image) pi on pi_pi like p.product_id
 		        where post_status='판매중' 
 		        order by sell_cnt desc nulls last
-		    ) tt
+		    ) tt where (category  like '%'||#{command}||'%' 
+			or lower(eng_name) like lower('%'||#{command}||'%') 
+			or kor_name like '%'||#{command}||'%')
 		) aa where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>
+			
+			
 				
 				 
 		
@@ -90,7 +94,9 @@
 		        left join (select product_id as pi_pi, file_path from pro_image) pi on pi_pi like p.product_id
 		        where post_status='판매중' 
 		        order by price nulls last
-		    ) tt
+		    ) tt where (category  like '%'||#{command}||'%' 
+			or lower(eng_name) like lower('%'||#{command}||'%') 
+			or kor_name like '%'||#{command}||'%')
 		) aa where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>
 	</select>
     
@@ -105,7 +111,9 @@
 		        left join (select product_id as pi_pi, file_path from pro_image) pi on pi_pi like p.product_id
 		        where post_status='판매중' 
 		        order by price desc nulls last
-		    ) tt
+		    ) tt where (category  like '%'||#{command}||'%' 
+			or lower(eng_name) like lower('%'||#{command}||'%') 
+			or kor_name like '%'||#{command}||'%')
 		) aa where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>
 	</select>
   

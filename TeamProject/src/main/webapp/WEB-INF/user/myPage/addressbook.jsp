@@ -427,120 +427,20 @@ input::placeholder{
                     <!---->
                     <div class="address_info">
                         <div class="name_box"><span class="name"></span><span class="mark"></span></div>
-                        <p class="phone"><span class="hyphen"></span>7<span class="dot"></span><span class="dot"></span><span class="hyphen"></span><span class="dot"></span></p>
+                        <p class="phone"></p>
                         <div class="address_box"><span class="zipcode"></span><span class="address"></span></div>
                     </div>
                 </div>
                 <div class="btn_bind">
                     <!---->
-                    <a href="#" class="btn outlinegrey small"> 수정 </a><a href="#" class="btn outlinegrey small"> 삭제 </a>
+                    <a href="#" class="btn outlinegrey small modify"> 수정 </a><a href="#" class="btn outlinegrey small delete"> 삭제 </a>
                 </div>
+                <input type="hidden" class="address_id"/>
+                    
             </div>
         </div>
         <div class="other">
             <div class="other_list">
-                <div class="my_item">
-                    <div class="info_bind">
-                        <!---->
-                        <div class="address_info">
-                            <div class="name_box">
-                                <span class="name">김**</span>
-                                <!---->
-                            </div>
-                            <p class="phone">010<span class="hyphen"></span>4<span class="dot"></span><span class="dot"></span><span class="hyphen"></span><span class="dot"></span>321</p>
-                            <div class="address_box"><span class="zipcode">(18148)</span><span class="address">경기 오산시 부산중앙로 11 (부산동, 오산시티자이 1단지) 4324</span></div>
-                        </div>
-                    </div>
-                    <div class="btn_bind">
-                        <a href="#" class="btn outlinegrey small"> 기본 배송지 </a><a href="#" class="btn outlinegrey small"> 수정 </a>
-                        <a href="#" class="btn outlinegrey small"> 삭제 </a>
-                    </div>
-                </div>
-                <div class="my_item">
-                    <div class="info_bind">
-                        <!---->
-                        <div class="address_info">
-                            <div class="name_box">
-                                <span class="name">로**</span>
-                                <!---->
-                            </div>
-                            <p class="phone">010<span class="hyphen"></span>1<span class="dot"></span><span class="dot"></span><span class="hyphen"></span><span class="dot"></span>432</p>
-                            <div class="address_box"><span class="zipcode">(05573)</span><span class="address">서울 송파구 도곡로 434 (잠실동) 234</span></div>
-                        </div>
-                    </div>
-                    <div class="btn_bind">
-                        <a href="#" class="btn outlinegrey small"> 기본 배송지 </a><a href="#" class="btn outlinegrey small"> 수정 </a>
-                        <a href="#" class="btn outlinegrey small"> 삭제 </a>
-                    </div>
-                </div>
-                <div class="my_item">
-                    <div class="info_bind">
-                        <!---->
-                        <div class="address_info">
-                            <div class="name_box">
-                                <span class="name">로**</span>
-                                <!---->
-                            </div>
-                            <p class="phone">010<span class="hyphen"></span>2<span class="dot"></span><span class="dot"></span><span class="hyphen"></span><span class="dot"></span>282</p>
-                            <div class="address_box"><span class="zipcode">(06313)</span><span class="address">서울 강남구 논현로 6 (개포동, 혜정빌딩) fsd</span></div>
-                        </div>
-                    </div>
-                    <div class="btn_bind">
-                        <a href="#" class="btn outlinegrey small"> 기본 배송지 </a><a href="#" class="btn outlinegrey small"> 수정 </a>
-                        <a href="#" class="btn outlinegrey small"> 삭제 </a>
-                    </div>
-                </div>
-                <div class="my_item">
-                    <div class="info_bind">
-                        <!---->
-                        <div class="address_info">
-                            <div class="name_box">
-                                <span class="name">5****</span>
-                                <!---->
-                            </div>
-                            <p class="phone">010<span class="hyphen"></span>2<span class="dot"></span><span class="dot"></span><span class="hyphen"></span><span class="dot"></span>422</p>
-                            <div class="address_box"><span class="zipcode">(06035)</span><span class="address">서울 강남구 가로수길 9 (신사동) 324</span></div>
-                        </div>
-                    </div>
-                    <div class="btn_bind">
-                        <a href="#" class="btn outlinegrey small"> 기본 배송지 </a><a href="#" class="btn outlinegrey small"> 수정 </a>
-                        <a href="#" class="btn outlinegrey small"> 삭제 </a>
-                    </div>
-                </div>
-                <div class="my_item">
-                    <div class="info_bind">
-                        <!---->
-                        <div class="address_info">
-                            <div class="name_box">
-                                <span class="name">홍**</span>
-                                <!---->
-                            </div>
-                            <p class="phone">010<span class="hyphen"></span>0<span class="dot"></span><span class="dot"></span><span class="hyphen"></span><span class="dot"></span>010</p>
-                            <div class="address_box"><span class="zipcode">(30068)</span><span class="address">세종특별자치시 연동면 내송길 5 4324</span></div>
-                        </div>
-                    </div>
-                    <div class="btn_bind">
-                        <a href="#" class="btn outlinegrey small"> 기본 배송지 </a><a href="#" class="btn outlinegrey small"> 수정 </a>
-                        <a href="#" class="btn outlinegrey small"> 삭제 </a>
-                    </div>
-                </div>
-                <div class="my_item">
-                    <div class="info_bind">
-                        <!---->
-                        <div class="address_info">
-                            <div class="name_box">
-                                <span class="name">김****</span>
-                                <!---->
-                            </div>
-                            <p class="phone">010<span class="hyphen"></span>10<span class="dot"></span><span class="dot"></span><span class="hyphen"></span><span class="dot"></span>101</p>
-                            <div class="address_box"><span class="zipcode">(17704)</span><span class="address">경기 평택시 서탄면 방꼬지길 199-6 ㄹㄴㅇ</span></div>
-                        </div>
-                    </div>
-                    <div class="btn_bind">
-                        <a href="#" class="btn outlinegrey small"> 기본 배송지 </a><a href="#" class="btn outlinegrey small"> 수정 </a>
-                        <a href="#" class="btn outlinegrey small"> 삭제 </a>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="pagination">
@@ -576,7 +476,7 @@ input::placeholder{
     <div></div>
     <!---->
 </div>
-<!-- 모달창 부분-->
+<!-- 모달창(새배송지) 부분-->
 <div class="layer_delivery layer lg" style="display :none;">
     <div class="layer_container">
         <div class="layer_header"><h2 data-v-728c367a="" data-v-350bc372="" class="title">새 주소 추가</h2></div>
@@ -634,8 +534,10 @@ input::placeholder{
             <!---->
         </a>
     </div>
-    </div>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</div>
+
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
 window.onload = function() {
 	$('.snb_menu').eq(1).find('.menu_link').eq(1).removeClass('unbold');
@@ -646,6 +548,7 @@ window.onload = function() {
 }
 
 
+
 //기본주소 아닌 것들 불러오기
 function comeAddress() {
     $.ajax({
@@ -654,18 +557,23 @@ function comeAddress() {
         success: function(data){
         	var addr;
         	if(data.list != null) {
-            $.each(data.list, function(index, items){
-            	 addr = '<div class="my_item select">'+
-                 '<div class="info_bind">'+
-                 '<div class="address_info"><div class="name_box">'+
-                 '<span class="name">'+items.name+'</span>'+
-                 '<p class="phone">'+hp+'</p>'+
-                 '<div class="address_box">'+
-                 '<span class="zipcode">('+items.zipcode+') </span>'+
-                 '<span class="address">'+items.addr+' '+items.addr_detail+'</span>'+
-                 '</div></div></div></div><div class="btn_bind"></div>'+
-                 '<input type="hidden" class="address_id" value='+items.address_id+'></div>';
-        	}//
+	            $.each(data.list, function(index, items){
+	            	 addr = '<div class="my_item select">'+
+	                 '<div class="info_bind">'+
+	                 '<div class="address_info"><div class="name_box">'+
+	                 '<span class="name">'+items.name+'</span>'+
+	                 '<p class="phone">'+items.hp+'</p>'+
+	                 '<div class="address_box">'+
+	                 '<span class="zipcode">('+items.zipcode+') </span>'+
+	                 '<span class="address">'+items.addr+' '+items.addr_detail+'</span>'+
+	                 '</div></div></div></div><div class="btn_bind">'+
+	                 '<a href="#" class="btn outlinegrey small basic_address"> 기본 배송지 </a>'+
+	         		 '<a href="#" class="btn outlinegrey small modify"> 수정 </a>'+
+	                 '<a href="#" class="btn outlinegrey small delete"> 삭제 </a>'+'</div>'+
+	                 '<input type="hidden" class="address_id" value='+items.address_id+'></div>';
+	        		$(".other_list").append(addr);
+	        	})
+        	}
         },//sccuess
         error : function(err){
             console.log(err)
@@ -678,9 +586,9 @@ function comeAddress1() {
         type: 'post',
         url : '/TeamProject/user/comeAddress1',
         success: function(data){
-        	
 			if(data !="") {
 				var hp = data.hp.replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+            $('.basic .address_id').val(data.address_id);   
             $('.basic .name').text(data.name)
             $('.basic .phone').text(hp)
             $('.basic .zipcode').text('('+data.zipcode+')')
@@ -693,6 +601,23 @@ function comeAddress1() {
         }
     })
 }
+//삭제 버튼 누를 시 바로 삭제 후 업로드
+$(document).on('click' , '.btn.small.delete', function(){
+    alert('옵니까?')
+    $.ajax({
+        type : 'post',
+        url : '/TeamProject/user/myAddressDelete',
+        data : {'address_id' : $(this).parent().next().val()},
+        success: function(){
+            alert('오냐구용')
+            $('.other_list .my_item.select').remove()
+            comeAddress()
+        },
+        error : function(err){
+            console.log(err)
+        }
+    })
+})
 
 
 // open add address modal
@@ -705,6 +630,7 @@ function addr_initialization(){
     $('#zipcode').val('');
     $('#addr1').val('');
     $('#addr2').val('');
+    $('')
 }
 //켰을  addr_initialization() 초기화
 $('.btn_txt').click(function(){
@@ -716,6 +642,9 @@ $(document).on("click",function(e){
     if($('.layer_delivery').is(e.target)) {
         $('.layer_delivery').fadeOut();
         $('body').css("overflow-y", "scroll");
+        $('.bTn.bTn_save.solid').removeClass('passadd')
+        $('.bTn.bTn_save.solid').removeClass('modify')
+        $('.bTn.bTn_save.solid').addClass('disabled')
     }
 });
 $('.layer_bTn').click(function(){ // 취소 버튼 눌러서 종료
@@ -860,6 +789,7 @@ $(document).on('click','.check_label',function(){
 			$(this).prev().val('0');
 		}
 });
+// 새 배송지 추가DB에 전송
 $(document).on('click','.bTn.bTn_save.solid.medium.passadd',function(){
 	$.ajax({
 		url:'/TeamProject/user/addAddressBook',
@@ -874,6 +804,10 @@ $(document).on('click','.bTn.bTn_save.solid.medium.passadd',function(){
 		},
 		success: function(){
 			alert('저장되었습니다.');
+            
+            $('.other_list .my_item.select').remove()
+            comeAddress()
+            comeAddress1()
 		},
 		error: function(err){
 		console.log(err);
@@ -881,4 +815,72 @@ $(document).on('click','.bTn.bTn_save.solid.medium.passadd',function(){
 	});
 });
 
+$(document).on('click','.bTn.bTn_save.solid.medium.passadd.modify',function(){
+	$.ajax({
+		url:'/TeamProject/user/addAddressModify',
+		type: 'post',
+		data: {
+            'address_id' :$(this).parent().next().val(),
+			'name': $('#name_input').val(),
+			'hp': $('#phone_input').val(),
+			'zipcode': $('#zipcode').val(),
+			'addr': $('#addr1').val(),
+			'addr_detail': $('#addr2').val(),
+			'flag' : $('#check1').val()
+		},
+		success: function(){
+		
+            
+            $('.other_list .my_item.select').remove()
+            comeAddress()
+            comeAddress1()
+	},
+		error: function(err){
+		console.log(err);
+		}
+	});
+});
+//수정 버튼 누를 시 정보 가져오기
+$(document).on('click' ,'.btn.small.modify' , function(){
+    alert('ㅎㅇ')
+    $.ajax({
+        type : 'post',
+        url: '/TeamProject/user/myGetAddress',
+        data : {'address_id' : $(this).parent().next().val()},
+        success : function(data){
+            $('#name_input').val('');
+            $('#phone_input').val('');
+            $('#zipcode').val(data.zipcode)
+            $('#addr1').val(data.addr)
+            $('#addr2').val(data.addr_detail)
+            $('.bTn.bTn_save.solid').removeClass('disabled')
+            $('.bTn.bTn_save.solid').addClass('passadd')
+            $('.bTn.bTn_save.solid').addClass('modify')
+            
+            $('.layer_delivery').fadeIn();
+            $('body').css("overflow", "hidden"); 
+
+        },
+        error : function(err){
+            console.log(err)
+        }
+
+    })
+})
+// 기본배송지 설정
+$(document).on('click' ,'.basic_address' , function(){
+    $.ajax({
+        type : 'post',
+        url : '/TeamProject/user/changeFlag',
+        data : {'address_id' : $(this).parent().next().val()},
+        success: function(){
+            $('.other_list .my_item.select').remove()
+            comeAddress()
+            comeAddress1()
+        },
+        error : function(err){
+            console.log(err)
+        }
+    })
+})
 </script>
