@@ -164,6 +164,12 @@
 										        <nav class="text-center" id="paginate"></nav>
 										    </div>
 										    <div class="card-body no-padding">
+										        <div class="li_table" id="UI_TABLE1">
+										            
+												 </div>
+										        <nav class="text-center" id="paginate"></nav>
+										    </div>
+										    <div class="card-body no-padding">
 										        <div class="li_table" id="UI_TABLE2">
 										            <!-- <ul class="content _tbody" id="member_item" data-nick="" data-app="">
 										                <li class="nick">관리자</li>
@@ -559,8 +565,8 @@ $(document).ready(function(){
 			$('#UI_TABLE2').html('');
 			var addr;
 			$.each(data,function(index,items){
-				if(items.authority > 2){
-					items.authority ='관리자 <span class="badge">매니저</span>'
+				if(items.authority == 5){
+					items.authority ='<div style="color:blue; font-weight: bold;">우수회원</div>'
 				}else{
 					items.authority = '일반회원'
 				}
@@ -573,6 +579,37 @@ $(document).ready(function(){
                 '<li class="date_join">'+items.sign_up_date+'</li>'+
             	'</ul>';
             	$('#UI_TABLE2').append(addr)
+				
+			})
+		},
+		error:function(e){
+			console.log(e);
+		}
+		
+	})
+});
+$(document).ready(function(){
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/admin/getAllUserList2',
+		dataType:'json',
+		success:function(data){
+			$('#UI_TABLE1').html('');
+			var addr;
+			$.each(data,function(index,items){
+			if(items.authority == 10){
+				items.authority= '관리자 <span class="badge">매니저</span>'
+			}
+				
+				addr = '<ul class="content _tbody" id="member_item">'+
+                '<li class="nick" style="width:170px;">'+items.authority+'</li>'+
+                '<li class="nick" style="width:170px;">'+items.user_name+'</li>'+
+                '<li class="nick" style="width:170px;">'+items.nickname+'</li>'+
+                '<li class="account" style="width:250px;">'+items.user_id+'</li>'+
+                '<li class="date_mileage" style="width:250px;">'+phoneFormatter(items.hp)+'</li>'+
+                '<li class="date_join">'+items.sign_up_date+'</li>'+
+            	'</ul>';
+            	$('#UI_TABLE1').append(addr)
 				
 			})
 		},
