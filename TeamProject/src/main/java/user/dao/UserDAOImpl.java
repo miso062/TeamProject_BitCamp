@@ -103,7 +103,6 @@ public class UserDAOImpl implements UserDAO {
   
 	@Override
 	public void updateImg(Map<String, String> map) {
-		System.out.println(map);
 		sqlSession.update("userSQL.updateImg", map);
 	}
 
