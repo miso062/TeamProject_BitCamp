@@ -197,6 +197,10 @@ public class ShopServiceImpl implements ShopService {
 	}
 
 	@Override
+	public Integer shopLikeProduct(int product_id) {
+		return shopDAO.getlikeproduct(product_id);
+  }
+  
 	public Sell_historyDTO insertSellPayBySellId(Sell_historyDTO sell_historyDTO, int buy) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("sell_historyDTO", sell_historyDTO);
@@ -211,5 +215,6 @@ public class ShopServiceImpl implements ShopService {
 		sell_historyDTO = shopDAO.insertSellPay(sell_historyDTO);
 		System.out.println(sell_historyDTO);
 		return sell_historyDTO;
+
 	}
 }

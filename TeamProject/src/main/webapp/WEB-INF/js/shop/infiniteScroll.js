@@ -110,7 +110,7 @@ $(document).ready(function(){
 				data:'num=' + page + '&sort=' + sort +'&command='+$('#command').val() , 
 				dataType:'json',
 				success: function(data){
-//					console.log(data)
+					console.log(data)
 					try {						
 						for(var i=0; i<16; i++){
 							//console.log(page)
@@ -133,14 +133,20 @@ $(document).ready(function(){
 									.append($('<p/>', { text:'즉시 구매가' })))
 									.append($('<div/>', { class:'shop_interest_figure' })
 									.append($('<span/>', { class:'shop_wish_figure'  }))
-									.append($('<img/>',{ class:'shop_bookmark', src: '/TeamProject/img/shop/bookmark.svg' }))
-									.append($('<span/>',{ class:'shop_text', text: data[i].like_cnt }))
+									.append($('<img/>',{ class:'shop_bookmark',id:'shop_bookmark_'+data[i].product_id, src: '/TeamProject/img/shop/bookmark.svg' })
+										.click(function(e){
+											var id = e.target.id;
+											id = id.replace('shop_bookmark_', '')
+											setShopLike(id)
+										}))
+									.append($('<input type="hidden" class="product_id" value="'+data[i].product_id+'">'))
+									.append($('<span/>',{ class:'shop_text', id:'shop_text_' + data[i].product_id , text: data[i].like_cnt }))
 									.append($('<span/>',{ class:'shop_review_figure'}))
 									.append($('<a/>',{ class:'review_link'}))
 									.append($('<img/>',{ class: 'bi_postcard', src:'/TeamProject/img/shop/reply_icon.png'})))
 								)
 							}
-							
+						
 							if (page === 1) {
 								list = document.querySelector('.shop-list-ul');
 								//이후 새로운 요소를 추가할 때 사용될 부모 요소
@@ -158,6 +164,9 @@ $(document).ready(function(){
 								callback();		
 							}
 							console.log(currentNum);
+							
+							
+							
 						} catch (e) {
 							//console.log(e)
 							// 마지막 페이지 일 시에 종료 해야 하는
@@ -190,3 +199,91 @@ $(document).ready(function(){
 		/*https://velog.io/@eunoia/%EB%AC%B4%ED%95%9C-%EC%8A%A4%ED%81%AC%EB%A1%A4Infinite-scroll-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0*/
 
 });
+
+
+$(function(){
+	// 이미지 클릭시 로테이션으로 변경하기
+	$('.shop_bookmark').on({
+	    'click': function() {
+	         var src = ($(this).attr('src') === '/TeamProject/img/main/container2/bookmark.svg')
+	            ? '/TeamProject/img/main/container2/bookmark-fill.svg'
+	            : '/TeamProject/img/main/container2/bookmark.svg';
+	         $(this).attr('src', src);
+	    }
+	});
+});
+
+
+
+//샵 찜하기 넣기.
+function setShopLike(product_id){
+	
+	$.ajax({
+		type:'post',
+		url: '/TeamProject/user/bookMarkInsert',
+		data: {'product_id': product_id },
+		success: function(data){
+			if(!'${sessionScope.memId'){
+				alert('로그인 먼저 해 주세요.');
+			}
+			if ($('#shop_bookmark_'+product_id).hasClass('active')) {
+				$.ajax({
+					type:'post',
+					url: '/TeamProject/user/bookMarkDelete',
+					data: {'product_id': product_id},
+					success: function(){
+						$('#shop_bookmark_'+product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
+						$('#shop_bookmark_'+product_id).removeClass('active');
+	                    // 찜 카운트 수 불러오기 
+	                    $.ajax({
+	                        type: 'post',
+	                        url : '/TeamProject/shop/getlikeproduct',
+	                        data : {'product_id': product_id},
+	                        success : function(data){
+	                            if(data =='0'){
+	                              $('#shop_text_' + product_id).text('0');	
+	                            }else{
+	                           	  $('#shop_text_' + product_id).text(data);
+	                            } 
+	                        },
+	                        error: function(err){
+	                            console.log(err)
+	                        }    
+	                     })   
+					},
+					error: function(e){
+						console.log(e);
+					}
+				})
+			} else {
+				
+				$.ajax({
+					 type:'post',
+					 url:'/TeamProject/user/bookMarkGet',
+					 success: function(data){
+						 $.each(data.list, function(index, items){
+							if(items.product_id == product_id){
+								$('#shop_bookmark_'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+								$('#shop_bookmark_'+items.product_id).addClass('active');
+							}else {
+								$('#shop_bookmark_'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
+								
+							}
+						 })
+						 
+						 var value = $('#shop_text_' + product_id).text();
+						 $('#shop_text_' + product_id).text(Number(value) + 1)
+						
+					 },
+					 error: function(e){
+						 console.log(e);
+					 }
+				});
+			}
+		},
+		error: function(err){
+			console.log(err);
+			alert('에러메렁ㅋ.');
+		}
+	});
+};
