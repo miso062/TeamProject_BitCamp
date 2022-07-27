@@ -42,24 +42,31 @@ li, ol, ul {
 }
 .c1_column_bind {
     position: relative;
+    width: 100%; /* 추가됨 */
+    height: 1832px; /* 추가됨 */
 }
 .c1_column_bind .c1_column_box1 {
-	margin-left: 70px;
-    width: 84%;
+	/* margin-left: 70px; */
+    /* width: 84%; */
+    width: 100%;
 }
 .c1_is_fixed .c1_column_box1 {
-    width: 24.7%;
-    position: fixed;
+    /* width: 24.7%;
+    position: fixed; */
     top: 130px;
+    width: 50%; /* 추가됨 */
+    position: fixed; /* 추가됨 */
 }
 .c1_is_absolute .c1_column_box1 {
     position: absolute;
     width: 39.2%;
     bottom: 0;
-    top: 1550px;
+    /* top: 1550px; */
+    top: 1370px;
 }
 .c1_column {
     width: 50%;
+    height: 100%; /* 추가됨 */
 }
 .c1_column:first-child {
     float: left;
@@ -1266,18 +1273,28 @@ $("document").ready(function() {
 
 $(function(){
 	var lastScroll = 0;
-		$(window).scroll(function(event) {
-			var scroll = $(this).scrollTop();
-			if (scroll < 1560) { //이벤트를 적용시킬 스크롤 높이               
-				$(".c1_column:eq(0)").addClass("c1_is_fixed");
-				$(".c1_column:eq(0)").removeClass("c1_is_absolute");
-			} else{
-				$(".c1_column:eq(0)").removeClass("c1_is_fixed");
-				$(".c1_column:eq(0)").addClass("c1_is_absolute");
-			}
-			lastScroll = scroll;
-		});
-	});
+    $(window).scroll(function(event) {
+        var scroll = $(this).scrollTop();
+        console.log(scroll);
+        if (scroll < 1380) { //이벤트를 적용시킬 스크롤 높이 (1560)
+            $(".c1_column:eq(0)").addClass("c1_is_fixed");
+            $(".c1_column:eq(0)").removeClass("c1_is_absolute");
+            var width = $(".c1_column:eq(0)").width();
+            $(".c1_is_fixed .c1_column_box1").css('width', width);
+        } else{
+            $(".c1_column:eq(0)").removeClass("c1_is_fixed");
+            $(".c1_column:eq(0)").addClass("c1_is_absolute");
+        }
+        lastScroll = scroll;
+    });
+
+    window.onresize = function() {
+        var width = $(".c1_column:eq(0)").width();
+        $(".c1_is_fixed .c1_column_box1").css('width', width);
+        $(".c1_is_absolute .c1_column_box1").css('width', width);
+    };
+});
+
 
 $(function(){
 	var lastScroll = 0;
