@@ -1,5 +1,6 @@
 package user.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -185,6 +186,11 @@ public class UserServiceImpl implements UserService {
 		
 		return addressDTO;
 	}
+	//주소 삭제
+	@Override
+	public void myAddressDelete(String address_id) {
+		userDAO.myAddressDelete(address_id);		
+	}
 	
 	//주소록
 	@Override
@@ -338,6 +344,15 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getSellItem(sell_id);
 	}
 	
+	@Override
+	public void delBuyHistory(int buy_id) {
+		userDAO.delBuyHistory(buy_id);
+	}
+
+	@Override
+	public void delSellHistory(int sell_id) {
+		userDAO.delSellHistory(sell_id);
+	}
 	//마이페이지
 	//-----------------------------------------------------------
 	
@@ -346,6 +361,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public AddressDTO getAddress(Integer address_id) {
 		return userDAO.getAddress(address_id);
+	}
+	
+	@Override
+	public Map<String, Object> getProductInfo(int product_id) {
+		return userDAO.getProductInfo(product_id);
 	}
 	
 	@Override
@@ -464,21 +484,42 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Map<String, Object> getLikeProductList() {
 		String id = (String) session.getAttribute("memId"); //({1104},{1204},{1504})
+		System.out.println(id);
 		//여기서 내가 좋아효한 product_id 를 가져온다
 	 	List<LikeProDTO> list= userDAO.getLikeProductList(id);
-	 	List<ProductDTO> list2 = null;
-	 	List<ProductImgDTO> list3 = null;
+	 	List<ProductDTO> list2 = new ArrayList<ProductDTO>();
+	 	List<ProductImgDTO> list3 = new ArrayList<ProductImgDTO>();
+
 	 	for(LikeProDTO likeProDTO : list) {
-	 		likeProDTO.getProduct_id();//product_id값을 가지고온거
-	 		list2 = userDAO.getLikeProducts(likeProDTO.getProduct_id());
-	 		list3 = userDAO.getProductAll(likeProDTO.getProduct_id());
-	 		System.out.println(list2);
-	 		System.out.println(list3);
+	 		list2.add(userDAO.getLikeProducts(likeProDTO.getProduct_id()));
+	 		list3.add(userDAO.getProductAll(likeProDTO.getProduct_id()));
 	 	}
+	 	
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list2",list2);
 		map.put("list3",list3);
 		return map;
-		}
-	
 	}
+
+	@Override
+	public void addAddressModify(AddressDTO addressDTO) {
+		if(addressDTO.getFlag() == 1) {
+			userDAO.updateflag(addressDTO);
+		}
+		userDAO.addAddressModify(addressDTO);		
+	}
+	//기본배송지로 설정
+	@Override
+	public void changeFlag(String address_id) {
+		System.out.println("22");
+		userDAO.changeFlag(address_id);		
+	}
+	//기존 기본배송지 내리기
+	@Override
+	public void changeFlag1(String address_id) {
+		String user_id = String.valueOf(session.getAttribute("memId"));
+		System.out.println(user_id);
+		userDAO.changeFlag1(user_id);	
+	}
+	
+}

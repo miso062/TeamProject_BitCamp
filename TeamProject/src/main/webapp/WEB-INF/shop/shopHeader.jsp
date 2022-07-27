@@ -487,6 +487,11 @@ height:80px;
 			          <a id="h_logout" class="h_top_link">로그아웃</a>
 			        </c:if>
 				</li>
+				 <li class="h_top_item">
+					<c:if test="${sessionScope.memAuthority == 10 }">
+						<a href="/TeamProject/admin/" id="h_admin" class="h_top_link" style="color: red; font-weight: bold;">관리자페이지</a>
+					</c:if>
+				<li>
 			</ul>
 		</div>
 	</div>
@@ -527,61 +532,61 @@ height:80px;
 			<div class="search_trend_container">
 				<ul class="brand_list">
 					<li class="brand_item">
-						<a class="brand_box" href="#">
+						<a class="brand_box" href="/TeamProject/shop?sort=popular&command=샌들">
 							<img class="brand_img" src="/TeamProject/img/shop/shoes1.png" >
 							<p class="brand_name">샌들</p>
 						</a>
 					</li>
 					<li class="brand_item">
-						<a class="brand_box" href="#">
+						<a class="brand_box" href="/TeamProject/shop?sort=popular&command=야스히로">
 							<img class="brand_img" src="/TeamProject/img/shop/shoes2.png" >
 							<p class="brand_name">야스히로</p>
 						</a>
 					</li>
 					<li class="brand_item">
-						<a class="brand_box" href="#">
+						<a class="brand_box" href="/TeamProject/shop?sort=popular&command=아식스">
 							<img class="brand_img" src="/TeamProject/img/shop/shoes3.png" >
 							<p class="brand_name">아식스</p>
 						</a>
 					</li>
 					<li class="brand_item">
-						<a class="brand_box" href="#">
+						<a class="brand_box" href="/TeamProject/shop?sort=popular&command=Dunk">
 							<img class="brand_img" src="/TeamProject/img/shop/shoes4.png" >
 							<p class="brand_name">Dunk</p>
 						</a>
 					</li>
 					<li class="brand_item">
-						<a class="brand_box" href="#">
+						<a class="brand_box" href="/TeamProject/shop?sort=popular&command=스캇">
 							<img class="brand_img" src="/TeamProject/img/shop/shoes5.png" >
 							<p class="brand_name">스캇</p>
 						</a>
 					</li>
 					<li class="brand_item">
-						<a class="brand_box" href="#">
+						<a class="brand_box" href="/TeamProject/shop?sort=popular&command=off-white">
 							<img class="brand_img" src="/TeamProject/img/shop/shoes6.png" >
 							<p class="brand_name">Off-White</p>
 						</a>
 					</li>
 					<li class="brand_item">
-						<a class="brand_box" href="#">
+						<a class="brand_box" href="/TeamProject/shop?sort=popular&command=에어포스">
 							<img class="brand_img" src="/TeamProject/img/shop/shoes7.png" >
 							<p class="brand_name">에어포스</p>
 						</a>
 					</li>
 					<li class="brand_item">
-						<a class="brand_box" href="#">
+						<a class="brand_box" href="/TeamProject/shop?sort=popular&command=뉴발란스">
 							<img class="brand_img" src="/TeamProject/img/shop/shoes8.png" >
 							<p class="brand_name">뉴발란스</p>
 						</a>
 					</li>
 					<li class="brand_item">
-						<a class="brand_box" href="#">
+						<a class="brand_box" href="/TeamProject/shop?sort=popular&command=YEEZY">
 							<img class="brand_img" src="/TeamProject/img/shop/shoes9.png" >
 							<p class="brand_name">YEEZY</p>
 						</a>
 					</li>
 					<li class="brand_item">
-						<a class="brand_box" href="#">
+						<a class="brand_box" href="/TeamProject/shop?sort=popular&command=발렌시아가">
 							<img class="brand_img" src="/TeamProject/img/shop/shoes10.png" >
 							<p class="brand_name">발렌시아가</p>
 						</a>
@@ -802,7 +807,7 @@ $('.h_brand_box').click(function(){
 //엔터로 검색하기 submit 미구현
 $(document).on('keyup','.h_input_search' ,function(key){
 	if(key.keyCode ==13) {
-		alert($('.h_input_search').val())
+		location.href='/TeamProject/shop?sort=popular&command='+$('.h_input_search').val()
 	}
 })
 // 스크롤 최상단일 때 .h_main_inner css 지우기

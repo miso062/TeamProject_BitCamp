@@ -231,10 +231,40 @@ public class AdminController {
 		List<UserDTO> list = adminService.getAllUserList();
 		return list;
 	}
+	@PostMapping(value="getAllUserList2")
+	@ResponseBody
+	public List<UserDTO> getAllUserList2(){
+		List<UserDTO> list = adminService.getAllUserList2();
+		return list;
+	}
+	@PostMapping(value="getAllUserList3")
+	@ResponseBody
+	public List<UserDTO> getAllUserList3(){
+		List<UserDTO> list = adminService.getAllUserList3();
+		return list;
+	}
 	@PostMapping(value="getAllAdmin")
 	@ResponseBody
 	public Map<String,Object> getAllAdmin(){
 		Map<String,Object>map=adminService.getAllAdmin();
 		return map;
 	}
+	@PostMapping(value="deleteThisUser")
+	@ResponseBody
+	public void deleteThisUser(@RequestParam String user_id) {
+		adminService.deleteThisUser(user_id);
+	}
+	@PostMapping(value="getsearchUserList")
+	@ResponseBody
+	public List<UserDTO> getsearchUserList(@RequestParam String keyword){
+		List<UserDTO>list=adminService.getsearchUserList(keyword);
+			return list;
+	}
+	@PostMapping(value="getSearchAdmin")
+	@ResponseBody
+	public Map<String,Object> getSearchAdmin(@RequestParam String keyword){
+		Map<String,Object>map=adminService.getSearchAdmin(keyword);
+		return map;
+	}
+	
 }

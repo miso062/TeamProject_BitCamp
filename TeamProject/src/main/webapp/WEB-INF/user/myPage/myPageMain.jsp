@@ -530,7 +530,7 @@
         vertical-align: top;
         margin: 20px 0;
         padding: 0 12px;
-        width: 25%;
+        width: 24.8%;
         -webkit-transition: all 0.4s ease-in-out;
         -o-transition: all 0.4s ease-in-out;
         transition: all 0.4s ease-in-out;
@@ -911,7 +911,7 @@
                         <li class="usable_item">유효기간이 지난 후 환불받은 포인트는 다시 사용하실 수 없습니다.</li>
                     </ul>
                 </div>
-                <div class="layer_btn"><a data-v-28cabbb5="" href="#" class="btn outline medium" > 확인 </a></div>
+                <div class="layer_btn"><a href="#" class="btn outline medium" > 확인 </a></div>
             </div>
             <a href="#" class="btn_layer_close"></a>
         </div>
@@ -986,20 +986,20 @@ window.onload = function(){
        document.querySelector('.thumb_img').setAttribute('src', 'https://storage.googleapis.com/gese-t.appspot.com/'+ image + '?' + date.getTime());
     }
 }
-$('.membership_item').click(function(){
-   $('.layer_point').fadeIn();
-    $('body').css("overflow", "hidden");
-});
-$(document).on("click",function(e){
-   if($('.layer_point').is(e.target)) {
-      $('.layer_point').fadeOut();
-        $('body').css("overflow-y", "scroll");
-   }
-})
-$('.layer_btn').click(function(){
-    $('.layer_point').fadeOut();
-    $('body').css("overflow", "scroll");
-})
+	$('.membership_item').click(function(){
+	   $('.layer_point').fadeIn();
+	    $('body').css("overflow", "hidden");
+	});
+	$(document).on("click",function(e){
+	   if($('.layer_point').is(e.target)) {
+	      $('.layer_point').fadeOut();
+	        $('body').css("overflow-y", "scroll");
+	   }
+	})
+	$('.layer_btn').click(function(){
+	    $('.layer_point').fadeOut();
+	    $('body').css("overflow", "scroll");
+	})
 
 $(document).ready(function(){
    $.ajax({
@@ -1047,6 +1047,12 @@ $(document).ready(function(){
             } else {
             	buy_price = buy_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             }
+            if(status1 == null){
+            	status1 = '';
+            }
+            if(status2 == null){
+            	status2 = '';
+            }
 	       	var random = Math.floor( Math.random() * 4 ); 
 	       	
             let buylist = $('<div class="purchase_item" onclick="location.href=\'/TeamProject/user/buyHistoryDetail?buy_id='+ buy_id + '\'">').append(
@@ -1064,20 +1070,15 @@ $(document).ready(function(){
   	                '</div></div>' +
   	                '<div class="status_box field_status">' +
   	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
-  	              	'<span class="status_txt text-default status2_text">' + status2 + '</span>' +
+  	              	'<span class="status_txt text-default status2_text text-danger">' + status2 + '</span>' +
   	                '</div></div></div>'
   	                );
             $('.buy_list').append(buylist);
+            
 			//상품 3개까지 보이게하기
 			if( i > 1){
 			   break;
 			}
-            if( status1 == null){
-            	$(this).text('');
-            }
-            if(status2 == null){
-            	$(this).text('');
-            }
          }
       },error:function(err){
          console.log(err);
@@ -1132,6 +1133,12 @@ $(document).ready(function(){
             } else {
             	sell_price = sell_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
             }
+            if(status1 == null){
+            	status1 = '';
+            }
+            if(status2 == null){
+            	status2 = '';
+            }
 	       	var random = Math.floor( Math.random() * 4 ); 
 	       	
             let selllist = $('<div class="purchase_item" onclick="location.href=\'/TeamProject/user/sellHistoryDetail?sell_id='+ sell_id + '\'">').append(
@@ -1149,11 +1156,11 @@ $(document).ready(function(){
   	                '</div></div>' +
   	                '<div class="status_box field_status">' +
   	                '<span class="status_txt text-default status1_text">' + status1 + '</span>' +
-  	              	'<span class="status_txt text-default status2_text">' + status2 + '</span>' +
+  	              	'<span class="status_txt text-default status2_text text-danger">' + status2 + '</span>' +
   	                '</div></div></div>'
   	                );
             $('.sell_list').append(selllist);
-			 //상품 3개까지 보이게하기
+            //상품 3개까지 보이게하기
 			if( i > 1){
 			   break;
 			}
@@ -1171,7 +1178,54 @@ $(document).ready(function(){
 		url:'/TeamProject/user/getLikeProductList',
 		dataType:'json',
 		success:function(data){
-			//alert(JSON.stringify(data))
+			alert(JSON.stringify(data))
+			var colorList = [ 'rgb(241, 233, 252)', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+			for(var i = 0; i < 4; i++){
+				//console.log(data.list2[i].brand, data.list2[i].eng_name, data.list2[i].release_price, data.list3[i].file_path );
+				var random = Math.floor( Math.random() * 4 ); 
+				
+				$('<div/>',{
+					class: 'product_item'
+				}).append($('<a/>',{
+					href:'#',
+					class: 'cd2_item_inner'
+				}).append($('<div/>',{
+					class: 'thum_box'
+				}).append($('<div/>',{
+					class: 'product',
+	                style: 'background-color: '+ colorList[random] + ';'
+				}).append($('<img/>',{
+						   src: data.list3[i].file_path,
+						   class: 'image picture product_img' 
+						})))).append($('<div/>',{
+							class: 'info_box'
+						}).append($('<div/>',{
+							class: 'brand'
+						}).append($('<p/>',{
+							class: 'brand-text',
+							text: data.list2[i].brand
+					   }))).append($('<p/>',{
+						   class: 'name',
+						   text: data.list2[i].eng_name
+					   })).append($('<div/>',{
+						   class: 'price'
+					   }).append($('<div/>',{
+							class: 'amount md'
+					   }).append($('<em/>',{
+						   class: 'num',
+						   text: data.list2[i].release_price
+						   }))).append($('<div/>',{
+					   class : 'desc'
+				   }).append($('<p/>',{
+					   text: '즉시구매가'
+				   })))))).append($('<input/>',{
+					   type:'hidden',
+					   class : 'myPage_product_id',
+					   id: 'myPage_product_id'+data.list2[i].product_id,
+					   value : data.list2[i].product_id
+				   })).appendTo($('.product_list'));
+			   
+			}
 			
 		},error: function(e){
 			 console.log(e);
