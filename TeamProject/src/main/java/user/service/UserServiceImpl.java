@@ -489,10 +489,10 @@ public class UserServiceImpl implements UserService {
 	 	List<ProductDTO> list2 = null;
 	 	List<ProductImgDTO> list3 = null;
 	 	for(LikeProDTO likeProDTO : list) {
-	 		ProductDTO productDTO =userDAO.getLikeProducts(likeProDTO.getProduct_id());
+//	 		ProductDTO productDTO = userDAO.getLikeProducts(likeProDTO.getProduct_id());
 	 		list2.add(productDTO);
 	 		System.out.println("ㅎㅇㅎㅇ");
-	 		list3.add(userDAO.getProductAll(likeProDTO.getProduct_id()));
+//	 		list3.add(userDAO.getProductAll(likeProDTO.getProduct_id()));
 	 	}
 	 	System.out.println(list2);
 		Map<String, Object> map = new HashMap<String, Object>();
