@@ -22,7 +22,7 @@
 }
 .purchase_list_tab.detail_tab {
     background-color: #fff;
-    border-radius: 0;
+    border-radius: 0; 
     margin-top: 20px;
 }
 .purchase_list_tab {
