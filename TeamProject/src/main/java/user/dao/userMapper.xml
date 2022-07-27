@@ -63,14 +63,6 @@
 		select * from user_table where user_id=#{user_id}
 	</select>
 	
-	<select id="getBuyHistory" parameterType="String" resultType="buyHistory" >
-		select * from buy_history where user_id=#{user_id}
-	</select>
-	
-	<select id="getSellHistory" parameterType="String" resultType="sellHistory" >
-		select * from sell_history where user_id=#{user_id}
-	</select>
-	
 	<select id="getBuyHistoryList" parameterType="String" resultType="buyHistory" >
 		select * from buy_history where user_id=#{user_id} order by buy_date desc
 	</select>

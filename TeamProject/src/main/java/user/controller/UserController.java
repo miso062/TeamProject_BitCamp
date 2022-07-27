@@ -100,7 +100,7 @@ public class UserController {
 	@ResponseBody
 	public Map<String, Object> getBuyHistory(HttpSession session){
 		String user_id = (String) session.getAttribute("memId");
-		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistory(user_id);
+		List<Buy_historyDTO> buy_historyList =  userService.getBuyHistoryList(user_id);
 		Map<String, Object> buy_map = new HashMap<String, Object>();
 		buy_map.put("buy_historyList", buy_historyList);
 
@@ -118,7 +118,7 @@ public class UserController {
 	@ResponseBody
 	public Map<String, Object> getSellHistory(HttpSession session) { 
 		String user_id = (String) session.getAttribute("memId");
-		List<Sell_historyDTO> sell_historyList =  userService.getSellHistory(user_id);
+		List<Sell_historyDTO> sell_historyList =  userService.getSellHistoryList(user_id);
 		Map<String, Object> sell_map = new HashMap<String, Object>();
 		sell_map.put("sell_historyList", sell_historyList);
 

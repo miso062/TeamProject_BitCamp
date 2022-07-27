@@ -756,11 +756,11 @@
         </div>
         <div class="membership_detail">
             <a href="#" class="membership_item disabled">
-                <strong class="info"> 일반 회원 </strong>
+                <strong id="authority" class="info"> 일반 회원 </strong>
                 <p class="title">회원 등급</p>
             </a>
             <a  class="membership_item">
-                <strong class="info"> 400000P </strong>
+                <strong class="info"> 0P </strong>
                 <p class="title">포인트</p>
             </a>
         </div>
@@ -898,7 +898,7 @@
                 <div class="usable_wrap">
                     <div class="usable_point">
                         <h3 class="title">사용 가능한 포인트</h3>
-                        <p class="point_box"><span class="point" id="point"></span><span class="unit">P</span></p>
+                        <p class="point_box"><span class="point" id="point"></span><span class="unit">0 P</span></p>
                         <div class="point_info">
                             <p class="info_item">이번달 소멸 예정 포인트 0P</p>
                             <p class="info_item">포인트 유효기간은 적립일로부터 최대 1년까지이며, 유형에 따라 달라질 수 있습니다.</p>
@@ -985,6 +985,12 @@ window.onload = function(){
 	}else{
        document.querySelector('.thumb_img').setAttribute('src', 'https://storage.googleapis.com/gese-t.appspot.com/'+ image + '?' + date.getTime());
     }
+	
+	var authority = '${userDTO.authority}';
+	if(authority ==1) $('#authority').text('일반회원');
+	else if(authority == 5) $('#authority').text('우수회원');
+	else if(authority == 10) $('#authority').text('관리자');
+	
 }
 	$('.membership_item').click(function(){
 	   $('.layer_point').fadeIn();
