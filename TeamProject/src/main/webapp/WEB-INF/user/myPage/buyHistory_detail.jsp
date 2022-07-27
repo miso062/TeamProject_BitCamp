@@ -461,8 +461,8 @@
 	    cursor: pointer;
 	    vertical-align: middle;
 	    text-align: center;
-	    color: rgba(34,34,34,.8);
-	    background-color: #fff;
+/* 	    color: rgba(34,34,34,.8);
+	    background-color: #fff; */
 	}
 	.solid {
     font-weight: 600;
@@ -487,7 +487,7 @@
         </div>
         <div class="btn_box">
             <div class="btn deleteBtn">
-                <img src="/TeamProject/img/user/myPage/buyHistory_11/can_trash.png" alt="쓰레기통" class="ico-delete icon sprite-icons">
+                <img src="/TeamProject/img/user/myPage/can_trash.png" alt="쓰레기통" class="ico-delete icon sprite-icons">
                 
                 <span class="btn_txt">삭제하기</span>
             </div>
@@ -602,10 +602,10 @@
             </div>
 			<div class="history_btn">
                 <a href="/TeamProject/shop/enterBuyPrice?product_id=${buy_historyDTO.product_id }&size=${ buy_historyDTO.size_type}" class="btn outline medium"> 입찰 변경하기 </a>
-                <a href="#" class="btn buy outline medium"> 즉시 구매하기 </a>
+                <a href="/TeamProject/shop/enterBuyPrice?product_id=${buy_historyDTO.product_id }&size=${ buy_historyDTO.size_type}" class="btn buy outline medium"> 즉시 구매하기 </a>
 			</div>
 			<div class="history_btn" style="display: none">
-                <a href="/TeamProject/shop/entersellPrice?product_id=${sell_historyDTO.product_id }&size=${ sell_historyDTO.size_type}" class="btn outline medium"> 다시 입찰하기  </a>
+                <a href="/TeamProject/shop/enterBuyPrice?product_id=${buy_historyDTO.product_id }&size=${ buy_historyDTO.size_type}" class="btn outline medium"> 다시 입찰하기  </a>
          	</div>
         </div>
     </div>
