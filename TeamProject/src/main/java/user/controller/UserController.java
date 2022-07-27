@@ -148,7 +148,6 @@ public class UserController {
 		   productImgList.add(productImgDTO);
 		}
 		buy_map.put("productImgList", productImgList);
-		//System.out.println(buy_map);
 		return buy_map;
 	}
 	
@@ -167,7 +166,6 @@ public class UserController {
 		   productImgList.add(productImgDTO);
 		}
 		sell_map.put("productImgList", productImgList);
-		//System.out.println(sell_map);
 		return sell_map;
 	}
 	
@@ -184,7 +182,7 @@ public class UserController {
 	@PostMapping(value="update")
 	@ResponseBody
 	public void updateUser(@ModelAttribute UserDTO userDTO, HttpSession session) {
-		System.out.println(userDTO);
+		//System.out.println(userDTO);
 		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
 		userService.update(userDTO, session);
 	}
@@ -192,7 +190,7 @@ public class UserController {
 	@PostMapping(value="updateImg")
 	@ResponseBody
 	public void updateImg(@RequestParam MultipartFile file, HttpSession session) throws FirebaseException, IOException {
-		System.out.println(file);
+		//System.out.println(file);
 		String user_id = (String) session.getAttribute("memId");
 		FireStorage.initialize();
 		FireStorage.uploadFiles(file, user_id);
@@ -258,14 +256,14 @@ public class UserController {
 	@PostMapping(value="delBuyHistory")
 	@ResponseBody
 	public void delBuyHistory(@RequestParam int buy_id) {
-		System.out.println(buy_id);
+		//System.out.println(buy_id);
 		userService.delBuyHistory(buy_id);
 	}
 	//판매내역 삭제
 	@PostMapping(value="delSellHistory")
 	@ResponseBody
 	public void delSellHistory(@RequestParam int sell_id) {
-		System.out.println(sell_id);
+		//System.out.println(sell_id);
 		userService.delSellHistory(sell_id);
 	}
 
@@ -452,14 +450,14 @@ public class UserController {
 	@PostMapping(value="bookMarkInsert")
 	@ResponseBody
 	public void bookMarkInsert(@RequestParam Map<String, String> map) {
-		System.out.println(map);
+		//System.out.println(map);
 		userService.bookMarkInsert(map);
 	}
 	
 	@PostMapping(value="bookMarkDelete")
 	@ResponseBody
 	public void bookMarkDelete(@RequestParam int product_id) {
-		System.out.println("delete ="+product_id);
+		//System.out.println("delete ="+product_id);
 		userService.bookMarkDelete(product_id);
 	}
 	//메인 화면 찜하기 불러오기
