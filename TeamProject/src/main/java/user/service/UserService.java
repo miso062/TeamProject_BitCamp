@@ -30,8 +30,6 @@ public interface UserService {
 	public String signUpCheckNaver(UserDTO userDTO);
 	public void deleteImg(String user_id);
 	public void updateImg(String fileName);
-	public List<Buy_historyDTO> getBuyHistory(String user_id);
-	public List<Sell_historyDTO> getSellHistory(String user_id);
 	public List<Buy_historyDTO> getBuyHistoryList(String string);
 	public List<Sell_historyDTO> getSellHistoryList(String string);
 	public AddressDTO getAddress(Integer address_id);
