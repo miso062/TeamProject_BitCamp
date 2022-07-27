@@ -103,10 +103,11 @@ $(document).ready(function(){
 		function getList(page, callback) {
 			var params = new URLSearchParams(document.location.search);
 			var sort = params.get("sort");
+			$('#command').val(params.get("command"))
 			$.ajax({
 				type:'post',
 				url:'/TeamProject/shop/scrollProduct',
-				data:'num=' + page + '&sort=' + sort , 
+				data:'num=' + page + '&sort=' + sort +'&command='+$('#command').val() , 
 				dataType:'json',
 				success: function(data){
 //					console.log(data)
@@ -152,7 +153,7 @@ $(document).ready(function(){
 								//첫페이지 스크롤 감지 시작
 							}
 							
-							currentNum = Number(data[0].page)+1;
+							currentNum = Number(data[0].page)+16;
 							if (callback) {
 								callback();		
 							}

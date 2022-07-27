@@ -448,6 +448,7 @@ li, ol, ul {
 </style>
 </head>
 <body>
+<input type="hidden" id="command">
 <div class="banner_main">
 	<div class="slider slider-for">
 		<div class="detail_banner">
@@ -609,6 +610,13 @@ $('.shop_bookmark').on(	{'click' : function() {
 	}
 }); 
 
+//검색하면  정렬기준 href 바꾸기
+$(document).ready(function(){
+	$('#popular').children().eq(0).prop('href' , '/TeamProject/shop?sort=popular&command='+$('#command').val())
+	$('#buy').children().eq(0).prop('href' , '/TeamProject/shop?sort=buy&command='+$('#command').val())
+	$('#sell').children().eq(0).prop('href' , '/TeamProject/shop?sort=sell&command='+$('#command').val())
+})
+
  //북마크 클릭시 DB연동 이미지 바꾸기
 /* $(document).on('click','.shop_bookmark', function() {
 	if(!'${sessionScope.memId}'){
@@ -664,6 +672,7 @@ $(".shop_sorting_list .shop_sorting_item").on('click', filterItemOn); */
 var params = new URLSearchParams(document.location.search);
 console.log(params);
 var sort = params.get("sort");
+
 
 switch (sort) {
 	case 'popular':

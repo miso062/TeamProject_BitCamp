@@ -304,6 +304,33 @@ public class UserController {
 	public void addAddressBook(@ModelAttribute AddressDTO addressDTO) {
 		userService.addAddressBook(addressDTO);
  	}	
+	//주소삭제
+	@PostMapping(value="myAddressDelete")
+	@ResponseBody
+	public void myAddressDelete(@RequestParam String address_id) {
+		userService.myAddressDelete(address_id);
+	}
+	//주소 수정 버튼 눌렀을 때 불러오기
+	@PostMapping(value="myGetAddress")
+	@ResponseBody
+	public AddressDTO myGetAddress(@RequestParam String address_id) {
+		
+		return userService.getAddress(Integer.parseInt(address_id));
+	}
+	//주소 수정 DB 들록
+	@PostMapping(value="addAddressModify")
+	@ResponseBody
+	public void addAddressModify(@ModelAttribute AddressDTO addressDTO) {
+		userService.addAddressModify(addressDTO);
+ 	}
+	//기본 배송지 바꾸기
+	@PostMapping(value="changeFlag")
+	@ResponseBody
+	public void changeFlag(@RequestParam String address_id) {
+		userService.changeFlag1(address_id);
+		userService.changeFlag(address_id);
+	}
+
 
 	@GetMapping(value="findEmailMain")
 	public String findEmailMain(Model model) {
