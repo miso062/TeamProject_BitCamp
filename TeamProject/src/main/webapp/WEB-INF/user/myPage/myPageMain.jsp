@@ -530,7 +530,7 @@
         vertical-align: top;
         margin: 20px 0;
         padding: 0 12px;
-        width: 25%;
+        width: 24.8%;
         -webkit-transition: all 0.4s ease-in-out;
         -o-transition: all 0.4s ease-in-out;
         transition: all 0.4s ease-in-out;

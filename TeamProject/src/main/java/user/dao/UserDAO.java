@@ -50,8 +50,8 @@ public interface UserDAO {
 	public void userdelete(String user_id);
 	public List<AddressDTO> getAddress(String user_id);
 	public List<LikeProDTO> getLikeProductList(String id);
-	public List<ProductDTO> getLikeProducts(int product_id);
-	public List<ProductImgDTO> getProductAll(int product_id);
+	public ProductDTO getLikeProducts(int product_id);
+	public ProductImgDTO getProductAll(int product_id);
 	public List<AddressDTO> comeAddress(String user_id);
 	public AddressDTO comeAddress1(String user_id);
 	public void myAddressDelete(String address_id);

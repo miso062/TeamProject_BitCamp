@@ -1,5 +1,6 @@
 package user.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -486,20 +487,19 @@ public class UserServiceImpl implements UserService {
 		System.out.println(id);
 		//여기서 내가 좋아효한 product_id 를 가져온다
 	 	List<LikeProDTO> list= userDAO.getLikeProductList(id);
-	 	List<ProductDTO> list2 = null;
-	 	List<ProductImgDTO> list3 = null;
+	 	List<ProductDTO> list2 = new ArrayList<ProductDTO>();
+	 	List<ProductImgDTO> list3 = new ArrayList<ProductImgDTO>();
+
 	 	for(LikeProDTO likeProDTO : list) {
-//	 		ProductDTO productDTO = userDAO.getLikeProducts(likeProDTO.getProduct_id());
-	 		list2.add(productDTO);
-	 		System.out.println("ㅎㅇㅎㅇ");
-//	 		list3.add(userDAO.getProductAll(likeProDTO.getProduct_id()));
+	 		list2.add(userDAO.getLikeProducts(likeProDTO.getProduct_id()));
+	 		list3.add(userDAO.getProductAll(likeProDTO.getProduct_id()));
 	 	}
-	 	System.out.println(list2);
+	 	
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list2",list2);
 		map.put("list3",list3);
 		return map;
-		}
+	}
 
 	@Override
 	public void addAddressModify(AddressDTO addressDTO) {
@@ -521,8 +521,5 @@ public class UserServiceImpl implements UserService {
 		System.out.println(user_id);
 		userDAO.changeFlag1(user_id);	
 	}
-
-
 	
-	
-	}
+}

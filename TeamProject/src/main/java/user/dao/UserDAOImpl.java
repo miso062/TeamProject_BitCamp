@@ -223,27 +223,15 @@ public class UserDAOImpl implements UserDAO {
 		return sqlSession.selectList("userSQL.getLikeProductList", id);
 	}
 
-//	@Override
-//	public ProductDTO getLikeProducts(int product_id) {
-//		return sqlSession.selectOne("userSQL.getLikeProducts", product_id);
-//	}
-//
-//	@Override
-//	public ProductImgDTO getProductAll(int product_id) {
-//		System.out.println("ㅎㅇㅎㅇ");
-//		return sqlSession.selectOne("userSQL.getProductAll", product_id);
-//	}
-	
 	@Override
-	public List<ProductDTO> getLikeProducts(int product_id) {
-		// TODO Auto-generated method stub
-		return null;
+	public ProductDTO getLikeProducts(int product_id) {
+		return sqlSession.selectOne("userSQL.getLikeProducts", product_id);
 	}
-	
+
 	@Override
-	public List<ProductImgDTO> getProductAll(int product_id) {
-		// TODO Auto-generated method stub
-		return null;
+	public ProductImgDTO getProductAll(int product_id) {
+		System.out.println("ㅎㅇㅎㅇ");
+		return sqlSession.selectOne("userSQL.getProductAll", product_id);
 	}
 
 	@Override
