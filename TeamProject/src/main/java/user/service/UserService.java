@@ -34,13 +34,14 @@ public interface UserService {
 	public List<Sell_historyDTO> getSellHistory(String user_id);
 	public List<Buy_historyDTO> getBuyHistoryList(String string);
 	public List<Sell_historyDTO> getSellHistoryList(String string);
+	public AddressDTO getAddress(Integer address_id);
 	public Buy_historyDTO getBuyItem(String buy_id);
 	public Sell_historyDTO getSellItem(String sell_id);
-	public String checkKakao(String user_id);
 	public ProductImgDTO getProductImg(int product_id);
+	public Map<String, Object> getProductInfo(int product_id);
+	public String checkKakao(String user_id);
 	public String bookMarkGetDetail(String product_id);
 	public String checkPwd(String pwd);
-	public AddressDTO getAddress(Integer address_id);
 	public void userdelete(HttpSession httpsession);
 	public List<AddressDTO> getAddress(String user_id);
 	public Map<String, Object> getLikeProductList();
