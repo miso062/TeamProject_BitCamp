@@ -195,4 +195,9 @@ public class ShopServiceImpl implements ShopService {
 		System.out.println(buy_historyDTO);
 		return buy_historyDTO;
 	}
+
+	@Override
+	public Integer shopLikeProduct(int product_id) {
+		return shopDAO.getlikeproduct(product_id);
+	}
 }

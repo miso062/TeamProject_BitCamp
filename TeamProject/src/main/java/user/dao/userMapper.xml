@@ -74,12 +74,13 @@
 	<select id="getAddress" parameterType="Integer" resultType="userAddress">
 		select * from address where address_id = #{address_id}
 	</select>
-	
+	 
+	<!-- 관심상품 넣기 -->
 	<insert id="bookMarkInsert" parameterType="java.util.Map">
 		insert into	like_pro(like_pro_id,user_id,product_id,like_pro_date)
 		values(like_pro_seq.nextval,#{id},#{product_id}, sysdate)
 	</insert>
-	
+	<!-- 관심상품 삭제 -->
 	<delete id="bookMarkDelete" parameterType="java.util.Map">
 		delete like_pro where product_id=${product_id} and user_id=#{user_id}
 	</delete>
@@ -162,6 +163,7 @@
 		delete user_table where user_id=#{user_id}
 	</delete>
 	
+	<!-- 상품리스트 -->
 	<select id="getLikeProductList" parameterType="java.util.Map" resultType="likepro">
 		select * from like_pro where user_id=#{id}
 	</select>

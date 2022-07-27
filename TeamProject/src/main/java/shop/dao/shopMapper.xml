@@ -168,5 +168,6 @@
   	<select id="getBuyDTOById" parameterType="Int" resultType="buyHistory">
   		select * from buy_history where buy_id=${bid}
   	</select>
-
+	
+	
 </mapper>

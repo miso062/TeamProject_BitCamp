@@ -63,6 +63,7 @@ public class ShopController {
 		Map<String, Object> map = shopService.getShopDetail(product_id);
 		return map;
 	}
+	
 	@PostMapping(value="getchart")
 	@ResponseBody
 	public List<Market_priceDTO> getchart(@RequestParam int product_id) {
@@ -70,12 +71,14 @@ public class ShopController {
 		return list;
 		 
 	}
+	
 	@PostMapping(value="getshopDetaillist")
 	@ResponseBody
 	public List<Market_priceDTO> getshopDetaillist(@RequestParam int product_id){
 		List<Market_priceDTO> list = shopService.getshopDetaillist(product_id);
 		return list;
 	}
+	
 	@PostMapping(value="getlikeproduct")
 	@ResponseBody
 	public String getlikeproduct(@RequestParam int product_id) {
@@ -83,6 +86,7 @@ public class ShopController {
 		 String count1 = count+"";
 		return count1;
 	}
+	
 }
 
 

@@ -403,10 +403,10 @@ public class UserController {
 	@PostMapping(value="bookMarkInsert")
 	@ResponseBody
 	public void bookMarkInsert(@RequestParam Map<String, String> map) {
-		System.out.println(map);
 		userService.bookMarkInsert(map);
 	}
 	
+	//찜 삭제
 	@PostMapping(value="bookMarkDelete")
 	@ResponseBody
 	public void bookMarkDelete(@RequestParam int product_id) {
