@@ -41,4 +41,22 @@ public interface AdminDAO {
 	public List<UserDTO> getAllUserList();
 
 	public Integer getUserCount();
+
+	public List<UserDTO> getAllUserList2();
+
+	public List<UserDTO> getAllUserList3();
+
+	public void deleteThisUser(String user_id);
+
+	public List<UserDTO> getsearchUserList(String keyword);
+
+	public Integer getSearchAdminCount(String keyword);
+
+	public List<UserDTO> getMemberList();
+
+	public List<UserDTO> getGoodMemberList();
+
+	public Integer getMemberCount();
+
+	public Integer getGoodMemberCount();
 }
