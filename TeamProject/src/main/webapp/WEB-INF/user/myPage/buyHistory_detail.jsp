@@ -578,7 +578,7 @@
                         <dt class="price_title dark">
                             <span>총 결제금액</span>
                         </dt>
-                        <dd class="price_text bold buy priceTot"></dd>
+                        <dd class="price_text bold buy" id="priceTot"></dd>
                     </dl>
                 </div>
                 <div class="detail_box">

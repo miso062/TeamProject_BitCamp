@@ -744,7 +744,7 @@
     <div class="user_membership">
         <div class="user_detail">
             <div class="user_thumb">
-               <img src="/TeamProject/img/user/profile.png" name="profile_img" alt="사용자이미지" class="thumb_img" /></div>
+               <img src="https://storage.googleapis.com/gese-t.appspot.com/profile.png" name="profile_img" alt="사용자이미지" class="thumb_img" /></div>
             <div class="user_info">
                 <div class="info_box">
                     <strong class="name">${userDTO.nickname }</strong>
@@ -981,7 +981,7 @@ window.onload = function(){
 	var image = '${userDTO.profile_img}';
    
 	if(image==null || image==''){
-        document.querySelector('.thumb_img').setAttribute('src','/TeamProject/img/user/profile.png');
+        document.querySelector('.thumb_img').setAttribute('src','https://storage.googleapis.com/gese-t.appspot.com/profile.png');
 	}else{
        document.querySelector('.thumb_img').setAttribute('src', 'https://storage.googleapis.com/gese-t.appspot.com/'+ image + '?' + date.getTime());
     }
