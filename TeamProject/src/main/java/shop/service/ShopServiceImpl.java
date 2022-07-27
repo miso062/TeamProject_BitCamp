@@ -188,7 +188,7 @@ public class ShopServiceImpl implements ShopService {
 	}
 
 	@Override
-//	구매 입칠 시 buy_historyDTO 입력
+//	구매 입찰 시 buy_historyDTO 입력
 	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO) {
 		buy_historyDTO.setUser_id((String) session.getAttribute("memId"));
 		buy_historyDTO = shopDAO.insertBuyPay(buy_historyDTO);
@@ -201,16 +201,15 @@ public class ShopServiceImpl implements ShopService {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("sell_historyDTO", sell_historyDTO);
 		map.put("buy", buy);
-//		return shopDAO.insertSellPayBySellId(map);
-		return null;
+		return shopDAO.insertSellPayBySellId(map);
 	}
 
+//	판매 입찰 시 sell_historyDTO 입력
 	@Override
 	public Sell_historyDTO insertSellPay(Sell_historyDTO sell_historyDTO) {
 		sell_historyDTO.setUser_id((String) session.getAttribute("memId"));
-//		sell_historyDTO = shopDAO.insertBuyPay(sell_historyDTO);
+		sell_historyDTO = shopDAO.insertSellPay(sell_historyDTO);
 		System.out.println(sell_historyDTO);
-//		return sell_historyDTO;
-		return null;
+		return sell_historyDTO;
 	}
 }

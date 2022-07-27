@@ -14,6 +14,7 @@ public class Sell_historyDTO {
 	private int address_id;
 	private String user_id;
 	private int sell_price;
+	private String account;
 	private Date period;
 	private String size_type;
 	private String status1;

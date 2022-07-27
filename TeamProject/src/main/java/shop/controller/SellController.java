@@ -1,6 +1,7 @@
 package shop.controller;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -135,25 +136,31 @@ public class SellController {
 		return "forward:/shop/sell";
 	}
 	
-//	구매 정보 입력
+//	판매 정보 입력
 	@PostMapping(value="/insertSellPay")
 	@ResponseBody
 	public Sell_historyDTO insertSellPay(@ModelAttribute Sell_historyDTO sell_historyDTO,
 									   @RequestParam(defaultValue = "0", required = false) int buy) {
-		System.out.println(sell_historyDTO);
-//		즉시 구매
+		System.out.println(sell_historyDTO + " | " + buy);
+//		즉시 판매
 		if(buy != 0) {
 			return shopService.insertSellPayBySellId(sell_historyDTO, buy);
 		}
-//		구매 입찰
+//		판매 입찰
 		else {
 			return shopService.insertSellPay(sell_historyDTO);
 		}
 	}
 	
 	@GetMapping(value="/sellFinish")
-	public String sellFinish(Model model) {
+	public String sellFinish(Model model, @RequestParam int sell) {
+		Sell_historyDTO sellDTO = shopService.getSellDTO(sell);
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		
 		model.addAttribute("container", "/WEB-INF/shop/sell/sellFinish.jsp");
+		model.addAttribute("period", simpleDateFormat.format(sellDTO.getPeriod()));
+		model.addAttribute("sellDTO", sellDTO);
+		model.addAttribute("productImgDTO", shopService.getImage(sellDTO.getProduct_id()));
 		return "forward:/shop/sell";
 	}
 }

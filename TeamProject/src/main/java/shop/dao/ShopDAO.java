@@ -28,6 +28,8 @@ public interface ShopDAO {
 	
 	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO);
 	public Buy_historyDTO insertBuyPayBySellId(Map<String, Object> map);
+	public Sell_historyDTO insertSellPay(Sell_historyDTO sell_historyDTO);
+	public Sell_historyDTO insertSellPayBySellId(Map<String, Object> map);
 	
 	public List<ShopDTO> scrollProductList(Map<String, String> map, String sort);
 	public List<Market_priceDTO> getchart(int product_id);
