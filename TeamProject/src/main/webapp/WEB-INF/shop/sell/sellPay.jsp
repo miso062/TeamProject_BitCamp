@@ -752,12 +752,45 @@ $(function(){
     // 입찰 방법 결정
 	$('.btn_confirm').click(function(){
 		if($('.sell_btn').hasClass('able')){
-            alert('DB 저장 잊지 말자!');
+			
+			var orig_price = '${map.price}';
+            var regex = /[^0-9]/g;
+            var sell_price = orig_price.replace(regex, "");
+			
+            var status1;
+            var buy;
+            var dateString;
+            
             if($('#payment_method').val() == '판매 입찰'){
-                // reservation_request_pay();
+            	buy = 0;
+	            var arr = $('.price_text:eq(4)').text().split(" ");
+	            dateString = arr[2].substring(0, arr[2].length-2);
             }else{
-                // general_request_pay();
+	            buy = '${map.buy}'
+            	var today = new Date();
+                var year = today.getFullYear();
+                var month = ('0' + (today.getMonth() + 1)).slice(-2);
+                var day = ('0' + today.getDate()).slice(-2);
+                dateString = year + '/' + month  + '/' + day;
             }
+            $.ajax({
+            	url: "/TeamProject/shop/insertSellPay",
+            	type: 'post',
+            	data: {
+            		product_id : '${map.productDTO.product_id }',
+                    address_id : $('#selected_addr_id').val(),
+                    user_id: '${sessionScope.memId}',
+                    sell_price: sell_price,
+                    period: dateString,
+                    size_type: '${map.size }',
+                    account: $('#enter_account').text() + " 예금주: " + $('#enter_owner').text(),
+                    status1: '판매 대기중',
+                    buy: buy
+            	},
+            	success: function(data){
+            		location.href = "/TeamProject/shop/sellFinish?sell="+data.sell_id;
+            	}
+            });
         }
 	})
 });

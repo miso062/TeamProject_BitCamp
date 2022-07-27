@@ -161,6 +161,38 @@
 		select * from buy_history where buy_id=(select (LAST_NUMBER-1) from USER_SEQUENCES WHERE SEQUENCE_NAME='BUY_HISTORY_SEQ')
 	</select>
 	
+	<insert id="insertSellPay" parameterType="buyHistory">
+		insert into sell_history(sell_id, product_id, address_id, user_id, sell_price, period, size_type, account, status1, sell_date)
+			values(sell_history_seq.nextval, #{product_id}, #{address_id}, #{user_id}, #{sell_price}, #{period}, #{size_type}, #{account}, #{status1}, sysdate)
+	</insert>
+	
+	<update id="insertSellPayBySellId" parameterType="java.util.Map">
+		{call 
+			declare
+				b_id	number(7);
+			begin
+			
+			insert into sell_history(sell_id, product_id, address_id, user_id, sell_price, period, size_type, account, status1, sell_date)
+				values(sell_history_seq.nextval, 
+						#{sell_historyDTO.product_id}, 
+						#{sell_historyDTO.address_id}, 
+						#{sell_historyDTO.user_id}, 
+						#{sell_historyDTO.sell_price}, 
+						#{sell_historyDTO.period}, 
+						#{sell_historyDTO.size_type}, 
+						#{sell_historyDTO.account}, 
+						#{sell_historyDTO.status1}, 
+						sysdate);
+			
+			update buy_history set status1='결제완료' where buy_id=${buy};
+			end
+		}
+	</update>
+	
+	<select id="getNewSellDTO" resultType="sellHistory">
+		select * from sell_history where sell_id=(select (LAST_NUMBER-1) from USER_SEQUENCES WHERE SEQUENCE_NAME='SELL_HISTORY_SEQ')
+	</select>
+	
 	<select id="getshopDetaillist" parameterType="Int" resultType="marketPrice">
 		select * from (select * from market_price where product_id=${product_id} order by signing_date desc) where <![CDATA[rownum <= 5 ]]>
   	</select>
