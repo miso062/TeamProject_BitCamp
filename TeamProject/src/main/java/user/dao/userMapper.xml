@@ -162,7 +162,7 @@
 		delete user_table where user_id=#{user_id}
 	</delete>
 	
-	<select id="getLikeProductList" parameterType="java.util.Map" resultType="likepro">
+	<select id="getLikeProductList" parameterType="String" resultType="likepro">
 		select * from like_pro where user_id=#{id}
 	</select>
 	

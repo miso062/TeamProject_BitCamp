@@ -1171,7 +1171,54 @@ $(document).ready(function(){
 		url:'/TeamProject/user/getLikeProductList',
 		dataType:'json',
 		success:function(data){
-			//alert(JSON.stringify(data))
+			alert(JSON.stringify(data))
+			var colorList = [ 'rgb(241, 233, 252)', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
+			for(var i = 0; i < 4; i++){
+				//console.log(data.list2[i].brand, data.list2[i].eng_name, data.list2[i].release_price, data.list3[i].file_path );
+				var random = Math.floor( Math.random() * 4 ); 
+				
+				$('<div/>',{
+					class: 'product_item'
+				}).append($('<a/>',{
+					href:'#',
+					class: 'cd2_item_inner'
+				}).append($('<div/>',{
+					class: 'thum_box'
+				}).append($('<div/>',{
+					class: 'product',
+	                style: 'background-color: '+ colorList[random] + ';'
+				}).append($('<img/>',{
+						   src: data.list3[i].file_path,
+						   class: 'image picture product_img' 
+						})))).append($('<div/>',{
+							class: 'info_box'
+						}).append($('<div/>',{
+							class: 'brand'
+						}).append($('<p/>',{
+							class: 'brand-text',
+							text: data.list2[i].brand
+					   }))).append($('<p/>',{
+						   class: 'name',
+						   text: data.list2[i].eng_name
+					   })).append($('<div/>',{
+						   class: 'price'
+					   }).append($('<div/>',{
+							class: 'amount md'
+					   }).append($('<em/>',{
+						   class: 'num',
+						   text: data.list2[i].release_price
+						   }))).append($('<div/>',{
+					   class : 'desc'
+				   }).append($('<p/>',{
+					   text: '즉시구매가'
+				   })))))).append($('<input/>',{
+					   type:'hidden',
+					   class : 'myPage_product_id',
+					   id: 'myPage_product_id'+data.list2[i].product_id,
+					   value : data.list2[i].product_id
+				   })).appendTo($('.product_list'));
+			   
+			}
 			
 		},error: function(e){
 			 console.log(e);
