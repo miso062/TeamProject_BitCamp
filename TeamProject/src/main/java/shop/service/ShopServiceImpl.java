@@ -33,14 +33,14 @@ public class ShopServiceImpl implements ShopService {
 	HttpSession session;
 	
 	@Override
-	public List<ShopDTO> scrollProductList(String num, String sort) {
+	public List<ShopDTO> scrollProductList(String num, String sort, String command) {
 		int startNum = Integer.parseInt(num);
 		int endNum = startNum + 15; 
 		
-		Map<String, Integer>map = new HashMap<String, Integer>();
-		map.put("startNum", startNum);
-		map.put("endNum", endNum);
-		
+		Map<String, String>map = new HashMap<String, String>();
+		map.put("startNum", startNum+"");
+		map.put("endNum", endNum+"");
+		map.put("command", command);
 		List<ShopDTO> list = shopDAO.scrollProductList(map, sort);
 //		sendMap.put("num", startNum + 16);
 //		System.out.println();
@@ -188,11 +188,28 @@ public class ShopServiceImpl implements ShopService {
 	}
 
 	@Override
-//	구매 입칠 시 buy_historyDTO 입력
+//	구매 입찰 시 buy_historyDTO 입력
 	public Buy_historyDTO insertBuyPay(Buy_historyDTO buy_historyDTO) {
 		buy_historyDTO.setUser_id((String) session.getAttribute("memId"));
 		buy_historyDTO = shopDAO.insertBuyPay(buy_historyDTO);
 		System.out.println(buy_historyDTO);
 		return buy_historyDTO;
+	}
+
+	@Override
+	public Sell_historyDTO insertSellPayBySellId(Sell_historyDTO sell_historyDTO, int buy) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("sell_historyDTO", sell_historyDTO);
+		map.put("buy", buy);
+		return shopDAO.insertSellPayBySellId(map);
+	}
+
+//	판매 입찰 시 sell_historyDTO 입력
+	@Override
+	public Sell_historyDTO insertSellPay(Sell_historyDTO sell_historyDTO) {
+		sell_historyDTO.setUser_id((String) session.getAttribute("memId"));
+		sell_historyDTO = shopDAO.insertSellPay(sell_historyDTO);
+		System.out.println(sell_historyDTO);
+		return sell_historyDTO;
 	}
 }

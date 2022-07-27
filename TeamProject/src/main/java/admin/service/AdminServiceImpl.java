@@ -160,7 +160,7 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public List<UserDTO> getAllUserList() {
-		return adminDAO.getAllUserList();
+		return adminDAO.getAllUserList();		
 	}
 
 	@Override
@@ -174,6 +174,51 @@ public class AdminServiceImpl implements AdminService {
 		return adminDAO.getUserCount();
 	}
 
+	@Override
+	public List<UserDTO> getAllUserList2() {
+		return adminDAO.getAllUserList2();
+	}
+
+	@Override
+	public List<UserDTO> getAllUserList3() {
+		return adminDAO.getAllUserList3();
+	}
+
+	@Override
+	public void deleteThisUser(String user_id) {
+		adminDAO.deleteThisUser(user_id);
+	}
+
+	@Override
+	public List<UserDTO> getsearchUserList(String keyword) {
+		if(keyword.equals("일반회원")) {
+			return adminDAO.getMemberList();
+		}else if(keyword.equals("우수회원")) {
+			return adminDAO.getGoodMemberList();			
+		}else {
+		return adminDAO.getsearchUserList(keyword);
+		}
+	}
+
+	@Override
+	public Map<String, Object> getSearchAdmin(String keyword) {
+		Map<String,Object>map = new HashMap<String,Object>();
+		map.put("searchuser_count",getSearchAdminCount(keyword));
+		return map;
+	}
+
+	private Integer getSearchAdminCount(String keyword) {
+		
+		if(keyword.equals("일반회원")) {
+			return adminDAO.getMemberCount();
+		}else if(keyword.equals("우수회원")) {
+			return adminDAO.getGoodMemberCount();			
+		}else {
+			return adminDAO.getSearchAdminCount(keyword);
+		}
+	}
+	
+	
 	
 	
 

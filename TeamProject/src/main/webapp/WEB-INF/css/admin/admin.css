@@ -1614,7 +1614,7 @@ img.shadow {
 	position    : relative;
 	width       : 100%;
 	left        : 0;
-	padding-top : 50px;
+	padding-top : 20px;
 }
 .fixed_db_banner ~ #content {
 	padding-top: 100px;

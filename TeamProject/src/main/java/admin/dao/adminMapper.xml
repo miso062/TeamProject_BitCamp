@@ -79,10 +79,37 @@
   		delete qna where qna_id = #{seq}
   	</delete>
   	<select id="getAllUserList" resultType="user">
-  		select * from (select * from user_table order by authority desc, sign_up_date desc) where <![CDATA[rownum <= 5 ]]>
+  		select * from (select * from user_table where authority != 10 order by sign_up_date desc) where <![CDATA[rownum <= 4 ]]>
   	</select>
   	<select id="getUserCount" resultType="Integer">
   		select count(*) from user_table
+  	</select>
+  	<select id="getAllUserList2" resultType="user">
+  		select * from user_table where authority=10
+  	</select>
+  	<select id="getAllUserList3" resultType="user">
+  		select * from user_table where authority != 10 order by sign_up_date desc
+  	</select>
+  	<delete id="deleteThisUser" parameterType="String">
+  		delete user_table where user_id=#{user_id}
+  	</delete>
+  	<select id="getsearchUserList" parameterType="String" resultType="user">
+  		select * from user_table where user_id like '%'||#{keyword}||'%' or user_name like '%'||#{keyword}||'%' or nickname like '%'||#{keyword}||'%' or hp like '%'||#{keyword}||'%' or authority like '%'||#{keyword}||'%'
+  	</select>
+  	<select id="getSearchAdminCount" parameterType="String" resultType="Integer">
+  		select count (*) from user_table where user_id like '%'||#{keyword}||'%' or user_name like '%'||#{keyword}||'%' or nickname like '%'||#{keyword}||'%' or hp like '%'||#{keyword}||'%' or authority like '%'||#{keyword}||'%'
+  	</select>
+  	<select id="getMemberList" resultType="user">
+  	 select * from user_table where authority = '1'
+  	</select>
+  	<select id="getGoodMemberList" resultType="user">
+  	 select * from user_table where authority = '5'
+  	</select>
+  	<select id="getGoodMemberCount" resultType="Integer">
+  		select count (*) from user_table where authority = '5'
+  	</select>
+  	<select id="getMemberCount" resultType="Integer">
+  		select count (*) from user_table where authority = '1'
   	</select>
 </mapper>
 

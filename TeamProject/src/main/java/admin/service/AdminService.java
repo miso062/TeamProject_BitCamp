@@ -44,5 +44,15 @@ public interface AdminService {
 
 	public Map<String, Object> getAllAdmin();
 
+	public List<UserDTO> getAllUserList2();
+
+	public List<UserDTO> getAllUserList3();
+
+	public void deleteThisUser(String user_id);
+
+	public List<UserDTO> getsearchUserList(String keyword);
+
+	public Map<String, Object> getSearchAdmin(String keyword);
+
 
 }

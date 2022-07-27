@@ -86,7 +86,7 @@
         </div>
         <div class="fold_area tabled animate" style="text-align: center;">
             <div class="table-cell vertical-middle">
-                <a href="/admin/" class="logo_icon_menu"> <img src="/TeamProject/img/admin/logo_white.png" /> </a>
+                <a href="/TeamProject/admin/" class="logo_icon_menu"> <img src="/TeamProject/img/admin/logo_white.png" /> </a>
             </div>
             <a class="_tooltip_btn side_bar_btn" href="javascript:void(0)" role="button" id="toggle_button">
                 <span class="fold_button left" data-original-title="사이드바 접어두기" data-toggle="tooltip" data-placement="bottom">

@@ -87,14 +87,15 @@ public class ShopMyBatisImpl implements ShopDAO {
 	}
   
 	@Override
-	public List<ShopDTO> scrollProductList(Map<String, Integer> map, String sort) {
+	public List<ShopDTO> scrollProductList(Map<String, String> map, String sort) {
 		List<ShopDTO> list = null;
 		if(sort.equals("popular")) {
 			list = sqlSession.selectList("shopSQL.scrollProductList", map);
 		} else if (sort.equals("buy")) {
 			list = sqlSession.selectList("shopSQL.scrollBuyProductList", map);
 		} else if (sort.equals("sell")) {
-			 sqlSession.selectList("shopSQL.scrollSellProductList", map);
+			list = sqlSession.selectList("shopSQL.scrollSellProductList", map);
+			 
 		}
 		return list;
 	}
@@ -143,5 +144,17 @@ public class ShopMyBatisImpl implements ShopDAO {
 	@Override
 	public Buy_historyDTO getBuyDTOById(int bid) {
 		return sqlSession.selectOne("shopSQL.getBuyDTOById", bid);
+	}
+
+	@Override
+	public Sell_historyDTO insertSellPayBySellId(Map<String, Object> map) {
+		sqlSession.update("shopSQL.insertSellPayBySellId", map);
+		return sqlSession.selectOne("shopSQL.getNewSellDTO");
+	}
+
+	@Override
+	public Sell_historyDTO insertSellPay(Sell_historyDTO sell_historyDTO) {
+		sqlSession.insert("shopSQL.insertSellPay", sell_historyDTO); 
+		return sqlSession.selectOne("shopSQL.getNewSellDTO");
 	}
 }

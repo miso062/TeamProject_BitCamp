@@ -5,9 +5,9 @@
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 
 <input type="hidden" id="payment_method" value="${map.payment_method}">
-<div class="container buy lg">
+<div class="container sell lg" style="background: #fafafa;">
     <div class="content">
-        <div class="buy_immediate">
+        <div class="sell_immediate">
             <div class="product_info_area">
                 <div class="product_info">
                     <div class="product" style="background-color: rgb(235, 240, 245);">
@@ -25,6 +25,110 @@
                     </div>
                 </div>
             </div>
+            <section>
+                <div class="section_unit">
+                    <div class="section_title"><h3 class="title_txt">판매 정산 계좌</h3></div>
+                    <div class="section_content account_content">
+                        <div class="account_info">
+                            <dl class="info_list">
+                                <div class="info_box">
+                                    <dt class="title">계좌</dt>
+                                    <dd class="desc" id="enter_account">정산 받을 계좌번호를 입력해주세요.</dd>
+                                </div>
+                                <div class="info_box">
+                                    <dt class="title">예금주</dt>
+                                    <dd class="desc" id="enter_owner"></dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <a href="#" id="account_change_btn" class="btn btn_edit outlinegrey small"> 변경 </a>
+                    </div>
+                </div>
+                <div class="layer_payout_account layer lg" style="display: none">
+				    <div class="layer_account_container">
+				        <div class="layer_header"><h2 class="title">판매 정산 계좌</h2></div>
+				        <div class="layer_content" style="padding: 0 20px 20px;">
+				            <div class="content_registration">
+				                <div class="account_registration">
+				                    <div class="input_logistics_companies input_box">
+				                        <h4 class="input_title">은행명</h4>
+				                        <div class="input_item" style="height: 36px;">
+				                            <input type="text" placeholder="선택하세요" readonly="readonly" id="selected_bank" autocomplete="off" class="input_txt" />
+				                            <button type="button" class="btn btn_dropdown">
+				                                <img src="/TeamProject/img/shop/dropdown.png" alt="닫기" class="address_close_btn">
+				                            </button>
+				                            <div class="layer_dropdown layer lg" style="height: 230px; display: none;">
+											    <div class="layer_container">
+											        <div class="layer_dropdown_header"><h2 class="title">은행 선택</h2></div>
+											        <div class="layer_content" style="height: 228px;">
+											            <ul class="drop_list">
+											                <li class="drop_item"><a href="#" class="drop_link"> 국민은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 신한은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 우리은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 하나은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 기업은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 농협은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> SC은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 우체국 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 한국씨티은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 산업은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 카카오뱅크 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 부산은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 대구은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 광주은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 케이뱅크 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 수협중앙회 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 제주은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 전북은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 지역농축협 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 경남은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 새마을금고연합회 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 신협 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 저축은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> HSBC은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 도이치은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 제이피모간체이스은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> BOA은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 비엔피파리바은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 중국공상은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 산림조합 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 중국건설은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 토스뱅크 </a></li>
+											            </ul>
+											        </div>
+											    </div>
+											</div>
+															                            
+				                        </div>
+				                    </div>
+				                    <div class="input_box">
+				                        <h4 class="input_title">계좌번호</h4>
+				                        <div class="input_item">
+				                        	<input type="text" placeholder="- 없이 입력하세요" autocomplete="off" class="input_txt" id="account_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
+				                        </div>
+				                        <p class="input_error">올바른 계좌번호를 입력해주세요.</p>
+				                    </div>
+				                    <div class="input_box">
+				                        <h4 class="input_title">예금주</h4>
+				                        <div class="input_item">
+                                            <input type="text" placeholder="예금주명을 정확히 입력하세요." autocomplete="off" id="account_owner_name" class="input_txt" />
+                                        </div>
+				                        <p class="input_error">올바른 이름을 입력해주세요. (2-50자)</p>
+				                    </div>
+				                </div>
+				                <div class="registration_btn_box"  style="text-align: center;">
+				                	<a href="#" id="regist_account" class="btn btn_save solid medium disabled"> 변경하기 </a>
+			                	</div>
+				            </div>
+				        </div>
+				        <a href="#" class="btn_layer_close" id="account_layer_close">
+				            <img src="/TeamProject/img/shop/cancel.png" alt="닫기" class="address_close_btn">
+				        </a>
+				    </div>
+				</div>
+				                
+            </section>
+            
             <section>
                 <div class="section_unit">
                     <div class="section_title">
@@ -152,12 +256,6 @@
                             </dl>
                             <dl class="price_addition">
                                 <dt class="price_title">
-                                    <span>포인트</span>
-                                </dt>
-                                <dd class="price_text">-</dd>
-                            </dl>
-                            <dl class="price_addition">
-                                <dt class="price_title">
                                     <span>검수비</span>
                                 </dt>
                                 <dd class="price_text">무료</dd>
@@ -177,7 +275,7 @@
                                 <dt class="price_title">
                                     <span>배송비</span>
                                 </dt>
-                                <dd class="price_text">3,000원</dd>
+                                <dd class="price_text">선불 · 판매자 부담</dd>
                             </dl>
                         </div>
                         <div class="price_bind" id="deadline_peroid">
@@ -191,48 +289,34 @@
                     </div>
                 </div>
             </section>
-            <section>
-                <div class="section_title"><h3 class="title_txt">결제 방법</h3></div>
+            <!-- <section>
+                <div class="section_title"><h3 class="title_txt">페널티 결제 방법</h3></div>
                 <div class="section_content">
                     <div class="simple_payment">
-                        <!-- <h4 class="method_title">
-                            <div class="main_title">카카오페이 간편 결제 <span class="sub_title">카카오페이 간편결제</span></div>
-                            <a href="#none" class="btn_card_add">+ 새 카드 추가</a>
-                        </h4> -->
                         <div class="card_list" >
                             <div class="main_card selected" style="cursor: pointer;">
                                 <div class="clickable_card">
                                 <span class="sub_title">카카오페이 간편결제&emsp;</span>
                                 <img alt="카카오페이 결제" src="/TeamProject/img/shop/payment_icon_yellow_large.png" id="kakaoPay_payment_btn" style="height: 20px;">
-                                    <!-- <div class="card_info" style="text-align: center;">
-                                    	간편 결제 하기
-                                        <span class="card_name"> BC</span>
-                                        <div class="card_num">
-                                            <span class="num_bind">
-                                                <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
-                                                <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
-                                                <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
-                                                <span class="last_num">9324</span>
-                                            </span>
-                                        </div>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="method_desc">
-                        <p class="desc_txt">결제는 일시불만 지원합니다.<br>구매 입찰의 경우 입찰 당일 혹은 다음 날 오후 4시에 등록된 결제 수단으로 결제 됩니다.</p>
+                        <p class="desc_txt">페널티 결제는 일시불만 지원합니다.<br>구매 입찰의 경우 입찰 당일 혹은 다음 날 오후 4시에 등록된 결제 수단으로 결제 됩니다.</p>
                     </div>
                 </div>
-            </section>
-            <section class="buy_check">
+            </section> -->
+            <section class="sell_check">
                 <div>
                     <ul class="check_list lg">
                         <li class="check_item">
                             <a class="check_area">
                                 <div class="notice_group">
-                                    <p class="notice_maintext">판매자의 판매거부, 배송지연, 미입고 등의 사유가 발생할 경우, 거래가 취소될 수 있습니다.</p>
-                                    <p class="notice_subtext">앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래 진행 상태 알림을 받을 수 없습니다.</p>
+                                    <p class="notice_maintext">
+                                        거래가 체결되면 일요일 · 공휴일을 제외하고 48시간 내에 KREAM으로 발송을 완료한 후, 발송 정보를 정확히 입력해야 합니다.
+                                    </p>
+                                    <p class="notice_subtext">착불 배송 시 판매 금액에서 차감 정산하며, 미정산 시 별도 고지없이 해당 금액을 결제 시도할 수 있습니다.</p>
                                 </div>
                                 <div class="checkbox_item">
                                		<label for="undefined" class="check_label">
@@ -244,8 +328,8 @@
                         <li class="check_item">
                             <a class="check_area">
                                 <div class="notice_group">
-                                    <p class="notice_maintext">창고 보관을 선택한 경우, 구매자에게 배송되지 않고 KREAM 창고에 보관됩니다.</p>
-                                    <p class="notice_subtext">검수 합격 후 보관이 완료되면 창고 이용료(현재 첫 30일 무료)가 결제됩니다.</p>
+                                    <p class="notice_maintext">송장 번호 미기재·오입력 시 입고가 진행되지 않으며, 발송 후 5일(일요일·공휴일 제외) 내 미도착은 허위 정보 입력으로 간주하여 미입고 페널티를 부과합니다.</p>
+                                    <p class="notice_subtext">앱 알림 해제, 알림톡 차단, 전화번호 변경 후 미등록 시에는 거래 진행 상태 알림을 받을 수 없으며 이로 인한 거래 실패는 판매자의 책임입니다.</p>
                                 </div>
                                 <div class="checkbox_item">
                                		<label for="undefined" class="check_label">
@@ -257,8 +341,8 @@
                         <li class="check_item">
                             <a class="check_area">
                                 <div class="notice_group">
-                                    <p class="notice_maintext">구매 입찰의 거래가 체결되면, 단순 변심이나 실수에 의한 취소가 불가능합니다.</p>
-                                    <p class="notice_subtext">본 거래는 개인간 거래로 전자상거래법(제17조)에 따른 청약철회(환불, 교환) 규정이 적용되지 않습니다.</p>
+                                    <p class="notice_maintext">검수 기준과 페널티 및 이용 정책을 다시 한번 확인하였습니다.</p>
+                                    <p class="notice_subtext">이용정책 위반 시, 판매 금액의 최대 15.0%의 페널티가 부과됩니다. 페널티 회피 시 이후 거래가 제한되며 별도 고지없이 해당 금액을 결제 시도할 수 있습니다.</p>
                                 </div>
                                 <div class="checkbox_item">
                                		<label for="undefined" class="check_label">
@@ -270,7 +354,7 @@
                         <li class="check_item">
                             <a class="check_area">
                                 <div class="notice_group">
-                                    <p class="notice_maintext">구매 조건을 모두 확인하였으며, 입찰 진행에 동의합니다.</p>
+                                    <p class="notice_maintext">판매 조건을 모두 확인하였으며, 입찰 진행에 동의합니다.</p>
                                 </div>
                                 <div class="checkbox_item">
                                		<label for="undefined" class="check_label">
@@ -281,38 +365,16 @@
                         </li>
                     </ul>
                 </div>
-                <div class="buy_total_confirm">
+                <div class="sell_total_confirm">
                     <div class="price_total_confirm">
                         <dl class="price_box">
                             <dt class="price_title">총 결제금액</dt>
                             <dd class="total_price"><span class="amount">${map.total_price}</span><span class="unit">원</span></dd>
                         </dl>
                     </div>
-                    <div class="btn_confirm"><a class="buy_btn"></a></div>
+                    <div class="btn_confirm"><a class="sell_btn"></a></div>
                 </div>
             </section>
-            <div class="layer_order_price_confirm layer lg" style="display: none">
-                <div class="layer_container">
-                    <div class="layer_header"></div>
-                    <div class="layer_content">
-                        <div class="alert_title">
-                            <div class="alert_notice">
-                                <p class="notice">한번 더 확인하세요</p>
-                                <span class="rectangle"></span>
-                            </div>
-                            <p class="alert_total_price">총 결제금액</p>
-                            <p class="price">${map.total_price}원</p>
-                        </div>
-                        <div class="alert_box">
-                            <p class="alert_desc">해당 거래는 개인간 거래로 단순변심 또는 실수에 따른 <em>체결 후 취소는 불가능합니다.</em></p>
-                        </div>
-                        <div class="layer_btn"><button type="button" class="alert_done_btn" data-v-350bc372="">구매 입찰완료</button></div>
-                    </div>
-                    <a href="#" class="btn_layer_close">
-                        <img src="/TeamProject/img/shop/cancel.png" alt="닫기" class="address_close_btn">
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -327,6 +389,49 @@ var resultaddr1 = false;
 var resultaddr2 = false;
 
 var img = '<img src="/TeamProject/img/shop/check.png" alt="선택" class="address_check_flag">';
+
+// open enter account modal
+$('#account_change_btn').click(function(){
+    $('#account_owner_name').val('');
+    $('#account_num').val('');
+    $('#selected_bank').val('');
+    $('.layer_payout_account').fadeIn();
+    $('body').css("overflow", "hidden");
+    addr_initialization();
+});
+
+// open select bank modal
+$('.btn_dropdown, #selected_bank').click(function(){
+    if($('.layer_dropdown').css('display') == 'none'){
+        $('.layer_dropdown').fadeIn();
+    }
+    else{
+    	$('.layer_dropdown').fadeOut();
+    }
+});
+
+$('.drop_link').click(function(){
+    $('#selected_bank').val($(this).text());
+    $('.layer_dropdown').fadeOut();
+});
+
+$('#regist_account').click(function(){
+    if(!$('#account_owner_name').val() || !$('#account_num').val() || !$('#selected_bank').val()){
+        alert('정보를 전부 입력해주세요!');
+    }
+    else{
+        $('#enter_account').text($('#selected_bank').val() + ' ' + $('#account_num').val());
+        $('#enter_owner').text($('#account_owner_name').val());
+    	$('.layer_payout_account').fadeOut();
+        $('body').css("overflow-y", "scroll");
+    }
+});
+
+$('#account_layer_close').click(function(){
+    $('.layer_payout_account').fadeOut();
+    $('body').css("overflow-y", "scroll");
+});
+
 
 // open change address modal
 $('.change_btn').click(function(){
@@ -443,24 +548,6 @@ $(document).on("click",function(e){
 });
 $('.layer_bTn').click(function(){ // 취소 버튼 눌러서 종료
     $('.layer_delivery').fadeOut();
-    $('body').css("overflow-y", "scroll");
-});
-
-
-// open alert check modal
-$('.btn_confirm').click(function(){
-    $('.layer_order_price_confirm').fadeIn();
-    $('body').css("overflow", "hidden");
-    addr_initialization();
-});
-$(document).on("click",function(e){
-    if($('.layer_order_price_confirm').is(e.target)) {
-        $('.layer_order_price_confirm').fadeOut();
-        $('body').css("overflow-y", "scroll");
-    }
-});
-$('.btn_layer_close').click(function(){ // 취소 버튼 눌러서 종료
-    $('.layer_order_price_confirm').fadeOut();
     $('body').css("overflow-y", "scroll");
 });
 
@@ -607,10 +694,10 @@ $(document).on('click','.bTn.bTn_save.solid.medium.passadd',function(){ // 배�
 
 $(function(){
     // 결제 방법에 따른 구매 시기 표시
-    if($('#payment_method').val() == '구매 입찰'){
-        $('#payment_method_price').text('구매 희망가');
+    if($('#payment_method').val() == '판매 입찰'){
+        $('#payment_method_price').text('판매 희망가');
     } else{
-        $('#payment_method_price').text('즉시 구매가');
+        $('#payment_method_price').text('즉시 판매가');
         $('#deadline_peroid').css('display', 'none');
     }
 
@@ -631,14 +718,14 @@ $(function(){
                 $('#selected_addr_id').val(data.address_id);
                 $('#selected_zipcode').val(data.zipcode);
             }
-            $('.buy_btn').text($('#payment_method').val()+'하기');
+            $('.sell_btn').text($('#payment_method').val()+'하기');
         },
         error: function(err){
             console.log(err);
         }
     });
 
-    // 구매 확인 사항 체크
+    // 판매 확인 사항 체크
 	$('.check_area').click(function(){
 		img = $(this).find('.check_area_checkbox');
 		if(img.hasClass('active')){
@@ -650,122 +737,62 @@ $(function(){
 			img.attr('src', '/TeamProject/img/shop/checkbox-active.png');
 		}
 		
-		if($('.active').length == 4 && $('#address_name').html() != ''){
-			$('.buy_btn').css('background-color', '#31b46e');
-            $('.buy_btn').css('cursor', 'pointer');
-            $('.buy_btn').addClass('able');
+		if($('.active').length == 4 && $('#address_name').html() != '' && $('#enter_owner').text() != ''){
+			$('.sell_btn').css('background-color', '#31b46e');
+            $('.sell_btn').css('cursor', 'pointer');
+            $('.sell_btn').addClass('able');
 		}
 		else{
-			$('.buy_btn').css('background-color', '#ebebeb');
-            $('.buy_btn').css('cursor', 'default');
-            $('.buy_btn').removeClass('able');
+			$('.sell_btn').css('background-color', '#ebebeb');
+            $('.sell_btn').css('cursor', 'default');
+            $('.sell_btn').removeClass('able');
 		}
 	});
 	
     // 입찰 방법 결정
-	$('.alert_done_btn').click(function(){
-		if($('.buy_btn').hasClass('able')){
-            if($('#payment_method').val() == '구매 입찰'){
-                reservation_request_pay();
+	$('.btn_confirm').click(function(){
+		if($('.sell_btn').hasClass('able')){
+			
+			var orig_price = '${map.price}';
+            var regex = /[^0-9]/g;
+            var sell_price = orig_price.replace(regex, "");
+			
+            var status1;
+            var buy;
+            var dateString;
+            
+            if($('#payment_method').val() == '판매 입찰'){
+            	buy = 0;
+	            var arr = $('.price_text:eq(4)').text().split(" ");
+	            dateString = arr[2].substring(0, arr[2].length-2);
             }else{
-                general_request_pay();
+	            buy = '${map.buy}'
+            	var today = new Date();
+                var year = today.getFullYear();
+                var month = ('0' + (today.getMonth() + 1)).slice(-2);
+                var day = ('0' + today.getDate()).slice(-2);
+                dateString = year + '/' + month  + '/' + day;
             }
+            $.ajax({
+            	url: "/TeamProject/shop/insertSellPay",
+            	type: 'post',
+            	data: {
+            		product_id : '${map.productDTO.product_id }',
+                    address_id : $('#selected_addr_id').val(),
+                    user_id: '${sessionScope.memId}',
+                    sell_price: sell_price,
+                    period: dateString,
+                    size_type: '${map.size }',
+                    account: $('#enter_account').text() + " 예금주: " + $('#enter_owner').text(),
+                    status1: '판매 대기중',
+                    buy: buy
+            	},
+            	success: function(data){
+            		location.href = "/TeamProject/shop/sellFinish?sell="+data.sell_id;
+            	}
+            });
         }
 	})
 });
 
-var IMP = window.IMP; // 생략 가능
-IMP.init("imp50328177");
-
-var merchant_uid = $('.model_number').text() + "_"+ new Date().getTime();
-var name = $('.model_title').text() + " | " + $('.size_txt').text() + "mm";
-// username + pro_seq + size
-var customer_uid = '${map.userDTO.user_name}' + "_" + "${map.productDTO.product_id }" + "_" + $('.size_txt').text();
-var buyer_email = '${sessionScope.memId}';
-var buyer_name = '${map.userDTO.user_name}';
-var buyer_tel = '${map.userDTO.hp}';
-var amount = '${map.total_price}';
-
-// 즉시 결제
-function general_request_pay() {
-	IMP.request_pay({ // param
-		pg : 'kakaopay.TC0ONETIME',
-	    pay_method : 'card', //생략 가능
-	    merchant_uid: merchant_uid, // 상점에서 관리하는 주문 번호
-	    name : name,
-	    amount : amount,
-	    buyer_email : buyer_email,
-	    buyer_name : buyer_name,
-	    buyer_tel : buyer_tel,
-	    buyer_addr : $('#address_detail').text(),
-	    buyer_postcode : $('#selected_zipcode').val()
-	}, function (rsp) { // callback
-		if (rsp.success) {
-            alert(rsp.imp_uid + " | " + rsp.merchant_uid);
-			jQuery.ajax({
-				url: "/TeamProject/shop/insertBuyPay",
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				data: {
-				    product_id : '1234',
-                    addredd_id : '3',
-                    buy_price: '128000',
-                    period: '2022-07-14',
-                    size_type: 230,
-                    customer_uid: ''
-				},
-                success: function(){
-                    alert('저장 성공');
-                },
-                error: function(err){
-                    console.log(err);
-                }
-			}).done(function(data){
-				
-			})
-		} else {
-			alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
-		}
-	});
-}
-
-// 정기 결제
-function reservation_request_pay(){
-	IMP.request_pay({
-		pg : 'kakaopay.TCSUBSCRIP',
-		pay_method: 'card',
-		merchant_uid: merchant_uid, // 상점에서 관리하는 주문 번호
-		name : name,
-		amount : 0, // 빌링키 발급만 진행하며 결제승인을 하지 않습니다.
-		customer_uid: customer_uid, // 필수 입력
-		buyer_email : buyer_email,
-		buyer_name : buyer_name,
-		buyer_tel : buyer_tel,
-	    buyer_addr : $('#address_detail').text(),
-	    buyer_postcode : $('#selected_zipcode').val()
-	}, function(rsp) {
-		if ( rsp.success ) {
-            $.ajax({
-                url: '/TeamProject/shop/insertBuyPay',
-				type: 'post',
-				data: {
-                    product_id : '1234',
-                    addredd_id : '3',
-                    buy_price: '128000',
-                    period: '2022-07-14',
-                    size_type: 230,
-                    customer_uid: customer_uid
-				},
-				success: function(){
-                    alert('빌링키 발급 성공');
-				},
-				error: function(err){
-					console.log(err);
-				}
-			});
-		} else {
-			alert('빌링키 발급 실패' + rsp.error_msg);
-		}
-	});
-}
 </script>
