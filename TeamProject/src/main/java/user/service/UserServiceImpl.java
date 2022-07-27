@@ -185,6 +185,11 @@ public class UserServiceImpl implements UserService {
 		
 		return addressDTO;
 	}
+	//주소 삭제
+	@Override
+	public void myAddressDelete(String address_id) {
+		userDAO.myAddressDelete(address_id);		
+	}
 	
 	//주소록
 	@Override
@@ -338,6 +343,15 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getSellItem(sell_id);
 	}
 	
+	@Override
+	public void delBuyHistory(int buy_id) {
+		userDAO.delBuyHistory(buy_id);
+	}
+
+	@Override
+	public void delSellHistory(int sell_id) {
+		userDAO.delSellHistory(sell_id);
+	}
 	//마이페이지
 	//-----------------------------------------------------------
 	
@@ -485,5 +499,29 @@ public class UserServiceImpl implements UserService {
 		map.put("list3",list3);
 		return map;
 		}
+
+	@Override
+	public void addAddressModify(AddressDTO addressDTO) {
+		if(addressDTO.getFlag() == 1) {
+			userDAO.updateflag(addressDTO);
+		}
+		userDAO.addAddressModify(addressDTO);		
+	}
+	//기본배송지로 설정
+	@Override
+	public void changeFlag(String address_id) {
+		System.out.println("22");
+		userDAO.changeFlag(address_id);		
+	}
+	//기존 기본배송지 내리기
+	@Override
+	public void changeFlag1(String address_id) {
+		String user_id = String.valueOf(session.getAttribute("memId"));
+		System.out.println(user_id);
+		userDAO.changeFlag1(user_id);	
+	}
+
+
+	
 	
 	}

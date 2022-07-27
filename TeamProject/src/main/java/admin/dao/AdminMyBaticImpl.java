@@ -134,4 +134,58 @@ public class AdminMyBaticImpl implements AdminDAO {
 		return sqlSession.selectOne("adminSQL.getUserCount");
 	}
 
+
+	@Override
+	public List<UserDTO> getAllUserList2() {
+		return sqlSession.selectList("adminSQL.getAllUserList2");
+	}
+
+
+	@Override
+	public List<UserDTO> getAllUserList3() {
+		return sqlSession.selectList("adminSQL.getAllUserList3");
+	}
+
+
+	@Override
+	public void deleteThisUser(String user_id) {
+		sqlSession.delete("adminSQL.deleteThisUser",user_id);
+	}
+
+
+	@Override
+	public List<UserDTO> getsearchUserList(String keyword) {
+		return sqlSession.selectList("adminSQL.getsearchUserList",keyword);
+	}
+
+
+	@Override
+	public Integer getSearchAdminCount(String keyword) {
+		return sqlSession.selectOne("adminSQL.getSearchAdminCount",keyword);
+	}
+
+
+	@Override
+	public List<UserDTO> getMemberList() {
+		return sqlSession.selectList("adminSQL.getMemberList");
+	}
+
+
+	@Override
+	public List<UserDTO> getGoodMemberList() {
+		return sqlSession.selectList("adminSQL.getGoodMemberList");
+	}
+
+
+	@Override
+	public Integer getMemberCount() {
+		return sqlSession.selectOne("adminSQL.getMemberCount");
+	}
+
+
+	@Override
+	public Integer getGoodMemberCount() {
+		return sqlSession.selectOne("adminSQL.getGoodMemberCount");
+	}
+
 }

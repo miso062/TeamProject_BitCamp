@@ -103,7 +103,6 @@ public class UserDAOImpl implements UserDAO {
   
 	@Override
 	public void updateImg(Map<String, String> map) {
-		System.out.println(map);
 		sqlSession.update("userSQL.updateImg", map);
 	}
 
@@ -154,7 +153,7 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public Sell_historyDTO getSellItem(String sell_id) {
-		return sqlSession.selectOne("userSQL.getBuyItem", sell_id);
+		return sqlSession.selectOne("userSQL.getSellItem", sell_id);
 	}
 	
 	@Override
@@ -179,6 +178,16 @@ public class UserDAOImpl implements UserDAO {
 		return map;
 	}
 	
+	@Override
+	public void delSellHistory(int sell_id) {
+		sqlSession.delete("userSQL.delSellHistory", sell_id);		
+	}
+	
+	@Override
+	public void delBuyHistory(int buy_id) {
+		sqlSession.delete("userSQL.delBuyHistory", buy_id);
+	}
+
 	@Override
 	public int checkIdKakao(String user_id) {
 		return sqlSession.selectOne("userSQL.checkIdKakao", user_id);
@@ -233,6 +242,28 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public AddressDTO comeAddress1(String user_id) {
 		return sqlSession.selectOne("userSQL.comeAddress1" , user_id);
+	}
+
+	@Override
+	public void myAddressDelete(String address_id) {
+		sqlSession.delete("userSQL.myAddressDelete", address_id);		
+	}
+
+	@Override
+	public void addAddressModify(AddressDTO addressDTO) {
+		sqlSession.update("userSQL.addAddressModify" , addressDTO);
+	}
+
+	@Override
+	public void changeFlag(String address_id) {
+		int addr_id = Integer.parseInt(address_id);
+		sqlSession.update("userSQL.changeFlag" ,addr_id);		
+	}
+	//기본배송지 내리기
+	@Override
+	public void changeFlag1(String user_id) {
+		sqlSession.update("userSQL.changeFlag1" ,user_id);		
+		
 	}
 
 }

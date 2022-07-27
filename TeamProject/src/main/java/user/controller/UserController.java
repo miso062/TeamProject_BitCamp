@@ -148,7 +148,6 @@ public class UserController {
 		   productImgList.add(productImgDTO);
 		}
 		buy_map.put("productImgList", productImgList);
-		//System.out.println(buy_map);
 		return buy_map;
 	}
 	
@@ -167,7 +166,6 @@ public class UserController {
 		   productImgList.add(productImgDTO);
 		}
 		sell_map.put("productImgList", productImgList);
-		//System.out.println(sell_map);
 		return sell_map;
 	}
 	
@@ -184,7 +182,7 @@ public class UserController {
 	@PostMapping(value="update")
 	@ResponseBody
 	public void updateUser(@ModelAttribute UserDTO userDTO, HttpSession session) {
-		System.out.println(userDTO);
+		//System.out.println(userDTO);
 		userDTO.setUser_pwd(passwordEncoder.encode(userDTO.getUser_pwd()));
 		userService.update(userDTO, session);
 	}
@@ -192,7 +190,7 @@ public class UserController {
 	@PostMapping(value="updateImg")
 	@ResponseBody
 	public void updateImg(@RequestParam MultipartFile file, HttpSession session) throws FirebaseException, IOException {
-		System.out.println(file);
+		//System.out.println(file);
 		String user_id = (String) session.getAttribute("memId");
 		FireStorage.initialize();
 		FireStorage.uploadFiles(file, user_id);
@@ -252,10 +250,23 @@ public class UserController {
 	@PostMapping(value="getProductInfo")
 	@ResponseBody
 	public Map<String, Object> getProductInfo(@RequestParam int product_id){
-		System.out.println(product_id);
 		return userService.getProductInfo(product_id);
 	}
-	
+	//구매내역 삭제
+	@PostMapping(value="delBuyHistory")
+	@ResponseBody
+	public void delBuyHistory(@RequestParam int buy_id) {
+		//System.out.println(buy_id);
+		userService.delBuyHistory(buy_id);
+	}
+	//판매내역 삭제
+	@PostMapping(value="delSellHistory")
+	@ResponseBody
+	public void delSellHistory(@RequestParam int sell_id) {
+		//System.out.println(sell_id);
+		userService.delSellHistory(sell_id);
+	}
+
 	@GetMapping(value="likePro")
 	public String likePro(Model model) {
 		model.addAttribute("container", "/WEB-INF/user/myPage/likePro.jsp");
@@ -291,6 +302,33 @@ public class UserController {
 	public void addAddressBook(@ModelAttribute AddressDTO addressDTO) {
 		userService.addAddressBook(addressDTO);
  	}	
+	//주소삭제
+	@PostMapping(value="myAddressDelete")
+	@ResponseBody
+	public void myAddressDelete(@RequestParam String address_id) {
+		userService.myAddressDelete(address_id);
+	}
+	//주소 수정 버튼 눌렀을 때 불러오기
+	@PostMapping(value="myGetAddress")
+	@ResponseBody
+	public AddressDTO myGetAddress(@RequestParam String address_id) {
+		
+		return userService.getAddress(Integer.parseInt(address_id));
+	}
+	//주소 수정 DB 들록
+	@PostMapping(value="addAddressModify")
+	@ResponseBody
+	public void addAddressModify(@ModelAttribute AddressDTO addressDTO) {
+		userService.addAddressModify(addressDTO);
+ 	}
+	//기본 배송지 바꾸기
+	@PostMapping(value="changeFlag")
+	@ResponseBody
+	public void changeFlag(@RequestParam String address_id) {
+		userService.changeFlag1(address_id);
+		userService.changeFlag(address_id);
+	}
+
 
 	@GetMapping(value="findEmailMain")
 	public String findEmailMain(Model model) {
@@ -412,14 +450,14 @@ public class UserController {
 	@PostMapping(value="bookMarkInsert")
 	@ResponseBody
 	public void bookMarkInsert(@RequestParam Map<String, String> map) {
-		System.out.println(map);
+		//System.out.println(map);
 		userService.bookMarkInsert(map);
 	}
 	
 	@PostMapping(value="bookMarkDelete")
 	@ResponseBody
 	public void bookMarkDelete(@RequestParam int product_id) {
-		System.out.println("delete ="+product_id);
+		//System.out.println("delete ="+product_id);
 		userService.bookMarkDelete(product_id);
 	}
 	//메인 화면 찜하기 불러오기
