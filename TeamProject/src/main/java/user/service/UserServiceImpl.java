@@ -294,7 +294,7 @@ public class UserServiceImpl implements UserService {
 			return null;
 		}
 		else {
-			System.out.println(id);
+//			System.out.println(id);
 			List<LikeProDTO> list= userDAO.bookMarkGet(id);
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("list",list);

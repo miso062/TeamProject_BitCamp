@@ -43,7 +43,7 @@ public class ShopServiceImpl implements ShopService {
 //		sendMap.put("num", startNum + 16);
 //		System.out.println();
 		// sendMap.put("num", startNum + 1);
-		System.out.println(list);
+//		System.out.println(list);
 		return list;
 	}
 

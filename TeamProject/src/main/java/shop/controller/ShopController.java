@@ -91,7 +91,7 @@ public class ShopController {
 		map.put("gender", gender);
 		map.put("collection", collection);
 		
-		System.out.println(map);
+//		System.out.println(map);
 		List<ShopDTO> list = shopService.scrollProductList(map, sort);
 	
 		return list;

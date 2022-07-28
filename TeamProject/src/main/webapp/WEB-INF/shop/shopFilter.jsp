@@ -174,7 +174,7 @@ var collection = [];
 								'collection' : collection}, 
 							dataType:'json',
 							success: function(data){
-								$('.shop-list-ul').html("");
+								$('.shop-list-ul').html("");	
 								try {						
 									for(var i=0; i<16; i++){
 										//console.log(page)
