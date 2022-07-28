@@ -517,5 +517,10 @@ public class UserServiceImpl implements UserService {
 		userDAO.likeProDelete(map);
 	}
 
+	@Override
+	public Integer getAuthor(String user_id) {
+		return userDAO.getAuthor(user_id);
+	}
+
 
 }

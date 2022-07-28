@@ -52,4 +52,5 @@ public interface UserService {
   public void changeFlag(String address_id);
 	public void changeFlag1(String address_id);
 	public void likeProDelete(String product_id);
+	public Integer getAuthor(String user_id);
 }

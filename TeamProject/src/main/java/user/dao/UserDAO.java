@@ -57,4 +57,5 @@ public interface UserDAO {
 	public void changeFlag(String address_id);
 	public void changeFlag1(String user_id);
 	public void likeProDelete(Map<String, String> map);
+	public Integer getAuthor(String user_id);
 }
