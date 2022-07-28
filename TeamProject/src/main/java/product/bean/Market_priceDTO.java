@@ -16,7 +16,7 @@ public class Market_priceDTO {
 	private int product_id;
 	private int price;
 	private String size_type;
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yy/MM/dd")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yy/MM/dd" , timezone ="Asia/Seoul")
 	private Date signing_date;
 	
 }

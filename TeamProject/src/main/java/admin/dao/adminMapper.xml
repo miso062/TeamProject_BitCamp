@@ -111,6 +111,23 @@
   	<select id="getMemberCount" resultType="Integer">
   		select count (*) from user_table where authority = '1'
   	</select>
+  	<select id="getAllProList" resultType="product">
+	  	select * from (select * from product p
+		left join pro_image pi on pi.product_id like p.product_id
+		order by regdate desc) where <![CDATA[rownum <= 5 ]]>
+  	</select>
+  	<select id="getImg" parameterType="Integer" resultType="productImg">
+  		select * from pro_image where product_id = ${product_id}
+  	</select>
+  	
+  	<select id="getVisitDate" resultType="String">
+  		select visit_date from (select * from visit order by visit_date desc) where <![CDATA[ROWNUM<=30]]> order by visit_date
+  	</select>
+  	
+  	<select id="getVisitCnt" resultType="Integer">
+  		select visit_cnt from (select * from visit order by visit_date desc) where <![CDATA[ROWNUM<=30]]> order by visit_date
+  	</select>
+  	
 </mapper>
 
 

@@ -257,7 +257,7 @@ a.footer_btn{
 
 <div id="footer_service_info">
    	  <div class="footer_menu_box1">
-         <b>이용안내</b>
+         <b style="cursor:default">이용안내</b>
          <ul>
          <br>
          <li ><a class="footer_a" id="footer_a" href="/TeamProject/admin/noticeStandard">검수기준</a></li><br>
@@ -268,7 +268,7 @@ a.footer_btn{
       </div> 
       
       <div class="footer_menu_box2">
-         <b>고객지원</b>
+         <b style="cursor:default">고객지원</b>
          <ul>
          <br>
           <li ><a class="footer_a" id="footer_a" href="/TeamProject/admin/notice">공지사항</a></li><br>
@@ -279,11 +279,11 @@ a.footer_btn{
        </div>
         
          <div id="footer_cs_center">
-            <strong>고객센터 1588-7813</strong><br><br>
-            <div id="footer_cs_time1">
+            <strong style="cursor:default">고객센터 1588-7813</strong><br><br>
+            <div id="footer_cs_time1" style="cursor:default">
                운영시간 평일 11:00 - 18:00(토,일,공휴일 휴무)<br>
                점심시간 평일 13:00 - 14:00</div><br>
-            <div id="footer_cs_time2">1:1 문의하기는 앱에서만 가능합니다</div><br>
+            <div id="footer_cs_time2" style="cursor:default">1:1 문의하기는 앱에서만 가능합니다</div><br>
             <a href="#" class="footer_btn"><strong>자주 묻는 질문</strong></a>
          </div>
 </div>
@@ -296,7 +296,7 @@ a.footer_btn{
       <li><a class="footer_a" id="footer_a2" href="">제휴제안</a></li>
       <li><a class="footer_a" id="footer_a2" href="">이용약관</a></li>
       <li><a class="footer_a" href=""><b>개인정보처리방침</b></a></li><br><br>
-      <div id="footer_company_import">
+      <div id="footer_company_import" style="cursor:default">
                    크림 주식회사 · 대표김창욱&emsp;사업자등록번호:570-88-01618<a id="footer_btnBusiness" href="">사업자정보확인</a>&emsp;통신판매업:제 2021-성남분당C-0093호<br>
                    사업장소재지:경기도 성남시 분당구 분당내곡로 117, 8층&emsp;개인정보관리책임자:김미진&emsp;호스팅 서비스:네이버 클라우드 (주)<br><br>
          <div id="footer_exe">크림(주)는 통신판매 중개자로서 통신판매의 당사자가 아니므로 개별 판매자가 등록한 상품저보에 대해서 책임을 지지 않<br>

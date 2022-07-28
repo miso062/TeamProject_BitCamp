@@ -570,7 +570,7 @@
 
 <div class="my_selling_detail bidding">
     <div class="content_title">
-        <div class="title_1">
+        <div style="cursor:default"  class="title_1">
             <h3>판매내역 &gt; <span id="sell_status"></span></h3>
         </div>
         <div class="btn_box">
@@ -708,7 +708,7 @@
     </div>
 
     <!---->
-    <div class="shipping_address_wrap">
+    <div class="shipping_address_wrap" style="cursor:default" >
         <div class="section_title">
             <div class="title_box"><h4 class="title">배송 주소</h4></div>
             <p class="noti">배송지 변경을 원하시면 고객센터로 문의 바랍니다.</p>
@@ -823,10 +823,9 @@ $('.deleteBtn').on('click', function(){
 			type:'post',
 			url:'/TeamProject/user/delSellHistory',
 			data:'sell_id=${sell_historyDTO.sell_id }',
-			dataType:'json',
 			success: function(data){
-				alert('입찰내역이 삭제되었습니다.')
-				$('.layer_alert').css('display','none');
+				alert('입찰내역이 삭제되었습니다.');
+				location.href = "/TeamProject/user/sellHistory";
 			}, error:function(err){
 				console.log(err);
 			}		

@@ -19,13 +19,15 @@ public class ProductDTO {
 	private String eng_name;
 	private String kor_name;
 	private int gender;
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yy/MM/dd")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yy/MM/dd" , timezone ="Asia/Seoul")
 	private Date release_date; 
 	private String release_price;
 	private String model_number;
 	private String color;
 	private String post_status;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yy/MM/dd" , timezone ="Asia/Seoul")
 	private Date regdate;
 	private String cnt;
+	private String file_path;
 
 }

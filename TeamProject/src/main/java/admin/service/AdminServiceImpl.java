@@ -11,6 +11,8 @@ import admin.bean.AdminDTO;
 import admin.bean.AdminPaging;
 import admin.bean.AdminQnADTO;
 import admin.dao.AdminDAO;
+import product.bean.ProductDTO;
+import product.bean.ProductImgDTO;
 import user.bean.UserDTO;
 
 @Service
@@ -217,9 +219,32 @@ public class AdminServiceImpl implements AdminService {
 			return adminDAO.getSearchAdminCount(keyword);
 		}
 	}
-	
-	
-	
-	
+
+	@Override
+	public List<ProductDTO> getAllProList() {
+//		return adminDAO.getAllProList();
+		return null;
+	}
+
+	@Override
+	public Map<String, Object> getAllProImg(int product_id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("productImgDTO", getImage(product_id));
+		return map;
+	}
+
+	private ProductImgDTO getImage(int product_id) {
+		return adminDAO.getImge(product_id);
+	}
+
+	@Override
+	public Map<String, Object> getVisitInfo() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<String> visitDate = adminDAO.getVisitDate();
+		List<Integer> visitCnt = adminDAO.getVisitCnt();
+		map.put("visitDate", visitDate);
+		map.put("visitCnt", visitCnt);
+		return map;
+	}
 
 }

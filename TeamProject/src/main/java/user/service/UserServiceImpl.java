@@ -536,8 +536,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Map<String, Object> getLikeProductList() {
 		String id = (String) session.getAttribute("memId"); //({1104},{1204},{1504})
-		System.out.println(id);
-		//여기서 내가 좋아효한 product_id 를 가져온다
 	 	List<LikeProDTO> list= userDAO.getLikeProductList(id);
 	 	List<ProductDTO> list2 = new ArrayList<ProductDTO>();
 	 	List<ProductImgDTO> list3 = new ArrayList<ProductImgDTO>();
@@ -546,7 +544,6 @@ public class UserServiceImpl implements UserService {
 	 		list2.add(userDAO.getLikeProducts(likeProDTO.getProduct_id()));
 	 		list3.add(userDAO.getProductAll(likeProDTO.getProduct_id()));
 	 	}
-	 	
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list2",list2);
 		map.put("list3",list3);
@@ -574,5 +571,17 @@ public class UserServiceImpl implements UserService {
 		userDAO.changeFlag1(user_id);	
 	}
 
-	
+	//마이페이지 관심상품 목록 삭제버튼 삭제
+	@Override
+	public void likeProDelete(String product_id) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("product_id", product_id);
+		map.put("memId", (String) session.getAttribute("memId"));
+		userDAO.likeProDelete(map);
+	}
+
+	@Override
+	public Integer getAuthor(String user_id) {
+		return userDAO.getAuthor(user_id);
+	}
 }

@@ -84,9 +84,7 @@
                                         <header><a href="/admin/shopping/answers">문의/구매평</a></header>
                                     </div>
                                     <div class="card-body border-top">
-                                        <ul class="list list-preview">
-                                            <li class="tile">데이터가 없습니다.</li>
-                                        </ul>
+                                        <div style="width: 100%;"><canvas id="line-chart"></canvas></div>
                                     </div>
                                 </div>
                             </div>
@@ -203,61 +201,27 @@
 									        <table class="table no-margin">
 									            <thead class="subject _prodListHeaderDeselected" style="display: table-header-group;" id="prod_list_header_deselected">
 									                <tr>
-									                    <th class="check">
-									                        <div class="checkbox checkbox-styled no-margin">
-									                            <label> <input type="checkbox" value="" class="_prodListAllCheck" onclick="SHOP_PROD_LIST.listSetAllSelect($(this).prop('checked'),function(codes){SHOP_PROD_LIST.checkProd(codes)})" /><span></span> </label>
-									                        </div>
-									                    </th>
 									                    <th class="no">No</th>
-									                    <th class="title image">상품명</th>
-									                    <th></th>
-									                    <th class="pay text-right">판매가</th>
-									                    <th class="group">카테고리</th>
-									                    <th class="state">상태</th>
-									                    <th class="stock">재고</th>
-									                    <th class="r_date">등록일</th>
-									                    <th class="e_date">수정일</th>
-									                    <th class="more"></th>
+														<th>이미지</th>
+														<th class="kor_title image" style="width:300px;">상품명(한글)</th>
+														<th class="eng_title image" style="width:300px;">상품명(영문)</th>
+														<th class="group">카테고리</th>
+														<th class="brand">브랜드</th>
+														<th class="pay text-right">발매가</th>
+														<th class="collection">컬렉션</th>
+														<th class="state">상태</th>
+														<th class="r_date">발매일</th>
+														<th class="e_date">등록일</th>
+														<th class="more">비고</th>
 									                </tr>
 									            </thead>
 									            <tbody id="prod_list_body" class="_prod_list_body ui-sortable">
 									                <tr class="content _prodListItem" id="prod_list_s20211224145e22830e76f" data-code="s20211224145e22830e76f">
-									                    <td class="check">
-									                        <div class="drag _showcase_handle ui-sortable-handle"></div>
-									                        <div class="checkbox checkbox-styled no-margin">
-									                            <label>
-									                                <input
-									                                    type="checkbox"
-									                                    value="s20211224145e22830e76f"
-									                                    class="_prodListCheck"
-									                                    onclick="SHOP_PROD_LIST.listSetSelect('s20211224145e22830e76f',function(codes){
-																	SHOP_PROD_LIST.checkProd(codes);
-																	})"
-									                                />
-									                                <span></span>
-									                            </label>
-									                        </div>
-									                    </td>
 									                    <td class="no text-12">149</td>
 									                    <td class="image">
-									                        <a href="/admin/shopping/product/?q=YToxOntzOjY6InN0YXR1cyI7czozOiJhbGwiO30%3D&amp;mode=add&amp;idx=149">
 									                            <img src="https://cdn.imweb.me/thumbnail/20211224/52e7c97573366.jpg" width="49" height="49" class="item-thumb" />
-									                        </a>
-									                    </td>
-									                    <td class="title">
-									                        <div>
-									                            <div class="item-tit inline-blocked">
-									                                <a href="/admin/shopping/product/?q=YToxOntzOjY6InN0YXR1cyI7czozOiJhbGwiO30%3D&amp;mode=add&amp;idx=149">바른목장 유산균우유 180mL</a>
-									                                <span class="prod_icon text-danger icon_default">BEST</span>
-									                                <a href="https://pasteur-sn.imweb.me/52/?idx=149" target="_blank" class="im-icon im-ico-new-tab vertical-middle tab-icon" style="margin-left: 4px;"></a>
-									                            </div>
-									
-									                            <span class="btn-sm text-gray-bright"></span>
-									                        </div>
 									                    </td>
 									                    <td class="pay text-right">1,550원<br /></td>
-									                    <!--	<td class="stock">100</td>-->
-									                    <!--	<td class="lately">100</td>-->
 									                    <td class="group">우유</td>
 									                    <td class="state on-click">
 									                        <a data-toggle="dropdown" style="margin-right: -1px;">
@@ -269,124 +233,6 @@
 									                    </td>
 									                    <td class="r_date text-12">2021-12-24</td>
 									                    <td class="e_date text-12">2022-02-25</td>
-									                    <td class="more">
-									                        <div class="dropdown">
-									                            <button class="btn btn-flat" aria-expanded="true" data-toggle="dropdown" type="button" id="dLabel">
-									                                <i class="zmdi zmdi-more"></i>
-									                            </button>
-									                        </div>
-									                    </td>
-									                </tr>
-									                <tr class="content _prodListItem" id="prod_list_s202202255abf98c646e35" data-code="s202202255abf98c646e35">
-									                    <td class="check">
-									                        <div class="drag _showcase_handle ui-sortable-handle"></div>
-									                        <div class="checkbox checkbox-styled no-margin">
-									                            <label>
-									                                <input
-									                                    type="checkbox"
-									                                    value="s202202255abf98c646e35"
-									                                    class="_prodListCheck"
-									                                    onclick="SHOP_PROD_LIST.listSetSelect('s202202255abf98c646e35',function(codes){
-																	SHOP_PROD_LIST.checkProd(codes);
-																	})"
-									                                />
-									                                <span></span>
-									                            </label>
-									                        </div>
-									                    </td>
-									                    <td class="no text-12">164</td>
-									                    <td class="image">
-									                        <a href="/admin/shopping/product/?q=YToxOntzOjY6InN0YXR1cyI7czozOiJhbGwiO30%3D&amp;mode=add&amp;idx=164">
-									                            <img src="https://cdn.imweb.me/thumbnail/20220225/9a3793e7e0c90.jpg" width="49" height="49" class="item-thumb" />
-									                        </a>
-									                    </td>
-									                    <td class="title">
-									                        <div>
-									                            <div class="item-tit inline-blocked">
-									                                <a href="/admin/shopping/product/?q=YToxOntzOjY6InN0YXR1cyI7czozOiJhbGwiO30%3D&amp;mode=add&amp;idx=164">바른목장 유산균우유 750mL</a>
-									                                <span class="prod_icon text-danger icon_default">BEST</span>
-									                                <a href="https://pasteur-sn.imweb.me/52/?idx=164" target="_blank" class="im-icon im-ico-new-tab vertical-middle tab-icon" style="margin-left: 4px;"></a>
-									                            </div>
-									
-									                            <span class="btn-sm text-gray-bright"></span>
-									                        </div>
-									                    </td>
-									                    <td class="pay text-right">4,100원<br /></td>
-									                    <td class="group">우유</td>
-									                    <td class="state on-click">
-									                        <a data-toggle="dropdown" style="margin-right: -1px;">
-									                            <span>판매중</span>
-									                        </a>
-									                    </td>
-									                    <td class="text-12" style="padding-left: 20px;">
-									                        -
-									                    </td>
-									                    <td class="r_date text-12">2022-02-25</td>
-									                    <td class="e_date text-12">2022-02-25</td>
-									                    <td class="more">
-									                        <div class="dropdown">
-									                            <button class="btn btn-flat" aria-expanded="true" data-toggle="dropdown" type="button" id="dLabel">
-									                                <i class="zmdi zmdi-more"></i>
-									                            </button>
-									                        </div>
-									                    </td>
-									                </tr>
-									                <tr class="content _prodListItem" id="prod_list_s202112243c57284c8f268" data-code="s202112243c57284c8f268">
-									                    <td class="check">
-									                        <div class="drag _showcase_handle ui-sortable-handle"></div>
-									                        <div class="checkbox checkbox-styled no-margin">
-									                            <label>
-									                                <input
-									                                    type="checkbox"
-									                                    value="s202112243c57284c8f268"
-									                                    class="_prodListCheck"
-									                                    onclick="SHOP_PROD_LIST.listSetSelect('s202112243c57284c8f268',function(codes){
-																	SHOP_PROD_LIST.checkProd(codes);
-																	})"
-									                                />
-									                                <span></span>
-									                            </label>
-									                        </div>
-									                    </td>
-									                    <td class="no text-12">150</td>
-									                    <td class="image">
-									                        <a href="/admin/shopping/product/?q=YToxOntzOjY6InN0YXR1cyI7czozOiJhbGwiO30%3D&amp;mode=add&amp;idx=150">
-									                            <img src="https://cdn.imweb.me/thumbnail/20211224/49e05a4c7d6a3.jpg" width="49" height="49" class="item-thumb" />
-									                        </a>
-									                    </td>
-									                    <td class="title">
-									                        <div>
-									                            <div class="item-tit inline-blocked">
-									                                <a href="/admin/shopping/product/?q=YToxOntzOjY6InN0YXR1cyI7czozOiJhbGwiO30%3D&amp;mode=add&amp;idx=150">건강한 저온살균 무항생제 인증목장 우유 180mL</a>
-									                                <span class="prod_icon text-danger icon_default">BEST</span>
-									                                <a href="https://pasteur-sn.imweb.me/52/?idx=150" target="_blank" class="im-icon im-ico-new-tab vertical-middle tab-icon" style="margin-left: 4px;"></a>
-									                            </div>
-									
-									                            <span class="btn-sm text-gray-bright"></span>
-									                        </div>
-									                    </td>
-									                    <!--	<td class="sku"><a href="javascript:;">3847-112</a></td>-->
-									                    <td class="pay text-right">1,550원<br /></td>
-									                    <!--	<td class="stock">100</td>-->
-									                    <!--	<td class="lately">100</td>-->
-									                    <td class="group">우유</td>
-									                    <td class="state on-click">
-									                        <a data-toggle="dropdown" style="margin-right: -1px;">
-									                            <span>판매중</span>
-									                        </a>
-									                    </td>
-									                    <td class="text-12" style="padding-left: 20px;">
-									                        -
-									                    </td>
-									                    <td class="r_date text-12">2021-12-24</td>
-									                    <td class="e_date text-12">2022-02-25</td>
-									                    <td class="more">
-									                        <div class="dropdown">
-									                            <button class="btn btn-flat" aria-expanded="true" data-toggle="dropdown" type="button" id="dLabel">
-									                                <i class="zmdi zmdi-more"></i>
-									                            </button>
-									                        </div>
-									                    </td>
 									                </tr>
 												</tbody>
 									        </table>
@@ -522,8 +368,41 @@
             </a>
         </div>
     </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$.ajax({
+		url: "/TeamProject/admin/getVisitInfo",
+		dataType: 'json',
+		success: function(data){
+			new Chart(document.getElementById("line-chart"), {
+				type: 'line',
+				data: {
+					labels: data.visitDate,
+					datasets: [{ 
+						data: data.visitCnt,
+						label: "방문자",
+						borderColor: "#ed575A",
+						borderWidth: 1,
+						lineTension: 0,
+						fill: true
+			    	}]
+				},
+				options: {
+					title: {
+						display: true,
+						text: '일일 방문자'
+					}
+				}
+			});
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
+
 function phoneFormatter(num, type) {
    var formatNum = '';
    try{
@@ -636,7 +515,56 @@ $(document).ready(function(){
 $('#moreView').click(function(){
 	location.href='/TeamProject/admin/userManage'
 });
-
+$(document).ready(function(){
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/admin/getAllProList',
+		dataType:'json',
+		success:function(data){
+			$('#prod_list_body').html('');
+			var addr;
+			
+			$.each(data,function(index,items){
+				if(items.collection == null){
+					items.collection = '-';
+				}
+				if(items.release_date == null){
+					items.release_date = '-';
+				}
+				addr = '<tr class="content _prodListItem">'+
+                '<td class="no text-12" id="product_id">'+items.product_id+'</td>'+
+                '<td class="image"><img src="'+items.file_path+'" width="49" height="49" class="product_img" /></td>'+
+                '<td class="group" style="width:300px;">'+items.kor_name+'</td>'+
+                '<td class="group" style="width:300px;">'+items.eng_name+'</td>'+
+                '<td class="group" style="width:100;">'+items.category+'</td>'+
+                '<td class="group">'+items.brand+'</td>'+
+                '<td class="pay text-right">'+items.release_price+'</td>'+
+                '<td class="group">'+items.collection+'</td>'+
+                '<td >'+items.post_status+'</td>'+
+                '<td class="r_date text-12">'+items.release_date+'</td>'+
+                '<td class="e_date text-12">'+items.regdate+'</td>'+
+            	'</tr>';
+            	$('#prod_list_body').append(addr)
+				
+            	/* $.ajax({
+					type:'post',
+					url:'/TeamProject/admin/getAllProImg',
+					data: {'product_id' : items.product_id},
+					dataType:'json',
+					success:function(data){
+						$('.product_img').prop('src',data.productImgDTO.file_path);
+					},
+					error:function(e){
+						console.log(e);
+					}
+				}) */
+			})
+		},
+		error:function(e){
+			console.log(e);
+		}
+	})
+});
 </script>
 </body>
 </html>

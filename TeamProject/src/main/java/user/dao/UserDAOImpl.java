@@ -220,7 +220,6 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public ProductImgDTO getProductAll(int product_id) {
-		System.out.println("ㅎㅇㅎㅇ");
 		return sqlSession.selectOne("userSQL.getProductAll", product_id);
 	}
 
@@ -255,7 +254,16 @@ public class UserDAOImpl implements UserDAO {
 		sqlSession.update("userSQL.changeFlag1" ,user_id);		
 		
 	}
+	//마이페이지 관심상품 목록 삭제버튼 삭제
+	@Override
+	public void likeProDelete(Map<String, String> map) {
+		sqlSession.delete("userSQL.likeProDelete", map);
+	}
 
+	@Override
+	public Integer getAuthor(String user_id) {
+		return sqlSession.selectOne("userSQL.getAuthor",user_id);
+	}
 
 }
 	

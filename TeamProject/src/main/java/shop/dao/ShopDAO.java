@@ -31,7 +31,7 @@ public interface ShopDAO {
 	public Sell_historyDTO insertSellPay(Sell_historyDTO sell_historyDTO);
 	public Sell_historyDTO insertSellPayBySellId(Map<String, Object> map);
 	
-	public List<ShopDTO> scrollProductList(Map<String, String> map, String sort);
+	public List<ShopDTO> scrollProductList(Map<String, Object> map, String sort);
 	public List<Market_priceDTO> getchart(int product_id);
 	public Integer getbuyhistory(int product_id);
 	public Integer getsellhistory(int product_id);

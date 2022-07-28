@@ -747,8 +747,8 @@
                <img src="https://storage.googleapis.com/gese-t.appspot.com/profile.png" name="profile_img" alt="사용자이미지" class="thumb_img" /></div>
             <div class="user_info">
                 <div class="info_box">
-                    <strong class="name">${userDTO.nickname }</strong>
-                    <p class="email" id="user_id">${userDTO.user_id }</p>
+                    <strong class="name" style="cursor:default">${userDTO.nickname }</strong>
+                    <p class="email" id="user_id" style="cursor:default">${userDTO.user_id }</p>
                     <a href="#" class="btn btn outlinegrey small" id="profileUpdate" type="button"> 프로필 수정 </a>
                     <a href="/social/users/@ein7di" class="btn btn btn_my_style outlinegrey small" type="button"> 내 스타일 </a>
                 </div>
@@ -766,7 +766,7 @@
         </div>
     </div>
     <div class="my_home_title">
-        <h3 class="title">구매 내역</h3>
+        <h3  style="cursor:default" class="title">구매 내역</h3>
         <a href="/TeamProject/user/buyHistory" class="btn_more">
             <span class="btn_txt">더보기</span>
             <div  class="icon sprite-icons arr-right-gray">
@@ -803,12 +803,12 @@
         </div>
       <div class="purchase_list buy_list all bid">
                <div class="empty_area buy_empty_area" style="display: none;">
-                   <p class="desc">거래 내역이 없습니다.</p>
+                   <p class="desc" style="cursor:default" >거래 내역이 없습니다.</p>
                </div>
       </div>
     </div>
     <div class="my_home_title">
-        <h3 class="title">판매 내역</h3>
+        <h3 style="cursor:default" class="title">판매 내역</h3>
         <a href="/TeamProject/user/sellHistory" class="btn_more">
             <span class="btn_txt">더보기</span>
             <div class="icon sprite-icons arr-right-gray">
@@ -846,7 +846,7 @@
         
       <div class="purchase_list sell_list all ask">
                <div class="empty_area sell_empty_area" style="display: none;" >
-                   <p class="desc">거래 내역이 없습니다.</p>
+                   <p class="desc" style="cursor:default" >거래 내역이 없습니다.</p>
                </div>
       </div>
    </div>
@@ -862,31 +862,7 @@
     <div class="interest_product">
         <div class="product_list">
         <!--관심 상품 -->
-            <div class="product_item">
-                <a href="/products/46178" class="item_inner">
-                    <div class="thumb_box">
-                        <div class="product" style="background-color: rgb(244, 244, 244);">
-                                <img
-                                    alt="상품 이미지"
-                                    src="https://kream-phinf.pstatic.net/MjAyMTEyMDJfMjUw/MDAxNjM4NDIyMTM5MzY4.R9ZV4AuKye2tKA3g6W_zCeDEKTWgsAhJyYnbAvjFAYsg.PQ8cY_jktruT6TjdGhhczKmkySmR-wfv7rhv-gmJWmAg.PNG/a_0bfa4c7bd3f64cc5b2f6689f97607277.png?type=m"
-                                    class="image picture product_img"
-                                />
-                        </div>
-                    </div>
-                    <div class="info_box">
-                        <div class="brand">
-                            <p class="brand-text">Mihara Yasuhiro</p>
-                        </div>
-                        <p class="name">Maison Mihara Yasuhiro Blakey OG Sole Canvas Low-top Sneaker Black White</p>
-                        <div class="price">
-                            <div class="amount md">
-                                <em class="num"> - </em>
-                            </div>
-                            <div class="desc"><p data-v-eb375314="">즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            <!-- 동적처리 -->
         </div>
         <!---->
     </div>
@@ -1184,16 +1160,16 @@ $(document).ready(function(){
 		url:'/TeamProject/user/getLikeProductList',
 		dataType:'json',
 		success:function(data){
-			alert(JSON.stringify(data))
+			//alert(JSON.stringify(data))
 			var colorList = [ 'rgb(241, 233, 252)', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
-			for(var i = 0; i < 4; i++){
+			for(var i = 0; i < 8; i++){
 				//console.log(data.list2[i].brand, data.list2[i].eng_name, data.list2[i].release_price, data.list3[i].file_path );
 				var random = Math.floor( Math.random() * 4 ); 
 				
 				$('<div/>',{
 					class: 'product_item'
 				}).append($('<a/>',{
-					href:'#',
+					href:'/TeamProject/shop/shopDetail?product_id='+data.list2[i].product_id,
 					class: 'cd2_item_inner'
 				}).append($('<div/>',{
 					class: 'thum_box'
@@ -1217,7 +1193,7 @@ $(document).ready(function(){
 						   class: 'price'
 					   }).append($('<div/>',{
 							class: 'amount md'
-					   }).append($('<em/>',{
+					   }).append($('<div/>',{
 						   class: 'num',
 						   text: data.list2[i].release_price
 						   }))).append($('<div/>',{
@@ -1238,5 +1214,6 @@ $(document).ready(function(){
 		 }
 	})
 })
+
 
 </script>

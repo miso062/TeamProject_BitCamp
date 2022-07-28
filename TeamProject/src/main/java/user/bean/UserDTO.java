@@ -22,6 +22,6 @@ public class UserDTO {
 	private String profile_img;
 	private int authority;
 	private String sign_up_type;
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd" , timezone ="Asia/Seoul")
 	private Date sign_up_date;
 }

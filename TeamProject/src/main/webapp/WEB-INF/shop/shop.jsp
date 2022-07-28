@@ -68,5 +68,6 @@
 		    }
 		});
 	</script>
+	<script src="/TeamProject/js/shop/infiniteScroll.js"></script>
 </body>
 </html>

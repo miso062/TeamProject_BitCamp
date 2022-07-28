@@ -598,18 +598,11 @@ li, ol, ul {
         <img src="/_nuxt/img/loading.410eb77.gif" alt="리스트 로딩중입니다." class="loading_img" />
     </div>
 </div>
-<script src="/TeamProject/js/shop/infiniteScroll.js"></script>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript"> 
-/* 관심버튼 이미지 클릭시 로테이션으로 변경하기 */
-$('.shop_bookmark').on(	{'click' : function() {
-		var src = ($(this).attr('src') === '/TeamProject/img/shop/bookmark.svg') ? '/TeamProject/img/shop/bookmark-fill.svg'
-				: '/TeamProject/img/shop/bookmark.svg';
-		$(this).attr('src', src);
-	}
-}); 
-
+ 
 //검색하면  정렬기준 href 바꾸기
 $(document).ready(function(){
 	$('#popular').children().eq(0).prop('href' , '/TeamProject/shop?sort=popular&command='+$('#command').val())

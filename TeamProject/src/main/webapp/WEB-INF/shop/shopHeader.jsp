@@ -518,7 +518,10 @@ height:80px;
 			<nav class="h_gnb_middle">
 				<div>
 					<div class="search_title">
-						<a href="/TeamProject/shop?sort=popular"><h2 class="title_txt" style="text-align: center; "> SHOP </h2></a>
+						<h2 style="text-align: center; "> 
+						<span  class="title_txt">
+							<a href="/TeamProject/shop?sort=popular">SHOP</a>
+						</span></h2>
 						<div class="h_search_btn_box" style="float: right; display: flex; -webkit-box-align: center; margin-right: 50px; align-items: center; padding: 0 0 28px;">
 							<img src="/TeamProject/img/shop/search_real.png" class="h_searchBtn" alt="돋보기"  style="width:24px; margin-left:850px; margin-right:7px; height:24px;  cursor:pointer;">
 							<img src="/TeamProject/img/shop/kream_plus.png" class="h_plusBtn" alt="플러스" style="width:26px; height:26px; margin-right:9px; cursor:pointer;">
