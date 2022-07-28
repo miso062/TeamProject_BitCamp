@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,6 +48,9 @@ public class UserController {
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	
+	
+	
 
 	@GetMapping(value="login")
 	public String login(Model model) {
@@ -60,6 +64,7 @@ public class UserController {
 		return check;
 	}
 	
+
 //	@PostMapping(value="checkLogin")
 //	@ResponseBody
 //	public Map<String, Object> checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
@@ -325,6 +330,7 @@ public class UserController {
 		return "forward:/user/findEmailMain";
 	}
 	
+	
 	@GetMapping(value="findPWDMain")
 	public String findPWDMain(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
@@ -343,6 +349,7 @@ public class UserController {
 	@ResponseBody
 	public Map<String, Object> findPwCheck(@RequestParam String phone, String user_id, HttpSession HttpSession){
 		Map<String, Object> map = userService.findPwCheck(phone, user_id);
+		
 		return map;
 	}
 	

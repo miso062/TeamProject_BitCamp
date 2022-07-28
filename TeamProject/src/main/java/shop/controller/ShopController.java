@@ -60,11 +60,41 @@ public class ShopController {
 	@ResponseBody
 	public List<ShopDTO> scrollProduct(@RequestParam String num,
 									@RequestParam String sort,
-									@RequestParam String command){
-		System.out.println(num + " | " + sort+ " | " +command);
-		List<ShopDTO> list = shopService.scrollProductList(num, sort , command);
-		list.get(0).setPage(num);
+									@RequestParam String command,
+									@RequestParam(value="category[]",  required = false) List<String> category,
+									@RequestParam(value="brand[]",   required = false) List<String> brand,
+									@RequestParam(value="gender[]",  required = false) List<String> gender,
+									@RequestParam(value="collection[]",  required = false) List<String> collection
+									){
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("num", num);
+		map.put("command", command);
+		System.out.println(category);
+		System.out.println(brand);
+		System.out.println(gender);
+		System.out.println(collection);
 		
+		if(gender != null) {
+			for(int i=1 ; i<=gender.size() ; i++) {
+				if(gender.get(i-1).equals("남성")) {
+					gender.set(i-1, "0");
+				}else if(gender.get(i-1).equals("여성")) {
+					gender.set(i-1, "1");
+				}else if(gender.get(i-1).equals("공용")) {
+					gender.set(i-1, "2");
+				}	
+			}
+		}
+		
+		
+		map.put("category", category);
+		map.put("brand", brand);
+		map.put("gender", gender);
+		map.put("collection", collection);
+		
+		System.out.println(map);
+		List<ShopDTO> list = shopService.scrollProductList(map, sort);
+	
 		return list;
 	}
   

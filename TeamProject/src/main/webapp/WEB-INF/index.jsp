@@ -94,31 +94,55 @@
 	<div style="position:fixed; bottom:30px; right:30px; width:50px; height:50px;" class="index_top_div">
 		<img src="/TeamProject/img/up-arrow.png" alt =" 화살표" id="index_top" style="width:24px; height:24px; margin-top:10px;">
 	</div>
-  <script type="text/javascript">
-  	$('#loginBtn').click(function(){
-  		location.href="/TeamProject/user/login";
-  	});
-    $('#noticeBtn').click(function(){
-      location.href="/TeamProject/notice"
-    });
-    //맨 위로 버튼
-    $(function(){
-    	window.scrollTo(0,0);	// 새로고침시 맨 위로
-    	$('.index_top_div').click(function(){
-    		$('html, body').animate({scrollTop:0}, '300');
-    	});
-    }) 
-    $('.index_top_div').hide();
-    $(window).scroll(function() {
-	    // top button controll
-	    if ($(this).scrollTop() > 200) {
-	        $('.index_top_div').fadeIn();
-	    } else {
-	        $('.index_top_div').fadeOut();
-	    }
+<script type="text/javascript">
+
+var expireDate = new Date();
+var hitCt = eval(cookieVal("pageHit"));
+
+expireDate.setMonth(expireDate.getMonth()+3);
+hitCt++;
+
+document.cookie = "pageHit="+hitCt+";expires=" + expireDate.toGMTString();
+
+function cookieVal(cookieName) {
+	thisCookie = document.cookie.split("; ")
+	for(var i=0; i<thisCookie.length; i++){
+		if(cookieName == thisCookie[i].split("=")[0]){
+			$.ajax({
+				
+			});
+			return thisCookie[i].split("=")[1];
+		}
+	}
+	return 0
+}
+
+
+$('#loginBtn').click(function(){
+	location.href="/TeamProject/user/login";
+});
+$('#noticeBtn').click(function(){
+	location.href="/TeamProject/notice"
+});
+   //맨 위로 버튼
+$(function(){
+	window.scrollTo(0,0);	// 새로고침시 맨 위로
+	$('.index_top_div').click(function(){
+		$('html, body').animate({scrollTop:0}, '300');
 	});
+});
+   
+$('.index_top_div').hide();
+$(window).scroll(function() {
+	// top button controll
+	if ($(this).scrollTop() > 200) {
+		$('.index_top_div').fadeIn();
+	} else {
+		$('.index_top_div').fadeOut();
+    }
+});
     
-  </script>
+</script>
 </body>
 
 </html>

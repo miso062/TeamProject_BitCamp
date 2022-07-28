@@ -18,7 +18,6 @@ import user.bean.UserDTO;
 public interface ShopService {
 
 	public Map<String, Object> getShopDetail(int product_id);
-	public List<ShopDTO> scrollProductList(String num, String sort, String command);
 	public ProductDTO getProduct(int product_id);
 	public ProductImgDTO getImage(int product_id);
 	public List<Market_priceDTO> getchart(int product_id);
@@ -42,4 +41,5 @@ public interface ShopService {
 	public List<Market_priceDTO> getshopDetaillist(int product_id);
 	public Integer getlikeproduct(int product_id);
 	public Integer shopLikeProduct(int product_id);
+	public List<ShopDTO> scrollProductList(Map<String, Object> map, String sort);
 }

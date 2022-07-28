@@ -260,5 +260,10 @@ public class UserDAOImpl implements UserDAO {
 		sqlSession.delete("userSQL.likeProDelete", map);
 	}
 
+	@Override
+	public Integer getAuthor(String user_id) {
+		return sqlSession.selectOne("userSQL.getAuthor",user_id);
+	}
+
 }
 	

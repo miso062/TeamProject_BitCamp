@@ -163,6 +163,14 @@
 		order by regdate desc) where post_status='판매안함'
   	</select>
   	
+  	<select id="getVisitDate" resultType="String">
+  		select visit_date from (select * from visit order by visit_date desc) where <![CDATA[ROWNUM<=30]]> order by visit_date
+  	</select>
+  	
+  	<select id="getVisitCnt" resultType="Integer">
+  		select visit_cnt from (select * from visit order by visit_date desc) where <![CDATA[ROWNUM<=30]]> order by visit_date
+  	</select>
+  	
 </mapper>
 
 

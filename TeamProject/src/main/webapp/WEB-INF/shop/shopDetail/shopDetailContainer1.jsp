@@ -831,7 +831,7 @@ tr {
 <input type="hidden" name="product_id" id="product_id" value="${product_id }">
 <div class="c1_container detail">
     <div class="c1_content">
-        <h2 class="c1_blind">상품 상세</h2>
+        <h2 class="c1_blind" style="cursor: default;">상품 상세</h2>
         <div class="c1_column_bind">
             <div class="c1_column">
                 <div class="c1_column_box1">
@@ -853,15 +853,15 @@ tr {
             <div class="c1_column">
                 <div class="c1_column_box">
                     <div class="c1_column_top">
-                        <div class="c1_detail_main_title lg">
+                        <div class="c1_detail_main_title lg" style="cursor: default;">
                             <div class="c1_main_title_box">
-                               <a href="https://naver.com" class="c1_brand"><span class="c1_getbrand"></span></a>
+                               <div class="c1_brand"><span class="c1_getbrand"></span></div>
                                 <p class="c1_title" id="eng_name"></p>
                                 <p class="c1_sub_title" id="kor_name"></p>
                             </div>
                         </div>
                         
-                        <div class="c1_product_figure_wrap lg">
+                        <div class="c1_product_figure_wrap lg" style="cursor: default;">
                             <div class="c1_detail_price">
                                 <div class="c1_title"><span class="c1_title_txt">최근 거래가</span></div>
                                 <div class="c1_price">
@@ -890,7 +890,7 @@ tr {
                             </a>
                         </div>
                     </div>
-                    <div class="c1_product_info_wrap">
+                    <div class="c1_product_info_wrap" style="cursor: default;">
                         <h3 class="c1_detail_title c1_info_title lg">상품 정보</h3>
                         <div class="detail_product_wrap">
                             <dl class="detail_product">
@@ -913,7 +913,7 @@ tr {
                             </dl>
                         </div>
                     </div>
-                    <div class="c1_delivery_way_wrap">
+                    <div class="c1_delivery_way_wrap" style="cursor: default;">
                         <h3 class="c1_detail_title lg">배송 정보</h3>
                         <div class="c1_delivery_way">
                             <div class="c1_way_info">
@@ -965,7 +965,7 @@ tr {
                         <div class="c1_product_sales_graph">
                         
                             <div class="c1_title">
-                                <h3 class="c1_detail_title lg">시세</h3>
+                                <h3 class="c1_detail_title lg" style="cursor: default;">시세</h3>
                                     <div class="c1_sales_filter lg">
                                     <div class="c1_filter_unit">
                                         <button type="button" class="c1_btn c1_btn_select" slot="button"><span class="c1_select_text layer_open">모든 사이즈</span></button>
@@ -1005,7 +1005,7 @@ tr {
                                                     <col style="width: 33.72%;" />
                                                 </colgroup>
                                                 <thead>
-                                                    <tr>
+                                                    <tr style="cursor: default;">
                                                         <th class="table_th">사이즈</th>
                                                         <th class="table_th align_right">거래가</th>
                                                         <th class="table_th align_right">거래일</th>
@@ -1036,12 +1036,12 @@ tr {
                             
                         </div class="c1_confirm_box">
                             <div class="c1_confirm_wrap">
-                                <h3 class="c1_confirm_title">구매 전 꼭 확인해주세요!</h3>
+                                <h3 class="c1_confirm_title" style="cursor: default;">구매 전 꼭 확인해주세요!</h3>
                                 <div class="c1_confirm_content">
                                     <ul class="c1_dropdown_list">
                                         <li class="c1_dropdownli">
                                             <div class="c1_dropdown">
-                                                <div class="c1_dropdown_head">
+                                                <div class="c1_dropdown_head" style="cursor: default;">
                                                     <p class="c1_title">배송 기간 안내</p>
                                                     <img alt="" src="/TeamProject/img/shopDetail/chevron-down.svg"
                                                      class="c1_down_btn   ico-arr-down-gray"
@@ -1230,7 +1230,7 @@ tr {
                                             class="c1_product_img"
                                         />
                                 </div>
-                                <div class="c1_product_info">
+                                <div class="c1_product_info" style="cursor: default;">
                                     <p class="c1_name" id="eng_name1"></p>
                                     <p class="c1_translated_name" id="kor_name1"></p>
                                 </div>

@@ -22,6 +22,7 @@ import admin.bean.AdminQnADTO;
 import admin.service.AdminService;
 import product.bean.ProductDTO;
 import user.bean.UserDTO;
+import user.service.UserService;
 
 @Controller
 @RequestMapping(value="/admin")
@@ -29,6 +30,9 @@ public class AdminController {
 	
 	@Autowired
 	AdminService adminService;
+	
+	@Autowired
+	UserService userService;
 	
 	@GetMapping(value="notice")
 	public String notice(@RequestParam (required = false, defaultValue = "1") String pg, Model model) {
@@ -210,9 +214,15 @@ public class AdminController {
 	}
 	
 	@GetMapping(value="/")
-	public String admin(Model model) {
-		model.addAttribute("content", "/WEB-INF/admin/admin.jsp");
-		return "/admin/adminMain";
+	public String admin(Model model, HttpSession session) {
+		String user_id = (String) session.getAttribute("memId");
+		if(user_id == null || userService.getAuthor(user_id) != 10) {
+			model.addAttribute("content", "/WEB-INF/admin/adminLoginFail.jsp");
+			return "admin/adminLoginFail";
+		}else {
+			model.addAttribute("content", "/WEB-INF/admin/admin.jsp");
+			return "/admin/adminMain";				
+		}
 	}
 	
 	@GetMapping(value="/userManage")
@@ -313,4 +323,10 @@ public class AdminController {
 		return "/admin/chartTest";
 	}
 	
+	@GetMapping(value="/getVisitInfo")
+	@ResponseBody
+	public Map<String, Object> getVisitInfo(){
+		return adminService.getVisitInfo();
+	}
+
 }

@@ -287,6 +287,7 @@ li, ol, ul {
     line-height: 17px;
     font-size: 14px;
     font-weight: 700;
+    color : black;
 }
 .shop_price, .shop_desc {
     line-height: 13px;
@@ -598,7 +599,7 @@ li, ol, ul {
         <img src="/_nuxt/img/loading.410eb77.gif" alt="리스트 로딩중입니다." class="loading_img" />
     </div>
 </div>
-<script src="/TeamProject/js/shop/infiniteScroll.js"></script>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script type="text/javascript"> 
