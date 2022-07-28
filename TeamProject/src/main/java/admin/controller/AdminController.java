@@ -332,11 +332,6 @@ public class AdminController {
 		return map;
 	}
 	
-	@GetMapping(value="test")
-	public String test() {
-		return "/admin/chartTest";
-	}
-	
 	@GetMapping(value="/getVisitInfo")
 	@ResponseBody
 	public Map<String, Object> getVisitInfo(){
@@ -347,5 +342,11 @@ public class AdminController {
 	@ResponseBody
 	public void addVisitCtn() {
 		adminService.addVisitCtn();
+	}
+	
+	@GetMapping(value="/getSignUpInfo")
+	@ResponseBody
+	public List<UserDTO> getSignUpInfo(){
+		return adminService.getSignUpInfo();
 	}
 }

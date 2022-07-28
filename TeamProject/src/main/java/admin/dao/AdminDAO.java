@@ -52,4 +52,5 @@ public interface AdminDAO {
 	public String getToday(String today);
 	public void addToday(String today);
 	public void updateToday(String today);
+	public List<UserDTO> getSignUpInfo();
 }

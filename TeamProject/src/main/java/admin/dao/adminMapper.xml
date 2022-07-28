@@ -183,6 +183,13 @@
   		update visit set visit_cnt=visit_cnt+1 where visit_date=#{today}
   	</insert>
   	
+  	<select id="getSignUpInfo" resultType="user">
+  		select sign_up_date, count(*) authority from user_table 
+  			group by sign_up_date having sign_up_date in 
+  			(select visit_date from 
+  				(select * from visit order by visit_date desc) where <![CDATA[ROWNUM<=30]]>)
+  		 order by sign_up_date
+  	</select>
 </mapper>
 
 

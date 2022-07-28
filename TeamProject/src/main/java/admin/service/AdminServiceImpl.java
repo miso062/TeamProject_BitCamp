@@ -239,8 +239,8 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public List<ProductDTO> getAllProList() {
-//		return adminDAO.getAllProList();
-		return null;
+		return adminDAO.getAllProList();
+//		return null;
 	}
 	
 	@Override
@@ -302,7 +302,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void addVisitCtn() {
 		LocalDate now = LocalDate.now();         
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");         
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		String today = now.format(formatter);         
 
 		String isExsit = adminDAO.getToday(today);
@@ -311,5 +311,10 @@ public class AdminServiceImpl implements AdminService {
 		}
 		
 		adminDAO.updateToday(today);
+	}
+
+	@Override
+	public List<UserDTO> getSignUpInfo() {
+		return adminDAO.getSignUpInfo();
 	}
 }

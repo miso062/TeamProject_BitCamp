@@ -162,7 +162,6 @@ public class AdminMyBaticImpl implements AdminDAO {
 	public List<ProductDTO> getAllProList() {
 		return sqlSession.selectList("adminSQL.getAllProList");
 	}
-
 	
 	@Override
 	public List<ProductDTO> getAllProList2() {
@@ -237,6 +236,11 @@ public class AdminMyBaticImpl implements AdminDAO {
 	@Override
 	public void updateToday(String today) {
 		sqlSession.update("adminSQL.updateToday", today);
+	}
+
+	@Override
+	public List<UserDTO> getSignUpInfo() {
+		return sqlSession.selectList("adminSQL.getSignUpInfo");
 	}
 
 }

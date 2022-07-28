@@ -81,48 +81,20 @@
                             <div class="ma-item" style="width: 49%">
                                 <div class="card">
                                     <div class="card-head">
-                                        <header><a href="/admin/shopping/answers">문의/구매평</a></header>
+                                        <header><a href="/admin/shopping/answers">방문자 차트</a></header>
                                     </div>
                                     <div class="card-body border-top">
-                                        <div style="width: 100%;"><canvas id="line-chart"></canvas></div>
+                                        <div style="width: 100%;"><canvas id="line-chart-1"></canvas></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="ma-item" style="width: 49%">
                                 <div class="card">
                                     <div class="card-head">
-                                        <header><a href="/admin/contents/comment">컨텐츠 반응</a></header>
+                                        <header><a href="/admin/contents/comment">가입자 차트</a></header>
                                     </div>
                                     <div class="card-body border-top">
-                                        <ul class="list list-preview">
-                                            <li class="tile">데이터가 없습니다.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row flex-box" style="display: flex; justify-content: space-between;">
-                            <div class="ma-item" style="width: 49%">
-                                <div class="card">
-                                    <div class="card-head">
-                                        <header><a href="/admin/shopping/answers">문의/구매평</a></header>
-                                    </div>
-                                    <div class="card-body border-top">
-                                        <ul class="list list-preview">
-                                            <li class="tile">데이터가 없습니다.</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ma-item" style="width: 49%">
-                                <div class="card">
-                                    <div class="card-head">
-                                        <header><a href="/admin/contents/comment">컨텐츠 반응</a></header>
-                                    </div>
-                                    <div class="card-body border-top">
-                                        <ul class="list list-preview">
-                                            <li class="tile">데이터가 없습니다.</li>
-                                        </ul>
+                                        <div style="width: 100%;"><canvas id="line-chart-2"></canvas></div>
                                     </div>
                                 </div>
                             </div>
@@ -362,13 +334,12 @@ $(function(){
 		url: "/TeamProject/admin/getVisitInfo",
 		dataType: 'json',
 		success: function(data){
-			new Chart(document.getElementById("line-chart"), {
+			new Chart(document.getElementById("line-chart-1"), {
 				type: 'line',
 				data: {
 					labels: data.visitDate,
 					datasets: [{ 
 						data: data.visitCnt,
-						label: "방문자",
 						borderColor: "#ed575A",
 						borderWidth: 1,
 						lineTension: 0,
@@ -376,10 +347,47 @@ $(function(){
 			    	}]
 				},
 				options: {
-					title: {
-						display: true,
-						text: '일일 방문자'
-					}
+			    	legend: {
+			        	display: false
+			        },
+				}
+			});
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+	
+	$.ajax({
+		url: "/TeamProject/admin/getSignUpInfo",
+		dataType: 'json',
+		success: function(data){
+			alert(JSON.stringify(data));
+			var labelArr = [];
+			var dataArr = [];
+			
+			$.each(data, function(index, item){
+				console.log(item.sign_up_date + " | " + item.authority);
+				labelArr.push(item.sign_up_date);
+				dataArr.push(item.authority);
+			});
+			
+			new Chart(document.getElementById("line-chart-2"), {
+				type: 'line',
+				data: {
+					labels: labelArr,
+					datasets: [{ 
+						data: dataArr,
+						borderColor: "#ed575A",
+						borderWidth: 1,
+						lineTension: 0,
+						fill: true
+			    	}]
+				},
+				options: {
+			    	legend: {
+			        	display: false
+			        },
 				}
 			});
 		},
