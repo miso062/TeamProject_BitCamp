@@ -496,5 +496,11 @@ public class UserController {
 		Map<String, Object> map = userService.getLikeProductList();
 		return map;
 	}
+	//마이페이지 관심상품 목록 삭제버튼 누르면 삭제
+	@PostMapping(value="likeProDelete")
+	@ResponseBody
+	public void likeProDelete(@RequestParam String product_id) {
+		userService.likeProDelete(product_id);
+	}
 	
 }
