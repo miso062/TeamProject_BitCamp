@@ -117,7 +117,7 @@
 <div class="search_filter" selected-choices="[object Object]">
     <div class="filter_status" count="0">
         <div class="status_box">
-            <span class="status_txt">필터</span>
+            <span style="cursor:default" class="status_txt">필터</span>
             <span class="status_num"></span>
         </div>
             <a href="#" class="btn_delete">모두삭제</a>

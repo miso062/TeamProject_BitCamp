@@ -747,8 +747,8 @@
                <img src="https://storage.googleapis.com/gese-t.appspot.com/profile.png" name="profile_img" alt="사용자이미지" class="thumb_img" /></div>
             <div class="user_info">
                 <div class="info_box">
-                    <strong class="name">${userDTO.nickname }</strong>
-                    <p class="email" id="user_id">${userDTO.user_id }</p>
+                    <strong class="name" style="cursor:default">${userDTO.nickname }</strong>
+                    <p class="email" id="user_id" style="cursor:default">${userDTO.user_id }</p>
                     <a href="#" class="btn btn outlinegrey small" id="profileUpdate" type="button"> 프로필 수정 </a>
                     <a href="/social/users/@ein7di" class="btn btn btn_my_style outlinegrey small" type="button"> 내 스타일 </a>
                 </div>
@@ -766,7 +766,7 @@
         </div>
     </div>
     <div class="my_home_title">
-        <h3 class="title">구매 내역</h3>
+        <h3  style="cursor:default" class="title">구매 내역</h3>
         <a href="/TeamProject/user/buyHistory" class="btn_more">
             <span class="btn_txt">더보기</span>
             <div  class="icon sprite-icons arr-right-gray">
@@ -803,12 +803,12 @@
         </div>
       <div class="purchase_list buy_list all bid">
                <div class="empty_area buy_empty_area" style="display: none;">
-                   <p class="desc">거래 내역이 없습니다.</p>
+                   <p class="desc" style="cursor:default" >거래 내역이 없습니다.</p>
                </div>
       </div>
     </div>
     <div class="my_home_title">
-        <h3 class="title">판매 내역</h3>
+        <h3 style="cursor:default" class="title">판매 내역</h3>
         <a href="/TeamProject/user/sellHistory" class="btn_more">
             <span class="btn_txt">더보기</span>
             <div class="icon sprite-icons arr-right-gray">
@@ -846,7 +846,7 @@
         
       <div class="purchase_list sell_list all ask">
                <div class="empty_area sell_empty_area" style="display: none;" >
-                   <p class="desc">거래 내역이 없습니다.</p>
+                   <p class="desc" style="cursor:default" >거래 내역이 없습니다.</p>
                </div>
       </div>
    </div>

@@ -394,7 +394,7 @@
 <body>
 
 <div class="my_purchase">
-    <div class="content_title">
+    <div class="content_title" style="cursor:default" >
         <div class="title">
             <h3>판매 내역</h3>
         </div>
@@ -426,7 +426,7 @@
         </div>
     </div>
 
-    <ul class="search_info">
+    <ul class="search_info" style="cursor:default" >
         <li class="info_item"><p>한 번에 조회 가능한 기간은 최대 6개월입니다.</p></li>
         <li class="info_item"><p>기간별 조회 결과는 입찰일 기준으로 노출됩니다.</p></li>
     </ul>
@@ -434,28 +434,28 @@
     <div class="purchase_list bidding bid">
         <div class="purchase_head">
             <div class="head_product">
-                <a href="#" class="btn_filter"> 전체</a>
+                <div class="btn_filter" style="cursor:default" > 전체</div>
             </div>
-            <div class="head_status">
+            <div class="head_status" style="cursor:default" >
                 <div class="status_box field_price">
-                    <a href="#" class="status_link"><span class="status_txt">판매 희망가</span></a>
+                    <div class="status_link"><span class="status_txt">판매 희망가</span></div>
                 </div>
                 <div class="status_box field_date_purchased">
-                    <a href="#" class="status_link"><span class="status_txt">판매일</span></a>
+                    <div class="status_link"><span class="status_txt">판매일</span></div>
                 </div>
                 <div class="status_box field_expires_at">
-                    <a href="#" class="status_link"><span class="status_txt">만료일</span></a>
+                    <div class="status_link"><span class="status_txt">만료일</span></div>
                 </div>
                 <div class="status_box field_date_paid">
-                    <a href="#" class="status_link"><span class="status_txt">정산일</span></a>
+                    <div class="status_link"><span class="status_txt">정산일</span></div>
                 </div>
                 <div class="status_box field_status ascending">
-                    <a href="#" class="status_link"><span class="status_txt">상태</span></a>
+                    <div class="status_link"><span class="status_txt">상태</span></div>
                 </div>
 			</div>
         </div>
 
-		<div class="empty_area sell_empty_area" style="display: none">
+		<div class="empty_area sell_empty_area" style="display: none; cursor: default;">
 			<p  class="desc">거래 내역이 없습니다.</p>
 		</div>
 		<!--상품 리스트-->

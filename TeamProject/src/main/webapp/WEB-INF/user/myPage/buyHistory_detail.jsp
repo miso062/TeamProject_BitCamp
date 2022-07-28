@@ -485,7 +485,7 @@
 
 <div class="my_buying_detail bidding">
     <div class="content_title">
-        <div class="title_1">
+        <div style="cursor:default" class="title_1">
             <h3>구매내역 &gt; <span id="buy_status"></span></h3>
         </div>
         <div class="btn_box">
@@ -555,7 +555,7 @@
                         </dd>
                     </dl>
                 </div>
-                <div class="detail_box">
+                <div class="detail_box" style="cursor:default" >
                     <dl class="price_addition">
                         <dt class="price_title">
                             <span>검수비</span>
@@ -608,7 +608,7 @@
         </div>
     </div>
     <!---->
-    <div class="shipping_address_wrap">
+    <div class="shipping_address_wrap" style="cursor:default" >
         <div class="section_title">
             <div class="title_box"><h4 class="title">배송 주소</h4></div>
             <p class="noti">배송지 변경을 원하시면 고객센터로 문의 바랍니다.</p>

@@ -478,7 +478,7 @@ margin-top: 6px;
 <div class="my_interest">
 	<div data-v-88eb18f6="" class="content_title border">
 		<div data-v-88eb18f6="" class="title">
-			<h3 data-v-88eb18f6="">관심 상품</h3>
+			<h3 data-v-88eb18f6="" style="cursor:default" >관심 상품</h3>
 			<!---->
 		</div>
 		<!---->

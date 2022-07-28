@@ -255,7 +255,7 @@ $(function() {
 
 <div id="c3_social_style_slide">
 	<div id="c3_style_title" style="max-width: 1280px; text-align: left;">
-		<span>Style Picks!</span>
+		<span style="cursor:default">Style Picks!</span>
 	</div>
 	<div class="c3_slider-wrap">
 		<div class="c3_style_card" tabindex="-1" style="width: 100%; display: inline-block;">
@@ -394,7 +394,7 @@ $(function() {
 </div>
 
 <div id="c3_shortcut_collection">
-	<div id="c3_brand_title_area" style="margin: 0 auto">
+	<div id="c3_brand_title_area" style="margin: 0 auto; cursor:default;">
 		<div id="c3_brand_title">Brand Focus</div>
 		<div id="c3_brand_sub_title">모두가 좋아하는 브랜드</div>
 	</div>

@@ -807,7 +807,7 @@ function reservation_request_pay(){
                     status1: '입찰중', 
                 },
                 success: function(data){
-                    /* location.href = "/TeamProject/shop/buyFinish?bid="+data.buy_id; */
+                    location.href = "/TeamProject/shop/buyFinish?bid="+data.buy_id;
                 },
                 error: function(err){
                     console.log(err);

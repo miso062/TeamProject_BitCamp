@@ -15,6 +15,7 @@
 	/* padding: 40px 0px 0px 40px; */
 	margin: 0 auto;
 	max-width: 1280px;
+	cursor:default
 }
 .cd2_product_title > .cd2_title{
 	font-size: 20px;
