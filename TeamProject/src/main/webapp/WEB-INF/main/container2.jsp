@@ -580,7 +580,7 @@ $('#cd2_btn1').on('click', function(){
 						   })).appendTo($('#cd2_list_for'));
 						
 						}//for
-					 // 2번쨰 더보기찜하기 보이기
+					 // 3번쨰 더보기 찜하기 보이기
 				      if('${sessionScope.memId}'){	 
 				  		$.ajax({
 				  			 type:'post',
@@ -610,7 +610,7 @@ $('#cd2_btn1').on('click', function(){
 				}
 			});//$.ajax
 			
-     	 //3번쨰 더보기 찜하기 보이기
+     	 	 //3번쨰 더보기 찜하기 보이기
 	     	 if('${sessionScope.memId}'){	 
 	     			$.ajax({
 	     				 type:'post',

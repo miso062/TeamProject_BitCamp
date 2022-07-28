@@ -53,4 +53,5 @@ public interface UserService {
     public void addAddressModify(AddressDTO addressDTO);
     public void changeFlag(String address_id);
 	public void changeFlag1(String address_id);
+	
 }

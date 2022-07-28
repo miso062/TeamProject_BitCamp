@@ -214,7 +214,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void bookMarkInsert(Map<String, String> map) {
 		String id = (String) session.getAttribute("memId");
-	
+	 
 		map.put("id", id);
 		
 		userDAO.bookMarkInsert(map);
