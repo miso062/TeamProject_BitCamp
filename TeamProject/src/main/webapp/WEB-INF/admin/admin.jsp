@@ -362,7 +362,6 @@ $(function(){
 		url: "/TeamProject/admin/getSignUpInfo",
 		dataType: 'json',
 		success: function(data){
-			alert(JSON.stringify(data));
 			var labelArr = [];
 			var dataArr = [];
 			
