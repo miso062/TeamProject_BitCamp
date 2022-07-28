@@ -207,4 +207,8 @@
 	<select id="getProductAll" parameterType="int" resultType="productImg">
 		select * from pro_image where product_id=#{product_id}
 	</select>
+	
+	<delete id="likeProDelete" parameterType="java.util.Map">
+		delete like_pro where product_id=#{product_id} and user_id=#{memId}
+	</delete>
 </mapper>

@@ -862,31 +862,7 @@
     <div class="interest_product">
         <div class="product_list">
         <!--관심 상품 -->
-            <div class="product_item">
-                <a href="/products/46178" class="item_inner">
-                    <div class="thumb_box">
-                        <div class="product" style="background-color: rgb(244, 244, 244);">
-                                <img
-                                    alt="상품 이미지"
-                                    src="https://kream-phinf.pstatic.net/MjAyMTEyMDJfMjUw/MDAxNjM4NDIyMTM5MzY4.R9ZV4AuKye2tKA3g6W_zCeDEKTWgsAhJyYnbAvjFAYsg.PQ8cY_jktruT6TjdGhhczKmkySmR-wfv7rhv-gmJWmAg.PNG/a_0bfa4c7bd3f64cc5b2f6689f97607277.png?type=m"
-                                    class="image picture product_img"
-                                />
-                        </div>
-                    </div>
-                    <div class="info_box">
-                        <div class="brand">
-                            <p class="brand-text">Mihara Yasuhiro</p>
-                        </div>
-                        <p class="name">Maison Mihara Yasuhiro Blakey OG Sole Canvas Low-top Sneaker Black White</p>
-                        <div class="price">
-                            <div class="amount md">
-                                <em class="num"> - </em>
-                            </div>
-                            <div class="desc"><p data-v-eb375314="">즉시 구매가</p></div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            <!-- 동적처리 -->
         </div>
         <!---->
     </div>
@@ -1184,16 +1160,16 @@ $(document).ready(function(){
 		url:'/TeamProject/user/getLikeProductList',
 		dataType:'json',
 		success:function(data){
-			alert(JSON.stringify(data))
+			//alert(JSON.stringify(data))
 			var colorList = [ 'rgb(241, 233, 252)', 'rgb(235, 240, 245)', 'rgb(241, 241, 234)', 'rgb(246, 238, 237)' ]
-			for(var i = 0; i < 4; i++){
+			for(var i = 0; i < 8; i++){
 				//console.log(data.list2[i].brand, data.list2[i].eng_name, data.list2[i].release_price, data.list3[i].file_path );
 				var random = Math.floor( Math.random() * 4 ); 
 				
 				$('<div/>',{
 					class: 'product_item'
 				}).append($('<a/>',{
-					href:'#',
+					href:'/TeamProject/shop/shopDetail?product_id='+data.list2[i].product_id,
 					class: 'cd2_item_inner'
 				}).append($('<div/>',{
 					class: 'thum_box'
@@ -1217,7 +1193,7 @@ $(document).ready(function(){
 						   class: 'price'
 					   }).append($('<div/>',{
 							class: 'amount md'
-					   }).append($('<em/>',{
+					   }).append($('<div/>',{
 						   class: 'num',
 						   text: data.list2[i].release_price
 						   }))).append($('<div/>',{
@@ -1238,5 +1214,6 @@ $(document).ready(function(){
 		 }
 	})
 })
+
 
 </script>

@@ -47,9 +47,9 @@ public interface UserService {
 	public Map<String, Object> getLikeProductList();
 	public List<AddressDTO> comeAddress();
 	public AddressDTO comeAddress1();
-    public void myAddressDelete(String address_id);
-    public void addAddressModify(AddressDTO addressDTO);
-    public void changeFlag(String address_id);
+  public void myAddressDelete(String address_id);
+  public void addAddressModify(AddressDTO addressDTO);
+  public void changeFlag(String address_id);
 	public void changeFlag1(String address_id);
-	
+	public void likeProDelete(String product_id);
 }
