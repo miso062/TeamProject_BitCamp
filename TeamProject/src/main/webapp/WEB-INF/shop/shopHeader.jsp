@@ -522,8 +522,8 @@ height:80px;
 						<div class="h_search_btn_box" style="float: right; display: flex; -webkit-box-align: center; margin-right: 50px; align-items: center; padding: 0 0 28px;">
 							<img src="/TeamProject/img/shop/search_real.png" class="h_searchBtn" alt="돋보기"  style="width:24px; margin-left:850px; margin-right:7px; height:24px;  cursor:pointer;">
 							<img src="/TeamProject/img/shop/kream_plus.png" class="h_plusBtn" alt="플러스" style="width:26px; height:26px; margin-right:9px; cursor:pointer;">
-							<img src="/TeamProject/img/shop/instar.jpeg" class="profile_img" alt="마이프로필사진"
-							style="width:26px; height:26px;  cursor:pointer;
+							<img src="https://storage.googleapis.com/gese-t.appspot.com/profile.png" class="profile_img" alt="마이프로필사진"
+									style="width:26px; height:26px;  cursor:pointer;
 								 object-fit: cover; border: 0; vertical-align: top;  border-radius: 70%">
 						</div>
 					</div>
@@ -723,6 +723,17 @@ height:80px;
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script type="text/javascript">
+//shopHeader프로필 이미지
+$(document).ready(function(){
+	var date = new Date();
+	var image = '${userDTO.profile_img}';
+   
+	if(image==null || image==''){
+        $('.profile_img').attr('src','https://storage.googleapis.com/gese-t.appspot.com/profile.png');
+	}else{
+       $('.profile_img').attr('src', 'https://storage.googleapis.com/gese-t.appspot.com/'+ image + '?' + date.getTime());
+    }
+});
 //로그아웃
 $('#h_logout').click(function(){
 	$.ajax({

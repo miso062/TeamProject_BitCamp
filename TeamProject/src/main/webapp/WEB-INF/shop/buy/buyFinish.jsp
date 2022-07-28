@@ -310,8 +310,8 @@ address, em {
 						</p>
 					</div>
 					<div class="complete_btn_box">
-						<a href="/TeamProject/user/myPage" class="btn outlinegrey medium" style="cursor: pointer; z-index: 999;"> 내역 상세보기 </a>
-						<a href="/TeamProject/shop" class="btn outlinegrey medium" style="cursor: pointer; z-index: 999;"> SHOP 바로가기 </a>
+						<a href='/TeamProject/user/buyHistoryDetail?buy_id=${buyDTO.buy_id}' class="btn outlinegrey medium" style="cursor: pointer; z-index: 999;"> 내역 상세보기 </a>
+						<a href="/TeamProject/shop?sort=popular" class="btn outlinegrey medium" style="cursor: pointer; z-index: 999;"> SHOP 바로가기 </a>
 					</div>
 					<p class="complete_desc">‘구매내역 &gt; 입찰 중’ 상태일 때는 입찰 지우기가 가능합니다.</p>
 				</div>

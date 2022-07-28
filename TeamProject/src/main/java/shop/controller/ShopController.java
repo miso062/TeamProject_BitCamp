@@ -17,9 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import product.bean.Market_priceDTO;
-import product.bean.ProductImgDTO;
 import product.bean.ShopDTO;
 import shop.service.ShopService;
+import user.bean.UserDTO;
+import user.service.UserService;
 
 @Controller
 @RequestMapping(value="/shop")
@@ -28,8 +29,17 @@ public class ShopController {
 	@Autowired
 	ShopService shopService;
 	
+	@Autowired
+	UserService userService;
+	
 	@RequestMapping
-	public String shop(Model model) {
+	public String shop(Model model, HttpSession session) {
+		//샵헤더프로필이미지
+		String user_id = (String) session.getAttribute("memId");
+		if(user_id != null) {
+			UserDTO userDTO = userService.getUserInfo(user_id);
+			model.addAttribute("userDTO", userDTO);
+		}
 		model.addAttribute("head", "/WEB-INF/shop/shopHeader.jsp");
 		model.addAttribute("container", "/WEB-INF/shop/shopContainer.jsp");
 		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
@@ -64,6 +74,7 @@ public class ShopController {
 		Map<String, Object> map = shopService.getShopDetail(product_id);
 		return map;
 	}
+	
 	@PostMapping(value="getchart")
 	@ResponseBody
 	public List<Market_priceDTO> getchart(@RequestParam int product_id) {
@@ -71,12 +82,14 @@ public class ShopController {
 		return list;
 		 
 	}
+	
 	@PostMapping(value="getshopDetaillist")
 	@ResponseBody
 	public List<Market_priceDTO> getshopDetaillist(@RequestParam int product_id){
 		List<Market_priceDTO> list = shopService.getshopDetaillist(product_id);
 		return list;
 	}
+	
 	@PostMapping(value="getlikeproduct")
 	@ResponseBody
 	public String getlikeproduct(@RequestParam int product_id) {
@@ -84,6 +97,7 @@ public class ShopController {
 		 String count1 = count+"";
 		return count1;
 	}
+	
 }
 
 

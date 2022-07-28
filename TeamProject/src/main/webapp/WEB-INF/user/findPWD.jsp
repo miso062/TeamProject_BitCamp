@@ -174,8 +174,8 @@
                 	</div>
 	            </div>
 	            <div class="help_btn_box">
-	            	<div id="findPW" class="btn full solid disabled"> 문자 발송하기 </div>
-	            	<input type="text" id="rand_pwd" >
+	            	<div id="findPW"  class="btn full solid disabled"> 이메일 발송하기 </div>
+	            	<input type="text"  disabled="disabled" id="rand_pwd" >
            		</div>
 	        </div>
 	    </div>
@@ -254,6 +254,7 @@ function checkUserId(value) {
 //비밀번호 찾기
 //$('#findPW').click,function(){
 
+/* 
 function findPW(){
 	$.ajax({
 		url:'/TeamProject/user/findPwCheck', 
@@ -277,5 +278,50 @@ function findPW(){
 		}
 	});
 };
+*/
+
+$('#mail-Check-Btn').click(function() {
+	const eamil = $('#userEmail1').val() + $('#userEmail2').val(); // 이메일 주소값 얻어오기!
+	console.log('완성된 이메일 : ' + eamil); // 이메일 오는지 확인
+	const checkInput = $('.mail-check-input') // 인증번호 입력하는곳 
+	
+function findPW(){
+	$.ajax({
+		url:'/TeamProject/user/findPwCheck', 
+		type:'post',
+		data: 'phone=' + $('#phone').val()
+			 +'&user_id=' + $('#user_id').val(),
+		dataType:'json',	 
+		success: function(data){
+			console.log(data.check + " "+ data.pwd);
+			if(data.check == 1){
+				if(confirm('임시 비밀번호는 ' + data.pwd + ' 입니다. \n꼭 기억해주세요 :) ' )){
+					location.href="/TeamProject/";
+				}
+			}else{
+				alert('핸드폰 번호나 이메일 주소가 일치하지 않습니다.');
+			}
+		},
+		error:function(err){
+			alert('err에러rrrr');
+			console.log(err);
+		}
+	});
+};
+
+
+	$.ajax({
+		type : 'get',
+		url : '<c:url value ="/user/mailCheck?email="/>'+eamil, // GET방식이라 Url 뒤에 email을 뭍힐수있다.
+		success : function (data) {
+			console.log("data : " +  data);
+			checkInput.attr('disabled',false);
+			code =data;
+			alert('인증번호가 전송되었습니다.')
+		}			
+	}); // end ajax
+}); // end send eamil
+
+
 		
 </script>

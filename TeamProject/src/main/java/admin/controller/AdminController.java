@@ -267,4 +267,8 @@ public class AdminController {
 		return map;
 	}
 	
+	@GetMapping(value="test")
+	public String test() {
+		return "/admin/chartTest";
+	}
 }

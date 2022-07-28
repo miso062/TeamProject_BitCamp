@@ -214,7 +214,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void bookMarkInsert(Map<String, String> map) {
 		String id = (String) session.getAttribute("memId");
-	
+	 
 		map.put("id", id);
 		
 		userDAO.bookMarkInsert(map);
@@ -311,16 +311,6 @@ public class UserServiceImpl implements UserService {
 	}
 
 	/* 마이페이지 메인 */
-	@Override
-	public List<Buy_historyDTO> getBuyHistory(String user_id) {
-	  	return userDAO.getBuyHistory(user_id);
-	}
-  
-	@Override
-	public List<Sell_historyDTO> getSellHistory(String user_id) {
-		return userDAO.getSellHistory(user_id);
-	}
-
 	public List<Buy_historyDTO> getBuyHistoryList(String user_id) {
 	  	return userDAO.getBuyHistoryList(user_id);
 	}
