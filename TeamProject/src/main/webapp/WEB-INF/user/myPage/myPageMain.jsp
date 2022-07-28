@@ -1010,7 +1010,7 @@ window.onload = function(){
 $(document).ready(function(){
    $.ajax({
       type:'post',
-      url:'/TeamProject/user/getBuyHistory',
+      url:'/TeamProject/user/getBuyHistoryList',
       dataType:'json',
       success: function(data){
 		//배경 색
@@ -1095,7 +1095,7 @@ $(document).ready(function(){
 $(document).ready(function(){
    $.ajax({
       type:'post',
-      url:'/TeamProject/user/getSellHistory',
+      url:'/TeamProject/user/getSellHistoryList',
       dataType:'json',
       success: function(data){
 		//배경 색
