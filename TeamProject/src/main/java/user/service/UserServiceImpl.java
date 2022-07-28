@@ -4,12 +4,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import product.bean.Buy_historyDTO;
@@ -22,6 +28,7 @@ import user.bean.LikeProDTO;
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
+@Component
 @Service
 public class UserServiceImpl implements UserService {
 	
@@ -40,6 +47,89 @@ public class UserServiceImpl implements UserService {
 	@Value("${profileImgFolder")
 	private String uploadFolder;
 	
+	
+	// 메일 전송을 위한 객체 DI
+	@Autowired
+	private JavaMailSender mailSender;
+	
+	
+	
+	
+	//비밀번호 찾기시 랜덤 비밀번호
+	public String randomPassword (int length) {
+		int index = 0;
+		char[] charSet = new char[] {
+				'0','1','2','3','4','5','6','7','8','9'
+				,'A','B','C','D','E','F','G','H','I','J','K','L','M'
+				,'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
+				,'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
+				,'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+				,'!','^','*'
+				};
+		
+		StringBuffer password = new StringBuffer();
+		Random random = new Random();
+
+		for (int i = 0; i < length ; i++) {
+			double rd = random.nextDouble();
+			index = (int) (charSet.length * rd);
+			
+			password.append(charSet[index]);
+			
+			System.out.println("index::" + index + "	charSet::"+ charSet[index]);
+		}
+		password.append("Ab1!");
+		return password.toString(); 
+	}
+	
+	//이메일 보낼 양식! 
+	public String joinEmail(String email) {
+		String pw = randomPassword(8);
+		String setFrom = "kej7984@gmail.com"; // email-config에 설정한 자신의 이메일 주소를 입력 
+		String toMail = email;
+		String title = "비밀번호 찾기 인증 번호 입니다."; // 이메일 제목 
+		String content = 
+				"홈페이지를 방문해주셔서 감사합니다." + 	//html 형식으로 작성 ! 
+		        "<br><br>" + 
+			    "인증 번호는 " + pw + "입니다." + 
+			    "<br>" + 
+			    "해당 인증번호를 인증번호 확인란에 기입하여 주세요."; //이메일 내용 삽입
+		mailSend(setFrom, toMail, title, content);
+		return pw;
+	}
+
+	//이메일 전송 메소드
+	public void mailSend(String setFrom, String toMail, String title, String content) { 
+		MimeMessage message = mailSender.createMimeMessage();
+		// true 매개값을 전달하면 multipart 형식의 메세지 전달이 가능.문자 인코딩 설정도 가능하다.
+		try {
+			MimeMessageHelper helper = new MimeMessageHelper(message,true,"utf-8");
+			helper.setFrom(setFrom);
+			helper.setTo(toMail);
+			helper.setSubject(title);
+			// true 전달 > html 형식으로 전송 , 작성하지 않으면 단순 텍스트로 전달.
+			helper.setText(content,true);
+			mailSender.send(message);
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//비밀번호 찾기
+		@Override
+		public Map<String, Object> findPwCheck(String hp, String user_id) {
+			
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("hp", hp);
+			map.put("user_id", user_id);
+			String pwd = this.joinEmail(user_id);
+			map.put("pwd", pwd);
+			int check = userDAO.findPwCheck(map);
+			map.put("check", check);
+			return map;
+		}
+
+
 	//로그인페이지
 	@Override
 	public String checkLogin(String log_email_input, String log_pwd_input) {
@@ -83,37 +173,9 @@ public class UserServiceImpl implements UserService {
 		return map;
 	}
 	
-	//비밀번호 찾기
-	@Override
-	public Map<String, Object> findPwCheck(String hp, String user_id) {
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("hp", hp);
-		map.put("user_id", user_id);
-		map.put("pwd", this.randomPassword(8));
-		int check = userDAO.findPwCheck(map);
-		map.put("check", check);
-
-		return map;
-	}
 	
 	
-	//비밀번호 찾기시 랜덤 비밀번호
-	public String randomPassword (int length) {
-		int index = 0;
-		char[] charSet = new char[] {
-				'0','1','2','3','4','5','6','7','8','9'
-				,'A','B','C','D','E','F','G','H','I','J','K','L','M'
-				,'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-		
-		StringBuffer sb = new StringBuffer();
-		for(int i=0; i<length; i++) {
-			index = (int) (charSet.length * Math.random());
-			sb.append(charSet[index]);
-		}
-		
-		return sb.toString()+"a"+"!^";
-	}
+	
 
 	//DB에서 기본주소 아닌 것들 호출
 	@Override
@@ -508,6 +570,7 @@ public class UserServiceImpl implements UserService {
 		System.out.println(user_id);
 		userDAO.changeFlag1(user_id);	
 	}
+
 	//마이페이지 관심상품 목록 삭제버튼 삭제
 	@Override
 	public void likeProDelete(String product_id) {
@@ -521,6 +584,4 @@ public class UserServiceImpl implements UserService {
 	public Integer getAuthor(String user_id) {
 		return userDAO.getAuthor(user_id);
 	}
-
-
 }

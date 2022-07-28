@@ -198,67 +198,75 @@ $(document).ready(function(){
 						function setShopLike(product_id){
 							// alert($('#shop_bookmark_'+product_id).hasClass('active'));
 							
-						    if($('#shop_bookmark_'+product_id).hasClass('active')) {
-						        $.ajax({
-						            type:'post',
-						            url: '/TeamProject/user/bookMarkDelete',
-						            data: {'product_id': product_id},
-						            success: function(){
-						                $('#shop_bookmark_'+product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
-						                $('#shop_bookmark_'+product_id).removeClass('active');
-
-						                // 찜 카운트 수 불러오기 
-						                $.ajax({
-						                    type: 'post',
-						                    url : '/TeamProject/shop/getlikeproduct',
-						                    data : {'product_id': product_id},
-						                    success : function(data){
-						                        if(data =='0'){
-						                            $('#shop_text_' + product_id).text('0');	
-						                        }else{
-						                                $('#shop_text_' + product_id).text(data);
-						                        } 
-						                    },
-						                    error: function(err){
-						                        console.log(err)
-						                    }    
-						                });
-						            },
-						            error: function(e){
-						                console.log(e);
-						            }
-						        });
-						
-						    } else {
-						        $.ajax({
-						            type:'post',
-						            url: '/TeamProject/user/bookMarkInsert',
-						            data: {'product_id': product_id },
-						            success: function(data){
-						                $('#shop_bookmark_'+product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
-						                $('#shop_bookmark_'+product_id).addClass('active');
-						                $.ajax({
-						                    type: 'post',
-						                    url : '/TeamProject/shop/getlikeproduct',
-						                    data : {'product_id': product_id},
-						                    success : function(data){
-						                        if(data =='0'){
-						                            $('#shop_text_' + product_id).text('0');	
-						                        }else{
-						                                $('#shop_text_' + product_id).text(data);
-						                        } 
-						                    },
-						                    error: function(err){
-						                        console.log(err)
-						                    }    
-						                });
-						            },
-						            error: function(err){
-						                console.log(err);
-						                alert('로그인 후 이용 가능합니다.');
-						            }
-						        });
-						    }
+							$.ajax({
+								type:'post',
+								url: '/TeamProject/user/bookMarkInsert',
+								data: {'product_id': product_id },
+								success: function(data){
+									
+									if ($('#shop_bookmark_'+product_id).hasClass('active')) {
+										$('#shop_bookmark_'+product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+										//$('#shop_bookmark_'+product_id).removeClass('active');
+										$.ajax({
+											type:'post',
+											url: '/TeamProject/user/bookMarkDelete',
+											data: {'product_id': product_id},
+											success: function(){
+												$('#shop_bookmark_'+product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
+												$('#shop_bookmark_'+product_id).removeClass('active');
+							                    // 찜 카운트 수 불러오기 
+							                    $.ajax({
+							                        type: 'post',
+							                        url : '/TeamProject/shop/getlikeproduct',
+							                        data : {'product_id': product_id},
+							                        success : function(data){
+							                            if(data =='0'){
+							                              $('#shop_text_' + product_id).text('0');	
+							                            }else{
+							                           	  $('#shop_text_' + product_id).text(data);
+							                            } 
+							                        },
+							                        error: function(err){
+							                            console.log(err)
+							                        }    
+							                     })   
+											},
+											error: function(e){
+												console.log(e);
+											}
+										})
+									} 
+									else {
+										if('${sessionScope.memId}'){
+										$.ajax({
+											 type:'post',
+											 url:'/TeamProject/user/bookMarkGet',
+											 success: function(data){
+												 $.each(data.list, function(index, items){
+													if(items.product_id == product_id){
+														$('#shop_bookmark_'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+														$('#shop_bookmark_'+items.product_id).addClass('active');
+													}else {
+														$('#shop_bookmark_'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
+													}
+												 })
+												 
+												 var value = $('#shop_text_' + product_id).text();
+												 $('#shop_text_' + product_id).text(Number(value) + 1)
+												
+											 },
+											 error: function(e){
+												 console.log(e);
+											 }
+										});
+									  }	
+									}
+								},
+								error: function(err){
+									console.log(err);
+									alert('로그인을 해주세요.');
+								}
+							});
 						};
 					}
 				}
