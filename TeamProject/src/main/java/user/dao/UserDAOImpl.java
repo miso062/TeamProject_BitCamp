@@ -127,16 +127,6 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public List<Buy_historyDTO> getBuyHistory(String user_id) {
-		return sqlSession.selectList("userSQL.getBuyHistory", user_id);
-	}
-
-	@Override
-	public List<Sell_historyDTO> getSellHistory(String user_id) {
-		return sqlSession.selectList("userSQL.getSellHistory", user_id);
-	}
-
-	@Override
 	public List<Buy_historyDTO> getBuyHistoryList(String user_id) {
 		return sqlSession.selectList("userSQL.getBuyHistoryList", user_id);
 	}
@@ -230,7 +220,6 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public ProductImgDTO getProductAll(int product_id) {
-		System.out.println("ㅎㅇㅎㅇ");
 		return sqlSession.selectOne("userSQL.getProductAll", product_id);
 	}
 
@@ -265,7 +254,11 @@ public class UserDAOImpl implements UserDAO {
 		sqlSession.update("userSQL.changeFlag1" ,user_id);		
 		
 	}
-
+	//마이페이지 관심상품 목록 삭제버튼 삭제
+	@Override
+	public void likeProDelete(Map<String, String> map) {
+		sqlSession.delete("userSQL.likeProDelete", map);
+	}
 
 }
 	

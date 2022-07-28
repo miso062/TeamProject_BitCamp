@@ -547,7 +547,7 @@ $(document).on('click', '.tab_item', function(){
 		       	var period = new Date(data.sell_historyList[i].period);
 		       	var random = Math.floor( Math.random() * 4 ); 
 
-		       	if(status1 == '입찰중' || status1 == '배송중' || status1 == '결제완료'){
+		       	if(status1 == '입찰중' || status1 == '판매 대기중' || status1 == '검수중'){
   		       		let selllist = $('<div class="purchase_item" onclick="location.href=\'/TeamProject/user/sellHistoryDetail?sell_id='+ sell_id + '\'">').append(
   	                '<div class="history_product">' +
   	                '<div class="product_box">' +

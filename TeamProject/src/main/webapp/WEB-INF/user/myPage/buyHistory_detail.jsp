@@ -348,6 +348,9 @@
         border-color: #ef6253;
         color: #fff;
     }
+    .price_text.buy {
+    	color: #f15746;
+	}
     .section_title {
         margin-top: 31px;
     }
@@ -461,8 +464,8 @@
 	    cursor: pointer;
 	    vertical-align: middle;
 	    text-align: center;
-	    color: rgba(34,34,34,.8);
-	    background-color: #fff;
+/* 	    color: rgba(34,34,34,.8);
+	    background-color: #fff; */
 	}
 	.solid {
     font-weight: 600;
@@ -483,12 +486,11 @@
 <div class="my_buying_detail bidding">
     <div class="content_title">
         <div class="title_1">
-            <h3>구매내역 &gt; 입찰 중</h3>
+            <h3>구매내역 &gt; <span id="buy_status"></span></h3>
         </div>
         <div class="btn_box">
             <div class="btn deleteBtn">
-                <img src="/TeamProject/img/user/myPage/buyHistory_11/can_trash.png" alt="쓰레기통" class="ico-delete icon sprite-icons">
-                
+                <img src="/TeamProject/img/user/myPage/can_trash.png" alt="쓰레기통" class="ico-delete icon sprite-icons">
                 <span class="btn_txt">삭제하기</span>
             </div>
         </div>
@@ -508,7 +510,6 @@
                                 alt="Nike Air Force 1 '07 Low White"
                                 src=${productImgDTO.file_path }
                                 class="image picture product_img"
-                            
                             />
                     </div>
                 </div>
@@ -542,7 +543,7 @@
     <!---->
     <div class="purchase_history_wrap">
         <div class="section_title">
-            <div class="title_box"><h4 class="title">구매 입찰 내역</h4></div>
+            <div class="title_box"><h4 class="title">구매 내역</h4></div>
         </div>
         <div class="purchase_history bidding buy">
             <div class="history_detail">
@@ -577,7 +578,7 @@
                         <dt class="price_title dark">
                             <span>총 결제금액</span>
                         </dt>
-                        <dd class="price_text bold buy priceTot"></dd>
+                        <dd class="price_text bold buy" id="priceTot"></dd>
                     </dl>
                 </div>
                 <div class="detail_box">
@@ -593,27 +594,24 @@
                         <dt class="price_title dark">
                             <span >입찰 마감기한</span>
                         </dt>
-                        <dd class="price_text" style="font-weight: 500;"> 
+                        <dd class="price_text period" style="font-weight: 500;"> 
                         	<fmt:formatDate value="${buy_historyDTO.period }" pattern="yyyy/MM/dd(E)" />
                         </dd>
-                        <dd class="price_text buy" style="display: none">기한 만료</dd>
+                        <dd class="price_text buy done" style="display: none">기한 만료</dd>
                     </dl>
                 </div>
             </div>
-			<div class="history_btn">
-                <a href="/TeamProject/shop/enterBuyPrice?product_id=${buy_historyDTO.product_id }&size=${ buy_historyDTO.size_type}" class="btn outline medium"> 입찰 변경하기 </a>
-                <a href="#" class="btn buy outline medium"> 즉시 구매하기 </a>
-			</div>
 			<div class="history_btn" style="display: none">
-                <a href="/TeamProject/shop/entersellPrice?product_id=${sell_historyDTO.product_id }&size=${ sell_historyDTO.size_type}" class="btn outline medium"> 다시 입찰하기  </a>
-         	</div>
+                <input type="button" class="reSell btn outline medium" value="다시 입찰하기" onclick="location.href='/TeamProject/shop/enterBuyPrice?product_id=${buy_historyDTO.product_id }&size=${ buy_historyDTO.size_type}'">
+			</div>
+
         </div>
     </div>
     <!---->
     <div class="shipping_address_wrap">
         <div class="section_title">
             <div class="title_box"><h4 class="title">배송 주소</h4></div>
-            <p class="noti">대기 중, 발송완료, 입고완료 상태에서만 배송지 변경이 가능합니다.</p>
+            <p class="noti">배송지 변경을 원하시면 고객센터로 문의 바랍니다.</p>
         </div>
         <div class="shipping_address">
             <dl class="address_item">
@@ -628,7 +626,7 @@
             </dl>
             <dl class="address_item">
                 <dt class="address_title">주소</dt>
-                <dd class="address_txt">(${addressDTO.addr_detail }) ${addressDTO.addr }</dd>
+                <dd class="address_txt">(${addressDTO.zipcode}) ${addressDTO.addr } ${addressDTO.addr_detail }</dd>
             </dl>
         </div>
     </div>
@@ -655,6 +653,22 @@ window.onload = function() {
 	$('.snb_menu').eq(0).find('.menu_link').eq(0).removeClass('unbold');
 	$('.snb_menu').eq(0).find('.menu_link').eq(0).addClass('bold');
 }
+$(document).ready(function() {    
+	//status
+	var status1 ="${buy_historyDTO.status1}"
+	var status2 ="${buy_historyDTO.status2}"
+	//alert(status1);
+	//alert(status2);
+	if(status1 != ''){
+		$('#buy_status').text(status1);
+	}
+	if(status2 != ''){
+		$('#buy_status').text(status2);
+		$('.period').css('display','none');
+		$('.done').css('display','block');
+		$('.history_btn').css('display','flex');
+	}
+});
 //번호 형식 맞추기
 $(document).ready(function() {
 	var hp = "${addressDTO.hp }";
@@ -663,7 +677,7 @@ $(document).ready(function() {
 	//검수비, 배송료 합치기
 	var priceTot = ${buy_historyDTO.buy_price } + 3600
 	$('#priceTot').text(priceTot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "원");
-	
+    
 	//즉시 판매, 구매가 , 모델번호 
 	$.ajax({
 		type:'post',
@@ -704,10 +718,9 @@ $('.deleteBtn').on('click', function(){
 			type:'post',
 			url:'/TeamProject/user/delBuyHistory',
 			data:'buy_id=${buy_historyDTO.buy_id }',
-			dataType:'json',
 			success: function(data){
-				alert('입찰내역이 삭제되었습니다.')
-				$('.layer_alert').css('display','none');
+				alert('입찰내역이 삭제되었습니다.');
+				location.href = "/TeamProject/user/buyHistory";
 			},
 			error:function(err){
 				console.log(err);

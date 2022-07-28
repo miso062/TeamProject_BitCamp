@@ -352,6 +352,9 @@
         border-color: #ef6253;
         color: #fff;
     }
+    .price_text.buy {
+    	color: #f15746;
+	}
     .section_title {
         margin-top: 31px;
     }
@@ -464,13 +467,13 @@
 	    cursor: pointer;
 	    vertical-align: middle;
 	    text-align: center;
-	    color: rgba(34,34,34,.8);
-	    background-color: #fff;
+/* 	    color: rgba(34,34,34,.8);
+	    background-color: #fff; */
 	}
 	.solid {
-    font-weight: 600;
-    color: #fff;
-    background-color: #222;
+	    font-weight: 600;
+	    color: #fff;
+	    background-color: #222;
 	}
 	.layer_alert .btn_layer_close {
 	    display: none;
@@ -508,7 +511,7 @@
 	    align-items: center;
 	    flex-wrap: wrap;
 	}
-	.card_num .last_num[data-v-46240f7f] {
+	.card_num .last_num {
 	    margin-left: 2px;
 	    display: inline-flex;
 	    font-size: 14px;
@@ -568,14 +571,13 @@
 <div class="my_selling_detail bidding">
     <div class="content_title">
         <div class="title_1">
-            <h3>판매내역 &gt; 입찰 중</h3>
+            <h3>판매내역 &gt; <span id="sell_status"></span></h3>
         </div>
         <div class="btn_box">
-            <a href="#" class="btn">
-                <img src="/TeamProject/img/user/myPage/sellHistory_11/can_trash.png" alt="쓰레기통" class="ico-delete icon sprite-icons">
-                
+            <div class="btn deleteBtn">
+                <img src="/TeamProject/img/user/myPage/can_trash.png" alt="쓰레기통" class="ico-delete icon sprite-icons">
                 <span class="btn_txt">삭제하기</span>
-            </a>
+            </div>
         </div>
     </div>
     <!---->
@@ -593,7 +595,6 @@
                                 alt="Nike Air Force 1 '07 Low White"
                                 src=${productImgDTO.file_path }
                                 class="image picture product_img"
-                            
                             />
                     </div>
                 </div>
@@ -627,7 +628,7 @@
     <!---->
     <div class="purchase_history_wrap">
         <div class="section_title">
-            <div class="title_box"><h4 class="title">판매 입찰 내역</h4></div>
+            <div class="title_box"><h4 class="title">판매 내역</h4></div>
         </div>
         <div class="purchase_history bidding sell">
             <div class="history_detail">
@@ -656,7 +657,7 @@
                         <dt class="price_title">
                             <span>배송비</span>
                         </dt>
-                        <dd class="price_text">3,000원</dd>
+                        <dd class="price_text">무료</dd>
                     </dl>
                     <dl class="price_addition">
                         <dt class="price_title dark">
@@ -678,20 +679,16 @@
                         <dt class="price_title dark">
                             <span >입찰 마감기한</span>
                         </dt>
-                        <dd class="price_text" style="font-weight: 500;"> 
+                        <dd class="price_text period" style="font-weight: 500;"> 
                            <fmt:formatDate value="${sell_historyDTO.period }" pattern="yyyy/MM/dd(E)" />
                         </dd>
-                        <dd class="price_text buy" style="display: none">기한 만료</dd>
+                        <dd class="price_text buy done" style="display: none;">기한 만료</dd>
                     </dl>
                 </div>
             </div>
-         <div class="history_btn">
-                <a href="/TeamProject/shop/entersellPrice?product_id=${sell_historyDTO.product_id }&size=${ sell_historyDTO.size_type}" class="btn outline medium"> 입찰 변경하기 </a>
-                <a href="#" class="btn sell outline medium"> 즉시 판매하기 </a>
-         </div>
-         <div class="history_btn" style="display: none">
-                <a href="/TeamProject/shop/entersellPrice?product_id=${sell_historyDTO.product_id }&size=${ sell_historyDTO.size_type}" class="btn outline medium"> 다시 입찰하기  </a>
-         </div>
+			<div class="history_btn" style="display: none">
+				<input type="button" class="reSell btn outline medium" value="다시 입찰하기" onclick="location.href='/TeamProject/shop/enterSellPrice?product_id=${sell_historyDTO.product_id }&size=${ sell_historyDTO.size_type}'">
+			</div>
         </div>
     </div>
 	<!---->
@@ -702,41 +699,19 @@
         </div>
         <div  class="payment_info">
             <div  class="card_info">
-                <span class="card_name">국민은행</span>
+                <span class="card_name">${sell_historyDTO.account }</span>
                 <div class="card_num">
                     <span class="num_bind"><span class="last_num">**************</span></span>
                 </div>
             </div>
         </div>
     </div>
-    <div class="payment_wrap">
-        <div  class="section_title">
-            <div class="title_box">
-                <h4 class="title">페널티 결제 정보</h4>
-            </div>
-            <!---->
-        </div>
-        <div  class="payment_info">
-            <div  class="card_info">
-                <span class="card_name"> KB</span>
-                <div class="card_num">
-                    <span class="num_bind">
-                        <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
-                        <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
-                        <span class="dot"><span class="dot"></span></span><span class="hyphen"></span>
-                        <div class="last_num_box"><span class="last_num">7375</span></div>
-                    </span>
-                    <!---->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!---->
+
     <!---->
     <div class="shipping_address_wrap">
         <div class="section_title">
             <div class="title_box"><h4 class="title">배송 주소</h4></div>
-            <p class="noti">대기 중, 발송완료, 입고완료 상태에서만 배송지 변경이 가능합니다.</p>
+            <p class="noti">배송지 변경을 원하시면 고객센터로 문의 바랍니다.</p>
         </div>
         <div class="shipping_address">
             <dl class="address_item">
@@ -751,7 +726,7 @@
             </dl>
             <dl class="address_item">
                 <dt class="address_title">주소</dt>
-                <dd class="address_txt">(${addressDTO.addr_detail }) ${addressDTO.addr }</dd>
+                <dd class="address_txt">(${addressDTO.zipcode}) ${addressDTO.addr } ${addressDTO.addr_detail }</dd>
             </dl>
         </div>
     </div>
@@ -766,7 +741,7 @@
             <div class="layer_content">
                 <div class="alert_box"><p class="alert_desc">등록하신 입찰을 지우시면 주문이 취소됩니다.</p></div>
                 <div class="layer_btn">
-                    <button type="button" class="btn outlinegrey medium">취소</button><button type="button" class="btn outlinegrey medium">입찰 지우기</button>
+                    <button type="button" class="btn outlinegrey medium">취소</button><button type="button" class="btn outlinegrey medium solid">입찰 지우기</button>
                 </div>
             </div>
         </div>
@@ -775,17 +750,39 @@
 </div>
 <script type="text/javascript">
 window.onload = function() {
-	$('.snb_menu').eq(0).find('.menu_link').eq(0).removeClass('unbold');
-	$('.snb_menu').eq(0).find('.menu_link').eq(0).addClass('bold');
+	$('.snb_menu').eq(0).find('.menu_link').eq(1).removeClass('unbold');
+	$('.snb_menu').eq(0).find('.menu_link').eq(1).addClass('bold');
 }
+$(document).ready(function() {    
+	//status
+	var status1 ="${sell_historyDTO.status1}"
+	var status2 ="${sell_historyDTO.status2}"
+	//alert(status1);
+	//alert(status2);
+	if(status1 != ''){
+		$('#sell_status').text(status1);
+	}
+	if(status2 != ''){
+		$('#sell_status').text(status2);
+		$('.period').css('display','none');
+		$('.done').css('display','block');
+		$('.history_btn').css('display','flex');
+	}
+	//판매계좌
+	var account ="${sell_historyDTO.account }"
+    var arr = account.split(" ");
+    dateString = arr[1].substring(0, arr[1].length-2);
+    $('.card_name').text(dateString);
+});
 //번호 형식 맞추기
 $(document).ready(function() {
 	var hp = "${addressDTO.hp }";
 	var testHp = hp.replace(/(\d{3})(\d{4})(\d{4})/, '$1-****-$3');
 	$(".address_hp").text(testHp);
 	//검수비, 배송료 합치기
-	var priceTot = ${sell_historyDTO.sell_price } + 3600
+	var priceTot = ${sell_historyDTO.sell_price } + 600
 	$('#priceTot').text(priceTot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "원");
+    
 	//즉시 판매, 구매가 , 모델번호 
 	$.ajax({
 		type:'post',
@@ -793,6 +790,7 @@ $(document).ready(function() {
 		data:'product_id=${sell_historyDTO.product_id }',
 		dataType:'json',
 		success: function(data){
+			//alert(JSON.stringify(data))
 			if(data.max_buyPrice == null){
 				$('#max_buyPrice').text('-');   
 			}else{
@@ -825,10 +823,9 @@ $('.deleteBtn').on('click', function(){
 			type:'post',
 			url:'/TeamProject/user/delSellHistory',
 			data:'sell_id=${sell_historyDTO.sell_id }',
-			dataType:'json',
 			success: function(data){
-				alert('입찰내역이 삭제되었습니다.')
-				$('.layer_alert').css('display','none');
+				alert('입찰내역이 삭제되었습니다.');
+				location.href = "/TeamProject/user/sellHistory";
 			}, error:function(err){
 				console.log(err);
 			}		

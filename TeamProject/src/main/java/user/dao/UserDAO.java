@@ -30,8 +30,6 @@ public interface UserDAO {
 	public int checkNaver(String hp);
 	public void updateImg(Map<String, String> map);
 	public void deleteImg(String user_id);
-	public List<Buy_historyDTO> getBuyHistory(String user_id);
-	public List<Sell_historyDTO> getSellHistory(String user_id);
 	public List<Buy_historyDTO> getBuyHistoryList(String user_id);
 	public List<Sell_historyDTO> getSellHistoryList(String user_id);
 	public Map<String, Object> getProductInfo(int product_id);
@@ -58,4 +56,5 @@ public interface UserDAO {
 	public void addAddressModify(AddressDTO addressDTO);
 	public void changeFlag(String address_id);
 	public void changeFlag1(String user_id);
+	public void likeProDelete(Map<String, String> map);
 }

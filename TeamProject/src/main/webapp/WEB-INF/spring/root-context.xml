@@ -36,5 +36,6 @@
 	<context:component-scan base-package="shop.dao"></context:component-scan>
 	<context:component-scan base-package="shop.service"></context:component-scan>
 	<context:component-scan base-package="shop.bean"></context:component-scan>
+	
 		
 </beans>

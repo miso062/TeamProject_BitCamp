@@ -23,28 +23,29 @@
 
 	<!--주소록 기본주소아닌 DB 호출-->
 	<select id="comeAddress" parameterType="String" resultType="userAddress">
-	select * from address where user_id=#{user_id} and flag=0 order by address_id desc
+	  select * from address where user_id=#{user_id} and flag=0 order by address_id desc
 	</select>
 	<!--주소록 기본주소 DB 호출-->
 	<select id="comeAddress1" parameterType="String" resultType="userAddress">
-	select * from address where user_id=#{user_id} and flag=1
+	  select * from address where user_id=#{user_id} and flag=1
 	</select>
 	<!--주소 삭제-->
 	<delete id="myAddressDelete" parameterType="String" >
-	delete address where address_id=#{address_id}
+	  delete address where address_id=#{address_id}
 	</delete>
 	<!--주소 수정-->
 	<update id="addAddressModify" parameterType="userAddress">
-	update address set name=#{name} , zipcode=#{zipcode} , addr=#{addr} , addr_detail=#{addr_detail} flag=#{flag} where address_id=#{address_id}
+	  update address set name=#{name} , zipcode=#{zipcode} , addr=#{addr} , addr_detail=#{addr_detail} flag=#{flag} where address_id=#{address_id}
 	</update>
+  
 	<!--기본배송지 바꾸기-->
 	<!-- 먼저 기본배송지였던거 아니게  -->
 	<update id="changeFlag1" parameterType="String">
-	update address set flag=0 where flag=1 and user_id=#{user_id}
+	  update address set flag=0 where flag=1 and user_id=#{user_id}
 	</update>
 	<!-- 새로운 기본배송지로 설정 -->
 	<update id="changeFlag" parameterType="int">
-	update address set flag=1 where address_id=#{addr_id}
+	  update address set flag=1 where address_id=#{addr_id}
 	</update>
 
 	
@@ -60,14 +61,6 @@
 	
 	<select id="getUserInfo" parameterType="String" resultType="user">
 		select * from user_table where user_id=#{user_id}
-	</select>
-	
-	<select id="getBuyHistory" parameterType="String" resultType="buyHistory" >
-		select * from buy_history where user_id=#{user_id}
-	</select>
-	
-	<select id="getSellHistory" parameterType="String" resultType="sellHistory" >
-		select * from sell_history where user_id=#{user_id}
 	</select>
 	
 	<select id="getBuyHistoryList" parameterType="String" resultType="buyHistory" >
@@ -93,7 +86,7 @@
 	<select id="getAddress" parameterType="Integer" resultType="userAddress">
 		select * from address where address_id = #{address_id}
 	</select>
-	
+
 	<select id="getMinSellPrice" parameterType="Int" resultType="Integer">
 		select min(sell_price) from sell_history where product_id=${product_id} and status1='입찰중'
 	</select>
@@ -118,7 +111,7 @@
 		insert into	like_pro(like_pro_id,user_id,product_id,like_pro_date)
 		values(like_pro_seq.nextval,#{id},#{product_id}, sysdate)
 	</insert>
-	
+	<!-- 관심상품 삭제 -->
 	<delete id="bookMarkDelete" parameterType="java.util.Map">
 		delete like_pro where product_id=${product_id} and user_id=#{user_id}
 	</delete>
@@ -201,6 +194,8 @@
 		delete user_table where user_id=#{user_id}
 	</delete>
 	
+
+	<!-- 상품리스트 -->
 	<select id="getLikeProductList" parameterType="String" resultType="likepro">
 		select * from like_pro where user_id=#{id}
 	</select>
@@ -212,4 +207,8 @@
 	<select id="getProductAll" parameterType="int" resultType="productImg">
 		select * from pro_image where product_id=#{product_id}
 	</select>
+	
+	<delete id="likeProDelete" parameterType="java.util.Map">
+		delete like_pro where product_id=#{product_id} and user_id=#{memId}
+	</delete>
 </mapper>
