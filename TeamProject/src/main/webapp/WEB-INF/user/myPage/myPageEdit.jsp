@@ -217,6 +217,7 @@ input {
 .group_title {
     font-size: 18px;
     letter-spacing: -.27px;
+    cursor: default;
 }
 .unit {
     padding: 25px 60px 18px 0;
@@ -227,6 +228,7 @@ input {
     font-size: 13px;
     letter-spacing: -.07px;
     color: rgba(34,34,34,.5);
+    cursor: default;
 }
 .desc.email {
     color: rgba(34,34,34,.5);
@@ -794,7 +796,7 @@ svg:not(:root) {
     <div class="my_profile">
         <div class="content_title border">
             <div class="title">
-                <h3>프로필 정보</h3>
+                <h3 style="cursor:default" >프로필 정보</h3>
             </div>
         </div>
       <form id="updateImgForm" name="updateImgForm"> 
@@ -803,7 +805,7 @@ svg:not(:root) {
                     <img src="/TeamProject/img/user/profile.png" alt="" name="profile_img" class="thumb_img profile_img">
                 </div>
                 <div class="profile_detail">
-                    <strong class="name" name="nickname" id="show_userid_title nickname">${userDTO.nickname }</strong>
+                    <strong class="name" name="nickname" id="show_userid_title nickname" style="cursor:default" >${userDTO.nickname }</strong>
                     <div class="profile_btn_box">
                        <a href="#" id="upImage" class="btn outlinegrey small"> 이미지 변경 </a>
                       <a href="#" id="delImage" class="btn outlinegrey small reset"> 삭제 </a>
@@ -954,7 +956,7 @@ svg:not(:root) {
         <div class="profile_group">
             <h4 class="group_title">광고성 정보 수신</h4>
             <div class="unit to_receive">
-                <p class="desc">문자 메시지</p>
+                <p class="desc" style="cursor:default" >문자 메시지</p>
                 <div class="radio_txt_box">
                     <div class="radio_item">
                         <label for="sms_agree" class="radio_label">
@@ -971,7 +973,7 @@ svg:not(:root) {
                 </div>
             </div>
             <div class="unit to_receive">
-                <p class="desc">이메일</p>
+                <p class="desc" style="cursor:default" >이메일</p>
                 <div class="radio_txt_box">
                     <div class="radio_item">
                         <label for="email_agree" class="radio_label">

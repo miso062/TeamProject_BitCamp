@@ -11,13 +11,13 @@
 .c1_slider-wrap{
 }
 .c1_slick-arrow{
-position: absolute; top:50%; transform:translateY(-50%);
-width: 64px; height:64px;
-color:#fff;
-border: none;
-text-indent: -9999px;
-overflow: hidden;
-
+	position: absolute; top:50%; transform:translateY(-50%);
+	width: 64px; height:64px;
+	color:#fff;
+	border: none;
+	text-indent: -9999px;
+	overflow: hidden;
+	cursor: pointer;
 }
 .c1_slick-prev{
 	z-index:100;

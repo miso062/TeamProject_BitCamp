@@ -135,6 +135,7 @@
 .btn_bind .btn {
     padding-left: 11px;
     padding-right: 12px;
+    margin-left: 5px;
 }
 .outlinegrey {
     border: 1px solid #d3d3d3;
@@ -349,6 +350,7 @@ a {
     font-size: 13px;
     letter-spacing: -.07px;
     line-height: 18px;
+    cursor: default;
 }
 input::placeholder{
 	color: #B8B7B7;	
@@ -409,7 +411,7 @@ input::placeholder{
 </style>
 <div class="my_addressbook">
     <div class="content_title">
-        <div class="title">
+        <div class="title" style="cursor:default">
             <h3>주소록</h3>
             <!---->
         </div>
@@ -479,7 +481,7 @@ input::placeholder{
 <!-- 모달창(새배송지) 부분-->
 <div class="layer_delivery layer lg" style="display :none;">
     <div class="layer_container">
-        <div class="layer_header"><h2 data-v-728c367a="" data-v-350bc372="" class="title">새 주소 추가</h2></div>
+        <div class="layer_header"><h2 data-v-728c367a="" data-v-350bc372="" class="title" style="cursor:default" >새 주소 추가</h2></div>
         <div class="layer_content">
             <div class="delivery_bind">
                 <div class="delivery_input">
