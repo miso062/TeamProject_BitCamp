@@ -10,7 +10,6 @@ import product.bean.Buy_historyDTO;
 import product.bean.ProductImgDTO;
 import product.bean.Sell_historyDTO;
 import user.bean.AddressDTO;
-import user.bean.LikeProDTO;
 import user.bean.UserDTO;
 
 public interface UserService {
@@ -51,5 +50,5 @@ public interface UserService {
     public void addAddressModify(AddressDTO addressDTO);
     public void changeFlag(String address_id);
 	public void changeFlag1(String address_id);
-	
+	public String joinEmail(String email);
 }

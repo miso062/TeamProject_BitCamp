@@ -248,7 +248,8 @@ $(document).ready(function(){
 												console.log(e);
 											}
 										})
-									} else {
+									} 
+									else {
 										if('${sessionScope.memId}'){
 										$.ajax({
 											 type:'post',
@@ -276,7 +277,7 @@ $(document).ready(function(){
 								},
 								error: function(err){
 									console.log(err);
-									alert('에러메렁ㅋ.');
+									alert('로그인을 해주세요.');
 								}
 							});
 						};
