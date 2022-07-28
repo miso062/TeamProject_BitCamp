@@ -286,4 +286,10 @@ public class AdminController {
 	public String test() {
 		return "/admin/chartTest";
 	}
+	
+	@GetMapping(value="/getVisitInfo")
+	@ResponseBody
+	public Map<String, Object> getVisitInfo(){
+		return adminService.getVisitInfo();
+	}
 }

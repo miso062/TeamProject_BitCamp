@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h2 id="visitor"></h2>
-	<div style="width: 49%; height: 500px"><canvas id="line-chart"></canvas></div>
+	<div style="width: 60%; height: 500px"><canvas id="line-chart"></canvas></div>
 </body>
 <script type="text/javascript">
 var expireDate = new Date();
@@ -43,7 +43,7 @@ for(var i=0; i<30; i++){
 	var mm = calDate.getMonth()+1;
 	var dd = calDate.getDate();
 	var dateString = yy + '-' + mm  + '-' + dd;
-	   
+	console.log(i + " | " + dateString);
 	arr[i] = dateString;
 }
 
@@ -52,9 +52,9 @@ new Chart(document.getElementById("line-chart"), {
 	data: {
 		labels: arr,
 		datasets: [{ 
-			data: [3,14,16,16,11,21,15,24,20,18,25,26,36,33,39,25,36,40,27,46,52,43,35,36,32,48,46,48,50,30],
+			data: [3,14,16,16,11,21,15,24,20,18,25,26,36,33,39,25,36,40,27,46,52,43,35,36,32,48,46,48,50,30,51],
 			label: "방문자",
-			borderColor: "#3e95cd",
+			borderColor: "#ed575A",
 			borderWidth: 1,
 			lineTension: 0,
 			fill: true

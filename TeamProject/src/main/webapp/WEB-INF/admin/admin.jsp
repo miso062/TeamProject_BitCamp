@@ -84,9 +84,7 @@
                                         <header><a href="/admin/shopping/answers">문의/구매평</a></header>
                                     </div>
                                     <div class="card-body border-top">
-                                        <ul class="list list-preview">
-                                            <li class="tile">데이터가 없습니다.</li>
-                                        </ul>
+                                        <div style="width: 100%;"><canvas id="line-chart"></canvas></div>
                                     </div>
                                 </div>
                             </div>
@@ -370,8 +368,41 @@
             </a>
         </div>
     </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
+$(function(){
+	$.ajax({
+		url: "/TeamProject/admin/getVisitInfo",
+		dataType: 'json',
+		success: function(data){
+			new Chart(document.getElementById("line-chart"), {
+				type: 'line',
+				data: {
+					labels: data.visitDate,
+					datasets: [{ 
+						data: data.visitCnt,
+						label: "방문자",
+						borderColor: "#ed575A",
+						borderWidth: 1,
+						lineTension: 0,
+						fill: true
+			    	}]
+				},
+				options: {
+					title: {
+						display: true,
+						text: '일일 방문자'
+					}
+				}
+			});
+		},
+		error: function(err){
+			console.log(err);
+		}
+	});
+});
+
 function phoneFormatter(num, type) {
    var formatNum = '';
    try{

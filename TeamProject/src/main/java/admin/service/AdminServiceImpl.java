@@ -222,7 +222,8 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public List<ProductDTO> getAllProList() {
-		return adminDAO.getAllProList();
+//		return adminDAO.getAllProList();
+		return null;
 	}
 
 	@Override
@@ -235,9 +236,15 @@ public class AdminServiceImpl implements AdminService {
 	private ProductImgDTO getImage(int product_id) {
 		return adminDAO.getImge(product_id);
 	}
-	
-	
-	
-	
+
+	@Override
+	public Map<String, Object> getVisitInfo() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		List<String> visitDate = adminDAO.getVisitDate();
+		List<Integer> visitCnt = adminDAO.getVisitCnt();
+		map.put("visitDate", visitDate);
+		map.put("visitCnt", visitCnt);
+		return map;
+	}
 
 }

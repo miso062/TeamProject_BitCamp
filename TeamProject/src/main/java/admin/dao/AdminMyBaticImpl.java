@@ -202,4 +202,16 @@ public class AdminMyBaticImpl implements AdminDAO {
 		return sqlSession.selectOne("adminSQL.getImg",product_id);
 	}
 
+
+	@Override
+	public List<String> getVisitDate() {
+		return sqlSession.selectList("adminSQL.getVisitDate");
+	}
+
+
+	@Override
+	public List<Integer> getVisitCnt() {
+		return sqlSession.selectList("adminSQL.getVisitCnt");
+	}
+
 }
