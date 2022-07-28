@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import admin.bean.AdminDTO;
 import admin.bean.AdminQnADTO;
+import product.bean.ProductDTO;
+import product.bean.ProductImgDTO;
 import user.bean.UserDTO;
 
 @Repository
@@ -186,6 +188,18 @@ public class AdminMyBaticImpl implements AdminDAO {
 	@Override
 	public Integer getGoodMemberCount() {
 		return sqlSession.selectOne("adminSQL.getGoodMemberCount");
+	}
+
+
+	@Override
+	public List<ProductDTO> getAllProList() {
+		return sqlSession.selectList("adminSQL.getAllProList");
+	}
+
+
+	@Override
+	public ProductImgDTO getImge(int product_id) {
+		return sqlSession.selectOne("adminSQL.getImg",product_id);
 	}
 
 }

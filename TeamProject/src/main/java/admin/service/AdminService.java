@@ -6,6 +6,7 @@ import java.util.Map;
 import admin.bean.AdminDTO;
 import admin.bean.AdminPaging;
 import admin.bean.AdminQnADTO;
+import product.bean.ProductDTO;
 import user.bean.UserDTO;
 
 public interface AdminService {
@@ -53,6 +54,10 @@ public interface AdminService {
 	public List<UserDTO> getsearchUserList(String keyword);
 
 	public Map<String, Object> getSearchAdmin(String keyword);
+
+	public List<ProductDTO> getAllProList();
+
+	public Map<String, Object> getAllProImg(int product_id);
 
 
 }

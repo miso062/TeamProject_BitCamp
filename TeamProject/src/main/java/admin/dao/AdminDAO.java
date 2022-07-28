@@ -5,6 +5,8 @@ import java.util.Map;
 
 import admin.bean.AdminDTO;
 import admin.bean.AdminQnADTO;
+import product.bean.ProductDTO;
+import product.bean.ProductImgDTO;
 import user.bean.UserDTO;
 
 public interface AdminDAO {
@@ -59,4 +61,8 @@ public interface AdminDAO {
 	public Integer getMemberCount();
 
 	public Integer getGoodMemberCount();
+
+	public List<ProductDTO> getAllProList();
+
+	public ProductImgDTO getImge(int product_id);
 }
