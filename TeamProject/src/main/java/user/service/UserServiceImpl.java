@@ -297,11 +297,17 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Map<String, Object> bookMarkGet() {
 		String id = (String) session.getAttribute("memId");
-	 	List<LikeProDTO> list= userDAO.bookMarkGet(id);
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("list",list);
-	 	
-		return map; 
+		if(id == null || id.isEmpty()) {
+			return null;
+		}
+		else {
+			System.out.println(id);
+			List<LikeProDTO> list= userDAO.bookMarkGet(id);
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("list",list);
+			
+			return map; 
+		}
 	}
 	
 	//닉네임 중복체크

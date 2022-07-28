@@ -108,12 +108,15 @@ function cookieVal(cookieName) {
 	thisCookie = document.cookie.split("; ")
 	for(var i=0; i<thisCookie.length; i++){
 		if(cookieName == thisCookie[i].split("=")[0]){
+			$.ajax({
+				
+			});
 			return thisCookie[i].split("=")[1];
 		}
 	}
 	return 0
 }
-console.log(hitCt);
+
 
 $('#loginBtn').click(function(){
 	location.href="/TeamProject/user/login";
