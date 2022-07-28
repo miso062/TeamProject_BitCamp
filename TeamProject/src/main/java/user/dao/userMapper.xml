@@ -211,4 +211,9 @@
 	<delete id="likeProDelete" parameterType="java.util.Map">
 		delete like_pro where product_id=#{product_id} and user_id=#{memId}
 	</delete>
+	
+	<!-- admin권한 아이디 확인 -->
+	<select id="getAuthor" parameterType="String" resultType="Integer" >
+		select authority from user_table where user_id=#{user_id}
+	</select>
 </mapper>
