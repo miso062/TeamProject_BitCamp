@@ -35,7 +35,7 @@
 								</div>
 								<div class="card-head" id="card-head" style="">
 									<header class="small">
-										전체 사용자 <span class="text-primary" id="total-member-count">3</span>명
+										전체 사용자 <span class="text-primary" id="total-member-count"></span>명
 									</header>
 								</div>
 

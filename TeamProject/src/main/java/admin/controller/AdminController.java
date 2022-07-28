@@ -265,12 +265,26 @@ public class AdminController {
 	public void deleteThisUser(@RequestParam String user_id) {
 		adminService.deleteThisUser(user_id);
 	}
+	@PostMapping(value="deleteThisPro")
+	@ResponseBody
+	public void deleteThisPro(@RequestParam String product_id) {
+		System.out.println(product_id);
+		adminService.deleteThisPro(product_id);
+	}
 	@PostMapping(value="getsearchUserList")
 	@ResponseBody
 	public List<UserDTO> getsearchUserList(@RequestParam String keyword){
 		List<UserDTO>list=adminService.getsearchUserList(keyword);
 			return list;
 	}
+	@PostMapping(value="getAllProList3")
+	@ResponseBody
+	public List<ProductDTO> getAllProList3(@RequestParam String keyword){
+		List<ProductDTO>list =adminService.getAllproList3(keyword);
+		return list;
+	}
+	
+	
 	@PostMapping(value="getSearchAdmin")
 	@ResponseBody
 	public Map<String,Object> getSearchAdmin(@RequestParam String keyword){
@@ -284,6 +298,12 @@ public class AdminController {
 		List<ProductDTO> list = adminService.getAllProList();
 		return list;
 	}
+	@PostMapping(value="getAllProList2")
+	@ResponseBody
+	public List<ProductDTO>getAllProList2(){
+		List<ProductDTO> list = adminService.getAllProList2();
+		return list;
+	}
   
 	@PostMapping(value="getAllProImg")
 	@ResponseBody
@@ -291,6 +311,12 @@ public class AdminController {
 		Map<String,Object>map = adminService.getAllProImg(product_id);
 		return map;
   }
+	@PostMapping(value="getSearchAdmin3")
+	@ResponseBody
+	public Map<String, Object> getSearchAdmin3(@RequestParam String keyword){
+		Map<String,Object> map = adminService.getSearchAdmin3(keyword);
+		return map;
+	}
 	
 	@GetMapping(value="test")
 	public String test() {
@@ -302,4 +328,5 @@ public class AdminController {
 	public Map<String, Object> getVisitInfo(){
 		return adminService.getVisitInfo();
 	}
+
 }

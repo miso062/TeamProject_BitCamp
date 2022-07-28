@@ -4,153 +4,63 @@
 <section class="no-padding-bottom">
 	<div class="section-body">
 		<div class="row" style="display: flex;">
-<!-- 			<div class="col-md-3 col-lg-2 col-xl-2 hidden-xs hidden-sm">
-				<div class="card">
-					<div class="card-body no-padding">
-						<ul class="nav nav-pills nav-stacked">
-							<li class="no-hover" id="new_group_btn" data-base_url="/admin/shopping/product/?q=YToxOntzOjY6InN0YXR1cyI7czozOiJhbGwiO30%3D">
-								<a href="#" class="text-primary"> 카테고리 관리 
-									<i class="icon-settings" style="font-size: 15px; vertical-align: middle; margin-left: 4px; position: relative; top: -1px;"></i>
-								</a>
-							</li>
-						</ul>
-
-						<div class="nav nav-pills nav-stacked nav-category">
-							<div id="prod_list_category_" class="dropdown-handle dd-handle active">
-								<a href="#" >전체 카테고리</a>
-							</div>
-							<div id="prod_category_list" class="prod_category_list">
-								<div class="holder">
-									<div class="dropdown-handle dd-handle _menu_item" data-code="s202106136eac78326774d" id="prod_list_category_s202106136eac78326774d">
-										<span class="_name">우유</span>
-									</div>
-								</div>
-								<div class="holder">
-									<div class="dropdown-handle dd-handle _menu_item" data-code="s20211224fd1b06914db28" id="prod_list_category_s20211224fd1b06914db28" >
-										<span class="_name">두유</span>
-									</div>
-								</div>
-								<div class="holder">
-									<div class="dropdown-handle dd-handle _menu_item" data-code="s20211224f6fee13ee5e37" id="prod_list_category_s20211224f6fee13ee5e37">
-										<span class="_name">요구르트</span>
-									</div>
-								</div>
-								<div class="holder">
-									<div class="dropdown-handle dd-handle _menu_item" data-code="s2021120949c22c9ec12d0" id="prod_list_category_s2021120949c22c9ec12d0">
-										<span class="_name">주스</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> -->
 			<div class="col-md-9 col-lg-10 col-xl-10">
 				<ul class="nav nav-tabs" data-toggle="tabs"
-					style="margin-bottom: 24px;" id="prod_status_tab">
+					style="margin-top:24px; list-style:none;" id="prod_status_tab">
 					<li class="owl_dashboard _owl_dashboard owl-carousel owl-theme owl-loaded">
 						<div class="owl-stage-outer">
 							<div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 281px;">
-								<div class="owl-item active" style="width: auto; margin-right: 0px;">
-									<ul class="owl-nav-tabs">
-										<li class="active _all">
-											<a href="javascript:;">전체
-												<span class="_count text-primary">25</span>
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div class="owl-item active" style="width: auto; margin-right: 0px;">
-									<ul class="owl-nav-tabs">
-										<li class="_sale">
-											<a href="#">판매중<span class="_count text-primary">25</span></a>
-										</li>
-									</ul>
-								</div>
-								<div class="owl-item active"
-									style="width: auto; margin-right: 0px;">
-									<ul class="owl-nav-tabs">
-										<li class="_nosale">
-											<a href="#">판매 안함 <span class="_count text-primary">0</span></a>
-										</li>
-									</ul>
-								</div>
 							</div>
 						</div>
 					</li>
 				</ul>
+				<div class="card">
+				<div class="card-body no-padding">
+										<div class="user-search" id="userSearch">
+											<div class="form-group">
+												<div id="prefetch">
+													<span class="twitter-typeahead" style="position: relative; display: inline-block;">
+														<img style="width: 25px; height: 25px; margin: 10px" src="/TeamProject/img/admin/search.png">
+														<input type="hidden" name="q" value="YToxOntzOjEwOiJqb2luX29yZGVyIjtzOjQ6ImRlc2MiO30=" class="form-control typeahead" /> 
+														<input type="text" class="form-control typeahead tt-input" id="keyword_search1" name="keyword" placeholder="검색" autocomplete="off" spellcheck="false" style="position: relative; outline: none; vertical-align: top; background-color: transparent;" value="" />
+													</span>
+												</div>
+											</div>
+									</div>
+								</div>
+								</div>
 				<div class="row">
 					<div class="col-md-12">
 						<div class="card">
+						
+								
+								
 							<div class="table-responsive shop-table check" id="prod_list"
 								style="">
 								<table class="table no-margin">
 									<thead class="subject _prodListHeaderDeselected" style="display: table-header-group;" id="prod_list_header_deselected">
+									<div class="card-head" id="card-head" style="">
+										<header class="small"> 전체 상품 <span class="text-primary" id="total-member-count"></span>개</header>
+										<header class="small"> 판매중 <span class="text-primary" id="total-member-count2"></span>개</header>
+										<header class="small"> 판매 안함 <span class="text-primary" id="total-member-count3"></span>개</header>
+										
+									</div>
 										<tr>
-											<th class="check">
-												<div class="checkbox checkbox-styled no-margin">
-													<label> 
-														<input type="checkbox" value="" class="_prodListAllCheck"/>
-														<span></span>
-													</label>
-												</div>
-											</th>
 											<th class="no">No</th>
 											<th>이미지</th>
-											<th class="eng_title image">상품명(영문)</th>
-											<th class="kor_title image">상품명(한글)</th>
-											<th class="pay text-right">판매가</th>
+											<th class="kor_title image" style="width:300px;">상품명(한글)</th>
+											<th class="eng_title image" style="width:300px;">상품명(영문)</th>
 											<th class="group">카테고리</th>
 											<th class="brand">브랜드</th>
+											<th class="pay text-right">발매가</th>
 											<th class="collection">컬렉션</th>
 											<th class="state">상태</th>
 											<th class="r_date">발매일</th>
 											<th class="e_date">등록일</th>
-											<th class="more"></th>
+											<th class="more">비고</th>
 										</tr>
 									</thead>
 									<tbody id="prod_list_body" class="_prod_list_body ui-sortable">
-										<tr class="content _prodListItem" id="prod_list_s20211224145e22830e76f" data-code="s20211224145e22830e76f">
-											<td class="check">
-												<div class="drag _showcase_handle ui-sortable-handle"></div>
-												<div class="checkbox checkbox-styled no-margin">
-													<label> <input type="checkbox" value="s20211224145e22830e76f" class="_prodListCheck"/>
-														<span></span>
-													</label>
-												</div>
-											</td>
-											<td class="no text-12">149</td>
-											<td class="image">
-												<a href="#"> <img src="https://cdn.imweb.me/thumbnail/20211224/52e7c97573366.jpg" width="49" height="49" class="item-thumb" /> </a>
-											</td>
-											<td class="eng_title">
-												<div>
-													<div class="item-tit inline-blocked">
-														<a href="#">바른목장 유산균우유 180mL</a> 
-														<a href="#" target="_blank" class="im-icon im-ico-new-tab vertical-middle tab-icon" style="margin-left: 4px;"></a>
-													</div>
-													<span class="btn-sm text-gray-bright"></span>
-												</div>
-											</td>
-											<td class="kor_title">
-												<div>
-													<div class="item-tit inline-blocked">
-														<a href="#">바른목장 유산균우유 180mL</a> 
-														<a href="#" target="_blank" class="im-icon im-ico-new-tab vertical-middle tab-icon" style="margin-left: 4px;"></a>
-													</div>
-													<span class="btn-sm text-gray-bright"></span>
-												</div>
-											</td>
-											<td class="pay text-right">1,550원<br /></td>
-											<td class="group">우유</td>
-											<td class="brand">파스퇴르</td>
-											<td class="collection">컬렉션</td>
-											<td class="state on-click">
-												<a data-toggle="dropdown" style="margin-right: -1px;"> <span>판매중</span> </a>
-											</td>
-											<td class="r_date text-12">2021-12-24</td>
-											<td class="e_date text-12">2022-02-25</td>
-										</tr>
 									</tbody>
 								</table>
 							</div>
@@ -174,4 +84,241 @@
 			</div>
 		</div>
 	</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/admin/getAllProList2',
+		dataType:'json',
+		success:function(data){
+			$('#prod_list_body').html('');
+			var addr;
+			
+			$.each(data,function(index,items){
+				if(items.collection == null){
+					items.collection = '-';
+				}
+				if(items.release_date == null){
+					items.release_date = '-';
+				}
+				if(items.release_price == null){
+					items.release_price = '-';
+				}
+				addr = '<tr class="content _prodListItem">'+
+                '<td class="no text-12" id="product_id">'+items.product_id+'</td>'+
+                '<td class="image"><img src="'+items.file_path+'" width="49" height="49" class="product_img" /></td>'+
+                '<td class="group" style="width:250px;">'+items.kor_name+'</td>'+
+                '<td class="group" style="width:250px;">'+items.eng_name+'</td>'+
+                '<td class="group" style="width:100px;">'+items.category+'</td>'+
+                '<td class="group" style="width:100px;">'+items.brand+'</td>'+
+                '<td class="pay text-right" style="width:150px;">'+items.release_price+'</td>'+
+                '<td class="group">'+items.collection+'</td>'+
+                '<td >'+items.post_status+'</td>'+
+                '<td class="r_date text-12">'+items.release_date+'</td>'+
+                '<td class="e_date text-12">'+items.regdate+'</td>'+
+                '<td><div id="deleteThisPro" style="cursor:pointer; padding: 5px 0;text-align:center; border:1px solid lightgray; width:70px; border-radius: 15px;">상품삭제</div></td>' +
+            	'</tr>';
+            	$('#prod_list_body').append(addr)
+				
+			})
+		},
+		error:function(e){
+			console.log(e);
+		}
+	})
+});
+$(document).ready(function(){
+	$.ajax({
+		type:'post',
+		url:'/TeamProject/admin/getAllAdmin',
+		dataType:'json',
+		success:function(data){
+			$('#total-member-count').text(data.pro_count);
+			$('#total-member-count2').text(data.buy_count);
+			$('#total-member-count3').text(data.buystop_count);
+		},
+		error:function(e){
+			console.log(e);
+		}
+		
+	})
+});
+$(document).on('click','#deleteThisPro',function(){
+	if(confirm("정말로 삭제하겠습니까?")){
+		
+		$.ajax({
+			url:'/TeamProject/admin/deleteThisPro',
+			type:'post',
+			data: 'product_id='+$(this).parent().prev().prev().prev().prev().prev().prev().prev().prev().prev().prev().prev('#product_id').text(),  		 
+		  	success: function(){
+			 alert('상품을 삭제했습니다.');
+			  location.href='/TeamProject/admin/proManage'
+			},	  			
+				error: function(err){
+				alert('실패실패실패실');
+				console.log(err);
+		  	}
+		});
+	   }
+	});
+	
+$(function(){
+
+var delay = (function(){
+
+var timer = 0;
+
+return function(callback, ms){
+
+clearTimeout (timer);
+
+timer = setTimeout(callback, ms);
+
+};
+
+})();
+
+ 
+
+$("#keyword_search1").keyup(function() {
+
+delay(function(){
+
+search_ajax();
+
+}, 1000 );
+
+});
+
+});
+function search_ajax(){
+	// 키 입력 후 일정 시간 지나면 실행될 함수
+	if($('#keyword_search1').val()==''){
+		$(document).ready(function(){
+			$.ajax({
+				type:'post',
+				url:'/TeamProject/admin/getAllProList2',
+				dataType:'json',
+				success:function(data){
+					$('#prod_list_body').html('');
+					var addr;
+					
+					$.each(data,function(index,items){
+						if(items.collection == null){
+							items.collection = '-';
+						}
+						if(items.release_date == null){
+							items.release_date = '-';
+						}
+						if(items.release_price == null){
+							items.release_price = '-';
+						}
+						addr = '<tr class="content _prodListItem">'+
+		                '<td class="no text-12" id="product_id">'+items.product_id+'</td>'+
+		                '<td class="image"><img src="'+items.file_path+'" width="49" height="49" class="product_img" /></td>'+
+		                '<td class="group" style="width:250px;">'+items.kor_name+'</td>'+
+		                '<td class="group" style="width:250px;">'+items.eng_name+'</td>'+
+		                '<td class="group" style="width:100px;">'+items.category+'</td>'+
+		                '<td class="group" style="width:100px;">'+items.brand+'</td>'+
+		                '<td class="pay text-right" style="width:150px;">'+items.release_price+'</td>'+
+		                '<td class="group">'+items.collection+'</td>'+
+		                '<td >'+items.post_status+'</td>'+
+		                '<td class="r_date text-12">'+items.release_date+'</td>'+
+		                '<td class="e_date text-12">'+items.regdate+'</td>'+
+		                '<td><div id="deleteThisPro" style="cursor:pointer; padding: 5px 0;text-align:center; border:1px solid lightgray; width:70px; border-radius: 15px;">상품삭제</div></td>' +
+		            	'</tr>';
+		            	$('#prod_list_body').append(addr)
+						
+					})
+				},
+				error:function(e){
+					console.log(e);
+				}
+			})
+		});
+		$(document).ready(function(){
+			$.ajax({
+				type:'post',
+				url:'/TeamProject/admin/getAllAdmin',
+				dataType:'json',
+				success:function(data){
+					$('#total-member-count').text(data.pro_count);
+					$('#total-member-count2').text(data.buy_count);
+					$('#total-member-count3').text(data.buystop_count);
+				},
+				error:function(e){
+					console.log(e);
+				}
+				
+			})
+		});
+	}else{
+	$.ajax({
+			type:'post',
+			url:'/TeamProject/admin/getAllProList3',
+			data: {'keyword' : $('#keyword_search1').val()},
+			dataType:'json',
+			success:function(data){
+				$('#prod_list_body').html('');
+				var addr;
+				if(data !=''){
+				$.each(data,function(index,items){
+					if(items.collection == null){
+						items.collection = '-';
+					}
+					if(items.release_date == null){
+						items.release_date = '-';
+					}
+					if(items.release_price == null){
+						items.release_price = '-';
+					}
+					addr = '<tr class="content _prodListItem">'+
+	                '<td class="no text-12" id="product_id">'+items.product_id+'</td>'+
+	                '<td class="image"><img src="'+items.file_path+'" width="49" height="49" class="product_img" /></td>'+
+	                '<td class="group" style="width:250px;">'+items.kor_name+'</td>'+
+	                '<td class="group" style="width:250px;">'+items.eng_name+'</td>'+
+	                '<td class="group" style="width:100px;">'+items.category+'</td>'+
+	                '<td class="group" style="width:100px;">'+items.brand+'</td>'+
+	                '<td class="pay text-right" style="width:150px;">'+items.release_price+'</td>'+
+	                '<td class="group">'+items.collection+'</td>'+
+	                '<td >'+items.post_status+'</td>'+
+	                '<td class="r_date text-12">'+items.release_date+'</td>'+
+	                '<td class="e_date text-12">'+items.regdate+'</td>'+
+	                '<td><div id="deleteThisPro" style="cursor:pointer; padding: 5px 0;text-align:center; border:1px solid lightgray; width:70px; border-radius: 15px;">상품삭제</div></td>' +
+	            	'</tr>';
+	            	$('#prod_list_body').append(addr)
+					})
+				}else{
+					addr = '<tr class="content _tbody" id="member_item">'+
+					 '<td class="nick" style="width:170px;">'+'검색결과를 찾을 수 없습니다.'+'</td>'+
+					 '</tr>';
+					 $('#prod_list_body').append(addr)
+				}
+			},
+			error:function(e){
+				console.log(e);
+			}
+			
+		})
+		$(document).ready(function(){
+			$.ajax({
+				type:'post',
+				url:'/TeamProject/admin/getSearchAdmin3',
+				data: {'keyword' : $('#keyword_search1').val()},
+				dataType:'json',
+				success:function(data){
+					$('#total-member-count').text(data.searchpro1);
+					$('#total-member-count2').text(data.searchpro2);
+					$('#total-member-count3').text(data.searchpro3);
+				},
+				error:function(e){
+					console.log(e);
+				}
+				
+			})
+		});
+	  }
+	}
+</script>
 </section>
