@@ -36,6 +36,6 @@ public interface AdminService {
 	public List<ProductDTO> getAllProList();
 	public Map<String, Object> getAllProImg(int product_id);
 	public Map<String, Object> getVisitInfo();
-
+	public void addVisitCtn();
 
 }

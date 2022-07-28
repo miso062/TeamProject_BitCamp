@@ -40,4 +40,7 @@ public interface AdminDAO {
 	public ProductImgDTO getImge(int product_id);
 	public List<String> getVisitDate();
 	public List<Integer> getVisitCnt();
+	public String getToday(String today);
+	public void addToday(String today);
+	public void updateToday(String today);
 }

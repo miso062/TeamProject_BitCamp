@@ -128,6 +128,18 @@
   		select visit_cnt from (select * from visit order by visit_date desc) where <![CDATA[ROWNUM<=30]]> order by visit_date
   	</select>
   	
+  	<select id="getToday" resultType="String">
+  		select visit_date from visit where visit_date=#{today}
+  	</select>
+  	
+  	<insert id="addToday" parameterType="String">
+  		insert into visit values(#{today}, 0)
+  	</insert>
+  	
+  	<insert id="updateToday" parameterType="String">
+  		update visit set visit_cnt=visit_cnt+1 where visit_date=#{today}
+  	</insert>
+  	
 </mapper>
 
 

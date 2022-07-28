@@ -290,7 +290,7 @@ public class AdminController {
 	public Map<String, Object> getAllProImg(@RequestParam int product_id){
 		Map<String,Object>map = adminService.getAllProImg(product_id);
 		return map;
-  }
+	}
 	
 	@GetMapping(value="test")
 	public String test() {
@@ -301,5 +301,11 @@ public class AdminController {
 	@ResponseBody
 	public Map<String, Object> getVisitInfo(){
 		return adminService.getVisitInfo();
+	}
+	
+	@GetMapping(value="/addVisitCtn")
+	@ResponseBody
+	public void addVisitCtn() {
+		adminService.addVisitCtn();
 	}
 }

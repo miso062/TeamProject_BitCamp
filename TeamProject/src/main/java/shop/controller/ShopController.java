@@ -86,7 +86,6 @@ public class ShopController {
 			}
 		}
 		
-		
 		map.put("category", category);
 		map.put("brand", brand);
 		map.put("gender", gender);
@@ -110,7 +109,6 @@ public class ShopController {
 	public List<Market_priceDTO> getchart(@RequestParam int product_id) {
 		List<Market_priceDTO> list = shopService.getchart(product_id);
 		return list;
-		 
 	}
 	
 	@PostMapping(value="getshopDetaillist")

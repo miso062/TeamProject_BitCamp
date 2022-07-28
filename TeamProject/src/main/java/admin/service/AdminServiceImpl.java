@@ -1,5 +1,7 @@
 package admin.service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -245,6 +247,20 @@ public class AdminServiceImpl implements AdminService {
 		map.put("visitDate", visitDate);
 		map.put("visitCnt", visitCnt);
 		return map;
+	}
+
+	@Override
+	public void addVisitCtn() {
+		LocalDate now = LocalDate.now();         
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");         
+		String today = now.format(formatter);         
+
+		String isExsit = adminDAO.getToday(today);
+		if(isExsit == null || isExsit.isEmpty()) {
+			adminDAO.addToday(today);
+		}
+		
+		adminDAO.updateToday(today);
 	}
 
 }

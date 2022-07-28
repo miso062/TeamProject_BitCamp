@@ -52,9 +52,6 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private JavaMailSender mailSender;
 	
-	
-	
-	
 	//비밀번호 찾기시 랜덤 비밀번호
 	public String randomPassword (int length) {
 		int index = 0;
@@ -116,19 +113,18 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	//비밀번호 찾기
-		@Override
-		public Map<String, Object> findPwCheck(String hp, String user_id) {
-			
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("hp", hp);
-			map.put("user_id", user_id);
-			String pwd = this.joinEmail(user_id);
-			map.put("pwd", pwd);
-			int check = userDAO.findPwCheck(map);
-			map.put("check", check);
-			return map;
-		}
-
+	@Override
+	public Map<String, Object> findPwCheck(String hp, String user_id) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("hp", hp);
+		map.put("user_id", user_id);
+		String pwd = this.joinEmail(user_id);
+		map.put("pwd", pwd);
+		int check = userDAO.findPwCheck(map);
+		map.put("check", check);
+		return map;
+	}
 
 	//로그인페이지
 	@Override
@@ -172,10 +168,6 @@ public class UserServiceImpl implements UserService {
 		}
 		return map;
 	}
-	
-	
-	
-	
 
 	//DB에서 기본주소 아닌 것들 호출
 	@Override
@@ -213,6 +205,7 @@ public class UserServiceImpl implements UserService {
 		}
 		return list;
 	}
+	
 	//기본주소 호출
 	@Override
 	public AddressDTO comeAddress1() {
@@ -245,9 +238,9 @@ public class UserServiceImpl implements UserService {
 			}
 			addressDTO.setName(name.toString());
 		}
-		
 		return addressDTO;
 	}
+	
 	//주소 삭제
 	@Override
 	public void myAddressDelete(String address_id) {
