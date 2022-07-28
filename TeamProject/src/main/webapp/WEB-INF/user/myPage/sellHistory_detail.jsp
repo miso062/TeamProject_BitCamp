@@ -823,10 +823,9 @@ $('.deleteBtn').on('click', function(){
 			type:'post',
 			url:'/TeamProject/user/delSellHistory',
 			data:'sell_id=${sell_historyDTO.sell_id }',
-			dataType:'json',
 			success: function(data){
-				alert('입찰내역이 삭제되었습니다.')
-				$('.layer_alert').css('display','none');
+				alert('입찰내역이 삭제되었습니다.');
+				location.href = "/TeamProject/user/sellHistory";
 			}, error:function(err){
 				console.log(err);
 			}		
