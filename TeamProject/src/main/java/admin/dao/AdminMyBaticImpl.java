@@ -195,11 +195,64 @@ public class AdminMyBaticImpl implements AdminDAO {
 	public List<ProductDTO> getAllProList() {
 		return sqlSession.selectList("adminSQL.getAllProList");
 	}
+	
+	@Override
+	public List<ProductDTO> getAllProList2() {
+		return sqlSession.selectList("adminSQL.getAllProList2");
+	}
 
 
 	@Override
 	public ProductImgDTO getImge(int product_id) {
 		return sqlSession.selectOne("adminSQL.getImg",product_id);
+	}
+
+
+	@Override
+	public Integer getProCount() {
+		return sqlSession.selectOne("adminSQL.getProCount");
+	}
+
+
+	@Override
+	public void deleteTisPro(String product_id) {
+		sqlSession.delete("adminSQL.deleteThisPro",product_id);
+	}
+
+
+	@Override
+	public Integer getBuy_count() {
+		return sqlSession.selectOne("adminSQL.getBuy_count");
+	}
+
+
+	@Override
+	public Integer getBuystop_count() {
+		return sqlSession.selectOne("adminSQL.getBuystop_count");
+	}
+
+
+	@Override
+	public List<ProductDTO> getAllProList3(String keyword) {
+		return sqlSession.selectList("adminSQL.getAllProList3",keyword);
+	}
+
+
+	@Override
+	public Integer getSearchpro1(String keyword) {
+		return sqlSession.selectOne("adminSQL.getSearchpro1",keyword);
+	}
+
+
+	@Override
+	public Integer getsearchpro2(String keyword) {
+		return sqlSession.selectOne("adminSQL.getsearchpro2",keyword);
+	}
+
+
+	@Override
+	public Integer getsearchpro3(String keyword) {
+		return sqlSession.selectOne("adminSQL.getsearchpro3",keyword);
 	}
 
 }

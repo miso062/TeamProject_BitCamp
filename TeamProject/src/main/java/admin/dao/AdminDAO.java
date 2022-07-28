@@ -65,4 +65,22 @@ public interface AdminDAO {
 	public List<ProductDTO> getAllProList();
 
 	public ProductImgDTO getImge(int product_id);
+
+	public Integer getProCount();
+
+	public List<ProductDTO> getAllProList2();
+
+	public void deleteTisPro(String product_id);
+
+	public Integer getBuy_count();
+
+	public Integer getBuystop_count();
+
+	public List<ProductDTO> getAllProList3(String keyword);
+
+	public Integer getSearchpro1(String keyword);
+
+	public Integer getsearchpro2(String keyword);
+
+	public Integer getsearchpro3(String keyword);
 }

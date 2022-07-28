@@ -146,7 +146,7 @@
 										        </div>
 										    </div>
 										    <div class="card-head" id="card-head" style="">
-										        <header class="small">전체 사용자 <span class="text-primary" id="total-member-count">3</span>명</header>
+										        <header class="small">전체 사용자 <span class="text-primary" id="total-member-count"></span>명</header>
 										        <header class="small" style="float:right;"><span style="cursor:pointer;" id="moreView">더보기</span></header>
 										    </div>
 										
@@ -196,12 +196,16 @@
                         	<div class="ma-item">
 	                            <div class="card">
 	                            	<div class="card-head">
-                                        <header><a href="/admin/contents/comment">상품관리</a></header>
+                                        <header><a href="/admin/contents/comment">상품 관리</a></header>
                                     </div>
 	                            	<div class="card-body border-top">
 	                            	    <div class="table-responsive shop-table check" id="prod_list" style="">
 									        <table class="table no-margin">
-									            <thead class="subject _prodListHeaderDeselected" style="display: table-header-group;" id="prod_list_header_deselected">
+									            <thead class="subject _prodListHeaderDeselected " style="display: table-header-group; color: #757575;" id="prod_list_header_deselected">
+										            <div class="card-head" id="card-head" style="">
+												        <header class="small">전체 상품 <span class="text-primary" id="total-member-count2"></span>개</header>
+												        <header class="small" style="float:right;"><span style="cursor:pointer;" id="moreView2">더보기</span></header>
+										    		</div>
 									                <tr>
 									                    <th class="no">No</th>
 														<th>이미지</th>
@@ -214,28 +218,10 @@
 														<th class="state">상태</th>
 														<th class="r_date">발매일</th>
 														<th class="e_date">등록일</th>
-														<th class="more">비고</th>
 									                </tr>
 									            </thead>
 									            <tbody id="prod_list_body" class="_prod_list_body ui-sortable">
-									                <tr class="content _prodListItem" id="prod_list_s20211224145e22830e76f" data-code="s20211224145e22830e76f">
-									                    <td class="no text-12">149</td>
-									                    <td class="image">
-									                            <img src="https://cdn.imweb.me/thumbnail/20211224/52e7c97573366.jpg" width="49" height="49" class="item-thumb" />
-									                    </td>
-									                    <td class="pay text-right">1,550원<br /></td>
-									                    <td class="group">우유</td>
-									                    <td class="state on-click">
-									                        <a data-toggle="dropdown" style="margin-right: -1px;">
-									                            <span>판매중</span>
-									                        </a>
-									                    </td>
-									                    <td class="text-12" style="padding-left: 20px;">
-									                        -
-									                    </td>
-									                    <td class="r_date text-12">2021-12-24</td>
-									                    <td class="e_date text-12">2022-02-25</td>
-									                </tr>
+									                
 												</tbody>
 									        </table>
 									    </div>
@@ -474,6 +460,7 @@ $(document).ready(function(){
 		dataType:'json',
 		success:function(data){
 			$('#total-member-count').text(data.user_count);
+			$('#total-member-count2').text(data.pro_count);
 		},
 		error:function(e){
 			console.log(e);
@@ -483,6 +470,10 @@ $(document).ready(function(){
 });
 $('#moreView').click(function(){
 	location.href='/TeamProject/admin/userManage'
+});
+$('#moreView2').click(function(){
+	
+	location.href='/TeamProject/admin/proManage'
 });
 $(document).ready(function(){
 	$.ajax({
@@ -505,8 +496,8 @@ $(document).ready(function(){
                 '<td class="image"><img src="'+items.file_path+'" width="49" height="49" class="product_img" /></td>'+
                 '<td class="group" style="width:300px;">'+items.kor_name+'</td>'+
                 '<td class="group" style="width:300px;">'+items.eng_name+'</td>'+
-                '<td class="group" style="width:100;">'+items.category+'</td>'+
-                '<td class="group">'+items.brand+'</td>'+
+                '<td class="group" style="width:100px;">'+items.category+'</td>'+
+                '<td class="group" style="width:150px;">'+items.brand+'</td>'+
                 '<td class="pay text-right">'+items.release_price+'</td>'+
                 '<td class="group">'+items.collection+'</td>'+
                 '<td >'+items.post_status+'</td>'+

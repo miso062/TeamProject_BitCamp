@@ -116,8 +116,51 @@
 		left join pro_image pi on pi.product_id like p.product_id
 		order by regdate desc) where <![CDATA[rownum <= 5 ]]>
   	</select>
+  	<select id="getAllProList2" resultType="product">
+	  	select * from product p
+		left join pro_image pi on pi.product_id like p.product_id
+		order by regdate desc
+  	</select>
   	<select id="getImg" parameterType="Integer" resultType="productImg">
   		select * from pro_image where product_id = ${product_id}
+  	</select>
+  	<select id="getProCount" resultType="Integer">
+  		select count (*) from product p
+		left join pro_image pi on pi.product_id like p.product_id
+		order by regdate desc
+  	</select>
+  	<delete id="deleteThisPro" parameterType="String">
+		delete product where product_id= #{product_id}
+  	</delete>
+  	<select id="getBuy_count" resultType="Integer">
+  		select count (*) from product where post_status='판매중'
+  	</select>
+  	<select id="getBuystop_count" resultType="Integer">
+  		select count (*) from product where post_status='판매안함'
+  	</select>
+  	<select id="getAllProList3" parameterType="String" resultType="product">
+	  	select * from product p
+		left join pro_image pi on pi.product_id like p.product_id
+		where p.product_id like '%'||#{keyword}||'%' or p.brand like '%'||#{keyword}||'%' or p.collection like '%'||#{keyword}||'%' or p.category like '%'||#{keyword}||'%' or p.eng_name like '%'||#{keyword}||'%' or p.kor_name like '%'||#{keyword}||'%' or p.post_status like '%'||#{keyword}||'%'
+		order by regdate desc
+  	</select>
+  	<select id="getSearchpro1" parameterType="String" resultType="Integer">
+  		select count (*) from product p
+		left join pro_image pi on pi.product_id like p.product_id
+		where p.product_id like '%'||#{keyword}||'%' or p.brand like '%'||#{keyword}||'%' or p.collection like '%'||#{keyword}||'%' or p.category like '%'||#{keyword}||'%' or p.eng_name like '%'||#{keyword}||'%' or p.kor_name like '%'||#{keyword}||'%' or p.post_status like '%'||#{keyword}||'%'
+		order by regdate desc
+  	</select>
+  	<select id="getsearchpro2" parameterType="String" resultType="Integer">
+  		select count (*) from (select * from product p
+		left join pro_image pi on pi.product_id like p.product_id
+		where p.product_id like '%'||#{keyword}||'%' or p.brand like '%'||#{keyword}||'%' or p.collection like '%'||#{keyword}||'%' or p.category like '%'||#{keyword}||'%' or p.eng_name like '%'||#{keyword}||'%' or p.kor_name like '%'||#{keyword}||'%' or p.post_status like '%'||#{keyword}||'%'
+		order by regdate desc) where post_status='판매중'
+  	</select>
+  	<select id="getsearchpro3" parameterType="String" resultType="Integer">
+  		select count (*) from (select * from product p
+		left join pro_image pi on pi.product_id like p.product_id
+		where p.product_id like '%'||#{keyword}||'%' or p.brand like '%'||#{keyword}||'%' or p.collection like '%'||#{keyword}||'%' or p.category like '%'||#{keyword}||'%' or p.eng_name like '%'||#{keyword}||'%' or p.kor_name like '%'||#{keyword}||'%' or p.post_status like '%'||#{keyword}||'%'
+		order by regdate desc) where post_status='판매안함'
   	</select>
   	
 </mapper>
