@@ -39,14 +39,12 @@ public class AdminMyBaticImpl implements AdminDAO {
 
 	@Override
 	public int getTotalA() {
-		
 		return sqlSession.selectOne("adminSQL.getTotalA");
 	}
 
 	@Override
 	public void noticeDelete(String seq, String pg) {
 		sqlSession.delete("adminSQL.noticeDelete",seq);
-		
 	}
 
 	@Override
@@ -58,13 +56,11 @@ public class AdminMyBaticImpl implements AdminDAO {
 	@Override
 	public void addnoticeUpdate(AdminDTO adminDTO) {
 		sqlSession.update("adminSQL.addnoticeUpdate",adminDTO);
-		
 	}
 
 	@Override
 	public void getnoticeQnAWrite(AdminQnADTO adminQnADTO) {
 		sqlSession.insert("adminSQL.getnoticeQnAWrite",adminQnADTO);
-		
 	}
 
 	@Override
@@ -167,16 +163,62 @@ public class AdminMyBaticImpl implements AdminDAO {
 		return sqlSession.selectList("adminSQL.getAllProList");
 	}
 
+	
+	@Override
+	public List<ProductDTO> getAllProList2() {
+		return sqlSession.selectList("adminSQL.getAllProList2");
+	}
+
 	@Override
 	public ProductImgDTO getImge(int product_id) {
 		return sqlSession.selectOne("adminSQL.getImg",product_id);
 	}
 
 	@Override
+	public Integer getProCount() {
+		return sqlSession.selectOne("adminSQL.getProCount");
+	}
+  
+	@Override
 	public List<String> getVisitDate() {
 		return sqlSession.selectList("adminSQL.getVisitDate");
 	}
 
+	@Override
+	public void deleteTisPro(String product_id) {
+		sqlSession.delete("adminSQL.deleteThisPro",product_id);
+	}
+
+	@Override
+	public Integer getBuy_count() {
+		return sqlSession.selectOne("adminSQL.getBuy_count");
+	}
+
+	@Override
+	public Integer getBuystop_count() {
+		return sqlSession.selectOne("adminSQL.getBuystop_count");
+	}
+
+	@Override
+	public List<ProductDTO> getAllProList3(String keyword) {
+		return sqlSession.selectList("adminSQL.getAllProList3",keyword);
+	}
+
+	@Override
+	public Integer getSearchpro1(String keyword) {
+		return sqlSession.selectOne("adminSQL.getSearchpro1",keyword);
+	}
+
+	@Override
+	public Integer getsearchpro2(String keyword) {
+		return sqlSession.selectOne("adminSQL.getsearchpro2",keyword);
+	}
+
+	@Override
+	public Integer getsearchpro3(String keyword) {
+		return sqlSession.selectOne("adminSQL.getsearchpro3",keyword);
+	}
+  
 	@Override
 	public List<Integer> getVisitCnt() {
 		return sqlSession.selectList("adminSQL.getVisitCnt");

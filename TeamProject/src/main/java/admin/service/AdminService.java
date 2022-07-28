@@ -37,5 +37,9 @@ public interface AdminService {
 	public Map<String, Object> getAllProImg(int product_id);
 	public Map<String, Object> getVisitInfo();
 	public void addVisitCtn();
+	public List<ProductDTO> getAllProList2();
+	public void deleteThisPro(String product_id);
+	public List<ProductDTO> getAllproList3(String keyword);
+	public Map<String, Object> getSearchAdmin3(String keyword);
 
 }

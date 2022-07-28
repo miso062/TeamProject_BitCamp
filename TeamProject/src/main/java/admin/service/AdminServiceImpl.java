@@ -171,7 +171,22 @@ public class AdminServiceImpl implements AdminService {
 	public Map<String, Object> getAllAdmin() {
 		Map<String,Object>map = new HashMap<String,Object>();
 		map.put("user_count",getUserCount());
+		map.put("pro_count",getProCount());
+		map.put("buy_count",getBuy_count());
+		map.put("buystop_count",getBuystop_count());
 		return map;
+	}
+
+	private Integer getBuystop_count() {
+		return adminDAO.getBuystop_count();
+	}
+
+	private Integer getBuy_count() {
+		return adminDAO.getBuy_count();
+	}
+
+	private Integer getProCount() {
+		return adminDAO.getProCount();
 	}
 
 	private Integer getUserCount() {
@@ -227,6 +242,11 @@ public class AdminServiceImpl implements AdminService {
 //		return adminDAO.getAllProList();
 		return null;
 	}
+	
+	@Override
+	public List<ProductDTO> getAllProList2() {
+		return adminDAO.getAllProList2();
+	}
 
 	@Override
 	public Map<String, Object> getAllProImg(int product_id) {
@@ -240,6 +260,36 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
+	public void deleteThisPro(String product_id) {
+		adminDAO.deleteTisPro(product_id);
+	}
+
+	@Override
+	public List<ProductDTO> getAllproList3(String keyword) {
+		return adminDAO.getAllProList3(keyword);
+	}
+
+	@Override
+	public Map<String, Object> getSearchAdmin3(String keyword) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("searchpro1", getSearchpro1(keyword));
+		map.put("searchpro2", getsearchpro2(keyword));
+		map.put("searchpro3", getsearchpro3(keyword));
+		return map;
+	}
+
+	private Integer getsearchpro3(String keyword) {
+		return adminDAO.getsearchpro3(keyword);
+	}
+
+	private Integer getsearchpro2(String keyword) {
+		return adminDAO.getsearchpro2(keyword);
+	}
+
+	private Integer getSearchpro1(String keyword) {
+		return adminDAO.getSearchpro1(keyword);
+	}
+	
 	public Map<String, Object> getVisitInfo() {
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<String> visitDate = adminDAO.getVisitDate();
@@ -262,5 +312,4 @@ public class AdminServiceImpl implements AdminService {
 		
 		adminDAO.updateToday(today);
 	}
-
 }

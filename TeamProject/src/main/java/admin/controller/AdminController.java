@@ -57,6 +57,7 @@ public class AdminController {
 		
 		return map;
 	}
+	
 	@GetMapping(value="noticewrite")
 	public String noticewrite(Model model) {
 		model.addAttribute("head", "/WEB-INF/main/header.jsp");
@@ -92,6 +93,7 @@ public class AdminController {
 		map.put("adminDTO", adminDTO);
 		return map;
 	}
+	
 	@PostMapping(value="noticeDelete")
 	@ResponseBody
 	public void noticeDelete(@RequestParam String seq, String pg) {
@@ -108,6 +110,7 @@ public class AdminController {
 		model.addAttribute("footer", "/WEB-INF/main/footer.jsp");
 		return "/admin/notice";
 	}
+	
 	@PostMapping(value="getnoticeUpdate")
 	@ResponseBody
 	public AdminDTO getnoticeUpdate(@RequestParam String seq, String pg) {
@@ -183,6 +186,7 @@ public class AdminController {
 		
 		return map;
 	}
+	
 	@GetMapping(value="noticeqnaUpdate")
 	public String noticeqnaUpdate(@RequestParam String seq, String pg, Model model) {
 		model.addAttribute("pg",pg);
@@ -207,6 +211,7 @@ public class AdminController {
 		adminQnADTO.setQna_id(seq);
 		adminService.addnoticeQnAUpdate(adminQnADTO);
 	}
+	
 	@PostMapping(value="noticeqnaDelete")
 	@ResponseBody
 	public void noticeqnaDelete(@RequestParam String seq, String pg) {
@@ -236,41 +241,62 @@ public class AdminController {
 		model.addAttribute("content", "/WEB-INF/admin/proManage.jsp");
 		return "/admin/adminMain";
 	}
+	
 	@PostMapping(value="getAllUserList")
 	@ResponseBody
 	public List<UserDTO> getAllUserList(){
 		List<UserDTO> list = adminService.getAllUserList();
 		return list;
 	}
+	
 	@PostMapping(value="getAllUserList2")
 	@ResponseBody
 	public List<UserDTO> getAllUserList2(){
 		List<UserDTO> list = adminService.getAllUserList2();
 		return list;
 	}
+	
 	@PostMapping(value="getAllUserList3")
 	@ResponseBody
 	public List<UserDTO> getAllUserList3(){
 		List<UserDTO> list = adminService.getAllUserList3();
 		return list;
 	}
+	
 	@PostMapping(value="getAllAdmin")
 	@ResponseBody
 	public Map<String,Object> getAllAdmin(){
 		Map<String,Object>map=adminService.getAllAdmin();
 		return map;
 	}
+	
 	@PostMapping(value="deleteThisUser")
 	@ResponseBody
 	public void deleteThisUser(@RequestParam String user_id) {
 		adminService.deleteThisUser(user_id);
 	}
+	
+	@PostMapping(value="deleteThisPro")
+	@ResponseBody
+	public void deleteThisPro(@RequestParam String product_id) {
+		System.out.println(product_id);
+		adminService.deleteThisPro(product_id);
+	}
+	
 	@PostMapping(value="getsearchUserList")
 	@ResponseBody
 	public List<UserDTO> getsearchUserList(@RequestParam String keyword){
 		List<UserDTO>list=adminService.getsearchUserList(keyword);
 			return list;
 	}
+	
+	@PostMapping(value="getAllProList3")
+	@ResponseBody
+	public List<ProductDTO> getAllProList3(@RequestParam String keyword){
+		List<ProductDTO>list =adminService.getAllproList3(keyword);
+		return list;
+	}
+	
 	@PostMapping(value="getSearchAdmin")
 	@ResponseBody
 	public Map<String,Object> getSearchAdmin(@RequestParam String keyword){
@@ -284,11 +310,25 @@ public class AdminController {
 		List<ProductDTO> list = adminService.getAllProList();
 		return list;
 	}
+	@PostMapping(value="getAllProList2")
+	@ResponseBody
+	public List<ProductDTO>getAllProList2(){
+		List<ProductDTO> list = adminService.getAllProList2();
+		return list;
+	}
   
 	@PostMapping(value="getAllProImg")
 	@ResponseBody
 	public Map<String, Object> getAllProImg(@RequestParam int product_id){
 		Map<String,Object>map = adminService.getAllProImg(product_id);
+		return map;
+
+	}
+	
+	@PostMapping(value="getSearchAdmin3")
+	@ResponseBody
+	public Map<String, Object> getSearchAdmin3(@RequestParam String keyword){
+		Map<String,Object> map = adminService.getSearchAdmin3(keyword);
 		return map;
 	}
 	
