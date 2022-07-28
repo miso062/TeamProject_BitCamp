@@ -288,7 +288,11 @@ li, ol, ul {
     font-size: 14px;
     font-weight: 700;
 }
-.shop_price, .shop_desc {
+.shop_price {
+    line-height: 13px;
+    font-size: 11px;
+}
+.shop_price p {
     line-height: 13px;
     font-size: 11px;
     color: rgba(34,34,34,.5);
