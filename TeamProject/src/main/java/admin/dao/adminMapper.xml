@@ -111,6 +111,15 @@
   	<select id="getMemberCount" resultType="Integer">
   		select count (*) from user_table where authority = '1'
   	</select>
+  	<select id="getAllProList" resultType="product">
+	  	select * from (select * from product p
+		left join pro_image pi on pi.product_id like p.product_id
+		order by regdate desc) where <![CDATA[rownum <= 5 ]]>
+  	</select>
+  	<select id="getImg" parameterType="Integer" resultType="productImg">
+  		select * from pro_image where product_id = ${product_id}
+  	</select>
+  	
 </mapper>
 
 

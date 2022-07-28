@@ -4,7 +4,7 @@
 <section class="no-padding-bottom">
 	<div class="section-body">
 		<div class="row" style="display: flex;">
-			<div class="col-md-3 col-lg-2 col-xl-2 hidden-xs hidden-sm">
+<!-- 			<div class="col-md-3 col-lg-2 col-xl-2 hidden-xs hidden-sm">
 				<div class="card">
 					<div class="card-body no-padding">
 						<ul class="nav nav-pills nav-stacked">
@@ -44,7 +44,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<div class="col-md-9 col-lg-10 col-xl-10">
 				<ul class="nav nav-tabs" data-toggle="tabs"
 					style="margin-bottom: 24px;" id="prod_status_tab">
@@ -156,7 +156,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-12">
+					<!-- <div class="col-md-12">
 						<nav class="text-center order_paging" id="prod_list_paging" style="">
 							<ul class="pagination">
 								<li class="prev disabled">
@@ -169,7 +169,7 @@
 								</li>
 							</ul>
 						</nav>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

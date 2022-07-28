@@ -373,7 +373,7 @@ $.ajax({
 	});
   }
 }
-	 
+
 
 
 $('#moreView').click(function(){

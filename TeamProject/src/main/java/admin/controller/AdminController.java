@@ -20,6 +20,7 @@ import admin.bean.AdminDTO;
 import admin.bean.AdminPaging;
 import admin.bean.AdminQnADTO;
 import admin.service.AdminService;
+import product.bean.ProductDTO;
 import user.bean.UserDTO;
 
 @Controller
@@ -266,5 +267,16 @@ public class AdminController {
 		Map<String,Object>map=adminService.getSearchAdmin(keyword);
 		return map;
 	}
-	
+	@PostMapping(value="getAllProList")
+	@ResponseBody
+	public List<ProductDTO>getAllProList(){
+		List<ProductDTO> list = adminService.getAllProList();
+		return list;
+	}
+	@PostMapping(value="getAllProImg")
+	@ResponseBody
+	public Map<String, Object> getAllProImg(@RequestParam int product_id){
+		Map<String,Object>map = adminService.getAllProImg(product_id);
+		return map;
+	}
 }
