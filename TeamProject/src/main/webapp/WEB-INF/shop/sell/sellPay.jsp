@@ -27,110 +27,6 @@
             </div>
             <section>
                 <div class="section_unit">
-                    <div class="section_title"><h3 class="title_txt">판매 정산 계좌</h3></div>
-                    <div class="section_content account_content">
-                        <div class="account_info">
-                            <dl class="info_list">
-                                <div class="info_box">
-                                    <dt class="title">계좌</dt>
-                                    <dd class="desc" id="enter_account">정산 받을 계좌번호를 입력해주세요.</dd>
-                                </div>
-                                <div class="info_box">
-                                    <dt class="title">예금주</dt>
-                                    <dd class="desc" id="enter_owner"></dd>
-                                </div>
-                            </dl>
-                        </div>
-                        <a href="#" id="account_change_btn" class="btn btn_edit outlinegrey small"> 변경 </a>
-                    </div>
-                </div>
-                <div class="layer_payout_account layer lg" style="display: none">
-				    <div class="layer_account_container">
-				        <div class="layer_header"><h2 class="title">판매 정산 계좌</h2></div>
-				        <div class="layer_content" style="padding: 0 20px 20px;">
-				            <div class="content_registration">
-				                <div class="account_registration">
-				                    <div class="input_logistics_companies input_box">
-				                        <h4 class="input_title">은행명</h4>
-				                        <div class="input_item" style="height: 36px;">
-				                            <input type="text" placeholder="선택하세요" readonly="readonly" id="selected_bank" autocomplete="off" class="input_txt" />
-				                            <button type="button" class="btn btn_dropdown">
-				                                <img src="/TeamProject/img/shop/dropdown.png" alt="닫기" class="address_close_btn">
-				                            </button>
-				                            <div class="layer_dropdown layer lg" style="height: 230px; display: none;">
-											    <div class="layer_container">
-											        <div class="layer_dropdown_header"><h2 class="title">은행 선택</h2></div>
-											        <div class="layer_content" style="height: 228px;">
-											            <ul class="drop_list">
-											                <li class="drop_item"><a href="#" class="drop_link"> 국민은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 신한은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 우리은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 하나은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 기업은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 농협은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> SC은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 우체국 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 한국씨티은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 산업은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 카카오뱅크 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 부산은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 대구은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 광주은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 케이뱅크 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 수협중앙회 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 제주은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 전북은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 지역농축협 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 경남은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 새마을금고연합회 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 신협 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 저축은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> HSBC은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 도이치은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 제이피모간체이스은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> BOA은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 비엔피파리바은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 중국공상은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 산림조합 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 중국건설은행 </a></li>
-											                <li class="drop_item"><a href="#" class="drop_link"> 토스뱅크 </a></li>
-											            </ul>
-											        </div>
-											    </div>
-											</div>
-															                            
-				                        </div>
-				                    </div>
-				                    <div class="input_box">
-				                        <h4 class="input_title">계좌번호</h4>
-				                        <div class="input_item">
-				                        	<input type="text" placeholder="- 없이 입력하세요" autocomplete="off" class="input_txt" id="account_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
-				                        </div>
-				                        <p class="input_error">올바른 계좌번호를 입력해주세요.</p>
-				                    </div>
-				                    <div class="input_box">
-				                        <h4 class="input_title">예금주</h4>
-				                        <div class="input_item">
-                                            <input type="text" placeholder="예금주명을 정확히 입력하세요." autocomplete="off" id="account_owner_name" class="input_txt" />
-                                        </div>
-				                        <p class="input_error">올바른 이름을 입력해주세요. (2-50자)</p>
-				                    </div>
-				                </div>
-				                <div class="registration_btn_box"  style="text-align: center;">
-				                	<a href="#" id="regist_account" class="btn btn_save solid medium disabled"> 변경하기 </a>
-			                	</div>
-				            </div>
-				        </div>
-				        <a href="#" class="btn_layer_close" id="account_layer_close">
-				            <img src="/TeamProject/img/shop/cancel.png" alt="닫기" class="address_close_btn">
-				        </a>
-				    </div>
-				</div>
-				                
-            </section>
-            
-            <section>
-                <div class="section_unit">
                     <div class="section_title">
                         <h3 class="title_txt">배송 주소</h3>
                         <a href="#" class="add_more_btn">+ 새 주소 추가</a>
@@ -236,6 +132,111 @@
                     </div>
                 </div>
             </section>
+            
+            <section>
+                <div class="section_unit">
+                    <div class="section_title"><h3 class="title_txt">판매 정산 계좌</h3></div>
+                    <div class="section_content account_content">
+                        <div class="account_info">
+                            <dl class="info_list">
+                                <div class="info_box">
+                                    <dt class="title">계좌</dt>
+                                    <dd class="desc" id="enter_account">정산 받을 계좌번호를 입력해주세요.</dd>
+                                </div>
+                                <div class="info_box">
+                                    <dt class="title">예금주</dt>
+                                    <dd class="desc" id="enter_owner"></dd>
+                                </div>
+                            </dl>
+                        </div>
+                        <a href="#" id="account_change_btn" class="btn btn_edit outlinegrey small"> 변경 </a>
+                    </div>
+                </div>
+                <div class="layer_payout_account layer lg" style="display: none">
+				    <div class="layer_account_container">
+				        <div class="layer_header"><h2 class="title">판매 정산 계좌</h2></div>
+				        <div class="layer_content" style="padding: 0 20px 20px;">
+				            <div class="content_registration">
+				                <div class="account_registration">
+				                    <div class="input_logistics_companies input_box">
+				                        <h4 class="input_title">은행명</h4>
+				                        <div class="input_item" style="height: 36px;">
+				                            <input type="text" placeholder="선택하세요" readonly="readonly" id="selected_bank" autocomplete="off" class="input_txt" />
+				                            <button type="button" class="btn btn_dropdown">
+				                                <img src="/TeamProject/img/shop/dropdown.png" alt="닫기" class="address_close_btn">
+				                            </button>
+				                            <div class="layer_dropdown layer lg" style="height: 230px; display: none;">
+											    <div class="layer_container">
+											        <div class="layer_dropdown_header"><h2 class="title">은행 선택</h2></div>
+											        <div class="layer_content" style="height: 228px;">
+											            <ul class="drop_list">
+											                <li class="drop_item"><a href="#" class="drop_link"> 국민은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 신한은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 우리은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 하나은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 기업은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 농협은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> SC은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 우체국 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 한국씨티은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 산업은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 카카오뱅크 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 부산은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 대구은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 광주은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 케이뱅크 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 수협중앙회 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 제주은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 전북은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 지역농축협 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 경남은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 새마을금고연합회 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 신협 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 저축은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> HSBC은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 도이치은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 제이피모간체이스은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> BOA은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 비엔피파리바은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 중국공상은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 산림조합 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 중국건설은행 </a></li>
+											                <li class="drop_item"><a href="#" class="drop_link"> 토스뱅크 </a></li>
+											            </ul>
+											        </div>
+											    </div>
+											</div>
+															                            
+				                        </div>
+				                    </div>
+				                    <div class="input_box">
+				                        <h4 class="input_title">계좌번호</h4>
+				                        <div class="input_item">
+				                        	<input type="text" placeholder="- 없이 입력하세요" autocomplete="off" class="input_txt" id="account_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
+				                        </div>
+				                        <p class="input_error">올바른 계좌번호를 입력해주세요.</p>
+				                    </div>
+				                    <div class="input_box">
+				                        <h4 class="input_title">예금주</h4>
+				                        <div class="input_item">
+                                            <input type="text" placeholder="예금주명을 정확히 입력하세요." autocomplete="off" id="account_owner_name" class="input_txt" />
+                                        </div>
+				                        <p class="input_error">올바른 이름을 입력해주세요. (2-50자)</p>
+				                    </div>
+				                </div>
+				                <div class="registration_btn_box"  style="text-align: center;">
+				                	<a href="#" id="regist_account" class="btn btn_save solid medium disabled"> 변경하기 </a>
+			                	</div>
+				            </div>
+				        </div>
+				        <a href="#" class="btn_layer_close" id="account_layer_close">
+				            <img src="/TeamProject/img/shop/cancel.png" alt="닫기" class="address_close_btn">
+				        </a>
+				    </div>
+				</div>
+				                
+            </section>
+            
             <section>
                 <div class="section_title"><h3 class="title_txt">최종 주문 정보</h3></div>
                 <div class="section_content">

@@ -486,7 +486,7 @@ margin-top: 6px;
 	<ul data-v-6af0c2e4="" class="wish_list">
 		<!-- 동적처리 -->
 	</ul>
-	<div data-v-bffefc20="" class="pagination">
+	<!-- <div data-v-bffefc20="" class="pagination">
 		<div data-v-bffefc20="" class="pagination_box first last">
 			<div data-v-bffefc20="" class="prev_btn_box">
 				<a data-v-bffefc20="" href="/my/wish?page=1" class="btn_arr"
@@ -532,7 +532,7 @@ margin-top: 6px;
 			</div>
 		</div>
 	</div>
-	<!---->
+	 -->
 </div>
 <script type="text/javascript">
 window.onload = function() {

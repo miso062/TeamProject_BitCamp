@@ -174,7 +174,9 @@ var collection = [];
 								'collection' : collection}, 
 							dataType:'json',
 							success: function(data){
-								$('.shop-list-ul').html("");	
+								if(Number(data[0].page) === 1){
+									$('.shop-list-ul').html("");									
+								}
 								try {						
 									for(var i=0; i<16; i++){
 										//console.log(page)

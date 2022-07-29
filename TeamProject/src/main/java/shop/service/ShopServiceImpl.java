@@ -40,9 +40,10 @@ public class ShopServiceImpl implements ShopService {
 		map.put("startNum", startNum+"");
 		map.put("endNum", endNum+"");
 		List<ShopDTO> list = shopDAO.scrollProductList(map, sort);
+		System.out.println(startNum);
 //		sendMap.put("num", startNum + 16);
 //		System.out.println();
-		// sendMap.put("num", startNum + 1);
+//		sendMap.put("num", startNum + 1);	
 //		System.out.println(list);
 		return list;
 	}
