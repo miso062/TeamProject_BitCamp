@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,7 +60,7 @@ public class UserController {
 		String check = userService.checkLogin(log_email_input, log_pwd_input);		
 		return check;
 	}
-	
+
 //	@PostMapping(value="checkLogin")
 //	@ResponseBody
 //	public Map<String, Object> checkLogin(@RequestParam String log_email_input, String log_pwd_input, HttpSession httpSession) {
@@ -179,7 +180,6 @@ public class UserController {
 		return "forward:/user/my";
 	}
 	
-	
 	@GetMapping(value="buyHistoryDetail")
 	public String buyHistoryDetail(Model model, @RequestParam String buy_id) {
 		Buy_historyDTO buy_historyDTO = userService.getBuyItem(buy_id);
@@ -215,6 +215,7 @@ public class UserController {
 	public Map<String, Object> getProductInfo(@RequestParam int product_id){
 		return userService.getProductInfo(product_id);
 	}
+	
 	//구매내역 삭제
 	@PostMapping(value="delBuyHistory")
 	@ResponseBody
@@ -222,6 +223,7 @@ public class UserController {
 		//System.out.println(buy_id);
 		userService.delBuyHistory(buy_id);
 	}
+	
 	//판매내역 삭제
 	@PostMapping(value="delSellHistory")
 	@ResponseBody
@@ -235,6 +237,7 @@ public class UserController {
 		model.addAttribute("container", "/WEB-INF/user/myPage/likePro.jsp");
 		return "forward:/user/my";
 	}
+	
 	//주소록 jsp
 	@GetMapping(value="addressBook")
 	public String addressbook(Model model)  {
@@ -251,6 +254,7 @@ public class UserController {
 		map.put("list", list);
 		return map;
 	}
+	
 	//기본주소 가져와 뿌려오기
 	@PostMapping(value="comeAddress1")
 	@ResponseBody
@@ -265,25 +269,28 @@ public class UserController {
 	public void addAddressBook(@ModelAttribute AddressDTO addressDTO) {
 		userService.addAddressBook(addressDTO);
  	}	
+	
 	//주소삭제
 	@PostMapping(value="myAddressDelete")
 	@ResponseBody
 	public void myAddressDelete(@RequestParam String address_id) {
 		userService.myAddressDelete(address_id);
 	}
+	
 	//주소 수정 버튼 눌렀을 때 불러오기
 	@PostMapping(value="myGetAddress")
 	@ResponseBody
 	public AddressDTO myGetAddress(@RequestParam String address_id) {
-		
 		return userService.getAddress(Integer.parseInt(address_id));
 	}
+	
 	//주소 수정 DB 들록
 	@PostMapping(value="addAddressModify")
 	@ResponseBody
 	public void addAddressModify(@ModelAttribute AddressDTO addressDTO) {
 		userService.addAddressModify(addressDTO);
  	}
+	
 	//기본 배송지 바꾸기
 	@PostMapping(value="changeFlag")
 	@ResponseBody
@@ -291,7 +298,6 @@ public class UserController {
 		userService.changeFlag1(address_id);
 		userService.changeFlag(address_id);
 	}
-
 
 	@GetMapping(value="findEmailMain")
 	public String findEmailMain(Model model) {
@@ -338,11 +344,11 @@ public class UserController {
 		return "forward:/user/findPWDMain";
 	}
 	
-	
 	@PostMapping(value="findPwCheck")
 	@ResponseBody
 	public Map<String, Object> findPwCheck(@RequestParam String phone, String user_id, HttpSession HttpSession){
 		Map<String, Object> map = userService.findPwCheck(phone, user_id);
+		
 		return map;
 	}
 	
@@ -404,6 +410,7 @@ public class UserController {
 		
 		return check;
 	}
+	
 	@GetMapping(value="signUpKakao")
 	public String signUpKakao() {
 		return "/user/signUpKakao";
@@ -423,6 +430,7 @@ public class UserController {
 		//System.out.println("delete ="+product_id);
 		userService.bookMarkDelete(product_id);
 	}
+	
 	//메인 화면 찜하기 불러오기
 	@PostMapping(value="bookMarkGet")
 	@ResponseBody
@@ -436,8 +444,8 @@ public class UserController {
 	@ResponseBody
 	public String bookMarkGetDetail(@RequestParam String product_id) {
 		String check=userService.bookMarkGetDetail(product_id);
-    return check;
-  }
+		return check;
+	}
 
 	@PostMapping(value="pwdcheck")
 	@ResponseBody
@@ -445,6 +453,7 @@ public class UserController {
 		String check = userService.checkPwd(pwd);		
 		return check;
 	}
+	
 	@PostMapping(value="userdelete")
 	@ResponseBody
 	public void userdelete(HttpSession httpsession) {
@@ -459,6 +468,7 @@ public class UserController {
 		Map<String, Object> map = userService.getLikeProductList();
 		return map;
 	}
+	
 	//마이페이지 관심상품 목록 삭제버튼 누르면 삭제
 	@PostMapping(value="likeProDelete")
 	@ResponseBody

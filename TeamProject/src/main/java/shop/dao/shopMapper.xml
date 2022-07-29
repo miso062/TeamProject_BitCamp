@@ -73,37 +73,74 @@
 				or lower(eng_name) like lower('%'||#{command}||'%') 
 				or kor_name like '%'||#{command}||'%')
                 
-                <choose>
-                    <when test="category != null">
+              
+
+		        order by sell_cnt desc nulls last
+		    ) tt
+		    <!--  <where>
+		    	  <choose>
+                    <when test='category != null'>
                         and category in 
                         <foreach collection="category" item="item" index="index" separator="," open="(" close=")">
                             #{item}
                         </foreach>
                     </when>
                 </choose>    
-                    <if test="brand != null">
+                    <if test='brand != null'>
                         and brand in 
                         <foreach collection="brand" item="item" index="index" separator="," open="(" close=")">
                             #{item}
                         </foreach>
                     </if>
                 <choose>
-                    <when test="gender != null">
+                    <when test='gender != null'>
                         and gender in 
                         <foreach collection="gender" item="item" index="index" separator="," open="(" close=")">
                             #{item}
                         </foreach>
                     </when>
                 </choose>
-                    <if test="collection != null">
+                    <if test='collection != null'>
                         and collection in 
                         <foreach collection="collection" item="item" index="index" separator="," open="(" close=")">
                             #{item}
                         </foreach>
                     </if>
-
-		        order by sell_cnt desc nulls last
-		    ) tt
+		    </where> -->
+		     <where>
+		    	  <choose>
+                    <when test='category != null and category.size !=0'>
+                        and category in 
+                        <foreach collection="category" item="item" index="index" separator="," open="(" close=")">
+                            #{item}
+                        </foreach>
+                    </when>
+                    <otherwise>
+                    </otherwise>
+                </choose>    
+                    <if test='brand != null'>
+                        and brand in 
+                        <foreach collection="brand" item="item" index="index" separator="," open="(" close=")">
+                            #{item}
+                        </foreach>
+                    </if>
+                <choose>
+                    <when test='gender != null'>
+                        and gender in 
+                        <foreach collection="gender" item="item" index="index" separator="," open="(" close=")">
+                            #{item}
+                        </foreach>
+                    </when>
+                    <otherwise>
+                    </otherwise>
+                </choose>
+                    <if test='collection != null'>
+                        and collection in 
+                        <foreach collection="collection" item="item" index="index" separator="," open="(" close=")">
+                            #{item}
+                        </foreach>
+                    </if>
+		    </where>
 		    
 		    
 		) aa where <![CDATA[rn>=${startNum} and rn<=${endNum} ]]>

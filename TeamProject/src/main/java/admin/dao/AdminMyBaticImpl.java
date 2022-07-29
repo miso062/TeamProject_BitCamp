@@ -21,12 +21,10 @@ public class AdminMyBaticImpl implements AdminDAO {
 	@Autowired
 	private SqlSession sqlSession;
 
-
 	@Override
 	public List<AdminDTO> getBoardList(Map<String, Integer> map) {
 		return sqlSession.selectList("adminSQL.getnoticeList",map);
 	}
-
 
 	@Override
 	public AdminDTO getnoticeView(String seq, String pg) {
@@ -34,26 +32,20 @@ public class AdminMyBaticImpl implements AdminDAO {
 		return adminDTO;
 	}
 
-
 	@Override
 	public void getnoticeWrite(AdminDTO adminDTO) {
 		sqlSession.insert("adminSQL.getnoticeWrite",adminDTO);
 	}
 
-
 	@Override
 	public int getTotalA() {
-		
 		return sqlSession.selectOne("adminSQL.getTotalA");
 	}
-
 
 	@Override
 	public void noticeDelete(String seq, String pg) {
 		sqlSession.delete("adminSQL.noticeDelete",seq);
-		
 	}
-
 
 	@Override
 	public AdminDTO getnoticeUpdate(String seq, String pg) {
@@ -61,32 +53,25 @@ public class AdminMyBaticImpl implements AdminDAO {
 		return adminDTO;
 	}
 
-
 	@Override
 	public void addnoticeUpdate(AdminDTO adminDTO) {
 		sqlSession.update("adminSQL.addnoticeUpdate",adminDTO);
-		
 	}
-
 
 	@Override
 	public void getnoticeQnAWrite(AdminQnADTO adminQnADTO) {
 		sqlSession.insert("adminSQL.getnoticeQnAWrite",adminQnADTO);
-		
 	}
-
 
 	@Override
 	public List<AdminQnADTO> getnoticeQnAList(Map<String, Integer> map) {
 		return sqlSession.selectList("adminSQL.getnoticeQnAList",map);
 	}
 
-
 	@Override
 	public int getTotalA1() {
 		return sqlSession.selectOne("adminSQL.getTotalA1");
 	}
-
 
 	@Override
 	public List<AdminQnADTO> getnoticeQnAListsearch(Map<String, String> map) {
@@ -97,12 +82,10 @@ public class AdminMyBaticImpl implements AdminDAO {
 		}
 	}
 
-
 	@Override
 	public int getTotalA2(String category) {
 		return sqlSession.selectOne("adminSQL.getTotalA2", category);
 	}
-
 
 	@Override
 	public AdminQnADTO getnoticeQnAUpdate(String seq, String pg) {
@@ -110,108 +93,154 @@ public class AdminMyBaticImpl implements AdminDAO {
 		return adminQnADTO;
 	}
 
-
 	@Override
 	public void addnoticeQnAUpdate(AdminQnADTO adminQnADTO) {
 		sqlSession.update("adminSQL.addnoticeQnAUpdate",adminQnADTO);
-		
 	}
-
 
 	@Override
 	public void noticeqnaDelete(String seq, String pg) {
 		sqlSession.delete("adminSQL.noticeqnaDelete",seq);
-		
 	}
-
 
 	@Override
 	public List<UserDTO> getAllUserList() {
 		return sqlSession.selectList("adminSQL.getAllUserList");
 	}
 
-
 	@Override
 	public Integer getUserCount() {
 		return sqlSession.selectOne("adminSQL.getUserCount");
 	}
-
 
 	@Override
 	public List<UserDTO> getAllUserList2() {
 		return sqlSession.selectList("adminSQL.getAllUserList2");
 	}
 
-
 	@Override
 	public List<UserDTO> getAllUserList3() {
 		return sqlSession.selectList("adminSQL.getAllUserList3");
 	}
-
 
 	@Override
 	public void deleteThisUser(String user_id) {
 		sqlSession.delete("adminSQL.deleteThisUser",user_id);
 	}
 
-
 	@Override
 	public List<UserDTO> getsearchUserList(String keyword) {
 		return sqlSession.selectList("adminSQL.getsearchUserList",keyword);
 	}
-
 
 	@Override
 	public Integer getSearchAdminCount(String keyword) {
 		return sqlSession.selectOne("adminSQL.getSearchAdminCount",keyword);
 	}
 
-
 	@Override
 	public List<UserDTO> getMemberList() {
 		return sqlSession.selectList("adminSQL.getMemberList");
 	}
-
 
 	@Override
 	public List<UserDTO> getGoodMemberList() {
 		return sqlSession.selectList("adminSQL.getGoodMemberList");
 	}
 
-
 	@Override
 	public Integer getMemberCount() {
 		return sqlSession.selectOne("adminSQL.getMemberCount");
 	}
-
 
 	@Override
 	public Integer getGoodMemberCount() {
 		return sqlSession.selectOne("adminSQL.getGoodMemberCount");
 	}
 
-
 	@Override
 	public List<ProductDTO> getAllProList() {
 		return sqlSession.selectList("adminSQL.getAllProList");
 	}
-
+	
+	@Override
+	public List<ProductDTO> getAllProList2() {
+		return sqlSession.selectList("adminSQL.getAllProList2");
+	}
 
 	@Override
 	public ProductImgDTO getImge(int product_id) {
 		return sqlSession.selectOne("adminSQL.getImg",product_id);
 	}
 
-
+	@Override
+	public Integer getProCount() {
+		return sqlSession.selectOne("adminSQL.getProCount");
+	}
+  
 	@Override
 	public List<String> getVisitDate() {
 		return sqlSession.selectList("adminSQL.getVisitDate");
 	}
 
+	@Override
+	public void deleteTisPro(String product_id) {
+		sqlSession.delete("adminSQL.deleteThisPro",product_id);
+	}
 
+	@Override
+	public Integer getBuy_count() {
+		return sqlSession.selectOne("adminSQL.getBuy_count");
+	}
+
+	@Override
+	public Integer getBuystop_count() {
+		return sqlSession.selectOne("adminSQL.getBuystop_count");
+	}
+
+	@Override
+	public List<ProductDTO> getAllProList3(String keyword) {
+		return sqlSession.selectList("adminSQL.getAllProList3",keyword);
+	}
+
+	@Override
+	public Integer getSearchpro1(String keyword) {
+		return sqlSession.selectOne("adminSQL.getSearchpro1",keyword);
+	}
+
+	@Override
+	public Integer getsearchpro2(String keyword) {
+		return sqlSession.selectOne("adminSQL.getsearchpro2",keyword);
+	}
+
+	@Override
+	public Integer getsearchpro3(String keyword) {
+		return sqlSession.selectOne("adminSQL.getsearchpro3",keyword);
+	}
+  
 	@Override
 	public List<Integer> getVisitCnt() {
 		return sqlSession.selectList("adminSQL.getVisitCnt");
+	}
+
+	@Override
+	public String getToday(String today) {
+		return sqlSession.selectOne("adminSQL.getToday", today);
+	}
+
+	@Override
+	public void addToday(String today) {
+		sqlSession.update("adminSQL.addToday", today);
+	}
+
+	@Override
+	public void updateToday(String today) {
+		sqlSession.update("adminSQL.updateToday", today);
+	}
+
+	@Override
+	public List<UserDTO> getSignUpInfo() {
+		return sqlSession.selectList("adminSQL.getSignUpInfo");
 	}
 
 }

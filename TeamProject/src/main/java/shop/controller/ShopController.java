@@ -86,13 +86,12 @@ public class ShopController {
 			}
 		}
 		
-		
 		map.put("category", category);
 		map.put("brand", brand);
 		map.put("gender", gender);
 		map.put("collection", collection);
 		
-		System.out.println(map);
+//		System.out.println(map);
 		List<ShopDTO> list = shopService.scrollProductList(map, sort);
 	
 		return list;
@@ -110,7 +109,6 @@ public class ShopController {
 	public List<Market_priceDTO> getchart(@RequestParam int product_id) {
 		List<Market_priceDTO> list = shopService.getchart(product_id);
 		return list;
-		 
 	}
 	
 	@PostMapping(value="getshopDetaillist")

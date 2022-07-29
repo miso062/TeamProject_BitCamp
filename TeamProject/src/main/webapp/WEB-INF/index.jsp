@@ -96,24 +96,15 @@
 	</div>
 <script type="text/javascript">
 
-var expireDate = new Date();
-var hitCt = eval(cookieVal("pageHit"));
-
-expireDate.setMonth(expireDate.getMonth()+3);
-hitCt++;
-
-document.cookie = "pageHit="+hitCt+";expires=" + expireDate.toGMTString();
-
-function cookieVal(cookieName) {
-	thisCookie = document.cookie.split("; ")
-	for(var i=0; i<thisCookie.length; i++){
-		if(cookieName == thisCookie[i].split("=")[0]){
-			return thisCookie[i].split("=")[1];
-		}
+$.ajax({
+	url: "/TeamProject/admin/addVisitCtn",
+	success: function(){
+		
+	},
+	error: function(err){
+		console.log(err);
 	}
-	return 0
-}
-console.log(hitCt);
+});
 
 $('#loginBtn').click(function(){
 	location.href="/TeamProject/user/login";

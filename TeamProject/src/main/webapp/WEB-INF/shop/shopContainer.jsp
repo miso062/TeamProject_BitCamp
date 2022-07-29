@@ -287,6 +287,7 @@ li, ol, ul {
     line-height: 17px;
     font-size: 14px;
     font-weight: 700;
+    color : black;
 }
 .shop_price {
     line-height: 13px;

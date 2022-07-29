@@ -116,36 +116,36 @@ $(document).ready(function(){
 							//console.log(page)
 							//console.log(data.num, data[i].brand, data[i].eng_name, data[i].kor_name, data[i].sell_price, data[i].file_path);
 							$('.shop-list-ul').append(
-								    $('<li/>', { class:'card-list-li'})
-								        .append($('<div/>', { class:'shop_search_result_item' })
-								        .append($('<a/>', { class:'shop_item_inner', href:'/TeamProject/shop/shopDetail?product_id='+data[i].product_id, style: 'background-color:'+randomColor()})
-								        .append($('<div/>', { class:'shop_product'})
-								        .append($('<img/>', { src:data[i].file_path, class: 'shop_product_img'})))))
-								        .append($('<div/>', { class: 'shop_product_info' })
-								        .append($('<a/>', { class:'shop_item_link', href:'/TeamProject/shop/shopDetail?product_id='+data[i].product_id })
-								        .append($('<div/>', { class: 'shop_title' })
-								        .append($('<p/>', { class: 'shop_brand', text: data[i].brand }))
-								        .append($('<p/>', { class: 'shop_name', style: 'height:32px', text: data[i].eng_name }))
-								        .append($('<p/>', { class: 'shop_translated_name', style: 'color:rgba(34,34,34,.5)',  text: data[i].kor_name })))
-								        .append($('<div/>', { class: 'shop_price' })
-								        .append($('<div/>', { class: 'shop_amount' , text: switchPrice(data[i].price) }))
-								        .append($('<div/>', { class: 'shop_desc' }))
-								        .append($('<p/>', { text:'즉시 구매가' })))))
-								        .append($('<div/>', { class:'shop_interest_figure' })
-								        .append($('<span/>', { class:'shop_wish_figure'  }))
-								        .append($('<img/>',{ class:'shop_bookmark',id:'shop_bookmark_'+data[i].product_id, src: '/TeamProject/img/main/container2/bookmark.svg' })
-								            .click(function(e){
-								                var id = e.target.id;
-								                id = id.replace('shop_bookmark_', '')
-								                setShopLike(id)
-								            }))
-								        .append($('<input type="hidden" class="product_id" value="'+data[i].product_id+'">'))
-								        .append($('<span/>',{ class:'shop_text', id:'shop_text_' + data[i].product_id , text: data[i].like_cnt }))
-								        .append($('<span/>',{ class:'shop_review_figure'}))
-								        .append($('<a/>',{ class:'review_link'}))
-								        .append($('<img/>',{ class: 'bi_postcard', src:'/TeamProject/img/shop/reply_icon.png'})))
-								    )
-								if('${sessionScope.memId}'){
+							    $('<li/>', { class:'card-list-li'})
+							        .append($('<div/>', { class:'shop_search_result_item' })
+							        .append($('<a/>', { class:'shop_item_inner', href:'/TeamProject/shop/shopDetail?product_id='+data[i].product_id, style: 'background-color:'+randomColor()})
+							        .append($('<div/>', { class:'shop_product'})
+							        .append($('<img/>', { src:data[i].file_path, class: 'shop_product_img'})))))
+							        .append($('<div/>', { class: 'shop_product_info' })
+							        .append($('<a/>', { class:'shop_item_link', href:'/TeamProject/shop/shopDetail?product_id='+data[i].product_id })
+							        .append($('<div/>', { class: 'shop_title' })
+							        .append($('<p/>', { class: 'shop_brand', text: data[i].brand }))
+							        .append($('<p/>', { class: 'shop_name', style: 'height:32px', text: data[i].eng_name }))
+							        .append($('<p/>', { class: 'shop_translated_name', style: 'color:rgba(34,34,34,.5)',  text: data[i].kor_name })))
+							        .append($('<div/>', { class: 'shop_price' })
+							        .append($('<div/>', { class: 'shop_amount' , text: switchPrice(data[i].price) }))
+							        .append($('<div/>', { class: 'shop_desc' }))
+							        .append($('<p/>', { text:'즉시 구매가' })))))
+							        .append($('<div/>', { class:'shop_interest_figure' })
+							        .append($('<span/>', { class:'shop_wish_figure'  }))
+							        .append($('<img/>',{ class:'shop_bookmark',id:'shop_bookmark_'+data[i].product_id, src: '/TeamProject/img/main/container2/bookmark.svg' })
+							            .click(function(e){
+							                var id = e.target.id;
+							                id = id.replace('shop_bookmark_', '')
+							                setShopLike(id)
+							            }))
+							        .append($('<input type="hidden" class="product_id" value="'+data[i].product_id+'">'))
+							        .append($('<span/>',{ class:'shop_text', id:'shop_text_' + data[i].product_id , text: data[i].like_cnt }))
+							        .append($('<span/>',{ class:'shop_review_figure'}))
+							        .append($('<a/>',{ class:'review_link'}))
+							        .append($('<img/>',{ class: 'bi_postcard', src:'/TeamProject/img/shop/reply_icon.png'})))
+							    )
+//								if('${sessionScope.memId}'){
 									let product_id = data[i].product_id
 									$.ajax({
 										 type:'post',
@@ -167,7 +167,7 @@ $(document).ready(function(){
 											 console.log(e);
 										 }
 									});
-								}
+//								}
 							}
 							if (page === 1) {
 								list = document.querySelector('.shop-list-ul');
@@ -197,68 +197,80 @@ $(document).ready(function(){
 						//샵 찜하기 넣기.
 						function setShopLike(product_id){
 							// alert($('#shop_bookmark_'+product_id).hasClass('active'));
+							if('${sessionScope.memId}'){
+								$.ajax({
+									type:'post',
+									url: '/TeamProject/user/bookMarkInsert',
+									data: {'product_id': product_id },
+									success: function(data){
+										
+										if ($('#shop_bookmark_'+product_id).hasClass('active')) {
+											$('#shop_bookmark_'+product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+											//$('#shop_bookmark_'+product_id).removeClass('active');
+											$.ajax({
+												type:'post',
+												url: '/TeamProject/user/bookMarkDelete',
+												data: {'product_id': product_id},
+												success: function(){
+													$('#shop_bookmark_'+product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
+													$('#shop_bookmark_'+product_id).removeClass('active');
+								                    // 찜 카운트 수 불러오기 
+								                    $.ajax({
+								                        type: 'post',
+								                        url : '/TeamProject/shop/getlikeproduct',
+								                        data : {'product_id': product_id},
+								                        success : function(data){
+								                            if(data =='0'){
+								                              $('#shop_text_' + product_id).text('0');	
+								                            }else{
+								                           	  $('#shop_text_' + product_id).text(data);
+								                            } 
+								                        },
+								                        error: function(err){
+								                            console.log(err)
+								                        }    
+								                     })   
+												},
+												error: function(e){
+													console.log(e);
+												}
+											})
+										} 
+										else {
+											if('${sessionScope.memId}'){
+											$.ajax({
+												 type:'post',
+												 url:'/TeamProject/user/bookMarkGet',
+												 success: function(data){
+													 $.each(data.list, function(index, items){
+														if(items.product_id == product_id){
+															$('#shop_bookmark_'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
+															$('#shop_bookmark_'+items.product_id).addClass('active');
+														}else {
+															$('#shop_bookmark_'+items.product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
+														}
+													 })
+													 
+													 var value = $('#shop_text_' + product_id).text();
+													 $('#shop_text_' + product_id).text(Number(value) + 1)
+													
+												 },
+												 error: function(e){
+													 console.log(e);
+												 }
+											});
+										  }	
+										}
+									},
+									error: function(err){
+										console.log(err);
+									}
+								});
 							
-						    if($('#shop_bookmark_'+product_id).hasClass('active')) {
-						        $.ajax({
-						            type:'post',
-						            url: '/TeamProject/user/bookMarkDelete',
-						            data: {'product_id': product_id},
-						            success: function(){
-						                $('#shop_bookmark_'+product_id).prop('src', '/TeamProject/img/main/container2/bookmark.svg');
-						                $('#shop_bookmark_'+product_id).removeClass('active');
-
-						                // 찜 카운트 수 불러오기 
-						                $.ajax({
-						                    type: 'post',
-						                    url : '/TeamProject/shop/getlikeproduct',
-						                    data : {'product_id': product_id},
-						                    success : function(data){
-						                        if(data =='0'){
-						                            $('#shop_text_' + product_id).text('0');	
-						                        }else{
-						                                $('#shop_text_' + product_id).text(data);
-						                        } 
-						                    },
-						                    error: function(err){
-						                        console.log(err)
-						                    }    
-						                });
-						            },
-						            error: function(e){
-						                console.log(e);
-						            }
-						        });
-						
-						    } else {
-						        $.ajax({
-						            type:'post',
-						            url: '/TeamProject/user/bookMarkInsert',
-						            data: {'product_id': product_id },
-						            success: function(data){
-						                $('#shop_bookmark_'+product_id).prop('src', '/TeamProject/img/main/container2/bookmark-fill.svg');
-						                $('#shop_bookmark_'+product_id).addClass('active');
-						                $.ajax({
-						                    type: 'post',
-						                    url : '/TeamProject/shop/getlikeproduct',
-						                    data : {'product_id': product_id},
-						                    success : function(data){
-						                        if(data =='0'){
-						                            $('#shop_text_' + product_id).text('0');	
-						                        }else{
-						                                $('#shop_text_' + product_id).text(data);
-						                        } 
-						                    },
-						                    error: function(err){
-						                        console.log(err)
-						                    }    
-						                });
-						            },
-						            error: function(err){
-						                console.log(err);
-						                alert('로그인 후 이용 가능합니다.');
-						            }
-						        });
-						    }
+							}
+							else{
+								alert('로그인을 해주세요.');
+							}
 						};
 					}
 				}

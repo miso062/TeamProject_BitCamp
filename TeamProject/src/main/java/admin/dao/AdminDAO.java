@@ -38,6 +38,19 @@ public interface AdminDAO {
 	public Integer getGoodMemberCount();
 	public List<ProductDTO> getAllProList();
 	public ProductImgDTO getImge(int product_id);
+	public Integer getProCount();
+	public List<ProductDTO> getAllProList2();
+	public void deleteTisPro(String product_id);
+	public Integer getBuy_count();
+	public Integer getBuystop_count();
+	public List<ProductDTO> getAllProList3(String keyword);
+	public Integer getSearchpro1(String keyword);
+	public Integer getsearchpro2(String keyword);
+	public Integer getsearchpro3(String keyword);
 	public List<String> getVisitDate();
 	public List<Integer> getVisitCnt();
+	public String getToday(String today);
+	public void addToday(String today);
+	public void updateToday(String today);
+	public List<UserDTO> getSignUpInfo();
 }
