@@ -269,21 +269,28 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void bookMarkInsert(Map<String, String> map) {
 		String id = (String) session.getAttribute("memId");
-	 
-		map.put("id", id);
-		
-		userDAO.bookMarkInsert(map);
+		if(id == null || id.isEmpty()) {
+			return;
+		}else {
+			map.put("id", id);
+			userDAO.bookMarkInsert(map);
+		}
 	}
 	
 	//관심상품 삭제
 	@Override
 	public void bookMarkDelete(int product_id) {
 		Map<String, Object> map = new HashMap<String, Object>();
-
+		String id = (String) session.getAttribute("memId");
+		
 		map.put("product_id", product_id);
-		map.put("user_id", (String) session.getAttribute("memId"));
-
-		userDAO.bookMarkDelete(map);
+		map.put("user_id", id);
+		if(id == null || id.isEmpty()) {
+			return;
+		}else {
+			map.put("id", id);
+			userDAO.bookMarkDelete(map);
+		}
 	}
 	
 	//관심상품 가져오기
@@ -324,9 +331,9 @@ public class UserServiceImpl implements UserService {
 		String check1 = null ;
 		if(check==0) {
 			userDAO.signUpWrite(userDTO);
-		return	check1="0";
+			return	check1="0";
 		}else {
-		return check1="1";	
+			return check1="1";	
 		}
 	}
 
